@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContact(::windows_core::IUnknown);
 impl IContact {
     pub unsafe fn GetContactID(&self, pszcontactid: &mut [u16], pdwcchcontactidrequired: *mut u32) -> ::windows_core::Result<()> {
@@ -13,24 +14,8 @@ impl IContact {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContact, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContact {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContact {}
-impl ::core::fmt::Debug for IContact {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContact").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContact {
     type Vtable = IContact_Vtbl;
-}
-impl ::core::clone::Clone for IContact {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContact {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf941b671_bda7_4f77_884a_f46462f226a7);
@@ -45,6 +30,7 @@ pub struct IContact_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactAggregationAggregate(::windows_core::IUnknown);
 impl IContactAggregationAggregate {
     pub unsafe fn Save(&self) -> ::windows_core::Result<()> {
@@ -87,24 +73,8 @@ impl IContactAggregationAggregate {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactAggregationAggregate, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContactAggregationAggregate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactAggregationAggregate {}
-impl ::core::fmt::Debug for IContactAggregationAggregate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactAggregationAggregate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContactAggregationAggregate {
     type Vtable = IContactAggregationAggregate_Vtbl;
-}
-impl ::core::clone::Clone for IContactAggregationAggregate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactAggregationAggregate {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ed1c814_cd30_43c8_9b8d_2e489e53d54b);
@@ -125,6 +95,7 @@ pub struct IContactAggregationAggregate_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactAggregationAggregateCollection(::windows_core::IUnknown);
 impl IContactAggregationAggregateCollection {
     pub unsafe fn FindFirst(&self) -> ::windows_core::Result<IContactAggregationAggregate> {
@@ -148,24 +119,8 @@ impl IContactAggregationAggregateCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactAggregationAggregateCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContactAggregationAggregateCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactAggregationAggregateCollection {}
-impl ::core::fmt::Debug for IContactAggregationAggregateCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactAggregationAggregateCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContactAggregationAggregateCollection {
     type Vtable = IContactAggregationAggregateCollection_Vtbl;
-}
-impl ::core::clone::Clone for IContactAggregationAggregateCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactAggregationAggregateCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2359f3a6_3a68_40af_98db_0f9eb143c3bb);
@@ -181,6 +136,7 @@ pub struct IContactAggregationAggregateCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactAggregationContact(::windows_core::IUnknown);
 impl IContactAggregationContact {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
@@ -261,24 +217,8 @@ impl IContactAggregationContact {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactAggregationContact, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContactAggregationContact {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactAggregationContact {}
-impl ::core::fmt::Debug for IContactAggregationContact {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactAggregationContact").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContactAggregationContact {
     type Vtable = IContactAggregationContact_Vtbl;
-}
-impl ::core::clone::Clone for IContactAggregationContact {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactAggregationContact {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1eb22e86_4c86_41f0_9f9f_c251e9fda6c3);
@@ -314,6 +254,7 @@ pub struct IContactAggregationContact_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactAggregationContactCollection(::windows_core::IUnknown);
 impl IContactAggregationContactCollection {
     pub unsafe fn FindFirst(&self) -> ::windows_core::Result<IContactAggregationContact> {
@@ -346,24 +287,8 @@ impl IContactAggregationContactCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactAggregationContactCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContactAggregationContactCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactAggregationContactCollection {}
-impl ::core::fmt::Debug for IContactAggregationContactCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactAggregationContactCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContactAggregationContactCollection {
     type Vtable = IContactAggregationContactCollection_Vtbl;
-}
-impl ::core::clone::Clone for IContactAggregationContactCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactAggregationContactCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x826e66fa_81de_43ca_a6fb_8c785cd996c6);
@@ -380,6 +305,7 @@ pub struct IContactAggregationContactCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactAggregationGroup(::windows_core::IUnknown);
 impl IContactAggregationGroup {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
@@ -427,24 +353,8 @@ impl IContactAggregationGroup {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactAggregationGroup, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContactAggregationGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactAggregationGroup {}
-impl ::core::fmt::Debug for IContactAggregationGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactAggregationGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContactAggregationGroup {
     type Vtable = IContactAggregationGroup_Vtbl;
-}
-impl ::core::clone::Clone for IContactAggregationGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactAggregationGroup {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc93c545f_1284_499b_96af_07372af473e0);
@@ -466,6 +376,7 @@ pub struct IContactAggregationGroup_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactAggregationGroupCollection(::windows_core::IUnknown);
 impl IContactAggregationGroupCollection {
     pub unsafe fn FindFirst(&self) -> ::windows_core::Result<IContactAggregationGroup> {
@@ -486,24 +397,8 @@ impl IContactAggregationGroupCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactAggregationGroupCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContactAggregationGroupCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactAggregationGroupCollection {}
-impl ::core::fmt::Debug for IContactAggregationGroupCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactAggregationGroupCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContactAggregationGroupCollection {
     type Vtable = IContactAggregationGroupCollection_Vtbl;
-}
-impl ::core::clone::Clone for IContactAggregationGroupCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactAggregationGroupCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20a19a9c_d2f3_4b83_9143_beffd2cc226d);
@@ -519,6 +414,7 @@ pub struct IContactAggregationGroupCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactAggregationLink(::windows_core::IUnknown);
 impl IContactAggregationLink {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
@@ -601,24 +497,8 @@ impl IContactAggregationLink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactAggregationLink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContactAggregationLink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactAggregationLink {}
-impl ::core::fmt::Debug for IContactAggregationLink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactAggregationLink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContactAggregationLink {
     type Vtable = IContactAggregationLink_Vtbl;
-}
-impl ::core::clone::Clone for IContactAggregationLink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactAggregationLink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6813323_a183_4654_8627_79b30de3a0ec);
@@ -653,6 +533,7 @@ pub struct IContactAggregationLink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactAggregationLinkCollection(::windows_core::IUnknown);
 impl IContactAggregationLinkCollection {
     pub unsafe fn FindFirst(&self) -> ::windows_core::Result<IContactAggregationLink> {
@@ -677,24 +558,8 @@ impl IContactAggregationLinkCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactAggregationLinkCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContactAggregationLinkCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactAggregationLinkCollection {}
-impl ::core::fmt::Debug for IContactAggregationLinkCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactAggregationLinkCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContactAggregationLinkCollection {
     type Vtable = IContactAggregationLinkCollection_Vtbl;
-}
-impl ::core::clone::Clone for IContactAggregationLinkCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactAggregationLinkCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf8bc0e93_fb55_4f28_b9fa_b1c274153292);
@@ -710,6 +575,7 @@ pub struct IContactAggregationLinkCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactAggregationManager(::windows_core::IUnknown);
 impl IContactAggregationManager {
     pub unsafe fn GetVersionInfo(&self, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows_core::Result<()> {
@@ -791,24 +657,8 @@ impl IContactAggregationManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactAggregationManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContactAggregationManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactAggregationManager {}
-impl ::core::fmt::Debug for IContactAggregationManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactAggregationManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContactAggregationManager {
     type Vtable = IContactAggregationManager_Vtbl;
-}
-impl ::core::clone::Clone for IContactAggregationManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactAggregationManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d865989_4b1f_4b60_8f34_c2ad468b2b50);
@@ -838,6 +688,7 @@ pub struct IContactAggregationManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactAggregationServerPerson(::windows_core::IUnknown);
 impl IContactAggregationServerPerson {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
@@ -944,24 +795,8 @@ impl IContactAggregationServerPerson {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactAggregationServerPerson, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContactAggregationServerPerson {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactAggregationServerPerson {}
-impl ::core::fmt::Debug for IContactAggregationServerPerson {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactAggregationServerPerson").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContactAggregationServerPerson {
     type Vtable = IContactAggregationServerPerson_Vtbl;
-}
-impl ::core::clone::Clone for IContactAggregationServerPerson {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactAggregationServerPerson {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7fdc3d4b_1b82_4334_85c5_25184ee5a5f2);
@@ -1002,6 +837,7 @@ pub struct IContactAggregationServerPerson_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactAggregationServerPersonCollection(::windows_core::IUnknown);
 impl IContactAggregationServerPersonCollection {
     pub unsafe fn FindFirst(&self) -> ::windows_core::Result<IContactAggregationServerPerson> {
@@ -1039,24 +875,8 @@ impl IContactAggregationServerPersonCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactAggregationServerPersonCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContactAggregationServerPersonCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactAggregationServerPersonCollection {}
-impl ::core::fmt::Debug for IContactAggregationServerPersonCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactAggregationServerPersonCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContactAggregationServerPersonCollection {
     type Vtable = IContactAggregationServerPersonCollection_Vtbl;
-}
-impl ::core::clone::Clone for IContactAggregationServerPersonCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactAggregationServerPersonCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f730a4a_6604_47b6_a987_669ecf1e5751);
@@ -1074,6 +894,7 @@ pub struct IContactAggregationServerPersonCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactCollection(::windows_core::IUnknown);
 impl IContactCollection {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -1088,24 +909,8 @@ impl IContactCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContactCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactCollection {}
-impl ::core::fmt::Debug for IContactCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContactCollection {
     type Vtable = IContactCollection_Vtbl;
-}
-impl ::core::clone::Clone for IContactCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6afa338_d779_11d9_8bde_f66bad1e3f3a);
@@ -1120,6 +925,7 @@ pub struct IContactCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactManager(::windows_core::IUnknown);
 impl IContactManager {
     pub unsafe fn Initialize<P0, P1>(&self, pszappname: P0, pszappversion: P1) -> ::windows_core::Result<()>
@@ -1159,24 +965,8 @@ impl IContactManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContactManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactManager {}
-impl ::core::fmt::Debug for IContactManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContactManager {
     type Vtable = IContactManager_Vtbl;
-}
-impl ::core::clone::Clone for IContactManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad553d98_deb1_474a_8e17_fc0c2075b738);
@@ -1194,6 +984,7 @@ pub struct IContactManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactProperties(::windows_core::IUnknown);
 impl IContactProperties {
     pub unsafe fn GetString<P0>(&self, pszpropertyname: P0, dwflags: u32, pszvalue: &mut [u16], pdwcchpropertyvaluerequired: *mut u32) -> ::windows_core::Result<()>
@@ -1293,24 +1084,8 @@ impl IContactProperties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactProperties, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContactProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactProperties {}
-impl ::core::fmt::Debug for IContactProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContactProperties {
     type Vtable = IContactProperties_Vtbl;
-}
-impl ::core::clone::Clone for IContactProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70dd27dd_5cbd_46e8_bef0_23b6b346288f);
@@ -1353,6 +1128,7 @@ pub struct IContactProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactPropertyCollection(::windows_core::IUnknown);
 impl IContactPropertyCollection {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -1380,24 +1156,8 @@ impl IContactPropertyCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactPropertyCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContactPropertyCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactPropertyCollection {}
-impl ::core::fmt::Debug for IContactPropertyCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactPropertyCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContactPropertyCollection {
     type Vtable = IContactPropertyCollection_Vtbl;
-}
-impl ::core::clone::Clone for IContactPropertyCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactPropertyCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xffd3adf8_fa64_4328_b1b6_2e0db509cb3c);

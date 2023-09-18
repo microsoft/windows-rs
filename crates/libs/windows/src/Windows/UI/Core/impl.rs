@@ -33,8 +33,8 @@ impl ICoreAcceleratorKeys_Vtbl {
             RemoveAcceleratorKeyActivated: RemoveAcceleratorKeyActivated::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICoreAcceleratorKeys as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICoreAcceleratorKeys as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -106,8 +106,8 @@ impl ICoreInputSourceBase_Vtbl {
             RemoveInputEnabled: RemoveInputEnabled::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICoreInputSourceBase as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICoreInputSourceBase as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -326,8 +326,8 @@ impl ICorePointerInputSource_Vtbl {
             RemovePointerWheelChanged: RemovePointerWheelChanged::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICorePointerInputSource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICorePointerInputSource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`, `\"System\"`, `\"implement\"`*"]
@@ -359,8 +359,8 @@ impl ICorePointerInputSource2_Vtbl {
             DispatcherQueue: DispatcherQueue::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICorePointerInputSource2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICorePointerInputSource2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -438,8 +438,8 @@ impl ICorePointerRedirector_Vtbl {
             RemovePointerRoutedReleased: RemovePointerRoutedReleased::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICorePointerRedirector as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICorePointerRedirector as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation_Collections\"`, `\"System\"`, `\"implement\"`*"]
@@ -993,8 +993,8 @@ impl ICoreWindow_Vtbl {
             RemoveVisibilityChanged: RemoveVisibilityChanged::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICoreWindow as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICoreWindow as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Core\"`, `\"implement\"`*"]
@@ -1029,8 +1029,8 @@ impl ICoreWindowEventArgs_Vtbl {
             SetHandled: SetHandled::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICoreWindowEventArgs as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICoreWindowEventArgs as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Core\"`, `\"implement\"`*"]
@@ -1052,7 +1052,7 @@ impl IInitializeWithCoreWindow_Vtbl {
             Initialize: Initialize::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInitializeWithCoreWindow as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInitializeWithCoreWindow as ::windows_core::ComInterface>::IID
     }
 }

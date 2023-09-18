@@ -2,14 +2,10 @@
 pub mod DataProvider;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataTask(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataTask {
     type Vtable = IUserDataTask_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataTask {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataTask {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c6585d1_e0d4_4f99_aee2_bc2d5ddadf4c);
@@ -72,14 +68,10 @@ pub struct IUserDataTask_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataTaskBatch(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataTaskBatch {
     type Vtable = IUserDataTaskBatch_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataTaskBatch {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataTaskBatch {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x382da5fe_20b5_431c_8f42_a5d292ec930c);
@@ -95,14 +87,10 @@ pub struct IUserDataTaskBatch_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataTaskList(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataTaskList {
     type Vtable = IUserDataTaskList_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataTaskList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataTaskList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49412e39_7c1d_4df1_bed3_314b7cbf5e4e);
@@ -151,14 +139,10 @@ pub struct IUserDataTaskList_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataTaskListLimitedWriteOperations(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataTaskListLimitedWriteOperations {
     type Vtable = IUserDataTaskListLimitedWriteOperations_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataTaskListLimitedWriteOperations {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataTaskListLimitedWriteOperations {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7aa267f2_6078_4183_919e_4f29f19cfae9);
@@ -186,14 +170,10 @@ pub struct IUserDataTaskListLimitedWriteOperations_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataTaskListSyncManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataTaskListSyncManager {
     type Vtable = IUserDataTaskListSyncManager_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataTaskListSyncManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataTaskListSyncManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8e591a95_1dcf_469f_93ec_ba48bb553c6b);
@@ -235,14 +215,10 @@ pub struct IUserDataTaskListSyncManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataTaskManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataTaskManager {
     type Vtable = IUserDataTaskManager_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataTaskManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataTaskManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8451c914_e60b_48a9_9211_7fb8a56cb84c);
@@ -262,14 +238,10 @@ pub struct IUserDataTaskManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataTaskManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataTaskManagerStatics {
     type Vtable = IUserDataTaskManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataTaskManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataTaskManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb35539f8_c502_47fc_a81e_100883719d55);
@@ -286,14 +258,10 @@ pub struct IUserDataTaskManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataTaskQueryOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataTaskQueryOptions {
     type Vtable = IUserDataTaskQueryOptions_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataTaskQueryOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataTaskQueryOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x959f27ed_909a_4d30_8c1b_331d8fe667e2);
@@ -309,14 +277,10 @@ pub struct IUserDataTaskQueryOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataTaskReader(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataTaskReader {
     type Vtable = IUserDataTaskReader_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataTaskReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataTaskReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03e688b1_4ccf_4500_883b_e76290cfed63);
@@ -332,14 +296,10 @@ pub struct IUserDataTaskReader_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataTaskRecurrenceProperties(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataTaskRecurrenceProperties {
     type Vtable = IUserDataTaskRecurrenceProperties_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataTaskRecurrenceProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataTaskRecurrenceProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73df80b0_27c6_40ce_b149_9cd41485a69e);
@@ -403,14 +363,10 @@ pub struct IUserDataTaskRecurrenceProperties_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataTaskRegenerationProperties(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataTaskRegenerationProperties {
     type Vtable = IUserDataTaskRegenerationProperties_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataTaskRegenerationProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataTaskRegenerationProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92ab0007_090e_4704_bb5c_84fc0b0d9c31);
@@ -442,14 +398,10 @@ pub struct IUserDataTaskRegenerationProperties_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataTaskStore(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataTaskStore {
     type Vtable = IUserDataTaskStore_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataTaskStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataTaskStore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf06a9cb0_f1db_45ba_8a62_086004c0213d);
@@ -477,6 +429,7 @@ pub struct IUserDataTaskStore_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataTask(::windows_core::IUnknown);
 impl UserDataTask {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -674,24 +627,8 @@ impl UserDataTask {
         unsafe { (::windows_core::Interface::vtable(this).SetStartDate)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UserDataTask {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTask {}
-impl ::core::fmt::Debug for UserDataTask {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTask").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDataTask {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTask;{7c6585d1-e0d4-4f99-aee2-bc2d5ddadf4c})");
-}
-impl ::core::clone::Clone for UserDataTask {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDataTask {
     type Vtable = IUserDataTask_Vtbl;
@@ -707,6 +644,7 @@ unsafe impl ::core::marker::Send for UserDataTask {}
 unsafe impl ::core::marker::Sync for UserDataTask {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataTaskBatch(::windows_core::IUnknown);
 impl UserDataTaskBatch {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -719,24 +657,8 @@ impl UserDataTaskBatch {
         }
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskBatch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskBatch {}
-impl ::core::fmt::Debug for UserDataTaskBatch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskBatch").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDataTaskBatch {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch;{382da5fe-20b5-431c-8f42-a5d292ec930c})");
-}
-impl ::core::clone::Clone for UserDataTaskBatch {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDataTaskBatch {
     type Vtable = IUserDataTaskBatch_Vtbl;
@@ -752,6 +674,7 @@ unsafe impl ::core::marker::Send for UserDataTaskBatch {}
 unsafe impl ::core::marker::Sync for UserDataTaskBatch {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataTaskList(::windows_core::IUnknown);
 impl UserDataTaskList {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -897,24 +820,8 @@ impl UserDataTaskList {
         }
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskList {}
-impl ::core::fmt::Debug for UserDataTaskList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskList").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDataTaskList {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskList;{49412e39-7c1d-4df1-bed3-314b7cbf5e4e})");
-}
-impl ::core::clone::Clone for UserDataTaskList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDataTaskList {
     type Vtable = IUserDataTaskList_Vtbl;
@@ -930,6 +837,7 @@ unsafe impl ::core::marker::Send for UserDataTaskList {}
 unsafe impl ::core::marker::Sync for UserDataTaskList {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataTaskListLimitedWriteOperations(::windows_core::IUnknown);
 impl UserDataTaskListLimitedWriteOperations {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -972,24 +880,8 @@ impl UserDataTaskListLimitedWriteOperations {
         }
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskListLimitedWriteOperations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskListLimitedWriteOperations {}
-impl ::core::fmt::Debug for UserDataTaskListLimitedWriteOperations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskListLimitedWriteOperations").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDataTaskListLimitedWriteOperations {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations;{7aa267f2-6078-4183-919e-4f29f19cfae9})");
-}
-impl ::core::clone::Clone for UserDataTaskListLimitedWriteOperations {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDataTaskListLimitedWriteOperations {
     type Vtable = IUserDataTaskListLimitedWriteOperations_Vtbl;
@@ -1005,6 +897,7 @@ unsafe impl ::core::marker::Send for UserDataTaskListLimitedWriteOperations {}
 unsafe impl ::core::marker::Sync for UserDataTaskListLimitedWriteOperations {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataTaskListSyncManager(::windows_core::IUnknown);
 impl UserDataTaskListSyncManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1076,24 +969,8 @@ impl UserDataTaskListSyncManager {
         unsafe { (::windows_core::Interface::vtable(this).RemoveSyncStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskListSyncManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskListSyncManager {}
-impl ::core::fmt::Debug for UserDataTaskListSyncManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskListSyncManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDataTaskListSyncManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager;{8e591a95-1dcf-469f-93ec-ba48bb553c6b})");
-}
-impl ::core::clone::Clone for UserDataTaskListSyncManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDataTaskListSyncManager {
     type Vtable = IUserDataTaskListSyncManager_Vtbl;
@@ -1109,6 +986,7 @@ unsafe impl ::core::marker::Send for UserDataTaskListSyncManager {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSyncManager {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataTaskManager(::windows_core::IUnknown);
 impl UserDataTaskManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1152,24 +1030,8 @@ impl UserDataTaskManager {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskManager {}
-impl ::core::fmt::Debug for UserDataTaskManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDataTaskManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskManager;{8451c914-e60b-48a9-9211-7fb8a56cb84c})");
-}
-impl ::core::clone::Clone for UserDataTaskManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDataTaskManager {
     type Vtable = IUserDataTaskManager_Vtbl;
@@ -1185,6 +1047,7 @@ unsafe impl ::core::marker::Send for UserDataTaskManager {}
 unsafe impl ::core::marker::Sync for UserDataTaskManager {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataTaskQueryOptions(::windows_core::IUnknown);
 impl UserDataTaskQueryOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1217,24 +1080,8 @@ impl UserDataTaskQueryOptions {
         unsafe { (::windows_core::Interface::vtable(this).SetKind)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskQueryOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskQueryOptions {}
-impl ::core::fmt::Debug for UserDataTaskQueryOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskQueryOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDataTaskQueryOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions;{959f27ed-909a-4d30-8c1b-331d8fe667e2})");
-}
-impl ::core::clone::Clone for UserDataTaskQueryOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDataTaskQueryOptions {
     type Vtable = IUserDataTaskQueryOptions_Vtbl;
@@ -1250,6 +1097,7 @@ unsafe impl ::core::marker::Send for UserDataTaskQueryOptions {}
 unsafe impl ::core::marker::Sync for UserDataTaskQueryOptions {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataTaskReader(::windows_core::IUnknown);
 impl UserDataTaskReader {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1262,24 +1110,8 @@ impl UserDataTaskReader {
         }
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskReader {}
-impl ::core::fmt::Debug for UserDataTaskReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskReader").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDataTaskReader {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskReader;{03e688b1-4ccf-4500-883b-e76290cfed63})");
-}
-impl ::core::clone::Clone for UserDataTaskReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDataTaskReader {
     type Vtable = IUserDataTaskReader_Vtbl;
@@ -1295,6 +1127,7 @@ unsafe impl ::core::marker::Send for UserDataTaskReader {}
 unsafe impl ::core::marker::Sync for UserDataTaskReader {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataTaskRecurrenceProperties(::windows_core::IUnknown);
 impl UserDataTaskRecurrenceProperties {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1435,24 +1268,8 @@ impl UserDataTaskRecurrenceProperties {
         unsafe { (::windows_core::Interface::vtable(this).SetDay)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskRecurrenceProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskRecurrenceProperties {}
-impl ::core::fmt::Debug for UserDataTaskRecurrenceProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskRecurrenceProperties").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDataTaskRecurrenceProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties;{73df80b0-27c6-40ce-b149-9cd41485a69e})");
-}
-impl ::core::clone::Clone for UserDataTaskRecurrenceProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDataTaskRecurrenceProperties {
     type Vtable = IUserDataTaskRecurrenceProperties_Vtbl;
@@ -1468,6 +1285,7 @@ unsafe impl ::core::marker::Send for UserDataTaskRecurrenceProperties {}
 unsafe impl ::core::marker::Sync for UserDataTaskRecurrenceProperties {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataTaskRegenerationProperties(::windows_core::IUnknown);
 impl UserDataTaskRegenerationProperties {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1536,24 +1354,8 @@ impl UserDataTaskRegenerationProperties {
         unsafe { (::windows_core::Interface::vtable(this).SetInterval)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskRegenerationProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskRegenerationProperties {}
-impl ::core::fmt::Debug for UserDataTaskRegenerationProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskRegenerationProperties").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDataTaskRegenerationProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties;{92ab0007-090e-4704-bb5c-84fc0b0d9c31})");
-}
-impl ::core::clone::Clone for UserDataTaskRegenerationProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDataTaskRegenerationProperties {
     type Vtable = IUserDataTaskRegenerationProperties_Vtbl;
@@ -1569,6 +1371,7 @@ unsafe impl ::core::marker::Send for UserDataTaskRegenerationProperties {}
 unsafe impl ::core::marker::Sync for UserDataTaskRegenerationProperties {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataTaskStore(::windows_core::IUnknown);
 impl UserDataTaskStore {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1608,24 +1411,8 @@ impl UserDataTaskStore {
         }
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskStore {}
-impl ::core::fmt::Debug for UserDataTaskStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskStore").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDataTaskStore {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskStore;{f06a9cb0-f1db-45ba-8a62-086004c0213d})");
-}
-impl ::core::clone::Clone for UserDataTaskStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDataTaskStore {
     type Vtable = IUserDataTaskStore_Vtbl;

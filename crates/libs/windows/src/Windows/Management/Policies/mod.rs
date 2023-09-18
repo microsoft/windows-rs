@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INamedPolicyData(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for INamedPolicyData {
     type Vtable = INamedPolicyData_Vtbl;
-}
-impl ::core::clone::Clone for INamedPolicyData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INamedPolicyData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38dcb198_95ac_4077_a643_8078cae26400);
@@ -44,14 +40,10 @@ pub struct INamedPolicyData_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INamedPolicyStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for INamedPolicyStatics {
     type Vtable = INamedPolicyStatics_Vtbl;
-}
-impl ::core::clone::Clone for INamedPolicyStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INamedPolicyStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f793be7_76c4_4058_8cad_67662cd05f0d);
@@ -97,6 +89,7 @@ impl ::windows_core::RuntimeName for NamedPolicy {
 }
 #[doc = "*Required features: `\"Management_Policies\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct NamedPolicyData(::windows_core::IUnknown);
 impl NamedPolicyData {
     pub fn Area(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -199,24 +192,8 @@ impl NamedPolicyData {
         unsafe { (::windows_core::Interface::vtable(this).RemoveChanged)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
 }
-impl ::core::cmp::PartialEq for NamedPolicyData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NamedPolicyData {}
-impl ::core::fmt::Debug for NamedPolicyData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NamedPolicyData").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for NamedPolicyData {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Policies.NamedPolicyData;{38dcb198-95ac-4077-a643-8078cae26400})");
-}
-impl ::core::clone::Clone for NamedPolicyData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for NamedPolicyData {
     type Vtable = INamedPolicyData_Vtbl;

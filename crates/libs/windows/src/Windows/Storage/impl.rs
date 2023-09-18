@@ -181,8 +181,8 @@ impl IStorageFile_Vtbl {
             MoveAndReplaceAsync: MoveAndReplaceAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageFile as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageFile as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -228,8 +228,8 @@ impl IStorageFile2_Vtbl {
             OpenTransactedWriteWithOptionsAsync: OpenTransactedWriteWithOptionsAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageFile2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageFile2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"implement\"`*"]
@@ -257,8 +257,8 @@ impl IStorageFilePropertiesWithAvailability_Vtbl {
             IsAvailable: IsAvailable::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageFilePropertiesWithAvailability as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageFilePropertiesWithAvailability as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`, `\"Storage_FileProperties\"`, `\"implement\"`*"]
@@ -416,8 +416,8 @@ impl IStorageFolder_Vtbl {
             GetItemsAsyncOverloadDefaultStartAndCount: GetItemsAsyncOverloadDefaultStartAndCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageFolder as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageFolder as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -449,8 +449,8 @@ impl IStorageFolder2_Vtbl {
             TryGetItemAsync: TryGetItemAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageFolder2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageFolder2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"implement\"`*"]
@@ -605,8 +605,8 @@ impl IStorageItem_Vtbl {
             IsOfType: IsOfType::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageItem as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageItem as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"implement\"`*"]
@@ -651,8 +651,8 @@ impl IStorageItem2_Vtbl {
             IsEqual: IsEqual::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageItem2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageItem2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -768,8 +768,8 @@ impl IStorageItemProperties_Vtbl {
             Properties: Properties::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageItemProperties as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageItemProperties as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -829,8 +829,8 @@ impl IStorageItemProperties2_Vtbl {
             GetScaledImageAsThumbnailAsync: GetScaledImageAsThumbnailAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageItemProperties2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageItemProperties2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -862,8 +862,8 @@ impl IStorageItemPropertiesWithProvider_Vtbl {
             Provider: Provider::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageItemPropertiesWithProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageItemPropertiesWithProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"implement\"`*"]
@@ -885,7 +885,7 @@ impl IStreamedFileDataRequest_Vtbl {
             FailAndClose: FailAndClose::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStreamedFileDataRequest as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStreamedFileDataRequest as ::windows_core::ComInterface>::IID
     }
 }

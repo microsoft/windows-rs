@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICurrentSessionChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICurrentSessionChangedEventArgs {
     type Vtable = ICurrentSessionChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ICurrentSessionChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICurrentSessionChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6969cb39_0bfa_5fe0_8d73_09cc5e5408e1);
@@ -19,14 +15,10 @@ pub struct ICurrentSessionChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGlobalSystemMediaTransportControlsSession(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGlobalSystemMediaTransportControlsSession {
     type Vtable = IGlobalSystemMediaTransportControlsSession_Vtbl;
-}
-impl ::core::clone::Clone for IGlobalSystemMediaTransportControlsSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGlobalSystemMediaTransportControlsSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7148c835_9b14_5ae2_ab85_dc9b1c14e1a8);
@@ -129,14 +121,10 @@ pub struct IGlobalSystemMediaTransportControlsSession_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGlobalSystemMediaTransportControlsSessionManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGlobalSystemMediaTransportControlsSessionManager {
     type Vtable = IGlobalSystemMediaTransportControlsSessionManager_Vtbl;
-}
-impl ::core::clone::Clone for IGlobalSystemMediaTransportControlsSessionManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGlobalSystemMediaTransportControlsSessionManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcace8eac_e86e_504a_ab31_5ff8ff1bce49);
@@ -169,14 +157,10 @@ pub struct IGlobalSystemMediaTransportControlsSessionManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGlobalSystemMediaTransportControlsSessionManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGlobalSystemMediaTransportControlsSessionManagerStatics {
     type Vtable = IGlobalSystemMediaTransportControlsSessionManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IGlobalSystemMediaTransportControlsSessionManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGlobalSystemMediaTransportControlsSessionManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2050c4ee_11a0_57de_aed7_c97c70338245);
@@ -192,14 +176,10 @@ pub struct IGlobalSystemMediaTransportControlsSessionManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGlobalSystemMediaTransportControlsSessionMediaProperties {
     type Vtable = IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl;
-}
-impl ::core::clone::Clone for IGlobalSystemMediaTransportControlsSessionMediaProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGlobalSystemMediaTransportControlsSessionMediaProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x68856cf6_adb4_54b2_ac16_05837907acb6);
@@ -230,14 +210,10 @@ pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGlobalSystemMediaTransportControlsSessionPlaybackControls {
     type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl;
-}
-impl ::core::clone::Clone for IGlobalSystemMediaTransportControlsSessionPlaybackControls {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGlobalSystemMediaTransportControlsSessionPlaybackControls {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6501a3e6_bc7a_503a_bb1b_68f158f3fb03);
@@ -264,14 +240,10 @@ pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGlobalSystemMediaTransportControlsSessionPlaybackInfo {
     type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl;
-}
-impl ::core::clone::Clone for IGlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGlobalSystemMediaTransportControlsSessionPlaybackInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94b4b6cf_e8ba_51ad_87a7_c10ade106127);
@@ -301,14 +273,10 @@ pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGlobalSystemMediaTransportControlsSessionTimelineProperties {
     type Vtable = IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl;
-}
-impl ::core::clone::Clone for IGlobalSystemMediaTransportControlsSessionTimelineProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGlobalSystemMediaTransportControlsSessionTimelineProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xede34136_6f25_588d_8ecf_ea5b6735aaa5);
@@ -344,14 +312,10 @@ pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPropertiesChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPropertiesChangedEventArgs {
     type Vtable = IMediaPropertiesChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPropertiesChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPropertiesChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d3741cb_adf0_5cef_91ba_cfabcdd77678);
@@ -363,14 +327,10 @@ pub struct IMediaPropertiesChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPlaybackInfoChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPlaybackInfoChangedEventArgs {
     type Vtable = IPlaybackInfoChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IPlaybackInfoChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPlaybackInfoChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x786756c2_bc0d_50a5_8807_054291fef139);
@@ -382,14 +342,10 @@ pub struct IPlaybackInfoChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISessionsChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISessionsChangedEventArgs {
     type Vtable = ISessionsChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ISessionsChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISessionsChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbbf0cd32_42c4_5a58_b317_f34bbfbd26e0);
@@ -401,14 +357,10 @@ pub struct ISessionsChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITimelinePropertiesChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITimelinePropertiesChangedEventArgs {
     type Vtable = ITimelinePropertiesChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ITimelinePropertiesChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITimelinePropertiesChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x29033a2f_c923_5a77_bcaf_055ff415ad32);
@@ -420,26 +372,11 @@ pub struct ITimelinePropertiesChangedEventArgs_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CurrentSessionChangedEventArgs(::windows_core::IUnknown);
 impl CurrentSessionChangedEventArgs {}
-impl ::core::cmp::PartialEq for CurrentSessionChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CurrentSessionChangedEventArgs {}
-impl ::core::fmt::Debug for CurrentSessionChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CurrentSessionChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CurrentSessionChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.CurrentSessionChangedEventArgs;{6969cb39-0bfa-5fe0-8d73-09cc5e5408e1})");
-}
-impl ::core::clone::Clone for CurrentSessionChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CurrentSessionChangedEventArgs {
     type Vtable = ICurrentSessionChangedEventArgs_Vtbl;
@@ -455,6 +392,7 @@ unsafe impl ::core::marker::Send for CurrentSessionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CurrentSessionChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GlobalSystemMediaTransportControlsSession(::windows_core::IUnknown);
 impl GlobalSystemMediaTransportControlsSession {
     pub fn SourceAppUserModelId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -677,24 +615,8 @@ impl GlobalSystemMediaTransportControlsSession {
         unsafe { (::windows_core::Interface::vtable(this).RemoveMediaPropertiesChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for GlobalSystemMediaTransportControlsSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GlobalSystemMediaTransportControlsSession {}
-impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GlobalSystemMediaTransportControlsSession").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSession {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSession;{7148c835-9b14-5ae2-ab85-dc9b1c14e1a8})");
-}
-impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSession {
     type Vtable = IGlobalSystemMediaTransportControlsSession_Vtbl;
@@ -710,6 +632,7 @@ unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSession {
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSession {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionManager(::windows_core::IUnknown);
 impl GlobalSystemMediaTransportControlsSessionManager {
     pub fn GetCurrentSession(&self) -> ::windows_core::Result<GlobalSystemMediaTransportControlsSession> {
@@ -778,24 +701,8 @@ impl GlobalSystemMediaTransportControlsSessionManager {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for GlobalSystemMediaTransportControlsSessionManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GlobalSystemMediaTransportControlsSessionManager {}
-impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GlobalSystemMediaTransportControlsSessionManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager;{cace8eac-e86e-504a-ab31-5ff8ff1bce49})");
-}
-impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSessionManager {
     type Vtable = IGlobalSystemMediaTransportControlsSessionManager_Vtbl;
@@ -811,6 +718,7 @@ unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionMa
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionManager {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionMediaProperties(::windows_core::IUnknown);
 impl GlobalSystemMediaTransportControlsSessionMediaProperties {
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -890,24 +798,8 @@ impl GlobalSystemMediaTransportControlsSessionMediaProperties {
         }
     }
 }
-impl ::core::cmp::PartialEq for GlobalSystemMediaTransportControlsSessionMediaProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GlobalSystemMediaTransportControlsSessionMediaProperties {}
-impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionMediaProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GlobalSystemMediaTransportControlsSessionMediaProperties").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionMediaProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties;{68856cf6-adb4-54b2-ac16-05837907acb6})");
-}
-impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionMediaProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSessionMediaProperties {
     type Vtable = IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl;
@@ -923,6 +815,7 @@ unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionMe
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionMediaProperties {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackControls(::windows_core::IUnknown);
 impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
     pub fn IsPlayEnabled(&self) -> ::windows_core::Result<bool> {
@@ -1031,24 +924,8 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
         }
     }
 }
-impl ::core::cmp::PartialEq for GlobalSystemMediaTransportControlsSessionPlaybackControls {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
-impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionPlaybackControls {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GlobalSystemMediaTransportControlsSessionPlaybackControls").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlaybackControls {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackControls;{6501a3e6-bc7a-503a-bb1b-68f158f3fb03})");
-}
-impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionPlaybackControls {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSessionPlaybackControls {
     type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl;
@@ -1064,6 +941,7 @@ unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionPl
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackInfo(::windows_core::IUnknown);
 impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     pub fn Controls(&self) -> ::windows_core::Result<GlobalSystemMediaTransportControlsSessionPlaybackControls> {
@@ -1117,24 +995,8 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
-impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GlobalSystemMediaTransportControlsSessionPlaybackInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackInfo;{94b4b6cf-e8ba-51ad-87a7-c10ade106127})");
-}
-impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl;
@@ -1150,6 +1012,7 @@ unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionPl
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionTimelineProperties(::windows_core::IUnknown);
 impl GlobalSystemMediaTransportControlsSessionTimelineProperties {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1207,24 +1070,8 @@ impl GlobalSystemMediaTransportControlsSessionTimelineProperties {
         }
     }
 }
-impl ::core::cmp::PartialEq for GlobalSystemMediaTransportControlsSessionTimelineProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
-impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionTimelineProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GlobalSystemMediaTransportControlsSessionTimelineProperties").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionTimelineProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties;{ede34136-6f25-588d-8ecf-ea5b6735aaa5})");
-}
-impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionTimelineProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSessionTimelineProperties {
     type Vtable = IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl;
@@ -1240,26 +1087,11 @@ unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionTi
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPropertiesChangedEventArgs(::windows_core::IUnknown);
 impl MediaPropertiesChangedEventArgs {}
-impl ::core::cmp::PartialEq for MediaPropertiesChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPropertiesChangedEventArgs {}
-impl ::core::fmt::Debug for MediaPropertiesChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPropertiesChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPropertiesChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.MediaPropertiesChangedEventArgs;{7d3741cb-adf0-5cef-91ba-cfabcdd77678})");
-}
-impl ::core::clone::Clone for MediaPropertiesChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPropertiesChangedEventArgs {
     type Vtable = IMediaPropertiesChangedEventArgs_Vtbl;
@@ -1275,26 +1107,11 @@ unsafe impl ::core::marker::Send for MediaPropertiesChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPropertiesChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlaybackInfoChangedEventArgs(::windows_core::IUnknown);
 impl PlaybackInfoChangedEventArgs {}
-impl ::core::cmp::PartialEq for PlaybackInfoChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlaybackInfoChangedEventArgs {}
-impl ::core::fmt::Debug for PlaybackInfoChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlaybackInfoChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PlaybackInfoChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.PlaybackInfoChangedEventArgs;{786756c2-bc0d-50a5-8807-054291fef139})");
-}
-impl ::core::clone::Clone for PlaybackInfoChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PlaybackInfoChangedEventArgs {
     type Vtable = IPlaybackInfoChangedEventArgs_Vtbl;
@@ -1310,26 +1127,11 @@ unsafe impl ::core::marker::Send for PlaybackInfoChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PlaybackInfoChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SessionsChangedEventArgs(::windows_core::IUnknown);
 impl SessionsChangedEventArgs {}
-impl ::core::cmp::PartialEq for SessionsChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SessionsChangedEventArgs {}
-impl ::core::fmt::Debug for SessionsChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SessionsChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SessionsChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.SessionsChangedEventArgs;{bbf0cd32-42c4-5a58-b317-f34bbfbd26e0})");
-}
-impl ::core::clone::Clone for SessionsChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SessionsChangedEventArgs {
     type Vtable = ISessionsChangedEventArgs_Vtbl;
@@ -1345,26 +1147,11 @@ unsafe impl ::core::marker::Send for SessionsChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SessionsChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TimelinePropertiesChangedEventArgs(::windows_core::IUnknown);
 impl TimelinePropertiesChangedEventArgs {}
-impl ::core::cmp::PartialEq for TimelinePropertiesChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimelinePropertiesChangedEventArgs {}
-impl ::core::fmt::Debug for TimelinePropertiesChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimelinePropertiesChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TimelinePropertiesChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Control.TimelinePropertiesChangedEventArgs;{29033a2f-c923-5a77-bcaf-055ff415ad32})");
-}
-impl ::core::clone::Clone for TimelinePropertiesChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TimelinePropertiesChangedEventArgs {
     type Vtable = ITimelinePropertiesChangedEventArgs_Vtbl;

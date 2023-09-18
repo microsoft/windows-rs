@@ -41,11 +41,10 @@ pub unsafe trait ComInterface: Interface + Clone {
 
     /// Call `QueryInterface` on this interface
     ///
-    /// # SAFETY
+    /// # Safety
     ///
-    /// `interface` must be a non-null, valid pointer for writing an interface pointer
-    #[doc(hidden)]
-    unsafe fn query(&self, iid: &GUID, interface: *mut *const std::ffi::c_void) -> HRESULT {
+    /// `interface` must be a non-null, valid pointer for writing an interface pointer.
+    unsafe fn query(&self, iid: *const GUID, interface: *mut *mut std::ffi::c_void) -> HRESULT {
         (self.assume_vtable::<IUnknown>().QueryInterface)(self.as_raw(), iid, interface)
     }
 }

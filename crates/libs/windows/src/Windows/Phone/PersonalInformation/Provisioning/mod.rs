@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactPartnerProvisioningManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContactPartnerProvisioningManagerStatics {
     type Vtable = IContactPartnerProvisioningManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IContactPartnerProvisioningManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactPartnerProvisioningManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0d79a21_01af_4fd3_98cd_b3d656de15f4);
@@ -27,14 +23,10 @@ pub struct IContactPartnerProvisioningManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactPartnerProvisioningManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContactPartnerProvisioningManagerStatics2 {
     type Vtable = IContactPartnerProvisioningManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IContactPartnerProvisioningManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactPartnerProvisioningManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc26155f7_55ed_475d_9334_c5d484c30f1a);
@@ -50,14 +42,10 @@ pub struct IContactPartnerProvisioningManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMessagePartnerProvisioningManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMessagePartnerProvisioningManagerStatics {
     type Vtable = IMessagePartnerProvisioningManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IMessagePartnerProvisioningManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMessagePartnerProvisioningManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a1b0850_73c5_457c_bc59_ed7d615c05a4);

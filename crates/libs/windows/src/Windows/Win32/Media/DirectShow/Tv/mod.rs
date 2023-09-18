@@ -1,6 +1,7 @@
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSCChannelTuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IATSCChannelTuneRequest {
@@ -54,28 +55,8 @@ impl IATSCChannelTuneRequest {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IATSCChannelTuneRequest, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuneRequest, IChannelTuneRequest);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IATSCChannelTuneRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IATSCChannelTuneRequest {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IATSCChannelTuneRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IATSCChannelTuneRequest").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IATSCChannelTuneRequest {
     type Vtable = IATSCChannelTuneRequest_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IATSCChannelTuneRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IATSCChannelTuneRequest {
@@ -92,6 +73,7 @@ pub struct IATSCChannelTuneRequest_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSCComponentType(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IATSCComponentType {
@@ -195,28 +177,8 @@ impl IATSCComponentType {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IATSCComponentType, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IComponentType, ILanguageComponentType, IMPEG2ComponentType);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IATSCComponentType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IATSCComponentType {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IATSCComponentType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IATSCComponentType").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IATSCComponentType {
     type Vtable = IATSCComponentType_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IATSCComponentType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IATSCComponentType {
@@ -233,6 +195,7 @@ pub struct IATSCComponentType_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSCLocator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IATSCLocator {
@@ -309,28 +272,8 @@ impl IATSCLocator {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IATSCLocator, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IATSCLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IATSCLocator {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IATSCLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IATSCLocator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IATSCLocator {
     type Vtable = IATSCLocator_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IATSCLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IATSCLocator {
@@ -349,6 +292,7 @@ pub struct IATSCLocator_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSCLocator2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IATSCLocator2 {
@@ -432,28 +376,8 @@ impl IATSCLocator2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IATSCLocator2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator, IATSCLocator);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IATSCLocator2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IATSCLocator2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IATSCLocator2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IATSCLocator2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IATSCLocator2 {
     type Vtable = IATSCLocator2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IATSCLocator2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IATSCLocator2 {
@@ -470,6 +394,7 @@ pub struct IATSCLocator2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSCTuningSpace(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IATSCTuningSpace {
@@ -636,28 +561,8 @@ impl IATSCTuningSpace {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IATSCTuningSpace, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace, IAnalogTVTuningSpace);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IATSCTuningSpace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IATSCTuningSpace {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IATSCTuningSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IATSCTuningSpace").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IATSCTuningSpace {
     type Vtable = IATSCTuningSpace_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IATSCTuningSpace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IATSCTuningSpace {
@@ -679,6 +584,7 @@ pub struct IATSCTuningSpace_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSC_EIT(::windows_core::IUnknown);
 impl IATSC_EIT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -736,24 +642,8 @@ impl IATSC_EIT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IATSC_EIT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IATSC_EIT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IATSC_EIT {}
-impl ::core::fmt::Debug for IATSC_EIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IATSC_EIT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IATSC_EIT {
     type Vtable = IATSC_EIT_Vtbl;
-}
-impl ::core::clone::Clone for IATSC_EIT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IATSC_EIT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7c212d7_76a2_4b4b_aa56_846879a80096);
@@ -778,6 +668,7 @@ pub struct IATSC_EIT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSC_ETT(::windows_core::IUnknown);
 impl IATSC_ETT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -804,24 +695,8 @@ impl IATSC_ETT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IATSC_ETT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IATSC_ETT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IATSC_ETT {}
-impl ::core::fmt::Debug for IATSC_ETT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IATSC_ETT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IATSC_ETT {
     type Vtable = IATSC_ETT_Vtbl;
-}
-impl ::core::clone::Clone for IATSC_ETT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IATSC_ETT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a142cc9_b8cf_4a86_a040_e9cadf3ef3e7);
@@ -838,6 +713,7 @@ pub struct IATSC_ETT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSC_MGT(::windows_core::IUnknown);
 impl IATSC_MGT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -894,24 +770,8 @@ impl IATSC_MGT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IATSC_MGT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IATSC_MGT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IATSC_MGT {}
-impl ::core::fmt::Debug for IATSC_MGT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IATSC_MGT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IATSC_MGT {
     type Vtable = IATSC_MGT_Vtbl;
-}
-impl ::core::clone::Clone for IATSC_MGT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IATSC_MGT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8877dabd_c137_4073_97e3_779407a5d87a);
@@ -936,6 +796,7 @@ pub struct IATSC_MGT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSC_STT(::windows_core::IUnknown);
 impl IATSC_STT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -974,24 +835,8 @@ impl IATSC_STT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IATSC_STT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IATSC_STT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IATSC_STT {}
-impl ::core::fmt::Debug for IATSC_STT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IATSC_STT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IATSC_STT {
     type Vtable = IATSC_STT_Vtbl;
-}
-impl ::core::clone::Clone for IATSC_STT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IATSC_STT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bf42423_217d_4d6f_81e1_3a7b360ec896);
@@ -1011,6 +856,7 @@ pub struct IATSC_STT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSC_VCT(::windows_core::IUnknown);
 impl IATSC_VCT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -1129,24 +975,8 @@ impl IATSC_VCT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IATSC_VCT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IATSC_VCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IATSC_VCT {}
-impl ::core::fmt::Debug for IATSC_VCT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IATSC_VCT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IATSC_VCT {
     type Vtable = IATSC_VCT_Vtbl;
-}
-impl ::core::clone::Clone for IATSC_VCT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IATSC_VCT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26879a18_32f9_46c6_91f0_fb6479270e8c);
@@ -1200,6 +1030,7 @@ pub struct IATSC_VCT_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAnalogAudioComponentType(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAnalogAudioComponentType {
@@ -1289,28 +1120,8 @@ impl IAnalogAudioComponentType {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAnalogAudioComponentType, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IComponentType);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAnalogAudioComponentType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAnalogAudioComponentType {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAnalogAudioComponentType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAnalogAudioComponentType").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAnalogAudioComponentType {
     type Vtable = IAnalogAudioComponentType_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAnalogAudioComponentType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAnalogAudioComponentType {
@@ -1327,6 +1138,7 @@ pub struct IAnalogAudioComponentType_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAnalogLocator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAnalogLocator {
@@ -1396,28 +1208,8 @@ impl IAnalogLocator {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAnalogLocator, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAnalogLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAnalogLocator {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAnalogLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAnalogLocator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAnalogLocator {
     type Vtable = IAnalogLocator_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAnalogLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAnalogLocator {
@@ -1434,6 +1226,7 @@ pub struct IAnalogLocator_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAnalogRadioTuningSpace(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAnalogRadioTuningSpace {
@@ -1565,28 +1358,8 @@ impl IAnalogRadioTuningSpace {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAnalogRadioTuningSpace, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAnalogRadioTuningSpace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAnalogRadioTuningSpace {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAnalogRadioTuningSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAnalogRadioTuningSpace").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAnalogRadioTuningSpace {
     type Vtable = IAnalogRadioTuningSpace_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAnalogRadioTuningSpace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAnalogRadioTuningSpace {
@@ -1607,6 +1380,7 @@ pub struct IAnalogRadioTuningSpace_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAnalogRadioTuningSpace2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAnalogRadioTuningSpace2 {
@@ -1745,28 +1519,8 @@ impl IAnalogRadioTuningSpace2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAnalogRadioTuningSpace2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace, IAnalogRadioTuningSpace);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAnalogRadioTuningSpace2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAnalogRadioTuningSpace2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAnalogRadioTuningSpace2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAnalogRadioTuningSpace2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAnalogRadioTuningSpace2 {
     type Vtable = IAnalogRadioTuningSpace2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAnalogRadioTuningSpace2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAnalogRadioTuningSpace2 {
@@ -1783,6 +1537,7 @@ pub struct IAnalogRadioTuningSpace2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAnalogTVTuningSpace(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAnalogTVTuningSpace {
@@ -1921,28 +1676,8 @@ impl IAnalogTVTuningSpace {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAnalogTVTuningSpace, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAnalogTVTuningSpace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAnalogTVTuningSpace {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAnalogTVTuningSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAnalogTVTuningSpace").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAnalogTVTuningSpace {
     type Vtable = IAnalogTVTuningSpace_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAnalogTVTuningSpace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAnalogTVTuningSpace {
@@ -1964,6 +1699,7 @@ pub struct IAnalogTVTuningSpace_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAtscContentAdvisoryDescriptor(::windows_core::IUnknown);
 impl IAtscContentAdvisoryDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -1999,24 +1735,8 @@ impl IAtscContentAdvisoryDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAtscContentAdvisoryDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAtscContentAdvisoryDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAtscContentAdvisoryDescriptor {}
-impl ::core::fmt::Debug for IAtscContentAdvisoryDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAtscContentAdvisoryDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAtscContentAdvisoryDescriptor {
     type Vtable = IAtscContentAdvisoryDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IAtscContentAdvisoryDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAtscContentAdvisoryDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff76e60c_0283_43ea_ba32_b422238547ee);
@@ -2036,6 +1756,7 @@ pub struct IAtscContentAdvisoryDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAtscPsipParser(::windows_core::IUnknown);
 impl IAtscPsipParser {
     pub unsafe fn Initialize<P0>(&self, punkmpeg2data: P0) -> ::windows_core::Result<()>
@@ -2091,24 +1812,8 @@ impl IAtscPsipParser {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAtscPsipParser, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAtscPsipParser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAtscPsipParser {}
-impl ::core::fmt::Debug for IAtscPsipParser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAtscPsipParser").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAtscPsipParser {
     type Vtable = IAtscPsipParser_Vtbl;
-}
-impl ::core::clone::Clone for IAtscPsipParser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAtscPsipParser {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2c98995_5eb2_4fb1_b406_f3e8e2026a9a);
@@ -2134,6 +1839,7 @@ pub struct IAtscPsipParser_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAttributeGet(::windows_core::IUnknown);
 impl IAttributeGet {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<i32> {
@@ -2148,24 +1854,8 @@ impl IAttributeGet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAttributeGet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAttributeGet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAttributeGet {}
-impl ::core::fmt::Debug for IAttributeGet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAttributeGet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAttributeGet {
     type Vtable = IAttributeGet_Vtbl;
-}
-impl ::core::clone::Clone for IAttributeGet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAttributeGet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x52dbd1ec_e48f_4528_9232_f442a68f0ae1);
@@ -2180,6 +1870,7 @@ pub struct IAttributeGet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAttributeSet(::windows_core::IUnknown);
 impl IAttributeSet {
     pub unsafe fn SetAttrib(&self, guidattribute: ::windows_core::GUID, pbattribute: *const u8, dwattributelength: u32) -> ::windows_core::Result<()> {
@@ -2187,24 +1878,8 @@ impl IAttributeSet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAttributeSet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAttributeSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAttributeSet {}
-impl ::core::fmt::Debug for IAttributeSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAttributeSet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAttributeSet {
     type Vtable = IAttributeSet_Vtbl;
-}
-impl ::core::clone::Clone for IAttributeSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAttributeSet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x583ec3cc_4960_4857_982b_41a33ea0a006);
@@ -2218,6 +1893,7 @@ pub struct IAttributeSet_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAuxInTuningSpace(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAuxInTuningSpace {
@@ -2328,28 +2004,8 @@ impl IAuxInTuningSpace {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAuxInTuningSpace, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAuxInTuningSpace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAuxInTuningSpace {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAuxInTuningSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAuxInTuningSpace").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAuxInTuningSpace {
     type Vtable = IAuxInTuningSpace_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAuxInTuningSpace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAuxInTuningSpace {
@@ -2364,6 +2020,7 @@ pub struct IAuxInTuningSpace_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAuxInTuningSpace2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAuxInTuningSpace2 {
@@ -2481,28 +2138,8 @@ impl IAuxInTuningSpace2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAuxInTuningSpace2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace, IAuxInTuningSpace);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAuxInTuningSpace2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAuxInTuningSpace2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAuxInTuningSpace2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAuxInTuningSpace2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAuxInTuningSpace2 {
     type Vtable = IAuxInTuningSpace2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAuxInTuningSpace2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAuxInTuningSpace2 {
@@ -2518,6 +2155,7 @@ pub struct IAuxInTuningSpace2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDAComparable(::windows_core::IUnknown);
 impl IBDAComparable {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2556,24 +2194,8 @@ impl IBDAComparable {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBDAComparable, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBDAComparable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBDAComparable {}
-impl ::core::fmt::Debug for IBDAComparable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBDAComparable").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBDAComparable {
     type Vtable = IBDAComparable_Vtbl;
-}
-impl ::core::clone::Clone for IBDAComparable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBDAComparable {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb34505e0_2f0e_497b_80bc_d43f3b24ed7f);
@@ -2597,6 +2219,7 @@ pub struct IBDAComparable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDACreateTuneRequestEx(::windows_core::IUnknown);
 impl IBDACreateTuneRequestEx {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2607,24 +2230,8 @@ impl IBDACreateTuneRequestEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBDACreateTuneRequestEx, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBDACreateTuneRequestEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBDACreateTuneRequestEx {}
-impl ::core::fmt::Debug for IBDACreateTuneRequestEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBDACreateTuneRequestEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBDACreateTuneRequestEx {
     type Vtable = IBDACreateTuneRequestEx_Vtbl;
-}
-impl ::core::clone::Clone for IBDACreateTuneRequestEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBDACreateTuneRequestEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0a4a1d4_2b3c_491a_ba22_499fbadd4d12);
@@ -2640,6 +2247,7 @@ pub struct IBDACreateTuneRequestEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_TIF_REGISTRATION(::windows_core::IUnknown);
 impl IBDA_TIF_REGISTRATION {
     pub unsafe fn RegisterTIFEx<P0>(&self, ptifinputpin: P0, ppvregistrationcontext: *mut u32, ppmpeg2datacontrol: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>
@@ -2653,24 +2261,8 @@ impl IBDA_TIF_REGISTRATION {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBDA_TIF_REGISTRATION, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBDA_TIF_REGISTRATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBDA_TIF_REGISTRATION {}
-impl ::core::fmt::Debug for IBDA_TIF_REGISTRATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBDA_TIF_REGISTRATION").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBDA_TIF_REGISTRATION {
     type Vtable = IBDA_TIF_REGISTRATION_Vtbl;
-}
-impl ::core::clone::Clone for IBDA_TIF_REGISTRATION {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBDA_TIF_REGISTRATION {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdfef4a68_ee61_415f_9ccb_cd95f2f98a3a);
@@ -2684,6 +2276,7 @@ pub struct IBDA_TIF_REGISTRATION_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICAT(::windows_core::IUnknown);
 impl ICAT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -2733,24 +2326,8 @@ impl ICAT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICAT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICAT {}
-impl ::core::fmt::Debug for ICAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICAT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICAT {
     type Vtable = ICAT_Vtbl;
-}
-impl ::core::clone::Clone for ICAT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICAT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c6995fb_2a31_4bd7_953e_b1ad7fb7d31c);
@@ -2777,6 +2354,7 @@ pub struct ICAT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICaptionServiceDescriptor(::windows_core::IUnknown);
 impl ICaptionServiceDescriptor {
     pub unsafe fn GetNumberOfServices(&self) -> ::windows_core::Result<u8> {
@@ -2804,24 +2382,8 @@ impl ICaptionServiceDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICaptionServiceDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICaptionServiceDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICaptionServiceDescriptor {}
-impl ::core::fmt::Debug for ICaptionServiceDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICaptionServiceDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICaptionServiceDescriptor {
     type Vtable = ICaptionServiceDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for ICaptionServiceDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICaptionServiceDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x40834007_6834_46f0_bd45_d5f6a6be258c);
@@ -2840,6 +2402,7 @@ pub struct ICaptionServiceDescriptor_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChannelIDTuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IChannelIDTuneRequest {
@@ -2889,28 +2452,8 @@ impl IChannelIDTuneRequest {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IChannelIDTuneRequest, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuneRequest);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IChannelIDTuneRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IChannelIDTuneRequest {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IChannelIDTuneRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IChannelIDTuneRequest").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IChannelIDTuneRequest {
     type Vtable = IChannelIDTuneRequest_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IChannelIDTuneRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IChannelIDTuneRequest {
@@ -2927,6 +2470,7 @@ pub struct IChannelIDTuneRequest_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChannelTuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IChannelTuneRequest {
@@ -2973,28 +2517,8 @@ impl IChannelTuneRequest {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IChannelTuneRequest, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuneRequest);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IChannelTuneRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IChannelTuneRequest {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IChannelTuneRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IChannelTuneRequest").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IChannelTuneRequest {
     type Vtable = IChannelTuneRequest_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IChannelTuneRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IChannelTuneRequest {
@@ -3011,6 +2535,7 @@ pub struct IChannelTuneRequest_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IComponent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IComponent {
@@ -3062,28 +2587,8 @@ impl IComponent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IComponent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IComponent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IComponent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IComponent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IComponent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IComponent {
     type Vtable = IComponent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IComponent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IComponent {
@@ -3116,6 +2621,7 @@ pub struct IComponent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IComponentType(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IComponentType {
@@ -3198,28 +2704,8 @@ impl IComponentType {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IComponentType, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IComponentType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IComponentType {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IComponentType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IComponentType").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IComponentType {
     type Vtable = IComponentType_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IComponentType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IComponentType {
@@ -3260,6 +2746,7 @@ pub struct IComponentType_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IComponentTypes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IComponentTypes {
@@ -3315,28 +2802,8 @@ impl IComponentTypes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IComponentTypes, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IComponentTypes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IComponentTypes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IComponentTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IComponentTypes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IComponentTypes {
     type Vtable = IComponentTypes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IComponentTypes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IComponentTypes {
@@ -3377,6 +2844,7 @@ pub struct IComponentTypes_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IComponents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IComponents {
@@ -3432,28 +2900,8 @@ impl IComponents {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IComponents, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IComponents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IComponents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IComponents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IComponents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IComponents {
     type Vtable = IComponents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IComponents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IComponents {
@@ -3494,6 +2942,7 @@ pub struct IComponents_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IComponentsOld(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IComponentsOld {
@@ -3541,28 +2990,8 @@ impl IComponentsOld {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IComponentsOld, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IComponentsOld {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IComponentsOld {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IComponentsOld {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IComponentsOld").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IComponentsOld {
     type Vtable = IComponentsOld_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IComponentsOld {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IComponentsOld {
@@ -3598,6 +3027,7 @@ pub struct IComponentsOld_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICreatePropBagOnRegKey(::windows_core::IUnknown);
 impl ICreatePropBagOnRegKey {
     #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
@@ -3611,24 +3041,8 @@ impl ICreatePropBagOnRegKey {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICreatePropBagOnRegKey, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICreatePropBagOnRegKey {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICreatePropBagOnRegKey {}
-impl ::core::fmt::Debug for ICreatePropBagOnRegKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICreatePropBagOnRegKey").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICreatePropBagOnRegKey {
     type Vtable = ICreatePropBagOnRegKey_Vtbl;
-}
-impl ::core::clone::Clone for ICreatePropBagOnRegKey {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICreatePropBagOnRegKey {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a674b48_1f63_11d3_b64c_00c04f79498e);
@@ -3644,6 +3058,7 @@ pub struct ICreatePropBagOnRegKey_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDTFilter(::windows_core::IUnknown);
 impl IDTFilter {
     pub unsafe fn EvalRatObjOK(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
@@ -3683,24 +3098,8 @@ impl IDTFilter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDTFilter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDTFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDTFilter {}
-impl ::core::fmt::Debug for IDTFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDTFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDTFilter {
     type Vtable = IDTFilter_Vtbl;
-}
-impl ::core::clone::Clone for IDTFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDTFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4b2_0049_4e2b_98fb_9537f6ce516d);
@@ -3726,6 +3125,7 @@ pub struct IDTFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDTFilter2(::windows_core::IUnknown);
 impl IDTFilter2 {
     pub unsafe fn EvalRatObjOK(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
@@ -3776,24 +3176,8 @@ impl IDTFilter2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDTFilter2, ::windows_core::IUnknown, IDTFilter);
-impl ::core::cmp::PartialEq for IDTFilter2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDTFilter2 {}
-impl ::core::fmt::Debug for IDTFilter2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDTFilter2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDTFilter2 {
     type Vtable = IDTFilter2_Vtbl;
-}
-impl ::core::clone::Clone for IDTFilter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDTFilter2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4b4_0049_4e2b_98fb_9537f6ce516d);
@@ -3808,6 +3192,7 @@ pub struct IDTFilter2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDTFilter3(::windows_core::IUnknown);
 impl IDTFilter3 {
     pub unsafe fn EvalRatObjOK(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
@@ -3874,24 +3259,8 @@ impl IDTFilter3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDTFilter3, ::windows_core::IUnknown, IDTFilter, IDTFilter2);
-impl ::core::cmp::PartialEq for IDTFilter3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDTFilter3 {}
-impl ::core::fmt::Debug for IDTFilter3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDTFilter3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDTFilter3 {
     type Vtable = IDTFilter3_Vtbl;
-}
-impl ::core::clone::Clone for IDTFilter3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDTFilter3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x513998cc_e929_4cdf_9fbd_bad1e0314866);
@@ -3909,6 +3278,7 @@ pub struct IDTFilter3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDTFilterConfig(::windows_core::IUnknown);
 impl IDTFilterConfig {
     pub unsafe fn GetSecureChannelObject(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -3917,24 +3287,8 @@ impl IDTFilterConfig {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDTFilterConfig, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDTFilterConfig {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDTFilterConfig {}
-impl ::core::fmt::Debug for IDTFilterConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDTFilterConfig").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDTFilterConfig {
     type Vtable = IDTFilterConfig_Vtbl;
-}
-impl ::core::clone::Clone for IDTFilterConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDTFilterConfig {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4d2_0049_4e2b_98fb_9537f6ce516d);
@@ -3948,34 +3302,15 @@ pub struct IDTFilterConfig_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDTFilterEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDTFilterEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDTFilterEvents, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDTFilterEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDTFilterEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDTFilterEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDTFilterEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDTFilterEvents {
     type Vtable = IDTFilterEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDTFilterEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDTFilterEvents {
@@ -3989,6 +3324,7 @@ pub struct IDTFilterEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDTFilterLicenseRenewal(::windows_core::IUnknown);
 impl IDTFilterLicenseRenewal {
     pub unsafe fn GetLicenseRenewalData(&self, ppwszfilename: *mut ::windows_core::PWSTR, ppwszexpiredkid: *mut ::windows_core::PWSTR, ppwsztunerid: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()> {
@@ -3996,24 +3332,8 @@ impl IDTFilterLicenseRenewal {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDTFilterLicenseRenewal, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDTFilterLicenseRenewal {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDTFilterLicenseRenewal {}
-impl ::core::fmt::Debug for IDTFilterLicenseRenewal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDTFilterLicenseRenewal").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDTFilterLicenseRenewal {
     type Vtable = IDTFilterLicenseRenewal_Vtbl;
-}
-impl ::core::clone::Clone for IDTFilterLicenseRenewal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDTFilterLicenseRenewal {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a78b317_e405_4a43_994a_620d8f5ce25e);
@@ -4027,6 +3347,7 @@ pub struct IDTFilterLicenseRenewal_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVBCLocator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBCLocator {
@@ -4089,28 +3410,8 @@ impl IDVBCLocator {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDVBCLocator, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDVBCLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDVBCLocator {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDVBCLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVBCLocator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDVBCLocator {
     type Vtable = IDVBCLocator_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDVBCLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDVBCLocator {
@@ -4125,6 +3426,7 @@ pub struct IDVBCLocator_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVBSLocator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBSLocator {
@@ -4229,28 +3531,8 @@ impl IDVBSLocator {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDVBSLocator, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDVBSLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDVBSLocator {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDVBSLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVBSLocator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDVBSLocator {
     type Vtable = IDVBSLocator_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDVBSLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDVBSLocator {
@@ -4281,6 +3563,7 @@ pub struct IDVBSLocator_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVBSLocator2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBSLocator2 {
@@ -4434,28 +3717,8 @@ impl IDVBSLocator2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDVBSLocator2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator, IDVBSLocator);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDVBSLocator2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDVBSLocator2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDVBSLocator2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVBSLocator2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDVBSLocator2 {
     type Vtable = IDVBSLocator2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDVBSLocator2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDVBSLocator2 {
@@ -4484,6 +3747,7 @@ pub struct IDVBSLocator2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVBSTuningSpace(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBSTuningSpace {
@@ -4646,28 +3910,8 @@ impl IDVBSTuningSpace {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDVBSTuningSpace, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace, IDVBTuningSpace, IDVBTuningSpace2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDVBSTuningSpace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDVBSTuningSpace {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDVBSTuningSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVBSTuningSpace").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDVBSTuningSpace {
     type Vtable = IDVBSTuningSpace_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDVBSTuningSpace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDVBSTuningSpace {
@@ -4692,6 +3936,7 @@ pub struct IDVBSTuningSpace_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVBTLocator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBTLocator {
@@ -4810,28 +4055,8 @@ impl IDVBTLocator {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDVBTLocator, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDVBTLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDVBTLocator {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDVBTLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVBTLocator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDVBTLocator {
     type Vtable = IDVBTLocator_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDVBTLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDVBTLocator {
@@ -4866,6 +4091,7 @@ pub struct IDVBTLocator_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVBTLocator2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBTLocator2 {
@@ -4991,28 +4217,8 @@ impl IDVBTLocator2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDVBTLocator2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator, IDVBTLocator);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDVBTLocator2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDVBTLocator2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDVBTLocator2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVBTLocator2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDVBTLocator2 {
     type Vtable = IDVBTLocator2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDVBTLocator2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDVBTLocator2 {
@@ -5029,6 +4235,7 @@ pub struct IDVBTLocator2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVBTuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBTuneRequest {
@@ -5089,28 +4296,8 @@ impl IDVBTuneRequest {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDVBTuneRequest, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuneRequest);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDVBTuneRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDVBTuneRequest {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDVBTuneRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVBTuneRequest").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDVBTuneRequest {
     type Vtable = IDVBTuneRequest_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDVBTuneRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDVBTuneRequest {
@@ -5131,6 +4318,7 @@ pub struct IDVBTuneRequest_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVBTuningSpace(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBTuningSpace {
@@ -5248,28 +4436,8 @@ impl IDVBTuningSpace {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDVBTuningSpace, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDVBTuningSpace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDVBTuningSpace {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDVBTuningSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVBTuningSpace").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDVBTuningSpace {
     type Vtable = IDVBTuningSpace_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDVBTuningSpace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDVBTuningSpace {
@@ -5286,6 +4454,7 @@ pub struct IDVBTuningSpace_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVBTuningSpace2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBTuningSpace2 {
@@ -5410,28 +4579,8 @@ impl IDVBTuningSpace2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDVBTuningSpace2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace, IDVBTuningSpace);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDVBTuningSpace2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDVBTuningSpace2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDVBTuningSpace2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVBTuningSpace2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDVBTuningSpace2 {
     type Vtable = IDVBTuningSpace2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDVBTuningSpace2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDVBTuningSpace2 {
@@ -5447,6 +4596,7 @@ pub struct IDVBTuningSpace2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_BAT(::windows_core::IUnknown);
 impl IDVB_BAT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -5522,24 +4672,8 @@ impl IDVB_BAT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDVB_BAT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDVB_BAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDVB_BAT {}
-impl ::core::fmt::Debug for IDVB_BAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVB_BAT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDVB_BAT {
     type Vtable = IDVB_BAT_Vtbl;
-}
-impl ::core::clone::Clone for IDVB_BAT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDVB_BAT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xece9bb0c_43b6_4558_a0ec_1812c34cd6ca);
@@ -5573,6 +4707,7 @@ pub struct IDVB_BAT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_DIT(::windows_core::IUnknown);
 impl IDVB_DIT {
     pub unsafe fn Initialize<P0>(&self, psectionlist: P0) -> ::windows_core::Result<()>
@@ -5589,24 +4724,8 @@ impl IDVB_DIT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDVB_DIT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDVB_DIT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDVB_DIT {}
-impl ::core::fmt::Debug for IDVB_DIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVB_DIT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDVB_DIT {
     type Vtable = IDVB_DIT_Vtbl;
-}
-impl ::core::clone::Clone for IDVB_DIT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDVB_DIT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91bffdf9_9432_410f_86ef_1c228ed0ad70);
@@ -5623,6 +4742,7 @@ pub struct IDVB_DIT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_EIT(::windows_core::IUnknown);
 impl IDVB_EIT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -5722,24 +4842,8 @@ impl IDVB_EIT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDVB_EIT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDVB_EIT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDVB_EIT {}
-impl ::core::fmt::Debug for IDVB_EIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVB_EIT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDVB_EIT {
     type Vtable = IDVB_EIT_Vtbl;
-}
-impl ::core::clone::Clone for IDVB_EIT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDVB_EIT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x442db029_02cb_4495_8b92_1c13375bce99);
@@ -5781,6 +4885,7 @@ pub struct IDVB_EIT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_EIT2(::windows_core::IUnknown);
 impl IDVB_EIT2 {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -5887,24 +4992,8 @@ impl IDVB_EIT2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDVB_EIT2, ::windows_core::IUnknown, IDVB_EIT);
-impl ::core::cmp::PartialEq for IDVB_EIT2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDVB_EIT2 {}
-impl ::core::fmt::Debug for IDVB_EIT2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVB_EIT2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDVB_EIT2 {
     type Vtable = IDVB_EIT2_Vtbl;
-}
-impl ::core::clone::Clone for IDVB_EIT2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDVB_EIT2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61a389e0_9b9e_4ba0_aeea_5ddd159820ea);
@@ -5918,6 +5007,7 @@ pub struct IDVB_EIT2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_NIT(::windows_core::IUnknown);
 impl IDVB_NIT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -5998,24 +5088,8 @@ impl IDVB_NIT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDVB_NIT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDVB_NIT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDVB_NIT {}
-impl ::core::fmt::Debug for IDVB_NIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVB_NIT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDVB_NIT {
     type Vtable = IDVB_NIT_Vtbl;
-}
-impl ::core::clone::Clone for IDVB_NIT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDVB_NIT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc64935f4_29e4_4e22_911a_63f7f55cb097);
@@ -6050,6 +5124,7 @@ pub struct IDVB_NIT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_RST(::windows_core::IUnknown);
 impl IDVB_RST {
     pub unsafe fn Initialize<P0>(&self, psectionlist: P0) -> ::windows_core::Result<()>
@@ -6084,24 +5159,8 @@ impl IDVB_RST {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDVB_RST, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDVB_RST {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDVB_RST {}
-impl ::core::fmt::Debug for IDVB_RST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVB_RST").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDVB_RST {
     type Vtable = IDVB_RST_Vtbl;
-}
-impl ::core::clone::Clone for IDVB_RST {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDVB_RST {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf47dcd04_1e23_4fb7_9f96_b40eead10b2b);
@@ -6120,6 +5179,7 @@ pub struct IDVB_RST_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_SDT(::windows_core::IUnknown);
 impl IDVB_SDT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -6211,24 +5271,8 @@ impl IDVB_SDT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDVB_SDT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDVB_SDT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDVB_SDT {}
-impl ::core::fmt::Debug for IDVB_SDT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVB_SDT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDVB_SDT {
     type Vtable = IDVB_SDT_Vtbl;
-}
-impl ::core::clone::Clone for IDVB_SDT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDVB_SDT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x02cad8d3_fe43_48e2_90bd_450ed9a8a5fd);
@@ -6273,6 +5317,7 @@ pub struct IDVB_SDT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_SIT(::windows_core::IUnknown);
 impl IDVB_SIT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -6345,24 +5390,8 @@ impl IDVB_SIT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDVB_SIT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDVB_SIT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDVB_SIT {}
-impl ::core::fmt::Debug for IDVB_SIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVB_SIT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDVB_SIT {
     type Vtable = IDVB_SIT_Vtbl;
-}
-impl ::core::clone::Clone for IDVB_SIT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDVB_SIT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x68cdce53_8bea_45c2_9d9d_acf575a089b5);
@@ -6395,6 +5424,7 @@ pub struct IDVB_SIT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_ST(::windows_core::IUnknown);
 impl IDVB_ST {
     pub unsafe fn Initialize<P0>(&self, psectionlist: P0) -> ::windows_core::Result<()>
@@ -6413,24 +5443,8 @@ impl IDVB_ST {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDVB_ST, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDVB_ST {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDVB_ST {}
-impl ::core::fmt::Debug for IDVB_ST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVB_ST").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDVB_ST {
     type Vtable = IDVB_ST_Vtbl;
-}
-impl ::core::clone::Clone for IDVB_ST {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDVB_ST {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d5b9f23_2a02_45de_bcda_5d5dbfbfbe62);
@@ -6445,6 +5459,7 @@ pub struct IDVB_ST_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_TDT(::windows_core::IUnknown);
 impl IDVB_TDT {
     pub unsafe fn Initialize<P0>(&self, psectionlist: P0) -> ::windows_core::Result<()>
@@ -6459,24 +5474,8 @@ impl IDVB_TDT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDVB_TDT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDVB_TDT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDVB_TDT {}
-impl ::core::fmt::Debug for IDVB_TDT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVB_TDT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDVB_TDT {
     type Vtable = IDVB_TDT_Vtbl;
-}
-impl ::core::clone::Clone for IDVB_TDT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDVB_TDT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0780dc7d_d55c_4aef_97e6_6b75906e2796);
@@ -6490,6 +5489,7 @@ pub struct IDVB_TDT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_TOT(::windows_core::IUnknown);
 impl IDVB_TOT {
     pub unsafe fn Initialize<P0>(&self, psectionlist: P0) -> ::windows_core::Result<()>
@@ -6515,24 +5515,8 @@ impl IDVB_TOT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDVB_TOT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDVB_TOT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDVB_TOT {}
-impl ::core::fmt::Debug for IDVB_TOT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDVB_TOT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDVB_TOT {
     type Vtable = IDVB_TOT_Vtbl;
-}
-impl ::core::clone::Clone for IDVB_TOT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDVB_TOT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83295d6a_faba_4ee1_9b15_8067696910ae);
@@ -6550,6 +5534,7 @@ pub struct IDVB_TOT_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDigitalCableLocator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDigitalCableLocator {
@@ -6633,28 +5618,8 @@ impl IDigitalCableLocator {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDigitalCableLocator, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator, IATSCLocator, IATSCLocator2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDigitalCableLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDigitalCableLocator {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDigitalCableLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDigitalCableLocator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDigitalCableLocator {
     type Vtable = IDigitalCableLocator_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDigitalCableLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDigitalCableLocator {
@@ -6669,6 +5634,7 @@ pub struct IDigitalCableLocator_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDigitalCableTuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDigitalCableTuneRequest {
@@ -6736,28 +5702,8 @@ impl IDigitalCableTuneRequest {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDigitalCableTuneRequest, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuneRequest, IChannelTuneRequest, IATSCChannelTuneRequest);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDigitalCableTuneRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDigitalCableTuneRequest {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDigitalCableTuneRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDigitalCableTuneRequest").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDigitalCableTuneRequest {
     type Vtable = IDigitalCableTuneRequest_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDigitalCableTuneRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDigitalCableTuneRequest {
@@ -6776,6 +5722,7 @@ pub struct IDigitalCableTuneRequest_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDigitalCableTuningSpace(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDigitalCableTuningSpace {
@@ -6970,28 +5917,8 @@ impl IDigitalCableTuningSpace {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDigitalCableTuningSpace, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuningSpace, IAnalogTVTuningSpace, IATSCTuningSpace);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDigitalCableTuningSpace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDigitalCableTuningSpace {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDigitalCableTuningSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDigitalCableTuningSpace").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDigitalCableTuningSpace {
     type Vtable = IDigitalCableTuningSpace_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDigitalCableTuningSpace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDigitalCableTuningSpace {
@@ -7014,6 +5941,7 @@ pub struct IDigitalCableTuningSpace_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDigitalLocator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDigitalLocator {
@@ -7076,28 +6004,8 @@ impl IDigitalLocator {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDigitalLocator, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDigitalLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDigitalLocator {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDigitalLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDigitalLocator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDigitalLocator {
     type Vtable = IDigitalLocator_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDigitalLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDigitalLocator {
@@ -7111,6 +6019,7 @@ pub struct IDigitalLocator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbCableDeliverySystemDescriptor(::windows_core::IUnknown);
 impl IDvbCableDeliverySystemDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -7143,24 +6052,8 @@ impl IDvbCableDeliverySystemDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbCableDeliverySystemDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbCableDeliverySystemDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbCableDeliverySystemDescriptor {}
-impl ::core::fmt::Debug for IDvbCableDeliverySystemDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbCableDeliverySystemDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbCableDeliverySystemDescriptor {
     type Vtable = IDvbCableDeliverySystemDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbCableDeliverySystemDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbCableDeliverySystemDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdfb98e36_9e1a_4862_9946_993a4e59017b);
@@ -7179,6 +6072,7 @@ pub struct IDvbCableDeliverySystemDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbComponentDescriptor(::windows_core::IUnknown);
 impl IDvbComponentDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -7210,24 +6104,8 @@ impl IDvbComponentDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbComponentDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbComponentDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbComponentDescriptor {}
-impl ::core::fmt::Debug for IDvbComponentDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbComponentDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbComponentDescriptor {
     type Vtable = IDvbComponentDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbComponentDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbComponentDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91e405cf_80e7_457f_9096_1b9d1ce32141);
@@ -7246,6 +6124,7 @@ pub struct IDvbComponentDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbContentDescriptor(::windows_core::IUnknown);
 impl IDvbContentDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -7268,24 +6147,8 @@ impl IDvbContentDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbContentDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbContentDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbContentDescriptor {}
-impl ::core::fmt::Debug for IDvbContentDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbContentDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbContentDescriptor {
     type Vtable = IDvbContentDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbContentDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbContentDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e883881_a467_412a_9d63_6f2b6da05bf0);
@@ -7302,6 +6165,7 @@ pub struct IDvbContentDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbContentIdentifierDescriptor(::windows_core::IUnknown);
 impl IDvbContentIdentifierDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -7321,24 +6185,8 @@ impl IDvbContentIdentifierDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbContentIdentifierDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbContentIdentifierDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbContentIdentifierDescriptor {}
-impl ::core::fmt::Debug for IDvbContentIdentifierDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbContentIdentifierDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbContentIdentifierDescriptor {
     type Vtable = IDvbContentIdentifierDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbContentIdentifierDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbContentIdentifierDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05e0c1ea_f661_4053_9fbf_d93b28359838);
@@ -7354,6 +6202,7 @@ pub struct IDvbContentIdentifierDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbDataBroadcastDescriptor(::windows_core::IUnknown);
 impl IDvbDataBroadcastDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -7392,24 +6241,8 @@ impl IDvbDataBroadcastDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbDataBroadcastDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbDataBroadcastDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbDataBroadcastDescriptor {}
-impl ::core::fmt::Debug for IDvbDataBroadcastDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbDataBroadcastDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbDataBroadcastDescriptor {
     type Vtable = IDvbDataBroadcastDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbDataBroadcastDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbDataBroadcastDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1ebc1d6_8b60_4c20_9caf_e59382e7c400);
@@ -7430,6 +6263,7 @@ pub struct IDvbDataBroadcastDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbDataBroadcastIDDescriptor(::windows_core::IUnknown);
 impl IDvbDataBroadcastIDDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -7449,24 +6283,8 @@ impl IDvbDataBroadcastIDDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbDataBroadcastIDDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbDataBroadcastIDDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbDataBroadcastIDDescriptor {}
-impl ::core::fmt::Debug for IDvbDataBroadcastIDDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbDataBroadcastIDDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbDataBroadcastIDDescriptor {
     type Vtable = IDvbDataBroadcastIDDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbDataBroadcastIDDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbDataBroadcastIDDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f26f518_65c8_4048_91f2_9290f59f7b90);
@@ -7482,6 +6300,7 @@ pub struct IDvbDataBroadcastIDDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbDefaultAuthorityDescriptor(::windows_core::IUnknown);
 impl IDvbDefaultAuthorityDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -7497,24 +6316,8 @@ impl IDvbDefaultAuthorityDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbDefaultAuthorityDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbDefaultAuthorityDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbDefaultAuthorityDescriptor {}
-impl ::core::fmt::Debug for IDvbDefaultAuthorityDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbDefaultAuthorityDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbDefaultAuthorityDescriptor {
     type Vtable = IDvbDefaultAuthorityDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbDefaultAuthorityDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbDefaultAuthorityDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05ec24d1_3a31_44e7_b408_67c60a352276);
@@ -7529,6 +6332,7 @@ pub struct IDvbDefaultAuthorityDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbExtendedEventDescriptor(::windows_core::IUnknown);
 impl IDvbExtendedEventDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -7579,24 +6383,8 @@ impl IDvbExtendedEventDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbExtendedEventDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbExtendedEventDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbExtendedEventDescriptor {}
-impl ::core::fmt::Debug for IDvbExtendedEventDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbExtendedEventDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbExtendedEventDescriptor {
     type Vtable = IDvbExtendedEventDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbExtendedEventDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbExtendedEventDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9b22eca_85f4_499f_b1db_efa93a91ee57);
@@ -7619,6 +6407,7 @@ pub struct IDvbExtendedEventDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbFrequencyListDescriptor(::windows_core::IUnknown);
 impl IDvbFrequencyListDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -7643,24 +6432,8 @@ impl IDvbFrequencyListDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbFrequencyListDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbFrequencyListDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbFrequencyListDescriptor {}
-impl ::core::fmt::Debug for IDvbFrequencyListDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbFrequencyListDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbFrequencyListDescriptor {
     type Vtable = IDvbFrequencyListDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbFrequencyListDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbFrequencyListDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1cadb613_e1dd_4512_afa8_bb7a007ef8b1);
@@ -7677,6 +6450,7 @@ pub struct IDvbFrequencyListDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbHDSimulcastLogicalChannelDescriptor(::windows_core::IUnknown);
 impl IDvbHDSimulcastLogicalChannelDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -7705,24 +6479,8 @@ impl IDvbHDSimulcastLogicalChannelDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbHDSimulcastLogicalChannelDescriptor, ::windows_core::IUnknown, IDvbLogicalChannelDescriptor, IDvbLogicalChannelDescriptor2);
-impl ::core::cmp::PartialEq for IDvbHDSimulcastLogicalChannelDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbHDSimulcastLogicalChannelDescriptor {}
-impl ::core::fmt::Debug for IDvbHDSimulcastLogicalChannelDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbHDSimulcastLogicalChannelDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbHDSimulcastLogicalChannelDescriptor {
     type Vtable = IDvbHDSimulcastLogicalChannelDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbHDSimulcastLogicalChannelDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbHDSimulcastLogicalChannelDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ea8b738_a307_4680_9e26_d0a908c824f4);
@@ -7734,6 +6492,7 @@ pub struct IDvbHDSimulcastLogicalChannelDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbLinkageDescriptor(::windows_core::IUnknown);
 impl IDvbLinkageDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -7769,24 +6528,8 @@ impl IDvbLinkageDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbLinkageDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbLinkageDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbLinkageDescriptor {}
-impl ::core::fmt::Debug for IDvbLinkageDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbLinkageDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbLinkageDescriptor {
     type Vtable = IDvbLinkageDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbLinkageDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbLinkageDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1cdf8b31_994a_46fc_acfd_6a6be8934dd5);
@@ -7806,6 +6549,7 @@ pub struct IDvbLinkageDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbLogicalChannel2Descriptor(::windows_core::IUnknown);
 impl IDvbLogicalChannel2Descriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -7865,24 +6609,8 @@ impl IDvbLogicalChannel2Descriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbLogicalChannel2Descriptor, ::windows_core::IUnknown, IDvbLogicalChannelDescriptor, IDvbLogicalChannelDescriptor2);
-impl ::core::cmp::PartialEq for IDvbLogicalChannel2Descriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbLogicalChannel2Descriptor {}
-impl ::core::fmt::Debug for IDvbLogicalChannel2Descriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbLogicalChannel2Descriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbLogicalChannel2Descriptor {
     type Vtable = IDvbLogicalChannel2Descriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbLogicalChannel2Descriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbLogicalChannel2Descriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf69c3747_8a30_4980_998c_01fe7f0ba35a);
@@ -7902,6 +6630,7 @@ pub struct IDvbLogicalChannel2Descriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbLogicalChannelDescriptor(::windows_core::IUnknown);
 impl IDvbLogicalChannelDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -7926,24 +6655,8 @@ impl IDvbLogicalChannelDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbLogicalChannelDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbLogicalChannelDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbLogicalChannelDescriptor {}
-impl ::core::fmt::Debug for IDvbLogicalChannelDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbLogicalChannelDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbLogicalChannelDescriptor {
     type Vtable = IDvbLogicalChannelDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbLogicalChannelDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbLogicalChannelDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf1edaff_3ffd_4cf7_8201_35756acbf85f);
@@ -7960,6 +6673,7 @@ pub struct IDvbLogicalChannelDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbLogicalChannelDescriptor2(::windows_core::IUnknown);
 impl IDvbLogicalChannelDescriptor2 {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -7988,24 +6702,8 @@ impl IDvbLogicalChannelDescriptor2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbLogicalChannelDescriptor2, ::windows_core::IUnknown, IDvbLogicalChannelDescriptor);
-impl ::core::cmp::PartialEq for IDvbLogicalChannelDescriptor2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbLogicalChannelDescriptor2 {}
-impl ::core::fmt::Debug for IDvbLogicalChannelDescriptor2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbLogicalChannelDescriptor2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbLogicalChannelDescriptor2 {
     type Vtable = IDvbLogicalChannelDescriptor2_Vtbl;
-}
-impl ::core::clone::Clone for IDvbLogicalChannelDescriptor2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbLogicalChannelDescriptor2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43aca974_4be8_4b98_bc17_9eafd788b1d7);
@@ -8018,6 +6716,7 @@ pub struct IDvbLogicalChannelDescriptor2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbMultilingualServiceNameDescriptor(::windows_core::IUnknown);
 impl IDvbMultilingualServiceNameDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -8046,24 +6745,8 @@ impl IDvbMultilingualServiceNameDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbMultilingualServiceNameDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbMultilingualServiceNameDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbMultilingualServiceNameDescriptor {}
-impl ::core::fmt::Debug for IDvbMultilingualServiceNameDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbMultilingualServiceNameDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbMultilingualServiceNameDescriptor {
     type Vtable = IDvbMultilingualServiceNameDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbMultilingualServiceNameDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbMultilingualServiceNameDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d80433b_b32c_47ef_987f_e78ebb773e34);
@@ -8081,6 +6764,7 @@ pub struct IDvbMultilingualServiceNameDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbNetworkNameDescriptor(::windows_core::IUnknown);
 impl IDvbNetworkNameDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -8101,24 +6785,8 @@ impl IDvbNetworkNameDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbNetworkNameDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbNetworkNameDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbNetworkNameDescriptor {}
-impl ::core::fmt::Debug for IDvbNetworkNameDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbNetworkNameDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbNetworkNameDescriptor {
     type Vtable = IDvbNetworkNameDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbNetworkNameDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbNetworkNameDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b2a80cf_35b9_446c_b3e4_048b761dbc51);
@@ -8134,6 +6802,7 @@ pub struct IDvbNetworkNameDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbParentalRatingDescriptor(::windows_core::IUnknown);
 impl IDvbParentalRatingDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -8153,24 +6822,8 @@ impl IDvbParentalRatingDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbParentalRatingDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbParentalRatingDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbParentalRatingDescriptor {}
-impl ::core::fmt::Debug for IDvbParentalRatingDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbParentalRatingDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbParentalRatingDescriptor {
     type Vtable = IDvbParentalRatingDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbParentalRatingDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbParentalRatingDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ad9dde1_fb1b_4186_937f_22e6b5a72a10);
@@ -8186,6 +6839,7 @@ pub struct IDvbParentalRatingDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbPrivateDataSpecifierDescriptor(::windows_core::IUnknown);
 impl IDvbPrivateDataSpecifierDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -8202,24 +6856,8 @@ impl IDvbPrivateDataSpecifierDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbPrivateDataSpecifierDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbPrivateDataSpecifierDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbPrivateDataSpecifierDescriptor {}
-impl ::core::fmt::Debug for IDvbPrivateDataSpecifierDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbPrivateDataSpecifierDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbPrivateDataSpecifierDescriptor {
     type Vtable = IDvbPrivateDataSpecifierDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbPrivateDataSpecifierDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbPrivateDataSpecifierDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5660a019_e75a_4b82_9b4c_ed2256d165a2);
@@ -8234,6 +6872,7 @@ pub struct IDvbPrivateDataSpecifierDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbSatelliteDeliverySystemDescriptor(::windows_core::IUnknown);
 impl IDvbSatelliteDeliverySystemDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -8274,24 +6913,8 @@ impl IDvbSatelliteDeliverySystemDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbSatelliteDeliverySystemDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbSatelliteDeliverySystemDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbSatelliteDeliverySystemDescriptor {}
-impl ::core::fmt::Debug for IDvbSatelliteDeliverySystemDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbSatelliteDeliverySystemDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbSatelliteDeliverySystemDescriptor {
     type Vtable = IDvbSatelliteDeliverySystemDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbSatelliteDeliverySystemDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbSatelliteDeliverySystemDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x02f2225a_805b_4ec5_a9a6_f9b5913cd470);
@@ -8312,6 +6935,7 @@ pub struct IDvbSatelliteDeliverySystemDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbServiceAttributeDescriptor(::windows_core::IUnknown);
 impl IDvbServiceAttributeDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -8344,24 +6968,8 @@ impl IDvbServiceAttributeDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbServiceAttributeDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbServiceAttributeDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbServiceAttributeDescriptor {}
-impl ::core::fmt::Debug for IDvbServiceAttributeDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbServiceAttributeDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbServiceAttributeDescriptor {
     type Vtable = IDvbServiceAttributeDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbServiceAttributeDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbServiceAttributeDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f37bd92_d6a1_4854_b950_3a969d27f30e);
@@ -8385,6 +6993,7 @@ pub struct IDvbServiceAttributeDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbServiceDescriptor(::windows_core::IUnknown);
 impl IDvbServiceDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -8421,24 +7030,8 @@ impl IDvbServiceDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbServiceDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbServiceDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbServiceDescriptor {}
-impl ::core::fmt::Debug for IDvbServiceDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbServiceDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbServiceDescriptor {
     type Vtable = IDvbServiceDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbServiceDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbServiceDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9c7fbcf_e2d6_464d_b32d_2ef526e49290);
@@ -8458,6 +7051,7 @@ pub struct IDvbServiceDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbServiceDescriptor2(::windows_core::IUnknown);
 impl IDvbServiceDescriptor2 {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -8502,24 +7096,8 @@ impl IDvbServiceDescriptor2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbServiceDescriptor2, ::windows_core::IUnknown, IDvbServiceDescriptor);
-impl ::core::cmp::PartialEq for IDvbServiceDescriptor2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbServiceDescriptor2 {}
-impl ::core::fmt::Debug for IDvbServiceDescriptor2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbServiceDescriptor2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbServiceDescriptor2 {
     type Vtable = IDvbServiceDescriptor2_Vtbl;
-}
-impl ::core::clone::Clone for IDvbServiceDescriptor2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbServiceDescriptor2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd6c76506_85ab_487c_9b2b_36416511e4a2);
@@ -8533,6 +7111,7 @@ pub struct IDvbServiceDescriptor2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbServiceListDescriptor(::windows_core::IUnknown);
 impl IDvbServiceListDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -8557,24 +7136,8 @@ impl IDvbServiceListDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbServiceListDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbServiceListDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbServiceListDescriptor {}
-impl ::core::fmt::Debug for IDvbServiceListDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbServiceListDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbServiceListDescriptor {
     type Vtable = IDvbServiceListDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbServiceListDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbServiceListDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05db0d8f_6008_491a_acd3_7090952707d0);
@@ -8591,6 +7154,7 @@ pub struct IDvbServiceListDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbShortEventDescriptor(::windows_core::IUnknown);
 impl IDvbShortEventDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -8614,24 +7178,8 @@ impl IDvbShortEventDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbShortEventDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbShortEventDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbShortEventDescriptor {}
-impl ::core::fmt::Debug for IDvbShortEventDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbShortEventDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbShortEventDescriptor {
     type Vtable = IDvbShortEventDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbShortEventDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbShortEventDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb170be92_5b75_458e_9c6e_b0008231491a);
@@ -8648,6 +7196,7 @@ pub struct IDvbShortEventDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbSiParser(::windows_core::IUnknown);
 impl IDvbSiParser {
     pub unsafe fn Initialize<P0>(&self, punkmpeg2data: P0) -> ::windows_core::Result<()>
@@ -8714,24 +7263,8 @@ impl IDvbSiParser {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbSiParser, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbSiParser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbSiParser {}
-impl ::core::fmt::Debug for IDvbSiParser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbSiParser").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbSiParser {
     type Vtable = IDvbSiParser_Vtbl;
-}
-impl ::core::clone::Clone for IDvbSiParser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbSiParser {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb758a7bd_14dc_449d_b828_35909acb3b1e);
@@ -8758,6 +7291,7 @@ pub struct IDvbSiParser_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbSiParser2(::windows_core::IUnknown);
 impl IDvbSiParser2 {
     pub unsafe fn Initialize<P0>(&self, punkmpeg2data: P0) -> ::windows_core::Result<()>
@@ -8828,24 +7362,8 @@ impl IDvbSiParser2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbSiParser2, ::windows_core::IUnknown, IDvbSiParser);
-impl ::core::cmp::PartialEq for IDvbSiParser2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbSiParser2 {}
-impl ::core::fmt::Debug for IDvbSiParser2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbSiParser2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbSiParser2 {
     type Vtable = IDvbSiParser2_Vtbl;
-}
-impl ::core::clone::Clone for IDvbSiParser2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbSiParser2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ac5525f_f816_42f4_93ba_4c0f32f46e54);
@@ -8858,6 +7376,7 @@ pub struct IDvbSiParser2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbSubtitlingDescriptor(::windows_core::IUnknown);
 impl IDvbSubtitlingDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -8890,24 +7409,8 @@ impl IDvbSubtitlingDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbSubtitlingDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbSubtitlingDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbSubtitlingDescriptor {}
-impl ::core::fmt::Debug for IDvbSubtitlingDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbSubtitlingDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbSubtitlingDescriptor {
     type Vtable = IDvbSubtitlingDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbSubtitlingDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbSubtitlingDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b25fe1d_fa23_4e50_9784_6df8b26f8a49);
@@ -8926,6 +7429,7 @@ pub struct IDvbSubtitlingDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbTeletextDescriptor(::windows_core::IUnknown);
 impl IDvbTeletextDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -8958,24 +7462,8 @@ impl IDvbTeletextDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbTeletextDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbTeletextDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbTeletextDescriptor {}
-impl ::core::fmt::Debug for IDvbTeletextDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbTeletextDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbTeletextDescriptor {
     type Vtable = IDvbTeletextDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbTeletextDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbTeletextDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9cd29d47_69c6_4f92_98a9_210af1b7303a);
@@ -8994,6 +7482,7 @@ pub struct IDvbTeletextDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbTerrestrial2DeliverySystemDescriptor(::windows_core::IUnknown);
 impl IDvbTerrestrial2DeliverySystemDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -9050,24 +7539,8 @@ impl IDvbTerrestrial2DeliverySystemDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbTerrestrial2DeliverySystemDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbTerrestrial2DeliverySystemDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbTerrestrial2DeliverySystemDescriptor {}
-impl ::core::fmt::Debug for IDvbTerrestrial2DeliverySystemDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbTerrestrial2DeliverySystemDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbTerrestrial2DeliverySystemDescriptor {
     type Vtable = IDvbTerrestrial2DeliverySystemDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbTerrestrial2DeliverySystemDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbTerrestrial2DeliverySystemDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20ee9be9_cd57_49ab_8f6e_1d07aeb8e482);
@@ -9092,6 +7565,7 @@ pub struct IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbTerrestrialDeliverySystemDescriptor(::windows_core::IUnknown);
 impl IDvbTerrestrialDeliverySystemDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -9140,24 +7614,8 @@ impl IDvbTerrestrialDeliverySystemDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDvbTerrestrialDeliverySystemDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDvbTerrestrialDeliverySystemDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDvbTerrestrialDeliverySystemDescriptor {}
-impl ::core::fmt::Debug for IDvbTerrestrialDeliverySystemDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDvbTerrestrialDeliverySystemDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDvbTerrestrialDeliverySystemDescriptor {
     type Vtable = IDvbTerrestrialDeliverySystemDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IDvbTerrestrialDeliverySystemDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDvbTerrestrialDeliverySystemDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed7e1b91_d12e_420c_b41d_a49d84fe1823);
@@ -9180,6 +7638,7 @@ pub struct IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESCloseMmiEvent(::windows_core::IUnknown);
 impl IESCloseMmiEvent {
     pub unsafe fn GetEventId(&self) -> ::windows_core::Result<u32> {
@@ -9209,24 +7668,8 @@ impl IESCloseMmiEvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IESCloseMmiEvent, ::windows_core::IUnknown, super::IESEvent);
-impl ::core::cmp::PartialEq for IESCloseMmiEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IESCloseMmiEvent {}
-impl ::core::fmt::Debug for IESCloseMmiEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IESCloseMmiEvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IESCloseMmiEvent {
     type Vtable = IESCloseMmiEvent_Vtbl;
-}
-impl ::core::clone::Clone for IESCloseMmiEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IESCloseMmiEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b80e96f_55e2_45aa_b754_0c23c8e7d5c1);
@@ -9239,6 +7682,7 @@ pub struct IESCloseMmiEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESEventFactory(::windows_core::IUnknown);
 impl IESEventFactory {
     pub unsafe fn CreateESEvent<P0, P1, P2>(&self, pserviceprovider: P0, dweventid: u32, guideventtype: ::windows_core::GUID, peventdata: &[u8], bstrbaseurl: P1, pinitcontext: P2) -> ::windows_core::Result<super::IESEvent>
@@ -9252,24 +7696,8 @@ impl IESEventFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IESEventFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IESEventFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IESEventFactory {}
-impl ::core::fmt::Debug for IESEventFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IESEventFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IESEventFactory {
     type Vtable = IESEventFactory_Vtbl;
-}
-impl ::core::clone::Clone for IESEventFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IESEventFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x506a09b8_7f86_4e04_ac05_3303bfe8fc49);
@@ -9282,6 +7710,7 @@ pub struct IESEventFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESEventService(::windows_core::IUnknown);
 impl IESEventService {
     pub unsafe fn FireESEvent<P0>(&self, pesevent: P0) -> ::windows_core::Result<()>
@@ -9292,24 +7721,8 @@ impl IESEventService {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IESEventService, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IESEventService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IESEventService {}
-impl ::core::fmt::Debug for IESEventService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IESEventService").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IESEventService {
     type Vtable = IESEventService_Vtbl;
-}
-impl ::core::clone::Clone for IESEventService {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IESEventService {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed89a619_4c06_4b2f_99eb_c7669b13047c);
@@ -9322,6 +7735,7 @@ pub struct IESEventService_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESEventServiceConfiguration(::windows_core::IUnknown);
 impl IESEventServiceConfiguration {
     pub unsafe fn SetParent<P0>(&self, peventservice: P0) -> ::windows_core::Result<()>
@@ -9356,24 +7770,8 @@ impl IESEventServiceConfiguration {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IESEventServiceConfiguration, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IESEventServiceConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IESEventServiceConfiguration {}
-impl ::core::fmt::Debug for IESEventServiceConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IESEventServiceConfiguration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IESEventServiceConfiguration {
     type Vtable = IESEventServiceConfiguration_Vtbl;
-}
-impl ::core::clone::Clone for IESEventServiceConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IESEventServiceConfiguration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33b9daae_9309_491d_a051_bcad2a70cd66);
@@ -9391,6 +7789,7 @@ pub struct IESEventServiceConfiguration_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESFileExpiryDateEvent(::windows_core::IUnknown);
 impl IESFileExpiryDateEvent {
     pub unsafe fn GetEventId(&self) -> ::windows_core::Result<u32> {
@@ -9444,24 +7843,8 @@ impl IESFileExpiryDateEvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IESFileExpiryDateEvent, ::windows_core::IUnknown, super::IESEvent);
-impl ::core::cmp::PartialEq for IESFileExpiryDateEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IESFileExpiryDateEvent {}
-impl ::core::fmt::Debug for IESFileExpiryDateEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IESFileExpiryDateEvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IESFileExpiryDateEvent {
     type Vtable = IESFileExpiryDateEvent_Vtbl;
-}
-impl ::core::clone::Clone for IESFileExpiryDateEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IESFileExpiryDateEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xba9edcb6_4d36_4cfe_8c56_87a6b0ca48e1);
@@ -9485,6 +7868,7 @@ pub struct IESFileExpiryDateEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESIsdbCasResponseEvent(::windows_core::IUnknown);
 impl IESIsdbCasResponseEvent {
     pub unsafe fn GetEventId(&self) -> ::windows_core::Result<u32> {
@@ -9528,24 +7912,8 @@ impl IESIsdbCasResponseEvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IESIsdbCasResponseEvent, ::windows_core::IUnknown, super::IESEvent);
-impl ::core::cmp::PartialEq for IESIsdbCasResponseEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IESIsdbCasResponseEvent {}
-impl ::core::fmt::Debug for IESIsdbCasResponseEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IESIsdbCasResponseEvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IESIsdbCasResponseEvent {
     type Vtable = IESIsdbCasResponseEvent_Vtbl;
-}
-impl ::core::clone::Clone for IESIsdbCasResponseEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IESIsdbCasResponseEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2017cb03_dc0f_4c24_83ca_36307b2cd19f);
@@ -9564,6 +7932,7 @@ pub struct IESIsdbCasResponseEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESLicenseRenewalResultEvent(::windows_core::IUnknown);
 impl IESLicenseRenewalResultEvent {
     pub unsafe fn GetEventId(&self) -> ::windows_core::Result<u32> {
@@ -9639,24 +8008,8 @@ impl IESLicenseRenewalResultEvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IESLicenseRenewalResultEvent, ::windows_core::IUnknown, super::IESEvent);
-impl ::core::cmp::PartialEq for IESLicenseRenewalResultEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IESLicenseRenewalResultEvent {}
-impl ::core::fmt::Debug for IESLicenseRenewalResultEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IESLicenseRenewalResultEvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IESLicenseRenewalResultEvent {
     type Vtable = IESLicenseRenewalResultEvent_Vtbl;
-}
-impl ::core::clone::Clone for IESLicenseRenewalResultEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IESLicenseRenewalResultEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5a48ef5_a81b_4df0_acaa_5e35e7ea45d4);
@@ -9688,6 +8041,7 @@ pub struct IESLicenseRenewalResultEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESOpenMmiEvent(::windows_core::IUnknown);
 impl IESOpenMmiEvent {
     pub unsafe fn GetEventId(&self) -> ::windows_core::Result<u32> {
@@ -9729,24 +8083,8 @@ impl IESOpenMmiEvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IESOpenMmiEvent, ::windows_core::IUnknown, super::IESEvent);
-impl ::core::cmp::PartialEq for IESOpenMmiEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IESOpenMmiEvent {}
-impl ::core::fmt::Debug for IESOpenMmiEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IESOpenMmiEvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IESOpenMmiEvent {
     type Vtable = IESOpenMmiEvent_Vtbl;
-}
-impl ::core::clone::Clone for IESOpenMmiEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IESOpenMmiEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xba4b6526_1a35_4635_8b56_3ec612746a8c);
@@ -9765,6 +8103,7 @@ pub struct IESOpenMmiEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESRequestTunerEvent(::windows_core::IUnknown);
 impl IESRequestTunerEvent {
     pub unsafe fn GetEventId(&self) -> ::windows_core::Result<u32> {
@@ -9806,24 +8145,8 @@ impl IESRequestTunerEvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IESRequestTunerEvent, ::windows_core::IUnknown, super::IESEvent);
-impl ::core::cmp::PartialEq for IESRequestTunerEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IESRequestTunerEvent {}
-impl ::core::fmt::Debug for IESRequestTunerEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IESRequestTunerEvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IESRequestTunerEvent {
     type Vtable = IESRequestTunerEvent_Vtbl;
-}
-impl ::core::clone::Clone for IESRequestTunerEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IESRequestTunerEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54c7a5e8_c3bb_4f51_af14_e0e2c0e34c6d);
@@ -9839,6 +8162,7 @@ pub struct IESRequestTunerEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESValueUpdatedEvent(::windows_core::IUnknown);
 impl IESValueUpdatedEvent {
     pub unsafe fn GetEventId(&self) -> ::windows_core::Result<u32> {
@@ -9870,24 +8194,8 @@ impl IESValueUpdatedEvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IESValueUpdatedEvent, ::windows_core::IUnknown, super::IESEvent);
-impl ::core::cmp::PartialEq for IESValueUpdatedEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IESValueUpdatedEvent {}
-impl ::core::fmt::Debug for IESValueUpdatedEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IESValueUpdatedEvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IESValueUpdatedEvent {
     type Vtable = IESValueUpdatedEvent_Vtbl;
-}
-impl ::core::clone::Clone for IESValueUpdatedEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IESValueUpdatedEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a24c46e_bb63_4664_8602_5d9c718c146d);
@@ -9903,6 +8211,7 @@ pub struct IESValueUpdatedEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IETFilter(::windows_core::IUnknown);
 impl IETFilter {
     pub unsafe fn EvalRatObjOK(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
@@ -9929,24 +8238,8 @@ impl IETFilter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IETFilter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IETFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IETFilter {}
-impl ::core::fmt::Debug for IETFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IETFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IETFilter {
     type Vtable = IETFilter_Vtbl;
-}
-impl ::core::clone::Clone for IETFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IETFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4b1_0049_4e2b_98fb_9537f6ce516d);
@@ -9966,6 +8259,7 @@ pub struct IETFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IETFilterConfig(::windows_core::IUnknown);
 impl IETFilterConfig {
     pub unsafe fn InitLicense(&self, licenseid: i32) -> ::windows_core::Result<()> {
@@ -9977,24 +8271,8 @@ impl IETFilterConfig {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IETFilterConfig, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IETFilterConfig {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IETFilterConfig {}
-impl ::core::fmt::Debug for IETFilterConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IETFilterConfig").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IETFilterConfig {
     type Vtable = IETFilterConfig_Vtbl;
-}
-impl ::core::clone::Clone for IETFilterConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IETFilterConfig {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4d1_0049_4e2b_98fb_9537f6ce516d);
@@ -10009,34 +8287,15 @@ pub struct IETFilterConfig_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IETFilterEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IETFilterEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IETFilterEvents, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IETFilterEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IETFilterEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IETFilterEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IETFilterEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IETFilterEvents {
     type Vtable = IETFilterEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IETFilterEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IETFilterEvents {
@@ -10050,6 +8309,7 @@ pub struct IETFilterEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumComponentTypes(::windows_core::IUnknown);
 impl IEnumComponentTypes {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10069,24 +8329,8 @@ impl IEnumComponentTypes {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumComponentTypes, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumComponentTypes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumComponentTypes {}
-impl ::core::fmt::Debug for IEnumComponentTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumComponentTypes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumComponentTypes {
     type Vtable = IEnumComponentTypes_Vtbl;
-}
-impl ::core::clone::Clone for IEnumComponentTypes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumComponentTypes {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a674b4a_1f63_11d3_b64c_00c04f79498e);
@@ -10105,6 +8349,7 @@ pub struct IEnumComponentTypes_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumComponents(::windows_core::IUnknown);
 impl IEnumComponents {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10124,24 +8369,8 @@ impl IEnumComponents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumComponents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumComponents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumComponents {}
-impl ::core::fmt::Debug for IEnumComponents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumComponents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumComponents {
     type Vtable = IEnumComponents_Vtbl;
-}
-impl ::core::clone::Clone for IEnumComponents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumComponents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a6e2939_2595_11d3_b64c_00c04f79498e);
@@ -10160,6 +8389,7 @@ pub struct IEnumComponents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumGuideDataProperties(::windows_core::IUnknown);
 impl IEnumGuideDataProperties {
     pub unsafe fn Next(&self, celt: u32, ppprop: *mut ::core::option::Option<IGuideDataProperty>, pcelt: *mut u32) -> ::windows_core::Result<()> {
@@ -10177,24 +8407,8 @@ impl IEnumGuideDataProperties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumGuideDataProperties, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumGuideDataProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumGuideDataProperties {}
-impl ::core::fmt::Debug for IEnumGuideDataProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumGuideDataProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumGuideDataProperties {
     type Vtable = IEnumGuideDataProperties_Vtbl;
-}
-impl ::core::clone::Clone for IEnumGuideDataProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumGuideDataProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae44423b_4571_475c_ad2c_f40a771d80ef);
@@ -10210,6 +8424,7 @@ pub struct IEnumGuideDataProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumMSVidGraphSegment(::windows_core::IUnknown);
 impl IEnumMSVidGraphSegment {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10229,24 +8444,8 @@ impl IEnumMSVidGraphSegment {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumMSVidGraphSegment, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumMSVidGraphSegment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumMSVidGraphSegment {}
-impl ::core::fmt::Debug for IEnumMSVidGraphSegment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumMSVidGraphSegment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumMSVidGraphSegment {
     type Vtable = IEnumMSVidGraphSegment_Vtbl;
-}
-impl ::core::clone::Clone for IEnumMSVidGraphSegment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumMSVidGraphSegment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3dd2903e_e0aa_11d2_b63a_00c04f79498e);
@@ -10265,6 +8464,7 @@ pub struct IEnumMSVidGraphSegment_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumStreamBufferRecordingAttrib(::windows_core::IUnknown);
 impl IEnumStreamBufferRecordingAttrib {
     pub unsafe fn Next(&self, pstreambufferattribute: &mut [STREAMBUFFER_ATTRIBUTE], pcreceived: *mut u32) -> ::windows_core::Result<()> {
@@ -10282,24 +8482,8 @@ impl IEnumStreamBufferRecordingAttrib {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumStreamBufferRecordingAttrib, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumStreamBufferRecordingAttrib {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumStreamBufferRecordingAttrib {}
-impl ::core::fmt::Debug for IEnumStreamBufferRecordingAttrib {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumStreamBufferRecordingAttrib").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumStreamBufferRecordingAttrib {
     type Vtable = IEnumStreamBufferRecordingAttrib_Vtbl;
-}
-impl ::core::clone::Clone for IEnumStreamBufferRecordingAttrib {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumStreamBufferRecordingAttrib {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc18a9162_1e82_4142_8c73_5690fa62fe33);
@@ -10315,6 +8499,7 @@ pub struct IEnumStreamBufferRecordingAttrib_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumTuneRequests(::windows_core::IUnknown);
 impl IEnumTuneRequests {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10334,24 +8519,8 @@ impl IEnumTuneRequests {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumTuneRequests, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumTuneRequests {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTuneRequests {}
-impl ::core::fmt::Debug for IEnumTuneRequests {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTuneRequests").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumTuneRequests {
     type Vtable = IEnumTuneRequests_Vtbl;
-}
-impl ::core::clone::Clone for IEnumTuneRequests {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumTuneRequests {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1993299c_ced6_4788_87a3_420067dce0c7);
@@ -10370,6 +8539,7 @@ pub struct IEnumTuneRequests_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumTuningSpaces(::windows_core::IUnknown);
 impl IEnumTuningSpaces {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10389,24 +8559,8 @@ impl IEnumTuningSpaces {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumTuningSpaces, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumTuningSpaces {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTuningSpaces {}
-impl ::core::fmt::Debug for IEnumTuningSpaces {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTuningSpaces").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumTuningSpaces {
     type Vtable = IEnumTuningSpaces_Vtbl;
-}
-impl ::core::clone::Clone for IEnumTuningSpaces {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumTuningSpaces {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b8eb248_fc2b_11d2_9d8c_00c04f72d980);
@@ -10426,6 +8580,7 @@ pub struct IEnumTuningSpaces_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEvalRat(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IEvalRat {
@@ -10460,28 +8615,8 @@ impl IEvalRat {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IEvalRat, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IEvalRat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IEvalRat {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IEvalRat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEvalRat").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IEvalRat {
     type Vtable = IEvalRat_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IEvalRat {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IEvalRat {
@@ -10507,6 +8642,7 @@ pub struct IEvalRat_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGenericDescriptor(::windows_core::IUnknown);
 impl IGenericDescriptor {
     pub unsafe fn Initialize(&self, pbdesc: *const u8, bcount: i32) -> ::windows_core::Result<()> {
@@ -10526,24 +8662,8 @@ impl IGenericDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGenericDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGenericDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGenericDescriptor {}
-impl ::core::fmt::Debug for IGenericDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGenericDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGenericDescriptor {
     type Vtable = IGenericDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IGenericDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGenericDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a5918f8_a77a_4f61_aed0_5702bdcda3e6);
@@ -10559,6 +8679,7 @@ pub struct IGenericDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGenericDescriptor2(::windows_core::IUnknown);
 impl IGenericDescriptor2 {
     pub unsafe fn Initialize(&self, pbdesc: *const u8, bcount: i32) -> ::windows_core::Result<()> {
@@ -10585,24 +8706,8 @@ impl IGenericDescriptor2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGenericDescriptor2, ::windows_core::IUnknown, IGenericDescriptor);
-impl ::core::cmp::PartialEq for IGenericDescriptor2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGenericDescriptor2 {}
-impl ::core::fmt::Debug for IGenericDescriptor2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGenericDescriptor2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGenericDescriptor2 {
     type Vtable = IGenericDescriptor2_Vtbl;
-}
-impl ::core::clone::Clone for IGenericDescriptor2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGenericDescriptor2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf02fb7e_9792_4e10_a68d_033a2cc246a5);
@@ -10616,6 +8721,7 @@ pub struct IGenericDescriptor2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGpnvsCommonBase(::windows_core::IUnknown);
 impl IGpnvsCommonBase {
     pub unsafe fn GetValueUpdateName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -10624,24 +8730,8 @@ impl IGpnvsCommonBase {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGpnvsCommonBase, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGpnvsCommonBase {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGpnvsCommonBase {}
-impl ::core::fmt::Debug for IGpnvsCommonBase {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGpnvsCommonBase").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGpnvsCommonBase {
     type Vtable = IGpnvsCommonBase_Vtbl;
-}
-impl ::core::clone::Clone for IGpnvsCommonBase {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGpnvsCommonBase {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x907e0b5c_e42d_4f04_91f0_26f401f36907);
@@ -10654,6 +8744,7 @@ pub struct IGpnvsCommonBase_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGuideData(::windows_core::IUnknown);
 impl IGuideData {
     pub unsafe fn GetServices(&self) -> ::windows_core::Result<IEnumTuneRequests> {
@@ -10695,24 +8786,8 @@ impl IGuideData {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGuideData, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGuideData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGuideData {}
-impl ::core::fmt::Debug for IGuideData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGuideData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGuideData {
     type Vtable = IGuideData_Vtbl;
-}
-impl ::core::clone::Clone for IGuideData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGuideData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61571138_5b01_43cd_aeaf_60b784a0bf93);
@@ -10745,6 +8820,7 @@ pub struct IGuideData_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGuideDataEvent(::windows_core::IUnknown);
 impl IGuideDataEvent {
     pub unsafe fn GuideDataAcquired(&self) -> ::windows_core::Result<()> {
@@ -10782,24 +8858,8 @@ impl IGuideDataEvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGuideDataEvent, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGuideDataEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGuideDataEvent {}
-impl ::core::fmt::Debug for IGuideDataEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGuideDataEvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGuideDataEvent {
     type Vtable = IGuideDataEvent_Vtbl;
-}
-impl ::core::clone::Clone for IGuideDataEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGuideDataEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefda0c80_f395_42c3_9b3c_56b37dec7bb7);
@@ -10836,6 +8896,7 @@ pub struct IGuideDataEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGuideDataLoader(::windows_core::IUnknown);
 impl IGuideDataLoader {
     pub unsafe fn Init<P0>(&self, pguidestore: P0) -> ::windows_core::Result<()>
@@ -10849,24 +8910,8 @@ impl IGuideDataLoader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGuideDataLoader, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGuideDataLoader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGuideDataLoader {}
-impl ::core::fmt::Debug for IGuideDataLoader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGuideDataLoader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGuideDataLoader {
     type Vtable = IGuideDataLoader_Vtbl;
-}
-impl ::core::clone::Clone for IGuideDataLoader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGuideDataLoader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4764ff7c_fa95_4525_af4d_d32236db9e38);
@@ -10880,6 +8925,7 @@ pub struct IGuideDataLoader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGuideDataProperty(::windows_core::IUnknown);
 impl IGuideDataProperty {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -10898,24 +8944,8 @@ impl IGuideDataProperty {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGuideDataProperty, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGuideDataProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGuideDataProperty {}
-impl ::core::fmt::Debug for IGuideDataProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGuideDataProperty").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGuideDataProperty {
     type Vtable = IGuideDataProperty_Vtbl;
-}
-impl ::core::clone::Clone for IGuideDataProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGuideDataProperty {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88ec5e58_bb73_41d6_99ce_66c524b8b591);
@@ -10934,6 +8964,7 @@ pub struct IGuideDataProperty_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IISDBSLocator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IISDBSLocator {
@@ -11038,28 +9069,8 @@ impl IISDBSLocator {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IISDBSLocator, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ILocator, IDigitalLocator, IDVBSLocator);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IISDBSLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IISDBSLocator {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IISDBSLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IISDBSLocator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IISDBSLocator {
     type Vtable = IISDBSLocator_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IISDBSLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IISDBSLocator {
@@ -11073,6 +9084,7 @@ pub struct IISDBSLocator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IISDB_BIT(::windows_core::IUnknown);
 impl IISDB_BIT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -11130,24 +9142,8 @@ impl IISDB_BIT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IISDB_BIT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IISDB_BIT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IISDB_BIT {}
-impl ::core::fmt::Debug for IISDB_BIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IISDB_BIT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IISDB_BIT {
     type Vtable = IISDB_BIT_Vtbl;
-}
-impl ::core::clone::Clone for IISDB_BIT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IISDB_BIT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x537cd71e_0e46_4173_9001_ba043f3e49e2);
@@ -11172,6 +9168,7 @@ pub struct IISDB_BIT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IISDB_CDT(::windows_core::IUnknown);
 impl IISDB_CDT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1, bsectionnumber: u8) -> ::windows_core::Result<()>
@@ -11226,24 +9223,8 @@ impl IISDB_CDT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IISDB_CDT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IISDB_CDT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IISDB_CDT {}
-impl ::core::fmt::Debug for IISDB_CDT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IISDB_CDT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IISDB_CDT {
     type Vtable = IISDB_CDT_Vtbl;
-}
-impl ::core::clone::Clone for IISDB_CDT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IISDB_CDT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x25fa92c2_8b80_4787_a841_3a0e8f17984b);
@@ -11267,6 +9248,7 @@ pub struct IISDB_CDT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IISDB_EMM(::windows_core::IUnknown);
 impl IISDB_EMM {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -11302,24 +9284,8 @@ impl IISDB_EMM {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IISDB_EMM, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IISDB_EMM {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IISDB_EMM {}
-impl ::core::fmt::Debug for IISDB_EMM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IISDB_EMM").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IISDB_EMM {
     type Vtable = IISDB_EMM_Vtbl;
-}
-impl ::core::clone::Clone for IISDB_EMM {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IISDB_EMM {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0edb556d_43ad_4938_9668_321b2ffecfd3);
@@ -11338,6 +9304,7 @@ pub struct IISDB_EMM_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IISDB_LDT(::windows_core::IUnknown);
 impl IISDB_LDT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -11388,24 +9355,8 @@ impl IISDB_LDT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IISDB_LDT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IISDB_LDT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IISDB_LDT {}
-impl ::core::fmt::Debug for IISDB_LDT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IISDB_LDT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IISDB_LDT {
     type Vtable = IISDB_LDT_Vtbl;
-}
-impl ::core::clone::Clone for IISDB_LDT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IISDB_LDT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x141a546b_02ff_4fb9_a3a3_2f074b74a9a9);
@@ -11428,6 +9379,7 @@ pub struct IISDB_LDT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IISDB_NBIT(::windows_core::IUnknown);
 impl IISDB_NBIT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -11494,24 +9446,8 @@ impl IISDB_NBIT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IISDB_NBIT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IISDB_NBIT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IISDB_NBIT {}
-impl ::core::fmt::Debug for IISDB_NBIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IISDB_NBIT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IISDB_NBIT {
     type Vtable = IISDB_NBIT_Vtbl;
-}
-impl ::core::clone::Clone for IISDB_NBIT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IISDB_NBIT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b1863ef_08f1_40b7_a559_3b1eff8cafa6);
@@ -11538,6 +9474,7 @@ pub struct IISDB_NBIT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IISDB_SDT(::windows_core::IUnknown);
 impl IISDB_SDT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -11633,24 +9570,8 @@ impl IISDB_SDT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IISDB_SDT, ::windows_core::IUnknown, IDVB_SDT);
-impl ::core::cmp::PartialEq for IISDB_SDT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IISDB_SDT {}
-impl ::core::fmt::Debug for IISDB_SDT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IISDB_SDT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IISDB_SDT {
     type Vtable = IISDB_SDT_Vtbl;
-}
-impl ::core::clone::Clone for IISDB_SDT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IISDB_SDT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f3dc9a2_bb32_4fb9_ae9e_d856848927a3);
@@ -11663,6 +9584,7 @@ pub struct IISDB_SDT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IISDB_SDTT(::windows_core::IUnknown);
 impl IISDB_SDTT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -11749,24 +9671,8 @@ impl IISDB_SDTT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IISDB_SDTT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IISDB_SDTT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IISDB_SDTT {}
-impl ::core::fmt::Debug for IISDB_SDTT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IISDB_SDTT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IISDB_SDTT {
     type Vtable = IISDB_SDTT_Vtbl;
-}
-impl ::core::clone::Clone for IISDB_SDTT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IISDB_SDTT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xee60ef2d_813a_4dc7_bf92_ea13dac85313);
@@ -11798,6 +9704,7 @@ pub struct IISDB_SDTT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbAudioComponentDescriptor(::windows_core::IUnknown);
 impl IIsdbAudioComponentDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -11860,24 +9767,8 @@ impl IIsdbAudioComponentDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbAudioComponentDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbAudioComponentDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbAudioComponentDescriptor {}
-impl ::core::fmt::Debug for IIsdbAudioComponentDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbAudioComponentDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbAudioComponentDescriptor {
     type Vtable = IIsdbAudioComponentDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbAudioComponentDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbAudioComponentDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x679d2002_2425_4be4_a4c7_d6632a574f4d);
@@ -11909,6 +9800,7 @@ pub struct IIsdbAudioComponentDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbCAContractInformationDescriptor(::windows_core::IUnknown);
 impl IIsdbCAContractInformationDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -11949,24 +9841,8 @@ impl IIsdbCAContractInformationDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbCAContractInformationDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbCAContractInformationDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbCAContractInformationDescriptor {}
-impl ::core::fmt::Debug for IIsdbCAContractInformationDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbCAContractInformationDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbCAContractInformationDescriptor {
     type Vtable = IIsdbCAContractInformationDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbCAContractInformationDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbCAContractInformationDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08e18b25_a28f_4e92_821e_4fced5cc2291);
@@ -11987,6 +9863,7 @@ pub struct IIsdbCAContractInformationDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbCADescriptor(::windows_core::IUnknown);
 impl IIsdbCADescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -12014,24 +9891,8 @@ impl IIsdbCADescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbCADescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbCADescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbCADescriptor {}
-impl ::core::fmt::Debug for IIsdbCADescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbCADescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbCADescriptor {
     type Vtable = IIsdbCADescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbCADescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbCADescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0570aa47_52bc_42ae_8ca5_969f41e81aea);
@@ -12049,6 +9910,7 @@ pub struct IIsdbCADescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbCAServiceDescriptor(::windows_core::IUnknown);
 impl IIsdbCAServiceDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -12076,24 +9938,8 @@ impl IIsdbCAServiceDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbCAServiceDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbCAServiceDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbCAServiceDescriptor {}
-impl ::core::fmt::Debug for IIsdbCAServiceDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbCAServiceDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbCAServiceDescriptor {
     type Vtable = IIsdbCAServiceDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbCAServiceDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbCAServiceDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x39cbeb97_ff0b_42a7_9ab9_7b9cfe70a77a);
@@ -12111,6 +9957,7 @@ pub struct IIsdbCAServiceDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbComponentGroupDescriptor(::windows_core::IUnknown);
 impl IIsdbComponentGroupDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -12159,24 +10006,8 @@ impl IIsdbComponentGroupDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbComponentGroupDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbComponentGroupDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbComponentGroupDescriptor {}
-impl ::core::fmt::Debug for IIsdbComponentGroupDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbComponentGroupDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbComponentGroupDescriptor {
     type Vtable = IIsdbComponentGroupDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbComponentGroupDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbComponentGroupDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa494f17f_c592_47d8_8943_64c9a34be7b9);
@@ -12199,6 +10030,7 @@ pub struct IIsdbComponentGroupDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbDataContentDescriptor(::windows_core::IUnknown);
 impl IIsdbDataContentDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -12242,24 +10074,8 @@ impl IIsdbDataContentDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbDataContentDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbDataContentDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbDataContentDescriptor {}
-impl ::core::fmt::Debug for IIsdbDataContentDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbDataContentDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbDataContentDescriptor {
     type Vtable = IIsdbDataContentDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbDataContentDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbDataContentDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa428100a_e646_4bd6_aa14_6087bdc08cd5);
@@ -12281,6 +10097,7 @@ pub struct IIsdbDataContentDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbDigitalCopyControlDescriptor(::windows_core::IUnknown);
 impl IIsdbDigitalCopyControlDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -12303,24 +10120,8 @@ impl IIsdbDigitalCopyControlDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbDigitalCopyControlDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbDigitalCopyControlDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbDigitalCopyControlDescriptor {}
-impl ::core::fmt::Debug for IIsdbDigitalCopyControlDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbDigitalCopyControlDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbDigitalCopyControlDescriptor {
     type Vtable = IIsdbDigitalCopyControlDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbDigitalCopyControlDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbDigitalCopyControlDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a28417e_266a_4bb8_a4bd_d782bcfb8161);
@@ -12337,6 +10138,7 @@ pub struct IIsdbDigitalCopyControlDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbDownloadContentDescriptor(::windows_core::IUnknown);
 impl IIsdbDownloadContentDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -12409,24 +10211,8 @@ impl IIsdbDownloadContentDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbDownloadContentDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbDownloadContentDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbDownloadContentDescriptor {}
-impl ::core::fmt::Debug for IIsdbDownloadContentDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbDownloadContentDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbDownloadContentDescriptor {
     type Vtable = IIsdbDownloadContentDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbDownloadContentDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbDownloadContentDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5298661e_cb88_4f5f_a1de_5f440c185b92);
@@ -12458,6 +10244,7 @@ pub struct IIsdbDownloadContentDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbEmergencyInformationDescriptor(::windows_core::IUnknown);
 impl IIsdbEmergencyInformationDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -12489,24 +10276,8 @@ impl IIsdbEmergencyInformationDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbEmergencyInformationDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbEmergencyInformationDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbEmergencyInformationDescriptor {}
-impl ::core::fmt::Debug for IIsdbEmergencyInformationDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbEmergencyInformationDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbEmergencyInformationDescriptor {
     type Vtable = IIsdbEmergencyInformationDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbEmergencyInformationDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbEmergencyInformationDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xba6fa681_b973_4da1_9207_ac3e7f0341eb);
@@ -12525,6 +10296,7 @@ pub struct IIsdbEmergencyInformationDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbEventGroupDescriptor(::windows_core::IUnknown);
 impl IIsdbEventGroupDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -12555,24 +10327,8 @@ impl IIsdbEventGroupDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbEventGroupDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbEventGroupDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbEventGroupDescriptor {}
-impl ::core::fmt::Debug for IIsdbEventGroupDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbEventGroupDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbEventGroupDescriptor {
     type Vtable = IIsdbEventGroupDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbEventGroupDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbEventGroupDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94b06780_2e2a_44dc_a966_cc56fdabc6c2);
@@ -12591,6 +10347,7 @@ pub struct IIsdbEventGroupDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbHierarchicalTransmissionDescriptor(::windows_core::IUnknown);
 impl IIsdbHierarchicalTransmissionDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -12619,24 +10376,8 @@ impl IIsdbHierarchicalTransmissionDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbHierarchicalTransmissionDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbHierarchicalTransmissionDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbHierarchicalTransmissionDescriptor {}
-impl ::core::fmt::Debug for IIsdbHierarchicalTransmissionDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbHierarchicalTransmissionDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbHierarchicalTransmissionDescriptor {
     type Vtable = IIsdbHierarchicalTransmissionDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbHierarchicalTransmissionDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbHierarchicalTransmissionDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7b3ae90_ee0b_446d_8769_f7e2aa266aa6);
@@ -12654,6 +10395,7 @@ pub struct IIsdbHierarchicalTransmissionDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbLogoTransmissionDescriptor(::windows_core::IUnknown);
 impl IIsdbLogoTransmissionDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -12686,24 +10428,8 @@ impl IIsdbLogoTransmissionDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbLogoTransmissionDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbLogoTransmissionDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbLogoTransmissionDescriptor {}
-impl ::core::fmt::Debug for IIsdbLogoTransmissionDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbLogoTransmissionDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbLogoTransmissionDescriptor {
     type Vtable = IIsdbLogoTransmissionDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbLogoTransmissionDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbLogoTransmissionDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0103f49_4ae1_4f07_9098_756db1fa88cd);
@@ -12722,6 +10448,7 @@ pub struct IIsdbLogoTransmissionDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbSIParameterDescriptor(::windows_core::IUnknown);
 impl IIsdbSIParameterDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -12757,24 +10484,8 @@ impl IIsdbSIParameterDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbSIParameterDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbSIParameterDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbSIParameterDescriptor {}
-impl ::core::fmt::Debug for IIsdbSIParameterDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbSIParameterDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbSIParameterDescriptor {
     type Vtable = IIsdbSIParameterDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbSIParameterDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbSIParameterDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf837dc36_867c_426a_9111_f62093951a45);
@@ -12794,6 +10505,7 @@ pub struct IIsdbSIParameterDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbSeriesDescriptor(::windows_core::IUnknown);
 impl IIsdbSeriesDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -12835,24 +10547,8 @@ impl IIsdbSeriesDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbSeriesDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbSeriesDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbSeriesDescriptor {}
-impl ::core::fmt::Debug for IIsdbSeriesDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbSeriesDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbSeriesDescriptor {
     type Vtable = IIsdbSeriesDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbSeriesDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbSeriesDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x07ef6370_1660_4f26_87fc_614adab24b11);
@@ -12876,6 +10572,7 @@ pub struct IIsdbSeriesDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbSiParser2(::windows_core::IUnknown);
 impl IIsdbSiParser2 {
     pub unsafe fn Initialize<P0>(&self, punkmpeg2data: P0) -> ::windows_core::Result<()>
@@ -12974,24 +10671,8 @@ impl IIsdbSiParser2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbSiParser2, ::windows_core::IUnknown, IDvbSiParser, IDvbSiParser2);
-impl ::core::cmp::PartialEq for IIsdbSiParser2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbSiParser2 {}
-impl ::core::fmt::Debug for IIsdbSiParser2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbSiParser2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbSiParser2 {
     type Vtable = IIsdbSiParser2_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbSiParser2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbSiParser2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x900e4bb7_18cd_453f_98be_3be6aa211772);
@@ -13010,6 +10691,7 @@ pub struct IIsdbSiParser2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbTSInformationDescriptor(::windows_core::IUnknown);
 impl IIsdbTSInformationDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -13046,24 +10728,8 @@ impl IIsdbTSInformationDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbTSInformationDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbTSInformationDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbTSInformationDescriptor {}
-impl ::core::fmt::Debug for IIsdbTSInformationDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbTSInformationDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbTSInformationDescriptor {
     type Vtable = IIsdbTSInformationDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbTSInformationDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbTSInformationDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7ad183e_38f5_4210_b55f_ec8d601bbd47);
@@ -13083,6 +10749,7 @@ pub struct IIsdbTSInformationDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbTerrestrialDeliverySystemDescriptor(::windows_core::IUnknown);
 impl IIsdbTerrestrialDeliverySystemDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -13115,24 +10782,8 @@ impl IIsdbTerrestrialDeliverySystemDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsdbTerrestrialDeliverySystemDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsdbTerrestrialDeliverySystemDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsdbTerrestrialDeliverySystemDescriptor {}
-impl ::core::fmt::Debug for IIsdbTerrestrialDeliverySystemDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsdbTerrestrialDeliverySystemDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsdbTerrestrialDeliverySystemDescriptor {
     type Vtable = IIsdbTerrestrialDeliverySystemDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IIsdbTerrestrialDeliverySystemDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsdbTerrestrialDeliverySystemDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x39fae0a6_d151_44dd_a28a_765de5991670);
@@ -13152,6 +10803,7 @@ pub struct IIsdbTerrestrialDeliverySystemDescriptor_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILanguageComponentType(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ILanguageComponentType {
@@ -13241,28 +10893,8 @@ impl ILanguageComponentType {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ILanguageComponentType, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IComponentType);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ILanguageComponentType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ILanguageComponentType {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ILanguageComponentType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILanguageComponentType").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ILanguageComponentType {
     type Vtable = ILanguageComponentType_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ILanguageComponentType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ILanguageComponentType {
@@ -13279,6 +10911,7 @@ pub struct ILanguageComponentType_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILocator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ILocator {
@@ -13341,28 +10974,8 @@ impl ILocator {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ILocator, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ILocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ILocator {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ILocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILocator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ILocator {
     type Vtable = ILocator_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ILocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ILocator {
@@ -13395,6 +11008,7 @@ pub struct ILocator_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2Component(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMPEG2Component {
@@ -13467,28 +11081,8 @@ impl IMPEG2Component {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMPEG2Component, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IComponent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMPEG2Component {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMPEG2Component {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMPEG2Component {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMPEG2Component").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMPEG2Component {
     type Vtable = IMPEG2Component_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMPEG2Component {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMPEG2Component {
@@ -13509,6 +11103,7 @@ pub struct IMPEG2Component_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2ComponentType(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMPEG2ComponentType {
@@ -13605,28 +11200,8 @@ impl IMPEG2ComponentType {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMPEG2ComponentType, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IComponentType, ILanguageComponentType);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMPEG2ComponentType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMPEG2ComponentType {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMPEG2ComponentType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMPEG2ComponentType").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMPEG2ComponentType {
     type Vtable = IMPEG2ComponentType_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMPEG2ComponentType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMPEG2ComponentType {
@@ -13643,6 +11218,7 @@ pub struct IMPEG2ComponentType_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2TuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMPEG2TuneRequest {
@@ -13696,28 +11272,8 @@ impl IMPEG2TuneRequest {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMPEG2TuneRequest, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITuneRequest);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMPEG2TuneRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMPEG2TuneRequest {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMPEG2TuneRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMPEG2TuneRequest").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMPEG2TuneRequest {
     type Vtable = IMPEG2TuneRequest_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMPEG2TuneRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMPEG2TuneRequest {
@@ -13736,6 +11292,7 @@ pub struct IMPEG2TuneRequest_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2TuneRequestFactory(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMPEG2TuneRequestFactory {
@@ -13752,28 +11309,8 @@ impl IMPEG2TuneRequestFactory {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMPEG2TuneRequestFactory, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMPEG2TuneRequestFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMPEG2TuneRequestFactory {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMPEG2TuneRequestFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMPEG2TuneRequestFactory").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMPEG2TuneRequestFactory {
     type Vtable = IMPEG2TuneRequestFactory_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMPEG2TuneRequestFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMPEG2TuneRequestFactory {
@@ -13791,27 +11328,12 @@ pub struct IMPEG2TuneRequestFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2TuneRequestSupport(::windows_core::IUnknown);
 impl IMPEG2TuneRequestSupport {}
 ::windows_core::imp::interface_hierarchy!(IMPEG2TuneRequestSupport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMPEG2TuneRequestSupport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMPEG2TuneRequestSupport {}
-impl ::core::fmt::Debug for IMPEG2TuneRequestSupport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMPEG2TuneRequestSupport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMPEG2TuneRequestSupport {
     type Vtable = IMPEG2TuneRequestSupport_Vtbl;
-}
-impl ::core::clone::Clone for IMPEG2TuneRequestSupport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMPEG2TuneRequestSupport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b9d5fc3_5bbc_4b6c_bb18_b9d10e3eeebf);
@@ -13823,6 +11345,7 @@ pub struct IMPEG2TuneRequestSupport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2_TIF_CONTROL(::windows_core::IUnknown);
 impl IMPEG2_TIF_CONTROL {
     pub unsafe fn RegisterTIF<P0>(&self, punktif: P0, ppvregistrationcontext: *mut u32) -> ::windows_core::Result<()>
@@ -13849,24 +11372,8 @@ impl IMPEG2_TIF_CONTROL {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMPEG2_TIF_CONTROL, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMPEG2_TIF_CONTROL {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMPEG2_TIF_CONTROL {}
-impl ::core::fmt::Debug for IMPEG2_TIF_CONTROL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMPEG2_TIF_CONTROL").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMPEG2_TIF_CONTROL {
     type Vtable = IMPEG2_TIF_CONTROL_Vtbl;
-}
-impl ::core::clone::Clone for IMPEG2_TIF_CONTROL {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMPEG2_TIF_CONTROL {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9bac2f9_4149_4916_b2ef_faa202326862);
@@ -13885,6 +11392,7 @@ pub struct IMPEG2_TIF_CONTROL_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSEventBinder(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSEventBinder {
@@ -13906,28 +11414,8 @@ impl IMSEventBinder {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSEventBinder, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSEventBinder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSEventBinder {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSEventBinder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSEventBinder").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSEventBinder {
     type Vtable = IMSEventBinder_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSEventBinder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSEventBinder {
@@ -13947,6 +11435,7 @@ pub struct IMSEventBinder_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidAnalogTuner(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAnalogTuner {
@@ -14081,28 +11570,8 @@ impl IMSVidAnalogTuner {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidAnalogTuner, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidVideoInputDevice, IMSVidTuner);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidAnalogTuner {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidAnalogTuner {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidAnalogTuner {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidAnalogTuner").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidAnalogTuner {
     type Vtable = IMSVidAnalogTuner_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidAnalogTuner {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidAnalogTuner {
@@ -14135,6 +11604,7 @@ pub struct IMSVidAnalogTuner_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidAnalogTuner2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAnalogTuner2 {
@@ -14281,28 +11751,8 @@ impl IMSVidAnalogTuner2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidAnalogTuner2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidVideoInputDevice, IMSVidTuner, IMSVidAnalogTuner);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidAnalogTuner2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidAnalogTuner2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidAnalogTuner2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidAnalogTuner2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidAnalogTuner2 {
     type Vtable = IMSVidAnalogTuner2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidAnalogTuner2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidAnalogTuner2 {
@@ -14320,6 +11770,7 @@ pub struct IMSVidAnalogTuner2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidAnalogTunerEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAnalogTunerEvent {
@@ -14335,28 +11786,8 @@ impl IMSVidAnalogTunerEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidAnalogTunerEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidTunerEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidAnalogTunerEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidAnalogTunerEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidAnalogTunerEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidAnalogTunerEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidAnalogTunerEvent {
     type Vtable = IMSVidAnalogTunerEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidAnalogTunerEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidAnalogTunerEvent {
@@ -14371,6 +11802,7 @@ pub struct IMSVidAnalogTunerEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidAudioRenderer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAudioRenderer {
@@ -14439,28 +11871,8 @@ impl IMSVidAudioRenderer {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidAudioRenderer, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidAudioRenderer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidAudioRenderer {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidAudioRenderer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidAudioRenderer").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidAudioRenderer {
     type Vtable = IMSVidAudioRenderer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidAudioRenderer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidAudioRenderer {
@@ -14479,6 +11891,7 @@ pub struct IMSVidAudioRenderer_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidAudioRendererDevices(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAudioRendererDevices {
@@ -14515,28 +11928,8 @@ impl IMSVidAudioRendererDevices {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidAudioRendererDevices, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidAudioRendererDevices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidAudioRendererDevices {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidAudioRendererDevices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidAudioRendererDevices").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidAudioRendererDevices {
     type Vtable = IMSVidAudioRendererDevices_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidAudioRendererDevices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidAudioRendererDevices {
@@ -14568,6 +11961,7 @@ pub struct IMSVidAudioRendererDevices_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidAudioRendererEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAudioRendererEvent {
@@ -14583,28 +11977,8 @@ impl IMSVidAudioRendererEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidAudioRendererEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidAudioRendererEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidAudioRendererEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidAudioRendererEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidAudioRendererEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidAudioRendererEvent {
     type Vtable = IMSVidAudioRendererEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidAudioRendererEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidAudioRendererEvent {
@@ -14619,6 +11993,7 @@ pub struct IMSVidAudioRendererEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidAudioRendererEvent2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAudioRendererEvent2 {
@@ -14658,28 +12033,8 @@ impl IMSVidAudioRendererEvent2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidAudioRendererEvent2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent, IMSVidAudioRendererEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidAudioRendererEvent2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidAudioRendererEvent2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidAudioRendererEvent2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidAudioRendererEvent2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidAudioRendererEvent2 {
     type Vtable = IMSVidAudioRendererEvent2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidAudioRendererEvent2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidAudioRendererEvent2 {
@@ -14702,6 +12057,7 @@ pub struct IMSVidAudioRendererEvent2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidClosedCaptioning(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidClosedCaptioning {
@@ -14770,28 +12126,8 @@ impl IMSVidClosedCaptioning {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidClosedCaptioning, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidFeature);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidClosedCaptioning {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidClosedCaptioning {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidClosedCaptioning {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidClosedCaptioning").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidClosedCaptioning {
     type Vtable = IMSVidClosedCaptioning_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidClosedCaptioning {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidClosedCaptioning {
@@ -14814,6 +12150,7 @@ pub struct IMSVidClosedCaptioning_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidClosedCaptioning2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidClosedCaptioning2 {
@@ -14889,28 +12226,8 @@ impl IMSVidClosedCaptioning2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidClosedCaptioning2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidFeature, IMSVidClosedCaptioning);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidClosedCaptioning2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidClosedCaptioning2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidClosedCaptioning2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidClosedCaptioning2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidClosedCaptioning2 {
     type Vtable = IMSVidClosedCaptioning2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidClosedCaptioning2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidClosedCaptioning2 {
@@ -14927,6 +12244,7 @@ pub struct IMSVidClosedCaptioning2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidClosedCaptioning3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidClosedCaptioning3 {
@@ -15006,28 +12324,8 @@ impl IMSVidClosedCaptioning3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidClosedCaptioning3, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidFeature, IMSVidClosedCaptioning, IMSVidClosedCaptioning2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidClosedCaptioning3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidClosedCaptioning3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidClosedCaptioning3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidClosedCaptioning3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidClosedCaptioning3 {
     type Vtable = IMSVidClosedCaptioning3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidClosedCaptioning3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidClosedCaptioning3 {
@@ -15043,6 +12341,7 @@ pub struct IMSVidClosedCaptioning3_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidCompositionSegment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidCompositionSegment {
@@ -15133,28 +12432,8 @@ impl IMSVidCompositionSegment {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidCompositionSegment, ::windows_core::IUnknown, super::super::super::System::Com::IPersist, IMSVidGraphSegment);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidCompositionSegment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidCompositionSegment {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidCompositionSegment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidCompositionSegment").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidCompositionSegment {
     type Vtable = IMSVidCompositionSegment_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidCompositionSegment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidCompositionSegment {
@@ -15181,6 +12460,7 @@ pub struct IMSVidCompositionSegment_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidCtl(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidCtl {
@@ -15427,28 +12707,8 @@ impl IMSVidCtl {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidCtl, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidCtl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidCtl {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidCtl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidCtl").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidCtl {
     type Vtable = IMSVidCtl_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidCtl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidCtl {
@@ -15590,6 +12850,7 @@ pub struct IMSVidCtl_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidDataServices(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidDataServices {
@@ -15644,28 +12905,8 @@ impl IMSVidDataServices {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidDataServices, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidFeature);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidDataServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidDataServices {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidDataServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidDataServices").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidDataServices {
     type Vtable = IMSVidDataServices_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidDataServices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidDataServices {
@@ -15680,6 +12921,7 @@ pub struct IMSVidDataServices_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidDataServicesEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidDataServicesEvent {
@@ -15695,28 +12937,8 @@ impl IMSVidDataServicesEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidDataServicesEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidDataServicesEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidDataServicesEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidDataServicesEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidDataServicesEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidDataServicesEvent {
     type Vtable = IMSVidDataServicesEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidDataServicesEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidDataServicesEvent {
@@ -15731,6 +12953,7 @@ pub struct IMSVidDataServicesEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidDevice(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidDevice {
@@ -15785,28 +13008,8 @@ impl IMSVidDevice {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidDevice, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidDevice {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidDevice").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidDevice {
     type Vtable = IMSVidDevice_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidDevice {
@@ -15838,6 +13041,7 @@ pub struct IMSVidDevice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidDevice2(::windows_core::IUnknown);
 impl IMSVidDevice2 {
     pub unsafe fn DevicePath(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -15846,24 +13050,8 @@ impl IMSVidDevice2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMSVidDevice2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMSVidDevice2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMSVidDevice2 {}
-impl ::core::fmt::Debug for IMSVidDevice2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidDevice2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMSVidDevice2 {
     type Vtable = IMSVidDevice2_Vtbl;
-}
-impl ::core::clone::Clone for IMSVidDevice2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMSVidDevice2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x87bd2783_ebc0_478c_b4a0_e8e7f43ab78e);
@@ -15877,6 +13065,7 @@ pub struct IMSVidDevice2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidDeviceEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidDeviceEvent {
@@ -15892,28 +13081,8 @@ impl IMSVidDeviceEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidDeviceEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidDeviceEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidDeviceEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidDeviceEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidDeviceEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidDeviceEvent {
     type Vtable = IMSVidDeviceEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidDeviceEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidDeviceEvent {
@@ -15932,6 +13101,7 @@ pub struct IMSVidDeviceEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidEVR(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidEVR {
@@ -16178,28 +13348,8 @@ impl IMSVidEVR {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidEVR, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice, IMSVidVideoRenderer);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidEVR {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidEVR {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidEVR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidEVR").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidEVR {
     type Vtable = IMSVidEVR_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidEVR {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidEVR {
@@ -16230,6 +13380,7 @@ pub struct IMSVidEVR_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidEVREvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidEVREvent {
@@ -16248,28 +13399,8 @@ impl IMSVidEVREvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidEVREvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidEVREvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidEVREvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidEVREvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidEVREvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidEVREvent {
     type Vtable = IMSVidEVREvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidEVREvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidEVREvent {
@@ -16285,6 +13416,7 @@ pub struct IMSVidEVREvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidEncoder(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidEncoder {
@@ -16347,28 +13479,8 @@ impl IMSVidEncoder {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidEncoder, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidFeature);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidEncoder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidEncoder {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidEncoder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidEncoder").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidEncoder {
     type Vtable = IMSVidEncoder_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidEncoder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidEncoder {
@@ -16385,6 +13497,7 @@ pub struct IMSVidEncoder_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidFeature(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidFeature {
@@ -16439,28 +13552,8 @@ impl IMSVidFeature {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidFeature, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidFeature {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidFeature {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidFeature {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidFeature").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidFeature {
     type Vtable = IMSVidFeature_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidFeature {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidFeature {
@@ -16475,6 +13568,7 @@ pub struct IMSVidFeature_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidFeatureEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidFeatureEvent {
@@ -16490,28 +13584,8 @@ impl IMSVidFeatureEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidFeatureEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidFeatureEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidFeatureEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidFeatureEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidFeatureEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidFeatureEvent {
     type Vtable = IMSVidFeatureEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidFeatureEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidFeatureEvent {
@@ -16526,6 +13600,7 @@ pub struct IMSVidFeatureEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidFeatures(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidFeatures {
@@ -16562,28 +13637,8 @@ impl IMSVidFeatures {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidFeatures, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidFeatures {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidFeatures {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidFeatures {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidFeatures").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidFeatures {
     type Vtable = IMSVidFeatures_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidFeatures {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidFeatures {
@@ -16615,6 +13670,7 @@ pub struct IMSVidFeatures_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidFilePlayback(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidFilePlayback {
@@ -16750,28 +13806,8 @@ impl IMSVidFilePlayback {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidFilePlayback, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidPlayback);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidFilePlayback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidFilePlayback {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidFilePlayback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidFilePlayback").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidFilePlayback {
     type Vtable = IMSVidFilePlayback_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidFilePlayback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidFilePlayback {
@@ -16788,6 +13824,7 @@ pub struct IMSVidFilePlayback_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidFilePlayback2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidFilePlayback2 {
@@ -16932,28 +13969,8 @@ impl IMSVidFilePlayback2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidFilePlayback2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidPlayback, IMSVidFilePlayback);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidFilePlayback2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidFilePlayback2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidFilePlayback2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidFilePlayback2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidFilePlayback2 {
     type Vtable = IMSVidFilePlayback2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidFilePlayback2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidFilePlayback2 {
@@ -16970,6 +13987,7 @@ pub struct IMSVidFilePlayback2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidFilePlaybackEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidFilePlaybackEvent {
@@ -16985,28 +14003,8 @@ impl IMSVidFilePlaybackEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidFilePlaybackEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidPlaybackEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidFilePlaybackEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidFilePlaybackEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidFilePlaybackEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidFilePlaybackEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidFilePlaybackEvent {
     type Vtable = IMSVidFilePlaybackEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidFilePlaybackEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidFilePlaybackEvent {
@@ -17021,6 +14019,7 @@ pub struct IMSVidFilePlaybackEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidGenericSink(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidGenericSink {
@@ -17088,28 +14087,8 @@ impl IMSVidGenericSink {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidGenericSink, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidGenericSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidGenericSink {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidGenericSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidGenericSink").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidGenericSink {
     type Vtable = IMSVidGenericSink_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidGenericSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidGenericSink {
@@ -17127,6 +14106,7 @@ pub struct IMSVidGenericSink_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidGenericSink2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidGenericSink2 {
@@ -17203,28 +14183,8 @@ impl IMSVidGenericSink2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidGenericSink2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice, IMSVidGenericSink);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidGenericSink2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidGenericSink2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidGenericSink2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidGenericSink2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidGenericSink2 {
     type Vtable = IMSVidGenericSink2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidGenericSink2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidGenericSink2 {
@@ -17241,6 +14201,7 @@ pub struct IMSVidGenericSink2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidGraphSegment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidGraphSegment {
@@ -17310,28 +14271,8 @@ impl IMSVidGraphSegment {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidGraphSegment, ::windows_core::IUnknown, super::super::super::System::Com::IPersist);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidGraphSegment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidGraphSegment {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidGraphSegment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidGraphSegment").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidGraphSegment {
     type Vtable = IMSVidGraphSegment_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidGraphSegment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidGraphSegment {
@@ -17360,6 +14301,7 @@ pub struct IMSVidGraphSegment_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidGraphSegmentContainer(::windows_core::IUnknown);
 impl IMSVidGraphSegmentContainer {
     pub unsafe fn Graph(&self) -> ::windows_core::Result<super::IGraphBuilder> {
@@ -17416,24 +14358,8 @@ impl IMSVidGraphSegmentContainer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMSVidGraphSegmentContainer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMSVidGraphSegmentContainer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMSVidGraphSegmentContainer {}
-impl ::core::fmt::Debug for IMSVidGraphSegmentContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidGraphSegmentContainer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMSVidGraphSegmentContainer {
     type Vtable = IMSVidGraphSegmentContainer_Vtbl;
-}
-impl ::core::clone::Clone for IMSVidGraphSegmentContainer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMSVidGraphSegmentContainer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3dd2903d_e0aa_11d2_b63a_00c04f79498e);
@@ -17468,6 +14394,7 @@ pub struct IMSVidGraphSegmentContainer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidGraphSegmentUserInput(::windows_core::IUnknown);
 impl IMSVidGraphSegmentUserInput {
     pub unsafe fn Click(&self) -> ::windows_core::Result<()> {
@@ -17496,24 +14423,8 @@ impl IMSVidGraphSegmentUserInput {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMSVidGraphSegmentUserInput, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMSVidGraphSegmentUserInput {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMSVidGraphSegmentUserInput {}
-impl ::core::fmt::Debug for IMSVidGraphSegmentUserInput {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidGraphSegmentUserInput").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMSVidGraphSegmentUserInput {
     type Vtable = IMSVidGraphSegmentUserInput_Vtbl;
-}
-impl ::core::clone::Clone for IMSVidGraphSegmentUserInput {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMSVidGraphSegmentUserInput {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x301c060e_20d9_4587_9b03_f82ed9a9943c);
@@ -17534,6 +14445,7 @@ pub struct IMSVidGraphSegmentUserInput_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidInputDevice(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidInputDevice {
@@ -17599,28 +14511,8 @@ impl IMSVidInputDevice {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidInputDevice, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidInputDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidInputDevice {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidInputDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidInputDevice").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidInputDevice {
     type Vtable = IMSVidInputDevice_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidInputDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidInputDevice {
@@ -17643,34 +14535,15 @@ pub struct IMSVidInputDevice_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidInputDeviceEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidInputDeviceEvent {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidInputDeviceEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidInputDeviceEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidInputDeviceEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidInputDeviceEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidInputDeviceEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidInputDeviceEvent {
     type Vtable = IMSVidInputDeviceEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidInputDeviceEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidInputDeviceEvent {
@@ -17685,6 +14558,7 @@ pub struct IMSVidInputDeviceEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidInputDevices(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidInputDevices {
@@ -17721,28 +14595,8 @@ impl IMSVidInputDevices {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidInputDevices, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidInputDevices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidInputDevices {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidInputDevices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidInputDevices").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidInputDevices {
     type Vtable = IMSVidInputDevices_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidInputDevices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidInputDevices {
@@ -17774,6 +14628,7 @@ pub struct IMSVidInputDevices_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidOutputDevice(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidOutputDevice {
@@ -17828,28 +14683,8 @@ impl IMSVidOutputDevice {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidOutputDevice, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidOutputDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidOutputDevice {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidOutputDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidOutputDevice").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidOutputDevice {
     type Vtable = IMSVidOutputDevice_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidOutputDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidOutputDevice {
@@ -17864,6 +14699,7 @@ pub struct IMSVidOutputDevice_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidOutputDeviceEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidOutputDeviceEvent {
@@ -17879,28 +14715,8 @@ impl IMSVidOutputDeviceEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidOutputDeviceEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidOutputDeviceEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidOutputDeviceEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidOutputDeviceEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidOutputDeviceEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidOutputDeviceEvent {
     type Vtable = IMSVidOutputDeviceEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidOutputDeviceEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidOutputDeviceEvent {
@@ -17915,6 +14731,7 @@ pub struct IMSVidOutputDeviceEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidOutputDevices(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidOutputDevices {
@@ -17951,28 +14768,8 @@ impl IMSVidOutputDevices {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidOutputDevices, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidOutputDevices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidOutputDevices {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidOutputDevices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidOutputDevices").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidOutputDevices {
     type Vtable = IMSVidOutputDevices_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidOutputDevices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidOutputDevices {
@@ -18004,6 +14801,7 @@ pub struct IMSVidOutputDevices_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidPlayback(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidPlayback {
@@ -18129,28 +14927,8 @@ impl IMSVidPlayback {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidPlayback, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidPlayback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidPlayback {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidPlayback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidPlayback").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidPlayback {
     type Vtable = IMSVidPlayback_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidPlayback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidPlayback {
@@ -18188,6 +14966,7 @@ pub struct IMSVidPlayback_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidPlaybackEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidPlaybackEvent {
@@ -18203,28 +14982,8 @@ impl IMSVidPlaybackEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidPlaybackEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidPlaybackEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidPlaybackEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidPlaybackEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidPlaybackEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidPlaybackEvent {
     type Vtable = IMSVidPlaybackEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidPlaybackEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidPlaybackEvent {
@@ -18243,6 +15002,7 @@ pub struct IMSVidPlaybackEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidRect(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidRect {
@@ -18300,28 +15060,8 @@ impl IMSVidRect {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidRect, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidRect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidRect {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidRect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidRect").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidRect {
     type Vtable = IMSVidRect_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidRect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidRect {
@@ -18356,6 +15096,7 @@ pub struct IMSVidRect_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferRecordingControl(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferRecordingControl {
@@ -18397,28 +15138,8 @@ impl IMSVidStreamBufferRecordingControl {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidStreamBufferRecordingControl, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidStreamBufferRecordingControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidStreamBufferRecordingControl {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidStreamBufferRecordingControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidStreamBufferRecordingControl").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidStreamBufferRecordingControl {
     type Vtable = IMSVidStreamBufferRecordingControl_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidStreamBufferRecordingControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidStreamBufferRecordingControl {
@@ -18447,6 +15168,7 @@ pub struct IMSVidStreamBufferRecordingControl_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSink(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSink {
@@ -18536,28 +15258,8 @@ impl IMSVidStreamBufferSink {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSink, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidStreamBufferSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidStreamBufferSink {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidStreamBufferSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidStreamBufferSink").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidStreamBufferSink {
     type Vtable = IMSVidStreamBufferSink_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidStreamBufferSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidStreamBufferSink {
@@ -18584,6 +15286,7 @@ pub struct IMSVidStreamBufferSink_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSink2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSink2 {
@@ -18676,28 +15379,8 @@ impl IMSVidStreamBufferSink2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSink2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice, IMSVidStreamBufferSink);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidStreamBufferSink2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidStreamBufferSink2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidStreamBufferSink2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidStreamBufferSink2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidStreamBufferSink2 {
     type Vtable = IMSVidStreamBufferSink2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidStreamBufferSink2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidStreamBufferSink2 {
@@ -18713,6 +15396,7 @@ pub struct IMSVidStreamBufferSink2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSink3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSink3 {
@@ -18880,28 +15564,8 @@ impl IMSVidStreamBufferSink3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSink3, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice, IMSVidStreamBufferSink, IMSVidStreamBufferSink2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidStreamBufferSink3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidStreamBufferSink3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidStreamBufferSink3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidStreamBufferSink3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidStreamBufferSink3 {
     type Vtable = IMSVidStreamBufferSink3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidStreamBufferSink3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidStreamBufferSink3 {
@@ -18934,6 +15598,7 @@ pub struct IMSVidStreamBufferSink3_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSinkEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSinkEvent {
@@ -18958,28 +15623,8 @@ impl IMSVidStreamBufferSinkEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSinkEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidStreamBufferSinkEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidStreamBufferSinkEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidStreamBufferSinkEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidStreamBufferSinkEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidStreamBufferSinkEvent {
     type Vtable = IMSVidStreamBufferSinkEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidStreamBufferSinkEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidStreamBufferSinkEvent {
@@ -18997,6 +15642,7 @@ pub struct IMSVidStreamBufferSinkEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSinkEvent2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSinkEvent2 {
@@ -19027,28 +15673,8 @@ impl IMSVidStreamBufferSinkEvent2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSinkEvent2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent, IMSVidStreamBufferSinkEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidStreamBufferSinkEvent2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidStreamBufferSinkEvent2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidStreamBufferSinkEvent2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidStreamBufferSinkEvent2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidStreamBufferSinkEvent2 {
     type Vtable = IMSVidStreamBufferSinkEvent2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidStreamBufferSinkEvent2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidStreamBufferSinkEvent2 {
@@ -19065,6 +15691,7 @@ pub struct IMSVidStreamBufferSinkEvent2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSinkEvent3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSinkEvent3 {
@@ -19098,28 +15725,8 @@ impl IMSVidStreamBufferSinkEvent3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSinkEvent3, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent, IMSVidStreamBufferSinkEvent, IMSVidStreamBufferSinkEvent2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidStreamBufferSinkEvent3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidStreamBufferSinkEvent3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidStreamBufferSinkEvent3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidStreamBufferSinkEvent3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidStreamBufferSinkEvent3 {
     type Vtable = IMSVidStreamBufferSinkEvent3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidStreamBufferSinkEvent3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidStreamBufferSinkEvent3 {
@@ -19135,6 +15742,7 @@ pub struct IMSVidStreamBufferSinkEvent3_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSinkEvent4(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSinkEvent4 {
@@ -19171,28 +15779,8 @@ impl IMSVidStreamBufferSinkEvent4 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSinkEvent4, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent, IMSVidStreamBufferSinkEvent, IMSVidStreamBufferSinkEvent2, IMSVidStreamBufferSinkEvent3);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidStreamBufferSinkEvent4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidStreamBufferSinkEvent4 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidStreamBufferSinkEvent4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidStreamBufferSinkEvent4").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidStreamBufferSinkEvent4 {
     type Vtable = IMSVidStreamBufferSinkEvent4_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidStreamBufferSinkEvent4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidStreamBufferSinkEvent4 {
@@ -19208,6 +15796,7 @@ pub struct IMSVidStreamBufferSinkEvent4_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSource(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSource {
@@ -19372,28 +15961,8 @@ impl IMSVidStreamBufferSource {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSource, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidPlayback, IMSVidFilePlayback);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidStreamBufferSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidStreamBufferSource {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidStreamBufferSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidStreamBufferSource").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidStreamBufferSource {
     type Vtable = IMSVidStreamBufferSource_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidStreamBufferSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidStreamBufferSource {
@@ -19418,6 +15987,7 @@ pub struct IMSVidStreamBufferSource_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSource2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSource2 {
@@ -19601,28 +16171,8 @@ impl IMSVidStreamBufferSource2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSource2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidPlayback, IMSVidFilePlayback, IMSVidStreamBufferSource);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidStreamBufferSource2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidStreamBufferSource2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidStreamBufferSource2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidStreamBufferSource2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidStreamBufferSource2 {
     type Vtable = IMSVidStreamBufferSource2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidStreamBufferSource2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidStreamBufferSource2 {
@@ -19642,6 +16192,7 @@ pub struct IMSVidStreamBufferSource2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSourceEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSourceEvent {
@@ -19684,28 +16235,8 @@ impl IMSVidStreamBufferSourceEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSourceEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidPlaybackEvent, IMSVidFilePlaybackEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidStreamBufferSourceEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidStreamBufferSourceEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidStreamBufferSourceEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidStreamBufferSourceEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidStreamBufferSourceEvent {
     type Vtable = IMSVidStreamBufferSourceEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidStreamBufferSourceEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidStreamBufferSourceEvent {
@@ -19729,6 +16260,7 @@ pub struct IMSVidStreamBufferSourceEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSourceEvent2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSourceEvent2 {
@@ -19774,28 +16306,8 @@ impl IMSVidStreamBufferSourceEvent2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSourceEvent2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidPlaybackEvent, IMSVidFilePlaybackEvent, IMSVidStreamBufferSourceEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidStreamBufferSourceEvent2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidStreamBufferSourceEvent2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidStreamBufferSourceEvent2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidStreamBufferSourceEvent2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidStreamBufferSourceEvent2 {
     type Vtable = IMSVidStreamBufferSourceEvent2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidStreamBufferSourceEvent2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidStreamBufferSourceEvent2 {
@@ -19811,6 +16323,7 @@ pub struct IMSVidStreamBufferSourceEvent2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSourceEvent3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSourceEvent3 {
@@ -19877,28 +16390,8 @@ impl IMSVidStreamBufferSourceEvent3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidStreamBufferSourceEvent3, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidPlaybackEvent, IMSVidFilePlaybackEvent, IMSVidStreamBufferSourceEvent, IMSVidStreamBufferSourceEvent2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidStreamBufferSourceEvent3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidStreamBufferSourceEvent3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidStreamBufferSourceEvent3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidStreamBufferSourceEvent3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidStreamBufferSourceEvent3 {
     type Vtable = IMSVidStreamBufferSourceEvent3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidStreamBufferSourceEvent3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidStreamBufferSourceEvent3 {
@@ -19918,6 +16411,7 @@ pub struct IMSVidStreamBufferSourceEvent3_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferV2SourceEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferV2SourceEvent {
@@ -19966,28 +16460,8 @@ impl IMSVidStreamBufferV2SourceEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidStreamBufferV2SourceEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidPlaybackEvent, IMSVidFilePlaybackEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidStreamBufferV2SourceEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidStreamBufferV2SourceEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidStreamBufferV2SourceEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidStreamBufferV2SourceEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidStreamBufferV2SourceEvent {
     type Vtable = IMSVidStreamBufferV2SourceEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidStreamBufferV2SourceEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidStreamBufferV2SourceEvent {
@@ -20011,6 +16485,7 @@ pub struct IMSVidStreamBufferV2SourceEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidTuner(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidTuner {
@@ -20104,28 +16579,8 @@ impl IMSVidTuner {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidTuner, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidVideoInputDevice);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidTuner {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidTuner {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidTuner {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidTuner").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidTuner {
     type Vtable = IMSVidTuner_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidTuner {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidTuner {
@@ -20156,6 +16611,7 @@ pub struct IMSVidTuner_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidTunerEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidTunerEvent {
@@ -20171,28 +16627,8 @@ impl IMSVidTunerEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidTunerEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidTunerEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidTunerEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidTunerEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidTunerEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidTunerEvent {
     type Vtable = IMSVidTunerEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidTunerEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidTunerEvent {
@@ -20211,6 +16647,7 @@ pub struct IMSVidTunerEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidVMR9(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVMR9 {
@@ -20457,28 +16894,8 @@ impl IMSVidVMR9 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidVMR9, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice, IMSVidVideoRenderer);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidVMR9 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidVMR9 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidVMR9 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidVMR9").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidVMR9 {
     type Vtable = IMSVidVMR9_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidVMR9 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidVMR9 {
@@ -20504,6 +16921,7 @@ pub struct IMSVidVMR9_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidVRGraphSegment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVRGraphSegment {
@@ -20687,28 +17105,8 @@ impl IMSVidVRGraphSegment {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidVRGraphSegment, ::windows_core::IUnknown, super::super::super::System::Com::IPersist, IMSVidGraphSegment);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidVRGraphSegment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidVRGraphSegment {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidVRGraphSegment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidVRGraphSegment").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidVRGraphSegment {
     type Vtable = IMSVidVRGraphSegment_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidVRGraphSegment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidVRGraphSegment {
@@ -20786,6 +17184,7 @@ pub struct IMSVidVRGraphSegment_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidVideoInputDevice(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVideoInputDevice {
@@ -20851,28 +17250,8 @@ impl IMSVidVideoInputDevice {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidVideoInputDevice, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidVideoInputDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidVideoInputDevice {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidVideoInputDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidVideoInputDevice").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidVideoInputDevice {
     type Vtable = IMSVidVideoInputDevice_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidVideoInputDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidVideoInputDevice {
@@ -20887,6 +17266,7 @@ pub struct IMSVidVideoInputDevice_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidVideoRenderer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVideoRenderer {
@@ -21105,28 +17485,8 @@ impl IMSVidVideoRenderer {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidVideoRenderer, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidVideoRenderer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidVideoRenderer {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidVideoRenderer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidVideoRenderer").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidVideoRenderer {
     type Vtable = IMSVidVideoRenderer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidVideoRenderer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidVideoRenderer {
@@ -21219,6 +17579,7 @@ pub struct IMSVidVideoRenderer_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidVideoRenderer2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVideoRenderer2 {
@@ -21475,28 +17836,8 @@ impl IMSVidVideoRenderer2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidVideoRenderer2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidOutputDevice, IMSVidVideoRenderer);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidVideoRenderer2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidVideoRenderer2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidVideoRenderer2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidVideoRenderer2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidVideoRenderer2 {
     type Vtable = IMSVidVideoRenderer2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidVideoRenderer2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidVideoRenderer2 {
@@ -21524,6 +17865,7 @@ pub struct IMSVidVideoRenderer2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidVideoRendererDevices(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVideoRendererDevices {
@@ -21560,28 +17902,8 @@ impl IMSVidVideoRendererDevices {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidVideoRendererDevices, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidVideoRendererDevices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidVideoRendererDevices {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidVideoRendererDevices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidVideoRendererDevices").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidVideoRendererDevices {
     type Vtable = IMSVidVideoRendererDevices_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidVideoRendererDevices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidVideoRendererDevices {
@@ -21613,6 +17935,7 @@ pub struct IMSVidVideoRendererDevices_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidVideoRendererEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVideoRendererEvent {
@@ -21631,28 +17954,8 @@ impl IMSVidVideoRendererEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidVideoRendererEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidVideoRendererEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidVideoRendererEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidVideoRendererEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidVideoRendererEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidVideoRendererEvent {
     type Vtable = IMSVidVideoRendererEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidVideoRendererEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidVideoRendererEvent {
@@ -21668,6 +17971,7 @@ pub struct IMSVidVideoRendererEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidVideoRendererEvent2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVideoRendererEvent2 {
@@ -21686,28 +17990,8 @@ impl IMSVidVideoRendererEvent2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidVideoRendererEvent2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidOutputDeviceEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidVideoRendererEvent2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidVideoRendererEvent2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidVideoRendererEvent2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidVideoRendererEvent2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidVideoRendererEvent2 {
     type Vtable = IMSVidVideoRendererEvent2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidVideoRendererEvent2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidVideoRendererEvent2 {
@@ -21723,6 +18007,7 @@ pub struct IMSVidVideoRendererEvent2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidWebDVD(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidWebDVD {
@@ -22246,28 +18531,8 @@ impl IMSVidWebDVD {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidWebDVD, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidPlayback);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidWebDVD {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidWebDVD {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidWebDVD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidWebDVD").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidWebDVD {
     type Vtable = IMSVidWebDVD_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidWebDVD {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidWebDVD {
@@ -22413,6 +18678,7 @@ pub struct IMSVidWebDVD_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidWebDVD2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidWebDVD2 {
@@ -22942,28 +19208,8 @@ impl IMSVidWebDVD2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidWebDVD2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidInputDevice, IMSVidPlayback, IMSVidWebDVD);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidWebDVD2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidWebDVD2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidWebDVD2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidWebDVD2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidWebDVD2 {
     type Vtable = IMSVidWebDVD2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidWebDVD2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidWebDVD2 {
@@ -22980,6 +19226,7 @@ pub struct IMSVidWebDVD2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidWebDVDAdm(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidWebDVDAdm {
@@ -23062,28 +19309,8 @@ impl IMSVidWebDVDAdm {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidWebDVDAdm, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidWebDVDAdm {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidWebDVDAdm {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidWebDVDAdm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidWebDVDAdm").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidWebDVDAdm {
     type Vtable = IMSVidWebDVDAdm_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidWebDVDAdm {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidWebDVDAdm {
@@ -23121,6 +19348,7 @@ pub struct IMSVidWebDVDAdm_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidWebDVDEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidWebDVDEvent {
@@ -23317,28 +19545,8 @@ impl IMSVidWebDVDEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidWebDVDEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidInputDeviceEvent, IMSVidPlaybackEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidWebDVDEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidWebDVDEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidWebDVDEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidWebDVDEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidWebDVDEvent {
     type Vtable = IMSVidWebDVDEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidWebDVDEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidWebDVDEvent {
@@ -23445,6 +19653,7 @@ pub struct IMSVidWebDVDEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidXDS(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidXDS {
@@ -23503,28 +19712,8 @@ impl IMSVidXDS {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidXDS, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDevice, IMSVidFeature);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidXDS {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidXDS {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidXDS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidXDS").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidXDS {
     type Vtable = IMSVidXDS_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidXDS {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidXDS {
@@ -23540,6 +19729,7 @@ pub struct IMSVidXDS_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidXDSEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidXDSEvent {
@@ -23558,28 +19748,8 @@ impl IMSVidXDSEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSVidXDSEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IMSVidDeviceEvent, IMSVidFeatureEvent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMSVidXDSEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMSVidXDSEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMSVidXDSEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSVidXDSEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMSVidXDSEvent {
     type Vtable = IMSVidXDSEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSVidXDSEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMSVidXDSEvent {
@@ -23594,6 +19764,7 @@ pub struct IMSVidXDSEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMceBurnerControl(::windows_core::IUnknown);
 impl IMceBurnerControl {
     pub unsafe fn GetBurnerNoDecryption(&self) -> ::windows_core::Result<()> {
@@ -23601,24 +19772,8 @@ impl IMceBurnerControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMceBurnerControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMceBurnerControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMceBurnerControl {}
-impl ::core::fmt::Debug for IMceBurnerControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMceBurnerControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMceBurnerControl {
     type Vtable = IMceBurnerControl_Vtbl;
-}
-impl ::core::clone::Clone for IMceBurnerControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMceBurnerControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a86b91a_e71e_46c1_88a9_9bb338710552);
@@ -23631,6 +19786,7 @@ pub struct IMceBurnerControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMpeg2Data(::windows_core::IUnknown);
 impl IMpeg2Data {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -23656,24 +19812,8 @@ impl IMpeg2Data {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMpeg2Data, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMpeg2Data {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMpeg2Data {}
-impl ::core::fmt::Debug for IMpeg2Data {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMpeg2Data").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMpeg2Data {
     type Vtable = IMpeg2Data_Vtbl;
-}
-impl ::core::clone::Clone for IMpeg2Data {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMpeg2Data {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b396d40_f380_4e3c_a514_1a82bf6ebfe6);
@@ -23697,6 +19837,7 @@ pub struct IMpeg2Data_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMpeg2Stream(::windows_core::IUnknown);
 impl IMpeg2Stream {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -23713,24 +19854,8 @@ impl IMpeg2Stream {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMpeg2Stream, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMpeg2Stream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMpeg2Stream {}
-impl ::core::fmt::Debug for IMpeg2Stream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMpeg2Stream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMpeg2Stream {
     type Vtable = IMpeg2Stream_Vtbl;
-}
-impl ::core::clone::Clone for IMpeg2Stream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMpeg2Stream {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x400cc286_32a0_4ce4_9041_39571125a635);
@@ -23747,6 +19872,7 @@ pub struct IMpeg2Stream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMpeg2TableFilter(::windows_core::IUnknown);
 impl IMpeg2TableFilter {
     pub unsafe fn AddPID(&self, p: u16) -> ::windows_core::Result<()> {
@@ -23769,24 +19895,8 @@ impl IMpeg2TableFilter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMpeg2TableFilter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMpeg2TableFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMpeg2TableFilter {}
-impl ::core::fmt::Debug for IMpeg2TableFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMpeg2TableFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMpeg2TableFilter {
     type Vtable = IMpeg2TableFilter_Vtbl;
-}
-impl ::core::clone::Clone for IMpeg2TableFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMpeg2TableFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdcdd913_9ecd_4fb2_81ae_adf747ea75a5);
@@ -23804,6 +19914,7 @@ pub struct IMpeg2TableFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPAT(::windows_core::IUnknown);
 impl IPAT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -23862,24 +19973,8 @@ impl IPAT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPAT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPAT {}
-impl ::core::fmt::Debug for IPAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPAT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPAT {
     type Vtable = IPAT_Vtbl;
-}
-impl ::core::clone::Clone for IPAT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPAT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6623b511_4b5f_43c3_9a01_e8ff84188060);
@@ -23908,6 +20003,7 @@ pub struct IPAT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPBDAAttributesDescriptor(::windows_core::IUnknown);
 impl IPBDAAttributesDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -23923,24 +20019,8 @@ impl IPBDAAttributesDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPBDAAttributesDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPBDAAttributesDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPBDAAttributesDescriptor {}
-impl ::core::fmt::Debug for IPBDAAttributesDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPBDAAttributesDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPBDAAttributesDescriptor {
     type Vtable = IPBDAAttributesDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IPBDAAttributesDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPBDAAttributesDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x313b3620_3263_45a6_9533_968befbeac03);
@@ -23955,6 +20035,7 @@ pub struct IPBDAAttributesDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPBDAEntitlementDescriptor(::windows_core::IUnknown);
 impl IPBDAEntitlementDescriptor {
     pub unsafe fn GetTag(&self) -> ::windows_core::Result<u8> {
@@ -23970,24 +20051,8 @@ impl IPBDAEntitlementDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPBDAEntitlementDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPBDAEntitlementDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPBDAEntitlementDescriptor {}
-impl ::core::fmt::Debug for IPBDAEntitlementDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPBDAEntitlementDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPBDAEntitlementDescriptor {
     type Vtable = IPBDAEntitlementDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IPBDAEntitlementDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPBDAEntitlementDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x22632497_0de3_4587_aadc_d8d99017e760);
@@ -24002,6 +20067,7 @@ pub struct IPBDAEntitlementDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPBDASiParser(::windows_core::IUnknown);
 impl IPBDASiParser {
     pub unsafe fn Initialize<P0>(&self, punk: P0) -> ::windows_core::Result<()>
@@ -24020,24 +20086,8 @@ impl IPBDASiParser {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPBDASiParser, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPBDASiParser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPBDASiParser {}
-impl ::core::fmt::Debug for IPBDASiParser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPBDASiParser").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPBDASiParser {
     type Vtable = IPBDASiParser_Vtbl;
-}
-impl ::core::clone::Clone for IPBDASiParser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPBDASiParser {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9de49a74_aba2_4a18_93e1_21f17f95c3c3);
@@ -24052,6 +20102,7 @@ pub struct IPBDASiParser_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPBDA_EIT(::windows_core::IUnknown);
 impl IPBDA_EIT {
     pub unsafe fn Initialize(&self, pbuffer: &[u8]) -> ::windows_core::Result<()> {
@@ -24098,24 +20149,8 @@ impl IPBDA_EIT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPBDA_EIT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPBDA_EIT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPBDA_EIT {}
-impl ::core::fmt::Debug for IPBDA_EIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPBDA_EIT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPBDA_EIT {
     type Vtable = IPBDA_EIT_Vtbl;
-}
-impl ::core::clone::Clone for IPBDA_EIT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPBDA_EIT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa35f2dea_098f_4ebd_984c_2bd4c3c8ce0a);
@@ -24138,6 +20173,7 @@ pub struct IPBDA_EIT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPBDA_Services(::windows_core::IUnknown);
 impl IPBDA_Services {
     pub unsafe fn Initialize(&self, pbuffer: &[u8]) -> ::windows_core::Result<()> {
@@ -24153,24 +20189,8 @@ impl IPBDA_Services {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPBDA_Services, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPBDA_Services {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPBDA_Services {}
-impl ::core::fmt::Debug for IPBDA_Services {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPBDA_Services").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPBDA_Services {
     type Vtable = IPBDA_Services_Vtbl;
-}
-impl ::core::clone::Clone for IPBDA_Services {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPBDA_Services {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x944eab37_eed4_4850_afd2_77e7efeb4427);
@@ -24185,6 +20205,7 @@ pub struct IPBDA_Services_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMT(::windows_core::IUnknown);
 impl IPMT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -24271,24 +20292,8 @@ impl IPMT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMT {}
-impl ::core::fmt::Debug for IPMT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMT {
     type Vtable = IPMT_Vtbl;
-}
-impl ::core::clone::Clone for IPMT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01f3b398_9527_4736_94db_5195878e97a8);
@@ -24325,6 +20330,7 @@ pub struct IPMT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPSITables(::windows_core::IUnknown);
 impl IPSITables {
     pub unsafe fn GetTable(&self, dwtsid: u32, dwtid_pid: u32, dwhashedver: u32, dwpara4: u32) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -24333,24 +20339,8 @@ impl IPSITables {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPSITables, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPSITables {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPSITables {}
-impl ::core::fmt::Debug for IPSITables {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPSITables").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPSITables {
     type Vtable = IPSITables_Vtbl;
-}
-impl ::core::clone::Clone for IPSITables {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPSITables {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x919f24c5_7b14_42ac_a4b0_2ae08daf00ac);
@@ -24363,6 +20353,7 @@ pub struct IPSITables_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPTFilterLicenseRenewal(::windows_core::IUnknown);
 impl IPTFilterLicenseRenewal {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -24380,24 +20371,8 @@ impl IPTFilterLicenseRenewal {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPTFilterLicenseRenewal, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPTFilterLicenseRenewal {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPTFilterLicenseRenewal {}
-impl ::core::fmt::Debug for IPTFilterLicenseRenewal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPTFilterLicenseRenewal").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPTFilterLicenseRenewal {
     type Vtable = IPTFilterLicenseRenewal_Vtbl;
-}
-impl ::core::clone::Clone for IPTFilterLicenseRenewal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPTFilterLicenseRenewal {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26d836a5_0c15_44c7_ac59_b0da8728f240);
@@ -24415,6 +20390,7 @@ pub struct IPTFilterLicenseRenewal_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPersistTuneXml(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPersistTuneXml {
@@ -24442,28 +20418,8 @@ impl IPersistTuneXml {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPersistTuneXml, ::windows_core::IUnknown, super::super::super::System::Com::IPersist);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPersistTuneXml {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPersistTuneXml {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPersistTuneXml {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPersistTuneXml").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPersistTuneXml {
     type Vtable = IPersistTuneXml_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPersistTuneXml {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPersistTuneXml {
@@ -24486,6 +20442,7 @@ pub struct IPersistTuneXml_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPersistTuneXmlUtility(::windows_core::IUnknown);
 impl IPersistTuneXmlUtility {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -24496,24 +20453,8 @@ impl IPersistTuneXmlUtility {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPersistTuneXmlUtility, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPersistTuneXmlUtility {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPersistTuneXmlUtility {}
-impl ::core::fmt::Debug for IPersistTuneXmlUtility {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPersistTuneXmlUtility").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPersistTuneXmlUtility {
     type Vtable = IPersistTuneXmlUtility_Vtbl;
-}
-impl ::core::clone::Clone for IPersistTuneXmlUtility {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPersistTuneXmlUtility {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x990237ae_ac11_4614_be8f_dd217a4cb4cb);
@@ -24529,6 +20470,7 @@ pub struct IPersistTuneXmlUtility_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPersistTuneXmlUtility2(::windows_core::IUnknown);
 impl IPersistTuneXmlUtility2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -24548,24 +20490,8 @@ impl IPersistTuneXmlUtility2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPersistTuneXmlUtility2, ::windows_core::IUnknown, IPersistTuneXmlUtility);
-impl ::core::cmp::PartialEq for IPersistTuneXmlUtility2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPersistTuneXmlUtility2 {}
-impl ::core::fmt::Debug for IPersistTuneXmlUtility2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPersistTuneXmlUtility2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPersistTuneXmlUtility2 {
     type Vtable = IPersistTuneXmlUtility2_Vtbl;
-}
-impl ::core::clone::Clone for IPersistTuneXmlUtility2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPersistTuneXmlUtility2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x992e165f_ea24_4b2f_9a1d_009d92120451);
@@ -24581,6 +20507,7 @@ pub struct IPersistTuneXmlUtility2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRegisterTuner(::windows_core::IUnknown);
 impl IRegisterTuner {
     pub unsafe fn Register<P0, P1>(&self, ptuner: P0, pgraph: P1) -> ::windows_core::Result<()>
@@ -24595,24 +20522,8 @@ impl IRegisterTuner {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRegisterTuner, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRegisterTuner {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRegisterTuner {}
-impl ::core::fmt::Debug for IRegisterTuner {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRegisterTuner").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRegisterTuner {
     type Vtable = IRegisterTuner_Vtbl;
-}
-impl ::core::clone::Clone for IRegisterTuner {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRegisterTuner {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x359b3901_572c_4854_bb49_cdef66606a25);
@@ -24626,6 +20537,7 @@ pub struct IRegisterTuner_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2Crossbar(::windows_core::IUnknown);
 impl ISBE2Crossbar {
     pub unsafe fn EnableDefaultMode(&self, defaultflags: u32) -> ::windows_core::Result<()> {
@@ -24647,24 +20559,8 @@ impl ISBE2Crossbar {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISBE2Crossbar, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISBE2Crossbar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISBE2Crossbar {}
-impl ::core::fmt::Debug for ISBE2Crossbar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISBE2Crossbar").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISBE2Crossbar {
     type Vtable = ISBE2Crossbar_Vtbl;
-}
-impl ::core::clone::Clone for ISBE2Crossbar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISBE2Crossbar {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x547b6d26_3226_487e_8253_8aa168749434);
@@ -24680,6 +20576,7 @@ pub struct ISBE2Crossbar_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2EnumStream(::windows_core::IUnknown);
 impl ISBE2EnumStream {
     pub unsafe fn Next(&self, pstreamdesc: &mut [SBE2_STREAM_DESC], pcreceived: *mut u32) -> ::windows_core::Result<()> {
@@ -24697,24 +20594,8 @@ impl ISBE2EnumStream {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISBE2EnumStream, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISBE2EnumStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISBE2EnumStream {}
-impl ::core::fmt::Debug for ISBE2EnumStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISBE2EnumStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISBE2EnumStream {
     type Vtable = ISBE2EnumStream_Vtbl;
-}
-impl ::core::clone::Clone for ISBE2EnumStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISBE2EnumStream {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf7611092_9fbc_46ec_a7c7_548ea78b71a4);
@@ -24730,6 +20611,7 @@ pub struct ISBE2EnumStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2FileScan(::windows_core::IUnknown);
 impl ISBE2FileScan {
     pub unsafe fn RepairFile<P0>(&self, filename: P0) -> ::windows_core::Result<()>
@@ -24740,24 +20622,8 @@ impl ISBE2FileScan {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISBE2FileScan, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISBE2FileScan {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISBE2FileScan {}
-impl ::core::fmt::Debug for ISBE2FileScan {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISBE2FileScan").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISBE2FileScan {
     type Vtable = ISBE2FileScan_Vtbl;
-}
-impl ::core::clone::Clone for ISBE2FileScan {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISBE2FileScan {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3e2bf5a5_4f96_4899_a1a3_75e8be9a5ac0);
@@ -24770,6 +20636,7 @@ pub struct ISBE2FileScan_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2GlobalEvent(::windows_core::IUnknown);
 impl ISBE2GlobalEvent {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -24779,24 +20646,8 @@ impl ISBE2GlobalEvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISBE2GlobalEvent, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISBE2GlobalEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISBE2GlobalEvent {}
-impl ::core::fmt::Debug for ISBE2GlobalEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISBE2GlobalEvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISBE2GlobalEvent {
     type Vtable = ISBE2GlobalEvent_Vtbl;
-}
-impl ::core::clone::Clone for ISBE2GlobalEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISBE2GlobalEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaede759_b6b1_11db_a578_0018f3fa24c6);
@@ -24812,6 +20663,7 @@ pub struct ISBE2GlobalEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2GlobalEvent2(::windows_core::IUnknown);
 impl ISBE2GlobalEvent2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -24826,24 +20678,8 @@ impl ISBE2GlobalEvent2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISBE2GlobalEvent2, ::windows_core::IUnknown, ISBE2GlobalEvent);
-impl ::core::cmp::PartialEq for ISBE2GlobalEvent2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISBE2GlobalEvent2 {}
-impl ::core::fmt::Debug for ISBE2GlobalEvent2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISBE2GlobalEvent2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISBE2GlobalEvent2 {
     type Vtable = ISBE2GlobalEvent2_Vtbl;
-}
-impl ::core::clone::Clone for ISBE2GlobalEvent2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISBE2GlobalEvent2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d8309bf_00fe_4506_8b03_f8c65b5c9b39);
@@ -24859,6 +20695,7 @@ pub struct ISBE2GlobalEvent2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2MediaTypeProfile(::windows_core::IUnknown);
 impl ISBE2MediaTypeProfile {
     pub unsafe fn GetStreamCount(&self) -> ::windows_core::Result<u32> {
@@ -24881,24 +20718,8 @@ impl ISBE2MediaTypeProfile {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISBE2MediaTypeProfile, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISBE2MediaTypeProfile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISBE2MediaTypeProfile {}
-impl ::core::fmt::Debug for ISBE2MediaTypeProfile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISBE2MediaTypeProfile").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISBE2MediaTypeProfile {
     type Vtable = ISBE2MediaTypeProfile_Vtbl;
-}
-impl ::core::clone::Clone for ISBE2MediaTypeProfile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISBE2MediaTypeProfile {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf238267d_4671_40d7_997e_25dc32cfed2a);
@@ -24920,6 +20741,7 @@ pub struct ISBE2MediaTypeProfile_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2SpanningEvent(::windows_core::IUnknown);
 impl ISBE2SpanningEvent {
     pub unsafe fn GetEvent(&self, idevt: *const ::windows_core::GUID, streamid: u32, pcb: *mut u32, pb: *mut u8) -> ::windows_core::Result<()> {
@@ -24927,24 +20749,8 @@ impl ISBE2SpanningEvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISBE2SpanningEvent, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISBE2SpanningEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISBE2SpanningEvent {}
-impl ::core::fmt::Debug for ISBE2SpanningEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISBE2SpanningEvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISBE2SpanningEvent {
     type Vtable = ISBE2SpanningEvent_Vtbl;
-}
-impl ::core::clone::Clone for ISBE2SpanningEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISBE2SpanningEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaede760_b6b1_11db_a578_0018f3fa24c6);
@@ -24957,6 +20763,7 @@ pub struct ISBE2SpanningEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2StreamMap(::windows_core::IUnknown);
 impl ISBE2StreamMap {
     pub unsafe fn MapStream(&self, stream: u32) -> ::windows_core::Result<()> {
@@ -24971,24 +20778,8 @@ impl ISBE2StreamMap {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISBE2StreamMap, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISBE2StreamMap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISBE2StreamMap {}
-impl ::core::fmt::Debug for ISBE2StreamMap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISBE2StreamMap").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISBE2StreamMap {
     type Vtable = ISBE2StreamMap_Vtbl;
-}
-impl ::core::clone::Clone for ISBE2StreamMap {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISBE2StreamMap {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x667c7745_85b1_4c55_ae55_4e25056159fc);
@@ -25003,6 +20794,7 @@ pub struct ISBE2StreamMap_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISCTE_EAS(::windows_core::IUnknown);
 impl ISCTE_EAS {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -25129,24 +20921,8 @@ impl ISCTE_EAS {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISCTE_EAS, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISCTE_EAS {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISCTE_EAS {}
-impl ::core::fmt::Debug for ISCTE_EAS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISCTE_EAS").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISCTE_EAS {
     type Vtable = ISCTE_EAS_Vtbl;
-}
-impl ::core::clone::Clone for ISCTE_EAS {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISCTE_EAS {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ff544d6_161d_4fae_9faa_4f9f492ae999);
@@ -25187,6 +20963,7 @@ pub struct ISCTE_EAS_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISIInbandEPG(::windows_core::IUnknown);
 impl ISIInbandEPG {
     pub unsafe fn StartSIEPGScan(&self) -> ::windows_core::Result<()> {
@@ -25203,24 +20980,8 @@ impl ISIInbandEPG {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISIInbandEPG, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISIInbandEPG {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISIInbandEPG {}
-impl ::core::fmt::Debug for ISIInbandEPG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISIInbandEPG").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISIInbandEPG {
     type Vtable = ISIInbandEPG_Vtbl;
-}
-impl ::core::clone::Clone for ISIInbandEPG {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISIInbandEPG {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf90ad9d0_b854_4b68_9cc1_b2cc96119d85);
@@ -25238,6 +20999,7 @@ pub struct ISIInbandEPG_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISIInbandEPGEvent(::windows_core::IUnknown);
 impl ISIInbandEPGEvent {
     pub unsafe fn SIObjectEvent<P0>(&self, pidvb_eit: P0, dwtable_id: u32, dwservice_id: u32) -> ::windows_core::Result<()>
@@ -25248,24 +21010,8 @@ impl ISIInbandEPGEvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISIInbandEPGEvent, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISIInbandEPGEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISIInbandEPGEvent {}
-impl ::core::fmt::Debug for ISIInbandEPGEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISIInbandEPGEvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISIInbandEPGEvent {
     type Vtable = ISIInbandEPGEvent_Vtbl;
-}
-impl ::core::clone::Clone for ISIInbandEPGEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISIInbandEPGEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7e47913a_5a89_423d_9a2b_e15168858934);
@@ -25278,6 +21024,7 @@ pub struct ISIInbandEPGEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScanningTuner(::windows_core::IUnknown);
 impl IScanningTuner {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -25358,24 +21105,8 @@ impl IScanningTuner {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IScanningTuner, ::windows_core::IUnknown, ITuner);
-impl ::core::cmp::PartialEq for IScanningTuner {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IScanningTuner {}
-impl ::core::fmt::Debug for IScanningTuner {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IScanningTuner").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IScanningTuner {
     type Vtable = IScanningTuner_Vtbl;
-}
-impl ::core::clone::Clone for IScanningTuner {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScanningTuner {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1dfd0a5c_0284_11d3_9d8e_00c04f72d980);
@@ -25392,6 +21123,7 @@ pub struct IScanningTuner_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScanningTunerEx(::windows_core::IUnknown);
 impl IScanningTunerEx {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -25504,24 +21236,8 @@ impl IScanningTunerEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IScanningTunerEx, ::windows_core::IUnknown, ITuner, IScanningTuner);
-impl ::core::cmp::PartialEq for IScanningTunerEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IScanningTunerEx {}
-impl ::core::fmt::Debug for IScanningTunerEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IScanningTunerEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IScanningTunerEx {
     type Vtable = IScanningTunerEx_Vtbl;
-}
-impl ::core::clone::Clone for IScanningTunerEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScanningTunerEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04bbd195_0e2d_4593_9bd5_4f908bc33cf5);
@@ -25547,6 +21263,7 @@ pub struct IScanningTunerEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISectionList(::windows_core::IUnknown);
 impl ISectionList {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -25579,24 +21296,8 @@ impl ISectionList {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISectionList, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISectionList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISectionList {}
-impl ::core::fmt::Debug for ISectionList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISectionList").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISectionList {
     type Vtable = ISectionList_Vtbl;
-}
-impl ::core::clone::Clone for ISectionList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISectionList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xafec1eb5_2a64_46c6_bf4b_ae3ccb6afdb0);
@@ -25618,6 +21319,7 @@ pub struct ISectionList_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IServiceLocationDescriptor(::windows_core::IUnknown);
 impl IServiceLocationDescriptor {
     pub unsafe fn GetPCR_PID(&self) -> ::windows_core::Result<u16> {
@@ -25641,24 +21343,8 @@ impl IServiceLocationDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IServiceLocationDescriptor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IServiceLocationDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IServiceLocationDescriptor {}
-impl ::core::fmt::Debug for IServiceLocationDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IServiceLocationDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IServiceLocationDescriptor {
     type Vtable = IServiceLocationDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IServiceLocationDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IServiceLocationDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x58c3c827_9d91_4215_bff3_820a49f0904c);
@@ -25675,6 +21361,7 @@ pub struct IServiceLocationDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferConfigure(::windows_core::IUnknown);
 impl IStreamBufferConfigure {
     pub unsafe fn SetDirectory<P0>(&self, pszdirectoryname: P0) -> ::windows_core::Result<()>
@@ -25702,24 +21389,8 @@ impl IStreamBufferConfigure {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStreamBufferConfigure, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IStreamBufferConfigure {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStreamBufferConfigure {}
-impl ::core::fmt::Debug for IStreamBufferConfigure {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStreamBufferConfigure").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStreamBufferConfigure {
     type Vtable = IStreamBufferConfigure_Vtbl;
-}
-impl ::core::clone::Clone for IStreamBufferConfigure {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStreamBufferConfigure {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xce14dfae_4098_4af7_bbf7_d6511f835414);
@@ -25737,6 +21408,7 @@ pub struct IStreamBufferConfigure_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferConfigure2(::windows_core::IUnknown);
 impl IStreamBufferConfigure2 {
     pub unsafe fn SetDirectory<P0>(&self, pszdirectoryname: P0) -> ::windows_core::Result<()>
@@ -25777,24 +21449,8 @@ impl IStreamBufferConfigure2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStreamBufferConfigure2, ::windows_core::IUnknown, IStreamBufferConfigure);
-impl ::core::cmp::PartialEq for IStreamBufferConfigure2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStreamBufferConfigure2 {}
-impl ::core::fmt::Debug for IStreamBufferConfigure2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStreamBufferConfigure2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStreamBufferConfigure2 {
     type Vtable = IStreamBufferConfigure2_Vtbl;
-}
-impl ::core::clone::Clone for IStreamBufferConfigure2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStreamBufferConfigure2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53e037bf_3992_4282_ae34_2487b4dae06b);
@@ -25810,6 +21466,7 @@ pub struct IStreamBufferConfigure2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferConfigure3(::windows_core::IUnknown);
 impl IStreamBufferConfigure3 {
     pub unsafe fn SetDirectory<P0>(&self, pszdirectoryname: P0) -> ::windows_core::Result<()>
@@ -25874,24 +21531,8 @@ impl IStreamBufferConfigure3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStreamBufferConfigure3, ::windows_core::IUnknown, IStreamBufferConfigure, IStreamBufferConfigure2);
-impl ::core::cmp::PartialEq for IStreamBufferConfigure3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStreamBufferConfigure3 {}
-impl ::core::fmt::Debug for IStreamBufferConfigure3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStreamBufferConfigure3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStreamBufferConfigure3 {
     type Vtable = IStreamBufferConfigure3_Vtbl;
-}
-impl ::core::clone::Clone for IStreamBufferConfigure3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStreamBufferConfigure3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7e2d2a1e_7192_4bd7_80c1_061fd1d10402);
@@ -25913,6 +21554,7 @@ pub struct IStreamBufferConfigure3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferDataCounters(::windows_core::IUnknown);
 impl IStreamBufferDataCounters {
     pub unsafe fn GetData(&self, ppindata: *mut SBE_PIN_DATA) -> ::windows_core::Result<()> {
@@ -25923,24 +21565,8 @@ impl IStreamBufferDataCounters {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStreamBufferDataCounters, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IStreamBufferDataCounters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStreamBufferDataCounters {}
-impl ::core::fmt::Debug for IStreamBufferDataCounters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStreamBufferDataCounters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStreamBufferDataCounters {
     type Vtable = IStreamBufferDataCounters_Vtbl;
-}
-impl ::core::clone::Clone for IStreamBufferDataCounters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStreamBufferDataCounters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d2a2563_31ab_402e_9a6b_adb903489440);
@@ -25954,6 +21580,7 @@ pub struct IStreamBufferDataCounters_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferInitialize(::windows_core::IUnknown);
 impl IStreamBufferInitialize {
     #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
@@ -25971,24 +21598,8 @@ impl IStreamBufferInitialize {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStreamBufferInitialize, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IStreamBufferInitialize {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStreamBufferInitialize {}
-impl ::core::fmt::Debug for IStreamBufferInitialize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStreamBufferInitialize").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStreamBufferInitialize {
     type Vtable = IStreamBufferInitialize_Vtbl;
-}
-impl ::core::clone::Clone for IStreamBufferInitialize {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStreamBufferInitialize {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ce50f2d_6ba7_40fb_a034_50b1a674ec78);
@@ -26008,6 +21619,7 @@ pub struct IStreamBufferInitialize_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferMediaSeeking(::windows_core::IUnknown);
 impl IStreamBufferMediaSeeking {
     pub unsafe fn GetCapabilities(&self) -> ::windows_core::Result<u32> {
@@ -26071,24 +21683,8 @@ impl IStreamBufferMediaSeeking {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStreamBufferMediaSeeking, ::windows_core::IUnknown, super::IMediaSeeking);
-impl ::core::cmp::PartialEq for IStreamBufferMediaSeeking {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStreamBufferMediaSeeking {}
-impl ::core::fmt::Debug for IStreamBufferMediaSeeking {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStreamBufferMediaSeeking").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStreamBufferMediaSeeking {
     type Vtable = IStreamBufferMediaSeeking_Vtbl;
-}
-impl ::core::clone::Clone for IStreamBufferMediaSeeking {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStreamBufferMediaSeeking {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf61f5c26_863d_4afa_b0ba_2f81dc978596);
@@ -26100,6 +21696,7 @@ pub struct IStreamBufferMediaSeeking_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferMediaSeeking2(::windows_core::IUnknown);
 impl IStreamBufferMediaSeeking2 {
     pub unsafe fn GetCapabilities(&self) -> ::windows_core::Result<u32> {
@@ -26166,24 +21763,8 @@ impl IStreamBufferMediaSeeking2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStreamBufferMediaSeeking2, ::windows_core::IUnknown, super::IMediaSeeking, IStreamBufferMediaSeeking);
-impl ::core::cmp::PartialEq for IStreamBufferMediaSeeking2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStreamBufferMediaSeeking2 {}
-impl ::core::fmt::Debug for IStreamBufferMediaSeeking2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStreamBufferMediaSeeking2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStreamBufferMediaSeeking2 {
     type Vtable = IStreamBufferMediaSeeking2_Vtbl;
-}
-impl ::core::clone::Clone for IStreamBufferMediaSeeking2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStreamBufferMediaSeeking2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a439ab0_155f_470a_86a6_9ea54afd6eaf);
@@ -26196,6 +21777,7 @@ pub struct IStreamBufferMediaSeeking2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferRecComp(::windows_core::IUnknown);
 impl IStreamBufferRecComp {
     pub unsafe fn Initialize<P0, P1>(&self, psztargetfilename: P0, pszsbrecprofileref: P1) -> ::windows_core::Result<()>
@@ -26229,24 +21811,8 @@ impl IStreamBufferRecComp {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStreamBufferRecComp, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IStreamBufferRecComp {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStreamBufferRecComp {}
-impl ::core::fmt::Debug for IStreamBufferRecComp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStreamBufferRecComp").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStreamBufferRecComp {
     type Vtable = IStreamBufferRecComp_Vtbl;
-}
-impl ::core::clone::Clone for IStreamBufferRecComp {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStreamBufferRecComp {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e259a9b_8815_42ae_b09f_221970b154fd);
@@ -26264,6 +21830,7 @@ pub struct IStreamBufferRecComp_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferRecordControl(::windows_core::IUnknown);
 impl IStreamBufferRecordControl {
     pub unsafe fn Start(&self, prtstart: *mut i64) -> ::windows_core::Result<()> {
@@ -26279,24 +21846,8 @@ impl IStreamBufferRecordControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStreamBufferRecordControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IStreamBufferRecordControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStreamBufferRecordControl {}
-impl ::core::fmt::Debug for IStreamBufferRecordControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStreamBufferRecordControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStreamBufferRecordControl {
     type Vtable = IStreamBufferRecordControl_Vtbl;
-}
-impl ::core::clone::Clone for IStreamBufferRecordControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStreamBufferRecordControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xba9b6c99_f3c7_4ff2_92db_cfdd4851bf31);
@@ -26314,6 +21865,7 @@ pub struct IStreamBufferRecordControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferRecordingAttribute(::windows_core::IUnknown);
 impl IStreamBufferRecordingAttribute {
     pub unsafe fn SetAttribute<P0>(&self, ulreserved: u32, pszattributename: P0, streambufferattributetype: STREAMBUFFER_ATTR_DATATYPE, pbattribute: &[u8]) -> ::windows_core::Result<()>
@@ -26341,24 +21893,8 @@ impl IStreamBufferRecordingAttribute {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStreamBufferRecordingAttribute, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IStreamBufferRecordingAttribute {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStreamBufferRecordingAttribute {}
-impl ::core::fmt::Debug for IStreamBufferRecordingAttribute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStreamBufferRecordingAttribute").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStreamBufferRecordingAttribute {
     type Vtable = IStreamBufferRecordingAttribute_Vtbl;
-}
-impl ::core::clone::Clone for IStreamBufferRecordingAttribute {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStreamBufferRecordingAttribute {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16ca4e03_fe69_4705_bd41_5b7dfc0c95f3);
@@ -26375,6 +21911,7 @@ pub struct IStreamBufferRecordingAttribute_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferSink(::windows_core::IUnknown);
 impl IStreamBufferSink {
     pub unsafe fn LockProfile<P0>(&self, pszstreambufferfilename: P0) -> ::windows_core::Result<()>
@@ -26395,24 +21932,8 @@ impl IStreamBufferSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStreamBufferSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IStreamBufferSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStreamBufferSink {}
-impl ::core::fmt::Debug for IStreamBufferSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStreamBufferSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStreamBufferSink {
     type Vtable = IStreamBufferSink_Vtbl;
-}
-impl ::core::clone::Clone for IStreamBufferSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStreamBufferSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xafd1f242_7efd_45ee_ba4e_407a25c9a77a);
@@ -26427,6 +21948,7 @@ pub struct IStreamBufferSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferSink2(::windows_core::IUnknown);
 impl IStreamBufferSink2 {
     pub unsafe fn LockProfile<P0>(&self, pszstreambufferfilename: P0) -> ::windows_core::Result<()>
@@ -26450,24 +21972,8 @@ impl IStreamBufferSink2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStreamBufferSink2, ::windows_core::IUnknown, IStreamBufferSink);
-impl ::core::cmp::PartialEq for IStreamBufferSink2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStreamBufferSink2 {}
-impl ::core::fmt::Debug for IStreamBufferSink2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStreamBufferSink2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStreamBufferSink2 {
     type Vtable = IStreamBufferSink2_Vtbl;
-}
-impl ::core::clone::Clone for IStreamBufferSink2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStreamBufferSink2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdb94a660_f4fb_4bfa_bcc6_fe159a4eea93);
@@ -26480,6 +21986,7 @@ pub struct IStreamBufferSink2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferSink3(::windows_core::IUnknown);
 impl IStreamBufferSink3 {
     pub unsafe fn LockProfile<P0>(&self, pszstreambufferfilename: P0) -> ::windows_core::Result<()>
@@ -26506,24 +22013,8 @@ impl IStreamBufferSink3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStreamBufferSink3, ::windows_core::IUnknown, IStreamBufferSink, IStreamBufferSink2);
-impl ::core::cmp::PartialEq for IStreamBufferSink3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStreamBufferSink3 {}
-impl ::core::fmt::Debug for IStreamBufferSink3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStreamBufferSink3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStreamBufferSink3 {
     type Vtable = IStreamBufferSink3_Vtbl;
-}
-impl ::core::clone::Clone for IStreamBufferSink3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStreamBufferSink3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x974723f2_887a_4452_9366_2cff3057bc8f);
@@ -26536,6 +22027,7 @@ pub struct IStreamBufferSink3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferSource(::windows_core::IUnknown);
 impl IStreamBufferSource {
     pub unsafe fn SetStreamSink<P0>(&self, pistreambuffersink: P0) -> ::windows_core::Result<()>
@@ -26546,24 +22038,8 @@ impl IStreamBufferSource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStreamBufferSource, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IStreamBufferSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStreamBufferSource {}
-impl ::core::fmt::Debug for IStreamBufferSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStreamBufferSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStreamBufferSource {
     type Vtable = IStreamBufferSource_Vtbl;
-}
-impl ::core::clone::Clone for IStreamBufferSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStreamBufferSource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c5bd776_6ced_4f44_8164_5eab0e98db12);
@@ -26576,6 +22052,7 @@ pub struct IStreamBufferSource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITSDT(::windows_core::IUnknown);
 impl ITSDT {
     pub unsafe fn Initialize<P0, P1>(&self, psectionlist: P0, pmpegdata: P1) -> ::windows_core::Result<()>
@@ -26625,24 +22102,8 @@ impl ITSDT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITSDT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITSDT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITSDT {}
-impl ::core::fmt::Debug for ITSDT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITSDT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITSDT {
     type Vtable = ITSDT_Vtbl;
-}
-impl ::core::clone::Clone for ITSDT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITSDT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd19bdb43_405b_4a7c_a791_c89110c33165);
@@ -26670,6 +22131,7 @@ pub struct ITSDT_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITuneRequest {
@@ -26709,28 +22171,8 @@ impl ITuneRequest {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITuneRequest, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITuneRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITuneRequest {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITuneRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITuneRequest").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITuneRequest {
     type Vtable = ITuneRequest_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITuneRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITuneRequest {
@@ -26764,6 +22206,7 @@ pub struct ITuneRequest_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITuneRequestInfo(::windows_core::IUnknown);
 impl ITuneRequestInfo {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -26828,24 +22271,8 @@ impl ITuneRequestInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITuneRequestInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITuneRequestInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITuneRequestInfo {}
-impl ::core::fmt::Debug for ITuneRequestInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITuneRequestInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITuneRequestInfo {
     type Vtable = ITuneRequestInfo_Vtbl;
-}
-impl ::core::clone::Clone for ITuneRequestInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITuneRequestInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa3b152df_7a90_4218_ac54_9830bee8c0b6);
@@ -26885,6 +22312,7 @@ pub struct ITuneRequestInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITuneRequestInfoEx(::windows_core::IUnknown);
 impl ITuneRequestInfoEx {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -26958,24 +22386,8 @@ impl ITuneRequestInfoEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITuneRequestInfoEx, ::windows_core::IUnknown, ITuneRequestInfo);
-impl ::core::cmp::PartialEq for ITuneRequestInfoEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITuneRequestInfoEx {}
-impl ::core::fmt::Debug for ITuneRequestInfoEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITuneRequestInfoEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITuneRequestInfoEx {
     type Vtable = ITuneRequestInfoEx_Vtbl;
-}
-impl ::core::clone::Clone for ITuneRequestInfoEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITuneRequestInfoEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xee957c52_b0d0_4e78_8dd1_b87a08bfd893);
@@ -26991,6 +22403,7 @@ pub struct ITuneRequestInfoEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITuner(::windows_core::IUnknown);
 impl ITuner {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -27056,24 +22469,8 @@ impl ITuner {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITuner, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITuner {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITuner {}
-impl ::core::fmt::Debug for ITuner {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITuner").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITuner {
     type Vtable = ITuner_Vtbl;
-}
-impl ::core::clone::Clone for ITuner {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITuner {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28c52640_018a_11d3_9d8e_00c04f72d980);
@@ -27116,6 +22513,7 @@ pub struct ITuner_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITunerCap(::windows_core::IUnknown);
 impl ITunerCap {
     pub unsafe fn get_SupportedNetworkTypes(&self, ulcnetworktypesmax: u32, pulcnetworktypes: *mut u32, pguidnetworktypes: *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -27129,24 +22527,8 @@ impl ITunerCap {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITunerCap, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITunerCap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITunerCap {}
-impl ::core::fmt::Debug for ITunerCap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITunerCap").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITunerCap {
     type Vtable = ITunerCap_Vtbl;
-}
-impl ::core::clone::Clone for ITunerCap {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITunerCap {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe60dfa45_8d56_4e65_a8ab_d6be9412c249);
@@ -27161,6 +22543,7 @@ pub struct ITunerCap_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITunerCapEx(::windows_core::IUnknown);
 impl ITunerCapEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -27171,24 +22554,8 @@ impl ITunerCapEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITunerCapEx, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITunerCapEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITunerCapEx {}
-impl ::core::fmt::Debug for ITunerCapEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITunerCapEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITunerCapEx {
     type Vtable = ITunerCapEx_Vtbl;
-}
-impl ::core::clone::Clone for ITunerCapEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITunerCapEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed3e0c66_18c8_4ea6_9300_f6841fdd35dc);
@@ -27205,6 +22572,7 @@ pub struct ITunerCapEx_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITuningSpace(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITuningSpace {
@@ -27315,28 +22683,8 @@ impl ITuningSpace {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITuningSpace, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITuningSpace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITuningSpace {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITuningSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITuningSpace").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITuningSpace {
     type Vtable = ITuningSpace_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITuningSpace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITuningSpace {
@@ -27394,6 +22742,7 @@ pub struct ITuningSpace_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITuningSpaceContainer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITuningSpaceContainer {
@@ -27483,28 +22832,8 @@ impl ITuningSpaceContainer {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITuningSpaceContainer, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITuningSpaceContainer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITuningSpaceContainer {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITuningSpaceContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITuningSpaceContainer").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITuningSpaceContainer {
     type Vtable = ITuningSpaceContainer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITuningSpaceContainer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITuningSpaceContainer {
@@ -27559,6 +22888,7 @@ pub struct ITuningSpaceContainer_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITuningSpaces(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITuningSpaces {
@@ -27586,28 +22916,8 @@ impl ITuningSpaces {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITuningSpaces, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITuningSpaces {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITuningSpaces {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITuningSpaces {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITuningSpaces").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITuningSpaces {
     type Vtable = ITuningSpaces_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITuningSpaces {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITuningSpaces {
@@ -27631,6 +22941,7 @@ pub struct ITuningSpaces_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXDSCodec(::windows_core::IUnknown);
 impl IXDSCodec {
     pub unsafe fn XDSToRatObjOK(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
@@ -27659,24 +22970,8 @@ impl IXDSCodec {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXDSCodec, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXDSCodec {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXDSCodec {}
-impl ::core::fmt::Debug for IXDSCodec {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXDSCodec").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXDSCodec {
     type Vtable = IXDSCodec_Vtbl;
-}
-impl ::core::clone::Clone for IXDSCodec {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXDSCodec {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4b3_0049_4e2b_98fb_9537f6ce516d);
@@ -27695,6 +22990,7 @@ pub struct IXDSCodec_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXDSCodecConfig(::windows_core::IUnknown);
 impl IXDSCodecConfig {
     pub unsafe fn GetSecureChannelObject(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -27706,24 +23002,8 @@ impl IXDSCodecConfig {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXDSCodecConfig, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXDSCodecConfig {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXDSCodecConfig {}
-impl ::core::fmt::Debug for IXDSCodecConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXDSCodecConfig").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXDSCodecConfig {
     type Vtable = IXDSCodecConfig_Vtbl;
-}
-impl ::core::clone::Clone for IXDSCodecConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXDSCodecConfig {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4d3_0049_4e2b_98fb_9537f6ce516d);
@@ -27738,34 +23018,15 @@ pub struct IXDSCodecConfig_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXDSCodecEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXDSCodecEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXDSCodecEvents, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXDSCodecEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXDSCodecEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXDSCodecEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXDSCodecEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXDSCodecEvents {
     type Vtable = IXDSCodecEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXDSCodecEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXDSCodecEvents {
@@ -27780,6 +23041,7 @@ pub struct IXDSCodecEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXDSToRat(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXDSToRat {
@@ -27793,28 +23055,8 @@ impl IXDSToRat {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXDSToRat, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXDSToRat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXDSToRat {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXDSToRat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXDSToRat").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXDSToRat {
     type Vtable = IXDSToRat_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXDSToRat {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXDSToRat {
@@ -27831,34 +23073,15 @@ pub struct IXDSToRat_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _IMSVidCtlEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IMSVidCtlEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_IMSVidCtlEvents, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _IMSVidCtlEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _IMSVidCtlEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _IMSVidCtlEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_IMSVidCtlEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _IMSVidCtlEvents {
     type Vtable = _IMSVidCtlEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _IMSVidCtlEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _IMSVidCtlEvents {

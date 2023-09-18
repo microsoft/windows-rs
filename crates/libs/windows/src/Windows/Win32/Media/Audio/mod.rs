@@ -1338,6 +1338,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAcousticEchoCancellationControl(::windows_core::IUnknown);
 impl IAcousticEchoCancellationControl {
     pub unsafe fn SetEchoCancellationRenderEndpoint<P0>(&self, endpointid: P0) -> ::windows_core::Result<()>
@@ -1348,24 +1349,8 @@ impl IAcousticEchoCancellationControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAcousticEchoCancellationControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAcousticEchoCancellationControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAcousticEchoCancellationControl {}
-impl ::core::fmt::Debug for IAcousticEchoCancellationControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAcousticEchoCancellationControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAcousticEchoCancellationControl {
     type Vtable = IAcousticEchoCancellationControl_Vtbl;
-}
-impl ::core::clone::Clone for IAcousticEchoCancellationControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAcousticEchoCancellationControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf4ae25b5_aaa3_437d_b6b3_dbbe2d0e9549);
@@ -1378,6 +1363,7 @@ pub struct IAcousticEchoCancellationControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActivateAudioInterfaceAsyncOperation(::windows_core::IUnknown);
 impl IActivateAudioInterfaceAsyncOperation {
     pub unsafe fn GetActivateResult(&self, activateresult: *mut ::windows_core::HRESULT, activatedinterface: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()> {
@@ -1385,24 +1371,8 @@ impl IActivateAudioInterfaceAsyncOperation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IActivateAudioInterfaceAsyncOperation, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IActivateAudioInterfaceAsyncOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IActivateAudioInterfaceAsyncOperation {}
-impl ::core::fmt::Debug for IActivateAudioInterfaceAsyncOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IActivateAudioInterfaceAsyncOperation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IActivateAudioInterfaceAsyncOperation {
     type Vtable = IActivateAudioInterfaceAsyncOperation_Vtbl;
-}
-impl ::core::clone::Clone for IActivateAudioInterfaceAsyncOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IActivateAudioInterfaceAsyncOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72a22d78_cde4_431d_b8cc_843a71199b6d);
@@ -1415,6 +1385,7 @@ pub struct IActivateAudioInterfaceAsyncOperation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActivateAudioInterfaceCompletionHandler(::windows_core::IUnknown);
 impl IActivateAudioInterfaceCompletionHandler {
     pub unsafe fn ActivateCompleted<P0>(&self, activateoperation: P0) -> ::windows_core::Result<()>
@@ -1425,24 +1396,8 @@ impl IActivateAudioInterfaceCompletionHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IActivateAudioInterfaceCompletionHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IActivateAudioInterfaceCompletionHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IActivateAudioInterfaceCompletionHandler {}
-impl ::core::fmt::Debug for IActivateAudioInterfaceCompletionHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IActivateAudioInterfaceCompletionHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IActivateAudioInterfaceCompletionHandler {
     type Vtable = IActivateAudioInterfaceCompletionHandler_Vtbl;
-}
-impl ::core::clone::Clone for IActivateAudioInterfaceCompletionHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IActivateAudioInterfaceCompletionHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41d949ab_9862_444a_80f6_c261334da5eb);
@@ -1455,6 +1410,7 @@ pub struct IActivateAudioInterfaceCompletionHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioAmbisonicsControl(::windows_core::IUnknown);
 impl IAudioAmbisonicsControl {
     pub unsafe fn SetData(&self, pambisonicsparams: &[AMBISONICS_PARAMS]) -> ::windows_core::Result<()> {
@@ -1479,24 +1435,8 @@ impl IAudioAmbisonicsControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioAmbisonicsControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioAmbisonicsControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioAmbisonicsControl {}
-impl ::core::fmt::Debug for IAudioAmbisonicsControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioAmbisonicsControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioAmbisonicsControl {
     type Vtable = IAudioAmbisonicsControl_Vtbl;
-}
-impl ::core::clone::Clone for IAudioAmbisonicsControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioAmbisonicsControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28724c91_df35_4856_9f76_d6a26413f3df);
@@ -1518,6 +1458,7 @@ pub struct IAudioAmbisonicsControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioAutoGainControl(::windows_core::IUnknown);
 impl IAudioAutoGainControl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1536,24 +1477,8 @@ impl IAudioAutoGainControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioAutoGainControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioAutoGainControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioAutoGainControl {}
-impl ::core::fmt::Debug for IAudioAutoGainControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioAutoGainControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioAutoGainControl {
     type Vtable = IAudioAutoGainControl_Vtbl;
-}
-impl ::core::clone::Clone for IAudioAutoGainControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioAutoGainControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85401fd4_6de4_4b9d_9869_2d6753a82f3c);
@@ -1573,6 +1498,7 @@ pub struct IAudioAutoGainControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioBass(::windows_core::IUnknown);
 impl IAudioBass {
     pub unsafe fn GetChannelCount(&self) -> ::windows_core::Result<u32> {
@@ -1597,24 +1523,8 @@ impl IAudioBass {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioBass, ::windows_core::IUnknown, IPerChannelDbLevel);
-impl ::core::cmp::PartialEq for IAudioBass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioBass {}
-impl ::core::fmt::Debug for IAudioBass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioBass").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioBass {
     type Vtable = IAudioBass_Vtbl;
-}
-impl ::core::clone::Clone for IAudioBass {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioBass {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2b1a1d9_4db3_425d_a2b2_bd335cb3e2e5);
@@ -1626,6 +1536,7 @@ pub struct IAudioBass_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioCaptureClient(::windows_core::IUnknown);
 impl IAudioCaptureClient {
     pub unsafe fn GetBuffer(&self, ppdata: *mut *mut u8, pnumframestoread: *mut u32, pdwflags: *mut u32, pu64deviceposition: ::core::option::Option<*mut u64>, pu64qpcposition: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -1640,24 +1551,8 @@ impl IAudioCaptureClient {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioCaptureClient, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioCaptureClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioCaptureClient {}
-impl ::core::fmt::Debug for IAudioCaptureClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioCaptureClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioCaptureClient {
     type Vtable = IAudioCaptureClient_Vtbl;
-}
-impl ::core::clone::Clone for IAudioCaptureClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioCaptureClient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8adbd64_e71e_48a0_a4de_185c395cd317);
@@ -1672,6 +1567,7 @@ pub struct IAudioCaptureClient_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioChannelConfig(::windows_core::IUnknown);
 impl IAudioChannelConfig {
     pub unsafe fn SetChannelConfig(&self, dwconfig: u32, pguideventcontext: ::core::option::Option<*const ::windows_core::GUID>) -> ::windows_core::Result<()> {
@@ -1683,24 +1579,8 @@ impl IAudioChannelConfig {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioChannelConfig, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioChannelConfig {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioChannelConfig {}
-impl ::core::fmt::Debug for IAudioChannelConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioChannelConfig").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioChannelConfig {
     type Vtable = IAudioChannelConfig_Vtbl;
-}
-impl ::core::clone::Clone for IAudioChannelConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioChannelConfig {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb11c46f_ec28_493c_b88a_5db88062ce98);
@@ -1714,6 +1594,7 @@ pub struct IAudioChannelConfig_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioClient(::windows_core::IUnknown);
 impl IAudioClient {
     pub unsafe fn Initialize(&self, sharemode: AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: ::core::option::Option<*const ::windows_core::GUID>) -> ::windows_core::Result<()> {
@@ -1767,24 +1648,8 @@ impl IAudioClient {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioClient, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioClient {}
-impl ::core::fmt::Debug for IAudioClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioClient {
     type Vtable = IAudioClient_Vtbl;
-}
-impl ::core::clone::Clone for IAudioClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioClient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1cb9ad4c_dbfa_4c32_b178_c2f568a703b2);
@@ -1811,6 +1676,7 @@ pub struct IAudioClient_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioClient2(::windows_core::IUnknown);
 impl IAudioClient2 {
     pub unsafe fn Initialize(&self, sharemode: AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: ::core::option::Option<*const ::windows_core::GUID>) -> ::windows_core::Result<()> {
@@ -1883,24 +1749,8 @@ impl IAudioClient2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioClient2, ::windows_core::IUnknown, IAudioClient);
-impl ::core::cmp::PartialEq for IAudioClient2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioClient2 {}
-impl ::core::fmt::Debug for IAudioClient2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioClient2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioClient2 {
     type Vtable = IAudioClient2_Vtbl;
-}
-impl ::core::clone::Clone for IAudioClient2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioClient2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x726778cd_f60a_4eda_82de_e47610cd78aa);
@@ -1924,6 +1774,7 @@ pub struct IAudioClient2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioClient3(::windows_core::IUnknown);
 impl IAudioClient3 {
     pub unsafe fn Initialize(&self, sharemode: AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: ::core::option::Option<*const ::windows_core::GUID>) -> ::windows_core::Result<()> {
@@ -2005,24 +1856,8 @@ impl IAudioClient3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioClient3, ::windows_core::IUnknown, IAudioClient, IAudioClient2);
-impl ::core::cmp::PartialEq for IAudioClient3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioClient3 {}
-impl ::core::fmt::Debug for IAudioClient3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioClient3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioClient3 {
     type Vtable = IAudioClient3_Vtbl;
-}
-impl ::core::clone::Clone for IAudioClient3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioClient3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ed4ee07_8e67_4cd4_8c1a_2b7a5987ad42);
@@ -2037,6 +1872,7 @@ pub struct IAudioClient3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioClientDuckingControl(::windows_core::IUnknown);
 impl IAudioClientDuckingControl {
     pub unsafe fn SetDuckingOptionsForCurrentStream(&self, options: AUDIO_DUCKING_OPTIONS) -> ::windows_core::Result<()> {
@@ -2044,24 +1880,8 @@ impl IAudioClientDuckingControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioClientDuckingControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioClientDuckingControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioClientDuckingControl {}
-impl ::core::fmt::Debug for IAudioClientDuckingControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioClientDuckingControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioClientDuckingControl {
     type Vtable = IAudioClientDuckingControl_Vtbl;
-}
-impl ::core::clone::Clone for IAudioClientDuckingControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioClientDuckingControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc789d381_a28c_4168_b28f_d3a837924dc3);
@@ -2074,6 +1894,7 @@ pub struct IAudioClientDuckingControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioClock(::windows_core::IUnknown);
 impl IAudioClock {
     pub unsafe fn GetFrequency(&self) -> ::windows_core::Result<u64> {
@@ -2089,24 +1910,8 @@ impl IAudioClock {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioClock, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioClock {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioClock {}
-impl ::core::fmt::Debug for IAudioClock {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioClock").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioClock {
     type Vtable = IAudioClock_Vtbl;
-}
-impl ::core::clone::Clone for IAudioClock {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioClock {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd63314f_3fba_4a1b_812c_ef96358728e7);
@@ -2121,6 +1926,7 @@ pub struct IAudioClock_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioClock2(::windows_core::IUnknown);
 impl IAudioClock2 {
     pub unsafe fn GetDevicePosition(&self, deviceposition: *mut u64, qpcposition: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -2128,24 +1934,8 @@ impl IAudioClock2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioClock2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioClock2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioClock2 {}
-impl ::core::fmt::Debug for IAudioClock2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioClock2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioClock2 {
     type Vtable = IAudioClock2_Vtbl;
-}
-impl ::core::clone::Clone for IAudioClock2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioClock2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f49ff73_6727_49ac_a008_d98cf5e70048);
@@ -2158,6 +1948,7 @@ pub struct IAudioClock2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioClockAdjustment(::windows_core::IUnknown);
 impl IAudioClockAdjustment {
     pub unsafe fn SetSampleRate(&self, flsamplerate: f32) -> ::windows_core::Result<()> {
@@ -2165,24 +1956,8 @@ impl IAudioClockAdjustment {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioClockAdjustment, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioClockAdjustment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioClockAdjustment {}
-impl ::core::fmt::Debug for IAudioClockAdjustment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioClockAdjustment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioClockAdjustment {
     type Vtable = IAudioClockAdjustment_Vtbl;
-}
-impl ::core::clone::Clone for IAudioClockAdjustment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioClockAdjustment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6e4c0a0_46d9_4fb8_be21_57a3ef2b626c);
@@ -2195,6 +1970,7 @@ pub struct IAudioClockAdjustment_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioEffectsChangedNotificationClient(::windows_core::IUnknown);
 impl IAudioEffectsChangedNotificationClient {
     pub unsafe fn OnAudioEffectsChanged(&self) -> ::windows_core::Result<()> {
@@ -2202,24 +1978,8 @@ impl IAudioEffectsChangedNotificationClient {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioEffectsChangedNotificationClient, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioEffectsChangedNotificationClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioEffectsChangedNotificationClient {}
-impl ::core::fmt::Debug for IAudioEffectsChangedNotificationClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioEffectsChangedNotificationClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioEffectsChangedNotificationClient {
     type Vtable = IAudioEffectsChangedNotificationClient_Vtbl;
-}
-impl ::core::clone::Clone for IAudioEffectsChangedNotificationClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioEffectsChangedNotificationClient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa5ded44f_3c5d_4b2b_bd1e_5dc1ee20bbf6);
@@ -2232,6 +1992,7 @@ pub struct IAudioEffectsChangedNotificationClient_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioEffectsManager(::windows_core::IUnknown);
 impl IAudioEffectsManager {
     pub unsafe fn RegisterAudioEffectsChangedNotificationCallback<P0>(&self, client: P0) -> ::windows_core::Result<()>
@@ -2256,24 +2017,8 @@ impl IAudioEffectsManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioEffectsManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioEffectsManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioEffectsManager {}
-impl ::core::fmt::Debug for IAudioEffectsManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioEffectsManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioEffectsManager {
     type Vtable = IAudioEffectsManager_Vtbl;
-}
-impl ::core::clone::Clone for IAudioEffectsManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioEffectsManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4460b3ae_4b44_4527_8676_7548a8acd260);
@@ -2292,6 +2037,7 @@ pub struct IAudioEffectsManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioFormatEnumerator(::windows_core::IUnknown);
 impl IAudioFormatEnumerator {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -2304,24 +2050,8 @@ impl IAudioFormatEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioFormatEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioFormatEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioFormatEnumerator {}
-impl ::core::fmt::Debug for IAudioFormatEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioFormatEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioFormatEnumerator {
     type Vtable = IAudioFormatEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAudioFormatEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioFormatEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcdaa858_895a_4a22_a5eb_67bda506096d);
@@ -2335,6 +2065,7 @@ pub struct IAudioFormatEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioInputSelector(::windows_core::IUnknown);
 impl IAudioInputSelector {
     pub unsafe fn GetSelection(&self) -> ::windows_core::Result<u32> {
@@ -2346,24 +2077,8 @@ impl IAudioInputSelector {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioInputSelector, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioInputSelector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioInputSelector {}
-impl ::core::fmt::Debug for IAudioInputSelector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioInputSelector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioInputSelector {
     type Vtable = IAudioInputSelector_Vtbl;
-}
-impl ::core::clone::Clone for IAudioInputSelector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioInputSelector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f03dc02_5e6e_4653_8f72_a030c123d598);
@@ -2377,6 +2092,7 @@ pub struct IAudioInputSelector_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioLoudness(::windows_core::IUnknown);
 impl IAudioLoudness {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2395,24 +2111,8 @@ impl IAudioLoudness {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioLoudness, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioLoudness {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioLoudness {}
-impl ::core::fmt::Debug for IAudioLoudness {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioLoudness").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioLoudness {
     type Vtable = IAudioLoudness_Vtbl;
-}
-impl ::core::clone::Clone for IAudioLoudness {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioLoudness {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d8b1437_dd53_4350_9c1b_1ee2890bd938);
@@ -2432,6 +2132,7 @@ pub struct IAudioLoudness_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioMidrange(::windows_core::IUnknown);
 impl IAudioMidrange {
     pub unsafe fn GetChannelCount(&self) -> ::windows_core::Result<u32> {
@@ -2456,24 +2157,8 @@ impl IAudioMidrange {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioMidrange, ::windows_core::IUnknown, IPerChannelDbLevel);
-impl ::core::cmp::PartialEq for IAudioMidrange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioMidrange {}
-impl ::core::fmt::Debug for IAudioMidrange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioMidrange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioMidrange {
     type Vtable = IAudioMidrange_Vtbl;
-}
-impl ::core::clone::Clone for IAudioMidrange {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioMidrange {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e54b6d7_b44b_40d9_9a9e_e691d9ce6edf);
@@ -2485,6 +2170,7 @@ pub struct IAudioMidrange_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioMute(::windows_core::IUnknown);
 impl IAudioMute {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2503,24 +2189,8 @@ impl IAudioMute {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioMute, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioMute {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioMute {}
-impl ::core::fmt::Debug for IAudioMute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioMute").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioMute {
     type Vtable = IAudioMute_Vtbl;
-}
-impl ::core::clone::Clone for IAudioMute {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioMute {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf45aeea_b74a_4b6b_afad_2366b6aa012e);
@@ -2540,6 +2210,7 @@ pub struct IAudioMute_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioOutputSelector(::windows_core::IUnknown);
 impl IAudioOutputSelector {
     pub unsafe fn GetSelection(&self) -> ::windows_core::Result<u32> {
@@ -2551,24 +2222,8 @@ impl IAudioOutputSelector {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioOutputSelector, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioOutputSelector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioOutputSelector {}
-impl ::core::fmt::Debug for IAudioOutputSelector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioOutputSelector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioOutputSelector {
     type Vtable = IAudioOutputSelector_Vtbl;
-}
-impl ::core::clone::Clone for IAudioOutputSelector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioOutputSelector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb515f69_94a7_429e_8b9c_271b3f11a3ab);
@@ -2582,6 +2237,7 @@ pub struct IAudioOutputSelector_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioPeakMeter(::windows_core::IUnknown);
 impl IAudioPeakMeter {
     pub unsafe fn GetChannelCount(&self) -> ::windows_core::Result<u32> {
@@ -2594,24 +2250,8 @@ impl IAudioPeakMeter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioPeakMeter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioPeakMeter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioPeakMeter {}
-impl ::core::fmt::Debug for IAudioPeakMeter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioPeakMeter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioPeakMeter {
     type Vtable = IAudioPeakMeter_Vtbl;
-}
-impl ::core::clone::Clone for IAudioPeakMeter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioPeakMeter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd79923c_0599_45e0_b8b6_c8df7db6e796);
@@ -2625,6 +2265,7 @@ pub struct IAudioPeakMeter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioRenderClient(::windows_core::IUnknown);
 impl IAudioRenderClient {
     pub unsafe fn GetBuffer(&self, numframesrequested: u32) -> ::windows_core::Result<*mut u8> {
@@ -2636,24 +2277,8 @@ impl IAudioRenderClient {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioRenderClient, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioRenderClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioRenderClient {}
-impl ::core::fmt::Debug for IAudioRenderClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioRenderClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioRenderClient {
     type Vtable = IAudioRenderClient_Vtbl;
-}
-impl ::core::clone::Clone for IAudioRenderClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioRenderClient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf294acfc_3146_4483_a7bf_addca7c260e2);
@@ -2667,6 +2292,7 @@ pub struct IAudioRenderClient_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioSessionControl(::windows_core::IUnknown);
 impl IAudioSessionControl {
     pub unsafe fn GetState(&self) -> ::windows_core::Result<AudioSessionState> {
@@ -2714,24 +2340,8 @@ impl IAudioSessionControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioSessionControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioSessionControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioSessionControl {}
-impl ::core::fmt::Debug for IAudioSessionControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioSessionControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioSessionControl {
     type Vtable = IAudioSessionControl_Vtbl;
-}
-impl ::core::clone::Clone for IAudioSessionControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioSessionControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf4b1a599_7266_4319_a8ca_e70acb11e8cd);
@@ -2752,6 +2362,7 @@ pub struct IAudioSessionControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioSessionControl2(::windows_core::IUnknown);
 impl IAudioSessionControl2 {
     pub unsafe fn GetState(&self) -> ::windows_core::Result<AudioSessionState> {
@@ -2822,24 +2433,8 @@ impl IAudioSessionControl2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioSessionControl2, ::windows_core::IUnknown, IAudioSessionControl);
-impl ::core::cmp::PartialEq for IAudioSessionControl2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioSessionControl2 {}
-impl ::core::fmt::Debug for IAudioSessionControl2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioSessionControl2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioSessionControl2 {
     type Vtable = IAudioSessionControl2_Vtbl;
-}
-impl ::core::clone::Clone for IAudioSessionControl2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioSessionControl2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfb7ff88_7239_4fc9_8fa2_07c950be9c6d);
@@ -2859,6 +2454,7 @@ pub struct IAudioSessionControl2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioSessionEnumerator(::windows_core::IUnknown);
 impl IAudioSessionEnumerator {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<i32> {
@@ -2871,24 +2467,8 @@ impl IAudioSessionEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioSessionEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioSessionEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioSessionEnumerator {}
-impl ::core::fmt::Debug for IAudioSessionEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioSessionEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioSessionEnumerator {
     type Vtable = IAudioSessionEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAudioSessionEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioSessionEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2f5bb11_0570_40ca_acdd_3aa01277dee8);
@@ -2902,6 +2482,7 @@ pub struct IAudioSessionEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioSessionEvents(::windows_core::IUnknown);
 impl IAudioSessionEvents {
     pub unsafe fn OnDisplayNameChanged<P0>(&self, newdisplayname: P0, eventcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()>
@@ -2938,24 +2519,8 @@ impl IAudioSessionEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioSessionEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioSessionEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioSessionEvents {}
-impl ::core::fmt::Debug for IAudioSessionEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioSessionEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioSessionEvents {
     type Vtable = IAudioSessionEvents_Vtbl;
-}
-impl ::core::clone::Clone for IAudioSessionEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioSessionEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24918acc_64b3_37c1_8ca9_74a66e9957a8);
@@ -2977,6 +2542,7 @@ pub struct IAudioSessionEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioSessionManager(::windows_core::IUnknown);
 impl IAudioSessionManager {
     pub unsafe fn GetAudioSessionControl(&self, audiosessionguid: ::core::option::Option<*const ::windows_core::GUID>, streamflags: u32) -> ::windows_core::Result<IAudioSessionControl> {
@@ -2989,24 +2555,8 @@ impl IAudioSessionManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioSessionManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioSessionManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioSessionManager {}
-impl ::core::fmt::Debug for IAudioSessionManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioSessionManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioSessionManager {
     type Vtable = IAudioSessionManager_Vtbl;
-}
-impl ::core::clone::Clone for IAudioSessionManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioSessionManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfa971f1_4d5e_40bb_935e_967039bfbee4);
@@ -3020,6 +2570,7 @@ pub struct IAudioSessionManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioSessionManager2(::windows_core::IUnknown);
 impl IAudioSessionManager2 {
     pub unsafe fn GetAudioSessionControl(&self, audiosessionguid: ::core::option::Option<*const ::windows_core::GUID>, streamflags: u32) -> ::windows_core::Result<IAudioSessionControl> {
@@ -3061,24 +2612,8 @@ impl IAudioSessionManager2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioSessionManager2, ::windows_core::IUnknown, IAudioSessionManager);
-impl ::core::cmp::PartialEq for IAudioSessionManager2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioSessionManager2 {}
-impl ::core::fmt::Debug for IAudioSessionManager2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioSessionManager2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioSessionManager2 {
     type Vtable = IAudioSessionManager2_Vtbl;
-}
-impl ::core::clone::Clone for IAudioSessionManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioSessionManager2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x77aa99a0_1bd6_484f_8bc7_2c654c9a9b6f);
@@ -3095,6 +2630,7 @@ pub struct IAudioSessionManager2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioSessionNotification(::windows_core::IUnknown);
 impl IAudioSessionNotification {
     pub unsafe fn OnSessionCreated<P0>(&self, newsession: P0) -> ::windows_core::Result<()>
@@ -3105,24 +2641,8 @@ impl IAudioSessionNotification {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioSessionNotification, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioSessionNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioSessionNotification {}
-impl ::core::fmt::Debug for IAudioSessionNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioSessionNotification").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioSessionNotification {
     type Vtable = IAudioSessionNotification_Vtbl;
-}
-impl ::core::clone::Clone for IAudioSessionNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioSessionNotification {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x641dd20b_4d41_49cc_aba3_174b9477bb08);
@@ -3135,6 +2655,7 @@ pub struct IAudioSessionNotification_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioStateMonitor(::windows_core::IUnknown);
 impl IAudioStateMonitor {
     pub unsafe fn RegisterCallback(&self, callback: PAudioStateMonitorCallback, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<i64> {
@@ -3149,24 +2670,8 @@ impl IAudioStateMonitor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioStateMonitor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioStateMonitor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioStateMonitor {}
-impl ::core::fmt::Debug for IAudioStateMonitor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioStateMonitor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioStateMonitor {
     type Vtable = IAudioStateMonitor_Vtbl;
-}
-impl ::core::clone::Clone for IAudioStateMonitor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioStateMonitor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63bd8738_e30d_4c77_bf5c_834e87c657e2);
@@ -3181,6 +2686,7 @@ pub struct IAudioStateMonitor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioStreamVolume(::windows_core::IUnknown);
 impl IAudioStreamVolume {
     pub unsafe fn GetChannelCount(&self) -> ::windows_core::Result<u32> {
@@ -3202,24 +2708,8 @@ impl IAudioStreamVolume {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioStreamVolume, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioStreamVolume {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioStreamVolume {}
-impl ::core::fmt::Debug for IAudioStreamVolume {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioStreamVolume").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioStreamVolume {
     type Vtable = IAudioStreamVolume_Vtbl;
-}
-impl ::core::clone::Clone for IAudioStreamVolume {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioStreamVolume {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93014887_242d_4068_8a15_cf5e93b90fe3);
@@ -3236,6 +2726,7 @@ pub struct IAudioStreamVolume_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioSystemEffectsPropertyChangeNotificationClient(::windows_core::IUnknown);
 impl IAudioSystemEffectsPropertyChangeNotificationClient {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -3245,24 +2736,8 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioSystemEffectsPropertyChangeNotificationClient, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioSystemEffectsPropertyChangeNotificationClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioSystemEffectsPropertyChangeNotificationClient {}
-impl ::core::fmt::Debug for IAudioSystemEffectsPropertyChangeNotificationClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioSystemEffectsPropertyChangeNotificationClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioSystemEffectsPropertyChangeNotificationClient {
     type Vtable = IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl;
-}
-impl ::core::clone::Clone for IAudioSystemEffectsPropertyChangeNotificationClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioSystemEffectsPropertyChangeNotificationClient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20049d40_56d5_400e_a2ef_385599feed49);
@@ -3278,6 +2753,7 @@ pub struct IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioSystemEffectsPropertyStore(::windows_core::IUnknown);
 impl IAudioSystemEffectsPropertyStore {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -3318,24 +2794,8 @@ impl IAudioSystemEffectsPropertyStore {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioSystemEffectsPropertyStore, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioSystemEffectsPropertyStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioSystemEffectsPropertyStore {}
-impl ::core::fmt::Debug for IAudioSystemEffectsPropertyStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioSystemEffectsPropertyStore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioSystemEffectsPropertyStore {
     type Vtable = IAudioSystemEffectsPropertyStore_Vtbl;
-}
-impl ::core::clone::Clone for IAudioSystemEffectsPropertyStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioSystemEffectsPropertyStore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x302ae7f9_d7e0_43e4_971b_1f8293613d2a);
@@ -3363,6 +2823,7 @@ pub struct IAudioSystemEffectsPropertyStore_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioTreble(::windows_core::IUnknown);
 impl IAudioTreble {
     pub unsafe fn GetChannelCount(&self) -> ::windows_core::Result<u32> {
@@ -3387,24 +2848,8 @@ impl IAudioTreble {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioTreble, ::windows_core::IUnknown, IPerChannelDbLevel);
-impl ::core::cmp::PartialEq for IAudioTreble {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioTreble {}
-impl ::core::fmt::Debug for IAudioTreble {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioTreble").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioTreble {
     type Vtable = IAudioTreble_Vtbl;
-}
-impl ::core::clone::Clone for IAudioTreble {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioTreble {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a717812_694e_4907_b74b_bafa5cfdca7b);
@@ -3416,6 +2861,7 @@ pub struct IAudioTreble_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioViewManagerService(::windows_core::IUnknown);
 impl IAudioViewManagerService {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3428,24 +2874,8 @@ impl IAudioViewManagerService {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioViewManagerService, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioViewManagerService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioViewManagerService {}
-impl ::core::fmt::Debug for IAudioViewManagerService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioViewManagerService").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioViewManagerService {
     type Vtable = IAudioViewManagerService_Vtbl;
-}
-impl ::core::clone::Clone for IAudioViewManagerService {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioViewManagerService {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7a7ef10_1f49_45e0_ad35_612057cc8f74);
@@ -3461,6 +2891,7 @@ pub struct IAudioViewManagerService_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioVolumeDuckNotification(::windows_core::IUnknown);
 impl IAudioVolumeDuckNotification {
     pub unsafe fn OnVolumeDuckNotification<P0>(&self, sessionid: P0, countcommunicationsessions: u32) -> ::windows_core::Result<()>
@@ -3477,24 +2908,8 @@ impl IAudioVolumeDuckNotification {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioVolumeDuckNotification, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioVolumeDuckNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioVolumeDuckNotification {}
-impl ::core::fmt::Debug for IAudioVolumeDuckNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioVolumeDuckNotification").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioVolumeDuckNotification {
     type Vtable = IAudioVolumeDuckNotification_Vtbl;
-}
-impl ::core::clone::Clone for IAudioVolumeDuckNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioVolumeDuckNotification {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc3b284d4_6d39_4359_b3cf_b56ddb3bb39c);
@@ -3508,6 +2923,7 @@ pub struct IAudioVolumeDuckNotification_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioVolumeLevel(::windows_core::IUnknown);
 impl IAudioVolumeLevel {
     pub unsafe fn GetChannelCount(&self) -> ::windows_core::Result<u32> {
@@ -3532,24 +2948,8 @@ impl IAudioVolumeLevel {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioVolumeLevel, ::windows_core::IUnknown, IPerChannelDbLevel);
-impl ::core::cmp::PartialEq for IAudioVolumeLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioVolumeLevel {}
-impl ::core::fmt::Debug for IAudioVolumeLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioVolumeLevel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioVolumeLevel {
     type Vtable = IAudioVolumeLevel_Vtbl;
-}
-impl ::core::clone::Clone for IAudioVolumeLevel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioVolumeLevel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7fb7b48f_531d_44a2_bcb3_5ad5a134b3dc);
@@ -3561,6 +2961,7 @@ pub struct IAudioVolumeLevel_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChannelAudioVolume(::windows_core::IUnknown);
 impl IChannelAudioVolume {
     pub unsafe fn GetChannelCount(&self) -> ::windows_core::Result<u32> {
@@ -3582,24 +2983,8 @@ impl IChannelAudioVolume {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IChannelAudioVolume, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IChannelAudioVolume {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IChannelAudioVolume {}
-impl ::core::fmt::Debug for IChannelAudioVolume {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IChannelAudioVolume").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IChannelAudioVolume {
     type Vtable = IChannelAudioVolume_Vtbl;
-}
-impl ::core::clone::Clone for IChannelAudioVolume {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChannelAudioVolume {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c158861_b533_4b30_b1cf_e853e51c59b8);
@@ -3616,6 +3001,7 @@ pub struct IChannelAudioVolume_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConnector(::windows_core::IUnknown);
 impl IConnector {
     pub unsafe fn GetType(&self) -> ::windows_core::Result<ConnectorType> {
@@ -3655,24 +3041,8 @@ impl IConnector {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConnector, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IConnector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IConnector {}
-impl ::core::fmt::Debug for IConnector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IConnector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IConnector {
     type Vtable = IConnector_Vtbl;
-}
-impl ::core::clone::Clone for IConnector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConnector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c2c4058_23f5_41de_877a_df3af236a09e);
@@ -3695,6 +3065,7 @@ pub struct IConnector_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IControlChangeNotify(::windows_core::IUnknown);
 impl IControlChangeNotify {
     pub unsafe fn OnNotify(&self, dwsenderprocessid: u32, pguideventcontext: ::core::option::Option<*const ::windows_core::GUID>) -> ::windows_core::Result<()> {
@@ -3702,24 +3073,8 @@ impl IControlChangeNotify {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IControlChangeNotify, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IControlChangeNotify {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IControlChangeNotify {}
-impl ::core::fmt::Debug for IControlChangeNotify {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IControlChangeNotify").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IControlChangeNotify {
     type Vtable = IControlChangeNotify_Vtbl;
-}
-impl ::core::clone::Clone for IControlChangeNotify {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IControlChangeNotify {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa09513ed_c709_4d21_bd7b_5f34c47f3947);
@@ -3732,6 +3087,7 @@ pub struct IControlChangeNotify_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IControlInterface(::windows_core::IUnknown);
 impl IControlInterface {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -3744,24 +3100,8 @@ impl IControlInterface {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IControlInterface, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IControlInterface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IControlInterface {}
-impl ::core::fmt::Debug for IControlInterface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IControlInterface").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IControlInterface {
     type Vtable = IControlInterface_Vtbl;
-}
-impl ::core::clone::Clone for IControlInterface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IControlInterface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45d37c3f_5140_444a_ae24_400789f3cbf3);
@@ -3775,6 +3115,7 @@ pub struct IControlInterface_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceSpecificProperty(::windows_core::IUnknown);
 impl IDeviceSpecificProperty {
     pub unsafe fn GetType(&self) -> ::windows_core::Result<u16> {
@@ -3792,24 +3133,8 @@ impl IDeviceSpecificProperty {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDeviceSpecificProperty, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDeviceSpecificProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDeviceSpecificProperty {}
-impl ::core::fmt::Debug for IDeviceSpecificProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDeviceSpecificProperty").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDeviceSpecificProperty {
     type Vtable = IDeviceSpecificProperty_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceSpecificProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceSpecificProperty {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b22bcbf_2586_4af0_8583_205d391b807c);
@@ -3825,6 +3150,7 @@ pub struct IDeviceSpecificProperty_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceTopology(::windows_core::IUnknown);
 impl IDeviceTopology {
     pub unsafe fn GetConnectorCount(&self) -> ::windows_core::Result<u32> {
@@ -3864,24 +3190,8 @@ impl IDeviceTopology {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDeviceTopology, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDeviceTopology {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDeviceTopology {}
-impl ::core::fmt::Debug for IDeviceTopology {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDeviceTopology").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDeviceTopology {
     type Vtable = IDeviceTopology_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceTopology {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceTopology {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a07407e_6497_4a18_9787_32f79bd0d98f);
@@ -3903,6 +3213,7 @@ pub struct IDeviceTopology_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMMDevice(::windows_core::IUnknown);
 impl IMMDevice {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
@@ -3930,24 +3241,8 @@ impl IMMDevice {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMMDevice, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMMDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMMDevice {}
-impl ::core::fmt::Debug for IMMDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMMDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMMDevice {
     type Vtable = IMMDevice_Vtbl;
-}
-impl ::core::clone::Clone for IMMDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMMDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd666063f_1587_4e43_81f1_b948e807363f);
@@ -3969,6 +3264,7 @@ pub struct IMMDevice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMMDeviceActivator(::windows_core::IUnknown);
 impl IMMDeviceActivator {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
@@ -3981,24 +3277,8 @@ impl IMMDeviceActivator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMMDeviceActivator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMMDeviceActivator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMMDeviceActivator {}
-impl ::core::fmt::Debug for IMMDeviceActivator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMMDeviceActivator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMMDeviceActivator {
     type Vtable = IMMDeviceActivator_Vtbl;
-}
-impl ::core::clone::Clone for IMMDeviceActivator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMMDeviceActivator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b0d0ea4_d0a9_4b0e_935b_09516746fac0);
@@ -4014,6 +3294,7 @@ pub struct IMMDeviceActivator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMMDeviceCollection(::windows_core::IUnknown);
 impl IMMDeviceCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -4026,24 +3307,8 @@ impl IMMDeviceCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMMDeviceCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMMDeviceCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMMDeviceCollection {}
-impl ::core::fmt::Debug for IMMDeviceCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMMDeviceCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMMDeviceCollection {
     type Vtable = IMMDeviceCollection_Vtbl;
-}
-impl ::core::clone::Clone for IMMDeviceCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMMDeviceCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0bd7a1be_7a1a_44db_8397_cc5392387b5e);
@@ -4057,6 +3322,7 @@ pub struct IMMDeviceCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMMDeviceEnumerator(::windows_core::IUnknown);
 impl IMMDeviceEnumerator {
     pub unsafe fn EnumAudioEndpoints(&self, dataflow: EDataFlow, dwstatemask: u32) -> ::windows_core::Result<IMMDeviceCollection> {
@@ -4088,24 +3354,8 @@ impl IMMDeviceEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMMDeviceEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMMDeviceEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMMDeviceEnumerator {}
-impl ::core::fmt::Debug for IMMDeviceEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMMDeviceEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMMDeviceEnumerator {
     type Vtable = IMMDeviceEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IMMDeviceEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMMDeviceEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa95664d2_9614_4f35_a746_de8db63617e6);
@@ -4122,6 +3372,7 @@ pub struct IMMDeviceEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMMEndpoint(::windows_core::IUnknown);
 impl IMMEndpoint {
     pub unsafe fn GetDataFlow(&self) -> ::windows_core::Result<EDataFlow> {
@@ -4130,24 +3381,8 @@ impl IMMEndpoint {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMMEndpoint, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMMEndpoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMMEndpoint {}
-impl ::core::fmt::Debug for IMMEndpoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMMEndpoint").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMMEndpoint {
     type Vtable = IMMEndpoint_Vtbl;
-}
-impl ::core::clone::Clone for IMMEndpoint {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMMEndpoint {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1be09788_6894_4089_8586_9a2a6c265ac5);
@@ -4160,6 +3395,7 @@ pub struct IMMEndpoint_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMMNotificationClient(::windows_core::IUnknown);
 impl IMMNotificationClient {
     pub unsafe fn OnDeviceStateChanged<P0>(&self, pwstrdeviceid: P0, dwnewstate: u32) -> ::windows_core::Result<()>
@@ -4196,24 +3432,8 @@ impl IMMNotificationClient {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMMNotificationClient, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMMNotificationClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMMNotificationClient {}
-impl ::core::fmt::Debug for IMMNotificationClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMMNotificationClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMMNotificationClient {
     type Vtable = IMMNotificationClient_Vtbl;
-}
-impl ::core::clone::Clone for IMMNotificationClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMMNotificationClient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7991eec9_7e89_4d85_8390_6c703cec60c0);
@@ -4233,6 +3453,7 @@ pub struct IMMNotificationClient_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMessageFilter(::windows_core::IUnknown);
 impl IMessageFilter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4257,24 +3478,8 @@ impl IMessageFilter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMessageFilter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMessageFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMessageFilter {}
-impl ::core::fmt::Debug for IMessageFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMessageFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMessageFilter {
     type Vtable = IMessageFilter_Vtbl;
-}
-impl ::core::clone::Clone for IMessageFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMessageFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000016_0000_0000_c000_000000000046);
@@ -4292,6 +3497,7 @@ pub struct IMessageFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPart(::windows_core::IUnknown);
 impl IPart {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -4351,24 +3557,8 @@ impl IPart {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPart, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPart {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPart {}
-impl ::core::fmt::Debug for IPart {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPart").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPart {
     type Vtable = IPart_Vtbl;
-}
-impl ::core::clone::Clone for IPart {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPart {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae2de0e4_5bca_4f2d_aa46_5d13f8fdb3a9);
@@ -4393,6 +3583,7 @@ pub struct IPart_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPartsList(::windows_core::IUnknown);
 impl IPartsList {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -4405,24 +3596,8 @@ impl IPartsList {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPartsList, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPartsList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPartsList {}
-impl ::core::fmt::Debug for IPartsList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPartsList").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPartsList {
     type Vtable = IPartsList_Vtbl;
-}
-impl ::core::clone::Clone for IPartsList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPartsList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6daa848c_5eb0_45cc_aea5_998a2cda1ffb);
@@ -4436,6 +3611,7 @@ pub struct IPartsList_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPerChannelDbLevel(::windows_core::IUnknown);
 impl IPerChannelDbLevel {
     pub unsafe fn GetChannelCount(&self) -> ::windows_core::Result<u32> {
@@ -4460,24 +3636,8 @@ impl IPerChannelDbLevel {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPerChannelDbLevel, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPerChannelDbLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPerChannelDbLevel {}
-impl ::core::fmt::Debug for IPerChannelDbLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPerChannelDbLevel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPerChannelDbLevel {
     type Vtable = IPerChannelDbLevel_Vtbl;
-}
-impl ::core::clone::Clone for IPerChannelDbLevel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPerChannelDbLevel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2f8e001_f205_4bc9_99bc_c13b1e048ccb);
@@ -4495,6 +3655,7 @@ pub struct IPerChannelDbLevel_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISimpleAudioVolume(::windows_core::IUnknown);
 impl ISimpleAudioVolume {
     pub unsafe fn SetMasterVolume(&self, flevel: f32, eventcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -4520,24 +3681,8 @@ impl ISimpleAudioVolume {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISimpleAudioVolume, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISimpleAudioVolume {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISimpleAudioVolume {}
-impl ::core::fmt::Debug for ISimpleAudioVolume {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISimpleAudioVolume").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISimpleAudioVolume {
     type Vtable = ISimpleAudioVolume_Vtbl;
-}
-impl ::core::clone::Clone for ISimpleAudioVolume {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISimpleAudioVolume {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x87ce5498_68d6_44e5_9215_6da47ef883d8);
@@ -4559,6 +3704,7 @@ pub struct ISimpleAudioVolume_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioClient(::windows_core::IUnknown);
 impl ISpatialAudioClient {
     pub unsafe fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> ::windows_core::Result<()> {
@@ -4599,24 +3745,8 @@ impl ISpatialAudioClient {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioClient, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpatialAudioClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioClient {}
-impl ::core::fmt::Debug for ISpatialAudioClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioClient {
     type Vtable = ISpatialAudioClient_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioClient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbbf8e066_aaaa_49be_9a4d_fd2a858ea27f);
@@ -4642,6 +3772,7 @@ pub struct ISpatialAudioClient_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioClient2(::windows_core::IUnknown);
 impl ISpatialAudioClient2 {
     pub unsafe fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> ::windows_core::Result<()> {
@@ -4697,24 +3828,8 @@ impl ISpatialAudioClient2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioClient2, ::windows_core::IUnknown, ISpatialAudioClient);
-impl ::core::cmp::PartialEq for ISpatialAudioClient2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioClient2 {}
-impl ::core::fmt::Debug for ISpatialAudioClient2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioClient2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioClient2 {
     type Vtable = ISpatialAudioClient2_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioClient2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioClient2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaabe452_a66a_4bee_a93e_e320463f6a53);
@@ -4734,6 +3849,7 @@ pub struct ISpatialAudioClient2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioMetadataClient(::windows_core::IUnknown);
 impl ISpatialAudioMetadataClient {
     pub unsafe fn ActivateSpatialAudioMetadataItems(&self, maxitemcount: u16, framecount: u16, metadataitemsbuffer: ::core::option::Option<*mut ::core::option::Option<ISpatialAudioMetadataItemsBuffer>>, metadataitems: *mut ::core::option::Option<ISpatialAudioMetadataItems>) -> ::windows_core::Result<()> {
@@ -4757,24 +3873,8 @@ impl ISpatialAudioMetadataClient {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataClient, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpatialAudioMetadataClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioMetadataClient {}
-impl ::core::fmt::Debug for ISpatialAudioMetadataClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioMetadataClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioMetadataClient {
     type Vtable = ISpatialAudioMetadataClient_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioMetadataClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioMetadataClient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x777d4a3b_f6ff_4a26_85dc_68d7cdeda1d4);
@@ -4791,6 +3891,7 @@ pub struct ISpatialAudioMetadataClient_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioMetadataCopier(::windows_core::IUnknown);
 impl ISpatialAudioMetadataCopier {
     pub unsafe fn Open<P0>(&self, metadataitems: P0) -> ::windows_core::Result<()>
@@ -4811,24 +3912,8 @@ impl ISpatialAudioMetadataCopier {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataCopier, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpatialAudioMetadataCopier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioMetadataCopier {}
-impl ::core::fmt::Debug for ISpatialAudioMetadataCopier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioMetadataCopier").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioMetadataCopier {
     type Vtable = ISpatialAudioMetadataCopier_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioMetadataCopier {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioMetadataCopier {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd224b233_e251_4fd0_9ca2_d5ecf9a68404);
@@ -4843,6 +3928,7 @@ pub struct ISpatialAudioMetadataCopier_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioMetadataItems(::windows_core::IUnknown);
 impl ISpatialAudioMetadataItems {
     pub unsafe fn GetFrameCount(&self) -> ::windows_core::Result<u16> {
@@ -4867,24 +3953,8 @@ impl ISpatialAudioMetadataItems {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataItems, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpatialAudioMetadataItems {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioMetadataItems {}
-impl ::core::fmt::Debug for ISpatialAudioMetadataItems {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioMetadataItems").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioMetadataItems {
     type Vtable = ISpatialAudioMetadataItems_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioMetadataItems {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioMetadataItems {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbcd7c78f_3098_4f22_b547_a2f25a381269);
@@ -4901,6 +3971,7 @@ pub struct ISpatialAudioMetadataItems_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioMetadataItemsBuffer(::windows_core::IUnknown);
 impl ISpatialAudioMetadataItemsBuffer {
     pub unsafe fn AttachToBuffer(&self, buffer: &mut [u8]) -> ::windows_core::Result<()> {
@@ -4914,24 +3985,8 @@ impl ISpatialAudioMetadataItemsBuffer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataItemsBuffer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpatialAudioMetadataItemsBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioMetadataItemsBuffer {}
-impl ::core::fmt::Debug for ISpatialAudioMetadataItemsBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioMetadataItemsBuffer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioMetadataItemsBuffer {
     type Vtable = ISpatialAudioMetadataItemsBuffer_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioMetadataItemsBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioMetadataItemsBuffer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42640a16_e1bd_42d9_9ff6_031ab71a2dba);
@@ -4946,6 +4001,7 @@ pub struct ISpatialAudioMetadataItemsBuffer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioMetadataReader(::windows_core::IUnknown);
 impl ISpatialAudioMetadataReader {
     pub unsafe fn Open<P0>(&self, metadataitems: P0) -> ::windows_core::Result<()>
@@ -4965,24 +4021,8 @@ impl ISpatialAudioMetadataReader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataReader, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpatialAudioMetadataReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioMetadataReader {}
-impl ::core::fmt::Debug for ISpatialAudioMetadataReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioMetadataReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioMetadataReader {
     type Vtable = ISpatialAudioMetadataReader_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioMetadataReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioMetadataReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb78e86a2_31d9_4c32_94d2_7df40fc7ebec);
@@ -4998,6 +4038,7 @@ pub struct ISpatialAudioMetadataReader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioMetadataWriter(::windows_core::IUnknown);
 impl ISpatialAudioMetadataWriter {
     pub unsafe fn Open<P0>(&self, metadataitems: P0) -> ::windows_core::Result<()>
@@ -5017,24 +4058,8 @@ impl ISpatialAudioMetadataWriter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataWriter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpatialAudioMetadataWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioMetadataWriter {}
-impl ::core::fmt::Debug for ISpatialAudioMetadataWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioMetadataWriter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioMetadataWriter {
     type Vtable = ISpatialAudioMetadataWriter_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioMetadataWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioMetadataWriter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b17ca01_2955_444d_a430_537dc589a844);
@@ -5050,6 +4075,7 @@ pub struct ISpatialAudioMetadataWriter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioObject(::windows_core::IUnknown);
 impl ISpatialAudioObject {
     pub unsafe fn GetBuffer(&self, buffer: *mut *mut u8, bufferlength: *mut u32) -> ::windows_core::Result<()> {
@@ -5076,24 +4102,8 @@ impl ISpatialAudioObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioObject, ::windows_core::IUnknown, ISpatialAudioObjectBase);
-impl ::core::cmp::PartialEq for ISpatialAudioObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioObject {}
-impl ::core::fmt::Debug for ISpatialAudioObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioObject {
     type Vtable = ISpatialAudioObject_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdde28967_521b_46e5_8f00_bd6f2bc8ab1d);
@@ -5107,6 +4117,7 @@ pub struct ISpatialAudioObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioObjectBase(::windows_core::IUnknown);
 impl ISpatialAudioObjectBase {
     pub unsafe fn GetBuffer(&self, buffer: *mut *mut u8, bufferlength: *mut u32) -> ::windows_core::Result<()> {
@@ -5127,24 +4138,8 @@ impl ISpatialAudioObjectBase {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioObjectBase, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpatialAudioObjectBase {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioObjectBase {}
-impl ::core::fmt::Debug for ISpatialAudioObjectBase {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioObjectBase").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioObjectBase {
     type Vtable = ISpatialAudioObjectBase_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioObjectBase {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioObjectBase {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcce0b8f2_8d4d_4efb_a8cf_3d6ecf1c30e0);
@@ -5163,6 +4158,7 @@ pub struct ISpatialAudioObjectBase_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioObjectForHrtf(::windows_core::IUnknown);
 impl ISpatialAudioObjectForHrtf {
     pub unsafe fn GetBuffer(&self, buffer: *mut *mut u8, bufferlength: *mut u32) -> ::windows_core::Result<()> {
@@ -5201,24 +4197,8 @@ impl ISpatialAudioObjectForHrtf {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioObjectForHrtf, ::windows_core::IUnknown, ISpatialAudioObjectBase);
-impl ::core::cmp::PartialEq for ISpatialAudioObjectForHrtf {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioObjectForHrtf {}
-impl ::core::fmt::Debug for ISpatialAudioObjectForHrtf {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioObjectForHrtf").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioObjectForHrtf {
     type Vtable = ISpatialAudioObjectForHrtf_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioObjectForHrtf {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioObjectForHrtf {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7436ade_1978_4e14_aba0_555bd8eb83b4);
@@ -5236,6 +4216,7 @@ pub struct ISpatialAudioObjectForHrtf_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioObjectForMetadataCommands(::windows_core::IUnknown);
 impl ISpatialAudioObjectForMetadataCommands {
     pub unsafe fn GetBuffer(&self, buffer: *mut *mut u8, bufferlength: *mut u32) -> ::windows_core::Result<()> {
@@ -5259,24 +4240,8 @@ impl ISpatialAudioObjectForMetadataCommands {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioObjectForMetadataCommands, ::windows_core::IUnknown, ISpatialAudioObjectBase);
-impl ::core::cmp::PartialEq for ISpatialAudioObjectForMetadataCommands {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioObjectForMetadataCommands {}
-impl ::core::fmt::Debug for ISpatialAudioObjectForMetadataCommands {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioObjectForMetadataCommands").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioObjectForMetadataCommands {
     type Vtable = ISpatialAudioObjectForMetadataCommands_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioObjectForMetadataCommands {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioObjectForMetadataCommands {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0df2c94b_f5f9_472d_af6b_c46e0ac9cd05);
@@ -5289,6 +4254,7 @@ pub struct ISpatialAudioObjectForMetadataCommands_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioObjectForMetadataItems(::windows_core::IUnknown);
 impl ISpatialAudioObjectForMetadataItems {
     pub unsafe fn GetBuffer(&self, buffer: *mut *mut u8, bufferlength: *mut u32) -> ::windows_core::Result<()> {
@@ -5313,24 +4279,8 @@ impl ISpatialAudioObjectForMetadataItems {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioObjectForMetadataItems, ::windows_core::IUnknown, ISpatialAudioObjectBase);
-impl ::core::cmp::PartialEq for ISpatialAudioObjectForMetadataItems {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioObjectForMetadataItems {}
-impl ::core::fmt::Debug for ISpatialAudioObjectForMetadataItems {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioObjectForMetadataItems").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioObjectForMetadataItems {
     type Vtable = ISpatialAudioObjectForMetadataItems_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioObjectForMetadataItems {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioObjectForMetadataItems {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xddea49ff_3bc0_4377_8aad_9fbcfd808566);
@@ -5343,6 +4293,7 @@ pub struct ISpatialAudioObjectForMetadataItems_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioObjectRenderStream(::windows_core::IUnknown);
 impl ISpatialAudioObjectRenderStream {
     pub unsafe fn GetAvailableDynamicObjectCount(&self) -> ::windows_core::Result<u32> {
@@ -5377,24 +4328,8 @@ impl ISpatialAudioObjectRenderStream {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioObjectRenderStream, ::windows_core::IUnknown, ISpatialAudioObjectRenderStreamBase);
-impl ::core::cmp::PartialEq for ISpatialAudioObjectRenderStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioObjectRenderStream {}
-impl ::core::fmt::Debug for ISpatialAudioObjectRenderStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioObjectRenderStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioObjectRenderStream {
     type Vtable = ISpatialAudioObjectRenderStream_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioObjectRenderStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioObjectRenderStream {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbab5f473_b423_477b_85f5_b5a332a04153);
@@ -5407,6 +4342,7 @@ pub struct ISpatialAudioObjectRenderStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioObjectRenderStreamBase(::windows_core::IUnknown);
 impl ISpatialAudioObjectRenderStreamBase {
     pub unsafe fn GetAvailableDynamicObjectCount(&self) -> ::windows_core::Result<u32> {
@@ -5437,24 +4373,8 @@ impl ISpatialAudioObjectRenderStreamBase {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioObjectRenderStreamBase, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpatialAudioObjectRenderStreamBase {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioObjectRenderStreamBase {}
-impl ::core::fmt::Debug for ISpatialAudioObjectRenderStreamBase {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioObjectRenderStreamBase").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioObjectRenderStreamBase {
     type Vtable = ISpatialAudioObjectRenderStreamBase_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamBase {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioObjectRenderStreamBase {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfeaaf403_c1d8_450d_aa05_e0ccee7502a8);
@@ -5473,6 +4393,7 @@ pub struct ISpatialAudioObjectRenderStreamBase_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioObjectRenderStreamForHrtf(::windows_core::IUnknown);
 impl ISpatialAudioObjectRenderStreamForHrtf {
     pub unsafe fn GetAvailableDynamicObjectCount(&self) -> ::windows_core::Result<u32> {
@@ -5507,24 +4428,8 @@ impl ISpatialAudioObjectRenderStreamForHrtf {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioObjectRenderStreamForHrtf, ::windows_core::IUnknown, ISpatialAudioObjectRenderStreamBase);
-impl ::core::cmp::PartialEq for ISpatialAudioObjectRenderStreamForHrtf {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioObjectRenderStreamForHrtf {}
-impl ::core::fmt::Debug for ISpatialAudioObjectRenderStreamForHrtf {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioObjectRenderStreamForHrtf").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioObjectRenderStreamForHrtf {
     type Vtable = ISpatialAudioObjectRenderStreamForHrtf_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamForHrtf {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioObjectRenderStreamForHrtf {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe08deef9_5363_406e_9fdc_080ee247bbe0);
@@ -5537,6 +4442,7 @@ pub struct ISpatialAudioObjectRenderStreamForHrtf_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioObjectRenderStreamForMetadata(::windows_core::IUnknown);
 impl ISpatialAudioObjectRenderStreamForMetadata {
     pub unsafe fn GetAvailableDynamicObjectCount(&self) -> ::windows_core::Result<u32> {
@@ -5575,24 +4481,8 @@ impl ISpatialAudioObjectRenderStreamForMetadata {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioObjectRenderStreamForMetadata, ::windows_core::IUnknown, ISpatialAudioObjectRenderStreamBase);
-impl ::core::cmp::PartialEq for ISpatialAudioObjectRenderStreamForMetadata {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioObjectRenderStreamForMetadata {}
-impl ::core::fmt::Debug for ISpatialAudioObjectRenderStreamForMetadata {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioObjectRenderStreamForMetadata").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioObjectRenderStreamForMetadata {
     type Vtable = ISpatialAudioObjectRenderStreamForMetadata_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamForMetadata {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioObjectRenderStreamForMetadata {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbbc9c907_48d5_4a2e_a0c7_f7f0d67c1fb1);
@@ -5606,6 +4496,7 @@ pub struct ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialAudioObjectRenderStreamNotify(::windows_core::IUnknown);
 impl ISpatialAudioObjectRenderStreamNotify {
     pub unsafe fn OnAvailableDynamicObjectCountChange<P0>(&self, sender: P0, hnscompliancedeadlinetime: i64, availabledynamicobjectcountchange: u32) -> ::windows_core::Result<()>
@@ -5616,24 +4507,8 @@ impl ISpatialAudioObjectRenderStreamNotify {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpatialAudioObjectRenderStreamNotify, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpatialAudioObjectRenderStreamNotify {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialAudioObjectRenderStreamNotify {}
-impl ::core::fmt::Debug for ISpatialAudioObjectRenderStreamNotify {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialAudioObjectRenderStreamNotify").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpatialAudioObjectRenderStreamNotify {
     type Vtable = ISpatialAudioObjectRenderStreamNotify_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamNotify {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialAudioObjectRenderStreamNotify {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdddf83e6_68d7_4c70_883f_a1836afb4a50);
@@ -5646,27 +4521,12 @@ pub struct ISpatialAudioObjectRenderStreamNotify_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISubunit(::windows_core::IUnknown);
 impl ISubunit {}
 ::windows_core::imp::interface_hierarchy!(ISubunit, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISubunit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISubunit {}
-impl ::core::fmt::Debug for ISubunit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISubunit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISubunit {
     type Vtable = ISubunit_Vtbl;
-}
-impl ::core::clone::Clone for ISubunit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISubunit {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x82149a85_dba6_4487_86bb_ea8f7fefcc71);

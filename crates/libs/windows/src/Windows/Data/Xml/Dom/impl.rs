@@ -86,8 +86,8 @@ impl IXmlCharacterData_Vtbl {
             ReplaceData: ReplaceData::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXmlCharacterData as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXmlCharacterData as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
@@ -401,8 +401,8 @@ impl IXmlNode_Vtbl {
             SetPrefix: SetPrefix::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXmlNode as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXmlNode as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
@@ -473,8 +473,8 @@ impl IXmlNodeSelector_Vtbl {
             SelectNodesNS: SelectNodesNS::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXmlNodeSelector as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXmlNodeSelector as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
@@ -524,8 +524,8 @@ impl IXmlNodeSerializer_Vtbl {
             SetInnerText: SetInnerText::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXmlNodeSerializer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXmlNodeSerializer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
@@ -551,7 +551,7 @@ impl IXmlText_Vtbl {
         }
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IXmlText, OFFSET>(), SplitText: SplitText::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXmlText as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXmlText as ::windows_core::ComInterface>::IID
     }
 }

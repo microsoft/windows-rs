@@ -92,8 +92,8 @@ impl HRESULT {
     }
 
     /// Maps a Win32 error code to an HRESULT value.
-    pub(crate) fn from_win32(error: u32) -> Self {
-        Self(if error == 0 { 0 } else { (error & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 } as i32)
+    pub const fn from_win32(error: u32) -> Self {
+        Self(if error as i32 <= 0 { error } else { (error & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 } as i32)
     }
 }
 

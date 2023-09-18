@@ -46,8 +46,8 @@ impl IITDatabase_Vtbl {
             GetObjectPersistence: GetObjectPersistence::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IITDatabase as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IITDatabase as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -189,8 +189,8 @@ impl IITPropList_Vtbl {
             SaveToMem: SaveToMem::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IITPropList as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IPersist as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IPersistStreamInit as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IITPropList as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IPersist as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IPersistStreamInit as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -416,8 +416,8 @@ impl IITResultSet_Vtbl {
             GetColumnStatus: GetColumnStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IITResultSet as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IITResultSet as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"implement\"`*"]
@@ -444,8 +444,8 @@ impl IStemSink_Vtbl {
             PutWord: PutWord::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStemSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStemSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -496,8 +496,8 @@ impl IStemmerConfig_Vtbl {
             LoadExternalStemmerData: LoadExternalStemmerData::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStemmerConfig as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStemmerConfig as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Com\"`, `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -582,7 +582,7 @@ impl IWordBreakerConfig_Vtbl {
             GetWordStemmer: GetWordStemmer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWordBreakerConfig as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWordBreakerConfig as ::windows_core::ComInterface>::IID
     }
 }

@@ -243,6 +243,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDynamicRenderer(::windows_core::IUnknown);
 impl IDynamicRenderer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -342,24 +343,8 @@ impl IDynamicRenderer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDynamicRenderer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDynamicRenderer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDynamicRenderer {}
-impl ::core::fmt::Debug for IDynamicRenderer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDynamicRenderer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDynamicRenderer {
     type Vtable = IDynamicRenderer_Vtbl;
-}
-impl ::core::clone::Clone for IDynamicRenderer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDynamicRenderer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa079468e_7165_46f9_b7af_98ad01a93009);
@@ -425,6 +410,7 @@ pub struct IDynamicRenderer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGestureRecognizer(::windows_core::IUnknown);
 impl IGestureRecognizer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -456,24 +442,8 @@ impl IGestureRecognizer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGestureRecognizer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGestureRecognizer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGestureRecognizer {}
-impl ::core::fmt::Debug for IGestureRecognizer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGestureRecognizer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGestureRecognizer {
     type Vtable = IGestureRecognizer_Vtbl;
-}
-impl ::core::clone::Clone for IGestureRecognizer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGestureRecognizer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae9ef86b_7054_45e3_ae22_3174dc8811b7);
@@ -497,6 +467,7 @@ pub struct IGestureRecognizer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHandwrittenTextInsertion(::windows_core::IUnknown);
 impl IHandwrittenTextInsertion {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -518,24 +489,8 @@ impl IHandwrittenTextInsertion {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHandwrittenTextInsertion, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHandwrittenTextInsertion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHandwrittenTextInsertion {}
-impl ::core::fmt::Debug for IHandwrittenTextInsertion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHandwrittenTextInsertion").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHandwrittenTextInsertion {
     type Vtable = IHandwrittenTextInsertion_Vtbl;
-}
-impl ::core::clone::Clone for IHandwrittenTextInsertion {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHandwrittenTextInsertion {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56fdea97_ecd6_43e7_aa3a_816be7785860);
@@ -556,34 +511,15 @@ pub struct IHandwrittenTextInsertion_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInk(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInk {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInk, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInk {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInk {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInk {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInk").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInk {
     type Vtable = IInk_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInk {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInk {
@@ -598,6 +534,7 @@ pub struct IInk_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkCollector(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkCollector {
@@ -846,28 +783,8 @@ impl IInkCollector {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkCollector, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkCollector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkCollector {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkCollector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkCollector").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkCollector {
     type Vtable = IInkCollector_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkCollector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkCollector {
@@ -1012,6 +929,7 @@ pub struct IInkCollector_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkCursor(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkCursor {
@@ -1059,28 +977,8 @@ impl IInkCursor {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkCursor, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkCursor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkCursor {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkCursor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkCursor").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkCursor {
     type Vtable = IInkCursor_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkCursor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkCursor {
@@ -1117,6 +1015,7 @@ pub struct IInkCursor_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkCursorButton(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkCursorButton {
@@ -1136,28 +1035,8 @@ impl IInkCursorButton {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkCursorButton, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkCursorButton {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkCursorButton {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkCursorButton {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkCursorButton").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkCursorButton {
     type Vtable = IInkCursorButton_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkCursorButton {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkCursorButton {
@@ -1175,6 +1054,7 @@ pub struct IInkCursorButton_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkCursorButtons(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkCursorButtons {
@@ -1196,28 +1076,8 @@ impl IInkCursorButtons {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkCursorButtons, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkCursorButtons {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkCursorButtons {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkCursorButtons {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkCursorButtons").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkCursorButtons {
     type Vtable = IInkCursorButtons_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkCursorButtons {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkCursorButtons {
@@ -1238,6 +1098,7 @@ pub struct IInkCursorButtons_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkCursors(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkCursors {
@@ -1259,28 +1120,8 @@ impl IInkCursors {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkCursors, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkCursors {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkCursors {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkCursors {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkCursors").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkCursors {
     type Vtable = IInkCursors_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkCursors {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkCursors {
@@ -1301,6 +1142,7 @@ pub struct IInkCursors_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkCustomStrokes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkCustomStrokes {
@@ -1339,28 +1181,8 @@ impl IInkCustomStrokes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkCustomStrokes, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkCustomStrokes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkCustomStrokes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkCustomStrokes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkCustomStrokes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkCustomStrokes {
     type Vtable = IInkCustomStrokes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkCustomStrokes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkCustomStrokes {
@@ -1390,6 +1212,7 @@ pub struct IInkCustomStrokes_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkDisp(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDisp {
@@ -1576,28 +1399,8 @@ impl IInkDisp {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkDisp, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkDisp {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkDisp {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkDisp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkDisp").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkDisp {
     type Vtable = IInkDisp_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkDisp {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkDisp {
@@ -1712,6 +1515,7 @@ pub struct IInkDisp_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkDivider(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDivider {
@@ -1760,28 +1564,8 @@ impl IInkDivider {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkDivider, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkDivider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkDivider {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkDivider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkDivider").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkDivider {
     type Vtable = IInkDivider_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkDivider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkDivider {
@@ -1818,6 +1602,7 @@ pub struct IInkDivider_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkDivisionResult(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDivisionResult {
@@ -1837,28 +1622,8 @@ impl IInkDivisionResult {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkDivisionResult, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkDivisionResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkDivisionResult {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkDivisionResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkDivisionResult").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkDivisionResult {
     type Vtable = IInkDivisionResult_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkDivisionResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkDivisionResult {
@@ -1881,6 +1646,7 @@ pub struct IInkDivisionResult_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkDivisionUnit(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDivisionUnit {
@@ -1908,28 +1674,8 @@ impl IInkDivisionUnit {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkDivisionUnit, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkDivisionUnit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkDivisionUnit {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkDivisionUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkDivisionUnit").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkDivisionUnit {
     type Vtable = IInkDivisionUnit_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkDivisionUnit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkDivisionUnit {
@@ -1954,6 +1700,7 @@ pub struct IInkDivisionUnit_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkDivisionUnits(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDivisionUnits {
@@ -1975,28 +1722,8 @@ impl IInkDivisionUnits {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkDivisionUnits, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkDivisionUnits {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkDivisionUnits {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkDivisionUnits {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkDivisionUnits").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkDivisionUnits {
     type Vtable = IInkDivisionUnits_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkDivisionUnits {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkDivisionUnits {
@@ -2017,6 +1744,7 @@ pub struct IInkDivisionUnits_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkDrawingAttributes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDrawingAttributes {
@@ -2120,28 +1848,8 @@ impl IInkDrawingAttributes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkDrawingAttributes, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkDrawingAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkDrawingAttributes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkDrawingAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkDrawingAttributes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkDrawingAttributes {
     type Vtable = IInkDrawingAttributes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkDrawingAttributes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkDrawingAttributes {
@@ -2200,6 +1908,7 @@ pub struct IInkDrawingAttributes_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkEdit(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkEdit {
@@ -2604,28 +2313,8 @@ impl IInkEdit {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkEdit, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkEdit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkEdit {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkEdit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkEdit").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkEdit {
     type Vtable = IInkEdit_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkEdit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkEdit {
@@ -2837,6 +2526,7 @@ pub struct IInkEdit_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkExtendedProperties(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkExtendedProperties {
@@ -2884,28 +2574,8 @@ impl IInkExtendedProperties {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkExtendedProperties, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkExtendedProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkExtendedProperties {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkExtendedProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkExtendedProperties").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkExtendedProperties {
     type Vtable = IInkExtendedProperties_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkExtendedProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkExtendedProperties {
@@ -2939,6 +2609,7 @@ pub struct IInkExtendedProperties_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkExtendedProperty(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkExtendedProperty {
@@ -2961,28 +2632,8 @@ impl IInkExtendedProperty {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkExtendedProperty, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkExtendedProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkExtendedProperty {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkExtendedProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkExtendedProperty").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkExtendedProperty {
     type Vtable = IInkExtendedProperty_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkExtendedProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkExtendedProperty {
@@ -3006,6 +2657,7 @@ pub struct IInkExtendedProperty_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkGesture(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkGesture {
@@ -3024,28 +2676,8 @@ impl IInkGesture {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkGesture, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkGesture {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkGesture {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkGesture {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkGesture").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkGesture {
     type Vtable = IInkGesture_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkGesture {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkGesture {
@@ -3062,6 +2694,7 @@ pub struct IInkGesture_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkLineInfo(::windows_core::IUnknown);
 impl IInkLineInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3096,24 +2729,8 @@ impl IInkLineInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInkLineInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInkLineInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInkLineInfo {}
-impl ::core::fmt::Debug for IInkLineInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkLineInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInkLineInfo {
     type Vtable = IInkLineInfo_Vtbl;
-}
-impl ::core::clone::Clone for IInkLineInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInkLineInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c1c5ad6_f22f_4de4_b453_a2cc482e7c33);
@@ -3141,6 +2758,7 @@ pub struct IInkLineInfo_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkOverlay(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkOverlay {
@@ -3457,28 +3075,8 @@ impl IInkOverlay {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkOverlay, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkOverlay {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkOverlay {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkOverlay {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkOverlay").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkOverlay {
     type Vtable = IInkOverlay_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkOverlay {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkOverlay {
@@ -3652,6 +3250,7 @@ pub struct IInkOverlay_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkPicture(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkPicture {
@@ -4000,28 +3599,8 @@ impl IInkPicture {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkPicture, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkPicture {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkPicture {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkPicture {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkPicture").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkPicture {
     type Vtable = IInkPicture_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkPicture {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkPicture {
@@ -4212,6 +3791,7 @@ pub struct IInkPicture_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkRecognitionAlternate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognitionAlternate {
@@ -4313,28 +3893,8 @@ impl IInkRecognitionAlternate {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkRecognitionAlternate, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkRecognitionAlternate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkRecognitionAlternate {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkRecognitionAlternate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkRecognitionAlternate").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkRecognitionAlternate {
     type Vtable = IInkRecognitionAlternate_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkRecognitionAlternate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkRecognitionAlternate {
@@ -4400,6 +3960,7 @@ pub struct IInkRecognitionAlternate_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkRecognitionAlternates(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognitionAlternates {
@@ -4427,28 +3988,8 @@ impl IInkRecognitionAlternates {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkRecognitionAlternates, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkRecognitionAlternates {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkRecognitionAlternates {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkRecognitionAlternates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkRecognitionAlternates").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkRecognitionAlternates {
     type Vtable = IInkRecognitionAlternates_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkRecognitionAlternates {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkRecognitionAlternates {
@@ -4473,6 +4014,7 @@ pub struct IInkRecognitionAlternates_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkRecognitionResult(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognitionResult {
@@ -4517,28 +4059,8 @@ impl IInkRecognitionResult {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkRecognitionResult, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkRecognitionResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkRecognitionResult {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkRecognitionResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkRecognitionResult").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkRecognitionResult {
     type Vtable = IInkRecognitionResult_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkRecognitionResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkRecognitionResult {
@@ -4572,6 +4094,7 @@ pub struct IInkRecognitionResult_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkRecognizer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizer {
@@ -4615,28 +4138,8 @@ impl IInkRecognizer {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkRecognizer, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkRecognizer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkRecognizer {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkRecognizer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkRecognizer").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkRecognizer {
     type Vtable = IInkRecognizer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkRecognizer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkRecognizer {
@@ -4670,6 +4173,7 @@ pub struct IInkRecognizer_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkRecognizer2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizer2 {
@@ -4687,28 +4191,8 @@ impl IInkRecognizer2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkRecognizer2, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkRecognizer2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkRecognizer2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkRecognizer2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkRecognizer2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkRecognizer2 {
     type Vtable = IInkRecognizer2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkRecognizer2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkRecognizer2 {
@@ -4728,6 +4212,7 @@ pub struct IInkRecognizer2_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkRecognizerContext(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizerContext {
@@ -4863,28 +4348,8 @@ impl IInkRecognizerContext {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkRecognizerContext, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkRecognizerContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkRecognizerContext {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkRecognizerContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkRecognizerContext").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkRecognizerContext {
     type Vtable = IInkRecognizerContext_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkRecognizerContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkRecognizerContext {
@@ -4959,6 +4424,7 @@ pub struct IInkRecognizerContext_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkRecognizerContext2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizerContext2 {
@@ -4977,28 +4443,8 @@ impl IInkRecognizerContext2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkRecognizerContext2, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkRecognizerContext2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkRecognizerContext2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkRecognizerContext2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkRecognizerContext2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkRecognizerContext2 {
     type Vtable = IInkRecognizerContext2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkRecognizerContext2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkRecognizerContext2 {
@@ -5021,6 +4467,7 @@ pub struct IInkRecognizerContext2_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkRecognizerGuide(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizerGuide {
@@ -5087,28 +4534,8 @@ impl IInkRecognizerGuide {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkRecognizerGuide, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkRecognizerGuide {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkRecognizerGuide {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkRecognizerGuide {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkRecognizerGuide").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkRecognizerGuide {
     type Vtable = IInkRecognizerGuide_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkRecognizerGuide {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkRecognizerGuide {
@@ -5153,6 +4580,7 @@ pub struct IInkRecognizerGuide_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkRecognizers(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizers {
@@ -5180,28 +4608,8 @@ impl IInkRecognizers {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkRecognizers, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkRecognizers {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkRecognizers {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkRecognizers {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkRecognizers").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkRecognizers {
     type Vtable = IInkRecognizers_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkRecognizers {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkRecognizers {
@@ -5226,6 +4634,7 @@ pub struct IInkRecognizers_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkRectangle(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRectangle {
@@ -5278,28 +4687,8 @@ impl IInkRectangle {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkRectangle, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkRectangle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkRectangle {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkRectangle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkRectangle").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkRectangle {
     type Vtable = IInkRectangle_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkRectangle {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkRectangle {
@@ -5332,6 +4721,7 @@ pub struct IInkRectangle_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkRenderer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRenderer {
@@ -5437,28 +4827,8 @@ impl IInkRenderer {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkRenderer, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkRenderer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkRenderer {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkRenderer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkRenderer").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkRenderer {
     type Vtable = IInkRenderer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkRenderer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkRenderer {
@@ -5521,6 +4891,7 @@ pub struct IInkRenderer_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkStrokeDisp(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkStrokeDisp {
@@ -5726,28 +5097,8 @@ impl IInkStrokeDisp {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkStrokeDisp, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkStrokeDisp {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkStrokeDisp {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkStrokeDisp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkStrokeDisp").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkStrokeDisp {
     type Vtable = IInkStrokeDisp_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkStrokeDisp {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkStrokeDisp {
@@ -5867,6 +5218,7 @@ pub struct IInkStrokeDisp_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkStrokes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkStrokes {
@@ -5990,28 +5342,8 @@ impl IInkStrokes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkStrokes, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkStrokes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkStrokes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkStrokes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkStrokes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkStrokes {
     type Vtable = IInkStrokes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkStrokes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkStrokes {
@@ -6082,6 +5414,7 @@ pub struct IInkStrokes_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkTablet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkTablet {
@@ -6122,28 +5455,8 @@ impl IInkTablet {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkTablet, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkTablet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkTablet {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkTablet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkTablet").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkTablet {
     type Vtable = IInkTablet_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkTablet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkTablet {
@@ -6170,6 +5483,7 @@ pub struct IInkTablet_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkTablet2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkTablet2 {
@@ -6181,28 +5495,8 @@ impl IInkTablet2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkTablet2, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkTablet2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkTablet2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkTablet2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkTablet2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkTablet2 {
     type Vtable = IInkTablet2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkTablet2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkTablet2 {
@@ -6218,6 +5512,7 @@ pub struct IInkTablet2_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkTablet3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkTablet3 {
@@ -6235,28 +5530,8 @@ impl IInkTablet3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkTablet3, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkTablet3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkTablet3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkTablet3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkTablet3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkTablet3 {
     type Vtable = IInkTablet3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkTablet3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkTablet3 {
@@ -6276,6 +5551,7 @@ pub struct IInkTablet3_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkTablets(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkTablets {
@@ -6312,28 +5588,8 @@ impl IInkTablets {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkTablets, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkTablets {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkTablets {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkTablets {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkTablets").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkTablets {
     type Vtable = IInkTablets_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkTablets {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkTablets {
@@ -6362,6 +5618,7 @@ pub struct IInkTablets_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkTransform(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkTransform {
@@ -6451,28 +5708,8 @@ impl IInkTransform {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkTransform, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkTransform {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkTransform").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkTransform {
     type Vtable = IInkTransform_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkTransform {
@@ -6518,6 +5755,7 @@ pub struct IInkTransform_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkWordList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkWordList {
@@ -6545,28 +5783,8 @@ impl IInkWordList {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkWordList, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkWordList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkWordList {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkWordList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkWordList").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkWordList {
     type Vtable = IInkWordList_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkWordList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkWordList {
@@ -6587,6 +5805,7 @@ pub struct IInkWordList_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkWordList2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkWordList2 {
@@ -6600,28 +5819,8 @@ impl IInkWordList2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInkWordList2, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInkWordList2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInkWordList2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInkWordList2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkWordList2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInkWordList2 {
     type Vtable = IInkWordList2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInkWordList2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInkWordList2 {
@@ -6636,6 +5835,7 @@ pub struct IInkWordList2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInputPanelWindowHandle(::windows_core::IUnknown);
 impl IInputPanelWindowHandle {
     pub unsafe fn AttachedEditWindow32(&self) -> ::windows_core::Result<i32> {
@@ -6654,24 +5854,8 @@ impl IInputPanelWindowHandle {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInputPanelWindowHandle, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInputPanelWindowHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInputPanelWindowHandle {}
-impl ::core::fmt::Debug for IInputPanelWindowHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInputPanelWindowHandle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInputPanelWindowHandle {
     type Vtable = IInputPanelWindowHandle_Vtbl;
-}
-impl ::core::clone::Clone for IInputPanelWindowHandle {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInputPanelWindowHandle {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4af81847_fdc4_4fc3_ad0b_422479c1b935);
@@ -6688,6 +5872,7 @@ pub struct IInputPanelWindowHandle_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMathInputControl(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMathInputControl {
@@ -6782,28 +5967,8 @@ impl IMathInputControl {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMathInputControl, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMathInputControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMathInputControl {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMathInputControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMathInputControl").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMathInputControl {
     type Vtable = IMathInputControl_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMathInputControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMathInputControl {
@@ -6853,6 +6018,7 @@ pub struct IMathInputControl_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPenInputPanel(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPenInputPanel {
@@ -6972,28 +6138,8 @@ impl IPenInputPanel {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPenInputPanel, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPenInputPanel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPenInputPanel {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPenInputPanel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPenInputPanel").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPenInputPanel {
     type Vtable = IPenInputPanel_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPenInputPanel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPenInputPanel {
@@ -7050,6 +6196,7 @@ pub struct IPenInputPanel_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRealTimeStylus(::windows_core::IUnknown);
 impl IRealTimeStylus {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7210,24 +6357,8 @@ impl IRealTimeStylus {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRealTimeStylus, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRealTimeStylus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRealTimeStylus {}
-impl ::core::fmt::Debug for IRealTimeStylus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRealTimeStylus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRealTimeStylus {
     type Vtable = IRealTimeStylus_Vtbl;
-}
-impl ::core::clone::Clone for IRealTimeStylus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRealTimeStylus {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8bb5d22_3144_4a7b_93cd_f34a16be513a);
@@ -7309,6 +6440,7 @@ pub struct IRealTimeStylus_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRealTimeStylus2(::windows_core::IUnknown);
 impl IRealTimeStylus2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7327,24 +6459,8 @@ impl IRealTimeStylus2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRealTimeStylus2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRealTimeStylus2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRealTimeStylus2 {}
-impl ::core::fmt::Debug for IRealTimeStylus2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRealTimeStylus2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRealTimeStylus2 {
     type Vtable = IRealTimeStylus2_Vtbl;
-}
-impl ::core::clone::Clone for IRealTimeStylus2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRealTimeStylus2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5f2a6cd_3179_4a3e_b9c4_bb5865962be2);
@@ -7364,6 +6480,7 @@ pub struct IRealTimeStylus2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRealTimeStylus3(::windows_core::IUnknown);
 impl IRealTimeStylus3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7382,24 +6499,8 @@ impl IRealTimeStylus3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRealTimeStylus3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRealTimeStylus3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRealTimeStylus3 {}
-impl ::core::fmt::Debug for IRealTimeStylus3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRealTimeStylus3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRealTimeStylus3 {
     type Vtable = IRealTimeStylus3_Vtbl;
-}
-impl ::core::clone::Clone for IRealTimeStylus3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRealTimeStylus3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd70230a3_6986_4051_b57a_1cf69f4d9db5);
@@ -7419,6 +6520,7 @@ pub struct IRealTimeStylus3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRealTimeStylusSynchronization(::windows_core::IUnknown);
 impl IRealTimeStylusSynchronization {
     pub unsafe fn AcquireLock(&self, lock: RealTimeStylusLockType) -> ::windows_core::Result<()> {
@@ -7429,24 +6531,8 @@ impl IRealTimeStylusSynchronization {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRealTimeStylusSynchronization, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRealTimeStylusSynchronization {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRealTimeStylusSynchronization {}
-impl ::core::fmt::Debug for IRealTimeStylusSynchronization {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRealTimeStylusSynchronization").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRealTimeStylusSynchronization {
     type Vtable = IRealTimeStylusSynchronization_Vtbl;
-}
-impl ::core::clone::Clone for IRealTimeStylusSynchronization {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRealTimeStylusSynchronization {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa87eab8_ab4a_4cea_b5cb_46d84c6a2509);
@@ -7461,34 +6547,15 @@ pub struct IRealTimeStylusSynchronization_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISketchInk(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISketchInk {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISketchInk, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISketchInk {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISketchInk {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISketchInk {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISketchInk").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISketchInk {
     type Vtable = ISketchInk_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISketchInk {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISketchInk {
@@ -7502,6 +6569,7 @@ pub struct ISketchInk_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStrokeBuilder(::windows_core::IUnknown);
 impl IStrokeBuilder {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7538,24 +6606,8 @@ impl IStrokeBuilder {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStrokeBuilder, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IStrokeBuilder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStrokeBuilder {}
-impl ::core::fmt::Debug for IStrokeBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStrokeBuilder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStrokeBuilder {
     type Vtable = IStrokeBuilder_Vtbl;
-}
-impl ::core::clone::Clone for IStrokeBuilder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStrokeBuilder {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa5fd4e2d_c44b_4092_9177_260905eb672b);
@@ -7588,6 +6640,7 @@ pub struct IStrokeBuilder_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStylusAsyncPlugin(::windows_core::IUnknown);
 impl IStylusAsyncPlugin {
     pub unsafe fn RealTimeStylusEnabled<P0>(&self, pirtssrc: P0, ptcids: &[u32]) -> ::windows_core::Result<()>
@@ -7708,24 +6761,8 @@ impl IStylusAsyncPlugin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStylusAsyncPlugin, ::windows_core::IUnknown, IStylusPlugin);
-impl ::core::cmp::PartialEq for IStylusAsyncPlugin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStylusAsyncPlugin {}
-impl ::core::fmt::Debug for IStylusAsyncPlugin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStylusAsyncPlugin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStylusAsyncPlugin {
     type Vtable = IStylusAsyncPlugin_Vtbl;
-}
-impl ::core::clone::Clone for IStylusAsyncPlugin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStylusAsyncPlugin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7cca85a_31bc_4cd2_aadc_3289a3af11c8);
@@ -7737,6 +6774,7 @@ pub struct IStylusAsyncPlugin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStylusPlugin(::windows_core::IUnknown);
 impl IStylusPlugin {
     pub unsafe fn RealTimeStylusEnabled<P0>(&self, pirtssrc: P0, ptcids: &[u32]) -> ::windows_core::Result<()>
@@ -7857,24 +6895,8 @@ impl IStylusPlugin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStylusPlugin, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IStylusPlugin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStylusPlugin {}
-impl ::core::fmt::Debug for IStylusPlugin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStylusPlugin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStylusPlugin {
     type Vtable = IStylusPlugin_Vtbl;
-}
-impl ::core::clone::Clone for IStylusPlugin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStylusPlugin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa81436d8_4757_4fd1_a185_133f97c6c545);
@@ -7924,6 +6946,7 @@ pub struct IStylusPlugin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStylusSyncPlugin(::windows_core::IUnknown);
 impl IStylusSyncPlugin {
     pub unsafe fn RealTimeStylusEnabled<P0>(&self, pirtssrc: P0, ptcids: &[u32]) -> ::windows_core::Result<()>
@@ -8044,24 +7067,8 @@ impl IStylusSyncPlugin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStylusSyncPlugin, ::windows_core::IUnknown, IStylusPlugin);
-impl ::core::cmp::PartialEq for IStylusSyncPlugin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStylusSyncPlugin {}
-impl ::core::fmt::Debug for IStylusSyncPlugin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStylusSyncPlugin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStylusSyncPlugin {
     type Vtable = IStylusSyncPlugin_Vtbl;
-}
-impl ::core::clone::Clone for IStylusSyncPlugin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStylusSyncPlugin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa157b174_482f_4d71_a3f6_3a41ddd11be9);
@@ -8073,6 +7080,7 @@ pub struct IStylusSyncPlugin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextInputPanel(::windows_core::IUnknown);
 impl ITextInputPanel {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8199,24 +7207,8 @@ impl ITextInputPanel {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextInputPanel, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITextInputPanel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextInputPanel {}
-impl ::core::fmt::Debug for ITextInputPanel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextInputPanel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITextInputPanel {
     type Vtable = ITextInputPanel_Vtbl;
-}
-impl ::core::clone::Clone for ITextInputPanel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextInputPanel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b6a65a5_6af3_46c2_b6ea_56cd1f80df71);
@@ -8277,6 +7269,7 @@ pub struct ITextInputPanel_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextInputPanelEventSink(::windows_core::IUnknown);
 impl ITextInputPanelEventSink {
     pub unsafe fn InPlaceStateChanging(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> ::windows_core::Result<()> {
@@ -8337,24 +7330,8 @@ impl ITextInputPanelEventSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextInputPanelEventSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITextInputPanelEventSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextInputPanelEventSink {}
-impl ::core::fmt::Debug for ITextInputPanelEventSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextInputPanelEventSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITextInputPanelEventSink {
     type Vtable = ITextInputPanelEventSink_Vtbl;
-}
-impl ::core::clone::Clone for ITextInputPanelEventSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextInputPanelEventSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27560408_8e64_4fe1_804e_421201584b31);
@@ -8396,6 +7373,7 @@ pub struct ITextInputPanelEventSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextInputPanelRunInfo(::windows_core::IUnknown);
 impl ITextInputPanelRunInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8406,24 +7384,8 @@ impl ITextInputPanelRunInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextInputPanelRunInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITextInputPanelRunInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextInputPanelRunInfo {}
-impl ::core::fmt::Debug for ITextInputPanelRunInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextInputPanelRunInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITextInputPanelRunInfo {
     type Vtable = ITextInputPanelRunInfo_Vtbl;
-}
-impl ::core::clone::Clone for ITextInputPanelRunInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextInputPanelRunInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f424568_1920_48cc_9811_a993cbf5adba);
@@ -8439,6 +7401,7 @@ pub struct ITextInputPanelRunInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITipAutoCompleteClient(::windows_core::IUnknown);
 impl ITipAutoCompleteClient {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8478,24 +7441,8 @@ impl ITipAutoCompleteClient {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITipAutoCompleteClient, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITipAutoCompleteClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITipAutoCompleteClient {}
-impl ::core::fmt::Debug for ITipAutoCompleteClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITipAutoCompleteClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITipAutoCompleteClient {
     type Vtable = ITipAutoCompleteClient_Vtbl;
-}
-impl ::core::clone::Clone for ITipAutoCompleteClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITipAutoCompleteClient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e078e03_8265_4bbe_9487_d242edbef910);
@@ -8524,6 +7471,7 @@ pub struct ITipAutoCompleteClient_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITipAutoCompleteProvider(::windows_core::IUnknown);
 impl ITipAutoCompleteProvider {
     pub unsafe fn UpdatePendingText<P0>(&self, bstrpendingtext: P0) -> ::windows_core::Result<()>
@@ -8542,24 +7490,8 @@ impl ITipAutoCompleteProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITipAutoCompleteProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITipAutoCompleteProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITipAutoCompleteProvider {}
-impl ::core::fmt::Debug for ITipAutoCompleteProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITipAutoCompleteProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITipAutoCompleteProvider {
     type Vtable = ITipAutoCompleteProvider_Vtbl;
-}
-impl ::core::clone::Clone for ITipAutoCompleteProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITipAutoCompleteProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c6cf46d_8404_46b9_ad33_f5b6036d4007);
@@ -8577,34 +7509,15 @@ pub struct ITipAutoCompleteProvider_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _IInkCollectorEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IInkCollectorEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_IInkCollectorEvents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _IInkCollectorEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _IInkCollectorEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _IInkCollectorEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_IInkCollectorEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _IInkCollectorEvents {
     type Vtable = _IInkCollectorEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _IInkCollectorEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _IInkCollectorEvents {
@@ -8619,34 +7532,15 @@ pub struct _IInkCollectorEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _IInkEditEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IInkEditEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_IInkEditEvents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _IInkEditEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _IInkEditEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _IInkEditEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_IInkEditEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _IInkEditEvents {
     type Vtable = _IInkEditEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _IInkEditEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _IInkEditEvents {
@@ -8661,34 +7555,15 @@ pub struct _IInkEditEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _IInkEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IInkEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_IInkEvents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _IInkEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _IInkEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _IInkEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_IInkEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _IInkEvents {
     type Vtable = _IInkEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _IInkEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _IInkEvents {
@@ -8703,34 +7578,15 @@ pub struct _IInkEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _IInkOverlayEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IInkOverlayEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_IInkOverlayEvents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _IInkOverlayEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _IInkOverlayEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _IInkOverlayEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_IInkOverlayEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _IInkOverlayEvents {
     type Vtable = _IInkOverlayEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _IInkOverlayEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _IInkOverlayEvents {
@@ -8745,34 +7601,15 @@ pub struct _IInkOverlayEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _IInkPictureEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IInkPictureEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_IInkPictureEvents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _IInkPictureEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _IInkPictureEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _IInkPictureEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_IInkPictureEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _IInkPictureEvents {
     type Vtable = _IInkPictureEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _IInkPictureEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _IInkPictureEvents {
@@ -8787,34 +7624,15 @@ pub struct _IInkPictureEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _IInkRecognitionEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IInkRecognitionEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_IInkRecognitionEvents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _IInkRecognitionEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _IInkRecognitionEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _IInkRecognitionEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_IInkRecognitionEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _IInkRecognitionEvents {
     type Vtable = _IInkRecognitionEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _IInkRecognitionEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _IInkRecognitionEvents {
@@ -8829,34 +7647,15 @@ pub struct _IInkRecognitionEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _IInkStrokesEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IInkStrokesEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_IInkStrokesEvents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _IInkStrokesEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _IInkStrokesEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _IInkStrokesEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_IInkStrokesEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _IInkStrokesEvents {
     type Vtable = _IInkStrokesEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _IInkStrokesEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _IInkStrokesEvents {
@@ -8871,34 +7670,15 @@ pub struct _IInkStrokesEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _IMathInputControlEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IMathInputControlEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_IMathInputControlEvents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _IMathInputControlEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _IMathInputControlEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _IMathInputControlEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_IMathInputControlEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _IMathInputControlEvents {
     type Vtable = _IMathInputControlEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _IMathInputControlEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _IMathInputControlEvents {
@@ -8913,34 +7693,15 @@ pub struct _IMathInputControlEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _IPenInputPanelEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _IPenInputPanelEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_IPenInputPanelEvents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _IPenInputPanelEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _IPenInputPanelEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _IPenInputPanelEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_IPenInputPanelEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _IPenInputPanelEvents {
     type Vtable = _IPenInputPanelEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _IPenInputPanelEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _IPenInputPanelEvents {

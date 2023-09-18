@@ -127,14 +127,14 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAddServiceAccount<P0, P1, P2>(servername: P0, accountname: P1, password: P2, flags: u32) -> ::windows_core::Result<()>
+pub unsafe fn NetAddServiceAccount<P0, P1, P2>(servername: P0, accountname: P1, password: P2, flags: u32) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("netapi32.dll" "system" fn NetAddServiceAccount(servername : ::windows_core::PCWSTR, accountname : ::windows_core::PCWSTR, password : ::windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: NTSTATUS);
-    NetAddServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), password.into_param().abi(), flags).ok()
+    NetAddServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), password.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -259,12 +259,12 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetEnumerateServiceAccounts<P0>(servername: P0, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> ::windows_core::Result<()>
+pub unsafe fn NetEnumerateServiceAccounts<P0>(servername: P0, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("netapi32.dll" "system" fn NetEnumerateServiceAccounts(servername : ::windows_core::PCWSTR, flags : u32, accountscount : *mut u32, accounts : *mut *mut *mut u16) -> super::super::Foundation:: NTSTATUS);
-    NetEnumerateServiceAccounts(servername.into_param().abi(), flags, accountscount, accounts).ok()
+    NetEnumerateServiceAccounts(servername.into_param().abi(), flags, accountscount, accounts)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -457,13 +457,13 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetIsServiceAccount<P0, P1>(servername: P0, accountname: P1, isservice: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
+pub unsafe fn NetIsServiceAccount<P0, P1>(servername: P0, accountname: P1, isservice: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("netapi32.dll" "system" fn NetIsServiceAccount(servername : ::windows_core::PCWSTR, accountname : ::windows_core::PCWSTR, isservice : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: NTSTATUS);
-    NetIsServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), isservice).ok()
+    NetIsServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), isservice)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -664,13 +664,13 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetQueryServiceAccount<P0, P1>(servername: P0, accountname: P1, infolevel: u32, buffer: *mut *mut u8) -> ::windows_core::Result<()>
+pub unsafe fn NetQueryServiceAccount<P0, P1>(servername: P0, accountname: P1, infolevel: u32, buffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("netapi32.dll" "system" fn NetQueryServiceAccount(servername : ::windows_core::PCWSTR, accountname : ::windows_core::PCWSTR, infolevel : u32, buffer : *mut *mut u8) -> super::super::Foundation:: NTSTATUS);
-    NetQueryServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), infolevel, buffer).ok()
+    NetQueryServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), infolevel, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -705,13 +705,13 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetRemoveServiceAccount<P0, P1>(servername: P0, accountname: P1, flags: u32) -> ::windows_core::Result<()>
+pub unsafe fn NetRemoveServiceAccount<P0, P1>(servername: P0, accountname: P1, flags: u32) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("netapi32.dll" "system" fn NetRemoveServiceAccount(servername : ::windows_core::PCWSTR, accountname : ::windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: NTSTATUS);
-    NetRemoveServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), flags).ok()
+    NetRemoveServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -1646,6 +1646,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumNetCfgBindingInterface(::windows_core::IUnknown);
 impl IEnumNetCfgBindingInterface {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<INetCfgBindingInterface>], pceltfetched: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -1662,24 +1663,8 @@ impl IEnumNetCfgBindingInterface {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumNetCfgBindingInterface, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumNetCfgBindingInterface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumNetCfgBindingInterface {}
-impl ::core::fmt::Debug for IEnumNetCfgBindingInterface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumNetCfgBindingInterface").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumNetCfgBindingInterface {
     type Vtable = IEnumNetCfgBindingInterface_Vtbl;
-}
-impl ::core::clone::Clone for IEnumNetCfgBindingInterface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumNetCfgBindingInterface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0e8ae90_306e_11d1_aacf_00805fc1270e);
@@ -1695,6 +1680,7 @@ pub struct IEnumNetCfgBindingInterface_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumNetCfgBindingPath(::windows_core::IUnknown);
 impl IEnumNetCfgBindingPath {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<INetCfgBindingPath>], pceltfetched: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -1711,24 +1697,8 @@ impl IEnumNetCfgBindingPath {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumNetCfgBindingPath, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumNetCfgBindingPath {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumNetCfgBindingPath {}
-impl ::core::fmt::Debug for IEnumNetCfgBindingPath {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumNetCfgBindingPath").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumNetCfgBindingPath {
     type Vtable = IEnumNetCfgBindingPath_Vtbl;
-}
-impl ::core::clone::Clone for IEnumNetCfgBindingPath {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumNetCfgBindingPath {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0e8ae91_306e_11d1_aacf_00805fc1270e);
@@ -1744,6 +1714,7 @@ pub struct IEnumNetCfgBindingPath_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumNetCfgComponent(::windows_core::IUnknown);
 impl IEnumNetCfgComponent {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<INetCfgComponent>], pceltfetched: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -1760,24 +1731,8 @@ impl IEnumNetCfgComponent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumNetCfgComponent, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumNetCfgComponent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumNetCfgComponent {}
-impl ::core::fmt::Debug for IEnumNetCfgComponent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumNetCfgComponent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumNetCfgComponent {
     type Vtable = IEnumNetCfgComponent_Vtbl;
-}
-impl ::core::clone::Clone for IEnumNetCfgComponent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumNetCfgComponent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0e8ae92_306e_11d1_aacf_00805fc1270e);
@@ -1793,6 +1748,7 @@ pub struct IEnumNetCfgComponent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfg(::windows_core::IUnknown);
 impl INetCfg {
     pub unsafe fn Initialize(&self, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -1821,24 +1777,8 @@ impl INetCfg {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfg, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfg {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfg {}
-impl ::core::fmt::Debug for INetCfg {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfg").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfg {
     type Vtable = INetCfg_Vtbl;
-}
-impl ::core::clone::Clone for INetCfg {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfg {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0e8ae93_306e_11d1_aacf_00805fc1270e);
@@ -1857,6 +1797,7 @@ pub struct INetCfg_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgBindingInterface(::windows_core::IUnknown);
 impl INetCfgBindingInterface {
     pub unsafe fn GetName(&self, ppszwinterfacename: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()> {
@@ -1870,24 +1811,8 @@ impl INetCfgBindingInterface {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgBindingInterface, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgBindingInterface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgBindingInterface {}
-impl ::core::fmt::Debug for INetCfgBindingInterface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgBindingInterface").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgBindingInterface {
     type Vtable = INetCfgBindingInterface_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgBindingInterface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgBindingInterface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0e8ae94_306e_11d1_aacf_00805fc1270e);
@@ -1902,6 +1827,7 @@ pub struct INetCfgBindingInterface_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgBindingPath(::windows_core::IUnknown);
 impl INetCfgBindingPath {
     pub unsafe fn IsSamePathAs<P0>(&self, ppath: P0) -> ::windows_core::Result<()>
@@ -1942,24 +1868,8 @@ impl INetCfgBindingPath {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgBindingPath, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgBindingPath {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgBindingPath {}
-impl ::core::fmt::Debug for INetCfgBindingPath {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgBindingPath").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgBindingPath {
     type Vtable = INetCfgBindingPath_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgBindingPath {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgBindingPath {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0e8ae96_306e_11d1_aacf_00805fc1270e);
@@ -1982,6 +1892,7 @@ pub struct INetCfgBindingPath_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgClass(::windows_core::IUnknown);
 impl INetCfgClass {
     pub unsafe fn FindComponent<P0>(&self, pszwinfid: P0, ppnccitem: ::core::option::Option<*mut ::core::option::Option<INetCfgComponent>>) -> ::windows_core::Result<()>
@@ -1995,24 +1906,8 @@ impl INetCfgClass {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgClass, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgClass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgClass {}
-impl ::core::fmt::Debug for INetCfgClass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgClass").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgClass {
     type Vtable = INetCfgClass_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgClass {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgClass {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0e8ae97_306e_11d1_aacf_00805fc1270e);
@@ -2026,6 +1921,7 @@ pub struct INetCfgClass_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgClassSetup(::windows_core::IUnknown);
 impl INetCfgClassSetup {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2056,24 +1952,8 @@ impl INetCfgClassSetup {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgClassSetup, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgClassSetup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgClassSetup {}
-impl ::core::fmt::Debug for INetCfgClassSetup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgClassSetup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgClassSetup {
     type Vtable = INetCfgClassSetup_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgClassSetup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgClassSetup {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0e8ae9d_306e_11d1_aacf_00805fc1270e);
@@ -2097,6 +1977,7 @@ pub struct INetCfgClassSetup_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgClassSetup2(::windows_core::IUnknown);
 impl INetCfgClassSetup2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2133,24 +2014,8 @@ impl INetCfgClassSetup2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgClassSetup2, ::windows_core::IUnknown, INetCfgClassSetup);
-impl ::core::cmp::PartialEq for INetCfgClassSetup2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgClassSetup2 {}
-impl ::core::fmt::Debug for INetCfgClassSetup2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgClassSetup2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgClassSetup2 {
     type Vtable = INetCfgClassSetup2_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgClassSetup2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgClassSetup2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0e8aea0_306e_11d1_aacf_00805fc1270e);
@@ -2163,6 +2028,7 @@ pub struct INetCfgClassSetup2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgComponent(::windows_core::IUnknown);
 impl INetCfgComponent {
     pub unsafe fn GetDisplayName(&self, ppszwdisplayname: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()> {
@@ -2216,24 +2082,8 @@ impl INetCfgComponent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgComponent, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgComponent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgComponent {}
-impl ::core::fmt::Debug for INetCfgComponent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgComponent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgComponent {
     type Vtable = INetCfgComponent_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgComponent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgComponent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0e8ae99_306e_11d1_aacf_00805fc1270e);
@@ -2263,6 +2113,7 @@ pub struct INetCfgComponent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgComponentBindings(::windows_core::IUnknown);
 impl INetCfgComponentBindings {
     pub unsafe fn BindTo<P0>(&self, pnccitem: P0) -> ::windows_core::Result<()>
@@ -2314,24 +2165,8 @@ impl INetCfgComponentBindings {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgComponentBindings, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgComponentBindings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgComponentBindings {}
-impl ::core::fmt::Debug for INetCfgComponentBindings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgComponentBindings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgComponentBindings {
     type Vtable = INetCfgComponentBindings_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgComponentBindings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgComponentBindings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0e8ae9e_306e_11d1_aacf_00805fc1270e);
@@ -2351,6 +2186,7 @@ pub struct INetCfgComponentBindings_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgComponentControl(::windows_core::IUnknown);
 impl INetCfgComponentControl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2377,24 +2213,8 @@ impl INetCfgComponentControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgComponentControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgComponentControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgComponentControl {}
-impl ::core::fmt::Debug for INetCfgComponentControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgComponentControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgComponentControl {
     type Vtable = INetCfgComponentControl_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgComponentControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgComponentControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x932238df_bea1_11d0_9298_00c04fc99dcf);
@@ -2413,6 +2233,7 @@ pub struct INetCfgComponentControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgComponentNotifyBinding(::windows_core::IUnknown);
 impl INetCfgComponentNotifyBinding {
     pub unsafe fn QueryBindingPath<P0>(&self, dwchangeflag: u32, pipath: P0) -> ::windows_core::Result<()>
@@ -2429,24 +2250,8 @@ impl INetCfgComponentNotifyBinding {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgComponentNotifyBinding, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgComponentNotifyBinding {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgComponentNotifyBinding {}
-impl ::core::fmt::Debug for INetCfgComponentNotifyBinding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgComponentNotifyBinding").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgComponentNotifyBinding {
     type Vtable = INetCfgComponentNotifyBinding_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgComponentNotifyBinding {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgComponentNotifyBinding {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x932238e1_bea1_11d0_9298_00c04fc99dcf);
@@ -2460,6 +2265,7 @@ pub struct INetCfgComponentNotifyBinding_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgComponentNotifyGlobal(::windows_core::IUnknown);
 impl INetCfgComponentNotifyGlobal {
     pub unsafe fn GetSupportedNotifications(&self) -> ::windows_core::Result<u32> {
@@ -2486,24 +2292,8 @@ impl INetCfgComponentNotifyGlobal {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgComponentNotifyGlobal, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgComponentNotifyGlobal {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgComponentNotifyGlobal {}
-impl ::core::fmt::Debug for INetCfgComponentNotifyGlobal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgComponentNotifyGlobal").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgComponentNotifyGlobal {
     type Vtable = INetCfgComponentNotifyGlobal_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgComponentNotifyGlobal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgComponentNotifyGlobal {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x932238e2_bea1_11d0_9298_00c04fc99dcf);
@@ -2519,6 +2309,7 @@ pub struct INetCfgComponentNotifyGlobal_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgComponentPropertyUi(::windows_core::IUnknown);
 impl INetCfgComponentPropertyUi {
     pub unsafe fn QueryPropertyUi<P0>(&self, punkreserved: P0) -> ::windows_core::Result<()>
@@ -2557,24 +2348,8 @@ impl INetCfgComponentPropertyUi {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgComponentPropertyUi, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgComponentPropertyUi {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgComponentPropertyUi {}
-impl ::core::fmt::Debug for INetCfgComponentPropertyUi {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgComponentPropertyUi").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgComponentPropertyUi {
     type Vtable = INetCfgComponentPropertyUi_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgComponentPropertyUi {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgComponentPropertyUi {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x932238e0_bea1_11d0_9298_00c04fc99dcf);
@@ -2598,6 +2373,7 @@ pub struct INetCfgComponentPropertyUi_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgComponentSetup(::windows_core::IUnknown);
 impl INetCfgComponentSetup {
     pub unsafe fn Install(&self, dwsetupflags: u32) -> ::windows_core::Result<()> {
@@ -2618,24 +2394,8 @@ impl INetCfgComponentSetup {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgComponentSetup, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgComponentSetup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgComponentSetup {}
-impl ::core::fmt::Debug for INetCfgComponentSetup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgComponentSetup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgComponentSetup {
     type Vtable = INetCfgComponentSetup_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgComponentSetup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgComponentSetup {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x932238e3_bea1_11d0_9298_00c04fc99dcf);
@@ -2651,6 +2411,7 @@ pub struct INetCfgComponentSetup_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgComponentSysPrep(::windows_core::IUnknown);
 impl INetCfgComponentSysPrep {
     pub unsafe fn SaveAdapterParameters<P0, P1>(&self, pncsp: P0, pszwanswersections: P1, padapterinstanceguid: *const ::windows_core::GUID) -> ::windows_core::Result<()>
@@ -2669,24 +2430,8 @@ impl INetCfgComponentSysPrep {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgComponentSysPrep, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgComponentSysPrep {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgComponentSysPrep {}
-impl ::core::fmt::Debug for INetCfgComponentSysPrep {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgComponentSysPrep").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgComponentSysPrep {
     type Vtable = INetCfgComponentSysPrep_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgComponentSysPrep {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgComponentSysPrep {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0e8ae9a_306e_11d1_aacf_00805fc1270e);
@@ -2700,6 +2445,7 @@ pub struct INetCfgComponentSysPrep_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgComponentUpperEdge(::windows_core::IUnknown);
 impl INetCfgComponentUpperEdge {
     pub unsafe fn GetInterfaceIdsForAdapter<P0>(&self, padapter: P0, pdwnuminterfaces: *mut u32, ppguidinterfaceids: ::core::option::Option<*mut *mut ::windows_core::GUID>) -> ::windows_core::Result<()>
@@ -2722,24 +2468,8 @@ impl INetCfgComponentUpperEdge {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgComponentUpperEdge, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgComponentUpperEdge {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgComponentUpperEdge {}
-impl ::core::fmt::Debug for INetCfgComponentUpperEdge {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgComponentUpperEdge").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgComponentUpperEdge {
     type Vtable = INetCfgComponentUpperEdge_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgComponentUpperEdge {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgComponentUpperEdge {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x932238e4_bea1_11d0_9298_00c04fc99dcf);
@@ -2754,6 +2484,7 @@ pub struct INetCfgComponentUpperEdge_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgLock(::windows_core::IUnknown);
 impl INetCfgLock {
     pub unsafe fn AcquireWriteLock<P0>(&self, cmstimeout: u32, pszwclientdescription: P0, ppszwclientdescription: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()>
@@ -2770,24 +2501,8 @@ impl INetCfgLock {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgLock, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgLock {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgLock {}
-impl ::core::fmt::Debug for INetCfgLock {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgLock").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgLock {
     type Vtable = INetCfgLock_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgLock {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgLock {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0e8ae9f_306e_11d1_aacf_00805fc1270e);
@@ -2802,6 +2517,7 @@ pub struct INetCfgLock_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgPnpReconfigCallback(::windows_core::IUnknown);
 impl INetCfgPnpReconfigCallback {
     pub unsafe fn SendPnpReconfig<P0, P1>(&self, layer: NCPNP_RECONFIG_LAYER, pszwupper: P0, pszwlower: P1, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows_core::Result<()>
@@ -2813,24 +2529,8 @@ impl INetCfgPnpReconfigCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgPnpReconfigCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgPnpReconfigCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgPnpReconfigCallback {}
-impl ::core::fmt::Debug for INetCfgPnpReconfigCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgPnpReconfigCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgPnpReconfigCallback {
     type Vtable = INetCfgPnpReconfigCallback_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgPnpReconfigCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgPnpReconfigCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d84bd35_e227_11d2_b700_00a0c98a6a85);
@@ -2843,6 +2543,7 @@ pub struct INetCfgPnpReconfigCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetCfgSysPrep(::windows_core::IUnknown);
 impl INetCfgSysPrep {
     pub unsafe fn HrSetupSetFirstDword<P0, P1>(&self, pwszsection: P0, pwszkey: P1, dwvalue: u32) -> ::windows_core::Result<()>
@@ -2880,24 +2581,8 @@ impl INetCfgSysPrep {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetCfgSysPrep, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetCfgSysPrep {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgSysPrep {}
-impl ::core::fmt::Debug for INetCfgSysPrep {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgSysPrep").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetCfgSysPrep {
     type Vtable = INetCfgSysPrep_Vtbl;
-}
-impl ::core::clone::Clone for INetCfgSysPrep {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetCfgSysPrep {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0e8ae98_306e_11d1_aacf_00805fc1270e);
@@ -2916,6 +2601,7 @@ pub struct INetCfgSysPrep_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetLanConnectionUiInfo(::windows_core::IUnknown);
 impl INetLanConnectionUiInfo {
     pub unsafe fn GetDeviceGuid(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -2924,24 +2610,8 @@ impl INetLanConnectionUiInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetLanConnectionUiInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetLanConnectionUiInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetLanConnectionUiInfo {}
-impl ::core::fmt::Debug for INetLanConnectionUiInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetLanConnectionUiInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetLanConnectionUiInfo {
     type Vtable = INetLanConnectionUiInfo_Vtbl;
-}
-impl ::core::clone::Clone for INetLanConnectionUiInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetLanConnectionUiInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956a6_1cd3_11d1_b1c5_00805fc1270e);
@@ -2954,6 +2624,7 @@ pub struct INetLanConnectionUiInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetRasConnectionIpUiInfo(::windows_core::IUnknown);
 impl INetRasConnectionIpUiInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2963,24 +2634,8 @@ impl INetRasConnectionIpUiInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetRasConnectionIpUiInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetRasConnectionIpUiInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetRasConnectionIpUiInfo {}
-impl ::core::fmt::Debug for INetRasConnectionIpUiInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetRasConnectionIpUiInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetRasConnectionIpUiInfo {
     type Vtable = INetRasConnectionIpUiInfo_Vtbl;
-}
-impl ::core::clone::Clone for INetRasConnectionIpUiInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetRasConnectionIpUiInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfaedcf58_31fe_11d1_aad2_00805fc1270e);
@@ -2996,6 +2651,7 @@ pub struct INetRasConnectionIpUiInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProvisioningDomain(::windows_core::IUnknown);
 impl IProvisioningDomain {
     pub unsafe fn Add<P0>(&self, pszwpathtofolder: P0) -> ::windows_core::Result<()>
@@ -3017,24 +2673,8 @@ impl IProvisioningDomain {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IProvisioningDomain, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IProvisioningDomain {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProvisioningDomain {}
-impl ::core::fmt::Debug for IProvisioningDomain {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProvisioningDomain").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IProvisioningDomain {
     type Vtable = IProvisioningDomain_Vtbl;
-}
-impl ::core::clone::Clone for IProvisioningDomain {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProvisioningDomain {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc96fbd50_24dd_11d8_89fb_00904b2ea9c6);
@@ -3051,6 +2691,7 @@ pub struct IProvisioningDomain_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProvisioningProfileWireless(::windows_core::IUnknown);
 impl IProvisioningProfileWireless {
     pub unsafe fn CreateProfile<P0, P1>(&self, bstrxmlwirelessconfigprofile: P0, bstrxmlconnectionconfigprofile: P1, padapterinstanceguid: *const ::windows_core::GUID) -> ::windows_core::Result<u32>
@@ -3063,24 +2704,8 @@ impl IProvisioningProfileWireless {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IProvisioningProfileWireless, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IProvisioningProfileWireless {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProvisioningProfileWireless {}
-impl ::core::fmt::Debug for IProvisioningProfileWireless {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProvisioningProfileWireless").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IProvisioningProfileWireless {
     type Vtable = IProvisioningProfileWireless_Vtbl;
-}
-impl ::core::clone::Clone for IProvisioningProfileWireless {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProvisioningProfileWireless {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc96fbd51_24dd_11d8_89fb_00904b2ea9c6);

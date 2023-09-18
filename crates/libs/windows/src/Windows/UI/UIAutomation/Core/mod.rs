@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAutomationRemoteOperationResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAutomationRemoteOperationResult {
     type Vtable = IAutomationRemoteOperationResult_Vtbl;
-}
-impl ::core::clone::Clone for IAutomationRemoteOperationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAutomationRemoteOperationResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0f80c42_4a67_5534_bf5a_09e8a99b36b1);
@@ -24,6 +20,7 @@ pub struct IAutomationRemoteOperationResult_Vtbl {
 }
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICoreAutomationConnectionBoundObjectProvider(::windows_core::IUnknown);
 impl ICoreAutomationConnectionBoundObjectProvider {
     pub fn IsComThreadingRequired(&self) -> ::windows_core::Result<bool> {
@@ -35,27 +32,11 @@ impl ICoreAutomationConnectionBoundObjectProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICoreAutomationConnectionBoundObjectProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ICoreAutomationConnectionBoundObjectProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICoreAutomationConnectionBoundObjectProvider {}
-impl ::core::fmt::Debug for ICoreAutomationConnectionBoundObjectProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICoreAutomationConnectionBoundObjectProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ICoreAutomationConnectionBoundObjectProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{0620bb64-9616-5593-be3a-eb8e6daeb3fa}");
 }
 unsafe impl ::windows_core::Interface for ICoreAutomationConnectionBoundObjectProvider {
     type Vtable = ICoreAutomationConnectionBoundObjectProvider_Vtbl;
-}
-impl ::core::clone::Clone for ICoreAutomationConnectionBoundObjectProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICoreAutomationConnectionBoundObjectProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0620bb64_9616_5593_be3a_eb8e6daeb3fa);
@@ -68,14 +49,10 @@ pub struct ICoreAutomationConnectionBoundObjectProvider_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICoreAutomationRegistrarStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICoreAutomationRegistrarStatics {
     type Vtable = ICoreAutomationRegistrarStatics_Vtbl;
-}
-impl ::core::clone::Clone for ICoreAutomationRegistrarStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICoreAutomationRegistrarStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3e50129b_d6dc_5680_b580_ffff78300304);
@@ -89,14 +66,10 @@ pub struct ICoreAutomationRegistrarStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICoreAutomationRemoteOperation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICoreAutomationRemoteOperation {
     type Vtable = ICoreAutomationRemoteOperation_Vtbl;
-}
-impl ::core::clone::Clone for ICoreAutomationRemoteOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICoreAutomationRemoteOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ac656f4_e2bc_5c6e_b8e7_b224fb74b060);
@@ -113,14 +86,10 @@ pub struct ICoreAutomationRemoteOperation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICoreAutomationRemoteOperation2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICoreAutomationRemoteOperation2 {
     type Vtable = ICoreAutomationRemoteOperation2_Vtbl;
-}
-impl ::core::clone::Clone for ICoreAutomationRemoteOperation2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICoreAutomationRemoteOperation2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeefaf86f_e953_5099_8ce9_dca813482ba0);
@@ -133,14 +102,10 @@ pub struct ICoreAutomationRemoteOperation2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICoreAutomationRemoteOperationContext(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICoreAutomationRemoteOperationContext {
     type Vtable = ICoreAutomationRemoteOperationContext_Vtbl;
-}
-impl ::core::clone::Clone for ICoreAutomationRemoteOperationContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICoreAutomationRemoteOperationContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9af9cbb_3d3e_5918_a16b_7861626a3aeb);
@@ -155,6 +120,7 @@ pub struct ICoreAutomationRemoteOperationContext_Vtbl {
 }
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICoreAutomationRemoteOperationExtensionProvider(::windows_core::IUnknown);
 impl ICoreAutomationRemoteOperationExtensionProvider {
     pub fn CallExtension<P0>(&self, extensionid: ::windows_core::GUID, context: P0, operandids: &[AutomationRemoteOperationOperandId]) -> ::windows_core::Result<()>
@@ -173,27 +139,11 @@ impl ICoreAutomationRemoteOperationExtensionProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICoreAutomationRemoteOperationExtensionProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ICoreAutomationRemoteOperationExtensionProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICoreAutomationRemoteOperationExtensionProvider {}
-impl ::core::fmt::Debug for ICoreAutomationRemoteOperationExtensionProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICoreAutomationRemoteOperationExtensionProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ICoreAutomationRemoteOperationExtensionProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{88f53e67-dc69-553b-a0aa-70477e724da8}");
 }
 unsafe impl ::windows_core::Interface for ICoreAutomationRemoteOperationExtensionProvider {
     type Vtable = ICoreAutomationRemoteOperationExtensionProvider_Vtbl;
-}
-impl ::core::clone::Clone for ICoreAutomationRemoteOperationExtensionProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICoreAutomationRemoteOperationExtensionProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88f53e67_dc69_553b_a0aa_70477e724da8);
@@ -207,14 +157,10 @@ pub struct ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteAutomationClientSession(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteAutomationClientSession {
     type Vtable = IRemoteAutomationClientSession_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteAutomationClientSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteAutomationClientSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c8a091d_94cc_5b33_afdb_678cded2bd54);
@@ -249,14 +195,10 @@ pub struct IRemoteAutomationClientSession_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteAutomationClientSessionFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteAutomationClientSessionFactory {
     type Vtable = IRemoteAutomationClientSessionFactory_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteAutomationClientSessionFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteAutomationClientSessionFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf250263d_6057_5373_a5a5_ed7265fe0376);
@@ -270,14 +212,10 @@ pub struct IRemoteAutomationClientSessionFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteAutomationConnectionRequestedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteAutomationConnectionRequestedEventArgs {
     type Vtable = IRemoteAutomationConnectionRequestedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteAutomationConnectionRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteAutomationConnectionRequestedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea3319a8_e3a8_5dc6_adf8_044e46b14af5);
@@ -291,14 +229,10 @@ pub struct IRemoteAutomationConnectionRequestedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteAutomationDisconnectedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteAutomationDisconnectedEventArgs {
     type Vtable = IRemoteAutomationDisconnectedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteAutomationDisconnectedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteAutomationDisconnectedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbbb33a3d_5d90_5c38_9eb2_dd9dcc1b2e3f);
@@ -311,14 +245,10 @@ pub struct IRemoteAutomationDisconnectedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteAutomationServerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteAutomationServerStatics {
     type Vtable = IRemoteAutomationServerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteAutomationServerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteAutomationServerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe6e8945e_0c11_5028_9ae3_c2771288b6b7);
@@ -331,14 +261,10 @@ pub struct IRemoteAutomationServerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteAutomationWindow(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteAutomationWindow {
     type Vtable = IRemoteAutomationWindow_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteAutomationWindow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteAutomationWindow {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c607689_496d_512a_9bd5_c050cfaf1428);
@@ -355,6 +281,7 @@ pub struct IRemoteAutomationWindow_Vtbl {
 }
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AutomationRemoteOperationResult(::windows_core::IUnknown);
 impl AutomationRemoteOperationResult {
     pub fn Status(&self) -> ::windows_core::Result<AutomationRemoteOperationStatus> {
@@ -393,24 +320,8 @@ impl AutomationRemoteOperationResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for AutomationRemoteOperationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutomationRemoteOperationResult {}
-impl ::core::fmt::Debug for AutomationRemoteOperationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationRemoteOperationResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AutomationRemoteOperationResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.AutomationRemoteOperationResult;{e0f80c42-4a67-5534-bf5a-09e8a99b36b1})");
-}
-impl ::core::clone::Clone for AutomationRemoteOperationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AutomationRemoteOperationResult {
     type Vtable = IAutomationRemoteOperationResult_Vtbl;
@@ -447,6 +358,7 @@ impl ::windows_core::RuntimeName for CoreAutomationRegistrar {
 }
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreAutomationRemoteOperation(::windows_core::IUnknown);
 impl CoreAutomationRemoteOperation {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -496,24 +408,8 @@ impl CoreAutomationRemoteOperation {
         unsafe { (::windows_core::Interface::vtable(this).ImportConnectionBoundObject)(::windows_core::Interface::as_raw(this), operandid, connectionboundobject.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CoreAutomationRemoteOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreAutomationRemoteOperation {}
-impl ::core::fmt::Debug for CoreAutomationRemoteOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreAutomationRemoteOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CoreAutomationRemoteOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperation;{3ac656f4-e2bc-5c6e-b8e7-b224fb74b060})");
-}
-impl ::core::clone::Clone for CoreAutomationRemoteOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CoreAutomationRemoteOperation {
     type Vtable = ICoreAutomationRemoteOperation_Vtbl;
@@ -529,6 +425,7 @@ unsafe impl ::core::marker::Send for CoreAutomationRemoteOperation {}
 unsafe impl ::core::marker::Sync for CoreAutomationRemoteOperation {}
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreAutomationRemoteOperationContext(::windows_core::IUnknown);
 impl CoreAutomationRemoteOperationContext {
     pub fn GetOperand(&self, id: AutomationRemoteOperationOperandId) -> ::windows_core::Result<::windows_core::IInspectable> {
@@ -553,24 +450,8 @@ impl CoreAutomationRemoteOperationContext {
         unsafe { (::windows_core::Interface::vtable(this).SetOperand2)(::windows_core::Interface::as_raw(this), id, operand.into_param().abi(), operandinterfaceid).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CoreAutomationRemoteOperationContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreAutomationRemoteOperationContext {}
-impl ::core::fmt::Debug for CoreAutomationRemoteOperationContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreAutomationRemoteOperationContext").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CoreAutomationRemoteOperationContext {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperationContext;{b9af9cbb-3d3e-5918-a16b-7861626a3aeb})");
-}
-impl ::core::clone::Clone for CoreAutomationRemoteOperationContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CoreAutomationRemoteOperationContext {
     type Vtable = ICoreAutomationRemoteOperationContext_Vtbl;
@@ -586,6 +467,7 @@ unsafe impl ::core::marker::Send for CoreAutomationRemoteOperationContext {}
 unsafe impl ::core::marker::Sync for CoreAutomationRemoteOperationContext {}
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteAutomationClientSession(::windows_core::IUnknown);
 impl RemoteAutomationClientSession {
     pub fn Start(&self) -> ::windows_core::Result<()> {
@@ -669,24 +551,8 @@ impl RemoteAutomationClientSession {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RemoteAutomationClientSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteAutomationClientSession {}
-impl ::core::fmt::Debug for RemoteAutomationClientSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteAutomationClientSession").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteAutomationClientSession {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.RemoteAutomationClientSession;{5c8a091d-94cc-5b33-afdb-678cded2bd54})");
-}
-impl ::core::clone::Clone for RemoteAutomationClientSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteAutomationClientSession {
     type Vtable = IRemoteAutomationClientSession_Vtbl;
@@ -702,6 +568,7 @@ unsafe impl ::core::marker::Send for RemoteAutomationClientSession {}
 unsafe impl ::core::marker::Sync for RemoteAutomationClientSession {}
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteAutomationConnectionRequestedEventArgs(::windows_core::IUnknown);
 impl RemoteAutomationConnectionRequestedEventArgs {
     pub fn LocalPipeName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -719,24 +586,8 @@ impl RemoteAutomationConnectionRequestedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteAutomationConnectionRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteAutomationConnectionRequestedEventArgs {}
-impl ::core::fmt::Debug for RemoteAutomationConnectionRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteAutomationConnectionRequestedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteAutomationConnectionRequestedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.RemoteAutomationConnectionRequestedEventArgs;{ea3319a8-e3a8-5dc6-adf8-044e46b14af5})");
-}
-impl ::core::clone::Clone for RemoteAutomationConnectionRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteAutomationConnectionRequestedEventArgs {
     type Vtable = IRemoteAutomationConnectionRequestedEventArgs_Vtbl;
@@ -752,6 +603,7 @@ unsafe impl ::core::marker::Send for RemoteAutomationConnectionRequestedEventArg
 unsafe impl ::core::marker::Sync for RemoteAutomationConnectionRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteAutomationDisconnectedEventArgs(::windows_core::IUnknown);
 impl RemoteAutomationDisconnectedEventArgs {
     pub fn LocalPipeName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -762,24 +614,8 @@ impl RemoteAutomationDisconnectedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteAutomationDisconnectedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteAutomationDisconnectedEventArgs {}
-impl ::core::fmt::Debug for RemoteAutomationDisconnectedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteAutomationDisconnectedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteAutomationDisconnectedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.RemoteAutomationDisconnectedEventArgs;{bbb33a3d-5d90-5c38-9eb2-dd9dcc1b2e3f})");
-}
-impl ::core::clone::Clone for RemoteAutomationDisconnectedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteAutomationDisconnectedEventArgs {
     type Vtable = IRemoteAutomationDisconnectedEventArgs_Vtbl;
@@ -810,6 +646,7 @@ impl ::windows_core::RuntimeName for RemoteAutomationServer {
 }
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteAutomationWindow(::windows_core::IUnknown);
 impl RemoteAutomationWindow {
     pub fn AutomationProvider(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
@@ -829,24 +666,8 @@ impl RemoteAutomationWindow {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteAutomationWindow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteAutomationWindow {}
-impl ::core::fmt::Debug for RemoteAutomationWindow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteAutomationWindow").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteAutomationWindow {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.RemoteAutomationWindow;{7c607689-496d-512a-9bd5-c050cfaf1428})");
-}
-impl ::core::clone::Clone for RemoteAutomationWindow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteAutomationWindow {
     type Vtable = IRemoteAutomationWindow_Vtbl;

@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_Graphics_Imaging_D2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWICImageEncoder(::windows_core::IUnknown);
 impl IWICImageEncoder {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
@@ -31,24 +32,8 @@ impl IWICImageEncoder {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWICImageEncoder, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWICImageEncoder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWICImageEncoder {}
-impl ::core::fmt::Debug for IWICImageEncoder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWICImageEncoder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWICImageEncoder {
     type Vtable = IWICImageEncoder_Vtbl;
-}
-impl ::core::clone::Clone for IWICImageEncoder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWICImageEncoder {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04c75bf8_3ce1_473b_acc5_3cc4f5e94999);
@@ -72,6 +57,7 @@ pub struct IWICImageEncoder_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging_D2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWICImagingFactory2(::windows_core::IUnknown);
 impl IWICImagingFactory2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -225,24 +211,8 @@ impl IWICImagingFactory2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWICImagingFactory2, ::windows_core::IUnknown, super::IWICImagingFactory);
-impl ::core::cmp::PartialEq for IWICImagingFactory2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWICImagingFactory2 {}
-impl ::core::fmt::Debug for IWICImagingFactory2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWICImagingFactory2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWICImagingFactory2 {
     type Vtable = IWICImagingFactory2_Vtbl;
-}
-impl ::core::clone::Clone for IWICImagingFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWICImagingFactory2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b816b45_1996_4476_b132_de9e247c8af0);

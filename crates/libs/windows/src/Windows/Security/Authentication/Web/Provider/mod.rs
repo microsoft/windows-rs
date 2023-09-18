@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountClientView(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAccountClientView {
     type Vtable = IWebAccountClientView_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountClientView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountClientView {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7bd66ba_0bc7_4c66_bfd4_65d3082cbca8);
@@ -25,14 +21,10 @@ pub struct IWebAccountClientView_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountClientViewFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAccountClientViewFactory {
     type Vtable = IWebAccountClientViewFactory_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountClientViewFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountClientViewFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x616d16a4_de22_4855_a326_06cebf2a3f23);
@@ -52,14 +44,10 @@ pub struct IWebAccountClientViewFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAccountManagerStatics {
     type Vtable = IWebAccountManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2e8e1a6_d49a_4032_84bf_1a2847747bf1);
@@ -111,14 +99,10 @@ pub struct IWebAccountManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAccountManagerStatics2 {
     type Vtable = IWebAccountManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x68a7a829_2d5f_4653_8bb0_bd2fa6bd2d87);
@@ -134,14 +118,10 @@ pub struct IWebAccountManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountManagerStatics3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAccountManagerStatics3 {
     type Vtable = IWebAccountManagerStatics3_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountManagerStatics3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountManagerStatics3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd4523a6_8a4f_4aa2_b15e_03f550af1359);
@@ -169,14 +149,10 @@ pub struct IWebAccountManagerStatics3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountManagerStatics4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAccountManagerStatics4 {
     type Vtable = IWebAccountManagerStatics4_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountManagerStatics4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountManagerStatics4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59ebc2d2_f7db_412f_bc3f_f2fea04430b4);
@@ -196,14 +172,10 @@ pub struct IWebAccountManagerStatics4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountMapManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAccountMapManagerStatics {
     type Vtable = IWebAccountMapManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountMapManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountMapManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe8fa446f_3a1b_48a4_8e90_1e59ca6f54db);
@@ -231,14 +203,10 @@ pub struct IWebAccountMapManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountProviderAddAccountOperation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAccountProviderAddAccountOperation {
     type Vtable = IWebAccountProviderAddAccountOperation_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountProviderAddAccountOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountProviderAddAccountOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73ebdccf_4378_4c79_9335_a5d7ab81594e);
@@ -251,6 +219,7 @@ pub struct IWebAccountProviderAddAccountOperation_Vtbl {
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountProviderBaseReportOperation(::windows_core::IUnknown);
 impl IWebAccountProviderBaseReportOperation {
     pub fn ReportCompleted(&self) -> ::windows_core::Result<()> {
@@ -268,27 +237,11 @@ impl IWebAccountProviderBaseReportOperation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWebAccountProviderBaseReportOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IWebAccountProviderBaseReportOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebAccountProviderBaseReportOperation {}
-impl ::core::fmt::Debug for IWebAccountProviderBaseReportOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebAccountProviderBaseReportOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IWebAccountProviderBaseReportOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{bba4acbb-993b-4d57-bbe4-1421e3668b4c}");
 }
 unsafe impl ::windows_core::Interface for IWebAccountProviderBaseReportOperation {
     type Vtable = IWebAccountProviderBaseReportOperation_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountProviderBaseReportOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountProviderBaseReportOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbba4acbb_993b_4d57_bbe4_1421e3668b4c);
@@ -305,14 +258,10 @@ pub struct IWebAccountProviderBaseReportOperation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountProviderDeleteAccountOperation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAccountProviderDeleteAccountOperation {
     type Vtable = IWebAccountProviderDeleteAccountOperation_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountProviderDeleteAccountOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountProviderDeleteAccountOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0abb48b8_9e01_49c9_a355_7d48caf7d6ca);
@@ -328,14 +277,10 @@ pub struct IWebAccountProviderDeleteAccountOperation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountProviderManageAccountOperation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAccountProviderManageAccountOperation {
     type Vtable = IWebAccountProviderManageAccountOperation_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountProviderManageAccountOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountProviderManageAccountOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed20dc5c_d21b_463e_a9b7_c1fd0edae978);
@@ -352,6 +297,7 @@ pub struct IWebAccountProviderManageAccountOperation_Vtbl {
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountProviderOperation(::windows_core::IUnknown);
 impl IWebAccountProviderOperation {
     pub fn Kind(&self) -> ::windows_core::Result<WebAccountProviderOperationKind> {
@@ -363,27 +309,11 @@ impl IWebAccountProviderOperation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWebAccountProviderOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IWebAccountProviderOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebAccountProviderOperation {}
-impl ::core::fmt::Debug for IWebAccountProviderOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebAccountProviderOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IWebAccountProviderOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{6d5d2426-10b1-419a-a44e-f9c5161574e6}");
 }
 unsafe impl ::windows_core::Interface for IWebAccountProviderOperation {
     type Vtable = IWebAccountProviderOperation_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountProviderOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountProviderOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d5d2426_10b1_419a_a44e_f9c5161574e6);
@@ -396,14 +326,10 @@ pub struct IWebAccountProviderOperation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountProviderRetrieveCookiesOperation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAccountProviderRetrieveCookiesOperation {
     type Vtable = IWebAccountProviderRetrieveCookiesOperation_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountProviderRetrieveCookiesOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountProviderRetrieveCookiesOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a040441_0fa3_4ab1_a01c_20b110358594);
@@ -435,14 +361,10 @@ pub struct IWebAccountProviderRetrieveCookiesOperation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountProviderSignOutAccountOperation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAccountProviderSignOutAccountOperation {
     type Vtable = IWebAccountProviderSignOutAccountOperation_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountProviderSignOutAccountOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountProviderSignOutAccountOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb890e21d_0c55_47bc_8c72_04a6fc7cac07);
@@ -463,6 +385,7 @@ pub struct IWebAccountProviderSignOutAccountOperation_Vtbl {
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountProviderSilentReportOperation(::windows_core::IUnknown);
 impl IWebAccountProviderSilentReportOperation {
     pub fn ReportUserInteractionRequired(&self) -> ::windows_core::Result<()> {
@@ -494,27 +417,11 @@ impl IWebAccountProviderSilentReportOperation {
 }
 ::windows_core::imp::interface_hierarchy!(IWebAccountProviderSilentReportOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IWebAccountProviderBaseReportOperation> for IWebAccountProviderSilentReportOperation {}
-impl ::core::cmp::PartialEq for IWebAccountProviderSilentReportOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebAccountProviderSilentReportOperation {}
-impl ::core::fmt::Debug for IWebAccountProviderSilentReportOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebAccountProviderSilentReportOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IWebAccountProviderSilentReportOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{e0b545f8-3b0f-44da-924c-7b18baaa62a9}");
 }
 unsafe impl ::windows_core::Interface for IWebAccountProviderSilentReportOperation {
     type Vtable = IWebAccountProviderSilentReportOperation_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountProviderSilentReportOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountProviderSilentReportOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0b545f8_3b0f_44da_924c_7b18baaa62a9);
@@ -531,6 +438,7 @@ pub struct IWebAccountProviderSilentReportOperation_Vtbl {
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountProviderTokenObjects(::windows_core::IUnknown);
 impl IWebAccountProviderTokenObjects {
     pub fn Operation(&self) -> ::windows_core::Result<IWebAccountProviderOperation> {
@@ -542,27 +450,11 @@ impl IWebAccountProviderTokenObjects {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWebAccountProviderTokenObjects, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IWebAccountProviderTokenObjects {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebAccountProviderTokenObjects {}
-impl ::core::fmt::Debug for IWebAccountProviderTokenObjects {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebAccountProviderTokenObjects").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IWebAccountProviderTokenObjects {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{408f284b-1328-42db-89a4-0bce7a717d8e}");
 }
 unsafe impl ::windows_core::Interface for IWebAccountProviderTokenObjects {
     type Vtable = IWebAccountProviderTokenObjects_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountProviderTokenObjects {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountProviderTokenObjects {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x408f284b_1328_42db_89a4_0bce7a717d8e);
@@ -575,6 +467,7 @@ pub struct IWebAccountProviderTokenObjects_Vtbl {
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountProviderTokenObjects2(::windows_core::IUnknown);
 impl IWebAccountProviderTokenObjects2 {
     #[doc = "*Required features: `\"System\"`*"]
@@ -596,27 +489,11 @@ impl IWebAccountProviderTokenObjects2 {
 }
 ::windows_core::imp::interface_hierarchy!(IWebAccountProviderTokenObjects2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IWebAccountProviderTokenObjects> for IWebAccountProviderTokenObjects2 {}
-impl ::core::cmp::PartialEq for IWebAccountProviderTokenObjects2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebAccountProviderTokenObjects2 {}
-impl ::core::fmt::Debug for IWebAccountProviderTokenObjects2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebAccountProviderTokenObjects2").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IWebAccountProviderTokenObjects2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1020b893-5ca5-4fff-95fb-b820273fc395}");
 }
 unsafe impl ::windows_core::Interface for IWebAccountProviderTokenObjects2 {
     type Vtable = IWebAccountProviderTokenObjects2_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountProviderTokenObjects2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountProviderTokenObjects2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1020b893_5ca5_4fff_95fb_b820273fc395);
@@ -632,6 +509,7 @@ pub struct IWebAccountProviderTokenObjects2_Vtbl {
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountProviderTokenOperation(::windows_core::IUnknown);
 impl IWebAccountProviderTokenOperation {
     pub fn ProviderRequest(&self) -> ::windows_core::Result<WebProviderTokenRequest> {
@@ -675,27 +553,11 @@ impl IWebAccountProviderTokenOperation {
 }
 ::windows_core::imp::interface_hierarchy!(IWebAccountProviderTokenOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IWebAccountProviderOperation> for IWebAccountProviderTokenOperation {}
-impl ::core::cmp::PartialEq for IWebAccountProviderTokenOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebAccountProviderTokenOperation {}
-impl ::core::fmt::Debug for IWebAccountProviderTokenOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebAccountProviderTokenOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IWebAccountProviderTokenOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{95c613be-2034-4c38-9434-d26c14b2b4b2}");
 }
 unsafe impl ::windows_core::Interface for IWebAccountProviderTokenOperation {
     type Vtable = IWebAccountProviderTokenOperation_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountProviderTokenOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountProviderTokenOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95c613be_2034_4c38_9434_d26c14b2b4b2);
@@ -720,6 +582,7 @@ pub struct IWebAccountProviderTokenOperation_Vtbl {
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountProviderUIReportOperation(::windows_core::IUnknown);
 impl IWebAccountProviderUIReportOperation {
     pub fn ReportUserCanceled(&self) -> ::windows_core::Result<()> {
@@ -742,27 +605,11 @@ impl IWebAccountProviderUIReportOperation {
 }
 ::windows_core::imp::interface_hierarchy!(IWebAccountProviderUIReportOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IWebAccountProviderBaseReportOperation> for IWebAccountProviderUIReportOperation {}
-impl ::core::cmp::PartialEq for IWebAccountProviderUIReportOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebAccountProviderUIReportOperation {}
-impl ::core::fmt::Debug for IWebAccountProviderUIReportOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebAccountProviderUIReportOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IWebAccountProviderUIReportOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{28ff92d3-8f80-42fb-944f-b2107bbd42e6}");
 }
 unsafe impl ::windows_core::Interface for IWebAccountProviderUIReportOperation {
     type Vtable = IWebAccountProviderUIReportOperation_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountProviderUIReportOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountProviderUIReportOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28ff92d3_8f80_42fb_944f_b2107bbd42e6);
@@ -775,14 +622,10 @@ pub struct IWebAccountProviderUIReportOperation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAccountScopeManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAccountScopeManagerStatics {
     type Vtable = IWebAccountScopeManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IWebAccountScopeManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAccountScopeManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c6ce37c_12b2_423a_bf3d_85b8d7e53656);
@@ -806,14 +649,10 @@ pub struct IWebAccountScopeManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebProviderTokenRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebProviderTokenRequest {
     type Vtable = IWebProviderTokenRequest_Vtbl;
-}
-impl ::core::clone::Clone for IWebProviderTokenRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebProviderTokenRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e18778b_8805_454b_9f11_468d2af1095a);
@@ -842,14 +681,10 @@ pub struct IWebProviderTokenRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebProviderTokenRequest2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebProviderTokenRequest2 {
     type Vtable = IWebProviderTokenRequest2_Vtbl;
-}
-impl ::core::clone::Clone for IWebProviderTokenRequest2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebProviderTokenRequest2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5d72e4c_10b1_4aa6_88b1_0b6c9e0c1e46);
@@ -865,14 +700,10 @@ pub struct IWebProviderTokenRequest2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebProviderTokenRequest3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebProviderTokenRequest3 {
     type Vtable = IWebProviderTokenRequest3_Vtbl;
-}
-impl ::core::clone::Clone for IWebProviderTokenRequest3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebProviderTokenRequest3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b2716aa_4289_446e_9256_dafb6f66a51e);
@@ -890,14 +721,10 @@ pub struct IWebProviderTokenRequest3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebProviderTokenResponse(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebProviderTokenResponse {
     type Vtable = IWebProviderTokenResponse_Vtbl;
-}
-impl ::core::clone::Clone for IWebProviderTokenResponse {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebProviderTokenResponse {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef213793_ef55_4186_b7ce_8cb2e7f9849e);
@@ -913,14 +740,10 @@ pub struct IWebProviderTokenResponse_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebProviderTokenResponseFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebProviderTokenResponseFactory {
     type Vtable = IWebProviderTokenResponseFactory_Vtbl;
-}
-impl ::core::clone::Clone for IWebProviderTokenResponseFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebProviderTokenResponseFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfa49d99a_25ba_4077_9cfa_9db4dea7b71a);
@@ -936,6 +759,7 @@ pub struct IWebProviderTokenResponseFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebAccountClientView(::windows_core::IUnknown);
 impl WebAccountClientView {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -989,24 +813,8 @@ impl WebAccountClientView {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for WebAccountClientView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountClientView {}
-impl ::core::fmt::Debug for WebAccountClientView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountClientView").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebAccountClientView {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountClientView;{e7bd66ba-0bc7-4c66-bfd4-65d3082cbca8})");
-}
-impl ::core::clone::Clone for WebAccountClientView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebAccountClientView {
     type Vtable = IWebAccountClientView_Vtbl;
@@ -1322,6 +1130,7 @@ impl ::windows_core::RuntimeName for WebAccountManager {
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebAccountProviderAddAccountOperation(::windows_core::IUnknown);
 impl WebAccountProviderAddAccountOperation {
     pub fn ReportCompleted(&self) -> ::windows_core::Result<()> {
@@ -1336,24 +1145,8 @@ impl WebAccountProviderAddAccountOperation {
         }
     }
 }
-impl ::core::cmp::PartialEq for WebAccountProviderAddAccountOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountProviderAddAccountOperation {}
-impl ::core::fmt::Debug for WebAccountProviderAddAccountOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountProviderAddAccountOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebAccountProviderAddAccountOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderAddAccountOperation;{73ebdccf-4378-4c79-9335-a5d7ab81594e})");
-}
-impl ::core::clone::Clone for WebAccountProviderAddAccountOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebAccountProviderAddAccountOperation {
     type Vtable = IWebAccountProviderAddAccountOperation_Vtbl;
@@ -1370,6 +1163,7 @@ unsafe impl ::core::marker::Send for WebAccountProviderAddAccountOperation {}
 unsafe impl ::core::marker::Sync for WebAccountProviderAddAccountOperation {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebAccountProviderDeleteAccountOperation(::windows_core::IUnknown);
 impl WebAccountProviderDeleteAccountOperation {
     pub fn ReportCompleted(&self) -> ::windows_core::Result<()> {
@@ -1402,24 +1196,8 @@ impl WebAccountProviderDeleteAccountOperation {
         }
     }
 }
-impl ::core::cmp::PartialEq for WebAccountProviderDeleteAccountOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountProviderDeleteAccountOperation {}
-impl ::core::fmt::Debug for WebAccountProviderDeleteAccountOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountProviderDeleteAccountOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebAccountProviderDeleteAccountOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderDeleteAccountOperation;{0abb48b8-9e01-49c9-a355-7d48caf7d6ca})");
-}
-impl ::core::clone::Clone for WebAccountProviderDeleteAccountOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebAccountProviderDeleteAccountOperation {
     type Vtable = IWebAccountProviderDeleteAccountOperation_Vtbl;
@@ -1437,6 +1215,7 @@ unsafe impl ::core::marker::Send for WebAccountProviderDeleteAccountOperation {}
 unsafe impl ::core::marker::Sync for WebAccountProviderDeleteAccountOperation {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebAccountProviderGetTokenSilentOperation(::windows_core::IUnknown);
 impl WebAccountProviderGetTokenSilentOperation {
     pub fn ReportCompleted(&self) -> ::windows_core::Result<()> {
@@ -1504,24 +1283,8 @@ impl WebAccountProviderGetTokenSilentOperation {
         }
     }
 }
-impl ::core::cmp::PartialEq for WebAccountProviderGetTokenSilentOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountProviderGetTokenSilentOperation {}
-impl ::core::fmt::Debug for WebAccountProviderGetTokenSilentOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountProviderGetTokenSilentOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebAccountProviderGetTokenSilentOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderGetTokenSilentOperation;{95c613be-2034-4c38-9434-d26c14b2b4b2})");
-}
-impl ::core::clone::Clone for WebAccountProviderGetTokenSilentOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebAccountProviderGetTokenSilentOperation {
     type Vtable = IWebAccountProviderTokenOperation_Vtbl;
@@ -1541,6 +1304,7 @@ unsafe impl ::core::marker::Send for WebAccountProviderGetTokenSilentOperation {
 unsafe impl ::core::marker::Sync for WebAccountProviderGetTokenSilentOperation {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebAccountProviderManageAccountOperation(::windows_core::IUnknown);
 impl WebAccountProviderManageAccountOperation {
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -1564,24 +1328,8 @@ impl WebAccountProviderManageAccountOperation {
         }
     }
 }
-impl ::core::cmp::PartialEq for WebAccountProviderManageAccountOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountProviderManageAccountOperation {}
-impl ::core::fmt::Debug for WebAccountProviderManageAccountOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountProviderManageAccountOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebAccountProviderManageAccountOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderManageAccountOperation;{ed20dc5c-d21b-463e-a9b7-c1fd0edae978})");
-}
-impl ::core::clone::Clone for WebAccountProviderManageAccountOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebAccountProviderManageAccountOperation {
     type Vtable = IWebAccountProviderManageAccountOperation_Vtbl;
@@ -1598,6 +1346,7 @@ unsafe impl ::core::marker::Send for WebAccountProviderManageAccountOperation {}
 unsafe impl ::core::marker::Sync for WebAccountProviderManageAccountOperation {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebAccountProviderRequestTokenOperation(::windows_core::IUnknown);
 impl WebAccountProviderRequestTokenOperation {
     pub fn ReportCompleted(&self) -> ::windows_core::Result<()> {
@@ -1656,24 +1405,8 @@ impl WebAccountProviderRequestTokenOperation {
         unsafe { (::windows_core::Interface::vtable(this).ReportUserCanceled)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for WebAccountProviderRequestTokenOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountProviderRequestTokenOperation {}
-impl ::core::fmt::Debug for WebAccountProviderRequestTokenOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountProviderRequestTokenOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebAccountProviderRequestTokenOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderRequestTokenOperation;{95c613be-2034-4c38-9434-d26c14b2b4b2})");
-}
-impl ::core::clone::Clone for WebAccountProviderRequestTokenOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebAccountProviderRequestTokenOperation {
     type Vtable = IWebAccountProviderTokenOperation_Vtbl;
@@ -1693,6 +1426,7 @@ unsafe impl ::core::marker::Send for WebAccountProviderRequestTokenOperation {}
 unsafe impl ::core::marker::Sync for WebAccountProviderRequestTokenOperation {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebAccountProviderRetrieveCookiesOperation(::windows_core::IUnknown);
 impl WebAccountProviderRetrieveCookiesOperation {
     pub fn ReportCompleted(&self) -> ::windows_core::Result<()> {
@@ -1761,24 +1495,8 @@ impl WebAccountProviderRetrieveCookiesOperation {
         }
     }
 }
-impl ::core::cmp::PartialEq for WebAccountProviderRetrieveCookiesOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountProviderRetrieveCookiesOperation {}
-impl ::core::fmt::Debug for WebAccountProviderRetrieveCookiesOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountProviderRetrieveCookiesOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebAccountProviderRetrieveCookiesOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderRetrieveCookiesOperation;{5a040441-0fa3-4ab1-a01c-20b110358594})");
-}
-impl ::core::clone::Clone for WebAccountProviderRetrieveCookiesOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebAccountProviderRetrieveCookiesOperation {
     type Vtable = IWebAccountProviderRetrieveCookiesOperation_Vtbl;
@@ -1796,6 +1514,7 @@ unsafe impl ::core::marker::Send for WebAccountProviderRetrieveCookiesOperation 
 unsafe impl ::core::marker::Sync for WebAccountProviderRetrieveCookiesOperation {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebAccountProviderSignOutAccountOperation(::windows_core::IUnknown);
 impl WebAccountProviderSignOutAccountOperation {
     pub fn ReportCompleted(&self) -> ::windows_core::Result<()> {
@@ -1844,24 +1563,8 @@ impl WebAccountProviderSignOutAccountOperation {
         }
     }
 }
-impl ::core::cmp::PartialEq for WebAccountProviderSignOutAccountOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountProviderSignOutAccountOperation {}
-impl ::core::fmt::Debug for WebAccountProviderSignOutAccountOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountProviderSignOutAccountOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebAccountProviderSignOutAccountOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderSignOutAccountOperation;{b890e21d-0c55-47bc-8c72-04a6fc7cac07})");
-}
-impl ::core::clone::Clone for WebAccountProviderSignOutAccountOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebAccountProviderSignOutAccountOperation {
     type Vtable = IWebAccountProviderSignOutAccountOperation_Vtbl;
@@ -1879,6 +1582,7 @@ unsafe impl ::core::marker::Send for WebAccountProviderSignOutAccountOperation {
 unsafe impl ::core::marker::Sync for WebAccountProviderSignOutAccountOperation {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebAccountProviderTriggerDetails(::windows_core::IUnknown);
 impl WebAccountProviderTriggerDetails {
     pub fn Operation(&self) -> ::windows_core::Result<IWebAccountProviderOperation> {
@@ -1898,24 +1602,8 @@ impl WebAccountProviderTriggerDetails {
         }
     }
 }
-impl ::core::cmp::PartialEq for WebAccountProviderTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountProviderTriggerDetails {}
-impl ::core::fmt::Debug for WebAccountProviderTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountProviderTriggerDetails").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebAccountProviderTriggerDetails {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderTriggerDetails;{408f284b-1328-42db-89a4-0bce7a717d8e})");
-}
-impl ::core::clone::Clone for WebAccountProviderTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebAccountProviderTriggerDetails {
     type Vtable = IWebAccountProviderTokenObjects_Vtbl;
@@ -1933,6 +1621,7 @@ unsafe impl ::core::marker::Send for WebAccountProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for WebAccountProviderTriggerDetails {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebProviderTokenRequest(::windows_core::IUnknown);
 impl WebProviderTokenRequest {
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -2017,24 +1706,8 @@ impl WebProviderTokenRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for WebProviderTokenRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebProviderTokenRequest {}
-impl ::core::fmt::Debug for WebProviderTokenRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebProviderTokenRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebProviderTokenRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebProviderTokenRequest;{1e18778b-8805-454b-9f11-468d2af1095a})");
-}
-impl ::core::clone::Clone for WebProviderTokenRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebProviderTokenRequest {
     type Vtable = IWebProviderTokenRequest_Vtbl;
@@ -2050,6 +1723,7 @@ unsafe impl ::core::marker::Send for WebProviderTokenRequest {}
 unsafe impl ::core::marker::Sync for WebProviderTokenRequest {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebProviderTokenResponse(::windows_core::IUnknown);
 impl WebProviderTokenResponse {
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -2078,24 +1752,8 @@ impl WebProviderTokenResponse {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for WebProviderTokenResponse {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebProviderTokenResponse {}
-impl ::core::fmt::Debug for WebProviderTokenResponse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebProviderTokenResponse").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebProviderTokenResponse {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse;{ef213793-ef55-4186-b7ce-8cb2e7f9849e})");
-}
-impl ::core::clone::Clone for WebProviderTokenResponse {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebProviderTokenResponse {
     type Vtable = IWebProviderTokenResponse_Vtbl;

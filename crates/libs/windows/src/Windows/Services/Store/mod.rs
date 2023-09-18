@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreAcquireLicenseResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreAcquireLicenseResult {
     type Vtable = IStoreAcquireLicenseResult_Vtbl;
-}
-impl ::core::clone::Clone for IStoreAcquireLicenseResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreAcquireLicenseResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfbd7946d_f040_4cb3_9a39_29bcecdbe22d);
@@ -21,14 +17,10 @@ pub struct IStoreAcquireLicenseResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreAppLicense(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreAppLicense {
     type Vtable = IStoreAppLicense_Vtbl;
-}
-impl ::core::clone::Clone for IStoreAppLicense {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreAppLicense {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf389f9de_73c0_45ce_9bab_b2fe3e5eafd3);
@@ -58,14 +50,10 @@ pub struct IStoreAppLicense_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreAppLicense2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreAppLicense2 {
     type Vtable = IStoreAppLicense2_Vtbl;
-}
-impl ::core::clone::Clone for IStoreAppLicense2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreAppLicense2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb4666e91_4443_40b3_993f_28904435bdc6);
@@ -78,14 +66,10 @@ pub struct IStoreAppLicense2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreAvailability(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreAvailability {
     type Vtable = IStoreAvailability_Vtbl;
-}
-impl ::core::clone::Clone for IStoreAvailability {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreAvailability {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfa060325_0ffd_4493_ad43_f1f9918f69fa);
@@ -112,14 +96,10 @@ pub struct IStoreAvailability_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreCanAcquireLicenseResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreCanAcquireLicenseResult {
     type Vtable = IStoreCanAcquireLicenseResult_Vtbl;
-}
-impl ::core::clone::Clone for IStoreCanAcquireLicenseResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreCanAcquireLicenseResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a693db3_0088_482f_86d5_bd46522663ad);
@@ -134,14 +114,10 @@ pub struct IStoreCanAcquireLicenseResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreCollectionData(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreCollectionData {
     type Vtable = IStoreCollectionData_Vtbl;
-}
-impl ::core::clone::Clone for IStoreCollectionData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreCollectionData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8aa4c3b3_5bb3_441a_2ab4_4dab73d5ce67);
@@ -173,14 +149,10 @@ pub struct IStoreCollectionData_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreConsumableResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreConsumableResult {
     type Vtable = IStoreConsumableResult_Vtbl;
-}
-impl ::core::clone::Clone for IStoreConsumableResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreConsumableResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea5dab72_6a00_4052_be5b_bfdab4433352);
@@ -196,14 +168,10 @@ pub struct IStoreConsumableResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreContext(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreContext {
     type Vtable = IStoreContext_Vtbl;
-}
-impl ::core::clone::Clone for IStoreContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac98b6be_f4fd_4912_babd_5035e5e8bcab);
@@ -299,14 +267,10 @@ pub struct IStoreContext_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreContext2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreContext2 {
     type Vtable = IStoreContext2_Vtbl;
-}
-impl ::core::clone::Clone for IStoreContext2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreContext2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18bc54da_7bd9_452c_9116_3bbd06ffc63a);
@@ -322,14 +286,10 @@ pub struct IStoreContext2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreContext3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreContext3 {
     type Vtable = IStoreContext3_Vtbl;
-}
-impl ::core::clone::Clone for IStoreContext3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreContext3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe26226ca_1a01_4730_85a6_ecc896e4ae38);
@@ -394,14 +354,10 @@ pub struct IStoreContext3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreContext4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreContext4 {
     type Vtable = IStoreContext4_Vtbl;
-}
-impl ::core::clone::Clone for IStoreContext4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreContext4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf9c6f69_bea1_4bf4_8e74_ae03e206c6b0);
@@ -421,14 +377,10 @@ pub struct IStoreContext4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreContextStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreContextStatics {
     type Vtable = IStoreContextStatics_Vtbl;
-}
-impl ::core::clone::Clone for IStoreContextStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreContextStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c06ee5f_15c0_4e72_9330_d6191cebd19c);
@@ -445,14 +397,10 @@ pub struct IStoreContextStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreImage(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreImage {
     type Vtable = IStoreImage_Vtbl;
-}
-impl ::core::clone::Clone for IStoreImage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreImage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x081fd248_adb4_4b64_a993_784789926ed5);
@@ -472,14 +420,10 @@ pub struct IStoreImage_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreLicense(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreLicense {
     type Vtable = IStoreLicense_Vtbl;
-}
-impl ::core::clone::Clone for IStoreLicense {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreLicense {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26dc9579_4c4f_4f30_bc89_649f60e36055);
@@ -499,14 +443,10 @@ pub struct IStoreLicense_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorePackageInstallOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorePackageInstallOptions {
     type Vtable = IStorePackageInstallOptions_Vtbl;
-}
-impl ::core::clone::Clone for IStorePackageInstallOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorePackageInstallOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d3d630c_0ccd_44dd_8c59_80810a729973);
@@ -520,14 +460,10 @@ pub struct IStorePackageInstallOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorePackageLicense(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorePackageLicense {
     type Vtable = IStorePackageLicense_Vtbl;
-}
-impl ::core::clone::Clone for IStorePackageLicense {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorePackageLicense {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c465714_14e1_4973_bd14_f77724271e99);
@@ -553,14 +489,10 @@ pub struct IStorePackageLicense_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorePackageUpdate(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorePackageUpdate {
     type Vtable = IStorePackageUpdate_Vtbl;
-}
-impl ::core::clone::Clone for IStorePackageUpdate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorePackageUpdate {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x140fa150_3cbf_4a35_b91f_48271c31b072);
@@ -577,14 +509,10 @@ pub struct IStorePackageUpdate_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorePackageUpdateResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorePackageUpdateResult {
     type Vtable = IStorePackageUpdateResult_Vtbl;
-}
-impl ::core::clone::Clone for IStorePackageUpdateResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorePackageUpdateResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe79142ed_61f9_4893_b4fe_cf191603af7b);
@@ -601,14 +529,10 @@ pub struct IStorePackageUpdateResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorePackageUpdateResult2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorePackageUpdateResult2 {
     type Vtable = IStorePackageUpdateResult2_Vtbl;
-}
-impl ::core::clone::Clone for IStorePackageUpdateResult2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorePackageUpdateResult2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x071d012e_bc62_4f2e_87ea_99d801aeaf98);
@@ -624,14 +548,10 @@ pub struct IStorePackageUpdateResult2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorePrice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorePrice {
     type Vtable = IStorePrice_Vtbl;
-}
-impl ::core::clone::Clone for IStorePrice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorePrice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55ba94c4_15f1_407c_8f06_006380f4df0b);
@@ -652,14 +572,10 @@ pub struct IStorePrice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreProduct(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreProduct {
     type Vtable = IStoreProduct_Vtbl;
-}
-impl ::core::clone::Clone for IStoreProduct {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreProduct {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x320e2c52_d760_450a_a42b_67d1e901ac90);
@@ -713,14 +629,10 @@ pub struct IStoreProduct_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreProductOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreProductOptions {
     type Vtable = IStoreProductOptions_Vtbl;
-}
-impl ::core::clone::Clone for IStoreProductOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreProductOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b34a0f9_a113_4811_8326_16199c927f31);
@@ -736,14 +648,10 @@ pub struct IStoreProductOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreProductPagedQueryResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreProductPagedQueryResult {
     type Vtable = IStoreProductPagedQueryResult_Vtbl;
-}
-impl ::core::clone::Clone for IStoreProductPagedQueryResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreProductPagedQueryResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc92718c5_4dd5_4869_a462_ecc6872e43c5);
@@ -765,14 +673,10 @@ pub struct IStoreProductPagedQueryResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreProductQueryResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreProductQueryResult {
     type Vtable = IStoreProductQueryResult_Vtbl;
-}
-impl ::core::clone::Clone for IStoreProductQueryResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreProductQueryResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd805e6c5_d456_4ff6_8049_9076d5165f73);
@@ -789,14 +693,10 @@ pub struct IStoreProductQueryResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreProductResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreProductResult {
     type Vtable = IStoreProductResult_Vtbl;
-}
-impl ::core::clone::Clone for IStoreProductResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreProductResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7674f73_3c87_4ee1_8201_f428359bd3af);
@@ -810,14 +710,10 @@ pub struct IStoreProductResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorePurchaseProperties(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorePurchaseProperties {
     type Vtable = IStorePurchaseProperties_Vtbl;
-}
-impl ::core::clone::Clone for IStorePurchaseProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorePurchaseProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x836278f3_ff87_4364_a5b4_fd2153ebe43b);
@@ -833,14 +729,10 @@ pub struct IStorePurchaseProperties_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorePurchasePropertiesFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorePurchasePropertiesFactory {
     type Vtable = IStorePurchasePropertiesFactory_Vtbl;
-}
-impl ::core::clone::Clone for IStorePurchasePropertiesFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorePurchasePropertiesFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa768f59e_fefd_489f_9a17_22a593e68b9d);
@@ -853,14 +745,10 @@ pub struct IStorePurchasePropertiesFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorePurchaseResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorePurchaseResult {
     type Vtable = IStorePurchaseResult_Vtbl;
-}
-impl ::core::clone::Clone for IStorePurchaseResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorePurchaseResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xadd28552_f96a_463d_a7bb_c20b4fca6952);
@@ -874,14 +762,10 @@ pub struct IStorePurchaseResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreQueueItem(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreQueueItem {
     type Vtable = IStoreQueueItem_Vtbl;
-}
-impl ::core::clone::Clone for IStoreQueueItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreQueueItem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56d5c32b_f830_4293_9188_cad2dcde7357);
@@ -913,14 +797,10 @@ pub struct IStoreQueueItem_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreQueueItem2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreQueueItem2 {
     type Vtable = IStoreQueueItem2_Vtbl;
-}
-impl ::core::clone::Clone for IStoreQueueItem2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreQueueItem2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69491ca8_1ad4_447c_ad8c_a95035f64d82);
@@ -944,14 +824,10 @@ pub struct IStoreQueueItem2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreQueueItemCompletedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreQueueItemCompletedEventArgs {
     type Vtable = IStoreQueueItemCompletedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IStoreQueueItemCompletedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreQueueItemCompletedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1247df6c_b44a_439b_bb07_1d3003d005c2);
@@ -964,14 +840,10 @@ pub struct IStoreQueueItemCompletedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreQueueItemStatus(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreQueueItemStatus {
     type Vtable = IStoreQueueItemStatus_Vtbl;
-}
-impl ::core::clone::Clone for IStoreQueueItemStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreQueueItemStatus {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9bd6796f_9cc3_4ec3_b2ef_7be433b30174);
@@ -987,14 +859,10 @@ pub struct IStoreQueueItemStatus_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreRateAndReviewResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreRateAndReviewResult {
     type Vtable = IStoreRateAndReviewResult_Vtbl;
-}
-impl ::core::clone::Clone for IStoreRateAndReviewResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreRateAndReviewResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d209d56_a6b5_4121_9b61_ee6d0fbdbdbb);
@@ -1010,14 +878,10 @@ pub struct IStoreRateAndReviewResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreRequestHelperStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreRequestHelperStatics {
     type Vtable = IStoreRequestHelperStatics_Vtbl;
-}
-impl ::core::clone::Clone for IStoreRequestHelperStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreRequestHelperStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ce5e5f9_a0c9_4b2c_96a6_a171c630038d);
@@ -1033,14 +897,10 @@ pub struct IStoreRequestHelperStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreSendRequestResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreSendRequestResult {
     type Vtable = IStoreSendRequestResult_Vtbl;
-}
-impl ::core::clone::Clone for IStoreSendRequestResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreSendRequestResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc73abe60_8272_4502_8a69_6e75153a4299);
@@ -1054,14 +914,10 @@ pub struct IStoreSendRequestResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreSendRequestResult2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreSendRequestResult2 {
     type Vtable = IStoreSendRequestResult2_Vtbl;
-}
-impl ::core::clone::Clone for IStoreSendRequestResult2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreSendRequestResult2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2901296f_c0b0_49d0_8e8d_aa940af9c10b);
@@ -1077,14 +933,10 @@ pub struct IStoreSendRequestResult2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreSku(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreSku {
     type Vtable = IStoreSku_Vtbl;
-}
-impl ::core::clone::Clone for IStoreSku {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreSku {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x397e6f55_4440_4f03_863c_91f3fec83d79);
@@ -1136,14 +988,10 @@ pub struct IStoreSku_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreSubscriptionInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreSubscriptionInfo {
     type Vtable = IStoreSubscriptionInfo_Vtbl;
-}
-impl ::core::clone::Clone for IStoreSubscriptionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreSubscriptionInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4189776a_0559_43ac_a9c6_3ab0011fb8eb);
@@ -1160,14 +1008,10 @@ pub struct IStoreSubscriptionInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreUninstallStorePackageResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreUninstallStorePackageResult {
     type Vtable = IStoreUninstallStorePackageResult_Vtbl;
-}
-impl ::core::clone::Clone for IStoreUninstallStorePackageResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreUninstallStorePackageResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9fca39fd_126f_4cda_b801_1346b8d0a260);
@@ -1181,14 +1025,10 @@ pub struct IStoreUninstallStorePackageResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoreVideo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoreVideo {
     type Vtable = IStoreVideo_Vtbl;
-}
-impl ::core::clone::Clone for IStoreVideo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoreVideo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf26cb184_6f5e_4dc2_886c_3c63083c2f94);
@@ -1209,6 +1049,7 @@ pub struct IStoreVideo_Vtbl {
 }
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreAcquireLicenseResult(::windows_core::IUnknown);
 impl StoreAcquireLicenseResult {
     pub fn StorePackageLicense(&self) -> ::windows_core::Result<StorePackageLicense> {
@@ -1226,24 +1067,8 @@ impl StoreAcquireLicenseResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreAcquireLicenseResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreAcquireLicenseResult {}
-impl ::core::fmt::Debug for StoreAcquireLicenseResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreAcquireLicenseResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreAcquireLicenseResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreAcquireLicenseResult;{fbd7946d-f040-4cb3-9a39-29bcecdbe22d})");
-}
-impl ::core::clone::Clone for StoreAcquireLicenseResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreAcquireLicenseResult {
     type Vtable = IStoreAcquireLicenseResult_Vtbl;
@@ -1259,6 +1084,7 @@ unsafe impl ::core::marker::Send for StoreAcquireLicenseResult {}
 unsafe impl ::core::marker::Sync for StoreAcquireLicenseResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreAppLicense(::windows_core::IUnknown);
 impl StoreAppLicense {
     pub fn SkuStoreId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1338,24 +1164,8 @@ impl StoreAppLicense {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreAppLicense {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreAppLicense {}
-impl ::core::fmt::Debug for StoreAppLicense {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreAppLicense").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreAppLicense {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreAppLicense;{f389f9de-73c0-45ce-9bab-b2fe3e5eafd3})");
-}
-impl ::core::clone::Clone for StoreAppLicense {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreAppLicense {
     type Vtable = IStoreAppLicense_Vtbl;
@@ -1371,6 +1181,7 @@ unsafe impl ::core::marker::Send for StoreAppLicense {}
 unsafe impl ::core::marker::Sync for StoreAppLicense {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreAvailability(::windows_core::IUnknown);
 impl StoreAvailability {
     pub fn StoreId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1425,24 +1236,8 @@ impl StoreAvailability {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreAvailability {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreAvailability {}
-impl ::core::fmt::Debug for StoreAvailability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreAvailability").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreAvailability {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreAvailability;{fa060325-0ffd-4493-ad43-f1f9918f69fa})");
-}
-impl ::core::clone::Clone for StoreAvailability {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreAvailability {
     type Vtable = IStoreAvailability_Vtbl;
@@ -1458,6 +1253,7 @@ unsafe impl ::core::marker::Send for StoreAvailability {}
 unsafe impl ::core::marker::Sync for StoreAvailability {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreCanAcquireLicenseResult(::windows_core::IUnknown);
 impl StoreCanAcquireLicenseResult {
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
@@ -1482,24 +1278,8 @@ impl StoreCanAcquireLicenseResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreCanAcquireLicenseResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreCanAcquireLicenseResult {}
-impl ::core::fmt::Debug for StoreCanAcquireLicenseResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreCanAcquireLicenseResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreCanAcquireLicenseResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreCanAcquireLicenseResult;{3a693db3-0088-482f-86d5-bd46522663ad})");
-}
-impl ::core::clone::Clone for StoreCanAcquireLicenseResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreCanAcquireLicenseResult {
     type Vtable = IStoreCanAcquireLicenseResult_Vtbl;
@@ -1515,6 +1295,7 @@ unsafe impl ::core::marker::Send for StoreCanAcquireLicenseResult {}
 unsafe impl ::core::marker::Sync for StoreCanAcquireLicenseResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreCollectionData(::windows_core::IUnknown);
 impl StoreCollectionData {
     pub fn IsTrial(&self) -> ::windows_core::Result<bool> {
@@ -1582,24 +1363,8 @@ impl StoreCollectionData {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreCollectionData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreCollectionData {}
-impl ::core::fmt::Debug for StoreCollectionData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreCollectionData").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreCollectionData {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreCollectionData;{8aa4c3b3-5bb3-441a-2ab4-4dab73d5ce67})");
-}
-impl ::core::clone::Clone for StoreCollectionData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreCollectionData {
     type Vtable = IStoreCollectionData_Vtbl;
@@ -1615,6 +1380,7 @@ unsafe impl ::core::marker::Send for StoreCollectionData {}
 unsafe impl ::core::marker::Sync for StoreCollectionData {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreConsumableResult(::windows_core::IUnknown);
 impl StoreConsumableResult {
     pub fn Status(&self) -> ::windows_core::Result<StoreConsumableStatus> {
@@ -1646,24 +1412,8 @@ impl StoreConsumableResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreConsumableResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreConsumableResult {}
-impl ::core::fmt::Debug for StoreConsumableResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreConsumableResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreConsumableResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreConsumableResult;{ea5dab72-6a00-4052-be5b-bfdab4433352})");
-}
-impl ::core::clone::Clone for StoreConsumableResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreConsumableResult {
     type Vtable = IStoreConsumableResult_Vtbl;
@@ -1679,6 +1429,7 @@ unsafe impl ::core::marker::Send for StoreConsumableResult {}
 unsafe impl ::core::marker::Sync for StoreConsumableResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreContext(::windows_core::IUnknown);
 impl StoreContext {
     #[doc = "*Required features: `\"System\"`*"]
@@ -2112,24 +1863,8 @@ impl StoreContext {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for StoreContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreContext {}
-impl ::core::fmt::Debug for StoreContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreContext").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreContext {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreContext;{ac98b6be-f4fd-4912-babd-5035e5e8bcab})");
-}
-impl ::core::clone::Clone for StoreContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreContext {
     type Vtable = IStoreContext_Vtbl;
@@ -2145,6 +1880,7 @@ unsafe impl ::core::marker::Send for StoreContext {}
 unsafe impl ::core::marker::Sync for StoreContext {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreImage(::windows_core::IUnknown);
 impl StoreImage {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2185,24 +1921,8 @@ impl StoreImage {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreImage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreImage {}
-impl ::core::fmt::Debug for StoreImage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreImage").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreImage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreImage;{081fd248-adb4-4b64-a993-784789926ed5})");
-}
-impl ::core::clone::Clone for StoreImage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreImage {
     type Vtable = IStoreImage_Vtbl;
@@ -2218,6 +1938,7 @@ unsafe impl ::core::marker::Send for StoreImage {}
 unsafe impl ::core::marker::Sync for StoreImage {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreLicense(::windows_core::IUnknown);
 impl StoreLicense {
     pub fn SkuStoreId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2258,24 +1979,8 @@ impl StoreLicense {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreLicense {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreLicense {}
-impl ::core::fmt::Debug for StoreLicense {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreLicense").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreLicense {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreLicense;{26dc9579-4c4f-4f30-bc89-649f60e36055})");
-}
-impl ::core::clone::Clone for StoreLicense {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreLicense {
     type Vtable = IStoreLicense_Vtbl;
@@ -2291,6 +1996,7 @@ unsafe impl ::core::marker::Send for StoreLicense {}
 unsafe impl ::core::marker::Sync for StoreLicense {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorePackageInstallOptions(::windows_core::IUnknown);
 impl StorePackageInstallOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2312,24 +2018,8 @@ impl StorePackageInstallOptions {
         unsafe { (::windows_core::Interface::vtable(this).SetAllowForcedAppRestart)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for StorePackageInstallOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorePackageInstallOptions {}
-impl ::core::fmt::Debug for StorePackageInstallOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePackageInstallOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StorePackageInstallOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageInstallOptions;{1d3d630c-0ccd-44dd-8c59-80810a729973})");
-}
-impl ::core::clone::Clone for StorePackageInstallOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StorePackageInstallOptions {
     type Vtable = IStorePackageInstallOptions_Vtbl;
@@ -2345,6 +2035,7 @@ unsafe impl ::core::marker::Send for StorePackageInstallOptions {}
 unsafe impl ::core::marker::Sync for StorePackageInstallOptions {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorePackageLicense(::windows_core::IUnknown);
 impl StorePackageLicense {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2392,24 +2083,8 @@ impl StorePackageLicense {
         unsafe { (::windows_core::Interface::vtable(this).ReleaseLicense)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for StorePackageLicense {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorePackageLicense {}
-impl ::core::fmt::Debug for StorePackageLicense {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePackageLicense").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StorePackageLicense {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageLicense;{0c465714-14e1-4973-bd14-f77724271e99})");
-}
-impl ::core::clone::Clone for StorePackageLicense {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StorePackageLicense {
     type Vtable = IStorePackageLicense_Vtbl;
@@ -2427,6 +2102,7 @@ unsafe impl ::core::marker::Send for StorePackageLicense {}
 unsafe impl ::core::marker::Sync for StorePackageLicense {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorePackageUpdate(::windows_core::IUnknown);
 impl StorePackageUpdate {
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -2446,24 +2122,8 @@ impl StorePackageUpdate {
         }
     }
 }
-impl ::core::cmp::PartialEq for StorePackageUpdate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorePackageUpdate {}
-impl ::core::fmt::Debug for StorePackageUpdate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePackageUpdate").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StorePackageUpdate {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageUpdate;{140fa150-3cbf-4a35-b91f-48271c31b072})");
-}
-impl ::core::clone::Clone for StorePackageUpdate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StorePackageUpdate {
     type Vtable = IStorePackageUpdate_Vtbl;
@@ -2479,6 +2139,7 @@ unsafe impl ::core::marker::Send for StorePackageUpdate {}
 unsafe impl ::core::marker::Sync for StorePackageUpdate {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorePackageUpdateResult(::windows_core::IUnknown);
 impl StorePackageUpdateResult {
     pub fn OverallState(&self) -> ::windows_core::Result<StorePackageUpdateState> {
@@ -2507,24 +2168,8 @@ impl StorePackageUpdateResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for StorePackageUpdateResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorePackageUpdateResult {}
-impl ::core::fmt::Debug for StorePackageUpdateResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePackageUpdateResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StorePackageUpdateResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageUpdateResult;{e79142ed-61f9-4893-b4fe-cf191603af7b})");
-}
-impl ::core::clone::Clone for StorePackageUpdateResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StorePackageUpdateResult {
     type Vtable = IStorePackageUpdateResult_Vtbl;
@@ -2540,6 +2185,7 @@ unsafe impl ::core::marker::Send for StorePackageUpdateResult {}
 unsafe impl ::core::marker::Sync for StorePackageUpdateResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorePrice(::windows_core::IUnknown);
 impl StorePrice {
     pub fn FormattedBasePrice(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2587,24 +2233,8 @@ impl StorePrice {
         }
     }
 }
-impl ::core::cmp::PartialEq for StorePrice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorePrice {}
-impl ::core::fmt::Debug for StorePrice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePrice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StorePrice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePrice;{55ba94c4-15f1-407c-8f06-006380f4df0b})");
-}
-impl ::core::clone::Clone for StorePrice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StorePrice {
     type Vtable = IStorePrice_Vtbl;
@@ -2620,6 +2250,7 @@ unsafe impl ::core::marker::Send for StorePrice {}
 unsafe impl ::core::marker::Sync for StorePrice {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreProduct(::windows_core::IUnknown);
 impl StoreProduct {
     pub fn StoreId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2768,24 +2399,8 @@ impl StoreProduct {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreProduct {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreProduct {}
-impl ::core::fmt::Debug for StoreProduct {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreProduct").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreProduct {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProduct;{320e2c52-d760-450a-a42b-67d1e901ac90})");
-}
-impl ::core::clone::Clone for StoreProduct {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreProduct {
     type Vtable = IStoreProduct_Vtbl;
@@ -2801,6 +2416,7 @@ unsafe impl ::core::marker::Send for StoreProduct {}
 unsafe impl ::core::marker::Sync for StoreProduct {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreProductOptions(::windows_core::IUnknown);
 impl StoreProductOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2820,24 +2436,8 @@ impl StoreProductOptions {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreProductOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreProductOptions {}
-impl ::core::fmt::Debug for StoreProductOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreProductOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreProductOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductOptions;{5b34a0f9-a113-4811-8326-16199c927f31})");
-}
-impl ::core::clone::Clone for StoreProductOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreProductOptions {
     type Vtable = IStoreProductOptions_Vtbl;
@@ -2853,6 +2453,7 @@ unsafe impl ::core::marker::Send for StoreProductOptions {}
 unsafe impl ::core::marker::Sync for StoreProductOptions {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreProductPagedQueryResult(::windows_core::IUnknown);
 impl StoreProductPagedQueryResult {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2888,24 +2489,8 @@ impl StoreProductPagedQueryResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreProductPagedQueryResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreProductPagedQueryResult {}
-impl ::core::fmt::Debug for StoreProductPagedQueryResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreProductPagedQueryResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreProductPagedQueryResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductPagedQueryResult;{c92718c5-4dd5-4869-a462-ecc6872e43c5})");
-}
-impl ::core::clone::Clone for StoreProductPagedQueryResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreProductPagedQueryResult {
     type Vtable = IStoreProductPagedQueryResult_Vtbl;
@@ -2921,6 +2506,7 @@ unsafe impl ::core::marker::Send for StoreProductPagedQueryResult {}
 unsafe impl ::core::marker::Sync for StoreProductPagedQueryResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreProductQueryResult(::windows_core::IUnknown);
 impl StoreProductQueryResult {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2940,24 +2526,8 @@ impl StoreProductQueryResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreProductQueryResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreProductQueryResult {}
-impl ::core::fmt::Debug for StoreProductQueryResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreProductQueryResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreProductQueryResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductQueryResult;{d805e6c5-d456-4ff6-8049-9076d5165f73})");
-}
-impl ::core::clone::Clone for StoreProductQueryResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreProductQueryResult {
     type Vtable = IStoreProductQueryResult_Vtbl;
@@ -2973,6 +2543,7 @@ unsafe impl ::core::marker::Send for StoreProductQueryResult {}
 unsafe impl ::core::marker::Sync for StoreProductQueryResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreProductResult(::windows_core::IUnknown);
 impl StoreProductResult {
     pub fn Product(&self) -> ::windows_core::Result<StoreProduct> {
@@ -2990,24 +2561,8 @@ impl StoreProductResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreProductResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreProductResult {}
-impl ::core::fmt::Debug for StoreProductResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreProductResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreProductResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductResult;{b7674f73-3c87-4ee1-8201-f428359bd3af})");
-}
-impl ::core::clone::Clone for StoreProductResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreProductResult {
     type Vtable = IStoreProductResult_Vtbl;
@@ -3023,6 +2578,7 @@ unsafe impl ::core::marker::Send for StoreProductResult {}
 unsafe impl ::core::marker::Sync for StoreProductResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorePurchaseProperties(::windows_core::IUnknown);
 impl StorePurchaseProperties {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3066,24 +2622,8 @@ impl StorePurchaseProperties {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for StorePurchaseProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorePurchaseProperties {}
-impl ::core::fmt::Debug for StorePurchaseProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePurchaseProperties").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StorePurchaseProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePurchaseProperties;{836278f3-ff87-4364-a5b4-fd2153ebe43b})");
-}
-impl ::core::clone::Clone for StorePurchaseProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StorePurchaseProperties {
     type Vtable = IStorePurchaseProperties_Vtbl;
@@ -3099,6 +2639,7 @@ unsafe impl ::core::marker::Send for StorePurchaseProperties {}
 unsafe impl ::core::marker::Sync for StorePurchaseProperties {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorePurchaseResult(::windows_core::IUnknown);
 impl StorePurchaseResult {
     pub fn Status(&self) -> ::windows_core::Result<StorePurchaseStatus> {
@@ -3116,24 +2657,8 @@ impl StorePurchaseResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for StorePurchaseResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorePurchaseResult {}
-impl ::core::fmt::Debug for StorePurchaseResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePurchaseResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StorePurchaseResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePurchaseResult;{add28552-f96a-463d-a7bb-c20b4fca6952})");
-}
-impl ::core::clone::Clone for StorePurchaseResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StorePurchaseResult {
     type Vtable = IStorePurchaseResult_Vtbl;
@@ -3149,6 +2674,7 @@ unsafe impl ::core::marker::Send for StorePurchaseResult {}
 unsafe impl ::core::marker::Sync for StorePurchaseResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreQueueItem(::windows_core::IUnknown);
 impl StoreQueueItem {
     pub fn ProductId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3243,24 +2769,8 @@ impl StoreQueueItem {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreQueueItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreQueueItem {}
-impl ::core::fmt::Debug for StoreQueueItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreQueueItem").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreQueueItem {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreQueueItem;{56d5c32b-f830-4293-9188-cad2dcde7357})");
-}
-impl ::core::clone::Clone for StoreQueueItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreQueueItem {
     type Vtable = IStoreQueueItem_Vtbl;
@@ -3276,6 +2786,7 @@ unsafe impl ::core::marker::Send for StoreQueueItem {}
 unsafe impl ::core::marker::Sync for StoreQueueItem {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreQueueItemCompletedEventArgs(::windows_core::IUnknown);
 impl StoreQueueItemCompletedEventArgs {
     pub fn Status(&self) -> ::windows_core::Result<StoreQueueItemStatus> {
@@ -3286,24 +2797,8 @@ impl StoreQueueItemCompletedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreQueueItemCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreQueueItemCompletedEventArgs {}
-impl ::core::fmt::Debug for StoreQueueItemCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreQueueItemCompletedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreQueueItemCompletedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreQueueItemCompletedEventArgs;{1247df6c-b44a-439b-bb07-1d3003d005c2})");
-}
-impl ::core::clone::Clone for StoreQueueItemCompletedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreQueueItemCompletedEventArgs {
     type Vtable = IStoreQueueItemCompletedEventArgs_Vtbl;
@@ -3319,6 +2814,7 @@ unsafe impl ::core::marker::Send for StoreQueueItemCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for StoreQueueItemCompletedEventArgs {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreQueueItemStatus(::windows_core::IUnknown);
 impl StoreQueueItemStatus {
     pub fn PackageInstallState(&self) -> ::windows_core::Result<StoreQueueItemState> {
@@ -3350,24 +2846,8 @@ impl StoreQueueItemStatus {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreQueueItemStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreQueueItemStatus {}
-impl ::core::fmt::Debug for StoreQueueItemStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreQueueItemStatus").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreQueueItemStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreQueueItemStatus;{9bd6796f-9cc3-4ec3-b2ef-7be433b30174})");
-}
-impl ::core::clone::Clone for StoreQueueItemStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreQueueItemStatus {
     type Vtable = IStoreQueueItemStatus_Vtbl;
@@ -3383,6 +2863,7 @@ unsafe impl ::core::marker::Send for StoreQueueItemStatus {}
 unsafe impl ::core::marker::Sync for StoreQueueItemStatus {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreRateAndReviewResult(::windows_core::IUnknown);
 impl StoreRateAndReviewResult {
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
@@ -3414,24 +2895,8 @@ impl StoreRateAndReviewResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreRateAndReviewResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreRateAndReviewResult {}
-impl ::core::fmt::Debug for StoreRateAndReviewResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreRateAndReviewResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreRateAndReviewResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreRateAndReviewResult;{9d209d56-a6b5-4121-9b61-ee6d0fbdbdbb})");
-}
-impl ::core::clone::Clone for StoreRateAndReviewResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreRateAndReviewResult {
     type Vtable = IStoreRateAndReviewResult_Vtbl;
@@ -3470,6 +2935,7 @@ impl ::windows_core::RuntimeName for StoreRequestHelper {
 }
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreSendRequestResult(::windows_core::IUnknown);
 impl StoreSendRequestResult {
     pub fn Response(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3496,24 +2962,8 @@ impl StoreSendRequestResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreSendRequestResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreSendRequestResult {}
-impl ::core::fmt::Debug for StoreSendRequestResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreSendRequestResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreSendRequestResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreSendRequestResult;{c73abe60-8272-4502-8a69-6e75153a4299})");
-}
-impl ::core::clone::Clone for StoreSendRequestResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreSendRequestResult {
     type Vtable = IStoreSendRequestResult_Vtbl;
@@ -3529,6 +2979,7 @@ unsafe impl ::core::marker::Send for StoreSendRequestResult {}
 unsafe impl ::core::marker::Sync for StoreSendRequestResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreSku(::windows_core::IUnknown);
 impl StoreSku {
     pub fn StoreId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3682,24 +3133,8 @@ impl StoreSku {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreSku {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreSku {}
-impl ::core::fmt::Debug for StoreSku {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreSku").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreSku {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreSku;{397e6f55-4440-4f03-863c-91f3fec83d79})");
-}
-impl ::core::clone::Clone for StoreSku {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreSku {
     type Vtable = IStoreSku_Vtbl;
@@ -3715,6 +3150,7 @@ unsafe impl ::core::marker::Send for StoreSku {}
 unsafe impl ::core::marker::Sync for StoreSku {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreSubscriptionInfo(::windows_core::IUnknown);
 impl StoreSubscriptionInfo {
     pub fn BillingPeriod(&self) -> ::windows_core::Result<u32> {
@@ -3753,24 +3189,8 @@ impl StoreSubscriptionInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreSubscriptionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreSubscriptionInfo {}
-impl ::core::fmt::Debug for StoreSubscriptionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreSubscriptionInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreSubscriptionInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreSubscriptionInfo;{4189776a-0559-43ac-a9c6-3ab0011fb8eb})");
-}
-impl ::core::clone::Clone for StoreSubscriptionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreSubscriptionInfo {
     type Vtable = IStoreSubscriptionInfo_Vtbl;
@@ -3786,6 +3206,7 @@ unsafe impl ::core::marker::Send for StoreSubscriptionInfo {}
 unsafe impl ::core::marker::Sync for StoreSubscriptionInfo {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreUninstallStorePackageResult(::windows_core::IUnknown);
 impl StoreUninstallStorePackageResult {
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
@@ -3803,24 +3224,8 @@ impl StoreUninstallStorePackageResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreUninstallStorePackageResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreUninstallStorePackageResult {}
-impl ::core::fmt::Debug for StoreUninstallStorePackageResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreUninstallStorePackageResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreUninstallStorePackageResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreUninstallStorePackageResult;{9fca39fd-126f-4cda-b801-1346b8d0a260})");
-}
-impl ::core::clone::Clone for StoreUninstallStorePackageResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreUninstallStorePackageResult {
     type Vtable = IStoreUninstallStorePackageResult_Vtbl;
@@ -3836,6 +3241,7 @@ unsafe impl ::core::marker::Send for StoreUninstallStorePackageResult {}
 unsafe impl ::core::marker::Sync for StoreUninstallStorePackageResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreVideo(::windows_core::IUnknown);
 impl StoreVideo {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3883,24 +3289,8 @@ impl StoreVideo {
         }
     }
 }
-impl ::core::cmp::PartialEq for StoreVideo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreVideo {}
-impl ::core::fmt::Debug for StoreVideo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreVideo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoreVideo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreVideo;{f26cb184-6f5e-4dc2-886c-3c63083c2f94})");
-}
-impl ::core::clone::Clone for StoreVideo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoreVideo {
     type Vtable = IStoreVideo_Vtbl;

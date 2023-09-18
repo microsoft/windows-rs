@@ -43,6 +43,7 @@ where
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSCDefaultProduct(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCDefaultProduct {
@@ -56,28 +57,8 @@ impl IWSCDefaultProduct {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWSCDefaultProduct, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWSCDefaultProduct {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWSCDefaultProduct {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWSCDefaultProduct {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSCDefaultProduct").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWSCDefaultProduct {
     type Vtable = IWSCDefaultProduct_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWSCDefaultProduct {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWSCDefaultProduct {
@@ -93,6 +74,7 @@ pub struct IWSCDefaultProduct_Vtbl {
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSCProductList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCProductList {
@@ -113,28 +95,8 @@ impl IWSCProductList {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWSCProductList, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWSCProductList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWSCProductList {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWSCProductList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSCProductList").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWSCProductList {
     type Vtable = IWSCProductList_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWSCProductList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWSCProductList {
@@ -155,6 +117,7 @@ pub struct IWSCProductList_Vtbl {
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWscProduct(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct {
@@ -192,28 +155,8 @@ impl IWscProduct {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWscProduct, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWscProduct {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWscProduct {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWscProduct {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWscProduct").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWscProduct {
     type Vtable = IWscProduct_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWscProduct {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWscProduct {
@@ -238,6 +181,7 @@ pub struct IWscProduct_Vtbl {
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWscProduct2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct2 {
@@ -299,28 +243,8 @@ impl IWscProduct2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWscProduct2, ::windows_core::IUnknown, super::Com::IDispatch, IWscProduct);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWscProduct2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWscProduct2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWscProduct2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWscProduct2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWscProduct2 {
     type Vtable = IWscProduct2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWscProduct2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWscProduct2 {
@@ -341,6 +265,7 @@ pub struct IWscProduct2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWscProduct3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct3 {
@@ -406,28 +331,8 @@ impl IWscProduct3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWscProduct3, ::windows_core::IUnknown, super::Com::IDispatch, IWscProduct, IWscProduct2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWscProduct3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWscProduct3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWscProduct3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWscProduct3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWscProduct3 {
     type Vtable = IWscProduct3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWscProduct3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWscProduct3 {

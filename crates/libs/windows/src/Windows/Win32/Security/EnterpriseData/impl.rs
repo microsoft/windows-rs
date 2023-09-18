@@ -25,8 +25,8 @@ impl IProtectionPolicyManagerInterop_Vtbl {
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProtectionPolicyManagerInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IProtectionPolicyManagerInterop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -77,8 +77,8 @@ impl IProtectionPolicyManagerInterop2_Vtbl {
             RequestAccessForAppWithMessageForWindowAsync: RequestAccessForAppWithMessageForWindowAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProtectionPolicyManagerInterop2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IProtectionPolicyManagerInterop2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -136,7 +136,7 @@ impl IProtectionPolicyManagerInterop3_Vtbl {
             RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync: RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProtectionPolicyManagerInterop3 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IProtectionPolicyManagerInterop3 as ::windows_core::ComInterface>::IID
     }
 }

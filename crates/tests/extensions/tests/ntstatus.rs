@@ -24,7 +24,8 @@ fn test() -> Result<()> {
             w!("RNG"),
             None,
             BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS::default(),
-        )?;
+        )
+        .ok()?;
 
         let mut random = GUID::zeroed();
         let bytes = std::slice::from_raw_parts_mut(
@@ -32,7 +33,7 @@ fn test() -> Result<()> {
             std::mem::size_of::<GUID>(),
         );
 
-        BCryptGenRandom(provider, bytes, Default::default())?;
+        BCryptGenRandom(provider, bytes, Default::default()).ok()?;
 
         assert_ne!(random, GUID::zeroed());
     }

@@ -10,7 +10,7 @@ pub struct IUnknown(std::ptr::NonNull<std::ffi::c_void>);
 #[doc(hidden)]
 #[repr(C)]
 pub struct IUnknown_Vtbl {
-    pub QueryInterface: unsafe extern "system" fn(this: *mut std::ffi::c_void, iid: &GUID, interface: *mut *const std::ffi::c_void) -> HRESULT,
+    pub QueryInterface: unsafe extern "system" fn(this: *mut std::ffi::c_void, iid: *const GUID, interface: *mut *mut std::ffi::c_void) -> HRESULT,
     pub AddRef: unsafe extern "system" fn(this: *mut std::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(this: *mut std::ffi::c_void) -> u32,
 }
@@ -71,7 +71,7 @@ pub trait IUnknownImpl {
     ///
     /// This function is safe to call as long as the interface pointer is non-null and valid for writes
     /// of an interface pointer.
-    unsafe fn QueryInterface(&self, iid: &GUID, interface: *mut *const std::ffi::c_void) -> HRESULT;
+    unsafe fn QueryInterface(&self, iid: *const GUID, interface: *mut *mut std::ffi::c_void) -> HRESULT;
     /// Increments the reference count of the interface
     fn AddRef(&self) -> u32;
     /// Decrements the reference count causing the interface's memory to be freed when the count is 0
@@ -86,7 +86,7 @@ pub trait IUnknownImpl {
 #[cfg(feature = "implement")]
 impl IUnknown_Vtbl {
     pub const fn new<T: IUnknownImpl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(this: *mut std::ffi::c_void, iid: &GUID, interface: *mut *const std::ffi::c_void) -> HRESULT {
+        unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(this: *mut std::ffi::c_void, iid: *const GUID, interface: *mut *mut std::ffi::c_void) -> HRESULT {
             let this = (this as *mut *mut std::ffi::c_void).offset(OFFSET) as *mut T;
             (*this).QueryInterface(iid, interface)
         }

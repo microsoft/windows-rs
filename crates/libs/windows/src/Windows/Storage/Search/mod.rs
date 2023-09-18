@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContentIndexer(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContentIndexer {
     type Vtable = IContentIndexer_Vtbl;
-}
-impl ::core::clone::Clone for IContentIndexer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContentIndexer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb1767f8d_f698_4982_b05f_3a6e8cab01a2);
@@ -44,14 +40,10 @@ pub struct IContentIndexer_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContentIndexerQuery(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContentIndexerQuery {
     type Vtable = IContentIndexerQuery_Vtbl;
-}
-impl ::core::clone::Clone for IContentIndexerQuery {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContentIndexerQuery {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70e3b0f8_4bfc_428a_8889_cc51da9a7b9d);
@@ -84,14 +76,10 @@ pub struct IContentIndexerQuery_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContentIndexerQueryOperations(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContentIndexerQueryOperations {
     type Vtable = IContentIndexerQueryOperations_Vtbl;
-}
-impl ::core::clone::Clone for IContentIndexerQueryOperations {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContentIndexerQueryOperations {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28823e10_4786_42f1_9730_792b3566b150);
@@ -115,14 +103,10 @@ pub struct IContentIndexerQueryOperations_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContentIndexerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContentIndexerStatics {
     type Vtable = IContentIndexerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IContentIndexerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContentIndexerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c488375_b37e_4c60_9ba8_b760fda3e59d);
@@ -136,6 +120,7 @@ pub struct IContentIndexerStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIndexableContent(::windows_core::IUnknown);
 impl IIndexableContent {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -189,27 +174,11 @@ impl IIndexableContent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIndexableContent, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IIndexableContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIndexableContent {}
-impl ::core::fmt::Debug for IIndexableContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIndexableContent").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IIndexableContent {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{ccf1a05f-d4b5-483a-b06e-e0db1ec420e4}");
 }
 unsafe impl ::windows_core::Interface for IIndexableContent {
     type Vtable = IIndexableContent_Vtbl;
-}
-impl ::core::clone::Clone for IIndexableContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIndexableContent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xccf1a05f_d4b5_483a_b06e_e0db1ec420e4);
@@ -237,14 +206,10 @@ pub struct IIndexableContent_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQueryOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IQueryOptions {
     type Vtable = IQueryOptions_Vtbl;
-}
-impl ::core::clone::Clone for IQueryOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IQueryOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e5e46ee_0f45_4838_a8e9_d0479d446c30);
@@ -286,14 +251,10 @@ pub struct IQueryOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQueryOptionsFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IQueryOptionsFactory {
     type Vtable = IQueryOptionsFactory_Vtbl;
-}
-impl ::core::clone::Clone for IQueryOptionsFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IQueryOptionsFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x032e1f8c_a9c1_4e71_8011_0dee9d4811a3);
@@ -310,14 +271,10 @@ pub struct IQueryOptionsFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQueryOptionsWithProviderFilter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IQueryOptionsWithProviderFilter {
     type Vtable = IQueryOptionsWithProviderFilter_Vtbl;
-}
-impl ::core::clone::Clone for IQueryOptionsWithProviderFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IQueryOptionsWithProviderFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b9d1026_15c4_44dd_b89a_47a59b7d7c4f);
@@ -333,14 +290,10 @@ pub struct IQueryOptionsWithProviderFilter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageFileQueryResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorageFileQueryResult {
     type Vtable = IStorageFileQueryResult_Vtbl;
-}
-impl ::core::clone::Clone for IStorageFileQueryResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageFileQueryResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x52fda447_2baa_412c_b29f_d4b1778efa1e);
@@ -360,14 +313,10 @@ pub struct IStorageFileQueryResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageFileQueryResult2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorageFileQueryResult2 {
     type Vtable = IStorageFileQueryResult2_Vtbl;
-}
-impl ::core::clone::Clone for IStorageFileQueryResult2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageFileQueryResult2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e5db9dd_7141_46c4_8be3_e9dc9e27275c);
@@ -383,6 +332,7 @@ pub struct IStorageFileQueryResult2_Vtbl {
 }
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageFolderQueryOperations(::windows_core::IUnknown);
 impl IStorageFolderQueryOperations {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -530,27 +480,11 @@ impl IStorageFolderQueryOperations {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStorageFolderQueryOperations, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IStorageFolderQueryOperations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageFolderQueryOperations {}
-impl ::core::fmt::Debug for IStorageFolderQueryOperations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageFolderQueryOperations").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IStorageFolderQueryOperations {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{cb43ccc9-446b-4a4f-be97-757771be5203}");
 }
 unsafe impl ::windows_core::Interface for IStorageFolderQueryOperations {
     type Vtable = IStorageFolderQueryOperations_Vtbl;
-}
-impl ::core::clone::Clone for IStorageFolderQueryOperations {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageFolderQueryOperations {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb43ccc9_446b_4a4f_be97_757771be5203);
@@ -597,14 +531,10 @@ pub struct IStorageFolderQueryOperations_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageFolderQueryResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorageFolderQueryResult {
     type Vtable = IStorageFolderQueryResult_Vtbl;
-}
-impl ::core::clone::Clone for IStorageFolderQueryResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageFolderQueryResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6654c911_7d66_46fa_aecf_e4a4baa93ab8);
@@ -624,14 +554,10 @@ pub struct IStorageFolderQueryResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageItemQueryResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorageItemQueryResult {
     type Vtable = IStorageItemQueryResult_Vtbl;
-}
-impl ::core::clone::Clone for IStorageItemQueryResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageItemQueryResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe8948079_9d58_47b8_b2b2_41b07f4795f9);
@@ -651,14 +577,10 @@ pub struct IStorageItemQueryResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageLibraryChangeTrackerTriggerDetails(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorageLibraryChangeTrackerTriggerDetails {
     type Vtable = IStorageLibraryChangeTrackerTriggerDetails_Vtbl;
-}
-impl ::core::clone::Clone for IStorageLibraryChangeTrackerTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageLibraryChangeTrackerTriggerDetails {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1dc7a369_b7a3_4df2_9d61_eba85a0343d2);
@@ -672,14 +594,10 @@ pub struct IStorageLibraryChangeTrackerTriggerDetails_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageLibraryContentChangedTriggerDetails(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorageLibraryContentChangedTriggerDetails {
     type Vtable = IStorageLibraryContentChangedTriggerDetails_Vtbl;
-}
-impl ::core::clone::Clone for IStorageLibraryContentChangedTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageLibraryContentChangedTriggerDetails {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a371977_abbf_4e1d_8aa5_6385d8884799);
@@ -696,6 +614,7 @@ pub struct IStorageLibraryContentChangedTriggerDetails_Vtbl {
 }
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageQueryResultBase(::windows_core::IUnknown);
 impl IStorageQueryResultBase {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -778,27 +697,11 @@ impl IStorageQueryResultBase {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStorageQueryResultBase, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IStorageQueryResultBase {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageQueryResultBase {}
-impl ::core::fmt::Debug for IStorageQueryResultBase {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageQueryResultBase").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IStorageQueryResultBase {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{c297d70d-7353-47ab-ba58-8c61425dc54b}");
 }
 unsafe impl ::windows_core::Interface for IStorageQueryResultBase {
     type Vtable = IStorageQueryResultBase_Vtbl;
-}
-impl ::core::clone::Clone for IStorageQueryResultBase {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageQueryResultBase {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc297d70d_7353_47ab_ba58_8c61425dc54b);
@@ -837,14 +740,10 @@ pub struct IStorageQueryResultBase_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IValueAndLanguage(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IValueAndLanguage {
     type Vtable = IValueAndLanguage_Vtbl;
-}
-impl ::core::clone::Clone for IValueAndLanguage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IValueAndLanguage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9914881_a1ee_4bc4_92a5_466968e30436);
@@ -860,6 +759,7 @@ pub struct IValueAndLanguage_Vtbl {
 }
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContentIndexer(::windows_core::IUnknown);
 impl ContentIndexer {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -991,24 +891,8 @@ impl ContentIndexer {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ContentIndexer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContentIndexer {}
-impl ::core::fmt::Debug for ContentIndexer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContentIndexer").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ContentIndexer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexer;{b1767f8d-f698-4982-b05f-3a6e8cab01a2})");
-}
-impl ::core::clone::Clone for ContentIndexer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ContentIndexer {
     type Vtable = IContentIndexer_Vtbl;
@@ -1024,6 +908,7 @@ unsafe impl ::core::marker::Send for ContentIndexer {}
 unsafe impl ::core::marker::Sync for ContentIndexer {}
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContentIndexerQuery(::windows_core::IUnknown);
 impl ContentIndexerQuery {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1079,24 +964,8 @@ impl ContentIndexerQuery {
         }
     }
 }
-impl ::core::cmp::PartialEq for ContentIndexerQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContentIndexerQuery {}
-impl ::core::fmt::Debug for ContentIndexerQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContentIndexerQuery").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ContentIndexerQuery {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexerQuery;{70e3b0f8-4bfc-428a-8889-cc51da9a7b9d})");
-}
-impl ::core::clone::Clone for ContentIndexerQuery {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ContentIndexerQuery {
     type Vtable = IContentIndexerQuery_Vtbl;
@@ -1112,6 +981,7 @@ unsafe impl ::core::marker::Send for ContentIndexerQuery {}
 unsafe impl ::core::marker::Sync for ContentIndexerQuery {}
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IndexableContent(::windows_core::IUnknown);
 impl IndexableContent {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1171,24 +1041,8 @@ impl IndexableContent {
         unsafe { (::windows_core::Interface::vtable(this).SetStreamContentType)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for IndexableContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IndexableContent {}
-impl ::core::fmt::Debug for IndexableContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IndexableContent").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IndexableContent {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.IndexableContent;{ccf1a05f-d4b5-483a-b06e-e0db1ec420e4})");
-}
-impl ::core::clone::Clone for IndexableContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for IndexableContent {
     type Vtable = IIndexableContent_Vtbl;
@@ -1205,6 +1059,7 @@ unsafe impl ::core::marker::Send for IndexableContent {}
 unsafe impl ::core::marker::Sync for IndexableContent {}
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct QueryOptions(::windows_core::IUnknown);
 impl QueryOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1359,24 +1214,8 @@ impl QueryOptions {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for QueryOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for QueryOptions {}
-impl ::core::fmt::Debug for QueryOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("QueryOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for QueryOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.QueryOptions;{1e5e46ee-0f45-4838-a8e9-d0479d446c30})");
-}
-impl ::core::clone::Clone for QueryOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for QueryOptions {
     type Vtable = IQueryOptions_Vtbl;
@@ -1393,6 +1232,7 @@ unsafe impl ::core::marker::Sync for QueryOptions {}
 #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SortEntryVector(::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl SortEntryVector {
@@ -1506,28 +1346,8 @@ impl SortEntryVector {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for SortEntryVector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for SortEntryVector {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for SortEntryVector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SortEntryVector").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for SortEntryVector {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.SortEntryVector;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};struct(Windows.Storage.Search.SortEntry;string;b1)))");
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for SortEntryVector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for SortEntryVector {
@@ -1565,6 +1385,7 @@ impl ::windows_core::CanTryInto<super::super::Foundation::Collections::IIterable
 impl ::windows_core::CanTryInto<super::super::Foundation::Collections::IVector<SortEntry>> for SortEntryVector {}
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorageFileQueryResult(::windows_core::IUnknown);
 impl StorageFileQueryResult {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1676,24 +1497,8 @@ impl StorageFileQueryResult {
         unsafe { (::windows_core::Interface::vtable(this).ApplyNewQueryOptions)(::windows_core::Interface::as_raw(this), newqueryoptions.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for StorageFileQueryResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageFileQueryResult {}
-impl ::core::fmt::Debug for StorageFileQueryResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageFileQueryResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StorageFileQueryResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageFileQueryResult;{52fda447-2baa-412c-b29f-d4b1778efa1e})");
-}
-impl ::core::clone::Clone for StorageFileQueryResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StorageFileQueryResult {
     type Vtable = IStorageFileQueryResult_Vtbl;
@@ -1708,6 +1513,7 @@ impl ::windows_core::RuntimeName for StorageFileQueryResult {
 impl ::windows_core::CanTryInto<IStorageQueryResultBase> for StorageFileQueryResult {}
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorageFolderQueryResult(::windows_core::IUnknown);
 impl StorageFolderQueryResult {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1807,24 +1613,8 @@ impl StorageFolderQueryResult {
         unsafe { (::windows_core::Interface::vtable(this).ApplyNewQueryOptions)(::windows_core::Interface::as_raw(this), newqueryoptions.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for StorageFolderQueryResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageFolderQueryResult {}
-impl ::core::fmt::Debug for StorageFolderQueryResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageFolderQueryResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StorageFolderQueryResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageFolderQueryResult;{6654c911-7d66-46fa-aecf-e4a4baa93ab8})");
-}
-impl ::core::clone::Clone for StorageFolderQueryResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StorageFolderQueryResult {
     type Vtable = IStorageFolderQueryResult_Vtbl;
@@ -1839,6 +1629,7 @@ impl ::windows_core::RuntimeName for StorageFolderQueryResult {
 impl ::windows_core::CanTryInto<IStorageQueryResultBase> for StorageFolderQueryResult {}
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorageItemQueryResult(::windows_core::IUnknown);
 impl StorageItemQueryResult {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1938,24 +1729,8 @@ impl StorageItemQueryResult {
         unsafe { (::windows_core::Interface::vtable(this).ApplyNewQueryOptions)(::windows_core::Interface::as_raw(this), newqueryoptions.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for StorageItemQueryResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageItemQueryResult {}
-impl ::core::fmt::Debug for StorageItemQueryResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageItemQueryResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StorageItemQueryResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageItemQueryResult;{e8948079-9d58-47b8-b2b2-41b07f4795f9})");
-}
-impl ::core::clone::Clone for StorageItemQueryResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StorageItemQueryResult {
     type Vtable = IStorageItemQueryResult_Vtbl;
@@ -1970,6 +1745,7 @@ impl ::windows_core::RuntimeName for StorageItemQueryResult {
 impl ::windows_core::CanTryInto<IStorageQueryResultBase> for StorageItemQueryResult {}
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorageLibraryChangeTrackerTriggerDetails(::windows_core::IUnknown);
 impl StorageLibraryChangeTrackerTriggerDetails {
     pub fn Folder(&self) -> ::windows_core::Result<super::StorageFolder> {
@@ -1987,24 +1763,8 @@ impl StorageLibraryChangeTrackerTriggerDetails {
         }
     }
 }
-impl ::core::cmp::PartialEq for StorageLibraryChangeTrackerTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageLibraryChangeTrackerTriggerDetails {}
-impl ::core::fmt::Debug for StorageLibraryChangeTrackerTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageLibraryChangeTrackerTriggerDetails").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StorageLibraryChangeTrackerTriggerDetails {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageLibraryChangeTrackerTriggerDetails;{1dc7a369-b7a3-4df2-9d61-eba85a0343d2})");
-}
-impl ::core::clone::Clone for StorageLibraryChangeTrackerTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StorageLibraryChangeTrackerTriggerDetails {
     type Vtable = IStorageLibraryChangeTrackerTriggerDetails_Vtbl;
@@ -2018,6 +1778,7 @@ impl ::windows_core::RuntimeName for StorageLibraryChangeTrackerTriggerDetails {
 ::windows_core::imp::interface_hierarchy!(StorageLibraryChangeTrackerTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorageLibraryContentChangedTriggerDetails(::windows_core::IUnknown);
 impl StorageLibraryContentChangedTriggerDetails {
     pub fn Folder(&self) -> ::windows_core::Result<super::StorageFolder> {
@@ -2037,24 +1798,8 @@ impl StorageLibraryContentChangedTriggerDetails {
         }
     }
 }
-impl ::core::cmp::PartialEq for StorageLibraryContentChangedTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageLibraryContentChangedTriggerDetails {}
-impl ::core::fmt::Debug for StorageLibraryContentChangedTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageLibraryContentChangedTriggerDetails").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StorageLibraryContentChangedTriggerDetails {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageLibraryContentChangedTriggerDetails;{2a371977-abbf-4e1d-8aa5-6385d8884799})");
-}
-impl ::core::clone::Clone for StorageLibraryContentChangedTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StorageLibraryContentChangedTriggerDetails {
     type Vtable = IStorageLibraryContentChangedTriggerDetails_Vtbl;
@@ -2068,6 +1813,7 @@ impl ::windows_core::RuntimeName for StorageLibraryContentChangedTriggerDetails 
 ::windows_core::imp::interface_hierarchy!(StorageLibraryContentChangedTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ValueAndLanguage(::windows_core::IUnknown);
 impl ValueAndLanguage {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2103,24 +1849,8 @@ impl ValueAndLanguage {
         unsafe { (::windows_core::Interface::vtable(this).SetValue)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ValueAndLanguage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ValueAndLanguage {}
-impl ::core::fmt::Debug for ValueAndLanguage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ValueAndLanguage").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ValueAndLanguage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ValueAndLanguage;{b9914881-a1ee-4bc4-92a5-466968e30436})");
-}
-impl ::core::clone::Clone for ValueAndLanguage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ValueAndLanguage {
     type Vtable = IValueAndLanguage_Vtbl;

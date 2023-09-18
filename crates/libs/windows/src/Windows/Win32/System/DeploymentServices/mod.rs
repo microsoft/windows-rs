@@ -873,6 +873,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportCacheable(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportCacheable {
@@ -895,28 +896,8 @@ impl IWdsTransportCacheable {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportCacheable, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportCacheable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportCacheable {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportCacheable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportCacheable").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportCacheable {
     type Vtable = IWdsTransportCacheable_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportCacheable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportCacheable {
@@ -938,6 +919,7 @@ pub struct IWdsTransportCacheable_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportClient(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportClient {
@@ -994,28 +976,8 @@ impl IWdsTransportClient {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportClient, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportClient {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportClient").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportClient {
     type Vtable = IWdsTransportClient_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportClient {
@@ -1045,6 +1007,7 @@ pub struct IWdsTransportClient_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportCollection {
@@ -1066,28 +1029,8 @@ impl IWdsTransportCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportCollection, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportCollection {
     type Vtable = IWdsTransportCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportCollection {
@@ -1108,6 +1051,7 @@ pub struct IWdsTransportCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportConfigurationManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportConfigurationManager {
@@ -1154,28 +1098,8 @@ impl IWdsTransportConfigurationManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportConfigurationManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportConfigurationManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportConfigurationManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportConfigurationManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportConfigurationManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportConfigurationManager {
     type Vtable = IWdsTransportConfigurationManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportConfigurationManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportConfigurationManager {
@@ -1208,6 +1132,7 @@ pub struct IWdsTransportConfigurationManager_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportConfigurationManager2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportConfigurationManager2 {
@@ -1260,28 +1185,8 @@ impl IWdsTransportConfigurationManager2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportConfigurationManager2, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportConfigurationManager);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportConfigurationManager2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportConfigurationManager2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportConfigurationManager2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportConfigurationManager2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportConfigurationManager2 {
     type Vtable = IWdsTransportConfigurationManager2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportConfigurationManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportConfigurationManager2 {
@@ -1300,6 +1205,7 @@ pub struct IWdsTransportConfigurationManager2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportContent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportContent {
@@ -1330,28 +1236,8 @@ impl IWdsTransportContent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportContent, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportContent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportContent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportContent {
     type Vtable = IWdsTransportContent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportContent {
@@ -1377,6 +1263,7 @@ pub struct IWdsTransportContent_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportContentProvider(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportContentProvider {
@@ -1400,28 +1287,8 @@ impl IWdsTransportContentProvider {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportContentProvider, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportContentProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportContentProvider {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportContentProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportContentProvider").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportContentProvider {
     type Vtable = IWdsTransportContentProvider_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportContentProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportContentProvider {
@@ -1440,6 +1307,7 @@ pub struct IWdsTransportContentProvider_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportDiagnosticsPolicy(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportDiagnosticsPolicy {
@@ -1483,28 +1351,8 @@ impl IWdsTransportDiagnosticsPolicy {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportDiagnosticsPolicy, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportCacheable);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportDiagnosticsPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportDiagnosticsPolicy {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportDiagnosticsPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportDiagnosticsPolicy").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportDiagnosticsPolicy {
     type Vtable = IWdsTransportDiagnosticsPolicy_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportDiagnosticsPolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportDiagnosticsPolicy {
@@ -1529,6 +1377,7 @@ pub struct IWdsTransportDiagnosticsPolicy_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportManager {
@@ -1545,28 +1394,8 @@ impl IWdsTransportManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportManager {
     type Vtable = IWdsTransportManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportManager {
@@ -1585,6 +1414,7 @@ pub struct IWdsTransportManager_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportMulticastSessionPolicy(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportMulticastSessionPolicy {
@@ -1642,28 +1472,8 @@ impl IWdsTransportMulticastSessionPolicy {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportMulticastSessionPolicy, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportCacheable);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportMulticastSessionPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportMulticastSessionPolicy {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportMulticastSessionPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportMulticastSessionPolicy").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportMulticastSessionPolicy {
     type Vtable = IWdsTransportMulticastSessionPolicy_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportMulticastSessionPolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportMulticastSessionPolicy {
@@ -1692,6 +1502,7 @@ pub struct IWdsTransportMulticastSessionPolicy_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportNamespace(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportNamespace {
@@ -1805,28 +1616,8 @@ impl IWdsTransportNamespace {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportNamespace, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportNamespace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportNamespace {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportNamespace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportNamespace").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportNamespace {
     type Vtable = IWdsTransportNamespace_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportNamespace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportNamespace {
@@ -1880,6 +1671,7 @@ pub struct IWdsTransportNamespace_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportNamespaceAutoCast(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportNamespaceAutoCast {
@@ -1993,28 +1785,8 @@ impl IWdsTransportNamespaceAutoCast {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportNamespaceAutoCast, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportNamespace);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportNamespaceAutoCast {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportNamespaceAutoCast {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportNamespaceAutoCast {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportNamespaceAutoCast").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportNamespaceAutoCast {
     type Vtable = IWdsTransportNamespaceAutoCast_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportNamespaceAutoCast {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportNamespaceAutoCast {
@@ -2029,6 +1801,7 @@ pub struct IWdsTransportNamespaceAutoCast_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportNamespaceManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportNamespaceManager {
@@ -2067,28 +1840,8 @@ impl IWdsTransportNamespaceManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportNamespaceManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportNamespaceManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportNamespaceManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportNamespaceManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportNamespaceManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportNamespaceManager {
     type Vtable = IWdsTransportNamespaceManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportNamespaceManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportNamespaceManager {
@@ -2115,6 +1868,7 @@ pub struct IWdsTransportNamespaceManager_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportNamespaceScheduledCast(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportNamespaceScheduledCast {
@@ -2231,28 +1985,8 @@ impl IWdsTransportNamespaceScheduledCast {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportNamespaceScheduledCast, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportNamespace);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportNamespaceScheduledCast {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportNamespaceScheduledCast {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportNamespaceScheduledCast {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportNamespaceScheduledCast").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportNamespaceScheduledCast {
     type Vtable = IWdsTransportNamespaceScheduledCast_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCast {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportNamespaceScheduledCast {
@@ -2268,6 +2002,7 @@ pub struct IWdsTransportNamespaceScheduledCast_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportNamespaceScheduledCastAutoStart(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportNamespaceScheduledCastAutoStart {
@@ -2398,28 +2133,8 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportNamespaceScheduledCastAutoStart, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportNamespace, IWdsTransportNamespaceScheduledCast);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportNamespaceScheduledCastAutoStart {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportNamespaceScheduledCastAutoStart {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportNamespaceScheduledCastAutoStart {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportNamespaceScheduledCastAutoStart").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportNamespaceScheduledCastAutoStart {
     type Vtable = IWdsTransportNamespaceScheduledCastAutoStart_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCastAutoStart {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportNamespaceScheduledCastAutoStart {
@@ -2438,6 +2153,7 @@ pub struct IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportNamespaceScheduledCastManualStart(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportNamespaceScheduledCastManualStart {
@@ -2554,28 +2270,8 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportNamespaceScheduledCastManualStart, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportNamespace, IWdsTransportNamespaceScheduledCast);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportNamespaceScheduledCastManualStart {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportNamespaceScheduledCastManualStart {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportNamespaceScheduledCastManualStart {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportNamespaceScheduledCastManualStart").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportNamespaceScheduledCastManualStart {
     type Vtable = IWdsTransportNamespaceScheduledCastManualStart_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCastManualStart {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportNamespaceScheduledCastManualStart {
@@ -2590,6 +2286,7 @@ pub struct IWdsTransportNamespaceScheduledCastManualStart_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportServer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportServer {
@@ -2622,28 +2319,8 @@ impl IWdsTransportServer {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportServer, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportServer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportServer {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportServer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportServer").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportServer {
     type Vtable = IWdsTransportServer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportServer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportServer {
@@ -2672,6 +2349,7 @@ pub struct IWdsTransportServer_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportServer2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportServer2 {
@@ -2710,28 +2388,8 @@ impl IWdsTransportServer2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportServer2, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportServer);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportServer2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportServer2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportServer2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportServer2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportServer2 {
     type Vtable = IWdsTransportServer2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportServer2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportServer2 {
@@ -2750,6 +2408,7 @@ pub struct IWdsTransportServer2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportServicePolicy(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportServicePolicy {
@@ -2820,28 +2479,8 @@ impl IWdsTransportServicePolicy {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportServicePolicy, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportCacheable);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportServicePolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportServicePolicy {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportServicePolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportServicePolicy").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportServicePolicy {
     type Vtable = IWdsTransportServicePolicy_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportServicePolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportServicePolicy {
@@ -2868,6 +2507,7 @@ pub struct IWdsTransportServicePolicy_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportServicePolicy2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportServicePolicy2 {
@@ -2966,28 +2606,8 @@ impl IWdsTransportServicePolicy2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportServicePolicy2, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportCacheable, IWdsTransportServicePolicy);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportServicePolicy2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportServicePolicy2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportServicePolicy2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportServicePolicy2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportServicePolicy2 {
     type Vtable = IWdsTransportServicePolicy2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportServicePolicy2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportServicePolicy2 {
@@ -3014,6 +2634,7 @@ pub struct IWdsTransportServicePolicy2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportSession(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportSession {
@@ -3056,28 +2677,8 @@ impl IWdsTransportSession {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportSession, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportSession {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportSession").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportSession {
     type Vtable = IWdsTransportSession_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportSession {
@@ -3106,6 +2707,7 @@ pub struct IWdsTransportSession_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportSetupManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportSetupManager {
@@ -3140,28 +2742,8 @@ impl IWdsTransportSetupManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportSetupManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportSetupManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportSetupManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportSetupManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportSetupManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportSetupManager {
     type Vtable = IWdsTransportSetupManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportSetupManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportSetupManager {
@@ -3181,6 +2763,7 @@ pub struct IWdsTransportSetupManager_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportSetupManager2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportSetupManager2 {
@@ -3225,28 +2808,8 @@ impl IWdsTransportSetupManager2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportSetupManager2, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportSetupManager);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportSetupManager2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportSetupManager2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportSetupManager2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportSetupManager2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportSetupManager2 {
     type Vtable = IWdsTransportSetupManager2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportSetupManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportSetupManager2 {
@@ -3266,6 +2829,7 @@ pub struct IWdsTransportSetupManager2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportTftpClient(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportTftpClient {
@@ -3301,28 +2865,8 @@ impl IWdsTransportTftpClient {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportTftpClient, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportTftpClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportTftpClient {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportTftpClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportTftpClient").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportTftpClient {
     type Vtable = IWdsTransportTftpClient_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportTftpClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportTftpClient {
@@ -3344,6 +2888,7 @@ pub struct IWdsTransportTftpClient_Vtbl {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportTftpManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportTftpManager {
@@ -3357,28 +2902,8 @@ impl IWdsTransportTftpManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportTftpManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWdsTransportTftpManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWdsTransportTftpManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWdsTransportTftpManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWdsTransportTftpManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWdsTransportTftpManager {
     type Vtable = IWdsTransportTftpManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWdsTransportTftpManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWdsTransportTftpManager {

@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADesktopP2(::windows_core::IUnknown);
 impl IADesktopP2 {
     pub unsafe fn ReReadWallpaper(&self) -> ::windows_core::Result<()> {
@@ -21,24 +22,8 @@ impl IADesktopP2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IADesktopP2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IADesktopP2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IADesktopP2 {}
-impl ::core::fmt::Debug for IADesktopP2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADesktopP2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IADesktopP2 {
     type Vtable = IADesktopP2_Vtbl;
-}
-impl ::core::clone::Clone for IADesktopP2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IADesktopP2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb22754e2_4574_11d1_9888_006097deacf9);
@@ -57,6 +42,7 @@ pub struct IADesktopP2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveDesktopP(::windows_core::IUnknown);
 impl IActiveDesktopP {
     pub unsafe fn SetSafeMode(&self, dwflags: u32) -> ::windows_core::Result<()> {
@@ -76,24 +62,8 @@ impl IActiveDesktopP {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IActiveDesktopP, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IActiveDesktopP {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IActiveDesktopP {}
-impl ::core::fmt::Debug for IActiveDesktopP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IActiveDesktopP").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IActiveDesktopP {
     type Vtable = IActiveDesktopP_Vtbl;
-}
-impl ::core::clone::Clone for IActiveDesktopP {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IActiveDesktopP {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x52502ee0_ec80_11d0_89ab_00c04fc2972d);
@@ -109,6 +79,7 @@ pub struct IActiveDesktopP_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBriefcaseInitiator(::windows_core::IUnknown);
 impl IBriefcaseInitiator {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -121,24 +92,8 @@ impl IBriefcaseInitiator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBriefcaseInitiator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBriefcaseInitiator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBriefcaseInitiator {}
-impl ::core::fmt::Debug for IBriefcaseInitiator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBriefcaseInitiator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBriefcaseInitiator {
     type Vtable = IBriefcaseInitiator_Vtbl;
-}
-impl ::core::clone::Clone for IBriefcaseInitiator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBriefcaseInitiator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99180164_da16_101a_935c_444553540000);
@@ -154,6 +109,7 @@ pub struct IBriefcaseInitiator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmptyVolumeCache(::windows_core::IUnknown);
 impl IEmptyVolumeCache {
     #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
@@ -191,24 +147,8 @@ impl IEmptyVolumeCache {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEmptyVolumeCache, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEmptyVolumeCache {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEmptyVolumeCache {}
-impl ::core::fmt::Debug for IEmptyVolumeCache {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEmptyVolumeCache").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEmptyVolumeCache {
     type Vtable = IEmptyVolumeCache_Vtbl;
-}
-impl ::core::clone::Clone for IEmptyVolumeCache {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmptyVolumeCache {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8fce5227_04da_11d1_a004_00805f8abe06);
@@ -231,6 +171,7 @@ pub struct IEmptyVolumeCache_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmptyVolumeCache2(::windows_core::IUnknown);
 impl IEmptyVolumeCache2 {
     #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
@@ -278,24 +219,8 @@ impl IEmptyVolumeCache2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEmptyVolumeCache2, ::windows_core::IUnknown, IEmptyVolumeCache);
-impl ::core::cmp::PartialEq for IEmptyVolumeCache2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEmptyVolumeCache2 {}
-impl ::core::fmt::Debug for IEmptyVolumeCache2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEmptyVolumeCache2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEmptyVolumeCache2 {
     type Vtable = IEmptyVolumeCache2_Vtbl;
-}
-impl ::core::clone::Clone for IEmptyVolumeCache2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmptyVolumeCache2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x02b7e3ba_4db3_11d2_b2d9_00c04f8eec8c);
@@ -311,6 +236,7 @@ pub struct IEmptyVolumeCache2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmptyVolumeCacheCallBack(::windows_core::IUnknown);
 impl IEmptyVolumeCacheCallBack {
     pub unsafe fn ScanProgress<P0>(&self, dwlspaceused: u64, dwflags: u32, pcwszstatus: P0) -> ::windows_core::Result<()>
@@ -327,24 +253,8 @@ impl IEmptyVolumeCacheCallBack {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEmptyVolumeCacheCallBack, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEmptyVolumeCacheCallBack {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEmptyVolumeCacheCallBack {}
-impl ::core::fmt::Debug for IEmptyVolumeCacheCallBack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEmptyVolumeCacheCallBack").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEmptyVolumeCacheCallBack {
     type Vtable = IEmptyVolumeCacheCallBack_Vtbl;
-}
-impl ::core::clone::Clone for IEmptyVolumeCacheCallBack {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmptyVolumeCacheCallBack {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e793361_73c6_11d0_8469_00aa00442901);
@@ -358,6 +268,7 @@ pub struct IEmptyVolumeCacheCallBack_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IReconcilableObject(::windows_core::IUnknown);
 impl IReconcilableObject {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -377,24 +288,8 @@ impl IReconcilableObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IReconcilableObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IReconcilableObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IReconcilableObject {}
-impl ::core::fmt::Debug for IReconcilableObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReconcilableObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IReconcilableObject {
     type Vtable = IReconcilableObject_Vtbl;
-}
-impl ::core::clone::Clone for IReconcilableObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IReconcilableObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99180162_da16_101a_935c_444553540000);
@@ -411,6 +306,7 @@ pub struct IReconcilableObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IReconcileInitiator(::windows_core::IUnknown);
 impl IReconcileInitiator {
     pub unsafe fn SetAbortCallback<P0>(&self, punkforabort: P0) -> ::windows_core::Result<()>
@@ -424,24 +320,8 @@ impl IReconcileInitiator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IReconcileInitiator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IReconcileInitiator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IReconcileInitiator {}
-impl ::core::fmt::Debug for IReconcileInitiator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReconcileInitiator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IReconcileInitiator {
     type Vtable = IReconcileInitiator_Vtbl;
-}
-impl ::core::clone::Clone for IReconcileInitiator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IReconcileInitiator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99180161_da16_101a_935c_444553540000);

@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPlaylist(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPlaylist {
     type Vtable = IPlaylist_Vtbl;
-}
-impl ::core::clone::Clone for IPlaylist {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPlaylist {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x803736f5_cf44_4d97_83b3_7a089e9ab663);
@@ -35,14 +31,10 @@ pub struct IPlaylist_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPlaylistStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPlaylistStatics {
     type Vtable = IPlaylistStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPlaylistStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPlaylistStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68);
@@ -58,6 +50,7 @@ pub struct IPlaylistStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Playlists\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Playlist(::windows_core::IUnknown);
 impl Playlist {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -126,24 +119,8 @@ impl Playlist {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for Playlist {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Playlist {}
-impl ::core::fmt::Debug for Playlist {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Playlist").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Playlist {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playlists.Playlist;{803736f5-cf44-4d97-83b3-7a089e9ab663})");
-}
-impl ::core::clone::Clone for Playlist {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Playlist {
     type Vtable = IPlaylist_Vtbl;

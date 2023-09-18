@@ -3968,6 +3968,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetClusterDataInfo(::windows_core::IUnknown);
 impl IGetClusterDataInfo {
     pub unsafe fn GetClusterName(&self, lpszname: &::windows_core::BSTR, pcchname: *mut i32) -> ::windows_core::Result<()> {
@@ -3981,24 +3982,8 @@ impl IGetClusterDataInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGetClusterDataInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGetClusterDataInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetClusterDataInfo {}
-impl ::core::fmt::Debug for IGetClusterDataInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetClusterDataInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGetClusterDataInfo {
     type Vtable = IGetClusterDataInfo_Vtbl;
-}
-impl ::core::clone::Clone for IGetClusterDataInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGetClusterDataInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede51_fc6b_11cf_b5f5_00a0c90ab505);
@@ -4013,6 +3998,7 @@ pub struct IGetClusterDataInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetClusterGroupInfo(::windows_core::IUnknown);
 impl IGetClusterGroupInfo {
     pub unsafe fn GetGroupHandle(&self, lobjindex: i32) -> HGROUP {
@@ -4020,24 +4006,8 @@ impl IGetClusterGroupInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGetClusterGroupInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGetClusterGroupInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetClusterGroupInfo {}
-impl ::core::fmt::Debug for IGetClusterGroupInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetClusterGroupInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGetClusterGroupInfo {
     type Vtable = IGetClusterGroupInfo_Vtbl;
-}
-impl ::core::clone::Clone for IGetClusterGroupInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGetClusterGroupInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede54_fc6b_11cf_b5f5_00a0c90ab505);
@@ -4050,6 +4020,7 @@ pub struct IGetClusterGroupInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetClusterNetInterfaceInfo(::windows_core::IUnknown);
 impl IGetClusterNetInterfaceInfo {
     pub unsafe fn GetNetInterfaceHandle(&self, lobjindex: i32) -> HNETINTERFACE {
@@ -4057,24 +4028,8 @@ impl IGetClusterNetInterfaceInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGetClusterNetInterfaceInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGetClusterNetInterfaceInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetClusterNetInterfaceInfo {}
-impl ::core::fmt::Debug for IGetClusterNetInterfaceInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetClusterNetInterfaceInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGetClusterNetInterfaceInfo {
     type Vtable = IGetClusterNetInterfaceInfo_Vtbl;
-}
-impl ::core::clone::Clone for IGetClusterNetInterfaceInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGetClusterNetInterfaceInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede57_fc6b_11cf_b5f5_00a0c90ab505);
@@ -4087,6 +4042,7 @@ pub struct IGetClusterNetInterfaceInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetClusterNetworkInfo(::windows_core::IUnknown);
 impl IGetClusterNetworkInfo {
     pub unsafe fn GetNetworkHandle(&self, lobjindex: i32) -> HNETWORK {
@@ -4094,24 +4050,8 @@ impl IGetClusterNetworkInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGetClusterNetworkInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGetClusterNetworkInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetClusterNetworkInfo {}
-impl ::core::fmt::Debug for IGetClusterNetworkInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetClusterNetworkInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGetClusterNetworkInfo {
     type Vtable = IGetClusterNetworkInfo_Vtbl;
-}
-impl ::core::clone::Clone for IGetClusterNetworkInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGetClusterNetworkInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede56_fc6b_11cf_b5f5_00a0c90ab505);
@@ -4124,6 +4064,7 @@ pub struct IGetClusterNetworkInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetClusterNodeInfo(::windows_core::IUnknown);
 impl IGetClusterNodeInfo {
     pub unsafe fn GetNodeHandle(&self, lobjindex: i32) -> HNODE {
@@ -4131,24 +4072,8 @@ impl IGetClusterNodeInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGetClusterNodeInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGetClusterNodeInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetClusterNodeInfo {}
-impl ::core::fmt::Debug for IGetClusterNodeInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetClusterNodeInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGetClusterNodeInfo {
     type Vtable = IGetClusterNodeInfo_Vtbl;
-}
-impl ::core::clone::Clone for IGetClusterNodeInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGetClusterNodeInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede53_fc6b_11cf_b5f5_00a0c90ab505);
@@ -4161,6 +4086,7 @@ pub struct IGetClusterNodeInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetClusterObjectInfo(::windows_core::IUnknown);
 impl IGetClusterObjectInfo {
     pub unsafe fn GetObjectName(&self, lobjindex: i32, lpszname: &::windows_core::BSTR, pcchname: *mut i32) -> ::windows_core::Result<()> {
@@ -4171,24 +4097,8 @@ impl IGetClusterObjectInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGetClusterObjectInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGetClusterObjectInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetClusterObjectInfo {}
-impl ::core::fmt::Debug for IGetClusterObjectInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetClusterObjectInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGetClusterObjectInfo {
     type Vtable = IGetClusterObjectInfo_Vtbl;
-}
-impl ::core::clone::Clone for IGetClusterObjectInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGetClusterObjectInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede52_fc6b_11cf_b5f5_00a0c90ab505);
@@ -4202,6 +4112,7 @@ pub struct IGetClusterObjectInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetClusterResourceInfo(::windows_core::IUnknown);
 impl IGetClusterResourceInfo {
     pub unsafe fn GetResourceHandle(&self, lobjindex: i32) -> HRESOURCE {
@@ -4217,24 +4128,8 @@ impl IGetClusterResourceInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGetClusterResourceInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGetClusterResourceInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetClusterResourceInfo {}
-impl ::core::fmt::Debug for IGetClusterResourceInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetClusterResourceInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGetClusterResourceInfo {
     type Vtable = IGetClusterResourceInfo_Vtbl;
-}
-impl ::core::clone::Clone for IGetClusterResourceInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGetClusterResourceInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede55_fc6b_11cf_b5f5_00a0c90ab505);
@@ -4252,6 +4147,7 @@ pub struct IGetClusterResourceInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetClusterUIInfo(::windows_core::IUnknown);
 impl IGetClusterUIInfo {
     pub unsafe fn GetClusterName(&self, lpszname: &::windows_core::BSTR, pcchname: *mut i32) -> ::windows_core::Result<()> {
@@ -4272,24 +4168,8 @@ impl IGetClusterUIInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGetClusterUIInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGetClusterUIInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetClusterUIInfo {}
-impl ::core::fmt::Debug for IGetClusterUIInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetClusterUIInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGetClusterUIInfo {
     type Vtable = IGetClusterUIInfo_Vtbl;
-}
-impl ::core::clone::Clone for IGetClusterUIInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGetClusterUIInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede50_fc6b_11cf_b5f5_00a0c90ab505);
@@ -4312,6 +4192,7 @@ pub struct IGetClusterUIInfo_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusApplication(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusApplication {
@@ -4343,28 +4224,8 @@ impl ISClusApplication {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusApplication, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusApplication {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusApplication {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusApplication {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusApplication").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusApplication {
     type Vtable = ISClusApplication_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusApplication {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusApplication {
@@ -4391,6 +4252,7 @@ pub struct ISClusApplication_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusCryptoKeys(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusCryptoKeys {
@@ -4426,28 +4288,8 @@ impl ISClusCryptoKeys {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusCryptoKeys, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusCryptoKeys {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusCryptoKeys {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusCryptoKeys {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusCryptoKeys").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusCryptoKeys {
     type Vtable = ISClusCryptoKeys_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusCryptoKeys {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusCryptoKeys {
@@ -4474,6 +4316,7 @@ pub struct ISClusCryptoKeys_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusDisk(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusDisk {
@@ -4501,28 +4344,8 @@ impl ISClusDisk {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusDisk, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusDisk {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusDisk {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusDisk {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusDisk").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusDisk {
     type Vtable = ISClusDisk_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusDisk {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusDisk {
@@ -4547,6 +4370,7 @@ pub struct ISClusDisk_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusDisks(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusDisks {
@@ -4568,28 +4392,8 @@ impl ISClusDisks {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusDisks, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusDisks {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusDisks {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusDisks {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusDisks").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusDisks {
     type Vtable = ISClusDisks_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusDisks {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusDisks {
@@ -4610,6 +4414,7 @@ pub struct ISClusDisks_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusNetInterface(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetInterface {
@@ -4659,28 +4464,8 @@ impl ISClusNetInterface {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNetInterface, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusNetInterface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusNetInterface {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusNetInterface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusNetInterface").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusNetInterface {
     type Vtable = ISClusNetInterface_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusNetInterface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusNetInterface {
@@ -4718,6 +4503,7 @@ pub struct ISClusNetInterface_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusNetInterfaces(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetInterfaces {
@@ -4742,28 +4528,8 @@ impl ISClusNetInterfaces {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNetInterfaces, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusNetInterfaces {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusNetInterfaces {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusNetInterfaces {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusNetInterfaces").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusNetInterfaces {
     type Vtable = ISClusNetInterfaces_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusNetInterfaces {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusNetInterfaces {
@@ -4785,6 +4551,7 @@ pub struct ISClusNetInterfaces_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusNetwork(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetwork {
@@ -4850,28 +4617,8 @@ impl ISClusNetwork {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNetwork, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusNetwork {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusNetwork {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusNetwork {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusNetwork").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusNetwork {
     type Vtable = ISClusNetwork_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusNetwork {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusNetwork {
@@ -4915,6 +4662,7 @@ pub struct ISClusNetwork_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusNetworkNetInterfaces(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetworkNetInterfaces {
@@ -4939,28 +4687,8 @@ impl ISClusNetworkNetInterfaces {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNetworkNetInterfaces, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusNetworkNetInterfaces {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusNetworkNetInterfaces {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusNetworkNetInterfaces {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusNetworkNetInterfaces").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusNetworkNetInterfaces {
     type Vtable = ISClusNetworkNetInterfaces_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusNetworkNetInterfaces {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusNetworkNetInterfaces {
@@ -4982,6 +4710,7 @@ pub struct ISClusNetworkNetInterfaces_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusNetworks(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetworks {
@@ -5006,28 +4735,8 @@ impl ISClusNetworks {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNetworks, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusNetworks {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusNetworks {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusNetworks {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusNetworks").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusNetworks {
     type Vtable = ISClusNetworks_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusNetworks {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusNetworks {
@@ -5049,6 +4758,7 @@ pub struct ISClusNetworks_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusNode(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNode {
@@ -5123,28 +4833,8 @@ impl ISClusNode {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNode, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusNode {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusNode").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusNode {
     type Vtable = ISClusNode_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusNode {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusNode {
@@ -5194,6 +4884,7 @@ pub struct ISClusNode_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusNodeNetInterfaces(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNodeNetInterfaces {
@@ -5218,28 +4909,8 @@ impl ISClusNodeNetInterfaces {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNodeNetInterfaces, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusNodeNetInterfaces {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusNodeNetInterfaces {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusNodeNetInterfaces {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusNodeNetInterfaces").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusNodeNetInterfaces {
     type Vtable = ISClusNodeNetInterfaces_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusNodeNetInterfaces {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusNodeNetInterfaces {
@@ -5261,6 +4932,7 @@ pub struct ISClusNodeNetInterfaces_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusNodes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNodes {
@@ -5285,28 +4957,8 @@ impl ISClusNodes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNodes, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusNodes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusNodes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusNodes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusNodes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusNodes {
     type Vtable = ISClusNodes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusNodes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusNodes {
@@ -5328,6 +4980,7 @@ pub struct ISClusNodes_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusPartition(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPartition {
@@ -5363,28 +5016,8 @@ impl ISClusPartition {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusPartition, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusPartition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusPartition {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusPartition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusPartition").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusPartition {
     type Vtable = ISClusPartition_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusPartition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusPartition {
@@ -5406,6 +5039,7 @@ pub struct ISClusPartition_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusPartitionEx(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPartitionEx {
@@ -5461,28 +5095,8 @@ impl ISClusPartitionEx {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusPartitionEx, ::windows_core::IUnknown, super::super::System::Com::IDispatch, ISClusPartition);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusPartitionEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusPartitionEx {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusPartitionEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusPartitionEx").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusPartitionEx {
     type Vtable = ISClusPartitionEx_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusPartitionEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusPartitionEx {
@@ -5502,6 +5116,7 @@ pub struct ISClusPartitionEx_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusPartitions(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPartitions {
@@ -5523,28 +5138,8 @@ impl ISClusPartitions {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusPartitions, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusPartitions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusPartitions {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusPartitions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusPartitions").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusPartitions {
     type Vtable = ISClusPartitions_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusPartitions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusPartitions {
@@ -5565,6 +5160,7 @@ pub struct ISClusPartitions_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusProperties(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusProperties {
@@ -5633,28 +5229,8 @@ impl ISClusProperties {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusProperties, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusProperties {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusProperties").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusProperties {
     type Vtable = ISClusProperties_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusProperties {
@@ -5704,6 +5280,7 @@ pub struct ISClusProperties_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusProperty(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusProperty {
@@ -5781,28 +5358,8 @@ impl ISClusProperty {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusProperty, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusProperty {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusProperty").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusProperty {
     type Vtable = ISClusProperty_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusProperty {
@@ -5853,6 +5410,7 @@ pub struct ISClusProperty_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusPropertyValue(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPropertyValue {
@@ -5899,28 +5457,8 @@ impl ISClusPropertyValue {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusPropertyValue, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusPropertyValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusPropertyValue {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusPropertyValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusPropertyValue").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusPropertyValue {
     type Vtable = ISClusPropertyValue_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusPropertyValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusPropertyValue {
@@ -5953,6 +5491,7 @@ pub struct ISClusPropertyValue_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusPropertyValueData(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPropertyValueData {
@@ -5985,28 +5524,8 @@ impl ISClusPropertyValueData {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusPropertyValueData, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusPropertyValueData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusPropertyValueData {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusPropertyValueData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusPropertyValueData").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusPropertyValueData {
     type Vtable = ISClusPropertyValueData_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusPropertyValueData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusPropertyValueData {
@@ -6035,6 +5554,7 @@ pub struct ISClusPropertyValueData_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusPropertyValues(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPropertyValues {
@@ -6070,28 +5590,8 @@ impl ISClusPropertyValues {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusPropertyValues, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusPropertyValues {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusPropertyValues {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusPropertyValues {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusPropertyValues").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusPropertyValues {
     type Vtable = ISClusPropertyValues_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusPropertyValues {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusPropertyValues {
@@ -6120,6 +5620,7 @@ pub struct ISClusPropertyValues_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusRefObject(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusRefObject {
@@ -6131,28 +5632,8 @@ impl ISClusRefObject {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusRefObject, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusRefObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusRefObject {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusRefObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusRefObject").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusRefObject {
     type Vtable = ISClusRefObject_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusRefObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusRefObject {
@@ -6168,6 +5649,7 @@ pub struct ISClusRefObject_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusRegistryKeys(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusRegistryKeys {
@@ -6203,28 +5685,8 @@ impl ISClusRegistryKeys {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusRegistryKeys, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusRegistryKeys {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusRegistryKeys {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusRegistryKeys {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusRegistryKeys").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusRegistryKeys {
     type Vtable = ISClusRegistryKeys_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusRegistryKeys {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusRegistryKeys {
@@ -6251,6 +5713,7 @@ pub struct ISClusRegistryKeys_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusResDependencies(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResDependencies {
@@ -6303,28 +5766,8 @@ impl ISClusResDependencies {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResDependencies, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusResDependencies {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusResDependencies {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusResDependencies {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusResDependencies").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusResDependencies {
     type Vtable = ISClusResDependencies_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusResDependencies {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusResDependencies {
@@ -6362,6 +5805,7 @@ pub struct ISClusResDependencies_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusResDependents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResDependents {
@@ -6414,28 +5858,8 @@ impl ISClusResDependents {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResDependents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusResDependents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusResDependents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusResDependents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusResDependents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusResDependents {
     type Vtable = ISClusResDependents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusResDependents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusResDependents {
@@ -6473,6 +5897,7 @@ pub struct ISClusResDependents_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusResGroup(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroup {
@@ -6567,28 +5992,8 @@ impl ISClusResGroup {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResGroup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusResGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusResGroup {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusResGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusResGroup").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusResGroup {
     type Vtable = ISClusResGroup_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusResGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusResGroup {
@@ -6652,6 +6057,7 @@ pub struct ISClusResGroup_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusResGroupPreferredOwnerNodes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroupPreferredOwnerNodes {
@@ -6706,28 +6112,8 @@ impl ISClusResGroupPreferredOwnerNodes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResGroupPreferredOwnerNodes, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusResGroupPreferredOwnerNodes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusResGroupPreferredOwnerNodes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusResGroupPreferredOwnerNodes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusResGroupPreferredOwnerNodes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusResGroupPreferredOwnerNodes {
     type Vtable = ISClusResGroupPreferredOwnerNodes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusResGroupPreferredOwnerNodes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusResGroupPreferredOwnerNodes {
@@ -6766,6 +6152,7 @@ pub struct ISClusResGroupPreferredOwnerNodes_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusResGroupResources(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroupResources {
@@ -6805,28 +6192,8 @@ impl ISClusResGroupResources {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResGroupResources, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusResGroupResources {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusResGroupResources {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusResGroupResources {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusResGroupResources").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusResGroupResources {
     type Vtable = ISClusResGroupResources_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusResGroupResources {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusResGroupResources {
@@ -6856,6 +6223,7 @@ pub struct ISClusResGroupResources_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusResGroups(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroups {
@@ -6894,28 +6262,8 @@ impl ISClusResGroups {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResGroups, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusResGroups {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusResGroups {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusResGroups {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusResGroups").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusResGroups {
     type Vtable = ISClusResGroups_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusResGroups {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusResGroups {
@@ -6945,6 +6293,7 @@ pub struct ISClusResGroups_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusResPossibleOwnerNodes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResPossibleOwnerNodes {
@@ -6988,28 +6337,8 @@ impl ISClusResPossibleOwnerNodes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResPossibleOwnerNodes, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusResPossibleOwnerNodes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusResPossibleOwnerNodes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusResPossibleOwnerNodes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusResPossibleOwnerNodes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusResPossibleOwnerNodes {
     type Vtable = ISClusResPossibleOwnerNodes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusResPossibleOwnerNodes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusResPossibleOwnerNodes {
@@ -7043,6 +6372,7 @@ pub struct ISClusResPossibleOwnerNodes_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusResType(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResType {
@@ -7105,28 +6435,8 @@ impl ISClusResType {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResType, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusResType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusResType {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusResType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusResType").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusResType {
     type Vtable = ISClusResType_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusResType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusResType {
@@ -7175,6 +6485,7 @@ pub struct ISClusResType_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusResTypePossibleOwnerNodes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResTypePossibleOwnerNodes {
@@ -7199,28 +6510,8 @@ impl ISClusResTypePossibleOwnerNodes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResTypePossibleOwnerNodes, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusResTypePossibleOwnerNodes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusResTypePossibleOwnerNodes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusResTypePossibleOwnerNodes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusResTypePossibleOwnerNodes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusResTypePossibleOwnerNodes {
     type Vtable = ISClusResTypePossibleOwnerNodes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusResTypePossibleOwnerNodes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusResTypePossibleOwnerNodes {
@@ -7242,6 +6533,7 @@ pub struct ISClusResTypePossibleOwnerNodes_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusResTypeResources(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResTypeResources {
@@ -7281,28 +6573,8 @@ impl ISClusResTypeResources {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResTypeResources, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusResTypeResources {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusResTypeResources {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusResTypeResources {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusResTypeResources").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusResTypeResources {
     type Vtable = ISClusResTypeResources_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusResTypeResources {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusResTypeResources {
@@ -7332,6 +6604,7 @@ pub struct ISClusResTypeResources_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusResTypes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResTypes {
@@ -7372,28 +6645,8 @@ impl ISClusResTypes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResTypes, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusResTypes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusResTypes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusResTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusResTypes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusResTypes {
     type Vtable = ISClusResTypes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusResTypes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusResTypes {
@@ -7423,6 +6676,7 @@ pub struct ISClusResTypes_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusResource(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResource {
@@ -7615,28 +6869,8 @@ impl ISClusResource {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResource, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusResource {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusResource").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusResource {
     type Vtable = ISClusResource_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusResource {
@@ -7749,6 +6983,7 @@ pub struct ISClusResource_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusResources(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResources {
@@ -7789,28 +7024,8 @@ impl ISClusResources {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResources, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusResources {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusResources {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusResources {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusResources").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusResources {
     type Vtable = ISClusResources_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusResources {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusResources {
@@ -7840,6 +7055,7 @@ pub struct ISClusResources_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusScsiAddress(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusScsiAddress {
@@ -7871,28 +7087,8 @@ impl ISClusScsiAddress {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusScsiAddress, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusScsiAddress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusScsiAddress {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusScsiAddress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusScsiAddress").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusScsiAddress {
     type Vtable = ISClusScsiAddress_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusScsiAddress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusScsiAddress {
@@ -7923,6 +7119,7 @@ pub struct ISClusScsiAddress_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusVersion(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusVersion {
@@ -7972,28 +7169,8 @@ impl ISClusVersion {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusVersion, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusVersion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusVersion {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusVersion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusVersion").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusVersion {
     type Vtable = ISClusVersion_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusVersion {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusVersion {
@@ -8021,6 +7198,7 @@ pub struct ISClusVersion_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISCluster(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISCluster {
@@ -8145,28 +7323,8 @@ impl ISCluster {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISCluster, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISCluster {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISCluster {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISCluster {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISCluster").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISCluster {
     type Vtable = ISCluster_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISCluster {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISCluster {
@@ -8241,6 +7399,7 @@ pub struct ISCluster_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISClusterNames(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusterNames {
@@ -8269,28 +7428,8 @@ impl ISClusterNames {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusterNames, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISClusterNames {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISClusterNames {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISClusterNames {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISClusterNames").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISClusterNames {
     type Vtable = ISClusterNames_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISClusterNames {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISClusterNames {
@@ -8313,6 +7452,7 @@ pub struct ISClusterNames_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISDomainNames(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISDomainNames {
@@ -8337,28 +7477,8 @@ impl ISDomainNames {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISDomainNames, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISDomainNames {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISDomainNames {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISDomainNames {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISDomainNames").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISDomainNames {
     type Vtable = ISDomainNames_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISDomainNames {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISDomainNames {
@@ -8379,6 +7499,7 @@ pub struct ISDomainNames_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWCContextMenuCallback(::windows_core::IUnknown);
 impl IWCContextMenuCallback {
     pub unsafe fn AddExtensionMenuItem<P0, P1>(&self, lpszname: P0, lpszstatusbartext: P1, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> ::windows_core::Result<()>
@@ -8390,24 +7511,8 @@ impl IWCContextMenuCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWCContextMenuCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWCContextMenuCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWCContextMenuCallback {}
-impl ::core::fmt::Debug for IWCContextMenuCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWCContextMenuCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWCContextMenuCallback {
     type Vtable = IWCContextMenuCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWCContextMenuCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWCContextMenuCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede64_fc6b_11cf_b5f5_00a0c90ab505);
@@ -8420,6 +7525,7 @@ pub struct IWCContextMenuCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWCPropertySheetCallback(::windows_core::IUnknown);
 impl IWCPropertySheetCallback {
     pub unsafe fn AddPropertySheetPage(&self, hpage: *const i32) -> ::windows_core::Result<()> {
@@ -8427,24 +7533,8 @@ impl IWCPropertySheetCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWCPropertySheetCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWCPropertySheetCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWCPropertySheetCallback {}
-impl ::core::fmt::Debug for IWCPropertySheetCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWCPropertySheetCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWCPropertySheetCallback {
     type Vtable = IWCPropertySheetCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWCPropertySheetCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWCPropertySheetCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede60_fc6b_11cf_b5f5_00a0c90ab505);
@@ -8457,6 +7547,7 @@ pub struct IWCPropertySheetCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWCWizard97Callback(::windows_core::IUnknown);
 impl IWCWizard97Callback {
     pub unsafe fn AddWizard97Page(&self, hpage: *const i32) -> ::windows_core::Result<()> {
@@ -8472,24 +7563,8 @@ impl IWCWizard97Callback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWCWizard97Callback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWCWizard97Callback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWCWizard97Callback {}
-impl ::core::fmt::Debug for IWCWizard97Callback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWCWizard97Callback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWCWizard97Callback {
     type Vtable = IWCWizard97Callback_Vtbl;
-}
-impl ::core::clone::Clone for IWCWizard97Callback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWCWizard97Callback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede67_fc6b_11cf_b5f5_00a0c90ab505);
@@ -8506,6 +7581,7 @@ pub struct IWCWizard97Callback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWCWizardCallback(::windows_core::IUnknown);
 impl IWCWizardCallback {
     pub unsafe fn AddWizardPage(&self, hpage: *const i32) -> ::windows_core::Result<()> {
@@ -8521,24 +7597,8 @@ impl IWCWizardCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWCWizardCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWCWizardCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWCWizardCallback {}
-impl ::core::fmt::Debug for IWCWizardCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWCWizardCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWCWizardCallback {
     type Vtable = IWCWizardCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWCWizardCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWCWizardCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede62_fc6b_11cf_b5f5_00a0c90ab505);
@@ -8555,6 +7615,7 @@ pub struct IWCWizardCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWEExtendContextMenu(::windows_core::IUnknown);
 impl IWEExtendContextMenu {
     pub unsafe fn AddContextMenuItems<P0, P1>(&self, pidata: P0, picallback: P1) -> ::windows_core::Result<()>
@@ -8566,24 +7627,8 @@ impl IWEExtendContextMenu {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWEExtendContextMenu, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWEExtendContextMenu {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWEExtendContextMenu {}
-impl ::core::fmt::Debug for IWEExtendContextMenu {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWEExtendContextMenu").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWEExtendContextMenu {
     type Vtable = IWEExtendContextMenu_Vtbl;
-}
-impl ::core::clone::Clone for IWEExtendContextMenu {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWEExtendContextMenu {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede65_fc6b_11cf_b5f5_00a0c90ab505);
@@ -8596,6 +7641,7 @@ pub struct IWEExtendContextMenu_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWEExtendPropertySheet(::windows_core::IUnknown);
 impl IWEExtendPropertySheet {
     pub unsafe fn CreatePropertySheetPages<P0, P1>(&self, pidata: P0, picallback: P1) -> ::windows_core::Result<()>
@@ -8607,24 +7653,8 @@ impl IWEExtendPropertySheet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWEExtendPropertySheet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWEExtendPropertySheet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWEExtendPropertySheet {}
-impl ::core::fmt::Debug for IWEExtendPropertySheet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWEExtendPropertySheet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWEExtendPropertySheet {
     type Vtable = IWEExtendPropertySheet_Vtbl;
-}
-impl ::core::clone::Clone for IWEExtendPropertySheet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWEExtendPropertySheet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede61_fc6b_11cf_b5f5_00a0c90ab505);
@@ -8637,6 +7667,7 @@ pub struct IWEExtendPropertySheet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWEExtendWizard(::windows_core::IUnknown);
 impl IWEExtendWizard {
     pub unsafe fn CreateWizardPages<P0, P1>(&self, pidata: P0, picallback: P1) -> ::windows_core::Result<()>
@@ -8648,24 +7679,8 @@ impl IWEExtendWizard {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWEExtendWizard, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWEExtendWizard {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWEExtendWizard {}
-impl ::core::fmt::Debug for IWEExtendWizard {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWEExtendWizard").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWEExtendWizard {
     type Vtable = IWEExtendWizard_Vtbl;
-}
-impl ::core::clone::Clone for IWEExtendWizard {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWEExtendWizard {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede63_fc6b_11cf_b5f5_00a0c90ab505);
@@ -8678,6 +7693,7 @@ pub struct IWEExtendWizard_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWEExtendWizard97(::windows_core::IUnknown);
 impl IWEExtendWizard97 {
     pub unsafe fn CreateWizard97Pages<P0, P1>(&self, pidata: P0, picallback: P1) -> ::windows_core::Result<()>
@@ -8689,24 +7705,8 @@ impl IWEExtendWizard97 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWEExtendWizard97, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWEExtendWizard97 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWEExtendWizard97 {}
-impl ::core::fmt::Debug for IWEExtendWizard97 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWEExtendWizard97").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWEExtendWizard97 {
     type Vtable = IWEExtendWizard97_Vtbl;
-}
-impl ::core::clone::Clone for IWEExtendWizard97 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWEExtendWizard97 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede68_fc6b_11cf_b5f5_00a0c90ab505);
@@ -8719,6 +7719,7 @@ pub struct IWEExtendWizard97_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWEInvokeCommand(::windows_core::IUnknown);
 impl IWEInvokeCommand {
     pub unsafe fn InvokeCommand<P0>(&self, ncommandid: u32, pidata: P0) -> ::windows_core::Result<()>
@@ -8729,24 +7730,8 @@ impl IWEInvokeCommand {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWEInvokeCommand, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWEInvokeCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWEInvokeCommand {}
-impl ::core::fmt::Debug for IWEInvokeCommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWEInvokeCommand").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWEInvokeCommand {
     type Vtable = IWEInvokeCommand_Vtbl;
-}
-impl ::core::clone::Clone for IWEInvokeCommand {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWEInvokeCommand {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97dede66_fc6b_11cf_b5f5_00a0c90ab505);

@@ -40,7 +40,7 @@ impl IAdaptiveNotificationContent_Vtbl {
             Hints: Hints::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAdaptiveNotificationContent as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAdaptiveNotificationContent as ::windows_core::ComInterface>::IID
     }
 }

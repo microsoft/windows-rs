@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkWorkspaceHostedAppManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IInkWorkspaceHostedAppManager {
     type Vtable = IInkWorkspaceHostedAppManager_Vtbl;
-}
-impl ::core::clone::Clone for IInkWorkspaceHostedAppManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInkWorkspaceHostedAppManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe0a7990_5e59_4bb7_8a63_7d218cd96300);
@@ -23,14 +19,10 @@ pub struct IInkWorkspaceHostedAppManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkWorkspaceHostedAppManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IInkWorkspaceHostedAppManagerStatics {
     type Vtable = IInkWorkspaceHostedAppManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IInkWorkspaceHostedAppManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInkWorkspaceHostedAppManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5);
@@ -43,6 +35,7 @@ pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Preview_InkWorkspace\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkWorkspaceHostedAppManager(::windows_core::IUnknown);
 impl InkWorkspaceHostedAppManager {
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`*"]
@@ -69,24 +62,8 @@ impl InkWorkspaceHostedAppManager {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for InkWorkspaceHostedAppManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkWorkspaceHostedAppManager {}
-impl ::core::fmt::Debug for InkWorkspaceHostedAppManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkWorkspaceHostedAppManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for InkWorkspaceHostedAppManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.InkWorkspace.InkWorkspaceHostedAppManager;{fe0a7990-5e59-4bb7-8a63-7d218cd96300})");
-}
-impl ::core::clone::Clone for InkWorkspaceHostedAppManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for InkWorkspaceHostedAppManager {
     type Vtable = IInkWorkspaceHostedAppManager_Vtbl;

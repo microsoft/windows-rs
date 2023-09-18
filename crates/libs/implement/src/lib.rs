@@ -45,7 +45,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         let offset = proc_macro2::Literal::usize_unsuffixed(count);
         quote! {
             else if #vtbl_ident::matches(iid) {
-                &self.vtables.#offset as *const _ as *const _
+                &self.vtables.#offset as *const _ as *mut _
             }
         }
     });
@@ -64,16 +64,14 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 }
             }
             impl #generics ::windows::core::AsImpl<#original_ident::#generics> for #interface_ident where #constraints {
+                // SAFETY: the offset is guranteed to be in bounds, and the implementation struct
+                // is guaranteed to live at least as long as `self`.
                 unsafe fn as_impl(&self) -> &#original_ident::#generics {
                     let this = ::windows::core::Interface::as_raw(self);
-                    // SAFETY: the offset is guranteed to be in bounds, and the implementation struct
-                    // is guaranteed to live at least as long as `self`.
-                    unsafe {
-                        // Subtract away the vtable offset plus 1, for the `identity` field, to get
-                        // to the impl struct which contains that original implementation type.
-                        let this = (this as *mut *mut ::core::ffi::c_void).sub(1 + #offset) as *mut #impl_ident::#generics;
-                        &(*this).this
-                    }
+                    // Subtract away the vtable offset plus 1, for the `identity` field, to get
+                    // to the impl struct which contains that original implementation type.
+                    let this = (this as *mut *mut ::core::ffi::c_void).sub(1 + #offset) as *mut #impl_ident::#generics;
+                    &(*this).this
                 }
             }
         }
@@ -104,28 +102,30 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             fn get_impl(&self) -> &Self::Impl {
                 &self.this
             }
-            unsafe fn QueryInterface(&self, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-                unsafe {
-                    *interface = if iid == &<::windows::core::IUnknown as ::windows::core::ComInterface>::IID
-                        || iid == &<::windows::core::IInspectable as ::windows::core::ComInterface>::IID
-                        || iid == &<::windows::core::imp::IAgileObject as ::windows::core::ComInterface>::IID {
-                            &self.identity as *const _ as *const _
-                    } #(#queries)* else {
-                        ::core::ptr::null_mut()
-                    };
+            unsafe fn QueryInterface(&self, iid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+                if iid.is_null() || interface.is_null() {
+                    return ::windows::core::HRESULT(-2147467261); // E_POINTER
+                }
 
-                    if !(*interface).is_null() {
-                        self.count.add_ref();
-                        return ::windows::core::HRESULT(0);
-                    }
+                *interface = if *iid == <::windows::core::IUnknown as ::windows::core::ComInterface>::IID
+                    || *iid == <::windows::core::IInspectable as ::windows::core::ComInterface>::IID
+                    || *iid == <::windows::core::imp::IAgileObject as ::windows::core::ComInterface>::IID {
+                        &self.identity as *const _ as *mut _
+                } #(#queries)* else {
+                    ::core::ptr::null_mut()
+                };
 
-                    *interface = self.count.query(iid, &self.identity as *const _ as *mut _);
+                if !(*interface).is_null() {
+                    self.count.add_ref();
+                    return ::windows::core::HRESULT(0);
+                }
 
-                    if (*interface).is_null() {
-                        ::windows::core::HRESULT(0x8000_4002) // E_NOINTERFACE
-                    } else {
-                        ::windows::core::HRESULT(0)
-                    }
+                *interface = self.count.query(iid, &self.identity as *const _ as *mut _);
+
+                if (*interface).is_null() {
+                    ::windows::core::HRESULT(-2147467262) // E_NOINTERFACE
+                } else {
+                    ::windows::core::HRESULT(0)
                 }
             }
             fn AddRef(&self) -> u32 {
@@ -134,9 +134,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             unsafe fn Release(&self) -> u32 {
                 let remaining = self.count.release();
                 if remaining == 0 {
-                    unsafe {
-                        _ = ::std::boxed::Box::from_raw(self as *const Self as *mut Self);
-                    }
+                    _ = ::std::boxed::Box::from_raw(self as *const Self as *mut Self);
                 }
                 remaining
             }

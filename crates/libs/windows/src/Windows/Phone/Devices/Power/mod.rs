@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBattery(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBattery {
     type Vtable = IBattery_Vtbl;
-}
-impl ::core::clone::Clone for IBattery {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBattery {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x972adbdd_6720_4702_a476_b9d38a0070e3);
@@ -32,14 +28,10 @@ pub struct IBattery_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBatteryStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBatteryStatics {
     type Vtable = IBatteryStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBatteryStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBatteryStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfaf5bc70_6369_11e1_b86c_0800200c9a66);
@@ -52,6 +44,7 @@ pub struct IBatteryStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Phone_Devices_Power\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Battery(::windows_core::IUnknown);
 impl Battery {
     pub fn RemainingChargePercent(&self) -> ::windows_core::Result<i32> {
@@ -100,24 +93,8 @@ impl Battery {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for Battery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Battery {}
-impl ::core::fmt::Debug for Battery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Battery").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Battery {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Devices.Power.Battery;{972adbdd-6720-4702-a476-b9d38a0070e3})");
-}
-impl ::core::clone::Clone for Battery {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Battery {
     type Vtable = IBattery_Vtbl;

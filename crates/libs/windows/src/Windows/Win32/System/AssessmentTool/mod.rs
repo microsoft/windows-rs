@@ -1,6 +1,7 @@
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Accessibility\"`*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccessibleWinSAT(::windows_core::IUnknown);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 impl IAccessibleWinSAT {
@@ -142,28 +143,8 @@ impl IAccessibleWinSAT {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 ::windows_core::imp::interface_hierarchy!(IAccessibleWinSAT, ::windows_core::IUnknown, super::Com::IDispatch, super::super::UI::Accessibility::IAccessible);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl ::core::cmp::PartialEq for IAccessibleWinSAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl ::core::cmp::Eq for IAccessibleWinSAT {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl ::core::fmt::Debug for IAccessibleWinSAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccessibleWinSAT").field(&self.0).finish()
-    }
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 unsafe impl ::windows_core::Interface for IAccessibleWinSAT {
     type Vtable = IAccessibleWinSAT_Vtbl;
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl ::core::clone::Clone for IAccessibleWinSAT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 unsafe impl ::windows_core::ComInterface for IAccessibleWinSAT {
@@ -178,6 +159,7 @@ pub struct IAccessibleWinSAT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInitiateWinSATAssessment(::windows_core::IUnknown);
 impl IInitiateWinSATAssessment {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -204,24 +186,8 @@ impl IInitiateWinSATAssessment {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInitiateWinSATAssessment, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInitiateWinSATAssessment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInitiateWinSATAssessment {}
-impl ::core::fmt::Debug for IInitiateWinSATAssessment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInitiateWinSATAssessment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInitiateWinSATAssessment {
     type Vtable = IInitiateWinSATAssessment_Vtbl;
-}
-impl ::core::clone::Clone for IInitiateWinSATAssessment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInitiateWinSATAssessment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd983fc50_f5bf_49d5_b5ed_cccb18aa7fc1);
@@ -243,6 +209,7 @@ pub struct IInitiateWinSATAssessment_Vtbl {
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProvideWinSATAssessmentInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IProvideWinSATAssessmentInfo {
@@ -262,28 +229,8 @@ impl IProvideWinSATAssessmentInfo {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IProvideWinSATAssessmentInfo, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IProvideWinSATAssessmentInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IProvideWinSATAssessmentInfo {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IProvideWinSATAssessmentInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProvideWinSATAssessmentInfo").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IProvideWinSATAssessmentInfo {
     type Vtable = IProvideWinSATAssessmentInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IProvideWinSATAssessmentInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IProvideWinSATAssessmentInfo {
@@ -301,6 +248,7 @@ pub struct IProvideWinSATAssessmentInfo_Vtbl {
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProvideWinSATResultsInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IProvideWinSATResultsInfo {
@@ -332,28 +280,8 @@ impl IProvideWinSATResultsInfo {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IProvideWinSATResultsInfo, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IProvideWinSATResultsInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IProvideWinSATResultsInfo {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IProvideWinSATResultsInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProvideWinSATResultsInfo").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IProvideWinSATResultsInfo {
     type Vtable = IProvideWinSATResultsInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IProvideWinSATResultsInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IProvideWinSATResultsInfo {
@@ -378,6 +306,7 @@ pub struct IProvideWinSATResultsInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProvideWinSATVisuals(::windows_core::IUnknown);
 impl IProvideWinSATVisuals {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -388,24 +317,8 @@ impl IProvideWinSATVisuals {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IProvideWinSATVisuals, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IProvideWinSATVisuals {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProvideWinSATVisuals {}
-impl ::core::fmt::Debug for IProvideWinSATVisuals {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProvideWinSATVisuals").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IProvideWinSATVisuals {
     type Vtable = IProvideWinSATVisuals_Vtbl;
-}
-impl ::core::clone::Clone for IProvideWinSATVisuals {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProvideWinSATVisuals {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9f4ade0_871a_42a3_b813_3078d25162c9);
@@ -422,6 +335,7 @@ pub struct IProvideWinSATVisuals_Vtbl {
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQueryAllWinSATAssessments(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IQueryAllWinSATAssessments {
@@ -439,28 +353,8 @@ impl IQueryAllWinSATAssessments {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IQueryAllWinSATAssessments, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IQueryAllWinSATAssessments {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IQueryAllWinSATAssessments {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IQueryAllWinSATAssessments {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IQueryAllWinSATAssessments").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IQueryAllWinSATAssessments {
     type Vtable = IQueryAllWinSATAssessments_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IQueryAllWinSATAssessments {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IQueryAllWinSATAssessments {
@@ -478,6 +372,7 @@ pub struct IQueryAllWinSATAssessments_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQueryOEMWinSATCustomization(::windows_core::IUnknown);
 impl IQueryOEMWinSATCustomization {
     pub unsafe fn GetOEMPrePopulationInfo(&self) -> ::windows_core::Result<WINSAT_OEM_CUSTOMIZATION_STATE> {
@@ -486,24 +381,8 @@ impl IQueryOEMWinSATCustomization {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IQueryOEMWinSATCustomization, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IQueryOEMWinSATCustomization {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IQueryOEMWinSATCustomization {}
-impl ::core::fmt::Debug for IQueryOEMWinSATCustomization {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IQueryOEMWinSATCustomization").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IQueryOEMWinSATCustomization {
     type Vtable = IQueryOEMWinSATCustomization_Vtbl;
-}
-impl ::core::clone::Clone for IQueryOEMWinSATCustomization {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IQueryOEMWinSATCustomization {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc9a6a9f_ad4e_420e_9953_b34671e9df22);
@@ -517,6 +396,7 @@ pub struct IQueryOEMWinSATCustomization_Vtbl {
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQueryRecentWinSATAssessment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IQueryRecentWinSATAssessment {
@@ -540,28 +420,8 @@ impl IQueryRecentWinSATAssessment {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IQueryRecentWinSATAssessment, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IQueryRecentWinSATAssessment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IQueryRecentWinSATAssessment {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IQueryRecentWinSATAssessment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IQueryRecentWinSATAssessment").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IQueryRecentWinSATAssessment {
     type Vtable = IQueryRecentWinSATAssessment_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IQueryRecentWinSATAssessment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IQueryRecentWinSATAssessment {
@@ -583,6 +443,7 @@ pub struct IQueryRecentWinSATAssessment_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWinSATInitiateEvents(::windows_core::IUnknown);
 impl IWinSATInitiateEvents {
     pub unsafe fn WinSATComplete<P0>(&self, hresult: ::windows_core::HRESULT, strdescription: P0) -> ::windows_core::Result<()>
@@ -599,24 +460,8 @@ impl IWinSATInitiateEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWinSATInitiateEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWinSATInitiateEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWinSATInitiateEvents {}
-impl ::core::fmt::Debug for IWinSATInitiateEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWinSATInitiateEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWinSATInitiateEvents {
     type Vtable = IWinSATInitiateEvents_Vtbl;
-}
-impl ::core::clone::Clone for IWinSATInitiateEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWinSATInitiateEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x262a1918_ba0d_41d5_92c2_fab4633ee74f);

@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct II2cControllerProvider(::windows_core::IUnknown);
 impl II2cControllerProvider {
     pub fn GetDeviceProvider<P0>(&self, settings: P0) -> ::windows_core::Result<II2cDeviceProvider>
@@ -14,27 +15,11 @@ impl II2cControllerProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(II2cControllerProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for II2cControllerProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for II2cControllerProvider {}
-impl ::core::fmt::Debug for II2cControllerProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("II2cControllerProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for II2cControllerProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{61c2bb82-4510-4163-a87c-4e15a9558980}");
 }
 unsafe impl ::windows_core::Interface for II2cControllerProvider {
     type Vtable = II2cControllerProvider_Vtbl;
-}
-impl ::core::clone::Clone for II2cControllerProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for II2cControllerProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61c2bb82_4510_4163_a87c_4e15a9558980);
@@ -47,6 +32,7 @@ pub struct II2cControllerProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct II2cDeviceProvider(::windows_core::IUnknown);
 impl II2cDeviceProvider {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -99,27 +85,11 @@ impl II2cDeviceProvider {
 ::windows_core::imp::interface_hierarchy!(II2cDeviceProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for II2cDeviceProvider {}
-impl ::core::cmp::PartialEq for II2cDeviceProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for II2cDeviceProvider {}
-impl ::core::fmt::Debug for II2cDeviceProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("II2cDeviceProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for II2cDeviceProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{ad342654-57e8-453e-8329-d1e447d103a9}");
 }
 unsafe impl ::windows_core::Interface for II2cDeviceProvider {
     type Vtable = II2cDeviceProvider_Vtbl;
-}
-impl ::core::clone::Clone for II2cDeviceProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for II2cDeviceProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad342654_57e8_453e_8329_d1e447d103a9);
@@ -138,6 +108,7 @@ pub struct II2cDeviceProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct II2cProvider(::windows_core::IUnknown);
 impl II2cProvider {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -151,27 +122,11 @@ impl II2cProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(II2cProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for II2cProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for II2cProvider {}
-impl ::core::fmt::Debug for II2cProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("II2cProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for II2cProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{6f13083e-bf62-4fe2-a95a-f08999669818}");
 }
 unsafe impl ::windows_core::Interface for II2cProvider {
     type Vtable = II2cProvider_Vtbl;
-}
-impl ::core::clone::Clone for II2cProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for II2cProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f13083e_bf62_4fe2_a95a_f08999669818);
@@ -187,14 +142,10 @@ pub struct II2cProvider_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProviderI2cConnectionSettings(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProviderI2cConnectionSettings {
     type Vtable = IProviderI2cConnectionSettings_Vtbl;
-}
-impl ::core::clone::Clone for IProviderI2cConnectionSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProviderI2cConnectionSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9db4e34_e510_44b7_809d_f2f85b555339);
@@ -212,6 +163,7 @@ pub struct IProviderI2cConnectionSettings_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProviderI2cConnectionSettings(::windows_core::IUnknown);
 impl ProviderI2cConnectionSettings {
     pub fn SlaveAddress(&self) -> ::windows_core::Result<i32> {
@@ -248,24 +200,8 @@ impl ProviderI2cConnectionSettings {
         unsafe { (::windows_core::Interface::vtable(this).SetSharingMode)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ProviderI2cConnectionSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProviderI2cConnectionSettings {}
-impl ::core::fmt::Debug for ProviderI2cConnectionSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderI2cConnectionSettings").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProviderI2cConnectionSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.Provider.ProviderI2cConnectionSettings;{e9db4e34-e510-44b7-809d-f2f85b555339})");
-}
-impl ::core::clone::Clone for ProviderI2cConnectionSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProviderI2cConnectionSettings {
     type Vtable = IProviderI2cConnectionSettings_Vtbl;

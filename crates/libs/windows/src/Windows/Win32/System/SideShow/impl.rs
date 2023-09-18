@@ -15,8 +15,8 @@ impl ISideShowBulkCapabilities_Vtbl {
         }
         Self { base__: ISideShowCapabilities_Vtbl::new::<Identity, Impl, OFFSET>(), GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISideShowBulkCapabilities as ::windows_core::ComInterface>::IID || iid == &<ISideShowCapabilities as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISideShowBulkCapabilities as ::windows_core::ComInterface>::IID || *iid == <ISideShowCapabilities as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -36,8 +36,8 @@ impl ISideShowCapabilities_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCapability: GetCapability::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISideShowCapabilities as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISideShowCapabilities as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
@@ -76,8 +76,8 @@ impl ISideShowCapabilitiesCollection_Vtbl {
             GetAt: GetAt::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISideShowCapabilitiesCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISideShowCapabilitiesCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -126,8 +126,8 @@ impl ISideShowContent_Vtbl {
             DifferentiateContent: DifferentiateContent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISideShowContent as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISideShowContent as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
@@ -181,8 +181,8 @@ impl ISideShowContentManager_Vtbl {
             GetDeviceCapabilities: GetDeviceCapabilities::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISideShowContentManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISideShowContentManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
@@ -229,8 +229,8 @@ impl ISideShowEvents_Vtbl {
             DeviceRemoved: DeviceRemoved::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISideShowEvents as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISideShowEvents as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -281,8 +281,8 @@ impl ISideShowKeyCollection_Vtbl {
             RemoveAt: RemoveAt::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISideShowKeyCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISideShowKeyCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -398,8 +398,8 @@ impl ISideShowNotification_Vtbl {
             SetExpirationTime: SetExpirationTime::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISideShowNotification as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISideShowNotification as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
@@ -433,8 +433,8 @@ impl ISideShowNotificationManager_Vtbl {
             RevokeAll: RevokeAll::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISideShowNotificationManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISideShowNotificationManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -485,8 +485,8 @@ impl ISideShowPropVariantCollection_Vtbl {
             RemoveAt: RemoveAt::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISideShowPropVariantCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISideShowPropVariantCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
@@ -525,7 +525,7 @@ impl ISideShowSession_Vtbl {
             RegisterNotifications: RegisterNotifications::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISideShowSession as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISideShowSession as ::windows_core::ComInterface>::IID
     }
 }

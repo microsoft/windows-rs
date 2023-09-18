@@ -18,8 +18,8 @@ impl IDxcAssembler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AssembleToContainer: AssembleToContainer::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcAssembler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcAssembler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -46,8 +46,8 @@ impl IDxcBlob_Vtbl {
             GetBufferSize: GetBufferSize::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcBlob as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcBlob as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -67,8 +67,8 @@ impl IDxcBlobEncoding_Vtbl {
         }
         Self { base__: IDxcBlob_Vtbl::new::<Identity, Impl, OFFSET>(), GetEncoding: GetEncoding::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcBlobEncoding as ::windows_core::ComInterface>::IID || iid == &<IDxcBlob as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcBlobEncoding as ::windows_core::ComInterface>::IID || *iid == <IDxcBlob as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -98,8 +98,8 @@ impl IDxcBlobUtf16_Vtbl {
             GetStringLength: GetStringLength::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcBlobUtf16 as ::windows_core::ComInterface>::IID || iid == &<IDxcBlob as ::windows_core::ComInterface>::IID || iid == &<IDxcBlobEncoding as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcBlobUtf16 as ::windows_core::ComInterface>::IID || *iid == <IDxcBlob as ::windows_core::ComInterface>::IID || *iid == <IDxcBlobEncoding as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -129,8 +129,8 @@ impl IDxcBlobUtf8_Vtbl {
             GetStringLength: GetStringLength::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcBlobUtf8 as ::windows_core::ComInterface>::IID || iid == &<IDxcBlob as ::windows_core::ComInterface>::IID || iid == &<IDxcBlobEncoding as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcBlobUtf8 as ::windows_core::ComInterface>::IID || *iid == <IDxcBlob as ::windows_core::ComInterface>::IID || *iid == <IDxcBlobEncoding as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -182,8 +182,8 @@ impl IDxcCompiler_Vtbl {
             Disassemble: Disassemble::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcCompiler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcCompiler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -214,8 +214,8 @@ impl IDxcCompiler2_Vtbl {
         }
         Self { base__: IDxcCompiler_Vtbl::new::<Identity, Impl, OFFSET>(), CompileWithDebug: CompileWithDebug::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcCompiler2 as ::windows_core::ComInterface>::IID || iid == &<IDxcCompiler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcCompiler2 as ::windows_core::ComInterface>::IID || *iid == <IDxcCompiler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -242,8 +242,8 @@ impl IDxcCompiler3_Vtbl {
             Disassemble: Disassemble::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcCompiler3 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcCompiler3 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -291,8 +291,8 @@ impl IDxcCompilerArgs_Vtbl {
             AddDefines: AddDefines::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcCompilerArgs as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcCompilerArgs as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -339,8 +339,8 @@ impl IDxcContainerBuilder_Vtbl {
             SerializeContainer: SerializeContainer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcContainerBuilder as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcContainerBuilder as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -419,8 +419,8 @@ impl IDxcContainerReflection_Vtbl {
             GetPartReflection: GetPartReflection::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcContainerReflection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcContainerReflection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -447,8 +447,8 @@ impl IDxcExtraOutputs_Vtbl {
             GetOutput: GetOutput::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcExtraOutputs as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcExtraOutputs as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -471,8 +471,8 @@ impl IDxcIncludeHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LoadSource: LoadSource::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcIncludeHandler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcIncludeHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -612,8 +612,8 @@ impl IDxcLibrary_Vtbl {
             GetBlobAsUtf16: GetBlobAsUtf16::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcLibrary as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcLibrary as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -646,8 +646,8 @@ impl IDxcLinker_Vtbl {
             Link: Link::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcLinker as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcLinker as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -699,8 +699,8 @@ impl IDxcOperationResult_Vtbl {
             GetErrorBuffer: GetErrorBuffer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcOperationResult as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcOperationResult as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -746,8 +746,8 @@ impl IDxcOptimizer_Vtbl {
             RunOptimizer: RunOptimizer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcOptimizer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcOptimizer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -825,8 +825,8 @@ impl IDxcOptimizerPass_Vtbl {
             GetOptionArgDescription: GetOptionArgDescription::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcOptimizerPass as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcOptimizerPass as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1118,8 +1118,8 @@ impl IDxcPdbUtils_Vtbl {
             OverrideRootSignature: OverrideRootSignature::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcPdbUtils as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcPdbUtils as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1170,8 +1170,8 @@ impl IDxcResult_Vtbl {
             PrimaryOutput: PrimaryOutput::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcResult as ::windows_core::ComInterface>::IID || iid == &<IDxcOperationResult as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcResult as ::windows_core::ComInterface>::IID || *iid == <IDxcOperationResult as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1338,8 +1338,8 @@ impl IDxcUtils_Vtbl {
             GetPDBContents: GetPDBContents::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcUtils as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcUtils as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -1362,8 +1362,8 @@ impl IDxcValidator_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Validate: Validate::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcValidator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcValidator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -1386,8 +1386,8 @@ impl IDxcValidator2_Vtbl {
         }
         Self { base__: IDxcValidator_Vtbl::new::<Identity, Impl, OFFSET>(), ValidateWithDebug: ValidateWithDebug::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcValidator2 as ::windows_core::ComInterface>::IID || iid == &<IDxcValidator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcValidator2 as ::windows_core::ComInterface>::IID || *iid == <IDxcValidator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -1420,8 +1420,8 @@ impl IDxcVersionInfo_Vtbl {
             GetFlags: GetFlags::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcVersionInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcVersionInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -1438,8 +1438,8 @@ impl IDxcVersionInfo2_Vtbl {
         }
         Self { base__: IDxcVersionInfo_Vtbl::new::<Identity, Impl, OFFSET>(), GetCommitInfo: GetCommitInfo::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcVersionInfo2 as ::windows_core::ComInterface>::IID || iid == &<IDxcVersionInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcVersionInfo2 as ::windows_core::ComInterface>::IID || *iid == <IDxcVersionInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
@@ -1462,7 +1462,7 @@ impl IDxcVersionInfo3_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCustomVersionString: GetCustomVersionString::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDxcVersionInfo3 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDxcVersionInfo3 as ::windows_core::ComInterface>::IID
     }
 }

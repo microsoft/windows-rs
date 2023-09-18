@@ -8,14 +8,10 @@ pub mod GenericAttributeProfile;
 pub mod Rfcomm;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothAdapter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothAdapter {
     type Vtable = IBluetoothAdapter_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothAdapter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothAdapter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7974f04c_5f7a_4a34_9225_a855f84b1a8b);
@@ -38,14 +34,10 @@ pub struct IBluetoothAdapter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothAdapter2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothAdapter2 {
     type Vtable = IBluetoothAdapter2_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothAdapter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothAdapter2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac94cecc_24d5_41b3_916d_1097c50b102b);
@@ -59,14 +51,10 @@ pub struct IBluetoothAdapter2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothAdapter3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothAdapter3 {
     type Vtable = IBluetoothAdapter3_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothAdapter3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothAdapter3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f8624e0_cba9_5211_9f89_3aac62b4c6b8);
@@ -80,14 +68,10 @@ pub struct IBluetoothAdapter3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothAdapterStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothAdapterStatics {
     type Vtable = IBluetoothAdapterStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothAdapterStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothAdapterStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b02fb6a_ac4c_4741_8661_8eab7d17ea9f);
@@ -108,14 +92,10 @@ pub struct IBluetoothAdapterStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothClassOfDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothClassOfDevice {
     type Vtable = IBluetoothClassOfDevice_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothClassOfDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothClassOfDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd640227e_d7d7_4661_9454_65039ca17a2b);
@@ -131,14 +111,10 @@ pub struct IBluetoothClassOfDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothClassOfDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothClassOfDeviceStatics {
     type Vtable = IBluetoothClassOfDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothClassOfDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothClassOfDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe46135bd_0fa2_416c_91b4_c1e48ca061c1);
@@ -152,14 +128,10 @@ pub struct IBluetoothClassOfDeviceStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothDevice {
     type Vtable = IBluetoothDevice_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2335b156_90d2_4a04_aef5_0e20b9e6b707);
@@ -212,14 +184,10 @@ pub struct IBluetoothDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothDevice2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothDevice2 {
     type Vtable = IBluetoothDevice2_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothDevice2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothDevice2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0133f954_b156_4dd0_b1f5_c11bc31a5163);
@@ -235,14 +203,10 @@ pub struct IBluetoothDevice2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothDevice3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothDevice3 {
     type Vtable = IBluetoothDevice3_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothDevice3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothDevice3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57fff78b_651a_4454_b90f_eb21ef0b0d71);
@@ -278,14 +242,10 @@ pub struct IBluetoothDevice3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothDevice4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothDevice4 {
     type Vtable = IBluetoothDevice4_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothDevice4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothDevice4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x817c34ad_0e9c_42b2_a8dc_3e8094940d12);
@@ -298,14 +258,10 @@ pub struct IBluetoothDevice4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothDevice5(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothDevice5 {
     type Vtable = IBluetoothDevice5_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothDevice5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothDevice5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5e0b385_5e85_4559_a10d_1c7281379f96);
@@ -318,14 +274,10 @@ pub struct IBluetoothDevice5_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothDeviceId(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothDeviceId {
     type Vtable = IBluetoothDeviceId_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothDeviceId {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothDeviceId {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc17949af_57c1_4642_bcce_e6c06b20ae76);
@@ -340,14 +292,10 @@ pub struct IBluetoothDeviceId_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothDeviceIdStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothDeviceIdStatics {
     type Vtable = IBluetoothDeviceIdStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothDeviceIdStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothDeviceIdStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7884e67_3efb_4f31_bbc2_810e09977404);
@@ -360,14 +308,10 @@ pub struct IBluetoothDeviceIdStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothDeviceStatics {
     type Vtable = IBluetoothDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0991df51_57db_4725_bbd7_84f64327ec2c);
@@ -392,14 +336,10 @@ pub struct IBluetoothDeviceStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothDeviceStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothDeviceStatics2 {
     type Vtable = IBluetoothDeviceStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothDeviceStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothDeviceStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc29e8e2f_4e14_4477_aa1b_b8b47e5b7ece);
@@ -416,14 +356,10 @@ pub struct IBluetoothDeviceStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEAppearance(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEAppearance {
     type Vtable = IBluetoothLEAppearance_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEAppearance {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEAppearance {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d2079f2_66a8_4258_985e_02b4d9509f18);
@@ -438,14 +374,10 @@ pub struct IBluetoothLEAppearance_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEAppearanceCategoriesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEAppearanceCategoriesStatics {
     type Vtable = IBluetoothLEAppearanceCategoriesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEAppearanceCategoriesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEAppearanceCategoriesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d4d54fe_046a_4185_aab6_824cf0610861);
@@ -479,14 +411,10 @@ pub struct IBluetoothLEAppearanceCategoriesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEAppearanceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEAppearanceStatics {
     type Vtable = IBluetoothLEAppearanceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEAppearanceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEAppearanceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa193c0c7_4504_4f4a_9ba5_cd1054e5e065);
@@ -500,14 +428,10 @@ pub struct IBluetoothLEAppearanceStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEAppearanceSubcategoriesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEAppearanceSubcategoriesStatics {
     type Vtable = IBluetoothLEAppearanceSubcategoriesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEAppearanceSubcategoriesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEAppearanceSubcategoriesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe57ba606_2144_415a_8312_71ccf291f8d1);
@@ -547,14 +471,10 @@ pub struct IBluetoothLEAppearanceSubcategoriesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEConnectionParameters(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEConnectionParameters {
     type Vtable = IBluetoothLEConnectionParameters_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEConnectionParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEConnectionParameters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33cb0771_8da9_508f_a366_1ca388c929ab);
@@ -569,14 +489,10 @@ pub struct IBluetoothLEConnectionParameters_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEConnectionPhy(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEConnectionPhy {
     type Vtable = IBluetoothLEConnectionPhy_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEConnectionPhy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEConnectionPhy {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x781e5e48_621e_5a7e_8be6_1b9561ff63c9);
@@ -590,14 +506,10 @@ pub struct IBluetoothLEConnectionPhy_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEConnectionPhyInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEConnectionPhyInfo {
     type Vtable = IBluetoothLEConnectionPhyInfo_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEConnectionPhyInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEConnectionPhyInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a100bdd_602e_5c27_a1ae_b230015a6394);
@@ -612,14 +524,10 @@ pub struct IBluetoothLEConnectionPhyInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEDevice {
     type Vtable = IBluetoothLEDevice_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5ee2f7b_4ad8_4642_ac48_80a0b500e887);
@@ -667,14 +575,10 @@ pub struct IBluetoothLEDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEDevice2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEDevice2 {
     type Vtable = IBluetoothLEDevice2_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEDevice2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEDevice2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26f062b3_7aee_4d31_baba_b1b9775f5916);
@@ -692,14 +596,10 @@ pub struct IBluetoothLEDevice2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEDevice3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEDevice3 {
     type Vtable = IBluetoothLEDevice3_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEDevice3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEDevice3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaee9e493_44ac_40dc_af33_b2c13c01ca46);
@@ -735,14 +635,10 @@ pub struct IBluetoothLEDevice3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEDevice4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEDevice4 {
     type Vtable = IBluetoothLEDevice4_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEDevice4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEDevice4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2b605031_2248_4b2f_acf0_7cee36fc5870);
@@ -755,14 +651,10 @@ pub struct IBluetoothLEDevice4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEDevice5(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEDevice5 {
     type Vtable = IBluetoothLEDevice5_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEDevice5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEDevice5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d6a1260_5287_458e_95ba_17c8b7bb326e);
@@ -775,14 +667,10 @@ pub struct IBluetoothLEDevice5_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEDevice6(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEDevice6 {
     type Vtable = IBluetoothLEDevice6_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEDevice6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEDevice6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca7190ef_0cae_573c_a1ca_e1fc5bfc39e2);
@@ -813,14 +701,10 @@ pub struct IBluetoothLEDevice6_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEDeviceStatics {
     type Vtable = IBluetoothLEDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8cf1a19_f0b6_4bf0_8689_41303de2d9f4);
@@ -841,14 +725,10 @@ pub struct IBluetoothLEDeviceStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEDeviceStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEDeviceStatics2 {
     type Vtable = IBluetoothLEDeviceStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEDeviceStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEDeviceStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f12c06b_3bac_43e8_ad16_563271bd41c2);
@@ -870,14 +750,10 @@ pub struct IBluetoothLEDeviceStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEPreferredConnectionParameters(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEPreferredConnectionParameters {
     type Vtable = IBluetoothLEPreferredConnectionParameters_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEPreferredConnectionParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEPreferredConnectionParameters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2f44344_7372_5f7b_9b34_29c944f5a715);
@@ -893,14 +769,10 @@ pub struct IBluetoothLEPreferredConnectionParameters_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEPreferredConnectionParametersRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEPreferredConnectionParametersRequest {
     type Vtable = IBluetoothLEPreferredConnectionParametersRequest_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEPreferredConnectionParametersRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEPreferredConnectionParametersRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a375276_a528_5266_b661_cce6a5ff9739);
@@ -913,14 +785,10 @@ pub struct IBluetoothLEPreferredConnectionParametersRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothLEPreferredConnectionParametersStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothLEPreferredConnectionParametersStatics {
     type Vtable = IBluetoothLEPreferredConnectionParametersStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothLEPreferredConnectionParametersStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothLEPreferredConnectionParametersStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0e3e8edc_2751_55aa_a838_8faeee818d72);
@@ -935,14 +803,10 @@ pub struct IBluetoothLEPreferredConnectionParametersStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothSignalStrengthFilter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothSignalStrengthFilter {
     type Vtable = IBluetoothSignalStrengthFilter_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothSignalStrengthFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothSignalStrengthFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf7b7391_6bb5_4cfe_90b1_5d7324edcf7f);
@@ -986,14 +850,10 @@ pub struct IBluetoothSignalStrengthFilter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBluetoothUuidHelperStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBluetoothUuidHelperStatics {
     type Vtable = IBluetoothUuidHelperStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBluetoothUuidHelperStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBluetoothUuidHelperStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17df0cd8_cf74_4b21_afe6_f57a11bcdea0);
@@ -1010,6 +870,7 @@ pub struct IBluetoothUuidHelperStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothAdapter(::windows_core::IUnknown);
 impl BluetoothAdapter {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1126,24 +987,8 @@ impl BluetoothAdapter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for BluetoothAdapter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothAdapter {}
-impl ::core::fmt::Debug for BluetoothAdapter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothAdapter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BluetoothAdapter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothAdapter;{7974f04c-5f7a-4a34-9225-a855f84b1a8b})");
-}
-impl ::core::clone::Clone for BluetoothAdapter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BluetoothAdapter {
     type Vtable = IBluetoothAdapter_Vtbl;
@@ -1159,6 +1004,7 @@ unsafe impl ::core::marker::Send for BluetoothAdapter {}
 unsafe impl ::core::marker::Sync for BluetoothAdapter {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothClassOfDevice(::windows_core::IUnknown);
 impl BluetoothClassOfDevice {
     pub fn RawValue(&self) -> ::windows_core::Result<u32> {
@@ -1207,24 +1053,8 @@ impl BluetoothClassOfDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for BluetoothClassOfDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothClassOfDevice {}
-impl ::core::fmt::Debug for BluetoothClassOfDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothClassOfDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BluetoothClassOfDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothClassOfDevice;{d640227e-d7d7-4661-9454-65039ca17a2b})");
-}
-impl ::core::clone::Clone for BluetoothClassOfDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BluetoothClassOfDevice {
     type Vtable = IBluetoothClassOfDevice_Vtbl;
@@ -1240,6 +1070,7 @@ unsafe impl ::core::marker::Send for BluetoothClassOfDevice {}
 unsafe impl ::core::marker::Sync for BluetoothClassOfDevice {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothDevice(::windows_core::IUnknown);
 impl BluetoothDevice {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1524,24 +1355,8 @@ impl BluetoothDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for BluetoothDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothDevice {}
-impl ::core::fmt::Debug for BluetoothDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BluetoothDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothDevice;{2335b156-90d2-4a04-aef5-0e20b9e6b707})");
-}
-impl ::core::clone::Clone for BluetoothDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BluetoothDevice {
     type Vtable = IBluetoothDevice_Vtbl;
@@ -1559,6 +1374,7 @@ unsafe impl ::core::marker::Send for BluetoothDevice {}
 unsafe impl ::core::marker::Sync for BluetoothDevice {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothDeviceId(::windows_core::IUnknown);
 impl BluetoothDeviceId {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1594,24 +1410,8 @@ impl BluetoothDeviceId {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for BluetoothDeviceId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothDeviceId {}
-impl ::core::fmt::Debug for BluetoothDeviceId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothDeviceId").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BluetoothDeviceId {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothDeviceId;{c17949af-57c1-4642-bcce-e6c06b20ae76})");
-}
-impl ::core::clone::Clone for BluetoothDeviceId {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BluetoothDeviceId {
     type Vtable = IBluetoothDeviceId_Vtbl;
@@ -1627,6 +1427,7 @@ unsafe impl ::core::marker::Send for BluetoothDeviceId {}
 unsafe impl ::core::marker::Sync for BluetoothDeviceId {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothLEAppearance(::windows_core::IUnknown);
 impl BluetoothLEAppearance {
     pub fn RawValue(&self) -> ::windows_core::Result<u16> {
@@ -1668,24 +1469,8 @@ impl BluetoothLEAppearance {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for BluetoothLEAppearance {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothLEAppearance {}
-impl ::core::fmt::Debug for BluetoothLEAppearance {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothLEAppearance").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BluetoothLEAppearance {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEAppearance;{5d2079f2-66a8-4258-985e-02b4d9509f18})");
-}
-impl ::core::clone::Clone for BluetoothLEAppearance {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BluetoothLEAppearance {
     type Vtable = IBluetoothLEAppearance_Vtbl;
@@ -2025,6 +1810,7 @@ impl ::windows_core::RuntimeName for BluetoothLEAppearanceSubcategories {
 }
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothLEConnectionParameters(::windows_core::IUnknown);
 impl BluetoothLEConnectionParameters {
     pub fn LinkTimeout(&self) -> ::windows_core::Result<u16> {
@@ -2049,24 +1835,8 @@ impl BluetoothLEConnectionParameters {
         }
     }
 }
-impl ::core::cmp::PartialEq for BluetoothLEConnectionParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothLEConnectionParameters {}
-impl ::core::fmt::Debug for BluetoothLEConnectionParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothLEConnectionParameters").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BluetoothLEConnectionParameters {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEConnectionParameters;{33cb0771-8da9-508f-a366-1ca388c929ab})");
-}
-impl ::core::clone::Clone for BluetoothLEConnectionParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BluetoothLEConnectionParameters {
     type Vtable = IBluetoothLEConnectionParameters_Vtbl;
@@ -2082,6 +1852,7 @@ unsafe impl ::core::marker::Send for BluetoothLEConnectionParameters {}
 unsafe impl ::core::marker::Sync for BluetoothLEConnectionParameters {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothLEConnectionPhy(::windows_core::IUnknown);
 impl BluetoothLEConnectionPhy {
     pub fn TransmitInfo(&self) -> ::windows_core::Result<BluetoothLEConnectionPhyInfo> {
@@ -2099,24 +1870,8 @@ impl BluetoothLEConnectionPhy {
         }
     }
 }
-impl ::core::cmp::PartialEq for BluetoothLEConnectionPhy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothLEConnectionPhy {}
-impl ::core::fmt::Debug for BluetoothLEConnectionPhy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothLEConnectionPhy").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BluetoothLEConnectionPhy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEConnectionPhy;{781e5e48-621e-5a7e-8be6-1b9561ff63c9})");
-}
-impl ::core::clone::Clone for BluetoothLEConnectionPhy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BluetoothLEConnectionPhy {
     type Vtable = IBluetoothLEConnectionPhy_Vtbl;
@@ -2132,6 +1887,7 @@ unsafe impl ::core::marker::Send for BluetoothLEConnectionPhy {}
 unsafe impl ::core::marker::Sync for BluetoothLEConnectionPhy {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothLEConnectionPhyInfo(::windows_core::IUnknown);
 impl BluetoothLEConnectionPhyInfo {
     pub fn IsUncoded1MPhy(&self) -> ::windows_core::Result<bool> {
@@ -2156,24 +1912,8 @@ impl BluetoothLEConnectionPhyInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for BluetoothLEConnectionPhyInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothLEConnectionPhyInfo {}
-impl ::core::fmt::Debug for BluetoothLEConnectionPhyInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothLEConnectionPhyInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BluetoothLEConnectionPhyInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEConnectionPhyInfo;{9a100bdd-602e-5c27-a1ae-b230015a6394})");
-}
-impl ::core::clone::Clone for BluetoothLEConnectionPhyInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BluetoothLEConnectionPhyInfo {
     type Vtable = IBluetoothLEConnectionPhyInfo_Vtbl;
@@ -2189,6 +1929,7 @@ unsafe impl ::core::marker::Send for BluetoothLEConnectionPhyInfo {}
 unsafe impl ::core::marker::Sync for BluetoothLEConnectionPhyInfo {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothLEDevice(::windows_core::IUnknown);
 impl BluetoothLEDevice {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2528,24 +2269,8 @@ impl BluetoothLEDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for BluetoothLEDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothLEDevice {}
-impl ::core::fmt::Debug for BluetoothLEDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothLEDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BluetoothLEDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEDevice;{b5ee2f7b-4ad8-4642-ac48-80a0b500e887})");
-}
-impl ::core::clone::Clone for BluetoothLEDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BluetoothLEDevice {
     type Vtable = IBluetoothLEDevice_Vtbl;
@@ -2563,6 +2288,7 @@ unsafe impl ::core::marker::Send for BluetoothLEDevice {}
 unsafe impl ::core::marker::Sync for BluetoothLEDevice {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothLEPreferredConnectionParameters(::windows_core::IUnknown);
 impl BluetoothLEPreferredConnectionParameters {
     pub fn LinkTimeout(&self) -> ::windows_core::Result<u16> {
@@ -2617,24 +2343,8 @@ impl BluetoothLEPreferredConnectionParameters {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for BluetoothLEPreferredConnectionParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothLEPreferredConnectionParameters {}
-impl ::core::fmt::Debug for BluetoothLEPreferredConnectionParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothLEPreferredConnectionParameters").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BluetoothLEPreferredConnectionParameters {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParameters;{f2f44344-7372-5f7b-9b34-29c944f5a715})");
-}
-impl ::core::clone::Clone for BluetoothLEPreferredConnectionParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BluetoothLEPreferredConnectionParameters {
     type Vtable = IBluetoothLEPreferredConnectionParameters_Vtbl;
@@ -2650,6 +2360,7 @@ unsafe impl ::core::marker::Send for BluetoothLEPreferredConnectionParameters {}
 unsafe impl ::core::marker::Sync for BluetoothLEPreferredConnectionParameters {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothLEPreferredConnectionParametersRequest(::windows_core::IUnknown);
 impl BluetoothLEPreferredConnectionParametersRequest {
     pub fn Status(&self) -> ::windows_core::Result<BluetoothLEPreferredConnectionParametersRequestStatus> {
@@ -2666,24 +2377,8 @@ impl BluetoothLEPreferredConnectionParametersRequest {
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for BluetoothLEPreferredConnectionParametersRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothLEPreferredConnectionParametersRequest {}
-impl ::core::fmt::Debug for BluetoothLEPreferredConnectionParametersRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothLEPreferredConnectionParametersRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BluetoothLEPreferredConnectionParametersRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequest;{8a375276-a528-5266-b661-cce6a5ff9739})");
-}
-impl ::core::clone::Clone for BluetoothLEPreferredConnectionParametersRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BluetoothLEPreferredConnectionParametersRequest {
     type Vtable = IBluetoothLEPreferredConnectionParametersRequest_Vtbl;
@@ -2701,6 +2396,7 @@ unsafe impl ::core::marker::Send for BluetoothLEPreferredConnectionParametersReq
 unsafe impl ::core::marker::Sync for BluetoothLEPreferredConnectionParametersRequest {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothSignalStrengthFilter(::windows_core::IUnknown);
 impl BluetoothSignalStrengthFilter {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2783,24 +2479,8 @@ impl BluetoothSignalStrengthFilter {
         unsafe { (::windows_core::Interface::vtable(this).SetSamplingInterval)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for BluetoothSignalStrengthFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothSignalStrengthFilter {}
-impl ::core::fmt::Debug for BluetoothSignalStrengthFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothSignalStrengthFilter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BluetoothSignalStrengthFilter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter;{df7b7391-6bb5-4cfe-90b1-5d7324edcf7f})");
-}
-impl ::core::clone::Clone for BluetoothSignalStrengthFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BluetoothSignalStrengthFilter {
     type Vtable = IBluetoothSignalStrengthFilter_Vtbl;

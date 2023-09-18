@@ -42,8 +42,8 @@ impl IVssAdmin_Vtbl {
             AbortAllSnapshotsInProgress: AbortAllSnapshotsInProgress::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssAdmin as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssAdmin as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
@@ -89,8 +89,8 @@ impl IVssAdminEx_Vtbl {
             SetProviderContext: SetProviderContext::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssAdminEx as ::windows_core::ComInterface>::IID || iid == &<IVssAdmin as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssAdminEx as ::windows_core::ComInterface>::IID || *iid == <IVssAdmin as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
@@ -124,8 +124,8 @@ impl IVssAsync_Vtbl {
             QueryStatus: QueryStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssAsync as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssAsync as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -419,8 +419,8 @@ impl IVssComponent_Vtbl {
             GetDifferencedFile: GetDifferencedFile::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssComponent as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssComponent as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -509,8 +509,8 @@ impl IVssComponentEx_Vtbl {
             GetRestoreName: GetRestoreName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssComponentEx as ::windows_core::ComInterface>::IID || iid == &<IVssComponent as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssComponentEx as ::windows_core::ComInterface>::IID || *iid == <IVssComponent as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -540,8 +540,8 @@ impl IVssComponentEx2_Vtbl {
             GetFailure: GetFailure::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssComponentEx2 as ::windows_core::ComInterface>::IID || iid == &<IVssComponent as ::windows_core::ComInterface>::IID || iid == &<IVssComponentEx as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssComponentEx2 as ::windows_core::ComInterface>::IID || *iid == <IVssComponent as ::windows_core::ComInterface>::IID || *iid == <IVssComponentEx as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
@@ -610,8 +610,8 @@ impl IVssCreateExpressWriterMetadata_Vtbl {
             SaveAsXML: SaveAsXML::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssCreateExpressWriterMetadata as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssCreateExpressWriterMetadata as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -807,8 +807,8 @@ impl IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
             QueryDiffAreasForSnapshot: QueryDiffAreasForSnapshot::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssDifferentialSoftwareSnapshotMgmt as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssDifferentialSoftwareSnapshotMgmt as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -858,8 +858,8 @@ impl IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
             SetSnapshotPriority: SetSnapshotPriority::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssDifferentialSoftwareSnapshotMgmt2 as ::windows_core::ComInterface>::IID || iid == &<IVssDifferentialSoftwareSnapshotMgmt as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssDifferentialSoftwareSnapshotMgmt2 as ::windows_core::ComInterface>::IID || *iid == <IVssDifferentialSoftwareSnapshotMgmt as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -910,8 +910,8 @@ impl IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
             QuerySnapshotDeltaBitmap: QuerySnapshotDeltaBitmap::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssDifferentialSoftwareSnapshotMgmt3 as ::windows_core::ComInterface>::IID || iid == &<IVssDifferentialSoftwareSnapshotMgmt as ::windows_core::ComInterface>::IID || iid == &<IVssDifferentialSoftwareSnapshotMgmt2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssDifferentialSoftwareSnapshotMgmt3 as ::windows_core::ComInterface>::IID || *iid == <IVssDifferentialSoftwareSnapshotMgmt as ::windows_core::ComInterface>::IID || *iid == <IVssDifferentialSoftwareSnapshotMgmt2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
@@ -952,8 +952,8 @@ impl IVssEnumMgmtObject_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssEnumMgmtObject as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssEnumMgmtObject as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
@@ -994,8 +994,8 @@ impl IVssEnumObject_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssEnumObject as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssEnumObject as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
@@ -1042,8 +1042,8 @@ impl IVssExpressWriter_Vtbl {
             Unregister: Unregister::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssExpressWriter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssExpressWriter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -1127,8 +1127,8 @@ impl IVssFileShareSnapshotProvider_Vtbl {
             SetSnapshotProperty: SetSnapshotProperty::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssFileShareSnapshotProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssFileShareSnapshotProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -1186,8 +1186,8 @@ impl IVssHardwareSnapshotProvider_Vtbl {
             OnLunEmpty: OnLunEmpty::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssHardwareSnapshotProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssHardwareSnapshotProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -1243,8 +1243,8 @@ impl IVssHardwareSnapshotProviderEx_Vtbl {
             OnReuseLuns: OnReuseLuns::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssHardwareSnapshotProviderEx as ::windows_core::ComInterface>::IID || iid == &<IVssHardwareSnapshotProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssHardwareSnapshotProviderEx as ::windows_core::ComInterface>::IID || *iid == <IVssHardwareSnapshotProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
@@ -1306,8 +1306,8 @@ impl IVssProviderCreateSnapshotSet_Vtbl {
             AbortSnapshots: AbortSnapshots::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssProviderCreateSnapshotSet as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssProviderCreateSnapshotSet as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1337,8 +1337,8 @@ impl IVssProviderNotifications_Vtbl {
             OnUnload: OnUnload::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssProviderNotifications as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssProviderNotifications as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
@@ -1390,8 +1390,8 @@ impl IVssSnapshotMgmt_Vtbl {
             QuerySnapshotsByVolume: QuerySnapshotsByVolume::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssSnapshotMgmt as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssSnapshotMgmt as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
@@ -1414,8 +1414,8 @@ impl IVssSnapshotMgmt2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMinDiffAreaSize: GetMinDiffAreaSize::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssSnapshotMgmt2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssSnapshotMgmt2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -1519,8 +1519,8 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
             QueryRevertStatus: QueryRevertStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssSoftwareSnapshotProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssSoftwareSnapshotProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
@@ -1554,8 +1554,8 @@ impl IVssWMDependency_Vtbl {
             GetComponentName: GetComponentName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssWMDependency as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssWMDependency as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
@@ -1633,8 +1633,8 @@ impl IVssWMFiledesc_Vtbl {
             GetBackupTypeMask: GetBackupTypeMask::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssWMFiledesc as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVssWMFiledesc as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]

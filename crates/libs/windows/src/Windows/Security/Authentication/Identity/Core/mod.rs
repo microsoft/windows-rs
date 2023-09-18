@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMicrosoftAccountMultiFactorAuthenticationManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMicrosoftAccountMultiFactorAuthenticationManager {
     type Vtable = IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl;
-}
-impl ::core::clone::Clone for IMicrosoftAccountMultiFactorAuthenticationManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMicrosoftAccountMultiFactorAuthenticationManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0fd340a5_f574_4320_a08e_0a19a82322aa);
@@ -59,14 +55,10 @@ pub struct IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMicrosoftAccountMultiFactorAuthenticatorStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMicrosoftAccountMultiFactorAuthenticatorStatics {
     type Vtable = IMicrosoftAccountMultiFactorAuthenticatorStatics_Vtbl;
-}
-impl ::core::clone::Clone for IMicrosoftAccountMultiFactorAuthenticatorStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMicrosoftAccountMultiFactorAuthenticatorStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd964c2e6_f446_4c71_8b79_6ea4024aa9b8);
@@ -79,14 +71,10 @@ pub struct IMicrosoftAccountMultiFactorAuthenticatorStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMicrosoftAccountMultiFactorGetSessionsResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMicrosoftAccountMultiFactorGetSessionsResult {
     type Vtable = IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl;
-}
-impl ::core::clone::Clone for IMicrosoftAccountMultiFactorGetSessionsResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMicrosoftAccountMultiFactorGetSessionsResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e23a9a0_e9fa_497a_95de_6d5747bf974c);
@@ -103,14 +91,10 @@ pub struct IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMicrosoftAccountMultiFactorOneTimeCodedInfo {
     type Vtable = IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl;
-}
-impl ::core::clone::Clone for IMicrosoftAccountMultiFactorOneTimeCodedInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMicrosoftAccountMultiFactorOneTimeCodedInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x82ba264b_d87c_4668_a976_40cfae547d08);
@@ -132,14 +116,10 @@ pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMicrosoftAccountMultiFactorSessionInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMicrosoftAccountMultiFactorSessionInfo {
     type Vtable = IMicrosoftAccountMultiFactorSessionInfo_Vtbl;
-}
-impl ::core::clone::Clone for IMicrosoftAccountMultiFactorSessionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMicrosoftAccountMultiFactorSessionInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f7eabb4_a278_4635_b765_b494eb260af4);
@@ -164,14 +144,10 @@ pub struct IMicrosoftAccountMultiFactorSessionInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     type Vtable = IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl;
-}
-impl ::core::clone::Clone for IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa7ec5fb_da3f_4088_a20d_5618afadb2e5);
@@ -192,6 +168,7 @@ pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MicrosoftAccountMultiFactorAuthenticationManager(::windows_core::IUnknown);
 impl MicrosoftAccountMultiFactorAuthenticationManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -308,24 +285,8 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for MicrosoftAccountMultiFactorAuthenticationManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MicrosoftAccountMultiFactorAuthenticationManager {}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorAuthenticationManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorAuthenticationManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MicrosoftAccountMultiFactorAuthenticationManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationManager;{0fd340a5-f574-4320-a08e-0a19a82322aa})");
-}
-impl ::core::clone::Clone for MicrosoftAccountMultiFactorAuthenticationManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MicrosoftAccountMultiFactorAuthenticationManager {
     type Vtable = IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl;
@@ -341,6 +302,7 @@ unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorAuthenticationMa
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorAuthenticationManager {}
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MicrosoftAccountMultiFactorGetSessionsResult(::windows_core::IUnknown);
 impl MicrosoftAccountMultiFactorGetSessionsResult {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -360,24 +322,8 @@ impl MicrosoftAccountMultiFactorGetSessionsResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for MicrosoftAccountMultiFactorGetSessionsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MicrosoftAccountMultiFactorGetSessionsResult {}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorGetSessionsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorGetSessionsResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MicrosoftAccountMultiFactorGetSessionsResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorGetSessionsResult;{4e23a9a0-e9fa-497a-95de-6d5747bf974c})");
-}
-impl ::core::clone::Clone for MicrosoftAccountMultiFactorGetSessionsResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MicrosoftAccountMultiFactorGetSessionsResult {
     type Vtable = IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl;
@@ -393,6 +339,7 @@ unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorGetSessionsResul
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorGetSessionsResult {}
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MicrosoftAccountMultiFactorOneTimeCodedInfo(::windows_core::IUnknown);
 impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
     pub fn Code(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -428,24 +375,8 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for MicrosoftAccountMultiFactorOneTimeCodedInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorOneTimeCodedInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorOneTimeCodedInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MicrosoftAccountMultiFactorOneTimeCodedInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorOneTimeCodedInfo;{82ba264b-d87c-4668-a976-40cfae547d08})");
-}
-impl ::core::clone::Clone for MicrosoftAccountMultiFactorOneTimeCodedInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MicrosoftAccountMultiFactorOneTimeCodedInfo {
     type Vtable = IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl;
@@ -461,6 +392,7 @@ unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorOneTimeCodedInfo
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MicrosoftAccountMultiFactorSessionInfo(::windows_core::IUnknown);
 impl MicrosoftAccountMultiFactorSessionInfo {
     pub fn UserAccountId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -517,24 +449,8 @@ impl MicrosoftAccountMultiFactorSessionInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for MicrosoftAccountMultiFactorSessionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MicrosoftAccountMultiFactorSessionInfo {}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorSessionInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MicrosoftAccountMultiFactorSessionInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo;{5f7eabb4-a278-4635-b765-b494eb260af4})");
-}
-impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MicrosoftAccountMultiFactorSessionInfo {
     type Vtable = IMicrosoftAccountMultiFactorSessionInfo_Vtbl;
@@ -550,6 +466,7 @@ unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorSessionInfo {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorSessionInfo {}
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(::windows_core::IUnknown);
 impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -578,24 +495,8 @@ impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo;{aa7ec5fb-da3f-4088-a20d-5618afadb2e5})");
-}
-impl ::core::clone::Clone for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     type Vtable = IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl;

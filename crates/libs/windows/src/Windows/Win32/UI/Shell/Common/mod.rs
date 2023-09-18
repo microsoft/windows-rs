@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IObjectArray(::windows_core::IUnknown);
 impl IObjectArray {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -15,24 +16,8 @@ impl IObjectArray {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IObjectArray, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IObjectArray {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IObjectArray {}
-impl ::core::fmt::Debug for IObjectArray {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IObjectArray").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IObjectArray {
     type Vtable = IObjectArray_Vtbl;
-}
-impl ::core::clone::Clone for IObjectArray {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IObjectArray {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92ca9dcd_5622_4bba_a805_5e9f541bd8c9);
@@ -46,6 +31,7 @@ pub struct IObjectArray_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IObjectCollection(::windows_core::IUnknown);
 impl IObjectCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -79,24 +65,8 @@ impl IObjectCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IObjectCollection, ::windows_core::IUnknown, IObjectArray);
-impl ::core::cmp::PartialEq for IObjectCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IObjectCollection {}
-impl ::core::fmt::Debug for IObjectCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IObjectCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IObjectCollection {
     type Vtable = IObjectCollection_Vtbl;
-}
-impl ::core::clone::Clone for IObjectCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IObjectCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5632b1a4_e38a_400a_928a_d4cd63230295);

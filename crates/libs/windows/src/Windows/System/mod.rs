@@ -22,14 +22,10 @@ pub mod Update;
 pub mod UserProfile;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppActivationResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppActivationResult {
     type Vtable = IAppActivationResult_Vtbl;
-}
-impl ::core::clone::Clone for IAppActivationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppActivationResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b528900_f46e_4eb0_aa6c_38af557cf9ed);
@@ -43,14 +39,10 @@ pub struct IAppActivationResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppDiagnosticInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppDiagnosticInfo {
     type Vtable = IAppDiagnosticInfo_Vtbl;
-}
-impl ::core::clone::Clone for IAppDiagnosticInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppDiagnosticInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe348a69a_8889_4ca3_be07_d5ffff5f0804);
@@ -66,14 +58,10 @@ pub struct IAppDiagnosticInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppDiagnosticInfo2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppDiagnosticInfo2 {
     type Vtable = IAppDiagnosticInfo2_Vtbl;
-}
-impl ::core::clone::Clone for IAppDiagnosticInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppDiagnosticInfo2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf46fbd7_191a_446c_9473_8fbc2374a354);
@@ -90,14 +78,10 @@ pub struct IAppDiagnosticInfo2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppDiagnosticInfo3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppDiagnosticInfo3 {
     type Vtable = IAppDiagnosticInfo3_Vtbl;
-}
-impl ::core::clone::Clone for IAppDiagnosticInfo3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppDiagnosticInfo3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc895c63d_dd61_4c65_babd_81a10b4f9815);
@@ -113,14 +97,10 @@ pub struct IAppDiagnosticInfo3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppDiagnosticInfoStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppDiagnosticInfoStatics {
     type Vtable = IAppDiagnosticInfoStatics_Vtbl;
-}
-impl ::core::clone::Clone for IAppDiagnosticInfoStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppDiagnosticInfoStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xce6925bf_10ca_40c8_a9ca_c5c96501866e);
@@ -136,14 +116,10 @@ pub struct IAppDiagnosticInfoStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppDiagnosticInfoStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppDiagnosticInfoStatics2 {
     type Vtable = IAppDiagnosticInfoStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IAppDiagnosticInfoStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppDiagnosticInfoStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05b24b86_1000_4c90_bb9f_7235071c50fe);
@@ -172,14 +148,10 @@ pub struct IAppDiagnosticInfoStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppDiagnosticInfoWatcher(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppDiagnosticInfoWatcher {
     type Vtable = IAppDiagnosticInfoWatcher_Vtbl;
-}
-impl ::core::clone::Clone for IAppDiagnosticInfoWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppDiagnosticInfoWatcher {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75575070_01d3_489a_9325_52f9cc6ede0a);
@@ -226,14 +198,10 @@ pub struct IAppDiagnosticInfoWatcher_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppDiagnosticInfoWatcherEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppDiagnosticInfoWatcherEventArgs {
     type Vtable = IAppDiagnosticInfoWatcherEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IAppDiagnosticInfoWatcherEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppDiagnosticInfoWatcherEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7017c716_e1da_4c65_99df_046dff5be71a);
@@ -246,14 +214,10 @@ pub struct IAppDiagnosticInfoWatcherEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppExecutionStateChangeResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppExecutionStateChangeResult {
     type Vtable = IAppExecutionStateChangeResult_Vtbl;
-}
-impl ::core::clone::Clone for IAppExecutionStateChangeResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppExecutionStateChangeResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f039bf0_f91b_4df8_ae77_3033ccb69114);
@@ -266,14 +230,10 @@ pub struct IAppExecutionStateChangeResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppMemoryReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppMemoryReport {
     type Vtable = IAppMemoryReport_Vtbl;
-}
-impl ::core::clone::Clone for IAppMemoryReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppMemoryReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d65339b_4d6f_45bc_9c5e_e49b3ff2758d);
@@ -289,14 +249,10 @@ pub struct IAppMemoryReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppMemoryReport2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppMemoryReport2 {
     type Vtable = IAppMemoryReport2_Vtbl;
-}
-impl ::core::clone::Clone for IAppMemoryReport2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppMemoryReport2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f7f3738_51b7_42dc_b7ed_79ba46d28857);
@@ -309,14 +265,10 @@ pub struct IAppMemoryReport2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppMemoryUsageLimitChangingEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppMemoryUsageLimitChangingEventArgs {
     type Vtable = IAppMemoryUsageLimitChangingEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IAppMemoryUsageLimitChangingEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppMemoryUsageLimitChangingEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79f86664_feca_4da5_9e40_2bc63efdc979);
@@ -330,14 +282,10 @@ pub struct IAppMemoryUsageLimitChangingEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppResourceGroupBackgroundTaskReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppResourceGroupBackgroundTaskReport {
     type Vtable = IAppResourceGroupBackgroundTaskReport_Vtbl;
-}
-impl ::core::clone::Clone for IAppResourceGroupBackgroundTaskReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppResourceGroupBackgroundTaskReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2566e74e_b05d_40c2_9dc1_1a4f039ea120);
@@ -353,14 +301,10 @@ pub struct IAppResourceGroupBackgroundTaskReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppResourceGroupInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppResourceGroupInfo {
     type Vtable = IAppResourceGroupInfo_Vtbl;
-}
-impl ::core::clone::Clone for IAppResourceGroupInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppResourceGroupInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb913f77a_e807_49f4_845e_7b8bdcfe8ee7);
@@ -384,14 +328,10 @@ pub struct IAppResourceGroupInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppResourceGroupInfo2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppResourceGroupInfo2 {
     type Vtable = IAppResourceGroupInfo2_Vtbl;
-}
-impl ::core::clone::Clone for IAppResourceGroupInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppResourceGroupInfo2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xee9b236d_d305_4d6b_92f7_6afdad72dedc);
@@ -415,14 +355,10 @@ pub struct IAppResourceGroupInfo2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppResourceGroupInfoWatcher(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppResourceGroupInfoWatcher {
     type Vtable = IAppResourceGroupInfoWatcher_Vtbl;
-}
-impl ::core::clone::Clone for IAppResourceGroupInfoWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppResourceGroupInfoWatcher {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd9b0a0fd_6e5a_4c72_8b17_09fec4a212bd);
@@ -477,14 +413,10 @@ pub struct IAppResourceGroupInfoWatcher_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppResourceGroupInfoWatcherEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppResourceGroupInfoWatcherEventArgs {
     type Vtable = IAppResourceGroupInfoWatcherEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IAppResourceGroupInfoWatcherEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppResourceGroupInfoWatcherEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a787637_6302_4d2f_bf89_1c12d0b2a6b9);
@@ -501,14 +433,10 @@ pub struct IAppResourceGroupInfoWatcherEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     type Vtable = IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1bdbedd7_fee6_4fd4_98dd_e92a2cc299f3);
@@ -525,14 +453,10 @@ pub struct IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppResourceGroupMemoryReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppResourceGroupMemoryReport {
     type Vtable = IAppResourceGroupMemoryReport_Vtbl;
-}
-impl ::core::clone::Clone for IAppResourceGroupMemoryReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppResourceGroupMemoryReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c8c06b1_7db1_4c51_a225_7fae2d49e431);
@@ -548,14 +472,10 @@ pub struct IAppResourceGroupMemoryReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppResourceGroupStateReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppResourceGroupStateReport {
     type Vtable = IAppResourceGroupStateReport_Vtbl;
-}
-impl ::core::clone::Clone for IAppResourceGroupStateReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppResourceGroupStateReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x52849f18_2f70_4236_ab40_d04db0c7b931);
@@ -569,14 +489,10 @@ pub struct IAppResourceGroupStateReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppUriHandlerHost(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppUriHandlerHost {
     type Vtable = IAppUriHandlerHost_Vtbl;
-}
-impl ::core::clone::Clone for IAppUriHandlerHost {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppUriHandlerHost {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d50cac5_92d2_5409_b56f_7f73e10ea4c3);
@@ -590,14 +506,10 @@ pub struct IAppUriHandlerHost_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppUriHandlerHost2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppUriHandlerHost2 {
     type Vtable = IAppUriHandlerHost2_Vtbl;
-}
-impl ::core::clone::Clone for IAppUriHandlerHost2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppUriHandlerHost2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a0bee95_29e4_51bf_8095_a3c068e3c72a);
@@ -611,14 +523,10 @@ pub struct IAppUriHandlerHost2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppUriHandlerHostFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppUriHandlerHostFactory {
     type Vtable = IAppUriHandlerHostFactory_Vtbl;
-}
-impl ::core::clone::Clone for IAppUriHandlerHostFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppUriHandlerHostFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x257c3c96_ce04_5f98_96bb_3ebd3e9275bb);
@@ -631,14 +539,10 @@ pub struct IAppUriHandlerHostFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppUriHandlerRegistration(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppUriHandlerRegistration {
     type Vtable = IAppUriHandlerRegistration_Vtbl;
-}
-impl ::core::clone::Clone for IAppUriHandlerRegistration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppUriHandlerRegistration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f73aeb1_4569_5c3f_9ba0_99123eea32c3);
@@ -660,14 +564,10 @@ pub struct IAppUriHandlerRegistration_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppUriHandlerRegistration2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppUriHandlerRegistration2 {
     type Vtable = IAppUriHandlerRegistration2_Vtbl;
-}
-impl ::core::clone::Clone for IAppUriHandlerRegistration2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppUriHandlerRegistration2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd54dac97_cb39_5f1f_883e_01853730bd6d);
@@ -688,14 +588,10 @@ pub struct IAppUriHandlerRegistration2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppUriHandlerRegistrationManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppUriHandlerRegistrationManager {
     type Vtable = IAppUriHandlerRegistrationManager_Vtbl;
-}
-impl ::core::clone::Clone for IAppUriHandlerRegistrationManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppUriHandlerRegistrationManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe62c9a52_ac94_5750_ac1b_6cfb6f250263);
@@ -709,14 +605,10 @@ pub struct IAppUriHandlerRegistrationManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppUriHandlerRegistrationManager2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppUriHandlerRegistrationManager2 {
     type Vtable = IAppUriHandlerRegistrationManager2_Vtbl;
-}
-impl ::core::clone::Clone for IAppUriHandlerRegistrationManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppUriHandlerRegistrationManager2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbddfcaf1_b51a_5e69_aefd_7088d9f2b123);
@@ -729,14 +621,10 @@ pub struct IAppUriHandlerRegistrationManager2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppUriHandlerRegistrationManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppUriHandlerRegistrationManagerStatics {
     type Vtable = IAppUriHandlerRegistrationManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IAppUriHandlerRegistrationManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppUriHandlerRegistrationManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5cedd9f_5729_5b76_a1d4_0285f295c124);
@@ -750,14 +638,10 @@ pub struct IAppUriHandlerRegistrationManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppUriHandlerRegistrationManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppUriHandlerRegistrationManagerStatics2 {
     type Vtable = IAppUriHandlerRegistrationManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IAppUriHandlerRegistrationManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppUriHandlerRegistrationManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14f78379_6890_5080_90a7_98824a7f079e);
@@ -771,14 +655,10 @@ pub struct IAppUriHandlerRegistrationManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDateTimeSettingsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDateTimeSettingsStatics {
     type Vtable = IDateTimeSettingsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDateTimeSettingsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDateTimeSettingsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d2150d1_47ee_48ab_a52b_9f1954278d82);
@@ -794,14 +674,10 @@ pub struct IDateTimeSettingsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDispatcherQueue(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDispatcherQueue {
     type Vtable = IDispatcherQueue_Vtbl;
-}
-impl ::core::clone::Clone for IDispatcherQueue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDispatcherQueue {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x603e88e4_a338_4ffe_a457_a5cfb9ceb899);
@@ -832,14 +708,10 @@ pub struct IDispatcherQueue_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDispatcherQueue2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDispatcherQueue2 {
     type Vtable = IDispatcherQueue2_Vtbl;
-}
-impl ::core::clone::Clone for IDispatcherQueue2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDispatcherQueue2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc822c647_30ef_506e_bd1e_a647ae6675ff);
@@ -852,14 +724,10 @@ pub struct IDispatcherQueue2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDispatcherQueueController(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDispatcherQueueController {
     type Vtable = IDispatcherQueueController_Vtbl;
-}
-impl ::core::clone::Clone for IDispatcherQueueController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDispatcherQueueController {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x22f34e66_50db_4e36_a98d_61c01b384d20);
@@ -876,14 +744,10 @@ pub struct IDispatcherQueueController_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDispatcherQueueControllerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDispatcherQueueControllerStatics {
     type Vtable = IDispatcherQueueControllerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDispatcherQueueControllerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDispatcherQueueControllerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a6c98e0_5198_49a2_a313_3f70d1f13c27);
@@ -896,14 +760,10 @@ pub struct IDispatcherQueueControllerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDispatcherQueueShutdownStartingEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDispatcherQueueShutdownStartingEventArgs {
     type Vtable = IDispatcherQueueShutdownStartingEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IDispatcherQueueShutdownStartingEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDispatcherQueueShutdownStartingEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4724c4c_ff97_40c0_a226_cc0aaa545e89);
@@ -919,14 +779,10 @@ pub struct IDispatcherQueueShutdownStartingEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDispatcherQueueStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDispatcherQueueStatics {
     type Vtable = IDispatcherQueueStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDispatcherQueueStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDispatcherQueueStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa96d83d7_9371_4517_9245_d0824ac12c74);
@@ -939,14 +795,10 @@ pub struct IDispatcherQueueStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDispatcherQueueTimer(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDispatcherQueueTimer {
     type Vtable = IDispatcherQueueTimer_Vtbl;
-}
-impl ::core::clone::Clone for IDispatcherQueueTimer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDispatcherQueueTimer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5feabb1d_a31c_4727_b1ac_37454649d56a);
@@ -979,14 +831,10 @@ pub struct IDispatcherQueueTimer_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFolderLauncherOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFolderLauncherOptions {
     type Vtable = IFolderLauncherOptions_Vtbl;
-}
-impl ::core::clone::Clone for IFolderLauncherOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFolderLauncherOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb91c27d_6b87_432a_bd04_776c6f5fb2ab);
@@ -1002,14 +850,10 @@ pub struct IFolderLauncherOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKnownUserPropertiesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKnownUserPropertiesStatics {
     type Vtable = IKnownUserPropertiesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IKnownUserPropertiesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKnownUserPropertiesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7755911a_70c5_48e5_b637_5ba3441e4ee4);
@@ -1030,14 +874,10 @@ pub struct IKnownUserPropertiesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKnownUserPropertiesStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKnownUserPropertiesStatics2 {
     type Vtable = IKnownUserPropertiesStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IKnownUserPropertiesStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKnownUserPropertiesStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b450782_f620_577e_b1b3_dd56644d79b1);
@@ -1050,14 +890,10 @@ pub struct IKnownUserPropertiesStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILaunchUriResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILaunchUriResult {
     type Vtable = ILaunchUriResult_Vtbl;
-}
-impl ::core::clone::Clone for ILaunchUriResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILaunchUriResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec27a8df_f6d5_45ca_913a_70a40c5c8221);
@@ -1074,14 +910,10 @@ pub struct ILaunchUriResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILauncherOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILauncherOptions {
     type Vtable = ILauncherOptions_Vtbl;
-}
-impl ::core::clone::Clone for ILauncherOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILauncherOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbafa21d8_b071_4cd8_853e_341203e557d3);
@@ -1112,14 +944,10 @@ pub struct ILauncherOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILauncherOptions2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILauncherOptions2 {
     type Vtable = ILauncherOptions2_Vtbl;
-}
-impl ::core::clone::Clone for ILauncherOptions2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILauncherOptions2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ba08eb4_6e40_4dce_a1a3_2f53950afb49);
@@ -1141,14 +969,10 @@ pub struct ILauncherOptions2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILauncherOptions3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILauncherOptions3 {
     type Vtable = ILauncherOptions3_Vtbl;
-}
-impl ::core::clone::Clone for ILauncherOptions3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILauncherOptions3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0770655_4b63_4e3a_9107_4e687841923a);
@@ -1162,14 +986,10 @@ pub struct ILauncherOptions3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILauncherOptions4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILauncherOptions4 {
     type Vtable = ILauncherOptions4_Vtbl;
-}
-impl ::core::clone::Clone for ILauncherOptions4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILauncherOptions4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef6fd10e_e6fb_4814_a44e_57e8b9d9a01b);
@@ -1183,14 +1003,10 @@ pub struct ILauncherOptions4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILauncherStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILauncherStatics {
     type Vtable = ILauncherStatics_Vtbl;
-}
-impl ::core::clone::Clone for ILauncherStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILauncherStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x277151c3_9e3e_42f6_91a4_5dfdeb232451);
@@ -1218,14 +1034,10 @@ pub struct ILauncherStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILauncherStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILauncherStatics2 {
     type Vtable = ILauncherStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ILauncherStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILauncherStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59ba2fbb_24cb_4c02_a4c4_8294569d54f1);
@@ -1277,14 +1089,10 @@ pub struct ILauncherStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILauncherStatics3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILauncherStatics3 {
     type Vtable = ILauncherStatics3_Vtbl;
-}
-impl ::core::clone::Clone for ILauncherStatics3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILauncherStatics3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x234261a8_9db3_4683_aa42_dc6f51d33847);
@@ -1304,14 +1112,10 @@ pub struct ILauncherStatics3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILauncherStatics4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILauncherStatics4 {
     type Vtable = ILauncherStatics4_Vtbl;
-}
-impl ::core::clone::Clone for ILauncherStatics4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILauncherStatics4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9ec819f_b5a5_41c6_b3b3_dd1b3178bcf2);
@@ -1355,14 +1159,10 @@ pub struct ILauncherStatics4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILauncherStatics5(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILauncherStatics5 {
     type Vtable = ILauncherStatics5_Vtbl;
-}
-impl ::core::clone::Clone for ILauncherStatics5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILauncherStatics5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b24ef84_d895_5fea_9153_1ac49aed9ba9);
@@ -1390,14 +1190,10 @@ pub struct ILauncherStatics5_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILauncherUIOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILauncherUIOptions {
     type Vtable = ILauncherUIOptions_Vtbl;
-}
-impl ::core::clone::Clone for ILauncherUIOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILauncherUIOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b25da6e_8aa6_41e9_8251_4165f5985f49);
@@ -1433,6 +1229,7 @@ pub struct ILauncherUIOptions_Vtbl {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILauncherViewOptions(::windows_core::IUnknown);
 impl ILauncherViewOptions {
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -1452,27 +1249,11 @@ impl ILauncherViewOptions {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ILauncherViewOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ILauncherViewOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILauncherViewOptions {}
-impl ::core::fmt::Debug for ILauncherViewOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILauncherViewOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ILauncherViewOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{8a9b29f1-7ca7-49de-9bd3-3c5b7184f616}");
 }
 unsafe impl ::windows_core::Interface for ILauncherViewOptions {
     type Vtable = ILauncherViewOptions_Vtbl;
-}
-impl ::core::clone::Clone for ILauncherViewOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILauncherViewOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a9b29f1_7ca7_49de_9bd3_3c5b7184f616);
@@ -1492,14 +1273,10 @@ pub struct ILauncherViewOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMemoryManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMemoryManagerStatics {
     type Vtable = IMemoryManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IMemoryManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMemoryManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c6c279c_d7ca_4779_9188_4057219ce64c);
@@ -1538,14 +1315,10 @@ pub struct IMemoryManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMemoryManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMemoryManagerStatics2 {
     type Vtable = IMemoryManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IMemoryManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMemoryManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eee351f_6d62_423f_9479_b01f9c9f7669);
@@ -1559,14 +1332,10 @@ pub struct IMemoryManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMemoryManagerStatics3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMemoryManagerStatics3 {
     type Vtable = IMemoryManagerStatics3_Vtbl;
-}
-impl ::core::clone::Clone for IMemoryManagerStatics3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMemoryManagerStatics3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x149b59ce_92ad_4e35_89eb_50dfb4c0d91c);
@@ -1579,14 +1348,10 @@ pub struct IMemoryManagerStatics3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMemoryManagerStatics4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMemoryManagerStatics4 {
     type Vtable = IMemoryManagerStatics4_Vtbl;
-}
-impl ::core::clone::Clone for IMemoryManagerStatics4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMemoryManagerStatics4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5a94828_e84e_4886_8a0d_44b3190e3b72);
@@ -1599,14 +1364,10 @@ pub struct IMemoryManagerStatics4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProcessLauncherOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProcessLauncherOptions {
     type Vtable = IProcessLauncherOptions_Vtbl;
-}
-impl ::core::clone::Clone for IProcessLauncherOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProcessLauncherOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3080b9cf_f444_4a83_beaf_a549a0f3229c);
@@ -1644,14 +1405,10 @@ pub struct IProcessLauncherOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProcessLauncherResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProcessLauncherResult {
     type Vtable = IProcessLauncherResult_Vtbl;
-}
-impl ::core::clone::Clone for IProcessLauncherResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProcessLauncherResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x544c8934_86d8_4991_8e75_ece8a43b6b6d);
@@ -1664,14 +1421,10 @@ pub struct IProcessLauncherResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProcessLauncherStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProcessLauncherStatics {
     type Vtable = IProcessLauncherStatics_Vtbl;
-}
-impl ::core::clone::Clone for IProcessLauncherStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProcessLauncherStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33ab66e7_2d0e_448b_a6a0_c13c3836d09c);
@@ -1691,14 +1444,10 @@ pub struct IProcessLauncherStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProcessMemoryReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProcessMemoryReport {
     type Vtable = IProcessMemoryReport_Vtbl;
-}
-impl ::core::clone::Clone for IProcessMemoryReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProcessMemoryReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x087305a8_9b70_4782_8741_3a982b6ce5e4);
@@ -1712,14 +1461,10 @@ pub struct IProcessMemoryReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtocolForResultsOperation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtocolForResultsOperation {
     type Vtable = IProtocolForResultsOperation_Vtbl;
-}
-impl ::core::clone::Clone for IProtocolForResultsOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtocolForResultsOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd581293a_6de9_4d28_9378_f86782e182bb);
@@ -1735,14 +1480,10 @@ pub struct IProtocolForResultsOperation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteLauncherOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteLauncherOptions {
     type Vtable = IRemoteLauncherOptions_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteLauncherOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteLauncherOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e3a2788_2891_4cdf_a2d6_9dff7d02e693);
@@ -1766,14 +1507,10 @@ pub struct IRemoteLauncherOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteLauncherStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteLauncherStatics {
     type Vtable = IRemoteLauncherStatics_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteLauncherStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteLauncherStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7db7a93_a30c_48b7_9f21_051026a4e517);
@@ -1797,14 +1534,10 @@ pub struct IRemoteLauncherStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IShutdownManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IShutdownManagerStatics {
     type Vtable = IShutdownManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IShutdownManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IShutdownManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72e247ed_dd5b_4d6c_b1d0_c57a7bbb5f94);
@@ -1821,14 +1554,10 @@ pub struct IShutdownManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IShutdownManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IShutdownManagerStatics2 {
     type Vtable = IShutdownManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IShutdownManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IShutdownManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f69a02f_9c34_43c7_a8c3_70b30a7f7504);
@@ -1846,14 +1575,10 @@ pub struct IShutdownManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITimeZoneSettingsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITimeZoneSettingsStatics {
     type Vtable = ITimeZoneSettingsStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITimeZoneSettingsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITimeZoneSettingsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b3b2bea_a101_41ae_9fbd_028728bab73d);
@@ -1872,14 +1597,10 @@ pub struct ITimeZoneSettingsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITimeZoneSettingsStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITimeZoneSettingsStatics2 {
     type Vtable = ITimeZoneSettingsStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ITimeZoneSettingsStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITimeZoneSettingsStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x555c0db8_39a8_49fa_b4f6_a2c7fc2842ec);
@@ -1895,14 +1616,10 @@ pub struct ITimeZoneSettingsStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUser(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUser {
     type Vtable = IUser_Vtbl;
-}
-impl ::core::clone::Clone for IUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUser {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf9a26c6_e746_4bcd_b5d4_120103c4209b);
@@ -1929,14 +1646,10 @@ pub struct IUser_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUser2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUser2 {
     type Vtable = IUser2_Vtbl;
-}
-impl ::core::clone::Clone for IUser2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUser2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98ba5628_a6e3_518e_89d9_d3b2b1991a10);
@@ -1952,14 +1665,10 @@ pub struct IUser2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserAuthenticationStatusChangeDeferral(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserAuthenticationStatusChangeDeferral {
     type Vtable = IUserAuthenticationStatusChangeDeferral_Vtbl;
-}
-impl ::core::clone::Clone for IUserAuthenticationStatusChangeDeferral {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserAuthenticationStatusChangeDeferral {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88b59568_bb30_42fb_a270_e9902e40efa7);
@@ -1972,14 +1681,10 @@ pub struct IUserAuthenticationStatusChangeDeferral_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserAuthenticationStatusChangingEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserAuthenticationStatusChangingEventArgs {
     type Vtable = IUserAuthenticationStatusChangingEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IUserAuthenticationStatusChangingEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserAuthenticationStatusChangingEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c030f28_a711_4c1e_ab48_04179c15938f);
@@ -1995,14 +1700,10 @@ pub struct IUserAuthenticationStatusChangingEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserChangedEventArgs {
     type Vtable = IUserChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IUserChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x086459dc_18c6_48db_bc99_724fb9203ccc);
@@ -2015,14 +1716,10 @@ pub struct IUserChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserChangedEventArgs2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserChangedEventArgs2 {
     type Vtable = IUserChangedEventArgs2_Vtbl;
-}
-impl ::core::clone::Clone for IUserChangedEventArgs2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserChangedEventArgs2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b2ccb44_6f01_560c_97ad_fc7f32ec581f);
@@ -2038,14 +1735,10 @@ pub struct IUserChangedEventArgs2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDeviceAssociationChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDeviceAssociationChangedEventArgs {
     type Vtable = IUserDeviceAssociationChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IUserDeviceAssociationChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDeviceAssociationChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbd1f6f6c_bb5d_4d7b_a5f0_c8cd11a38d42);
@@ -2060,14 +1753,10 @@ pub struct IUserDeviceAssociationChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDeviceAssociationStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDeviceAssociationStatics {
     type Vtable = IUserDeviceAssociationStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUserDeviceAssociationStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDeviceAssociationStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7e491e14_f85a_4c07_8da9_7fe3d0542343);
@@ -2088,14 +1777,10 @@ pub struct IUserDeviceAssociationStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserPicker(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserPicker {
     type Vtable = IUserPicker_Vtbl;
-}
-impl ::core::clone::Clone for IUserPicker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserPicker {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d548008_f1e3_4a6c_8ddc_a9bb0f488aed);
@@ -2115,14 +1800,10 @@ pub struct IUserPicker_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserPickerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserPickerStatics {
     type Vtable = IUserPickerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUserPickerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserPickerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde3290dc_7e73_4df6_a1ae_4d7eca82b40d);
@@ -2135,14 +1816,10 @@ pub struct IUserPickerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserStatics {
     type Vtable = IUserStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUserStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x155eb23b_242a_45e0_a2e9_3171fc6a7fdd);
@@ -2168,14 +1845,10 @@ pub struct IUserStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserStatics2 {
     type Vtable = IUserStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IUserStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x74a37e11_2eb5_4487_b0d5_2c6790e013e9);
@@ -2188,14 +1861,10 @@ pub struct IUserStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserWatcher(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserWatcher {
     type Vtable = IUserWatcher_Vtbl;
-}
-impl ::core::clone::Clone for IUserWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserWatcher {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x155eb23b_242a_45e0_a2e9_3171fc6a7fbb);
@@ -2266,6 +1935,7 @@ pub struct IUserWatcher_Vtbl {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppActivationResult(::windows_core::IUnknown);
 impl AppActivationResult {
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
@@ -2283,24 +1953,8 @@ impl AppActivationResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppActivationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppActivationResult {}
-impl ::core::fmt::Debug for AppActivationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppActivationResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppActivationResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppActivationResult;{6b528900-f46e-4eb0-aa6c-38af557cf9ed})");
-}
-impl ::core::clone::Clone for AppActivationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppActivationResult {
     type Vtable = IAppActivationResult_Vtbl;
@@ -2316,6 +1970,7 @@ unsafe impl ::core::marker::Send for AppActivationResult {}
 unsafe impl ::core::marker::Sync for AppActivationResult {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppDiagnosticInfo(::windows_core::IUnknown);
 impl AppDiagnosticInfo {
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -2409,24 +2064,8 @@ impl AppDiagnosticInfo {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for AppDiagnosticInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppDiagnosticInfo {}
-impl ::core::fmt::Debug for AppDiagnosticInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppDiagnosticInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppDiagnosticInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppDiagnosticInfo;{e348a69a-8889-4ca3-be07-d5ffff5f0804})");
-}
-impl ::core::clone::Clone for AppDiagnosticInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppDiagnosticInfo {
     type Vtable = IAppDiagnosticInfo_Vtbl;
@@ -2442,6 +2081,7 @@ unsafe impl ::core::marker::Send for AppDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for AppDiagnosticInfo {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppDiagnosticInfoWatcher(::windows_core::IUnknown);
 impl AppDiagnosticInfoWatcher {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2532,24 +2172,8 @@ impl AppDiagnosticInfoWatcher {
         unsafe { (::windows_core::Interface::vtable(this).Stop)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for AppDiagnosticInfoWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppDiagnosticInfoWatcher {}
-impl ::core::fmt::Debug for AppDiagnosticInfoWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppDiagnosticInfoWatcher").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppDiagnosticInfoWatcher {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppDiagnosticInfoWatcher;{75575070-01d3-489a-9325-52f9cc6ede0a})");
-}
-impl ::core::clone::Clone for AppDiagnosticInfoWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppDiagnosticInfoWatcher {
     type Vtable = IAppDiagnosticInfoWatcher_Vtbl;
@@ -2565,6 +2189,7 @@ unsafe impl ::core::marker::Send for AppDiagnosticInfoWatcher {}
 unsafe impl ::core::marker::Sync for AppDiagnosticInfoWatcher {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppDiagnosticInfoWatcherEventArgs(::windows_core::IUnknown);
 impl AppDiagnosticInfoWatcherEventArgs {
     pub fn AppDiagnosticInfo(&self) -> ::windows_core::Result<AppDiagnosticInfo> {
@@ -2575,24 +2200,8 @@ impl AppDiagnosticInfoWatcherEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppDiagnosticInfoWatcherEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppDiagnosticInfoWatcherEventArgs {}
-impl ::core::fmt::Debug for AppDiagnosticInfoWatcherEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppDiagnosticInfoWatcherEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppDiagnosticInfoWatcherEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppDiagnosticInfoWatcherEventArgs;{7017c716-e1da-4c65-99df-046dff5be71a})");
-}
-impl ::core::clone::Clone for AppDiagnosticInfoWatcherEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppDiagnosticInfoWatcherEventArgs {
     type Vtable = IAppDiagnosticInfoWatcherEventArgs_Vtbl;
@@ -2608,6 +2217,7 @@ unsafe impl ::core::marker::Send for AppDiagnosticInfoWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for AppDiagnosticInfoWatcherEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppExecutionStateChangeResult(::windows_core::IUnknown);
 impl AppExecutionStateChangeResult {
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
@@ -2618,24 +2228,8 @@ impl AppExecutionStateChangeResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppExecutionStateChangeResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppExecutionStateChangeResult {}
-impl ::core::fmt::Debug for AppExecutionStateChangeResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppExecutionStateChangeResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppExecutionStateChangeResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppExecutionStateChangeResult;{6f039bf0-f91b-4df8-ae77-3033ccb69114})");
-}
-impl ::core::clone::Clone for AppExecutionStateChangeResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppExecutionStateChangeResult {
     type Vtable = IAppExecutionStateChangeResult_Vtbl;
@@ -2651,6 +2245,7 @@ unsafe impl ::core::marker::Send for AppExecutionStateChangeResult {}
 unsafe impl ::core::marker::Sync for AppExecutionStateChangeResult {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppMemoryReport(::windows_core::IUnknown);
 impl AppMemoryReport {
     pub fn PrivateCommitUsage(&self) -> ::windows_core::Result<u64> {
@@ -2689,24 +2284,8 @@ impl AppMemoryReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppMemoryReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppMemoryReport {}
-impl ::core::fmt::Debug for AppMemoryReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppMemoryReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppMemoryReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppMemoryReport;{6d65339b-4d6f-45bc-9c5e-e49b3ff2758d})");
-}
-impl ::core::clone::Clone for AppMemoryReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppMemoryReport {
     type Vtable = IAppMemoryReport_Vtbl;
@@ -2722,6 +2301,7 @@ unsafe impl ::core::marker::Send for AppMemoryReport {}
 unsafe impl ::core::marker::Sync for AppMemoryReport {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppMemoryUsageLimitChangingEventArgs(::windows_core::IUnknown);
 impl AppMemoryUsageLimitChangingEventArgs {
     pub fn OldLimit(&self) -> ::windows_core::Result<u64> {
@@ -2739,24 +2319,8 @@ impl AppMemoryUsageLimitChangingEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppMemoryUsageLimitChangingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppMemoryUsageLimitChangingEventArgs {}
-impl ::core::fmt::Debug for AppMemoryUsageLimitChangingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppMemoryUsageLimitChangingEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppMemoryUsageLimitChangingEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppMemoryUsageLimitChangingEventArgs;{79f86664-feca-4da5-9e40-2bc63efdc979})");
-}
-impl ::core::clone::Clone for AppMemoryUsageLimitChangingEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppMemoryUsageLimitChangingEventArgs {
     type Vtable = IAppMemoryUsageLimitChangingEventArgs_Vtbl;
@@ -2772,6 +2336,7 @@ unsafe impl ::core::marker::Send for AppMemoryUsageLimitChangingEventArgs {}
 unsafe impl ::core::marker::Sync for AppMemoryUsageLimitChangingEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppResourceGroupBackgroundTaskReport(::windows_core::IUnknown);
 impl AppResourceGroupBackgroundTaskReport {
     pub fn TaskId(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -2803,24 +2368,8 @@ impl AppResourceGroupBackgroundTaskReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppResourceGroupBackgroundTaskReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupBackgroundTaskReport {}
-impl ::core::fmt::Debug for AppResourceGroupBackgroundTaskReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupBackgroundTaskReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppResourceGroupBackgroundTaskReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupBackgroundTaskReport;{2566e74e-b05d-40c2-9dc1-1a4f039ea120})");
-}
-impl ::core::clone::Clone for AppResourceGroupBackgroundTaskReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppResourceGroupBackgroundTaskReport {
     type Vtable = IAppResourceGroupBackgroundTaskReport_Vtbl;
@@ -2836,6 +2385,7 @@ unsafe impl ::core::marker::Send for AppResourceGroupBackgroundTaskReport {}
 unsafe impl ::core::marker::Sync for AppResourceGroupBackgroundTaskReport {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppResourceGroupInfo(::windows_core::IUnknown);
 impl AppResourceGroupInfo {
     pub fn InstanceId(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -2912,24 +2462,8 @@ impl AppResourceGroupInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppResourceGroupInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupInfo {}
-impl ::core::fmt::Debug for AppResourceGroupInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppResourceGroupInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupInfo;{b913f77a-e807-49f4-845e-7b8bdcfe8ee7})");
-}
-impl ::core::clone::Clone for AppResourceGroupInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppResourceGroupInfo {
     type Vtable = IAppResourceGroupInfo_Vtbl;
@@ -2945,6 +2479,7 @@ unsafe impl ::core::marker::Send for AppResourceGroupInfo {}
 unsafe impl ::core::marker::Sync for AppResourceGroupInfo {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppResourceGroupInfoWatcher(::windows_core::IUnknown);
 impl AppResourceGroupInfoWatcher {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3053,24 +2588,8 @@ impl AppResourceGroupInfoWatcher {
         unsafe { (::windows_core::Interface::vtable(this).Stop)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for AppResourceGroupInfoWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupInfoWatcher {}
-impl ::core::fmt::Debug for AppResourceGroupInfoWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupInfoWatcher").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppResourceGroupInfoWatcher {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupInfoWatcher;{d9b0a0fd-6e5a-4c72-8b17-09fec4a212bd})");
-}
-impl ::core::clone::Clone for AppResourceGroupInfoWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppResourceGroupInfoWatcher {
     type Vtable = IAppResourceGroupInfoWatcher_Vtbl;
@@ -3086,6 +2605,7 @@ unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcher {}
 unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcher {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppResourceGroupInfoWatcherEventArgs(::windows_core::IUnknown);
 impl AppResourceGroupInfoWatcherEventArgs {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3105,24 +2625,8 @@ impl AppResourceGroupInfoWatcherEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppResourceGroupInfoWatcherEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupInfoWatcherEventArgs {}
-impl ::core::fmt::Debug for AppResourceGroupInfoWatcherEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupInfoWatcherEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppResourceGroupInfoWatcherEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupInfoWatcherEventArgs;{7a787637-6302-4d2f-bf89-1c12d0b2a6b9})");
-}
-impl ::core::clone::Clone for AppResourceGroupInfoWatcherEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppResourceGroupInfoWatcherEventArgs {
     type Vtable = IAppResourceGroupInfoWatcherEventArgs_Vtbl;
@@ -3138,6 +2642,7 @@ unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcherEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppResourceGroupInfoWatcherExecutionStateChangedEventArgs(::windows_core::IUnknown);
 impl AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3157,24 +2662,8 @@ impl AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
-impl ::core::fmt::Debug for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupInfoWatcherExecutionStateChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupInfoWatcherExecutionStateChangedEventArgs;{1bdbedd7-fee6-4fd4-98dd-e92a2cc299f3})");
-}
-impl ::core::clone::Clone for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     type Vtable = IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_Vtbl;
@@ -3190,6 +2679,7 @@ unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcherExecutionStateCh
 unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppResourceGroupMemoryReport(::windows_core::IUnknown);
 impl AppResourceGroupMemoryReport {
     pub fn CommitUsageLimit(&self) -> ::windows_core::Result<u64> {
@@ -3221,24 +2711,8 @@ impl AppResourceGroupMemoryReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppResourceGroupMemoryReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupMemoryReport {}
-impl ::core::fmt::Debug for AppResourceGroupMemoryReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupMemoryReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppResourceGroupMemoryReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupMemoryReport;{2c8c06b1-7db1-4c51-a225-7fae2d49e431})");
-}
-impl ::core::clone::Clone for AppResourceGroupMemoryReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppResourceGroupMemoryReport {
     type Vtable = IAppResourceGroupMemoryReport_Vtbl;
@@ -3254,6 +2728,7 @@ unsafe impl ::core::marker::Send for AppResourceGroupMemoryReport {}
 unsafe impl ::core::marker::Sync for AppResourceGroupMemoryReport {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppResourceGroupStateReport(::windows_core::IUnknown);
 impl AppResourceGroupStateReport {
     pub fn ExecutionState(&self) -> ::windows_core::Result<AppResourceGroupExecutionState> {
@@ -3271,24 +2746,8 @@ impl AppResourceGroupStateReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppResourceGroupStateReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupStateReport {}
-impl ::core::fmt::Debug for AppResourceGroupStateReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupStateReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppResourceGroupStateReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupStateReport;{52849f18-2f70-4236-ab40-d04db0c7b931})");
-}
-impl ::core::clone::Clone for AppResourceGroupStateReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppResourceGroupStateReport {
     type Vtable = IAppResourceGroupStateReport_Vtbl;
@@ -3304,6 +2763,7 @@ unsafe impl ::core::marker::Send for AppResourceGroupStateReport {}
 unsafe impl ::core::marker::Sync for AppResourceGroupStateReport {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppUriHandlerHost(::windows_core::IUnknown);
 impl AppUriHandlerHost {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3347,24 +2807,8 @@ impl AppUriHandlerHost {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for AppUriHandlerHost {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppUriHandlerHost {}
-impl ::core::fmt::Debug for AppUriHandlerHost {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppUriHandlerHost").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppUriHandlerHost {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppUriHandlerHost;{5d50cac5-92d2-5409-b56f-7f73e10ea4c3})");
-}
-impl ::core::clone::Clone for AppUriHandlerHost {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppUriHandlerHost {
     type Vtable = IAppUriHandlerHost_Vtbl;
@@ -3380,6 +2824,7 @@ unsafe impl ::core::marker::Send for AppUriHandlerHost {}
 unsafe impl ::core::marker::Sync for AppUriHandlerHost {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppUriHandlerRegistration(::windows_core::IUnknown);
 impl AppUriHandlerRegistration {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3443,24 +2888,8 @@ impl AppUriHandlerRegistration {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppUriHandlerRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppUriHandlerRegistration {}
-impl ::core::fmt::Debug for AppUriHandlerRegistration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppUriHandlerRegistration").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppUriHandlerRegistration {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppUriHandlerRegistration;{6f73aeb1-4569-5c3f-9ba0-99123eea32c3})");
-}
-impl ::core::clone::Clone for AppUriHandlerRegistration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppUriHandlerRegistration {
     type Vtable = IAppUriHandlerRegistration_Vtbl;
@@ -3476,6 +2905,7 @@ unsafe impl ::core::marker::Send for AppUriHandlerRegistration {}
 unsafe impl ::core::marker::Sync for AppUriHandlerRegistration {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppUriHandlerRegistrationManager(::windows_core::IUnknown);
 impl AppUriHandlerRegistrationManager {
     pub fn User(&self) -> ::windows_core::Result<User> {
@@ -3540,24 +2970,8 @@ impl AppUriHandlerRegistrationManager {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for AppUriHandlerRegistrationManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppUriHandlerRegistrationManager {}
-impl ::core::fmt::Debug for AppUriHandlerRegistrationManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppUriHandlerRegistrationManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppUriHandlerRegistrationManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.AppUriHandlerRegistrationManager;{e62c9a52-ac94-5750-ac1b-6cfb6f250263})");
-}
-impl ::core::clone::Clone for AppUriHandlerRegistrationManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppUriHandlerRegistrationManager {
     type Vtable = IAppUriHandlerRegistrationManager_Vtbl;
@@ -3590,6 +3004,7 @@ impl ::windows_core::RuntimeName for DateTimeSettings {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DispatcherQueue(::windows_core::IUnknown);
 impl DispatcherQueue {
     pub fn CreateTimer(&self) -> ::windows_core::Result<DispatcherQueueTimer> {
@@ -3674,24 +3089,8 @@ impl DispatcherQueue {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for DispatcherQueue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DispatcherQueue {}
-impl ::core::fmt::Debug for DispatcherQueue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DispatcherQueue").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DispatcherQueue {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.DispatcherQueue;{603e88e4-a338-4ffe-a457-a5cfb9ceb899})");
-}
-impl ::core::clone::Clone for DispatcherQueue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DispatcherQueue {
     type Vtable = IDispatcherQueue_Vtbl;
@@ -3707,6 +3106,7 @@ unsafe impl ::core::marker::Send for DispatcherQueue {}
 unsafe impl ::core::marker::Sync for DispatcherQueue {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DispatcherQueueController(::windows_core::IUnknown);
 impl DispatcherQueueController {
     pub fn DispatcherQueue(&self) -> ::windows_core::Result<DispatcherQueue> {
@@ -3737,24 +3137,8 @@ impl DispatcherQueueController {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for DispatcherQueueController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DispatcherQueueController {}
-impl ::core::fmt::Debug for DispatcherQueueController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DispatcherQueueController").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DispatcherQueueController {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.DispatcherQueueController;{22f34e66-50db-4e36-a98d-61c01b384d20})");
-}
-impl ::core::clone::Clone for DispatcherQueueController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DispatcherQueueController {
     type Vtable = IDispatcherQueueController_Vtbl;
@@ -3770,6 +3154,7 @@ unsafe impl ::core::marker::Send for DispatcherQueueController {}
 unsafe impl ::core::marker::Sync for DispatcherQueueController {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DispatcherQueueShutdownStartingEventArgs(::windows_core::IUnknown);
 impl DispatcherQueueShutdownStartingEventArgs {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3782,24 +3167,8 @@ impl DispatcherQueueShutdownStartingEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for DispatcherQueueShutdownStartingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DispatcherQueueShutdownStartingEventArgs {}
-impl ::core::fmt::Debug for DispatcherQueueShutdownStartingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DispatcherQueueShutdownStartingEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DispatcherQueueShutdownStartingEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.DispatcherQueueShutdownStartingEventArgs;{c4724c4c-ff97-40c0-a226-cc0aaa545e89})");
-}
-impl ::core::clone::Clone for DispatcherQueueShutdownStartingEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DispatcherQueueShutdownStartingEventArgs {
     type Vtable = IDispatcherQueueShutdownStartingEventArgs_Vtbl;
@@ -3815,6 +3184,7 @@ unsafe impl ::core::marker::Send for DispatcherQueueShutdownStartingEventArgs {}
 unsafe impl ::core::marker::Sync for DispatcherQueueShutdownStartingEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DispatcherQueueTimer(::windows_core::IUnknown);
 impl DispatcherQueueTimer {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3877,24 +3247,8 @@ impl DispatcherQueueTimer {
         unsafe { (::windows_core::Interface::vtable(this).RemoveTick)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for DispatcherQueueTimer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DispatcherQueueTimer {}
-impl ::core::fmt::Debug for DispatcherQueueTimer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DispatcherQueueTimer").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DispatcherQueueTimer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.DispatcherQueueTimer;{5feabb1d-a31c-4727-b1ac-37454649d56a})");
-}
-impl ::core::clone::Clone for DispatcherQueueTimer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DispatcherQueueTimer {
     type Vtable = IDispatcherQueueTimer_Vtbl;
@@ -3910,6 +3264,7 @@ unsafe impl ::core::marker::Send for DispatcherQueueTimer {}
 unsafe impl ::core::marker::Sync for DispatcherQueueTimer {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FolderLauncherOptions(::windows_core::IUnknown);
 impl FolderLauncherOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3944,24 +3299,8 @@ impl FolderLauncherOptions {
         unsafe { (::windows_core::Interface::vtable(this).SetDesiredRemainingView)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for FolderLauncherOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FolderLauncherOptions {}
-impl ::core::fmt::Debug for FolderLauncherOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FolderLauncherOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for FolderLauncherOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.FolderLauncherOptions;{bb91c27d-6b87-432a-bd04-776c6f5fb2ab})");
-}
-impl ::core::clone::Clone for FolderLauncherOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for FolderLauncherOptions {
     type Vtable = IFolderLauncherOptions_Vtbl;
@@ -4055,6 +3394,7 @@ impl ::windows_core::RuntimeName for KnownUserProperties {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LaunchUriResult(::windows_core::IUnknown);
 impl LaunchUriResult {
     pub fn Status(&self) -> ::windows_core::Result<LaunchUriStatus> {
@@ -4074,24 +3414,8 @@ impl LaunchUriResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for LaunchUriResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LaunchUriResult {}
-impl ::core::fmt::Debug for LaunchUriResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LaunchUriResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LaunchUriResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.LaunchUriResult;{ec27a8df-f6d5-45ca-913a-70a40c5c8221})");
-}
-impl ::core::clone::Clone for LaunchUriResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LaunchUriResult {
     type Vtable = ILaunchUriResult_Vtbl;
@@ -4455,6 +3779,7 @@ impl ::windows_core::RuntimeName for Launcher {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LauncherOptions(::windows_core::IUnknown);
 impl LauncherOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -4611,24 +3936,8 @@ impl LauncherOptions {
         unsafe { (::windows_core::Interface::vtable(this).SetDesiredRemainingView)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for LauncherOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LauncherOptions {}
-impl ::core::fmt::Debug for LauncherOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LauncherOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LauncherOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.LauncherOptions;{bafa21d8-b071-4cd8-853e-341203e557d3})");
-}
-impl ::core::clone::Clone for LauncherOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LauncherOptions {
     type Vtable = ILauncherOptions_Vtbl;
@@ -4645,6 +3954,7 @@ unsafe impl ::core::marker::Send for LauncherOptions {}
 unsafe impl ::core::marker::Sync for LauncherOptions {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LauncherUIOptions(::windows_core::IUnknown);
 impl LauncherUIOptions {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4699,24 +4009,8 @@ impl LauncherUIOptions {
         unsafe { (::windows_core::Interface::vtable(this).SetPreferredPlacement)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for LauncherUIOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LauncherUIOptions {}
-impl ::core::fmt::Debug for LauncherUIOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LauncherUIOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LauncherUIOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.LauncherUIOptions;{1b25da6e-8aa6-41e9-8251-4165f5985f49})");
-}
-impl ::core::clone::Clone for LauncherUIOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LauncherUIOptions {
     type Vtable = ILauncherUIOptions_Vtbl;
@@ -4880,6 +4174,7 @@ impl ::windows_core::RuntimeName for ProcessLauncher {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessLauncherOptions(::windows_core::IUnknown);
 impl ProcessLauncherOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -4955,24 +4250,8 @@ impl ProcessLauncherOptions {
         unsafe { (::windows_core::Interface::vtable(this).SetWorkingDirectory)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ProcessLauncherOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessLauncherOptions {}
-impl ::core::fmt::Debug for ProcessLauncherOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessLauncherOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProcessLauncherOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.ProcessLauncherOptions;{3080b9cf-f444-4a83-beaf-a549a0f3229c})");
-}
-impl ::core::clone::Clone for ProcessLauncherOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProcessLauncherOptions {
     type Vtable = IProcessLauncherOptions_Vtbl;
@@ -4988,6 +4267,7 @@ unsafe impl ::core::marker::Send for ProcessLauncherOptions {}
 unsafe impl ::core::marker::Sync for ProcessLauncherOptions {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessLauncherResult(::windows_core::IUnknown);
 impl ProcessLauncherResult {
     pub fn ExitCode(&self) -> ::windows_core::Result<u32> {
@@ -4998,24 +4278,8 @@ impl ProcessLauncherResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for ProcessLauncherResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessLauncherResult {}
-impl ::core::fmt::Debug for ProcessLauncherResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessLauncherResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProcessLauncherResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.ProcessLauncherResult;{544c8934-86d8-4991-8e75-ece8a43b6b6d})");
-}
-impl ::core::clone::Clone for ProcessLauncherResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProcessLauncherResult {
     type Vtable = IProcessLauncherResult_Vtbl;
@@ -5031,6 +4295,7 @@ unsafe impl ::core::marker::Send for ProcessLauncherResult {}
 unsafe impl ::core::marker::Sync for ProcessLauncherResult {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessMemoryReport(::windows_core::IUnknown);
 impl ProcessMemoryReport {
     pub fn PrivateWorkingSetUsage(&self) -> ::windows_core::Result<u64> {
@@ -5048,24 +4313,8 @@ impl ProcessMemoryReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for ProcessMemoryReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessMemoryReport {}
-impl ::core::fmt::Debug for ProcessMemoryReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessMemoryReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProcessMemoryReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.ProcessMemoryReport;{087305a8-9b70-4782-8741-3a982b6ce5e4})");
-}
-impl ::core::clone::Clone for ProcessMemoryReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProcessMemoryReport {
     type Vtable = IProcessMemoryReport_Vtbl;
@@ -5081,6 +4330,7 @@ unsafe impl ::core::marker::Send for ProcessMemoryReport {}
 unsafe impl ::core::marker::Sync for ProcessMemoryReport {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProtocolForResultsOperation(::windows_core::IUnknown);
 impl ProtocolForResultsOperation {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5093,24 +4343,8 @@ impl ProtocolForResultsOperation {
         unsafe { (::windows_core::Interface::vtable(this).ReportCompleted)(::windows_core::Interface::as_raw(this), data.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ProtocolForResultsOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtocolForResultsOperation {}
-impl ::core::fmt::Debug for ProtocolForResultsOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtocolForResultsOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProtocolForResultsOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.ProtocolForResultsOperation;{d581293a-6de9-4d28-9378-f86782e182bb})");
-}
-impl ::core::clone::Clone for ProtocolForResultsOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProtocolForResultsOperation {
     type Vtable = IProtocolForResultsOperation_Vtbl;
@@ -5177,6 +4411,7 @@ impl ::windows_core::RuntimeName for RemoteLauncher {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteLauncherOptions(::windows_core::IUnknown);
 impl RemoteLauncherOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -5214,24 +4449,8 @@ impl RemoteLauncherOptions {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteLauncherOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteLauncherOptions {}
-impl ::core::fmt::Debug for RemoteLauncherOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteLauncherOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteLauncherOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteLauncherOptions;{9e3a2788-2891-4cdf-a2d6-9dff7d02e693})");
-}
-impl ::core::clone::Clone for RemoteLauncherOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteLauncherOptions {
     type Vtable = IRemoteLauncherOptions_Vtbl;
@@ -5334,6 +4553,7 @@ impl ::windows_core::RuntimeName for TimeZoneSettings {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct User(::windows_core::IUnknown);
 impl User {
     pub fn NonRoamableId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -5449,24 +4669,8 @@ impl User {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for User {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for User {}
-impl ::core::fmt::Debug for User {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("User").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for User {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.User;{df9a26c6-e746-4bcd-b5d4-120103c4209b})");
-}
-impl ::core::clone::Clone for User {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for User {
     type Vtable = IUser_Vtbl;
@@ -5482,6 +4686,7 @@ unsafe impl ::core::marker::Send for User {}
 unsafe impl ::core::marker::Sync for User {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserAuthenticationStatusChangeDeferral(::windows_core::IUnknown);
 impl UserAuthenticationStatusChangeDeferral {
     pub fn Complete(&self) -> ::windows_core::Result<()> {
@@ -5489,24 +4694,8 @@ impl UserAuthenticationStatusChangeDeferral {
         unsafe { (::windows_core::Interface::vtable(this).Complete)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UserAuthenticationStatusChangeDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserAuthenticationStatusChangeDeferral {}
-impl ::core::fmt::Debug for UserAuthenticationStatusChangeDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserAuthenticationStatusChangeDeferral").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserAuthenticationStatusChangeDeferral {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserAuthenticationStatusChangeDeferral;{88b59568-bb30-42fb-a270-e9902e40efa7})");
-}
-impl ::core::clone::Clone for UserAuthenticationStatusChangeDeferral {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserAuthenticationStatusChangeDeferral {
     type Vtable = IUserAuthenticationStatusChangeDeferral_Vtbl;
@@ -5522,6 +4711,7 @@ unsafe impl ::core::marker::Send for UserAuthenticationStatusChangeDeferral {}
 unsafe impl ::core::marker::Sync for UserAuthenticationStatusChangeDeferral {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserAuthenticationStatusChangingEventArgs(::windows_core::IUnknown);
 impl UserAuthenticationStatusChangingEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<UserAuthenticationStatusChangeDeferral> {
@@ -5553,24 +4743,8 @@ impl UserAuthenticationStatusChangingEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for UserAuthenticationStatusChangingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserAuthenticationStatusChangingEventArgs {}
-impl ::core::fmt::Debug for UserAuthenticationStatusChangingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserAuthenticationStatusChangingEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserAuthenticationStatusChangingEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserAuthenticationStatusChangingEventArgs;{8c030f28-a711-4c1e-ab48-04179c15938f})");
-}
-impl ::core::clone::Clone for UserAuthenticationStatusChangingEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserAuthenticationStatusChangingEventArgs {
     type Vtable = IUserAuthenticationStatusChangingEventArgs_Vtbl;
@@ -5586,6 +4760,7 @@ unsafe impl ::core::marker::Send for UserAuthenticationStatusChangingEventArgs {
 unsafe impl ::core::marker::Sync for UserAuthenticationStatusChangingEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserChangedEventArgs(::windows_core::IUnknown);
 impl UserChangedEventArgs {
     pub fn User(&self) -> ::windows_core::Result<User> {
@@ -5605,24 +4780,8 @@ impl UserChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for UserChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserChangedEventArgs {}
-impl ::core::fmt::Debug for UserChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserChangedEventArgs;{086459dc-18c6-48db-bc99-724fb9203ccc})");
-}
-impl ::core::clone::Clone for UserChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserChangedEventArgs {
     type Vtable = IUserChangedEventArgs_Vtbl;
@@ -5672,6 +4831,7 @@ impl ::windows_core::RuntimeName for UserDeviceAssociation {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDeviceAssociationChangedEventArgs(::windows_core::IUnknown);
 impl UserDeviceAssociationChangedEventArgs {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -5696,24 +4856,8 @@ impl UserDeviceAssociationChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for UserDeviceAssociationChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDeviceAssociationChangedEventArgs {}
-impl ::core::fmt::Debug for UserDeviceAssociationChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDeviceAssociationChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDeviceAssociationChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserDeviceAssociationChangedEventArgs;{bd1f6f6c-bb5d-4d7b-a5f0-c8cd11a38d42})");
-}
-impl ::core::clone::Clone for UserDeviceAssociationChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDeviceAssociationChangedEventArgs {
     type Vtable = IUserDeviceAssociationChangedEventArgs_Vtbl;
@@ -5729,6 +4873,7 @@ unsafe impl ::core::marker::Send for UserDeviceAssociationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserDeviceAssociationChangedEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserPicker(::windows_core::IUnknown);
 impl UserPicker {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -5784,24 +4929,8 @@ impl UserPicker {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UserPicker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserPicker {}
-impl ::core::fmt::Debug for UserPicker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserPicker").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserPicker {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserPicker;{7d548008-f1e3-4a6c-8ddc-a9bb0f488aed})");
-}
-impl ::core::clone::Clone for UserPicker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserPicker {
     type Vtable = IUserPicker_Vtbl;
@@ -5817,6 +4946,7 @@ unsafe impl ::core::marker::Send for UserPicker {}
 unsafe impl ::core::marker::Sync for UserPicker {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserWatcher(::windows_core::IUnknown);
 impl UserWatcher {
     pub fn Status(&self) -> ::windows_core::Result<UserWatcherStatus> {
@@ -5961,24 +5091,8 @@ impl UserWatcher {
         unsafe { (::windows_core::Interface::vtable(this).RemoveStopped)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UserWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserWatcher {}
-impl ::core::fmt::Debug for UserWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserWatcher").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserWatcher {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserWatcher;{155eb23b-242a-45e0-a2e9-3171fc6a7fbb})");
-}
-impl ::core::clone::Clone for UserWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserWatcher {
     type Vtable = IUserWatcher_Vtbl;
@@ -7001,6 +6115,7 @@ impl ::windows_core::RuntimeType for VirtualKeyModifiers {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DispatcherQueueHandler(pub ::windows_core::IUnknown);
 impl DispatcherQueueHandler {
     pub fn new<F: FnMut() -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -7023,9 +6138,12 @@ impl<F: FnMut() -> ::windows_core::Result<()> + ::core::marker::Send + 'static> 
         base__: ::windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows_core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows_core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<DispatcherQueueHandler as ::windows_core::ComInterface>::IID || iid == &<::windows_core::IUnknown as ::windows_core::ComInterface>::IID || iid == &<::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <DispatcherQueueHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -7050,24 +6168,8 @@ impl<F: FnMut() -> ::windows_core::Result<()> + ::core::marker::Send + 'static> 
         ((*this).invoke)().into()
     }
 }
-impl ::core::cmp::PartialEq for DispatcherQueueHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DispatcherQueueHandler {}
-impl ::core::fmt::Debug for DispatcherQueueHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DispatcherQueueHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for DispatcherQueueHandler {
     type Vtable = DispatcherQueueHandler_Vtbl;
-}
-impl ::core::clone::Clone for DispatcherQueueHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for DispatcherQueueHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdfa2dc9c_1a2d_4917_98f2_939af1d6e0c8);

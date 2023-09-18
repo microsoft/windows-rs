@@ -200,152 +200,152 @@ where
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetButtonArray<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: P0, report: &[u8]) -> ::windows_core::Result<()>
+pub unsafe fn HidP_GetButtonArray<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: P0, report: &[u8]) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_GetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttondata : *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetButtonArray(reporttype, usagepage, linkcollection, usage, buttondata, buttondatalength, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
+    HidP_GetButtonArray(reporttype, usagepage, linkcollection, usage, buttondata, buttondatalength, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetButtonCaps<P0>(reporttype: HIDP_REPORT_TYPE, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: P0) -> ::windows_core::Result<()>
+pub unsafe fn HidP_GetButtonCaps<P0>(reporttype: HIDP_REPORT_TYPE, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: P0) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_GetButtonCaps(reporttype : HIDP_REPORT_TYPE, buttoncaps : *mut HIDP_BUTTON_CAPS, buttoncapslength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetButtonCaps(reporttype, buttoncaps, buttoncapslength, preparseddata.into_param().abi()).ok()
+    HidP_GetButtonCaps(reporttype, buttoncaps, buttoncapslength, preparseddata.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetCaps<P0>(preparseddata: P0, capabilities: *mut HIDP_CAPS) -> ::windows_core::Result<()>
+pub unsafe fn HidP_GetCaps<P0>(preparseddata: P0, capabilities: *mut HIDP_CAPS) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_GetCaps(preparseddata : PHIDP_PREPARSED_DATA, capabilities : *mut HIDP_CAPS) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetCaps(preparseddata.into_param().abi(), capabilities).ok()
+    HidP_GetCaps(preparseddata.into_param().abi(), capabilities)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetData<P0>(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: P0, report: &mut [u8]) -> ::windows_core::Result<()>
+pub unsafe fn HidP_GetData<P0>(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: P0, report: &mut [u8]) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_GetData(reporttype : HIDP_REPORT_TYPE, datalist : *mut HIDP_DATA, datalength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetData(reporttype, datalist, datalength, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
+    HidP_GetData(reporttype, datalist, datalength, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetExtendedAttributes<P0>(reporttype: HIDP_REPORT_TYPE, dataindex: u16, preparseddata: P0, attributes: *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes: *mut u32) -> ::windows_core::Result<()>
+pub unsafe fn HidP_GetExtendedAttributes<P0>(reporttype: HIDP_REPORT_TYPE, dataindex: u16, preparseddata: P0, attributes: *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes: *mut u32) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_GetExtendedAttributes(reporttype : HIDP_REPORT_TYPE, dataindex : u16, preparseddata : PHIDP_PREPARSED_DATA, attributes : *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes : *mut u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetExtendedAttributes(reporttype, dataindex, preparseddata.into_param().abi(), attributes, lengthattributes).ok()
+    HidP_GetExtendedAttributes(reporttype, dataindex, preparseddata.into_param().abi(), attributes, lengthattributes)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetLinkCollectionNodes<P0>(linkcollectionnodes: *mut HIDP_LINK_COLLECTION_NODE, linkcollectionnodeslength: *mut u32, preparseddata: P0) -> ::windows_core::Result<()>
+pub unsafe fn HidP_GetLinkCollectionNodes<P0>(linkcollectionnodes: *mut HIDP_LINK_COLLECTION_NODE, linkcollectionnodeslength: *mut u32, preparseddata: P0) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_GetLinkCollectionNodes(linkcollectionnodes : *mut HIDP_LINK_COLLECTION_NODE, linkcollectionnodeslength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetLinkCollectionNodes(linkcollectionnodes, linkcollectionnodeslength, preparseddata.into_param().abi()).ok()
+    HidP_GetLinkCollectionNodes(linkcollectionnodes, linkcollectionnodeslength, preparseddata.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetScaledUsageValue<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut i32, preparseddata: P0, report: &[u8]) -> ::windows_core::Result<()>
+pub unsafe fn HidP_GetScaledUsageValue<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut i32, preparseddata: P0, report: &[u8]) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_GetScaledUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : *mut i32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetScaledUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
+    HidP_GetScaledUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetSpecificButtonCaps<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: P0) -> ::windows_core::Result<()>
+pub unsafe fn HidP_GetSpecificButtonCaps<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: P0) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_GetSpecificButtonCaps(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttoncaps : *mut HIDP_BUTTON_CAPS, buttoncapslength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetSpecificButtonCaps(reporttype, usagepage, linkcollection, usage, buttoncaps, buttoncapslength, preparseddata.into_param().abi()).ok()
+    HidP_GetSpecificButtonCaps(reporttype, usagepage, linkcollection, usage, buttoncaps, buttoncapslength, preparseddata.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetSpecificValueCaps<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: P0) -> ::windows_core::Result<()>
+pub unsafe fn HidP_GetSpecificValueCaps<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: P0) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_GetSpecificValueCaps(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, valuecaps : *mut HIDP_VALUE_CAPS, valuecapslength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetSpecificValueCaps(reporttype, usagepage, linkcollection, usage, valuecaps, valuecapslength, preparseddata.into_param().abi()).ok()
+    HidP_GetSpecificValueCaps(reporttype, usagepage, linkcollection, usage, valuecaps, valuecapslength, preparseddata.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetUsageValue<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut u32, preparseddata: P0, report: &[u8]) -> ::windows_core::Result<()>
+pub unsafe fn HidP_GetUsageValue<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut u32, preparseddata: P0, report: &[u8]) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_GetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
+    HidP_GetUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetUsageValueArray<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: &mut [u8], preparseddata: P0, report: &[u8]) -> ::windows_core::Result<()>
+pub unsafe fn HidP_GetUsageValueArray<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: &mut [u8], preparseddata: P0, report: &[u8]) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_GetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : ::windows_core::PSTR, usagevaluebytelength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetUsageValueArray(reporttype, usagepage, linkcollection, usage, ::core::mem::transmute(usagevalue.as_ptr()), usagevalue.len() as _, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
+    HidP_GetUsageValueArray(reporttype, usagepage, linkcollection, usage, ::core::mem::transmute(usagevalue.as_ptr()), usagevalue.len() as _, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetUsages<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: P0, report: &mut [u8]) -> ::windows_core::Result<()>
+pub unsafe fn HidP_GetUsages<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: P0, report: &mut [u8]) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_GetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetUsages(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
+    HidP_GetUsages(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetUsagesEx<P0>(reporttype: HIDP_REPORT_TYPE, linkcollection: u16, buttonlist: *mut USAGE_AND_PAGE, usagelength: *mut u32, preparseddata: P0, report: &[u8]) -> ::windows_core::Result<()>
+pub unsafe fn HidP_GetUsagesEx<P0>(reporttype: HIDP_REPORT_TYPE, linkcollection: u16, buttonlist: *mut USAGE_AND_PAGE, usagelength: *mut u32, preparseddata: P0, report: &[u8]) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_GetUsagesEx(reporttype : HIDP_REPORT_TYPE, linkcollection : u16, buttonlist : *mut USAGE_AND_PAGE, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetUsagesEx(reporttype, linkcollection, buttonlist, usagelength, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
+    HidP_GetUsagesEx(reporttype, linkcollection, buttonlist, usagelength, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetValueCaps<P0>(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: P0) -> ::windows_core::Result<()>
+pub unsafe fn HidP_GetValueCaps<P0>(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: P0) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_GetValueCaps(reporttype : HIDP_REPORT_TYPE, valuecaps : *mut HIDP_VALUE_CAPS, valuecapslength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
-    HidP_GetValueCaps(reporttype, valuecaps, valuecapslength, preparseddata.into_param().abi()).ok()
+    HidP_GetValueCaps(reporttype, valuecaps, valuecapslength, preparseddata.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_InitializeReportForID<P0>(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: P0, report: &mut [u8]) -> ::windows_core::Result<()>
+pub unsafe fn HidP_InitializeReportForID<P0>(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: P0, report: &mut [u8]) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_InitializeReportForID(reporttype : HIDP_REPORT_TYPE, reportid : u8, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_InitializeReportForID(reporttype, reportid, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
+    HidP_InitializeReportForID(reporttype, reportid, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]
@@ -368,86 +368,86 @@ where
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetButtonArray<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: &[HIDP_BUTTON_ARRAY_DATA], preparseddata: P0, report: &mut [u8]) -> ::windows_core::Result<()>
+pub unsafe fn HidP_SetButtonArray<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: &[HIDP_BUTTON_ARRAY_DATA], preparseddata: P0, report: &mut [u8]) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_SetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttondata : *const HIDP_BUTTON_ARRAY_DATA, buttondatalength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_SetButtonArray(reporttype, usagepage, linkcollection, usage, ::core::mem::transmute(buttondata.as_ptr()), buttondata.len() as _, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
+    HidP_SetButtonArray(reporttype, usagepage, linkcollection, usage, ::core::mem::transmute(buttondata.as_ptr()), buttondata.len() as _, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetData<P0>(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: P0, report: &[u8]) -> ::windows_core::Result<()>
+pub unsafe fn HidP_SetData<P0>(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: P0, report: &[u8]) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_SetData(reporttype : HIDP_REPORT_TYPE, datalist : *mut HIDP_DATA, datalength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_SetData(reporttype, datalist, datalength, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
+    HidP_SetData(reporttype, datalist, datalength, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetScaledUsageValue<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: i32, preparseddata: P0, report: &mut [u8]) -> ::windows_core::Result<()>
+pub unsafe fn HidP_SetScaledUsageValue<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: i32, preparseddata: P0, report: &mut [u8]) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_SetScaledUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : i32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_SetScaledUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
+    HidP_SetScaledUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetUsageValue<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: u32, preparseddata: P0, report: &mut [u8]) -> ::windows_core::Result<()>
+pub unsafe fn HidP_SetUsageValue<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: u32, preparseddata: P0, report: &mut [u8]) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_SetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_SetUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
+    HidP_SetUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetUsageValueArray<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: &[u8], preparseddata: P0, report: &mut [u8]) -> ::windows_core::Result<()>
+pub unsafe fn HidP_SetUsageValueArray<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: &[u8], preparseddata: P0, report: &mut [u8]) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_SetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : ::windows_core::PCSTR, usagevaluebytelength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_SetUsageValueArray(reporttype, usagepage, linkcollection, usage, ::core::mem::transmute(usagevalue.as_ptr()), usagevalue.len() as _, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
+    HidP_SetUsageValueArray(reporttype, usagepage, linkcollection, usage, ::core::mem::transmute(usagevalue.as_ptr()), usagevalue.len() as _, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetUsages<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: P0, report: &[u8]) -> ::windows_core::Result<()>
+pub unsafe fn HidP_SetUsages<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: P0, report: &[u8]) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_SetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_SetUsages(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
+    HidP_SetUsages(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: &[u16], keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: &[u16], keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::NTSTATUS {
     ::windows_targets::link!("hid.dll" "system" fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist : *const u16, usagelistlength : u32, keyaction : HIDP_KEYBOARD_DIRECTION, modifierstate : *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure : PHIDP_INSERT_SCANCODES, insertcodescontext : *const ::core::ffi::c_void) -> super::super::Foundation:: NTSTATUS);
-    HidP_TranslateUsagesToI8042ScanCodes(::core::mem::transmute(changedusagelist.as_ptr()), changedusagelist.len() as _, keyaction, modifierstate, insertcodesprocedure, ::core::mem::transmute(insertcodescontext.unwrap_or(::std::ptr::null()))).ok()
+    HidP_TranslateUsagesToI8042ScanCodes(::core::mem::transmute(changedusagelist.as_ptr()), changedusagelist.len() as _, keyaction, modifierstate, insertcodesprocedure, ::core::mem::transmute(insertcodescontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_UnsetUsages<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: P0, report: &[u8]) -> ::windows_core::Result<()>
+pub unsafe fn HidP_UnsetUsages<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: P0, report: &[u8]) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<PHIDP_PREPARSED_DATA>,
 {
     ::windows_targets::link!("hid.dll" "system" fn HidP_UnsetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_UnsetUsages(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
+    HidP_UnsetUsages(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata.into_param().abi(), ::core::mem::transmute(report.as_ptr()), report.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_UsageListDifference(previoususagelist: *const u16, currentusagelist: *const u16, breakusagelist: *mut u16, makeusagelist: *mut u16, usagelistlength: u32) -> ::windows_core::Result<()> {
+pub unsafe fn HidP_UsageListDifference(previoususagelist: *const u16, currentusagelist: *const u16, breakusagelist: *mut u16, makeusagelist: *mut u16, usagelistlength: u32) -> super::super::Foundation::NTSTATUS {
     ::windows_targets::link!("hid.dll" "system" fn HidP_UsageListDifference(previoususagelist : *const u16, currentusagelist : *const u16, breakusagelist : *mut u16, makeusagelist : *mut u16, usagelistlength : u32) -> super::super::Foundation:: NTSTATUS);
-    HidP_UsageListDifference(previoususagelist, currentusagelist, breakusagelist, makeusagelist, usagelistlength).ok()
+    HidP_UsageListDifference(previoususagelist, currentusagelist, breakusagelist, makeusagelist, usagelistlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]
@@ -457,6 +457,7 @@ pub unsafe fn joyConfigChanged(dwflags: u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInput2A(::windows_core::IUnknown);
 impl IDirectInput2A {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: P0) -> ::windows_core::Result<()>
@@ -497,24 +498,8 @@ impl IDirectInput2A {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInput2A, ::windows_core::IUnknown, IDirectInputA);
-impl ::core::cmp::PartialEq for IDirectInput2A {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInput2A {}
-impl ::core::fmt::Debug for IDirectInput2A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInput2A").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInput2A {
     type Vtable = IDirectInput2A_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInput2A {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInput2A {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5944e662_aa8a_11cf_bfc7_444553540000);
@@ -527,6 +512,7 @@ pub struct IDirectInput2A_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInput2W(::windows_core::IUnknown);
 impl IDirectInput2W {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: P0) -> ::windows_core::Result<()>
@@ -567,24 +553,8 @@ impl IDirectInput2W {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInput2W, ::windows_core::IUnknown, IDirectInputW);
-impl ::core::cmp::PartialEq for IDirectInput2W {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInput2W {}
-impl ::core::fmt::Debug for IDirectInput2W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInput2W").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInput2W {
     type Vtable = IDirectInput2W_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInput2W {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInput2W {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5944e663_aa8a_11cf_bfc7_444553540000);
@@ -597,6 +567,7 @@ pub struct IDirectInput2W_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInput7A(::windows_core::IUnknown);
 impl IDirectInput7A {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: P0) -> ::windows_core::Result<()>
@@ -643,24 +614,8 @@ impl IDirectInput7A {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInput7A, ::windows_core::IUnknown, IDirectInputA, IDirectInput2A);
-impl ::core::cmp::PartialEq for IDirectInput7A {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInput7A {}
-impl ::core::fmt::Debug for IDirectInput7A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInput7A").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInput7A {
     type Vtable = IDirectInput7A_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInput7A {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInput7A {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a4cb684_236d_11d3_8e9d_00c04f6844ae);
@@ -673,6 +628,7 @@ pub struct IDirectInput7A_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInput7W(::windows_core::IUnknown);
 impl IDirectInput7W {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: P0) -> ::windows_core::Result<()>
@@ -719,24 +675,8 @@ impl IDirectInput7W {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInput7W, ::windows_core::IUnknown, IDirectInputW, IDirectInput2W);
-impl ::core::cmp::PartialEq for IDirectInput7W {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInput7W {}
-impl ::core::fmt::Debug for IDirectInput7W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInput7W").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInput7W {
     type Vtable = IDirectInput7W_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInput7W {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInput7W {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a4cb685_236d_11d3_8e9d_00c04f6844ae);
@@ -749,6 +689,7 @@ pub struct IDirectInput7W_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInput8A(::windows_core::IUnknown);
 impl IDirectInput8A {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8A>, param2: P0) -> ::windows_core::Result<()>
@@ -802,24 +743,8 @@ impl IDirectInput8A {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInput8A, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectInput8A {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInput8A {}
-impl ::core::fmt::Debug for IDirectInput8A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInput8A").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInput8A {
     type Vtable = IDirectInput8A_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInput8A {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInput8A {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf798030_483a_4da2_aa99_5d64ed369700);
@@ -854,6 +779,7 @@ pub struct IDirectInput8A_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInput8W(::windows_core::IUnknown);
 impl IDirectInput8W {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8W>, param2: P0) -> ::windows_core::Result<()>
@@ -907,24 +833,8 @@ impl IDirectInput8W {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInput8W, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectInput8W {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInput8W {}
-impl ::core::fmt::Debug for IDirectInput8W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInput8W").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInput8W {
     type Vtable = IDirectInput8W_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInput8W {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInput8W {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf798031_483a_4da2_aa99_5d64ed369700);
@@ -959,6 +869,7 @@ pub struct IDirectInput8W_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInputA(::windows_core::IUnknown);
 impl IDirectInputA {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: P0) -> ::windows_core::Result<()>
@@ -993,24 +904,8 @@ impl IDirectInputA {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInputA, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectInputA {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInputA {}
-impl ::core::fmt::Debug for IDirectInputA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInputA").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInputA {
     type Vtable = IDirectInputA_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInputA {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInputA {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89521360_aa8a_11cf_bfc7_444553540000);
@@ -1036,6 +931,7 @@ pub struct IDirectInputA_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInputDevice2A(::windows_core::IUnknown);
 impl IDirectInputDevice2A {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
@@ -1141,24 +1037,8 @@ impl IDirectInputDevice2A {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInputDevice2A, ::windows_core::IUnknown, IDirectInputDeviceA);
-impl ::core::cmp::PartialEq for IDirectInputDevice2A {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInputDevice2A {}
-impl ::core::fmt::Debug for IDirectInputDevice2A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInputDevice2A").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInputDevice2A {
     type Vtable = IDirectInputDevice2A_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInputDevice2A {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInputDevice2A {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5944e682_c92e_11cf_bfc7_444553540000);
@@ -1185,6 +1065,7 @@ pub struct IDirectInputDevice2A_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInputDevice2W(::windows_core::IUnknown);
 impl IDirectInputDevice2W {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
@@ -1290,24 +1171,8 @@ impl IDirectInputDevice2W {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInputDevice2W, ::windows_core::IUnknown, IDirectInputDeviceW);
-impl ::core::cmp::PartialEq for IDirectInputDevice2W {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInputDevice2W {}
-impl ::core::fmt::Debug for IDirectInputDevice2W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInputDevice2W").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInputDevice2W {
     type Vtable = IDirectInputDevice2W_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInputDevice2W {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInputDevice2W {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5944e683_c92e_11cf_bfc7_444553540000);
@@ -1334,6 +1199,7 @@ pub struct IDirectInputDevice2W_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInputDevice7A(::windows_core::IUnknown);
 impl IDirectInputDevice7A {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
@@ -1453,24 +1319,8 @@ impl IDirectInputDevice7A {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInputDevice7A, ::windows_core::IUnknown, IDirectInputDeviceA, IDirectInputDevice2A);
-impl ::core::cmp::PartialEq for IDirectInputDevice7A {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInputDevice7A {}
-impl ::core::fmt::Debug for IDirectInputDevice7A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInputDevice7A").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInputDevice7A {
     type Vtable = IDirectInputDevice7A_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInputDevice7A {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInputDevice7A {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae);
@@ -1487,6 +1337,7 @@ pub struct IDirectInputDevice7A_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInputDevice7W(::windows_core::IUnknown);
 impl IDirectInputDevice7W {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
@@ -1606,24 +1457,8 @@ impl IDirectInputDevice7W {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInputDevice7W, ::windows_core::IUnknown, IDirectInputDeviceW, IDirectInputDevice2W);
-impl ::core::cmp::PartialEq for IDirectInputDevice7W {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInputDevice7W {}
-impl ::core::fmt::Debug for IDirectInputDevice7W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInputDevice7W").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInputDevice7W {
     type Vtable = IDirectInputDevice7W_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInputDevice7W {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInputDevice7W {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae);
@@ -1640,6 +1475,7 @@ pub struct IDirectInputDevice7W_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInputDevice8A(::windows_core::IUnknown);
 impl IDirectInputDevice8A {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
@@ -1780,24 +1616,8 @@ impl IDirectInputDevice8A {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInputDevice8A, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectInputDevice8A {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInputDevice8A {}
-impl ::core::fmt::Debug for IDirectInputDevice8A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInputDevice8A").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInputDevice8A {
     type Vtable = IDirectInputDevice8A_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInputDevice8A {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInputDevice8A {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54d41080_dc15_4833_a41b_748f73a38179);
@@ -1871,6 +1691,7 @@ pub struct IDirectInputDevice8A_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInputDevice8W(::windows_core::IUnknown);
 impl IDirectInputDevice8W {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
@@ -2011,24 +1832,8 @@ impl IDirectInputDevice8W {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInputDevice8W, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectInputDevice8W {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInputDevice8W {}
-impl ::core::fmt::Debug for IDirectInputDevice8W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInputDevice8W").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInputDevice8W {
     type Vtable = IDirectInputDevice8W_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInputDevice8W {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInputDevice8W {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54d41081_dc15_4833_a41b_748f73a38179);
@@ -2102,6 +1907,7 @@ pub struct IDirectInputDevice8W_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInputDeviceA(::windows_core::IUnknown);
 impl IDirectInputDeviceA {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
@@ -2173,24 +1979,8 @@ impl IDirectInputDeviceA {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInputDeviceA, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectInputDeviceA {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInputDeviceA {}
-impl ::core::fmt::Debug for IDirectInputDeviceA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInputDeviceA").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInputDeviceA {
     type Vtable = IDirectInputDeviceA_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInputDeviceA {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInputDeviceA {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5944e680_c92e_11cf_bfc7_444553540000);
@@ -2232,6 +2022,7 @@ pub struct IDirectInputDeviceA_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInputDeviceW(::windows_core::IUnknown);
 impl IDirectInputDeviceW {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
@@ -2303,24 +2094,8 @@ impl IDirectInputDeviceW {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInputDeviceW, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectInputDeviceW {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInputDeviceW {}
-impl ::core::fmt::Debug for IDirectInputDeviceW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInputDeviceW").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInputDeviceW {
     type Vtable = IDirectInputDeviceW_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInputDeviceW {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInputDeviceW {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5944e681_c92e_11cf_bfc7_444553540000);
@@ -2362,6 +2137,7 @@ pub struct IDirectInputDeviceW_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInputEffect(::windows_core::IUnknown);
 impl IDirectInputEffect {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2401,24 +2177,8 @@ impl IDirectInputEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInputEffect, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectInputEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInputEffect {}
-impl ::core::fmt::Debug for IDirectInputEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInputEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInputEffect {
     type Vtable = IDirectInputEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInputEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInputEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
@@ -2443,6 +2203,7 @@ pub struct IDirectInputEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInputEffectDriver(::windows_core::IUnknown);
 impl IDirectInputEffectDriver {
     pub unsafe fn DeviceID(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -2480,24 +2241,8 @@ impl IDirectInputEffectDriver {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInputEffectDriver, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectInputEffectDriver {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInputEffectDriver {}
-impl ::core::fmt::Debug for IDirectInputEffectDriver {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInputEffectDriver").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInputEffectDriver {
     type Vtable = IDirectInputEffectDriver_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInputEffectDriver {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInputEffectDriver {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x02538130_898f_11d0_9ad0_00a0c9a06e35);
@@ -2520,6 +2265,7 @@ pub struct IDirectInputEffectDriver_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInputJoyConfig(::windows_core::IUnknown);
 impl IDirectInputJoyConfig {
     pub unsafe fn Acquire(&self) -> ::windows_core::Result<()> {
@@ -2600,24 +2346,8 @@ impl IDirectInputJoyConfig {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInputJoyConfig, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectInputJoyConfig {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInputJoyConfig {}
-impl ::core::fmt::Debug for IDirectInputJoyConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInputJoyConfig").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInputJoyConfig {
     type Vtable = IDirectInputJoyConfig_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInputJoyConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInputJoyConfig {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1de12ab1_c9f5_11cf_bfc7_444553540000);
@@ -2660,6 +2390,7 @@ pub struct IDirectInputJoyConfig_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInputJoyConfig8(::windows_core::IUnknown);
 impl IDirectInputJoyConfig8 {
     pub unsafe fn Acquire(&self) -> ::windows_core::Result<()> {
@@ -2741,24 +2472,8 @@ impl IDirectInputJoyConfig8 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInputJoyConfig8, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectInputJoyConfig8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInputJoyConfig8 {}
-impl ::core::fmt::Debug for IDirectInputJoyConfig8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInputJoyConfig8").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInputJoyConfig8 {
     type Vtable = IDirectInputJoyConfig8_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInputJoyConfig8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInputJoyConfig8 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb0d7dfa_1990_4f27_b4d6_edf2eec4a44c);
@@ -2801,6 +2516,7 @@ pub struct IDirectInputJoyConfig8_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectInputW(::windows_core::IUnknown);
 impl IDirectInputW {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: P0) -> ::windows_core::Result<()>
@@ -2835,24 +2551,8 @@ impl IDirectInputW {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectInputW, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectInputW {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectInputW {}
-impl ::core::fmt::Debug for IDirectInputW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectInputW").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectInputW {
     type Vtable = IDirectInputW_Vtbl;
-}
-impl ::core::clone::Clone for IDirectInputW {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectInputW {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89521361_aa8a_11cf_bfc7_444553540000);

@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEasClientDeviceInformation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEasClientDeviceInformation {
     type Vtable = IEasClientDeviceInformation_Vtbl;
-}
-impl ::core::clone::Clone for IEasClientDeviceInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEasClientDeviceInformation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54dfd981_1968_4ca3_b958_e595d16505eb);
@@ -25,14 +21,10 @@ pub struct IEasClientDeviceInformation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEasClientDeviceInformation2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEasClientDeviceInformation2 {
     type Vtable = IEasClientDeviceInformation2_Vtbl;
-}
-impl ::core::clone::Clone for IEasClientDeviceInformation2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEasClientDeviceInformation2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xffb35923_bb26_4d6a_81bc_165aee0ad754);
@@ -46,14 +38,10 @@ pub struct IEasClientDeviceInformation2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEasClientSecurityPolicy(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEasClientSecurityPolicy {
     type Vtable = IEasClientSecurityPolicy_Vtbl;
-}
-impl ::core::clone::Clone for IEasClientSecurityPolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEasClientSecurityPolicy {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
@@ -98,14 +86,10 @@ pub struct IEasClientSecurityPolicy_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEasComplianceResults(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEasComplianceResults {
     type Vtable = IEasComplianceResults_Vtbl;
-}
-impl ::core::clone::Clone for IEasComplianceResults {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEasComplianceResults {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
@@ -126,14 +110,10 @@ pub struct IEasComplianceResults_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEasComplianceResults2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEasComplianceResults2 {
     type Vtable = IEasComplianceResults2_Vtbl;
-}
-impl ::core::clone::Clone for IEasComplianceResults2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEasComplianceResults2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15);
@@ -146,6 +126,7 @@ pub struct IEasComplianceResults2_Vtbl {
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EasClientDeviceInformation(::windows_core::IUnknown);
 impl EasClientDeviceInformation {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -212,24 +193,8 @@ impl EasClientDeviceInformation {
         }
     }
 }
-impl ::core::cmp::PartialEq for EasClientDeviceInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasClientDeviceInformation {}
-impl ::core::fmt::Debug for EasClientDeviceInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasClientDeviceInformation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EasClientDeviceInformation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation;{54dfd981-1968-4ca3-b958-e595d16505eb})");
-}
-impl ::core::clone::Clone for EasClientDeviceInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EasClientDeviceInformation {
     type Vtable = IEasClientDeviceInformation_Vtbl;
@@ -243,6 +208,7 @@ impl ::windows_core::RuntimeName for EasClientDeviceInformation {
 ::windows_core::imp::interface_hierarchy!(EasClientDeviceInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EasClientSecurityPolicy(::windows_core::IUnknown);
 impl EasClientSecurityPolicy {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -365,24 +331,8 @@ impl EasClientSecurityPolicy {
         }
     }
 }
-impl ::core::cmp::PartialEq for EasClientSecurityPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasClientSecurityPolicy {}
-impl ::core::fmt::Debug for EasClientSecurityPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasClientSecurityPolicy").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EasClientSecurityPolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy;{45b72362-dfba-4a9b-aced-6fe2adcb6420})");
-}
-impl ::core::clone::Clone for EasClientSecurityPolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EasClientSecurityPolicy {
     type Vtable = IEasClientSecurityPolicy_Vtbl;
@@ -396,6 +346,7 @@ impl ::windows_core::RuntimeName for EasClientSecurityPolicy {
 ::windows_core::imp::interface_hierarchy!(EasClientSecurityPolicy, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EasComplianceResults(::windows_core::IUnknown);
 impl EasComplianceResults {
     pub fn Compliant(&self) -> ::windows_core::Result<bool> {
@@ -469,24 +420,8 @@ impl EasComplianceResults {
         }
     }
 }
-impl ::core::cmp::PartialEq for EasComplianceResults {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasComplianceResults {}
-impl ::core::fmt::Debug for EasComplianceResults {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasComplianceResults").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EasComplianceResults {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults;{463c299c-7f19-4c66-b403-cb45dd57a2b3})");
-}
-impl ::core::clone::Clone for EasComplianceResults {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EasComplianceResults {
     type Vtable = IEasComplianceResults_Vtbl;

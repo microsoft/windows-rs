@@ -84,8 +84,8 @@ impl IDXCoreAdapter_Vtbl {
             GetFactory: GetFactory::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDXCoreAdapter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDXCoreAdapter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -142,8 +142,8 @@ impl IDXCoreAdapterFactory_Vtbl {
             UnregisterEventNotification: UnregisterEventNotification::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDXCoreAdapterFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDXCoreAdapterFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`, `\"implement\"`*"]
@@ -198,7 +198,7 @@ impl IDXCoreAdapterList_Vtbl {
             IsAdapterPreferenceSupported: IsAdapterPreferenceSupported::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDXCoreAdapterList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDXCoreAdapterList as ::windows_core::ComInterface>::IID
     }
 }

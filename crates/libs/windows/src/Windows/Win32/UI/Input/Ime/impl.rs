@@ -148,8 +148,8 @@ impl IActiveIME_Vtbl {
             GetLangId: GetLangId::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveIME as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IActiveIME as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -175,8 +175,8 @@ impl IActiveIME2_Vtbl {
         }
         Self { base__: IActiveIME_Vtbl::new::<Identity, Impl, OFFSET>(), Sleep: Sleep::<Identity, Impl, OFFSET>, Unsleep: Unsleep::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveIME2 as ::windows_core::ComInterface>::IID || iid == &<IActiveIME as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IActiveIME2 as ::windows_core::ComInterface>::IID || *iid == <IActiveIME as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -758,8 +758,8 @@ impl IActiveIMMApp_Vtbl {
             EnumInputContext: EnumInputContext::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveIMMApp as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IActiveIMMApp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -1541,8 +1541,8 @@ impl IActiveIMMIME_Vtbl {
             IsSleeping: IsSleeping::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveIMMIME as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IActiveIMMIME as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -1599,8 +1599,8 @@ impl IActiveIMMMessagePumpOwner_Vtbl {
             Resume: Resume::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveIMMMessagePumpOwner as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IActiveIMMMessagePumpOwner as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"implement\"`*"]
@@ -1627,8 +1627,8 @@ impl IActiveIMMRegistrar_Vtbl {
             UnregisterIME: UnregisterIME::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveIMMRegistrar as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IActiveIMMRegistrar as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"implement\"`*"]
@@ -1678,8 +1678,8 @@ impl IEnumInputContext_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumInputContext as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IEnumInputContext as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"implement\"`*"]
@@ -1726,8 +1726,8 @@ impl IEnumRegisterWordA_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumRegisterWordA as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IEnumRegisterWordA as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"implement\"`*"]
@@ -1774,8 +1774,8 @@ impl IEnumRegisterWordW_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumRegisterWordW as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IEnumRegisterWordW as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1788,8 +1788,8 @@ impl IFEClassFactory_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFEClassFactory_Impl, const OFFSET: isize>() -> IFEClassFactory_Vtbl {
         Self { base__: super::super::super::System::Com::IClassFactory_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFEClassFactory as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IClassFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IFEClassFactory as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1833,8 +1833,8 @@ impl IFECommon_Vtbl {
             InvokeDictToolDialog: InvokeDictToolDialog::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFECommon as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IFECommon as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1969,8 +1969,8 @@ impl IFEDictionary_Vtbl {
             ConvertFromUserToSys: ConvertFromUserToSys::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFEDictionary as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IFEDictionary as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"implement\"`*"]
@@ -2025,8 +2025,8 @@ impl IFELanguage_Vtbl {
             GetConversion: GetConversion::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFELanguage as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IFELanguage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2046,8 +2046,8 @@ impl IImePad_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Request: Request::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IImePad as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IImePad as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -2098,8 +2098,8 @@ impl IImePadApplet_Vtbl {
             Notify: Notify::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IImePadApplet as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IImePadApplet as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2129,8 +2129,8 @@ impl IImePlugInDictDictionaryList_Vtbl {
             DeleteDictionary: DeleteDictionary::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IImePlugInDictDictionaryList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IImePlugInDictDictionaryList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"implement\"`*"]
@@ -2147,7 +2147,7 @@ impl IImeSpecifyApplets_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetAppletIIDList: GetAppletIIDList::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IImeSpecifyApplets as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IImeSpecifyApplets as ::windows_core::ComInterface>::IID
     }
 }

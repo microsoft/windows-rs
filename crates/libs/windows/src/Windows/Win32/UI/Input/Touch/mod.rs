@@ -100,6 +100,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInertiaProcessor(::windows_core::IUnknown);
 impl IInertiaProcessor {
     pub unsafe fn InitialOriginX(&self) -> ::windows_core::Result<f32> {
@@ -279,24 +280,8 @@ impl IInertiaProcessor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInertiaProcessor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInertiaProcessor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInertiaProcessor {}
-impl ::core::fmt::Debug for IInertiaProcessor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInertiaProcessor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInertiaProcessor {
     type Vtable = IInertiaProcessor_Vtbl;
-}
-impl ::core::clone::Clone for IInertiaProcessor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInertiaProcessor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18b00c6d_c5ee_41b1_90a9_9d4a929095ad);
@@ -363,6 +348,7 @@ pub struct IInertiaProcessor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IManipulationProcessor(::windows_core::IUnknown);
 impl IManipulationProcessor {
     pub unsafe fn SupportedManipulations(&self) -> ::windows_core::Result<MANIPULATION_PROCESSOR_MANIPULATIONS> {
@@ -439,24 +425,8 @@ impl IManipulationProcessor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IManipulationProcessor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IManipulationProcessor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IManipulationProcessor {}
-impl ::core::fmt::Debug for IManipulationProcessor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IManipulationProcessor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IManipulationProcessor {
     type Vtable = IManipulationProcessor_Vtbl;
-}
-impl ::core::clone::Clone for IManipulationProcessor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IManipulationProcessor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa22ac519_8300_48a0_bef4_f1be8737dba4);
@@ -489,6 +459,7 @@ pub struct IManipulationProcessor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _IManipulationEvents(::windows_core::IUnknown);
 impl _IManipulationEvents {
     pub unsafe fn ManipulationStarted(&self, x: f32, y: f32) -> ::windows_core::Result<()> {
@@ -502,24 +473,8 @@ impl _IManipulationEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(_IManipulationEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for _IManipulationEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for _IManipulationEvents {}
-impl ::core::fmt::Debug for _IManipulationEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_IManipulationEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for _IManipulationEvents {
     type Vtable = _IManipulationEvents_Vtbl;
-}
-impl ::core::clone::Clone for _IManipulationEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for _IManipulationEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f62c8da_9c53_4b22_93df_927a862bbb03);

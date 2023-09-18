@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppServiceCatalogStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppServiceCatalogStatics {
     type Vtable = IAppServiceCatalogStatics_Vtbl;
-}
-impl ::core::clone::Clone for IAppServiceCatalogStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppServiceCatalogStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef0d2507_d132_4c85_8395_3c31d5a1e941);
@@ -23,14 +19,10 @@ pub struct IAppServiceCatalogStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppServiceClosedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppServiceClosedEventArgs {
     type Vtable = IAppServiceClosedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IAppServiceClosedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppServiceClosedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde6016f6_cb03_4d35_ac8d_cc6303239731);
@@ -43,14 +35,10 @@ pub struct IAppServiceClosedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppServiceConnection(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppServiceConnection {
     type Vtable = IAppServiceConnection_Vtbl;
-}
-impl ::core::clone::Clone for IAppServiceConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppServiceConnection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9dd474a2_871f_4d52_89a9_9e090531bd27);
@@ -90,14 +78,10 @@ pub struct IAppServiceConnection_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppServiceConnection2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppServiceConnection2 {
     type Vtable = IAppServiceConnection2_Vtbl;
-}
-impl ::core::clone::Clone for IAppServiceConnection2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppServiceConnection2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8bdfcd5f_2302_4fbd_8061_52511c2f8bf9);
@@ -121,14 +105,10 @@ pub struct IAppServiceConnection2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppServiceConnectionStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppServiceConnectionStatics {
     type Vtable = IAppServiceConnectionStatics_Vtbl;
-}
-impl ::core::clone::Clone for IAppServiceConnectionStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppServiceConnectionStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xadc56ce9_d408_5673_8637_827a4b274168);
@@ -144,14 +124,10 @@ pub struct IAppServiceConnectionStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppServiceDeferral(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppServiceDeferral {
     type Vtable = IAppServiceDeferral_Vtbl;
-}
-impl ::core::clone::Clone for IAppServiceDeferral {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppServiceDeferral {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7e1b5322_eab0_4248_ae04_fdf93838e472);
@@ -164,14 +140,10 @@ pub struct IAppServiceDeferral_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppServiceRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppServiceRequest {
     type Vtable = IAppServiceRequest_Vtbl;
-}
-impl ::core::clone::Clone for IAppServiceRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppServiceRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20e58d9d_18de_4b01_80ba_90a76204e3c8);
@@ -191,14 +163,10 @@ pub struct IAppServiceRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppServiceRequestReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppServiceRequestReceivedEventArgs {
     type Vtable = IAppServiceRequestReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IAppServiceRequestReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppServiceRequestReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e122360_ff65_44ae_9e45_857fe4180681);
@@ -212,14 +180,10 @@ pub struct IAppServiceRequestReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppServiceResponse(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppServiceResponse {
     type Vtable = IAppServiceResponse_Vtbl;
-}
-impl ::core::clone::Clone for IAppServiceResponse {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppServiceResponse {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d503cec_9aa3_4e68_9559_9de63e372ce4);
@@ -236,14 +200,10 @@ pub struct IAppServiceResponse_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppServiceTriggerDetails(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppServiceTriggerDetails {
     type Vtable = IAppServiceTriggerDetails_Vtbl;
-}
-impl ::core::clone::Clone for IAppServiceTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppServiceTriggerDetails {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88a2dcac_ad28_41b8_80bb_bdf1b2169e19);
@@ -258,14 +218,10 @@ pub struct IAppServiceTriggerDetails_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppServiceTriggerDetails2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppServiceTriggerDetails2 {
     type Vtable = IAppServiceTriggerDetails2_Vtbl;
-}
-impl ::core::clone::Clone for IAppServiceTriggerDetails2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppServiceTriggerDetails2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe83d54b2_28cc_43f2_b465_c0482e59e2dc);
@@ -278,14 +234,10 @@ pub struct IAppServiceTriggerDetails2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppServiceTriggerDetails3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppServiceTriggerDetails3 {
     type Vtable = IAppServiceTriggerDetails3_Vtbl;
-}
-impl ::core::clone::Clone for IAppServiceTriggerDetails3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppServiceTriggerDetails3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfbd71e21_7939_4e68_9e3c_7780147aabb6);
@@ -301,14 +253,10 @@ pub struct IAppServiceTriggerDetails3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppServiceTriggerDetails4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppServiceTriggerDetails4 {
     type Vtable = IAppServiceTriggerDetails4_Vtbl;
-}
-impl ::core::clone::Clone for IAppServiceTriggerDetails4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppServiceTriggerDetails4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1185b180_8861_5e30_ab55_1cf4d08bbf6d);
@@ -321,14 +269,10 @@ pub struct IAppServiceTriggerDetails4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStatelessAppServiceResponse(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStatelessAppServiceResponse {
     type Vtable = IStatelessAppServiceResponse_Vtbl;
-}
-impl ::core::clone::Clone for IStatelessAppServiceResponse {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStatelessAppServiceResponse {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43754af7_a9ec_52fe_82e7_939b68dc9388);
@@ -365,6 +309,7 @@ impl ::windows_core::RuntimeName for AppServiceCatalog {
 }
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppServiceClosedEventArgs(::windows_core::IUnknown);
 impl AppServiceClosedEventArgs {
     pub fn Status(&self) -> ::windows_core::Result<AppServiceClosedStatus> {
@@ -375,24 +320,8 @@ impl AppServiceClosedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppServiceClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceClosedEventArgs {}
-impl ::core::fmt::Debug for AppServiceClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceClosedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppServiceClosedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceClosedEventArgs;{de6016f6-cb03-4d35-ac8d-cc6303239731})");
-}
-impl ::core::clone::Clone for AppServiceClosedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppServiceClosedEventArgs {
     type Vtable = IAppServiceClosedEventArgs_Vtbl;
@@ -408,6 +337,7 @@ unsafe impl ::core::marker::Send for AppServiceClosedEventArgs {}
 unsafe impl ::core::marker::Sync for AppServiceClosedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppServiceConnection(::windows_core::IUnknown);
 impl AppServiceConnection {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -551,24 +481,8 @@ impl AppServiceConnection {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for AppServiceConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceConnection {}
-impl ::core::fmt::Debug for AppServiceConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceConnection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppServiceConnection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceConnection;{9dd474a2-871f-4d52-89a9-9e090531bd27})");
-}
-impl ::core::clone::Clone for AppServiceConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppServiceConnection {
     type Vtable = IAppServiceConnection_Vtbl;
@@ -586,6 +500,7 @@ unsafe impl ::core::marker::Send for AppServiceConnection {}
 unsafe impl ::core::marker::Sync for AppServiceConnection {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppServiceDeferral(::windows_core::IUnknown);
 impl AppServiceDeferral {
     pub fn Complete(&self) -> ::windows_core::Result<()> {
@@ -593,24 +508,8 @@ impl AppServiceDeferral {
         unsafe { (::windows_core::Interface::vtable(this).Complete)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for AppServiceDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceDeferral {}
-impl ::core::fmt::Debug for AppServiceDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceDeferral").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppServiceDeferral {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceDeferral;{7e1b5322-eab0-4248-ae04-fdf93838e472})");
-}
-impl ::core::clone::Clone for AppServiceDeferral {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppServiceDeferral {
     type Vtable = IAppServiceDeferral_Vtbl;
@@ -626,6 +525,7 @@ unsafe impl ::core::marker::Send for AppServiceDeferral {}
 unsafe impl ::core::marker::Sync for AppServiceDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppServiceRequest(::windows_core::IUnknown);
 impl AppServiceRequest {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -650,24 +550,8 @@ impl AppServiceRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppServiceRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceRequest {}
-impl ::core::fmt::Debug for AppServiceRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppServiceRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceRequest;{20e58d9d-18de-4b01-80ba-90a76204e3c8})");
-}
-impl ::core::clone::Clone for AppServiceRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppServiceRequest {
     type Vtable = IAppServiceRequest_Vtbl;
@@ -683,6 +567,7 @@ unsafe impl ::core::marker::Send for AppServiceRequest {}
 unsafe impl ::core::marker::Sync for AppServiceRequest {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppServiceRequestReceivedEventArgs(::windows_core::IUnknown);
 impl AppServiceRequestReceivedEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<AppServiceRequest> {
@@ -700,24 +585,8 @@ impl AppServiceRequestReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppServiceRequestReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceRequestReceivedEventArgs {}
-impl ::core::fmt::Debug for AppServiceRequestReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceRequestReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppServiceRequestReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs;{6e122360-ff65-44ae-9e45-857fe4180681})");
-}
-impl ::core::clone::Clone for AppServiceRequestReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppServiceRequestReceivedEventArgs {
     type Vtable = IAppServiceRequestReceivedEventArgs_Vtbl;
@@ -733,6 +602,7 @@ unsafe impl ::core::marker::Send for AppServiceRequestReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for AppServiceRequestReceivedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppServiceResponse(::windows_core::IUnknown);
 impl AppServiceResponse {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -752,24 +622,8 @@ impl AppServiceResponse {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppServiceResponse {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceResponse {}
-impl ::core::fmt::Debug for AppServiceResponse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceResponse").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppServiceResponse {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceResponse;{8d503cec-9aa3-4e68-9559-9de63e372ce4})");
-}
-impl ::core::clone::Clone for AppServiceResponse {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppServiceResponse {
     type Vtable = IAppServiceResponse_Vtbl;
@@ -785,6 +639,7 @@ unsafe impl ::core::marker::Send for AppServiceResponse {}
 unsafe impl ::core::marker::Sync for AppServiceResponse {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppServiceTriggerDetails(::windows_core::IUnknown);
 impl AppServiceTriggerDetails {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -832,24 +687,8 @@ impl AppServiceTriggerDetails {
         }
     }
 }
-impl ::core::cmp::PartialEq for AppServiceTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceTriggerDetails {}
-impl ::core::fmt::Debug for AppServiceTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceTriggerDetails").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppServiceTriggerDetails {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceTriggerDetails;{88a2dcac-ad28-41b8-80bb-bdf1b2169e19})");
-}
-impl ::core::clone::Clone for AppServiceTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppServiceTriggerDetails {
     type Vtable = IAppServiceTriggerDetails_Vtbl;
@@ -865,6 +704,7 @@ unsafe impl ::core::marker::Send for AppServiceTriggerDetails {}
 unsafe impl ::core::marker::Sync for AppServiceTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StatelessAppServiceResponse(::windows_core::IUnknown);
 impl StatelessAppServiceResponse {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -884,24 +724,8 @@ impl StatelessAppServiceResponse {
         }
     }
 }
-impl ::core::cmp::PartialEq for StatelessAppServiceResponse {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StatelessAppServiceResponse {}
-impl ::core::fmt::Debug for StatelessAppServiceResponse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StatelessAppServiceResponse").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StatelessAppServiceResponse {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.StatelessAppServiceResponse;{43754af7-a9ec-52fe-82e7-939b68dc9388})");
-}
-impl ::core::clone::Clone for StatelessAppServiceResponse {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StatelessAppServiceResponse {
     type Vtable = IStatelessAppServiceResponse_Vtbl;

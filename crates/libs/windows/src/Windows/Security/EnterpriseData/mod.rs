@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBufferProtectUnprotectResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBufferProtectUnprotectResult {
     type Vtable = IBufferProtectUnprotectResult_Vtbl;
-}
-impl ::core::clone::Clone for IBufferProtectUnprotectResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBufferProtectUnprotectResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47995edc_6cec_4e3a_b251_9e7485d79e7a);
@@ -24,14 +20,10 @@ pub struct IBufferProtectUnprotectResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataProtectionInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDataProtectionInfo {
     type Vtable = IDataProtectionInfo_Vtbl;
-}
-impl ::core::clone::Clone for IDataProtectionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataProtectionInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8420b0c1_5e31_4405_9540_3f943af0cb26);
@@ -45,14 +37,10 @@ pub struct IDataProtectionInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataProtectionManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDataProtectionManagerStatics {
     type Vtable = IDataProtectionManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDataProtectionManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataProtectionManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6149b74_9144_4ee4_8a8a_30b5f361430e);
@@ -88,14 +76,10 @@ pub struct IDataProtectionManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileProtectionInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFileProtectionInfo {
     type Vtable = IFileProtectionInfo_Vtbl;
-}
-impl ::core::clone::Clone for IFileProtectionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFileProtectionInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4ee96486_147e_4dd0_8faf_5253ed91ad0c);
@@ -110,14 +94,10 @@ pub struct IFileProtectionInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileProtectionInfo2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFileProtectionInfo2 {
     type Vtable = IFileProtectionInfo2_Vtbl;
-}
-impl ::core::clone::Clone for IFileProtectionInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFileProtectionInfo2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x82123a4c_557a_498d_8e94_944cd5836432);
@@ -130,14 +110,10 @@ pub struct IFileProtectionInfo2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileProtectionManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFileProtectionManagerStatics {
     type Vtable = IFileProtectionManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IFileProtectionManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFileProtectionManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5846fc9b_e613_426b_bb38_88cba1dc9adb);
@@ -177,14 +153,10 @@ pub struct IFileProtectionManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileProtectionManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFileProtectionManagerStatics2 {
     type Vtable = IFileProtectionManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IFileProtectionManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFileProtectionManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83d2a745_0483_41ab_b2d5_bc7f23d74ebb);
@@ -208,14 +180,10 @@ pub struct IFileProtectionManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileProtectionManagerStatics3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFileProtectionManagerStatics3 {
     type Vtable = IFileProtectionManagerStatics3_Vtbl;
-}
-impl ::core::clone::Clone for IFileProtectionManagerStatics3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFileProtectionManagerStatics3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6918849a_624f_46d6_b241_e9cd5fdf3e3f);
@@ -236,16 +204,11 @@ pub struct IFileProtectionManagerStatics3_Vtbl {
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileRevocationManagerStatics(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IFileRevocationManagerStatics {
     type Vtable = IFileRevocationManagerStatics_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IFileRevocationManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IFileRevocationManagerStatics {
@@ -275,14 +238,10 @@ pub struct IFileRevocationManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileUnprotectOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFileUnprotectOptions {
     type Vtable = IFileUnprotectOptions_Vtbl;
-}
-impl ::core::clone::Clone for IFileUnprotectOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFileUnprotectOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d1312f1_3b0d_4dd8_a1f8_1ec53822e2f3);
@@ -296,14 +255,10 @@ pub struct IFileUnprotectOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileUnprotectOptionsFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFileUnprotectOptionsFactory {
     type Vtable = IFileUnprotectOptionsFactory_Vtbl;
-}
-impl ::core::clone::Clone for IFileUnprotectOptionsFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFileUnprotectOptionsFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51aeb39c_da8c_4c3f_9bfb_cb73a7cce0dd);
@@ -316,14 +271,10 @@ pub struct IFileUnprotectOptionsFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectedAccessResumedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtectedAccessResumedEventArgs {
     type Vtable = IProtectedAccessResumedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IProtectedAccessResumedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectedAccessResumedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac4dca59_5d80_4e95_8c5f_8539450eebe0);
@@ -339,14 +290,10 @@ pub struct IProtectedAccessResumedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectedAccessSuspendingEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtectedAccessSuspendingEventArgs {
     type Vtable = IProtectedAccessSuspendingEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IProtectedAccessSuspendingEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectedAccessSuspendingEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75a193e0_a344_429f_b975_04fc1f88c185);
@@ -370,14 +317,10 @@ pub struct IProtectedAccessSuspendingEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectedContainerExportResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtectedContainerExportResult {
     type Vtable = IProtectedContainerExportResult_Vtbl;
-}
-impl ::core::clone::Clone for IProtectedContainerExportResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectedContainerExportResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3948ef95_f7fb_4b42_afb0_df70b41543c1);
@@ -394,14 +337,10 @@ pub struct IProtectedContainerExportResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectedContainerImportResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtectedContainerImportResult {
     type Vtable = IProtectedContainerImportResult_Vtbl;
-}
-impl ::core::clone::Clone for IProtectedContainerImportResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectedContainerImportResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcdb780d1_e7bb_4d1a_9339_34dc41149f9b);
@@ -418,14 +357,10 @@ pub struct IProtectedContainerImportResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectedContentRevokedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtectedContentRevokedEventArgs {
     type Vtable = IProtectedContentRevokedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IProtectedContentRevokedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectedContentRevokedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63686821_58b9_47ee_93d9_f0f741cf43f0);
@@ -441,14 +376,10 @@ pub struct IProtectedContentRevokedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectedFileCreateResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtectedFileCreateResult {
     type Vtable = IProtectedFileCreateResult_Vtbl;
-}
-impl ::core::clone::Clone for IProtectedFileCreateResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectedFileCreateResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28e3ed6a_e9e7_4a03_9f53_bdb16172699b);
@@ -469,14 +400,10 @@ pub struct IProtectedFileCreateResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectionPolicyAuditInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtectionPolicyAuditInfo {
     type Vtable = IProtectionPolicyAuditInfo_Vtbl;
-}
-impl ::core::clone::Clone for IProtectionPolicyAuditInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectionPolicyAuditInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x425ab7e4_feb7_44fc_b3bb_c3c4d7ecbebb);
@@ -496,14 +423,10 @@ pub struct IProtectionPolicyAuditInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectionPolicyAuditInfoFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtectionPolicyAuditInfoFactory {
     type Vtable = IProtectionPolicyAuditInfoFactory_Vtbl;
-}
-impl ::core::clone::Clone for IProtectionPolicyAuditInfoFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectionPolicyAuditInfoFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ed4180b_92e8_42d5_83d4_25440b423549);
@@ -517,14 +440,10 @@ pub struct IProtectionPolicyAuditInfoFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectionPolicyManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtectionPolicyManager {
     type Vtable = IProtectionPolicyManager_Vtbl;
-}
-impl ::core::clone::Clone for IProtectionPolicyManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectionPolicyManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5703e18_a08d_47e6_a240_9934d7165eb5);
@@ -538,14 +457,10 @@ pub struct IProtectionPolicyManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectionPolicyManager2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtectionPolicyManager2 {
     type Vtable = IProtectionPolicyManager2_Vtbl;
-}
-impl ::core::clone::Clone for IProtectionPolicyManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectionPolicyManager2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xabf7527a_8435_417f_99b6_51beaf365888);
@@ -559,14 +474,10 @@ pub struct IProtectionPolicyManager2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectionPolicyManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtectionPolicyManagerStatics {
     type Vtable = IProtectionPolicyManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IProtectionPolicyManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectionPolicyManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0bffc66_8c3d_4d56_8804_c68f0ad32ec5);
@@ -617,14 +528,10 @@ pub struct IProtectionPolicyManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectionPolicyManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtectionPolicyManagerStatics2 {
     type Vtable = IProtectionPolicyManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IProtectionPolicyManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectionPolicyManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb68f9a8c_39e0_4649_b2e4_070ab8a579b3);
@@ -657,14 +564,10 @@ pub struct IProtectionPolicyManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectionPolicyManagerStatics3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtectionPolicyManagerStatics3 {
     type Vtable = IProtectionPolicyManagerStatics3_Vtbl;
-}
-impl ::core::clone::Clone for IProtectionPolicyManagerStatics3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectionPolicyManagerStatics3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x48ff9e8c_6a6f_4d9f_bced_18ab537aa015);
@@ -693,14 +596,10 @@ pub struct IProtectionPolicyManagerStatics3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectionPolicyManagerStatics4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtectionPolicyManagerStatics4 {
     type Vtable = IProtectionPolicyManagerStatics4_Vtbl;
-}
-impl ::core::clone::Clone for IProtectionPolicyManagerStatics4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectionPolicyManagerStatics4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20b794db_ccbd_490f_8c83_49ccb77aea6c);
@@ -747,14 +646,10 @@ pub struct IProtectionPolicyManagerStatics4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IThreadNetworkContext(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IThreadNetworkContext {
     type Vtable = IThreadNetworkContext_Vtbl;
-}
-impl ::core::clone::Clone for IThreadNetworkContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IThreadNetworkContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfa4ea8e9_ef13_405a_b12c_d7348c6f41fc);
@@ -766,6 +661,7 @@ pub struct IThreadNetworkContext_Vtbl {
 }
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BufferProtectUnprotectResult(::windows_core::IUnknown);
 impl BufferProtectUnprotectResult {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -785,24 +681,8 @@ impl BufferProtectUnprotectResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for BufferProtectUnprotectResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BufferProtectUnprotectResult {}
-impl ::core::fmt::Debug for BufferProtectUnprotectResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BufferProtectUnprotectResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BufferProtectUnprotectResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.BufferProtectUnprotectResult;{47995edc-6cec-4e3a-b251-9e7485d79e7a})");
-}
-impl ::core::clone::Clone for BufferProtectUnprotectResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BufferProtectUnprotectResult {
     type Vtable = IBufferProtectUnprotectResult_Vtbl;
@@ -818,6 +698,7 @@ unsafe impl ::core::marker::Send for BufferProtectUnprotectResult {}
 unsafe impl ::core::marker::Sync for BufferProtectUnprotectResult {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DataProtectionInfo(::windows_core::IUnknown);
 impl DataProtectionInfo {
     pub fn Status(&self) -> ::windows_core::Result<DataProtectionStatus> {
@@ -835,24 +716,8 @@ impl DataProtectionInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for DataProtectionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataProtectionInfo {}
-impl ::core::fmt::Debug for DataProtectionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataProtectionInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DataProtectionInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.DataProtectionInfo;{8420b0c1-5e31-4405-9540-3f943af0cb26})");
-}
-impl ::core::clone::Clone for DataProtectionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DataProtectionInfo {
     type Vtable = IDataProtectionInfo_Vtbl;
@@ -948,6 +813,7 @@ impl ::windows_core::RuntimeName for DataProtectionManager {
 }
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileProtectionInfo(::windows_core::IUnknown);
 impl FileProtectionInfo {
     pub fn Status(&self) -> ::windows_core::Result<FileProtectionStatus> {
@@ -979,24 +845,8 @@ impl FileProtectionInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for FileProtectionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileProtectionInfo {}
-impl ::core::fmt::Debug for FileProtectionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileProtectionInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for FileProtectionInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.FileProtectionInfo;{4ee96486-147e-4dd0-8faf-5253ed91ad0c})");
-}
-impl ::core::clone::Clone for FileProtectionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for FileProtectionInfo {
     type Vtable = IFileProtectionInfo_Vtbl;
@@ -1226,6 +1076,7 @@ impl ::windows_core::RuntimeName for FileRevocationManager {
 }
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileUnprotectOptions(::windows_core::IUnknown);
 impl FileUnprotectOptions {
     pub fn SetAudit(&self, value: bool) -> ::windows_core::Result<()> {
@@ -1251,24 +1102,8 @@ impl FileUnprotectOptions {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for FileUnprotectOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileUnprotectOptions {}
-impl ::core::fmt::Debug for FileUnprotectOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileUnprotectOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for FileUnprotectOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.FileUnprotectOptions;{7d1312f1-3b0d-4dd8-a1f8-1ec53822e2f3})");
-}
-impl ::core::clone::Clone for FileUnprotectOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for FileUnprotectOptions {
     type Vtable = IFileUnprotectOptions_Vtbl;
@@ -1284,6 +1119,7 @@ unsafe impl ::core::marker::Send for FileUnprotectOptions {}
 unsafe impl ::core::marker::Sync for FileUnprotectOptions {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProtectedAccessResumedEventArgs(::windows_core::IUnknown);
 impl ProtectedAccessResumedEventArgs {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1296,24 +1132,8 @@ impl ProtectedAccessResumedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for ProtectedAccessResumedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtectedAccessResumedEventArgs {}
-impl ::core::fmt::Debug for ProtectedAccessResumedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtectedAccessResumedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProtectedAccessResumedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedAccessResumedEventArgs;{ac4dca59-5d80-4e95-8c5f-8539450eebe0})");
-}
-impl ::core::clone::Clone for ProtectedAccessResumedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProtectedAccessResumedEventArgs {
     type Vtable = IProtectedAccessResumedEventArgs_Vtbl;
@@ -1329,6 +1149,7 @@ unsafe impl ::core::marker::Send for ProtectedAccessResumedEventArgs {}
 unsafe impl ::core::marker::Sync for ProtectedAccessResumedEventArgs {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProtectedAccessSuspendingEventArgs(::windows_core::IUnknown);
 impl ProtectedAccessSuspendingEventArgs {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1359,24 +1180,8 @@ impl ProtectedAccessSuspendingEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for ProtectedAccessSuspendingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtectedAccessSuspendingEventArgs {}
-impl ::core::fmt::Debug for ProtectedAccessSuspendingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtectedAccessSuspendingEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProtectedAccessSuspendingEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedAccessSuspendingEventArgs;{75a193e0-a344-429f-b975-04fc1f88c185})");
-}
-impl ::core::clone::Clone for ProtectedAccessSuspendingEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProtectedAccessSuspendingEventArgs {
     type Vtable = IProtectedAccessSuspendingEventArgs_Vtbl;
@@ -1392,6 +1197,7 @@ unsafe impl ::core::marker::Send for ProtectedAccessSuspendingEventArgs {}
 unsafe impl ::core::marker::Sync for ProtectedAccessSuspendingEventArgs {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProtectedContainerExportResult(::windows_core::IUnknown);
 impl ProtectedContainerExportResult {
     pub fn Status(&self) -> ::windows_core::Result<ProtectedImportExportStatus> {
@@ -1411,24 +1217,8 @@ impl ProtectedContainerExportResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for ProtectedContainerExportResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtectedContainerExportResult {}
-impl ::core::fmt::Debug for ProtectedContainerExportResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtectedContainerExportResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProtectedContainerExportResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContainerExportResult;{3948ef95-f7fb-4b42-afb0-df70b41543c1})");
-}
-impl ::core::clone::Clone for ProtectedContainerExportResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProtectedContainerExportResult {
     type Vtable = IProtectedContainerExportResult_Vtbl;
@@ -1444,6 +1234,7 @@ unsafe impl ::core::marker::Send for ProtectedContainerExportResult {}
 unsafe impl ::core::marker::Sync for ProtectedContainerExportResult {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProtectedContainerImportResult(::windows_core::IUnknown);
 impl ProtectedContainerImportResult {
     pub fn Status(&self) -> ::windows_core::Result<ProtectedImportExportStatus> {
@@ -1463,24 +1254,8 @@ impl ProtectedContainerImportResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for ProtectedContainerImportResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtectedContainerImportResult {}
-impl ::core::fmt::Debug for ProtectedContainerImportResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtectedContainerImportResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProtectedContainerImportResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContainerImportResult;{cdb780d1-e7bb-4d1a-9339-34dc41149f9b})");
-}
-impl ::core::clone::Clone for ProtectedContainerImportResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProtectedContainerImportResult {
     type Vtable = IProtectedContainerImportResult_Vtbl;
@@ -1496,6 +1271,7 @@ unsafe impl ::core::marker::Send for ProtectedContainerImportResult {}
 unsafe impl ::core::marker::Sync for ProtectedContainerImportResult {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProtectedContentRevokedEventArgs(::windows_core::IUnknown);
 impl ProtectedContentRevokedEventArgs {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1508,24 +1284,8 @@ impl ProtectedContentRevokedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for ProtectedContentRevokedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtectedContentRevokedEventArgs {}
-impl ::core::fmt::Debug for ProtectedContentRevokedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtectedContentRevokedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProtectedContentRevokedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContentRevokedEventArgs;{63686821-58b9-47ee-93d9-f0f741cf43f0})");
-}
-impl ::core::clone::Clone for ProtectedContentRevokedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProtectedContentRevokedEventArgs {
     type Vtable = IProtectedContentRevokedEventArgs_Vtbl;
@@ -1541,6 +1301,7 @@ unsafe impl ::core::marker::Send for ProtectedContentRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ProtectedContentRevokedEventArgs {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProtectedFileCreateResult(::windows_core::IUnknown);
 impl ProtectedFileCreateResult {
     #[doc = "*Required features: `\"Storage\"`*"]
@@ -1569,24 +1330,8 @@ impl ProtectedFileCreateResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for ProtectedFileCreateResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtectedFileCreateResult {}
-impl ::core::fmt::Debug for ProtectedFileCreateResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtectedFileCreateResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProtectedFileCreateResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedFileCreateResult;{28e3ed6a-e9e7-4a03-9f53-bdb16172699b})");
-}
-impl ::core::clone::Clone for ProtectedFileCreateResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProtectedFileCreateResult {
     type Vtable = IProtectedFileCreateResult_Vtbl;
@@ -1602,6 +1347,7 @@ unsafe impl ::core::marker::Send for ProtectedFileCreateResult {}
 unsafe impl ::core::marker::Sync for ProtectedFileCreateResult {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProtectionPolicyAuditInfo(::windows_core::IUnknown);
 impl ProtectionPolicyAuditInfo {
     pub fn SetAction(&self, value: ProtectionPolicyAuditAction) -> ::windows_core::Result<()> {
@@ -1666,24 +1412,8 @@ impl ProtectionPolicyAuditInfo {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ProtectionPolicyAuditInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtectionPolicyAuditInfo {}
-impl ::core::fmt::Debug for ProtectionPolicyAuditInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtectionPolicyAuditInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProtectionPolicyAuditInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectionPolicyAuditInfo;{425ab7e4-feb7-44fc-b3bb-c3c4d7ecbebb})");
-}
-impl ::core::clone::Clone for ProtectionPolicyAuditInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProtectionPolicyAuditInfo {
     type Vtable = IProtectionPolicyAuditInfo_Vtbl;
@@ -1699,6 +1429,7 @@ unsafe impl ::core::marker::Send for ProtectionPolicyAuditInfo {}
 unsafe impl ::core::marker::Sync for ProtectionPolicyAuditInfo {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProtectionPolicyManager(::windows_core::IUnknown);
 impl ProtectionPolicyManager {
     pub fn SetIdentity(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -2069,24 +1800,8 @@ impl ProtectionPolicyManager {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ProtectionPolicyManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtectionPolicyManager {}
-impl ::core::fmt::Debug for ProtectionPolicyManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtectionPolicyManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProtectionPolicyManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectionPolicyManager;{d5703e18-a08d-47e6-a240-9934d7165eb5})");
-}
-impl ::core::clone::Clone for ProtectionPolicyManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProtectionPolicyManager {
     type Vtable = IProtectionPolicyManager_Vtbl;
@@ -2102,6 +1817,7 @@ unsafe impl ::core::marker::Send for ProtectionPolicyManager {}
 unsafe impl ::core::marker::Sync for ProtectionPolicyManager {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ThreadNetworkContext(::windows_core::IUnknown);
 impl ThreadNetworkContext {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2111,24 +1827,8 @@ impl ThreadNetworkContext {
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ThreadNetworkContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ThreadNetworkContext {}
-impl ::core::fmt::Debug for ThreadNetworkContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ThreadNetworkContext").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ThreadNetworkContext {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ThreadNetworkContext;{fa4ea8e9-ef13-405a-b12c-d7348c6f41fc})");
-}
-impl ::core::clone::Clone for ThreadNetworkContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ThreadNetworkContext {
     type Vtable = IThreadNetworkContext_Vtbl;

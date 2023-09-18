@@ -12,14 +12,10 @@ pub mod Interactions;
 pub mod Scenes;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAmbientLight(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAmbientLight {
     type Vtable = IAmbientLight_Vtbl;
-}
-impl ::core::clone::Clone for IAmbientLight {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAmbientLight {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa48130a1_b7c4_46f7_b9bf_daf43a44e6ee);
@@ -33,14 +29,10 @@ pub struct IAmbientLight_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAmbientLight2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAmbientLight2 {
     type Vtable = IAmbientLight2_Vtbl;
-}
-impl ::core::clone::Clone for IAmbientLight2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAmbientLight2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b64a6bf_5f97_4c94_86e5_042dd386b27d);
@@ -54,14 +46,10 @@ pub struct IAmbientLight2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAnimationController(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAnimationController {
     type Vtable = IAnimationController_Vtbl;
-}
-impl ::core::clone::Clone for IAnimationController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAnimationController {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc934efd2_0722_4f5f_a4e2_9510f3d43bf7);
@@ -81,14 +69,10 @@ pub struct IAnimationController_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAnimationControllerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAnimationControllerStatics {
     type Vtable = IAnimationControllerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IAnimationControllerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAnimationControllerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe71164df_651b_4800_b9e5_6a3bcfed3365);
@@ -102,6 +86,7 @@ pub struct IAnimationControllerStatics_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAnimationObject(::windows_core::IUnknown);
 impl IAnimationObject {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -113,27 +98,11 @@ impl IAnimationObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAnimationObject, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IAnimationObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAnimationObject {}
-impl ::core::fmt::Debug for IAnimationObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAnimationObject").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IAnimationObject {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{e7141e0a-04b8-4fc5-a4dc-195392e57807}");
 }
 unsafe impl ::windows_core::Interface for IAnimationObject {
     type Vtable = IAnimationObject_Vtbl;
-}
-impl ::core::clone::Clone for IAnimationObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAnimationObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7141e0a_04b8_4fc5_a4dc_195392e57807);
@@ -146,14 +115,10 @@ pub struct IAnimationObject_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAnimationPropertyInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAnimationPropertyInfo {
     type Vtable = IAnimationPropertyInfo_Vtbl;
-}
-impl ::core::clone::Clone for IAnimationPropertyInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAnimationPropertyInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf4716f05_ed77_4e3c_b328_5c3985b3738f);
@@ -167,14 +132,10 @@ pub struct IAnimationPropertyInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAnimationPropertyInfo2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAnimationPropertyInfo2 {
     type Vtable = IAnimationPropertyInfo2_Vtbl;
-}
-impl ::core::clone::Clone for IAnimationPropertyInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAnimationPropertyInfo2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x591720b4_7472_5218_8b39_dffe615ae6da);
@@ -188,14 +149,10 @@ pub struct IAnimationPropertyInfo2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackEasingFunction(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBackEasingFunction {
     type Vtable = IBackEasingFunction_Vtbl;
-}
-impl ::core::clone::Clone for IBackEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackEasingFunction {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb8560da4_5e3c_545d_b263_7987a2bd27cb);
@@ -209,14 +166,10 @@ pub struct IBackEasingFunction_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBooleanKeyFrameAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBooleanKeyFrameAnimation {
     type Vtable = IBooleanKeyFrameAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IBooleanKeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBooleanKeyFrameAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95e23a08_d1f4_4972_9770_3efe68d82e14);
@@ -229,14 +182,10 @@ pub struct IBooleanKeyFrameAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBounceEasingFunction(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBounceEasingFunction {
     type Vtable = IBounceEasingFunction_Vtbl;
-}
-impl ::core::clone::Clone for IBounceEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBounceEasingFunction {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7fdb44b_aad5_5174_9421_eef8b75a6a43);
@@ -251,14 +200,10 @@ pub struct IBounceEasingFunction_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBounceScalarNaturalMotionAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBounceScalarNaturalMotionAnimation {
     type Vtable = IBounceScalarNaturalMotionAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IBounceScalarNaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBounceScalarNaturalMotionAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbaa30dcc_a633_4618_9b06_7f7c72c87cff);
@@ -274,14 +219,10 @@ pub struct IBounceScalarNaturalMotionAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBounceVector2NaturalMotionAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBounceVector2NaturalMotionAnimation {
     type Vtable = IBounceVector2NaturalMotionAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IBounceVector2NaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBounceVector2NaturalMotionAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda344196_2154_4b3c_88aa_47361204eccd);
@@ -297,14 +238,10 @@ pub struct IBounceVector2NaturalMotionAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBounceVector3NaturalMotionAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBounceVector3NaturalMotionAnimation {
     type Vtable = IBounceVector3NaturalMotionAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IBounceVector3NaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBounceVector3NaturalMotionAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47dabc31_10d3_4518_86f1_09caf742d113);
@@ -320,14 +257,10 @@ pub struct IBounceVector3NaturalMotionAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICircleEasingFunction(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICircleEasingFunction {
     type Vtable = ICircleEasingFunction_Vtbl;
-}
-impl ::core::clone::Clone for ICircleEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICircleEasingFunction {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e07222a_6f82_5a28_8748_2e92fc46ee2b);
@@ -340,14 +273,10 @@ pub struct ICircleEasingFunction_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IColorKeyFrameAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IColorKeyFrameAnimation {
     type Vtable = IColorKeyFrameAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IColorKeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IColorKeyFrameAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93adb5e9_8e05_4593_84a3_dca152781e56);
@@ -363,14 +292,10 @@ pub struct IColorKeyFrameAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionAnimation {
     type Vtable = ICompositionAnimation_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x464c4c2c_1caa_4061_9b40_e13fde1503ca);
@@ -411,14 +336,10 @@ pub struct ICompositionAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionAnimation2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionAnimation2 {
     type Vtable = ICompositionAnimation2_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionAnimation2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionAnimation2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x369b603e_a80f_4948_93e3_ed23fb38c6cb);
@@ -433,14 +354,10 @@ pub struct ICompositionAnimation2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionAnimation3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionAnimation3 {
     type Vtable = ICompositionAnimation3_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionAnimation3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionAnimation3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd51e030d_7da4_4bd7_bc2d_f4517529f43a);
@@ -456,14 +373,10 @@ pub struct ICompositionAnimation3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionAnimation4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionAnimation4 {
     type Vtable = ICompositionAnimation4_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionAnimation4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionAnimation4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x770137be_76bc_4e23_bfed_fe9cc20f6ec9);
@@ -476,30 +389,15 @@ pub struct ICompositionAnimation4_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionAnimationBase(::windows_core::IUnknown);
 impl ICompositionAnimationBase {}
 ::windows_core::imp::interface_hierarchy!(ICompositionAnimationBase, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ICompositionAnimationBase {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICompositionAnimationBase {}
-impl ::core::fmt::Debug for ICompositionAnimationBase {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICompositionAnimationBase").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ICompositionAnimationBase {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1c2c2999-e818-48d3-a6dd-d78c82f8ace9}");
 }
 unsafe impl ::windows_core::Interface for ICompositionAnimationBase {
     type Vtable = ICompositionAnimationBase_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionAnimationBase {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionAnimationBase {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c2c2999_e818_48d3_a6dd_d78c82f8ace9);
@@ -511,14 +409,10 @@ pub struct ICompositionAnimationBase_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionAnimationFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionAnimationFactory {
     type Vtable = ICompositionAnimationFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionAnimationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionAnimationFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10f6c4fb_6e51_4c25_bbd3_586a9bec3ef4);
@@ -530,14 +424,10 @@ pub struct ICompositionAnimationFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionAnimationGroup(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionAnimationGroup {
     type Vtable = ICompositionAnimationGroup_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionAnimationGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionAnimationGroup {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e7cc90c_cd14_4e07_8a55_c72527aabdac);
@@ -553,14 +443,10 @@ pub struct ICompositionAnimationGroup_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionBackdropBrush(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionBackdropBrush {
     type Vtable = ICompositionBackdropBrush_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionBackdropBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionBackdropBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5acae58_3898_499e_8d7f_224e91286a5d);
@@ -572,14 +458,10 @@ pub struct ICompositionBackdropBrush_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionBatchCompletedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionBatchCompletedEventArgs {
     type Vtable = ICompositionBatchCompletedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionBatchCompletedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionBatchCompletedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d00dad0_9464_450a_a562_2e2698b0a812);
@@ -591,14 +473,10 @@ pub struct ICompositionBatchCompletedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionBrush(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionBrush {
     type Vtable = ICompositionBrush_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab0d7608_30c0_40e9_b568_b60a6bd1fb46);
@@ -610,14 +488,10 @@ pub struct ICompositionBrush_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionBrushFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionBrushFactory {
     type Vtable = ICompositionBrushFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionBrushFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionBrushFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda53fb4c_4650_47c4_ad76_765379607ed6);
@@ -629,14 +503,10 @@ pub struct ICompositionBrushFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionCapabilities {
     type Vtable = ICompositionCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8253353e_b517_48bc_b1e8_4b3561a2e181);
@@ -658,14 +528,10 @@ pub struct ICompositionCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionCapabilitiesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionCapabilitiesStatics {
     type Vtable = ICompositionCapabilitiesStatics_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionCapabilitiesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionCapabilitiesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf7b7a86e_6416_49e5_8ddf_afe949e20562);
@@ -678,14 +544,10 @@ pub struct ICompositionCapabilitiesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionClip(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionClip {
     type Vtable = ICompositionClip_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionClip {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionClip {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ccd2a52_cfc7_4ace_9983_146bb8eb6a3c);
@@ -697,14 +559,10 @@ pub struct ICompositionClip_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionClip2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionClip2 {
     type Vtable = ICompositionClip2_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionClip2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionClip2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5893e069_3516_40e1_89e0_5ba924927235);
@@ -760,14 +618,10 @@ pub struct ICompositionClip2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionClipFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionClipFactory {
     type Vtable = ICompositionClipFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionClipFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionClipFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9484caf_20c7_4aed_ac4a_9c78ba1302cf);
@@ -779,14 +633,10 @@ pub struct ICompositionClipFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionColorBrush(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionColorBrush {
     type Vtable = ICompositionColorBrush_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionColorBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionColorBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2b264c5e_bf35_4831_8642_cf70c20fff2f);
@@ -800,14 +650,10 @@ pub struct ICompositionColorBrush_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionColorGradientStop(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionColorGradientStop {
     type Vtable = ICompositionColorGradientStop_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionColorGradientStop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionColorGradientStop {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f00ca92_c801_4e41_9a8f_a53e20f57778);
@@ -823,14 +669,10 @@ pub struct ICompositionColorGradientStop_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionColorGradientStopCollection(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionColorGradientStopCollection {
     type Vtable = ICompositionColorGradientStopCollection_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionColorGradientStopCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionColorGradientStopCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f1d20ec_7b04_4b1d_90bc_9fa32c0cfd26);
@@ -842,14 +684,10 @@ pub struct ICompositionColorGradientStopCollection_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionCommitBatch(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionCommitBatch {
     type Vtable = ICompositionCommitBatch_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionCommitBatch {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionCommitBatch {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d00dad0_ca07_4400_8c8e_cb5db08559cc);
@@ -871,14 +709,10 @@ pub struct ICompositionCommitBatch_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionContainerShape(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionContainerShape {
     type Vtable = ICompositionContainerShape_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionContainerShape {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionContainerShape {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f5e859b_2e5b_44a8_982c_aa0f69c16059);
@@ -894,14 +728,10 @@ pub struct ICompositionContainerShape_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionDrawingSurface(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionDrawingSurface {
     type Vtable = ICompositionDrawingSurface_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionDrawingSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionDrawingSurface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa166c300_fad0_4d11_9e67_e433162ff49e);
@@ -925,14 +755,10 @@ pub struct ICompositionDrawingSurface_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionDrawingSurface2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionDrawingSurface2 {
     type Vtable = ICompositionDrawingSurface2_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionDrawingSurface2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionDrawingSurface2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfad0e88b_e354_44e8_8e3d_c4880d5a213f);
@@ -968,14 +794,10 @@ pub struct ICompositionDrawingSurface2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionDrawingSurfaceFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionDrawingSurfaceFactory {
     type Vtable = ICompositionDrawingSurfaceFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionDrawingSurfaceFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionDrawingSurfaceFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9497b00a_312d_46b9_9db3_412fd79464c8);
@@ -987,14 +809,10 @@ pub struct ICompositionDrawingSurfaceFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionEasingFunction(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionEasingFunction {
     type Vtable = ICompositionEasingFunction_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionEasingFunction {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5145e356_bf79_4ea8_8cc2_6b5b472e6c9a);
@@ -1006,14 +824,10 @@ pub struct ICompositionEasingFunction_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionEasingFunctionFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionEasingFunctionFactory {
     type Vtable = ICompositionEasingFunctionFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionEasingFunctionFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionEasingFunctionFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x60840774_3da0_4949_8200_7206c00190a0);
@@ -1025,14 +839,10 @@ pub struct ICompositionEasingFunctionFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionEasingFunctionStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionEasingFunctionStatics {
     type Vtable = ICompositionEasingFunctionStatics_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionEasingFunctionStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionEasingFunctionStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17a766b6_2936_53ea_b5af_c642f4a61083);
@@ -1058,14 +868,10 @@ pub struct ICompositionEasingFunctionStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionEffectBrush(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionEffectBrush {
     type Vtable = ICompositionEffectBrush_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionEffectBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionEffectBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf7f795e_83cc_44bf_a447_3e3c071789ec);
@@ -1079,14 +885,10 @@ pub struct ICompositionEffectBrush_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionEffectFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionEffectFactory {
     type Vtable = ICompositionEffectFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionEffectFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionEffectFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe5624af_ba7e_4510_9850_41c0b4ff74df);
@@ -1101,14 +903,10 @@ pub struct ICompositionEffectFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionEffectSourceParameter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionEffectSourceParameter {
     type Vtable = ICompositionEffectSourceParameter_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionEffectSourceParameter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionEffectSourceParameter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x858ab13a_3292_4e4e_b3bb_2b6c6544a6ee);
@@ -1121,14 +919,10 @@ pub struct ICompositionEffectSourceParameter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionEffectSourceParameterFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionEffectSourceParameterFactory {
     type Vtable = ICompositionEffectSourceParameterFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionEffectSourceParameterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionEffectSourceParameterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3d9f276_aba3_4724_acf3_d0397464db1c);
@@ -1141,14 +935,10 @@ pub struct ICompositionEffectSourceParameterFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionEllipseGeometry(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionEllipseGeometry {
     type Vtable = ICompositionEllipseGeometry_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionEllipseGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionEllipseGeometry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4801f884_f6ad_4b93_afa9_897b64e57b1f);
@@ -1176,14 +966,10 @@ pub struct ICompositionEllipseGeometry_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionGeometricClip(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionGeometricClip {
     type Vtable = ICompositionGeometricClip_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionGeometricClip {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionGeometricClip {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc840b581_81c9_4444_a2c1_ccaece3a50e5);
@@ -1199,14 +985,10 @@ pub struct ICompositionGeometricClip_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionGeometry(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionGeometry {
     type Vtable = ICompositionGeometry_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionGeometry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe985217c_6a17_4207_abd8_5fd3dd612a9d);
@@ -1224,14 +1006,10 @@ pub struct ICompositionGeometry_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionGeometryFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionGeometryFactory {
     type Vtable = ICompositionGeometryFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionGeometryFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionGeometryFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbffebfe1_8c25_480b_9f56_fed6b288055d);
@@ -1243,14 +1021,10 @@ pub struct ICompositionGeometryFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionGradientBrush(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionGradientBrush {
     type Vtable = ICompositionGradientBrush_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionGradientBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionGradientBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d9709e0_ffc6_4c0e_a9ab_34144d4c9098);
@@ -1311,14 +1085,10 @@ pub struct ICompositionGradientBrush_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionGradientBrush2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionGradientBrush2 {
     type Vtable = ICompositionGradientBrush2_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionGradientBrush2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionGradientBrush2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x899dd5a1_b4c7_4b33_a1b6_264addc26d10);
@@ -1332,14 +1102,10 @@ pub struct ICompositionGradientBrush2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionGradientBrushFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionGradientBrushFactory {
     type Vtable = ICompositionGradientBrushFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionGradientBrushFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionGradientBrushFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56d765d7_f189_48c9_9c8d_94daf1bec010);
@@ -1351,14 +1117,10 @@ pub struct ICompositionGradientBrushFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionGraphicsDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionGraphicsDevice {
     type Vtable = ICompositionGraphicsDevice_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionGraphicsDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionGraphicsDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb22c6e1_80a2_4667_9936_dbeaf6eefe95);
@@ -1382,14 +1144,10 @@ pub struct ICompositionGraphicsDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionGraphicsDevice2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionGraphicsDevice2 {
     type Vtable = ICompositionGraphicsDevice2_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionGraphicsDevice2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionGraphicsDevice2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0fb8bdf6_c0f0_4bcc_9fb8_084982490d7d);
@@ -1409,14 +1167,10 @@ pub struct ICompositionGraphicsDevice2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionGraphicsDevice3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionGraphicsDevice3 {
     type Vtable = ICompositionGraphicsDevice3_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionGraphicsDevice3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionGraphicsDevice3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37f67514_d3ef_49d1_b69d_0d8eabeb3626);
@@ -1433,14 +1187,10 @@ pub struct ICompositionGraphicsDevice3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionGraphicsDevice4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionGraphicsDevice4 {
     type Vtable = ICompositionGraphicsDevice4_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionGraphicsDevice4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionGraphicsDevice4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a73bff9_a97f_4cf5_ba46_98ef358e71b1);
@@ -1456,14 +1206,10 @@ pub struct ICompositionGraphicsDevice4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionLight(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionLight {
     type Vtable = ICompositionLight_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionLight {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionLight {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41a6d7c2_2e5d_4bc1_b09e_8f0a03e3d8d3);
@@ -1476,14 +1222,10 @@ pub struct ICompositionLight_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionLight2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionLight2 {
     type Vtable = ICompositionLight2_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionLight2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionLight2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7bcda72_f35d_425d_9b98_23f4205f6669);
@@ -1496,14 +1238,10 @@ pub struct ICompositionLight2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionLight3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionLight3 {
     type Vtable = ICompositionLight3_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionLight3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionLight3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b0b00e4_df07_4959_b7a4_4f7e4233f838);
@@ -1517,14 +1255,10 @@ pub struct ICompositionLight3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionLightFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionLightFactory {
     type Vtable = ICompositionLightFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionLightFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionLightFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x069cf306_da3c_4b44_838a_5e03d51ace55);
@@ -1536,14 +1270,10 @@ pub struct ICompositionLightFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionLineGeometry(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionLineGeometry {
     type Vtable = ICompositionLineGeometry_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionLineGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionLineGeometry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd7615a4_0c9a_4b67_8dce_440a5bf9cdec);
@@ -1571,14 +1301,10 @@ pub struct ICompositionLineGeometry_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionLinearGradientBrush(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionLinearGradientBrush {
     type Vtable = ICompositionLinearGradientBrush_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionLinearGradientBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionLinearGradientBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x983bc519_a9db_413c_a2d8_2a9056fc525e);
@@ -1606,14 +1332,10 @@ pub struct ICompositionLinearGradientBrush_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionMaskBrush(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionMaskBrush {
     type Vtable = ICompositionMaskBrush_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionMaskBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionMaskBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x522cf09e_be6b_4f41_be49_f9226d471b4a);
@@ -1629,14 +1351,10 @@ pub struct ICompositionMaskBrush_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionMipmapSurface(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionMipmapSurface {
     type Vtable = ICompositionMipmapSurface_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionMipmapSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionMipmapSurface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4863675c_cf4a_4b1c_9ece_c5ec0c2b2fe6);
@@ -1662,14 +1380,10 @@ pub struct ICompositionMipmapSurface_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionNineGridBrush(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionNineGridBrush {
     type Vtable = ICompositionNineGridBrush_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionNineGridBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionNineGridBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf25154e4_bc8c_4be7_b80f_8685b83c0186);
@@ -1705,14 +1419,10 @@ pub struct ICompositionNineGridBrush_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionObject(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionObject {
     type Vtable = ICompositionObject_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbcb4ad45_7609_4550_934f_16002a68fded);
@@ -1732,14 +1442,10 @@ pub struct ICompositionObject_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionObject2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionObject2 {
     type Vtable = ICompositionObject2_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionObject2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionObject2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef874ea1_5cff_4b68_9e30_a1519d08ba03);
@@ -1757,14 +1463,10 @@ pub struct ICompositionObject2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionObject3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionObject3 {
     type Vtable = ICompositionObject3_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionObject3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionObject3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4bc27925_dacd_4cf2_98b1_986b76e7ebe6);
@@ -1780,14 +1482,10 @@ pub struct ICompositionObject3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionObject4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionObject4 {
     type Vtable = ICompositionObject4_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionObject4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionObject4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0bb3784c_346b_4a7c_966b_7310966553d5);
@@ -1800,14 +1498,10 @@ pub struct ICompositionObject4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionObject5(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionObject5 {
     type Vtable = ICompositionObject5_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionObject5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionObject5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d7f391b_a130_5265_a62b_60b8e668965a);
@@ -1820,14 +1514,10 @@ pub struct ICompositionObject5_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionObjectFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionObjectFactory {
     type Vtable = ICompositionObjectFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionObjectFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionObjectFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51205c5e_558a_4f2a_8d39_37bfe1e20ddd);
@@ -1839,14 +1529,10 @@ pub struct ICompositionObjectFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionObjectStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionObjectStatics {
     type Vtable = ICompositionObjectStatics_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionObjectStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionObjectStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc1ed052f_1ba2_44ba_a904_6a882a0a5adb);
@@ -1860,14 +1546,10 @@ pub struct ICompositionObjectStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionPath(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionPath {
     type Vtable = ICompositionPath_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionPath {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionPath {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66da1d5f_2e10_4f22_8a06_0a8151919e60);
@@ -1879,14 +1561,10 @@ pub struct ICompositionPath_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionPathFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionPathFactory {
     type Vtable = ICompositionPathFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionPathFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionPathFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c1e8c6a_0f33_4751_9437_eb3fb9d3ab07);
@@ -1902,14 +1580,10 @@ pub struct ICompositionPathFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionPathGeometry(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionPathGeometry {
     type Vtable = ICompositionPathGeometry_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionPathGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionPathGeometry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b6a417e_2c77_4c23_af5e_6304c147bb61);
@@ -1923,14 +1597,10 @@ pub struct ICompositionPathGeometry_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionProjectedShadow(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionProjectedShadow {
     type Vtable = ICompositionProjectedShadow_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionProjectedShadow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionProjectedShadow {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x285b8e72_4328_523f_bcf2_5557c52c3b25);
@@ -1952,14 +1622,10 @@ pub struct ICompositionProjectedShadow_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionProjectedShadowCaster(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionProjectedShadowCaster {
     type Vtable = ICompositionProjectedShadowCaster_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionProjectedShadowCaster {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionProjectedShadowCaster {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb1d7d426_1e36_5a62_be56_a16112fdd148);
@@ -1975,14 +1641,10 @@ pub struct ICompositionProjectedShadowCaster_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionProjectedShadowCasterCollection(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionProjectedShadowCasterCollection {
     type Vtable = ICompositionProjectedShadowCasterCollection_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionProjectedShadowCasterCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionProjectedShadowCasterCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2525c0c_e07f_58a3_ac91_37f73ee91740);
@@ -2001,14 +1663,10 @@ pub struct ICompositionProjectedShadowCasterCollection_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionProjectedShadowCasterCollectionStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionProjectedShadowCasterCollectionStatics {
     type Vtable = ICompositionProjectedShadowCasterCollectionStatics_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionProjectedShadowCasterCollectionStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionProjectedShadowCasterCollectionStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56fbb136_e94f_5299_ab5b_6e15e38bd899);
@@ -2021,14 +1679,10 @@ pub struct ICompositionProjectedShadowCasterCollectionStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionProjectedShadowReceiver(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionProjectedShadowReceiver {
     type Vtable = ICompositionProjectedShadowReceiver_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionProjectedShadowReceiver {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionProjectedShadowReceiver {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1377985a_6a49_536a_9be4_a96a8e5298a9);
@@ -2042,14 +1696,10 @@ pub struct ICompositionProjectedShadowReceiver_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionProjectedShadowReceiverUnorderedCollection(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionProjectedShadowReceiverUnorderedCollection {
     type Vtable = ICompositionProjectedShadowReceiverUnorderedCollection_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionProjectedShadowReceiverUnorderedCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionProjectedShadowReceiverUnorderedCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x02b3e3b7_27d2_599f_ac4b_ab787cdde6fd);
@@ -2065,14 +1715,10 @@ pub struct ICompositionProjectedShadowReceiverUnorderedCollection_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionPropertySet(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionPropertySet {
     type Vtable = ICompositionPropertySet_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionPropertySet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionPropertySet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9d6d202_5f67_4453_9117_9eadd430d3c2);
@@ -2136,14 +1782,10 @@ pub struct ICompositionPropertySet_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionPropertySet2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionPropertySet2 {
     type Vtable = ICompositionPropertySet2_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionPropertySet2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionPropertySet2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde80731e_a211_4455_8880_7d0f3f6a44fd);
@@ -2157,14 +1799,10 @@ pub struct ICompositionPropertySet2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionRadialGradientBrush(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionRadialGradientBrush {
     type Vtable = ICompositionRadialGradientBrush_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionRadialGradientBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionRadialGradientBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d3b50c5_e3fa_4ce2_b9fc_3ee12561788f);
@@ -2200,14 +1838,10 @@ pub struct ICompositionRadialGradientBrush_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionRectangleGeometry(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionRectangleGeometry {
     type Vtable = ICompositionRectangleGeometry_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionRectangleGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionRectangleGeometry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0cd51428_5356_4246_aecf_7a0b76975400);
@@ -2235,14 +1869,10 @@ pub struct ICompositionRectangleGeometry_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionRoundedRectangleGeometry(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionRoundedRectangleGeometry {
     type Vtable = ICompositionRoundedRectangleGeometry_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionRoundedRectangleGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionRoundedRectangleGeometry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8770c822_1d50_4b8b_b013_7c9a0e46935f);
@@ -2278,14 +1908,10 @@ pub struct ICompositionRoundedRectangleGeometry_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionScopedBatch(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionScopedBatch {
     type Vtable = ICompositionScopedBatch_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionScopedBatch {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionScopedBatch {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d00dad0_fb07_46fd_8c72_6280d1a3d1dd);
@@ -2310,14 +1936,10 @@ pub struct ICompositionScopedBatch_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionShadow(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionShadow {
     type Vtable = ICompositionShadow_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionShadow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionShadow {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x329e52e2_4335_49cc_b14a_37782d10f0c4);
@@ -2329,14 +1951,10 @@ pub struct ICompositionShadow_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionShadowFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionShadowFactory {
     type Vtable = ICompositionShadowFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionShadowFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionShadowFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x221f492f_dcba_4b91_999e_1dc217a01530);
@@ -2348,14 +1966,10 @@ pub struct ICompositionShadowFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionShape(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionShape {
     type Vtable = ICompositionShape_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionShape {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionShape {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb47ce2f7_9a88_42c4_9e87_2e500ca8688c);
@@ -2403,14 +2017,10 @@ pub struct ICompositionShape_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionShapeFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionShapeFactory {
     type Vtable = ICompositionShapeFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionShapeFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionShapeFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1dfc36d0_b05a_44ef_82b0_12118bcd4cd0);
@@ -2422,14 +2032,10 @@ pub struct ICompositionShapeFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionSpriteShape(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionSpriteShape {
     type Vtable = ICompositionSpriteShape_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionSpriteShape {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionSpriteShape {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x401b61bb_0007_4363_b1f3_6bcc003fb83e);
@@ -2467,6 +2073,7 @@ pub struct ICompositionSpriteShape_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionSupportsSystemBackdrop(::windows_core::IUnknown);
 impl ICompositionSupportsSystemBackdrop {
     pub fn SystemBackdrop(&self) -> ::windows_core::Result<CompositionBrush> {
@@ -2485,27 +2092,11 @@ impl ICompositionSupportsSystemBackdrop {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICompositionSupportsSystemBackdrop, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ICompositionSupportsSystemBackdrop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICompositionSupportsSystemBackdrop {}
-impl ::core::fmt::Debug for ICompositionSupportsSystemBackdrop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICompositionSupportsSystemBackdrop").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ICompositionSupportsSystemBackdrop {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{397dafe4-b6c2-5bb9-951d-f5707de8b7bc}");
 }
 unsafe impl ::windows_core::Interface for ICompositionSupportsSystemBackdrop {
     type Vtable = ICompositionSupportsSystemBackdrop_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionSupportsSystemBackdrop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionSupportsSystemBackdrop {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x397dafe4_b6c2_5bb9_951d_f5707de8b7bc);
@@ -2519,30 +2110,15 @@ pub struct ICompositionSupportsSystemBackdrop_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionSurface(::windows_core::IUnknown);
 impl ICompositionSurface {}
 ::windows_core::imp::interface_hierarchy!(ICompositionSurface, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ICompositionSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICompositionSurface {}
-impl ::core::fmt::Debug for ICompositionSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICompositionSurface").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ICompositionSurface {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1527540d-42c7-47a6-a408-668f79a90dfb}");
 }
 unsafe impl ::windows_core::Interface for ICompositionSurface {
     type Vtable = ICompositionSurface_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionSurface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1527540d_42c7_47a6_a408_668f79a90dfb);
@@ -2554,14 +2130,10 @@ pub struct ICompositionSurface_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionSurfaceBrush(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionSurfaceBrush {
     type Vtable = ICompositionSurfaceBrush_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionSurfaceBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionSurfaceBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad016d79_1e4c_4c0d_9c29_83338c87c162);
@@ -2583,14 +2155,10 @@ pub struct ICompositionSurfaceBrush_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionSurfaceBrush2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionSurfaceBrush2 {
     type Vtable = ICompositionSurfaceBrush2_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionSurfaceBrush2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionSurfaceBrush2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd27174d5_64f5_4692_9dc7_71b61d7e5880);
@@ -2646,14 +2214,10 @@ pub struct ICompositionSurfaceBrush2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionSurfaceBrush3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionSurfaceBrush3 {
     type Vtable = ICompositionSurfaceBrush3_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionSurfaceBrush3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionSurfaceBrush3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x550bb289_1fe0_42e5_8195_1eefa87ff08e);
@@ -2667,6 +2231,7 @@ pub struct ICompositionSurfaceBrush3_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionSurfaceFacade(::windows_core::IUnknown);
 impl ICompositionSurfaceFacade {
     pub fn GetRealSurface(&self) -> ::windows_core::Result<ICompositionSurface> {
@@ -2678,27 +2243,11 @@ impl ICompositionSurfaceFacade {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICompositionSurfaceFacade, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ICompositionSurfaceFacade {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICompositionSurfaceFacade {}
-impl ::core::fmt::Debug for ICompositionSurfaceFacade {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICompositionSurfaceFacade").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ICompositionSurfaceFacade {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{e01622c8-2332-55c7-8868-a7312c5c229d}");
 }
 unsafe impl ::windows_core::Interface for ICompositionSurfaceFacade {
     type Vtable = ICompositionSurfaceFacade_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionSurfaceFacade {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionSurfaceFacade {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe01622c8_2332_55c7_8868_a7312c5c229d);
@@ -2711,14 +2260,10 @@ pub struct ICompositionSurfaceFacade_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionTarget(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionTarget {
     type Vtable = ICompositionTarget_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1bea8ba_d726_4663_8129_6b5e7927ffa6);
@@ -2732,14 +2277,10 @@ pub struct ICompositionTarget_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionTargetFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionTargetFactory {
     type Vtable = ICompositionTargetFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionTargetFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionTargetFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93cd9d2b_8516_4b14_a8ce_f49e2119ec42);
@@ -2751,14 +2292,10 @@ pub struct ICompositionTargetFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionTransform(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionTransform {
     type Vtable = ICompositionTransform_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7cd54529_fbed_4112_abc5_185906dd927c);
@@ -2770,14 +2307,10 @@ pub struct ICompositionTransform_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionTransformFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionTransformFactory {
     type Vtable = ICompositionTransformFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionTransformFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionTransformFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaaaeca26_c149_517a_8f72_6bff7a65ce08);
@@ -2789,14 +2322,10 @@ pub struct ICompositionTransformFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionViewBox(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionViewBox {
     type Vtable = ICompositionViewBox_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionViewBox {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionViewBox {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb440bf07_068f_4537_84c6_4ecbe019e1f4);
@@ -2830,14 +2359,10 @@ pub struct ICompositionViewBox_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionVirtualDrawingSurface(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionVirtualDrawingSurface {
     type Vtable = ICompositionVirtualDrawingSurface_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionVirtualDrawingSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionVirtualDrawingSurface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9c384db_8740_4f94_8b9d_b68521e7863d);
@@ -2853,14 +2378,10 @@ pub struct ICompositionVirtualDrawingSurface_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionVirtualDrawingSurfaceFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionVirtualDrawingSurfaceFactory {
     type Vtable = ICompositionVirtualDrawingSurfaceFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionVirtualDrawingSurfaceFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionVirtualDrawingSurfaceFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6766106c_d56b_4a49_b1df_5076a0620768);
@@ -2872,14 +2393,10 @@ pub struct ICompositionVirtualDrawingSurfaceFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositionVisualSurface(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositionVisualSurface {
     type Vtable = ICompositionVisualSurface_Vtbl;
-}
-impl ::core::clone::Clone for ICompositionVisualSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositionVisualSurface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb224d803_4f6e_4a3f_8cae_3dc1cda74fc6);
@@ -2909,14 +2426,10 @@ pub struct ICompositionVisualSurface_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositor {
     type Vtable = ICompositor_Vtbl;
-}
-impl ::core::clone::Clone for ICompositor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb403ca50_7f8c_4e83_985f_cc45060036d8);
@@ -2961,14 +2474,10 @@ pub struct ICompositor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositor2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositor2 {
     type Vtable = ICompositor2_Vtbl;
-}
-impl ::core::clone::Clone for ICompositor2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositor2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x735081dc_5e24_45da_a38f_e32cc349a9a0);
@@ -2993,14 +2502,10 @@ pub struct ICompositor2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositor3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositor3 {
     type Vtable = ICompositor3_Vtbl;
-}
-impl ::core::clone::Clone for ICompositor3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositor3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9dd8ef0_6eb1_4e3c_a658_675d9c64d4ab);
@@ -3013,14 +2518,10 @@ pub struct ICompositor3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositor4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositor4 {
     type Vtable = ICompositor4_Vtbl;
-}
-impl ::core::clone::Clone for ICompositor4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositor4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae47e78a_7910_4425_a482_a05b758adce9);
@@ -3038,14 +2539,10 @@ pub struct ICompositor4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositor5(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositor5 {
     type Vtable = ICompositor5_Vtbl;
-}
-impl ::core::clone::Clone for ICompositor5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositor5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x48ea31ad_7fcd_4076_a79c_90cc4b852c9b);
@@ -3080,14 +2577,10 @@ pub struct ICompositor5_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositor6(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositor6 {
     type Vtable = ICompositor6_Vtbl;
-}
-impl ::core::clone::Clone for ICompositor6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositor6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a38b2bd_cec8_4eeb_830f_d8d07aedebc3);
@@ -3104,14 +2597,10 @@ pub struct ICompositor6_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositor7(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositor7 {
     type Vtable = ICompositor7_Vtbl;
-}
-impl ::core::clone::Clone for ICompositor7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositor7 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3483fad_9a12_53ba_bfc8_88b7ff7977c6);
@@ -3134,14 +2623,10 @@ pub struct ICompositor7_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositor8(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositor8 {
     type Vtable = ICompositor8_Vtbl;
-}
-impl ::core::clone::Clone for ICompositor8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositor8 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a0bdee2_fe7b_5f62_a366_9cf8effe2112);
@@ -3154,14 +2639,10 @@ pub struct ICompositor8_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositorStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositorStatics {
     type Vtable = ICompositorStatics_Vtbl;
-}
-impl ::core::clone::Clone for ICompositorStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositorStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x080db93e_121e_4d97_8b74_1dfcf91987ea);
@@ -3175,14 +2656,10 @@ pub struct ICompositorStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositorWithBlurredWallpaperBackdropBrush(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositorWithBlurredWallpaperBackdropBrush {
     type Vtable = ICompositorWithBlurredWallpaperBackdropBrush_Vtbl;
-}
-impl ::core::clone::Clone for ICompositorWithBlurredWallpaperBackdropBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositorWithBlurredWallpaperBackdropBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d8fb190_f122_5b8d_9fdd_543b0d8eb7f3);
@@ -3195,14 +2672,10 @@ pub struct ICompositorWithBlurredWallpaperBackdropBrush_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositorWithProjectedShadow(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositorWithProjectedShadow {
     type Vtable = ICompositorWithProjectedShadow_Vtbl;
-}
-impl ::core::clone::Clone for ICompositorWithProjectedShadow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositorWithProjectedShadow {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2e6330e_8a60_5a38_bb85_b44ea901677c);
@@ -3217,14 +2690,10 @@ pub struct ICompositorWithProjectedShadow_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositorWithRadialGradient(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositorWithRadialGradient {
     type Vtable = ICompositorWithRadialGradient_Vtbl;
-}
-impl ::core::clone::Clone for ICompositorWithRadialGradient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositorWithRadialGradient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98b9c1a7_8e71_4b53_b4a8_69ba5d19dc5b);
@@ -3237,14 +2706,10 @@ pub struct ICompositorWithRadialGradient_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICompositorWithVisualSurface(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICompositorWithVisualSurface {
     type Vtable = ICompositorWithVisualSurface_Vtbl;
-}
-impl ::core::clone::Clone for ICompositorWithVisualSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICompositorWithVisualSurface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcfa1658b_0123_4551_8891_89bdcc40322b);
@@ -3257,14 +2722,10 @@ pub struct ICompositorWithVisualSurface_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContainerVisual(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContainerVisual {
     type Vtable = IContainerVisual_Vtbl;
-}
-impl ::core::clone::Clone for IContainerVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContainerVisual {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x02f6bc74_ed20_4773_afe6_d49b4a93db32);
@@ -3277,14 +2738,10 @@ pub struct IContainerVisual_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContainerVisualFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContainerVisualFactory {
     type Vtable = IContainerVisualFactory_Vtbl;
-}
-impl ::core::clone::Clone for IContainerVisualFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContainerVisualFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0363a65b_c7da_4d9a_95f4_69b5c8df670b);
@@ -3296,14 +2753,10 @@ pub struct IContainerVisualFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICubicBezierEasingFunction(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICubicBezierEasingFunction {
     type Vtable = ICubicBezierEasingFunction_Vtbl;
-}
-impl ::core::clone::Clone for ICubicBezierEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICubicBezierEasingFunction {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x32350666_c1e8_44f9_96b8_c98acf0ae698);
@@ -3323,14 +2776,10 @@ pub struct ICubicBezierEasingFunction_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDelegatedInkTrailVisual(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDelegatedInkTrailVisual {
     type Vtable = IDelegatedInkTrailVisual_Vtbl;
-}
-impl ::core::clone::Clone for IDelegatedInkTrailVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDelegatedInkTrailVisual {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x856e60b1_e1ab_5b23_8e3d_d513f221c998);
@@ -3352,14 +2801,10 @@ pub struct IDelegatedInkTrailVisual_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDelegatedInkTrailVisualStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDelegatedInkTrailVisualStatics {
     type Vtable = IDelegatedInkTrailVisualStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDelegatedInkTrailVisualStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDelegatedInkTrailVisualStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0daf6bd5_42c6_555c_9267_e0ac663af836);
@@ -3373,14 +2818,10 @@ pub struct IDelegatedInkTrailVisualStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDistantLight(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDistantLight {
     type Vtable = IDistantLight_Vtbl;
-}
-impl ::core::clone::Clone for IDistantLight {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDistantLight {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x318cfafc_5ce3_4b55_ab5d_07a00353ac99);
@@ -3404,14 +2845,10 @@ pub struct IDistantLight_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDistantLight2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDistantLight2 {
     type Vtable = IDistantLight2_Vtbl;
-}
-impl ::core::clone::Clone for IDistantLight2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDistantLight2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdbcdaa1c_294b_48d7_b60e_76df64aa392b);
@@ -3425,14 +2862,10 @@ pub struct IDistantLight2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDropShadow(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDropShadow {
     type Vtable = IDropShadow_Vtbl;
-}
-impl ::core::clone::Clone for IDropShadow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDropShadow {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb977c07_a154_4851_85e7_a8924c84fad8);
@@ -3460,14 +2893,10 @@ pub struct IDropShadow_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDropShadow2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDropShadow2 {
     type Vtable = IDropShadow2_Vtbl;
-}
-impl ::core::clone::Clone for IDropShadow2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDropShadow2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c4218bc_15b9_4c2d_8d4a_0767df11977a);
@@ -3481,14 +2910,10 @@ pub struct IDropShadow2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IElasticEasingFunction(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IElasticEasingFunction {
     type Vtable = IElasticEasingFunction_Vtbl;
-}
-impl ::core::clone::Clone for IElasticEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IElasticEasingFunction {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66de6285_054e_5594_8475_c22cb51f1bd5);
@@ -3503,14 +2928,10 @@ pub struct IElasticEasingFunction_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExponentialEasingFunction(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IExponentialEasingFunction {
     type Vtable = IExponentialEasingFunction_Vtbl;
-}
-impl ::core::clone::Clone for IExponentialEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IExponentialEasingFunction {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f7d1a51_98d2_5638_a34a_00486554c750);
@@ -3524,14 +2945,10 @@ pub struct IExponentialEasingFunction_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExpressionAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IExpressionAnimation {
     type Vtable = IExpressionAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IExpressionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IExpressionAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6acc5431_7d3d_4bf3_abb6_f44bdc4888c1);
@@ -3545,14 +2962,10 @@ pub struct IExpressionAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IImplicitAnimationCollection(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IImplicitAnimationCollection {
     type Vtable = IImplicitAnimationCollection_Vtbl;
-}
-impl ::core::clone::Clone for IImplicitAnimationCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IImplicitAnimationCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0598a3ff_0a92_4c9d_a427_b25519250dbf);
@@ -3564,14 +2977,10 @@ pub struct IImplicitAnimationCollection_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInsetClip(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IInsetClip {
     type Vtable = IInsetClip_Vtbl;
-}
-impl ::core::clone::Clone for IInsetClip {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInsetClip {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e73e647_84c7_477a_b474_5880e0442e15);
@@ -3591,14 +3000,10 @@ pub struct IInsetClip_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyFrameAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKeyFrameAnimation {
     type Vtable = IKeyFrameAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IKeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKeyFrameAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x126e7f22_3ae9_4540_9a8a_deae8a4a4a84);
@@ -3635,14 +3040,10 @@ pub struct IKeyFrameAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyFrameAnimation2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKeyFrameAnimation2 {
     type Vtable = IKeyFrameAnimation2_Vtbl;
-}
-impl ::core::clone::Clone for IKeyFrameAnimation2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKeyFrameAnimation2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf4b488bb_2940_4ec0_a41a_eb6d801a2f18);
@@ -3656,14 +3057,10 @@ pub struct IKeyFrameAnimation2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyFrameAnimation3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKeyFrameAnimation3 {
     type Vtable = IKeyFrameAnimation3_Vtbl;
-}
-impl ::core::clone::Clone for IKeyFrameAnimation3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKeyFrameAnimation3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x845bf0b4_d8de_462f_8753_c80d43c6ff5a);
@@ -3677,14 +3074,10 @@ pub struct IKeyFrameAnimation3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyFrameAnimationFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKeyFrameAnimationFactory {
     type Vtable = IKeyFrameAnimationFactory_Vtbl;
-}
-impl ::core::clone::Clone for IKeyFrameAnimationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKeyFrameAnimationFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf0803f8_712a_4fc1_8c87_970859ed8d2e);
@@ -3696,14 +3089,10 @@ pub struct IKeyFrameAnimationFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILayerVisual(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILayerVisual {
     type Vtable = ILayerVisual_Vtbl;
-}
-impl ::core::clone::Clone for ILayerVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILayerVisual {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf843985_0444_4887_8e83_b40b253f822c);
@@ -3717,14 +3106,10 @@ pub struct ILayerVisual_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILayerVisual2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILayerVisual2 {
     type Vtable = ILayerVisual2_Vtbl;
-}
-impl ::core::clone::Clone for ILayerVisual2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILayerVisual2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98f9aeeb_6f23_49f1_90b1_1f59a14fbce3);
@@ -3738,14 +3123,10 @@ pub struct ILayerVisual2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILinearEasingFunction(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILinearEasingFunction {
     type Vtable = ILinearEasingFunction_Vtbl;
-}
-impl ::core::clone::Clone for ILinearEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILinearEasingFunction {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9400975a_c7a6_46b3_acf7_1a268a0a117d);
@@ -3757,14 +3138,10 @@ pub struct ILinearEasingFunction_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INaturalMotionAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for INaturalMotionAnimation {
     type Vtable = INaturalMotionAnimation_Vtbl;
-}
-impl ::core::clone::Clone for INaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INaturalMotionAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x438de12d_769b_4821_a949_284a6547e873);
@@ -3788,14 +3165,10 @@ pub struct INaturalMotionAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INaturalMotionAnimationFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for INaturalMotionAnimationFactory {
     type Vtable = INaturalMotionAnimationFactory_Vtbl;
-}
-impl ::core::clone::Clone for INaturalMotionAnimationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INaturalMotionAnimationFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf53acb06_cf6a_4387_a3fe_5221f3e7e0e0);
@@ -3807,14 +3180,10 @@ pub struct INaturalMotionAnimationFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPathKeyFrameAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPathKeyFrameAnimation {
     type Vtable = IPathKeyFrameAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IPathKeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPathKeyFrameAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d0d18c9_1576_4b3f_be60_1d5031f5e71b);
@@ -3828,14 +3197,10 @@ pub struct IPathKeyFrameAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPointLight(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPointLight {
     type Vtable = IPointLight_Vtbl;
-}
-impl ::core::clone::Clone for IPointLight {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPointLight {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb18545b3_0c5a_4ab0_bedc_4f3546948272);
@@ -3865,14 +3230,10 @@ pub struct IPointLight_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPointLight2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPointLight2 {
     type Vtable = IPointLight2_Vtbl;
-}
-impl ::core::clone::Clone for IPointLight2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPointLight2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefe98f2c_0678_4f69_b164_a810d995bcb7);
@@ -3886,14 +3247,10 @@ pub struct IPointLight2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPointLight3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPointLight3 {
     type Vtable = IPointLight3_Vtbl;
-}
-impl ::core::clone::Clone for IPointLight3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPointLight3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c0a8367_d4e9_468a_87ae_7ba43ab29485);
@@ -3909,14 +3266,10 @@ pub struct IPointLight3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPowerEasingFunction(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPowerEasingFunction {
     type Vtable = IPowerEasingFunction_Vtbl;
-}
-impl ::core::clone::Clone for IPowerEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPowerEasingFunction {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc3ff53d6_138b_5815_891a_b7f615ccc563);
@@ -3930,14 +3283,10 @@ pub struct IPowerEasingFunction_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQuaternionKeyFrameAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IQuaternionKeyFrameAnimation {
     type Vtable = IQuaternionKeyFrameAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IQuaternionKeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IQuaternionKeyFrameAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x404e5835_ecf6_4240_8520_671279cf36bc);
@@ -3957,14 +3306,10 @@ pub struct IQuaternionKeyFrameAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRectangleClip(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRectangleClip {
     type Vtable = IRectangleClip_Vtbl;
-}
-impl ::core::clone::Clone for IRectangleClip {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRectangleClip {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3e7549e_00b4_5b53_8be8_353f6c433101);
@@ -4016,14 +3361,10 @@ pub struct IRectangleClip_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRedirectVisual(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRedirectVisual {
     type Vtable = IRedirectVisual_Vtbl;
-}
-impl ::core::clone::Clone for IRedirectVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRedirectVisual {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8cc6e340_8b75_5422_b06f_09ffe9f8617e);
@@ -4037,14 +3378,10 @@ pub struct IRedirectVisual_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRenderingDeviceReplacedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRenderingDeviceReplacedEventArgs {
     type Vtable = IRenderingDeviceReplacedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRenderingDeviceReplacedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRenderingDeviceReplacedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a31ac7d_28bf_4e7a_8524_71679d480f38);
@@ -4057,14 +3394,10 @@ pub struct IRenderingDeviceReplacedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScalarKeyFrameAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IScalarKeyFrameAnimation {
     type Vtable = IScalarKeyFrameAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IScalarKeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScalarKeyFrameAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae288fa9_252c_4b95_a725_bf85e38000a1);
@@ -4078,14 +3411,10 @@ pub struct IScalarKeyFrameAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScalarNaturalMotionAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IScalarNaturalMotionAnimation {
     type Vtable = IScalarNaturalMotionAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IScalarNaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScalarNaturalMotionAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94a94581_bf92_495b_b5bd_d2c659430737);
@@ -4115,14 +3444,10 @@ pub struct IScalarNaturalMotionAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScalarNaturalMotionAnimationFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IScalarNaturalMotionAnimationFactory {
     type Vtable = IScalarNaturalMotionAnimationFactory_Vtbl;
-}
-impl ::core::clone::Clone for IScalarNaturalMotionAnimationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScalarNaturalMotionAnimationFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x835aa4fc_671c_41dd_af48_ae8def8b1529);
@@ -4134,14 +3459,10 @@ pub struct IScalarNaturalMotionAnimationFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IShapeVisual(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IShapeVisual {
     type Vtable = IShapeVisual_Vtbl;
-}
-impl ::core::clone::Clone for IShapeVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IShapeVisual {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2bd13c3_ba7e_4b0f_9126_ffb7536b8176);
@@ -4159,14 +3480,10 @@ pub struct IShapeVisual_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISineEasingFunction(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISineEasingFunction {
     type Vtable = ISineEasingFunction_Vtbl;
-}
-impl ::core::clone::Clone for ISineEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISineEasingFunction {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf1b518bf_9563_5474_bd13_44b2df4b1d58);
@@ -4179,14 +3496,10 @@ pub struct ISineEasingFunction_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpotLight(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpotLight {
     type Vtable = ISpotLight_Vtbl;
-}
-impl ::core::clone::Clone for ISpotLight {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpotLight {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a9fe273_44a1_4f95_a422_8fa5116bdb44);
@@ -4234,14 +3547,10 @@ pub struct ISpotLight_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpotLight2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpotLight2 {
     type Vtable = ISpotLight2_Vtbl;
-}
-impl ::core::clone::Clone for ISpotLight2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpotLight2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64ee615e_0686_4dea_a9e8_bc3a8c701459);
@@ -4257,14 +3566,10 @@ pub struct ISpotLight2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpotLight3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpotLight3 {
     type Vtable = ISpotLight3_Vtbl;
-}
-impl ::core::clone::Clone for ISpotLight3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpotLight3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe4d03eea_131f_480e_859e_b82705b74360);
@@ -4280,14 +3585,10 @@ pub struct ISpotLight3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpringScalarNaturalMotionAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpringScalarNaturalMotionAnimation {
     type Vtable = ISpringScalarNaturalMotionAnimation_Vtbl;
-}
-impl ::core::clone::Clone for ISpringScalarNaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpringScalarNaturalMotionAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0572a95f_37f9_4fbe_b87b_5cd03a89501c);
@@ -4309,14 +3610,10 @@ pub struct ISpringScalarNaturalMotionAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpringVector2NaturalMotionAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpringVector2NaturalMotionAnimation {
     type Vtable = ISpringVector2NaturalMotionAnimation_Vtbl;
-}
-impl ::core::clone::Clone for ISpringVector2NaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpringVector2NaturalMotionAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23f494b5_ee73_4f0f_a423_402b946df4b3);
@@ -4338,14 +3635,10 @@ pub struct ISpringVector2NaturalMotionAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpringVector3NaturalMotionAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpringVector3NaturalMotionAnimation {
     type Vtable = ISpringVector3NaturalMotionAnimation_Vtbl;
-}
-impl ::core::clone::Clone for ISpringVector3NaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpringVector3NaturalMotionAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c8749df_d57b_4794_8e2d_cecb11e194e5);
@@ -4367,14 +3660,10 @@ pub struct ISpringVector3NaturalMotionAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpriteVisual(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpriteVisual {
     type Vtable = ISpriteVisual_Vtbl;
-}
-impl ::core::clone::Clone for ISpriteVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpriteVisual {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08e05581_1ad1_4f97_9757_402d76e4233b);
@@ -4388,14 +3677,10 @@ pub struct ISpriteVisual_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpriteVisual2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpriteVisual2 {
     type Vtable = ISpriteVisual2_Vtbl;
-}
-impl ::core::clone::Clone for ISpriteVisual2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpriteVisual2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x588c9664_997a_4850_91fe_53cb58f81ce9);
@@ -4409,14 +3694,10 @@ pub struct ISpriteVisual2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStepEasingFunction(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStepEasingFunction {
     type Vtable = IStepEasingFunction_Vtbl;
-}
-impl ::core::clone::Clone for IStepEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStepEasingFunction {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0caa74b_560c_4a0b_a5f6_206ca8c3ecd6);
@@ -4438,14 +3719,10 @@ pub struct IStepEasingFunction_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVector2KeyFrameAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVector2KeyFrameAnimation {
     type Vtable = IVector2KeyFrameAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IVector2KeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVector2KeyFrameAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf414515_4e29_4f11_b55e_bf2a6eb36294);
@@ -4465,14 +3742,10 @@ pub struct IVector2KeyFrameAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVector2NaturalMotionAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVector2NaturalMotionAnimation {
     type Vtable = IVector2NaturalMotionAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IVector2NaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVector2NaturalMotionAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f3e0b7d_e512_479d_a00c_77c93a30a395);
@@ -4508,14 +3781,10 @@ pub struct IVector2NaturalMotionAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVector2NaturalMotionAnimationFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVector2NaturalMotionAnimationFactory {
     type Vtable = IVector2NaturalMotionAnimationFactory_Vtbl;
-}
-impl ::core::clone::Clone for IVector2NaturalMotionAnimationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVector2NaturalMotionAnimationFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c74ff61_0761_48a2_bddb_6afcc52b89d8);
@@ -4527,14 +3796,10 @@ pub struct IVector2NaturalMotionAnimationFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVector3KeyFrameAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVector3KeyFrameAnimation {
     type Vtable = IVector3KeyFrameAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IVector3KeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVector3KeyFrameAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8039daa_a281_43c2_a73d_b68e3c533c40);
@@ -4554,14 +3819,10 @@ pub struct IVector3KeyFrameAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVector3NaturalMotionAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVector3NaturalMotionAnimation {
     type Vtable = IVector3NaturalMotionAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IVector3NaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVector3NaturalMotionAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c17042c_e2ca_45ad_969e_4e78b7b9ad41);
@@ -4597,14 +3858,10 @@ pub struct IVector3NaturalMotionAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVector3NaturalMotionAnimationFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVector3NaturalMotionAnimationFactory {
     type Vtable = IVector3NaturalMotionAnimationFactory_Vtbl;
-}
-impl ::core::clone::Clone for IVector3NaturalMotionAnimationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVector3NaturalMotionAnimationFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x21a81d2f_0880_457b_ac87_b609018c876d);
@@ -4616,14 +3873,10 @@ pub struct IVector3NaturalMotionAnimationFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVector4KeyFrameAnimation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVector4KeyFrameAnimation {
     type Vtable = IVector4KeyFrameAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IVector4KeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVector4KeyFrameAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2457945b_addd_4385_9606_b6a3d5e4e1b9);
@@ -4643,14 +3896,10 @@ pub struct IVector4KeyFrameAnimation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVisual(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVisual {
     type Vtable = IVisual_Vtbl;
-}
-impl ::core::clone::Clone for IVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVisual {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x117e202d_a859_4c89_873b_c2aa566788e3);
@@ -4743,14 +3992,10 @@ pub struct IVisual_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVisual2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVisual2 {
     type Vtable = IVisual2_Vtbl;
-}
-impl ::core::clone::Clone for IVisual2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVisual2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3052b611_56c3_4c3e_8bf3_f6e1ad473f06);
@@ -4780,14 +4025,10 @@ pub struct IVisual2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVisual3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVisual3 {
     type Vtable = IVisual3_Vtbl;
-}
-impl ::core::clone::Clone for IVisual3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVisual3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30be580d_f4b6_4ab7_80dd_3738cbac9f2c);
@@ -4801,14 +4042,10 @@ pub struct IVisual3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVisual4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVisual4 {
     type Vtable = IVisual4_Vtbl;
-}
-impl ::core::clone::Clone for IVisual4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVisual4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9476bf11_e24b_5bf9_9ebe_6274109b2711);
@@ -4822,14 +4059,10 @@ pub struct IVisual4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVisualCollection(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVisualCollection {
     type Vtable = IVisualCollection_Vtbl;
-}
-impl ::core::clone::Clone for IVisualCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVisualCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b745505_fd3e_4a98_84a8_e949468c6bcb);
@@ -4848,30 +4081,15 @@ pub struct IVisualCollection_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVisualElement(::windows_core::IUnknown);
 impl IVisualElement {}
 ::windows_core::imp::interface_hierarchy!(IVisualElement, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IVisualElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVisualElement {}
-impl ::core::fmt::Debug for IVisualElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVisualElement").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IVisualElement {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{01e64612-1d82-42f4-8e3f-a722ded33fc7}");
 }
 unsafe impl ::windows_core::Interface for IVisualElement {
     type Vtable = IVisualElement_Vtbl;
-}
-impl ::core::clone::Clone for IVisualElement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVisualElement {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01e64612_1d82_42f4_8e3f_a722ded33fc7);
@@ -4883,6 +4101,7 @@ pub struct IVisualElement_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVisualElement2(::windows_core::IUnknown);
 impl IVisualElement2 {
     pub fn GetVisualInternal(&self) -> ::windows_core::Result<Visual> {
@@ -4894,27 +4113,11 @@ impl IVisualElement2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVisualElement2, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IVisualElement2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVisualElement2 {}
-impl ::core::fmt::Debug for IVisualElement2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVisualElement2").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IVisualElement2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{993ae8a0-6057-5e40-918c-e06e0b7e7c64}");
 }
 unsafe impl ::windows_core::Interface for IVisualElement2 {
     type Vtable = IVisualElement2_Vtbl;
-}
-impl ::core::clone::Clone for IVisualElement2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVisualElement2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x993ae8a0_6057_5e40_918c_e06e0b7e7c64);
@@ -4927,14 +4130,10 @@ pub struct IVisualElement2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVisualFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVisualFactory {
     type Vtable = IVisualFactory_Vtbl;
-}
-impl ::core::clone::Clone for IVisualFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVisualFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad0ff93e_b502_4eb5_87b4_9a38a71d0137);
@@ -4946,14 +4145,10 @@ pub struct IVisualFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVisualUnorderedCollection(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVisualUnorderedCollection {
     type Vtable = IVisualUnorderedCollection_Vtbl;
-}
-impl ::core::clone::Clone for IVisualUnorderedCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVisualUnorderedCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x338faa70_54c8_40a7_8029_c9ceeb0aa250);
@@ -4969,6 +4164,7 @@ pub struct IVisualUnorderedCollection_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AmbientLight(::windows_core::IUnknown);
 impl AmbientLight {
     pub fn Color(&self) -> ::windows_core::Result<super::Color> {
@@ -5129,24 +4325,8 @@ impl AmbientLight {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for AmbientLight {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AmbientLight {}
-impl ::core::fmt::Debug for AmbientLight {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AmbientLight").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AmbientLight {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AmbientLight;{a48130a1-b7c4-46f7-b9bf-daf43a44e6ee})");
-}
-impl ::core::clone::Clone for AmbientLight {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AmbientLight {
     type Vtable = IAmbientLight_Vtbl;
@@ -5167,6 +4347,7 @@ unsafe impl ::core::marker::Send for AmbientLight {}
 unsafe impl ::core::marker::Sync for AmbientLight {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AnimationController(::windows_core::IUnknown);
 impl AnimationController {
     pub fn PlaybackRate(&self) -> ::windows_core::Result<f32> {
@@ -5338,24 +4519,8 @@ impl AnimationController {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for AnimationController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnimationController {}
-impl ::core::fmt::Debug for AnimationController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationController").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AnimationController {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AnimationController;{c934efd2-0722-4f5f-a4e2-9510f3d43bf7})");
-}
-impl ::core::clone::Clone for AnimationController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AnimationController {
     type Vtable = IAnimationController_Vtbl;
@@ -5375,6 +4540,7 @@ unsafe impl ::core::marker::Send for AnimationController {}
 unsafe impl ::core::marker::Sync for AnimationController {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AnimationPropertyInfo(::windows_core::IUnknown);
 impl AnimationPropertyInfo {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -5513,24 +4679,8 @@ impl AnimationPropertyInfo {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for AnimationPropertyInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnimationPropertyInfo {}
-impl ::core::fmt::Debug for AnimationPropertyInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationPropertyInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AnimationPropertyInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AnimationPropertyInfo;{f4716f05-ed77-4e3c-b328-5c3985b3738f})");
-}
-impl ::core::clone::Clone for AnimationPropertyInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AnimationPropertyInfo {
     type Vtable = IAnimationPropertyInfo_Vtbl;
@@ -5550,6 +4700,7 @@ unsafe impl ::core::marker::Send for AnimationPropertyInfo {}
 unsafe impl ::core::marker::Sync for AnimationPropertyInfo {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackEasingFunction(::windows_core::IUnknown);
 impl BackEasingFunction {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -5677,24 +4828,8 @@ impl BackEasingFunction {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for BackEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackEasingFunction {}
-impl ::core::fmt::Debug for BackEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackEasingFunction").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BackEasingFunction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BackEasingFunction;{b8560da4-5e3c-545d-b263-7987a2bd27cb})");
-}
-impl ::core::clone::Clone for BackEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BackEasingFunction {
     type Vtable = IBackEasingFunction_Vtbl;
@@ -5715,6 +4850,7 @@ unsafe impl ::core::marker::Send for BackEasingFunction {}
 unsafe impl ::core::marker::Sync for BackEasingFunction {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BooleanKeyFrameAnimation(::windows_core::IUnknown);
 impl BooleanKeyFrameAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -6025,24 +5161,8 @@ impl BooleanKeyFrameAnimation {
         unsafe { (::windows_core::Interface::vtable(this).SetDelayBehavior)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for BooleanKeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BooleanKeyFrameAnimation {}
-impl ::core::fmt::Debug for BooleanKeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BooleanKeyFrameAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BooleanKeyFrameAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BooleanKeyFrameAnimation;{95e23a08-d1f4-4972-9770-3efe68d82e14})");
-}
-impl ::core::clone::Clone for BooleanKeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BooleanKeyFrameAnimation {
     type Vtable = IBooleanKeyFrameAnimation_Vtbl;
@@ -6065,6 +5185,7 @@ unsafe impl ::core::marker::Send for BooleanKeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for BooleanKeyFrameAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BounceEasingFunction(::windows_core::IUnknown);
 impl BounceEasingFunction {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -6199,24 +5320,8 @@ impl BounceEasingFunction {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for BounceEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BounceEasingFunction {}
-impl ::core::fmt::Debug for BounceEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BounceEasingFunction").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BounceEasingFunction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceEasingFunction;{e7fdb44b-aad5-5174-9421-eef8b75a6a43})");
-}
-impl ::core::clone::Clone for BounceEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BounceEasingFunction {
     type Vtable = IBounceEasingFunction_Vtbl;
@@ -6237,6 +5342,7 @@ unsafe impl ::core::marker::Send for BounceEasingFunction {}
 unsafe impl ::core::marker::Sync for BounceEasingFunction {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BounceScalarNaturalMotionAnimation(::windows_core::IUnknown);
 impl BounceScalarNaturalMotionAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -6546,24 +5652,8 @@ impl BounceScalarNaturalMotionAnimation {
         unsafe { (::windows_core::Interface::vtable(this).SetInitialVelocity)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for BounceScalarNaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BounceScalarNaturalMotionAnimation {}
-impl ::core::fmt::Debug for BounceScalarNaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BounceScalarNaturalMotionAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BounceScalarNaturalMotionAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceScalarNaturalMotionAnimation;{baa30dcc-a633-4618-9b06-7f7c72c87cff})");
-}
-impl ::core::clone::Clone for BounceScalarNaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BounceScalarNaturalMotionAnimation {
     type Vtable = IBounceScalarNaturalMotionAnimation_Vtbl;
@@ -6587,6 +5677,7 @@ unsafe impl ::core::marker::Send for BounceScalarNaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for BounceScalarNaturalMotionAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BounceVector2NaturalMotionAnimation(::windows_core::IUnknown);
 impl BounceVector2NaturalMotionAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -6900,24 +5991,8 @@ impl BounceVector2NaturalMotionAnimation {
         unsafe { (::windows_core::Interface::vtable(this).SetInitialVelocity)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for BounceVector2NaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BounceVector2NaturalMotionAnimation {}
-impl ::core::fmt::Debug for BounceVector2NaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BounceVector2NaturalMotionAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BounceVector2NaturalMotionAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceVector2NaturalMotionAnimation;{da344196-2154-4b3c-88aa-47361204eccd})");
-}
-impl ::core::clone::Clone for BounceVector2NaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BounceVector2NaturalMotionAnimation {
     type Vtable = IBounceVector2NaturalMotionAnimation_Vtbl;
@@ -6941,6 +6016,7 @@ unsafe impl ::core::marker::Send for BounceVector2NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for BounceVector2NaturalMotionAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BounceVector3NaturalMotionAnimation(::windows_core::IUnknown);
 impl BounceVector3NaturalMotionAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -7254,24 +6330,8 @@ impl BounceVector3NaturalMotionAnimation {
         unsafe { (::windows_core::Interface::vtable(this).SetInitialVelocity)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for BounceVector3NaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BounceVector3NaturalMotionAnimation {}
-impl ::core::fmt::Debug for BounceVector3NaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BounceVector3NaturalMotionAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BounceVector3NaturalMotionAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceVector3NaturalMotionAnimation;{47dabc31-10d3-4518-86f1-09caf742d113})");
-}
-impl ::core::clone::Clone for BounceVector3NaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BounceVector3NaturalMotionAnimation {
     type Vtable = IBounceVector3NaturalMotionAnimation_Vtbl;
@@ -7295,6 +6355,7 @@ unsafe impl ::core::marker::Send for BounceVector3NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for BounceVector3NaturalMotionAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CircleEasingFunction(::windows_core::IUnknown);
 impl CircleEasingFunction {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -7415,24 +6476,8 @@ impl CircleEasingFunction {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CircleEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CircleEasingFunction {}
-impl ::core::fmt::Debug for CircleEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CircleEasingFunction").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CircleEasingFunction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CircleEasingFunction;{1e07222a-6f82-5a28-8748-2e92fc46ee2b})");
-}
-impl ::core::clone::Clone for CircleEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CircleEasingFunction {
     type Vtable = ICircleEasingFunction_Vtbl;
@@ -7453,6 +6498,7 @@ unsafe impl ::core::marker::Send for CircleEasingFunction {}
 unsafe impl ::core::marker::Sync for CircleEasingFunction {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ColorKeyFrameAnimation(::windows_core::IUnknown);
 impl ColorKeyFrameAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -7781,24 +6827,8 @@ impl ColorKeyFrameAnimation {
         unsafe { (::windows_core::Interface::vtable(this).SetDelayBehavior)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ColorKeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ColorKeyFrameAnimation {}
-impl ::core::fmt::Debug for ColorKeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ColorKeyFrameAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ColorKeyFrameAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ColorKeyFrameAnimation;{93adb5e9-8e05-4593-84a3-dca152781e56})");
-}
-impl ::core::clone::Clone for ColorKeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ColorKeyFrameAnimation {
     type Vtable = IColorKeyFrameAnimation_Vtbl;
@@ -7821,6 +6851,7 @@ unsafe impl ::core::marker::Send for ColorKeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for ColorKeyFrameAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionAnimation(::windows_core::IUnknown);
 impl CompositionAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -8024,24 +7055,8 @@ impl CompositionAnimation {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionAnimation {}
-impl ::core::fmt::Debug for CompositionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionAnimation;{464c4c2c-1caa-4061-9b40-e13fde1503ca})");
-}
-impl ::core::clone::Clone for CompositionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionAnimation {
     type Vtable = ICompositionAnimation_Vtbl;
@@ -8062,6 +7077,7 @@ unsafe impl ::core::marker::Send for CompositionAnimation {}
 unsafe impl ::core::marker::Sync for CompositionAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionAnimationGroup(::windows_core::IUnknown);
 impl CompositionAnimationGroup {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -8209,24 +7225,8 @@ impl CompositionAnimationGroup {
         }
     }
 }
-impl ::core::cmp::PartialEq for CompositionAnimationGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionAnimationGroup {}
-impl ::core::fmt::Debug for CompositionAnimationGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionAnimationGroup").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionAnimationGroup {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionAnimationGroup;{5e7cc90c-cd14-4e07-8a55-c72527aabdac})");
-}
-impl ::core::clone::Clone for CompositionAnimationGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionAnimationGroup {
     type Vtable = ICompositionAnimationGroup_Vtbl;
@@ -8265,6 +7265,7 @@ unsafe impl ::core::marker::Send for CompositionAnimationGroup {}
 unsafe impl ::core::marker::Sync for CompositionAnimationGroup {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionBackdropBrush(::windows_core::IUnknown);
 impl CompositionBackdropBrush {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -8378,24 +7379,8 @@ impl CompositionBackdropBrush {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionBackdropBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionBackdropBrush {}
-impl ::core::fmt::Debug for CompositionBackdropBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionBackdropBrush").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionBackdropBrush {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBackdropBrush;{c5acae58-3898-499e-8d7f-224e91286a5d})");
-}
-impl ::core::clone::Clone for CompositionBackdropBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionBackdropBrush {
     type Vtable = ICompositionBackdropBrush_Vtbl;
@@ -8416,6 +7401,7 @@ unsafe impl ::core::marker::Send for CompositionBackdropBrush {}
 unsafe impl ::core::marker::Sync for CompositionBackdropBrush {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionBatchCompletedEventArgs(::windows_core::IUnknown);
 impl CompositionBatchCompletedEventArgs {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -8529,24 +7515,8 @@ impl CompositionBatchCompletedEventArgs {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionBatchCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionBatchCompletedEventArgs {}
-impl ::core::fmt::Debug for CompositionBatchCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionBatchCompletedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionBatchCompletedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBatchCompletedEventArgs;{0d00dad0-9464-450a-a562-2e2698b0a812})");
-}
-impl ::core::clone::Clone for CompositionBatchCompletedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionBatchCompletedEventArgs {
     type Vtable = ICompositionBatchCompletedEventArgs_Vtbl;
@@ -8566,6 +7536,7 @@ unsafe impl ::core::marker::Send for CompositionBatchCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for CompositionBatchCompletedEventArgs {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionBrush(::windows_core::IUnknown);
 impl CompositionBrush {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -8679,24 +7650,8 @@ impl CompositionBrush {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionBrush {}
-impl ::core::fmt::Debug for CompositionBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionBrush").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionBrush {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBrush;{ab0d7608-30c0-40e9-b568-b60a6bd1fb46})");
-}
-impl ::core::clone::Clone for CompositionBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionBrush {
     type Vtable = ICompositionBrush_Vtbl;
@@ -8716,6 +7671,7 @@ unsafe impl ::core::marker::Send for CompositionBrush {}
 unsafe impl ::core::marker::Sync for CompositionBrush {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionCapabilities(::windows_core::IUnknown);
 impl CompositionCapabilities {
     pub fn AreEffectsSupported(&self) -> ::windows_core::Result<bool> {
@@ -8762,24 +7718,8 @@ impl CompositionCapabilities {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for CompositionCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionCapabilities {}
-impl ::core::fmt::Debug for CompositionCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionCapabilities;{8253353e-b517-48bc-b1e8-4b3561a2e181})");
-}
-impl ::core::clone::Clone for CompositionCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionCapabilities {
     type Vtable = ICompositionCapabilities_Vtbl;
@@ -8795,6 +7735,7 @@ unsafe impl ::core::marker::Send for CompositionCapabilities {}
 unsafe impl ::core::marker::Sync for CompositionCapabilities {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionClip(::windows_core::IUnknown);
 impl CompositionClip {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -9005,24 +7946,8 @@ impl CompositionClip {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionClip {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionClip {}
-impl ::core::fmt::Debug for CompositionClip {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionClip").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionClip {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionClip;{1ccd2a52-cfc7-4ace-9983-146bb8eb6a3c})");
-}
-impl ::core::clone::Clone for CompositionClip {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionClip {
     type Vtable = ICompositionClip_Vtbl;
@@ -9042,6 +7967,7 @@ unsafe impl ::core::marker::Send for CompositionClip {}
 unsafe impl ::core::marker::Sync for CompositionClip {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionColorBrush(::windows_core::IUnknown);
 impl CompositionColorBrush {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -9166,24 +8092,8 @@ impl CompositionColorBrush {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionColorBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionColorBrush {}
-impl ::core::fmt::Debug for CompositionColorBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionColorBrush").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionColorBrush {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorBrush;{2b264c5e-bf35-4831-8642-cf70c20fff2f})");
-}
-impl ::core::clone::Clone for CompositionColorBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionColorBrush {
     type Vtable = ICompositionColorBrush_Vtbl;
@@ -9204,6 +8114,7 @@ unsafe impl ::core::marker::Send for CompositionColorBrush {}
 unsafe impl ::core::marker::Sync for CompositionColorBrush {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionColorGradientStop(::windows_core::IUnknown);
 impl CompositionColorGradientStop {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -9339,24 +8250,8 @@ impl CompositionColorGradientStop {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionColorGradientStop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionColorGradientStop {}
-impl ::core::fmt::Debug for CompositionColorGradientStop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionColorGradientStop").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionColorGradientStop {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorGradientStop;{6f00ca92-c801-4e41-9a8f-a53e20f57778})");
-}
-impl ::core::clone::Clone for CompositionColorGradientStop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionColorGradientStop {
     type Vtable = ICompositionColorGradientStop_Vtbl;
@@ -9376,6 +8271,7 @@ unsafe impl ::core::marker::Send for CompositionColorGradientStop {}
 unsafe impl ::core::marker::Sync for CompositionColorGradientStop {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionColorGradientStopCollection(::windows_core::IUnknown);
 impl CompositionColorGradientStopCollection {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -9487,24 +8383,8 @@ impl CompositionColorGradientStopCollection {
         unsafe { (::windows_core::Interface::vtable(this).ReplaceAll)(::windows_core::Interface::as_raw(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionColorGradientStopCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionColorGradientStopCollection {}
-impl ::core::fmt::Debug for CompositionColorGradientStopCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionColorGradientStopCollection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionColorGradientStopCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorGradientStopCollection;{9f1d20ec-7b04-4b1d-90bc-9fa32c0cfd26})");
-}
-impl ::core::clone::Clone for CompositionColorGradientStopCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionColorGradientStopCollection {
     type Vtable = ICompositionColorGradientStopCollection_Vtbl;
@@ -9540,6 +8420,7 @@ unsafe impl ::core::marker::Send for CompositionColorGradientStopCollection {}
 unsafe impl ::core::marker::Sync for CompositionColorGradientStopCollection {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionCommitBatch(::windows_core::IUnknown);
 impl CompositionCommitBatch {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -9685,24 +8566,8 @@ impl CompositionCommitBatch {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionCommitBatch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionCommitBatch {}
-impl ::core::fmt::Debug for CompositionCommitBatch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionCommitBatch").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionCommitBatch {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionCommitBatch;{0d00dad0-ca07-4400-8c8e-cb5db08559cc})");
-}
-impl ::core::clone::Clone for CompositionCommitBatch {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionCommitBatch {
     type Vtable = ICompositionCommitBatch_Vtbl;
@@ -9722,6 +8587,7 @@ unsafe impl ::core::marker::Send for CompositionCommitBatch {}
 unsafe impl ::core::marker::Sync for CompositionCommitBatch {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionContainerShape(::windows_core::IUnknown);
 impl CompositionContainerShape {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -9926,24 +8792,8 @@ impl CompositionContainerShape {
         unsafe { (::windows_core::Interface::vtable(this).SetTransformMatrix)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionContainerShape {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionContainerShape {}
-impl ::core::fmt::Debug for CompositionContainerShape {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionContainerShape").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionContainerShape {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionContainerShape;{4f5e859b-2e5b-44a8-982c-aa0f69c16059})");
-}
-impl ::core::clone::Clone for CompositionContainerShape {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionContainerShape {
     type Vtable = ICompositionContainerShape_Vtbl;
@@ -9964,6 +8814,7 @@ unsafe impl ::core::marker::Send for CompositionContainerShape {}
 unsafe impl ::core::marker::Sync for CompositionContainerShape {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionDrawingSurface(::windows_core::IUnknown);
 impl CompositionDrawingSurface {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -10143,24 +8994,8 @@ impl CompositionDrawingSurface {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionDrawingSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionDrawingSurface {}
-impl ::core::fmt::Debug for CompositionDrawingSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionDrawingSurface").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionDrawingSurface {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionDrawingSurface;{a166c300-fad0-4d11-9e67-e433162ff49e})");
-}
-impl ::core::clone::Clone for CompositionDrawingSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionDrawingSurface {
     type Vtable = ICompositionDrawingSurface_Vtbl;
@@ -10181,6 +9016,7 @@ unsafe impl ::core::marker::Send for CompositionDrawingSurface {}
 unsafe impl ::core::marker::Sync for CompositionDrawingSurface {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionEasingFunction(::windows_core::IUnknown);
 impl CompositionEasingFunction {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -10400,24 +9236,8 @@ impl CompositionEasingFunction {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for CompositionEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionEasingFunction {}
-impl ::core::fmt::Debug for CompositionEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionEasingFunction").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionEasingFunction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEasingFunction;{5145e356-bf79-4ea8-8cc2-6b5b472e6c9a})");
-}
-impl ::core::clone::Clone for CompositionEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionEasingFunction {
     type Vtable = ICompositionEasingFunction_Vtbl;
@@ -10437,6 +9257,7 @@ unsafe impl ::core::marker::Send for CompositionEasingFunction {}
 unsafe impl ::core::marker::Sync for CompositionEasingFunction {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionEffectBrush(::windows_core::IUnknown);
 impl CompositionEffectBrush {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -10564,24 +9385,8 @@ impl CompositionEffectBrush {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionEffectBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionEffectBrush {}
-impl ::core::fmt::Debug for CompositionEffectBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionEffectBrush").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionEffectBrush {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectBrush;{bf7f795e-83cc-44bf-a447-3e3c071789ec})");
-}
-impl ::core::clone::Clone for CompositionEffectBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionEffectBrush {
     type Vtable = ICompositionEffectBrush_Vtbl;
@@ -10602,6 +9407,7 @@ unsafe impl ::core::marker::Send for CompositionEffectBrush {}
 unsafe impl ::core::marker::Sync for CompositionEffectBrush {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionEffectFactory(::windows_core::IUnknown);
 impl CompositionEffectFactory {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -10736,24 +9542,8 @@ impl CompositionEffectFactory {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionEffectFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionEffectFactory {}
-impl ::core::fmt::Debug for CompositionEffectFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionEffectFactory").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionEffectFactory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectFactory;{be5624af-ba7e-4510-9850-41c0b4ff74df})");
-}
-impl ::core::clone::Clone for CompositionEffectFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionEffectFactory {
     type Vtable = ICompositionEffectFactory_Vtbl;
@@ -10773,6 +9563,7 @@ unsafe impl ::core::marker::Send for CompositionEffectFactory {}
 unsafe impl ::core::marker::Sync for CompositionEffectFactory {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionEffectSourceParameter(::windows_core::IUnknown);
 impl CompositionEffectSourceParameter {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -10794,24 +9585,8 @@ impl CompositionEffectSourceParameter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for CompositionEffectSourceParameter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionEffectSourceParameter {}
-impl ::core::fmt::Debug for CompositionEffectSourceParameter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionEffectSourceParameter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionEffectSourceParameter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectSourceParameter;{858ab13a-3292-4e4e-b3bb-2b6c6544a6ee})");
-}
-impl ::core::clone::Clone for CompositionEffectSourceParameter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionEffectSourceParameter {
     type Vtable = ICompositionEffectSourceParameter_Vtbl;
@@ -10829,6 +9604,7 @@ unsafe impl ::core::marker::Send for CompositionEffectSourceParameter {}
 unsafe impl ::core::marker::Sync for CompositionEffectSourceParameter {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionEllipseGeometry(::windows_core::IUnknown);
 impl CompositionEllipseGeometry {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -11005,24 +9781,8 @@ impl CompositionEllipseGeometry {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionEllipseGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionEllipseGeometry {}
-impl ::core::fmt::Debug for CompositionEllipseGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionEllipseGeometry").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionEllipseGeometry {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEllipseGeometry;{4801f884-f6ad-4b93-afa9-897b64e57b1f})");
-}
-impl ::core::clone::Clone for CompositionEllipseGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionEllipseGeometry {
     type Vtable = ICompositionEllipseGeometry_Vtbl;
@@ -11043,6 +9803,7 @@ unsafe impl ::core::marker::Send for CompositionEllipseGeometry {}
 unsafe impl ::core::marker::Sync for CompositionEllipseGeometry {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionGeometricClip(::windows_core::IUnknown);
 impl CompositionGeometricClip {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -11281,24 +10042,8 @@ impl CompositionGeometricClip {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionGeometricClip {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionGeometricClip {}
-impl ::core::fmt::Debug for CompositionGeometricClip {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionGeometricClip").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionGeometricClip {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGeometricClip;{c840b581-81c9-4444-a2c1-ccaece3a50e5})");
-}
-impl ::core::clone::Clone for CompositionGeometricClip {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionGeometricClip {
     type Vtable = ICompositionGeometricClip_Vtbl;
@@ -11319,6 +10064,7 @@ unsafe impl ::core::marker::Send for CompositionGeometricClip {}
 unsafe impl ::core::marker::Sync for CompositionGeometricClip {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionGeometry(::windows_core::IUnknown);
 impl CompositionGeometry {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -11465,24 +10211,8 @@ impl CompositionGeometry {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionGeometry {}
-impl ::core::fmt::Debug for CompositionGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionGeometry").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionGeometry {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGeometry;{e985217c-6a17-4207-abd8-5fd3dd612a9d})");
-}
-impl ::core::clone::Clone for CompositionGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionGeometry {
     type Vtable = ICompositionGeometry_Vtbl;
@@ -11502,6 +10232,7 @@ unsafe impl ::core::marker::Send for CompositionGeometry {}
 unsafe impl ::core::marker::Sync for CompositionGeometry {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionGradientBrush(::windows_core::IUnknown);
 impl CompositionGradientBrush {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -11752,24 +10483,8 @@ impl CompositionGradientBrush {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionGradientBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionGradientBrush {}
-impl ::core::fmt::Debug for CompositionGradientBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionGradientBrush").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionGradientBrush {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGradientBrush;{1d9709e0-ffc6-4c0e-a9ab-34144d4c9098})");
-}
-impl ::core::clone::Clone for CompositionGradientBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionGradientBrush {
     type Vtable = ICompositionGradientBrush_Vtbl;
@@ -11790,6 +10505,7 @@ unsafe impl ::core::marker::Send for CompositionGradientBrush {}
 unsafe impl ::core::marker::Sync for CompositionGradientBrush {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionGraphicsDevice(::windows_core::IUnknown);
 impl CompositionGraphicsDevice {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -11973,24 +10689,8 @@ impl CompositionGraphicsDevice {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionGraphicsDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionGraphicsDevice {}
-impl ::core::fmt::Debug for CompositionGraphicsDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionGraphicsDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionGraphicsDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGraphicsDevice;{fb22c6e1-80a2-4667-9936-dbeaf6eefe95})");
-}
-impl ::core::clone::Clone for CompositionGraphicsDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionGraphicsDevice {
     type Vtable = ICompositionGraphicsDevice_Vtbl;
@@ -12010,6 +10710,7 @@ unsafe impl ::core::marker::Send for CompositionGraphicsDevice {}
 unsafe impl ::core::marker::Sync for CompositionGraphicsDevice {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionLight(::windows_core::IUnknown);
 impl CompositionLight {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -12148,24 +10849,8 @@ impl CompositionLight {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionLight {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionLight {}
-impl ::core::fmt::Debug for CompositionLight {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionLight").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionLight {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLight;{41a6d7c2-2e5d-4bc1-b09e-8f0a03e3d8d3})");
-}
-impl ::core::clone::Clone for CompositionLight {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionLight {
     type Vtable = ICompositionLight_Vtbl;
@@ -12185,6 +10870,7 @@ unsafe impl ::core::marker::Send for CompositionLight {}
 unsafe impl ::core::marker::Sync for CompositionLight {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionLineGeometry(::windows_core::IUnknown);
 impl CompositionLineGeometry {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -12361,24 +11047,8 @@ impl CompositionLineGeometry {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionLineGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionLineGeometry {}
-impl ::core::fmt::Debug for CompositionLineGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionLineGeometry").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionLineGeometry {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLineGeometry;{dd7615a4-0c9a-4b67-8dce-440a5bf9cdec})");
-}
-impl ::core::clone::Clone for CompositionLineGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionLineGeometry {
     type Vtable = ICompositionLineGeometry_Vtbl;
@@ -12399,6 +11069,7 @@ unsafe impl ::core::marker::Send for CompositionLineGeometry {}
 unsafe impl ::core::marker::Sync for CompositionLineGeometry {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionLinearGradientBrush(::windows_core::IUnknown);
 impl CompositionLinearGradientBrush {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -12679,24 +11350,8 @@ impl CompositionLinearGradientBrush {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionLinearGradientBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionLinearGradientBrush {}
-impl ::core::fmt::Debug for CompositionLinearGradientBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionLinearGradientBrush").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionLinearGradientBrush {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLinearGradientBrush;{983bc519-a9db-413c-a2d8-2a9056fc525e})");
-}
-impl ::core::clone::Clone for CompositionLinearGradientBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionLinearGradientBrush {
     type Vtable = ICompositionLinearGradientBrush_Vtbl;
@@ -12718,6 +11373,7 @@ unsafe impl ::core::marker::Send for CompositionLinearGradientBrush {}
 unsafe impl ::core::marker::Sync for CompositionLinearGradientBrush {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionMaskBrush(::windows_core::IUnknown);
 impl CompositionMaskBrush {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -12859,24 +11515,8 @@ impl CompositionMaskBrush {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionMaskBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionMaskBrush {}
-impl ::core::fmt::Debug for CompositionMaskBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionMaskBrush").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionMaskBrush {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionMaskBrush;{522cf09e-be6b-4f41-be49-f9226d471b4a})");
-}
-impl ::core::clone::Clone for CompositionMaskBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionMaskBrush {
     type Vtable = ICompositionMaskBrush_Vtbl;
@@ -12897,6 +11537,7 @@ unsafe impl ::core::marker::Send for CompositionMaskBrush {}
 unsafe impl ::core::marker::Sync for CompositionMaskBrush {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionMipmapSurface(::windows_core::IUnknown);
 impl CompositionMipmapSurface {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -13051,24 +11692,8 @@ impl CompositionMipmapSurface {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionMipmapSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionMipmapSurface {}
-impl ::core::fmt::Debug for CompositionMipmapSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionMipmapSurface").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionMipmapSurface {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionMipmapSurface;{4863675c-cf4a-4b1c-9ece-c5ec0c2b2fe6})");
-}
-impl ::core::clone::Clone for CompositionMipmapSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionMipmapSurface {
     type Vtable = ICompositionMipmapSurface_Vtbl;
@@ -13089,6 +11714,7 @@ unsafe impl ::core::marker::Send for CompositionMipmapSurface {}
 unsafe impl ::core::marker::Sync for CompositionMipmapSurface {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionNineGridBrush(::windows_core::IUnknown);
 impl CompositionNineGridBrush {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -13331,24 +11957,8 @@ impl CompositionNineGridBrush {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionNineGridBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionNineGridBrush {}
-impl ::core::fmt::Debug for CompositionNineGridBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionNineGridBrush").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionNineGridBrush {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionNineGridBrush;{f25154e4-bc8c-4be7-b80f-8685b83c0186})");
-}
-impl ::core::clone::Clone for CompositionNineGridBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionNineGridBrush {
     type Vtable = ICompositionNineGridBrush_Vtbl;
@@ -13369,6 +11979,7 @@ unsafe impl ::core::marker::Send for CompositionNineGridBrush {}
 unsafe impl ::core::marker::Sync for CompositionNineGridBrush {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionObject(::windows_core::IUnknown);
 impl CompositionObject {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -13501,24 +12112,8 @@ impl CompositionObject {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for CompositionObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionObject {}
-impl ::core::fmt::Debug for CompositionObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionObject").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionObject {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionObject;{bcb4ad45-7609-4550-934f-16002a68fded})");
-}
-impl ::core::clone::Clone for CompositionObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionObject {
     type Vtable = ICompositionObject_Vtbl;
@@ -13537,6 +12132,7 @@ unsafe impl ::core::marker::Send for CompositionObject {}
 unsafe impl ::core::marker::Sync for CompositionObject {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionPath(::windows_core::IUnknown);
 impl CompositionPath {
     #[doc = "*Required features: `\"Graphics\"`*"]
@@ -13556,24 +12152,8 @@ impl CompositionPath {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for CompositionPath {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionPath {}
-impl ::core::fmt::Debug for CompositionPath {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionPath").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionPath {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionPath;{66da1d5f-2e10-4f22-8a06-0a8151919e60})");
-}
-impl ::core::clone::Clone for CompositionPath {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionPath {
     type Vtable = ICompositionPath_Vtbl;
@@ -13591,6 +12171,7 @@ unsafe impl ::core::marker::Send for CompositionPath {}
 unsafe impl ::core::marker::Sync for CompositionPath {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionPathGeometry(::windows_core::IUnknown);
 impl CompositionPathGeometry {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -13751,24 +12332,8 @@ impl CompositionPathGeometry {
         unsafe { (::windows_core::Interface::vtable(this).SetPath)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionPathGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionPathGeometry {}
-impl ::core::fmt::Debug for CompositionPathGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionPathGeometry").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionPathGeometry {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionPathGeometry;{0b6a417e-2c77-4c23-af5e-6304c147bb61})");
-}
-impl ::core::clone::Clone for CompositionPathGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionPathGeometry {
     type Vtable = ICompositionPathGeometry_Vtbl;
@@ -13789,6 +12354,7 @@ unsafe impl ::core::marker::Send for CompositionPathGeometry {}
 unsafe impl ::core::marker::Sync for CompositionPathGeometry {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionProjectedShadow(::windows_core::IUnknown);
 impl CompositionProjectedShadow {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -13963,24 +12529,8 @@ impl CompositionProjectedShadow {
         }
     }
 }
-impl ::core::cmp::PartialEq for CompositionProjectedShadow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionProjectedShadow {}
-impl ::core::fmt::Debug for CompositionProjectedShadow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionProjectedShadow").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionProjectedShadow {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadow;{285b8e72-4328-523f-bcf2-5557c52c3b25})");
-}
-impl ::core::clone::Clone for CompositionProjectedShadow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionProjectedShadow {
     type Vtable = ICompositionProjectedShadow_Vtbl;
@@ -14000,6 +12550,7 @@ unsafe impl ::core::marker::Send for CompositionProjectedShadow {}
 unsafe impl ::core::marker::Sync for CompositionProjectedShadow {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionProjectedShadowCaster(::windows_core::IUnknown);
 impl CompositionProjectedShadowCaster {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -14141,24 +12692,8 @@ impl CompositionProjectedShadowCaster {
         unsafe { (::windows_core::Interface::vtable(this).SetCastingVisual)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionProjectedShadowCaster {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionProjectedShadowCaster {}
-impl ::core::fmt::Debug for CompositionProjectedShadowCaster {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionProjectedShadowCaster").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionProjectedShadowCaster {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowCaster;{b1d7d426-1e36-5a62-be56-a16112fdd148})");
-}
-impl ::core::clone::Clone for CompositionProjectedShadowCaster {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionProjectedShadowCaster {
     type Vtable = ICompositionProjectedShadowCaster_Vtbl;
@@ -14178,6 +12713,7 @@ unsafe impl ::core::marker::Send for CompositionProjectedShadowCaster {}
 unsafe impl ::core::marker::Sync for CompositionProjectedShadowCaster {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionProjectedShadowCasterCollection(::windows_core::IUnknown);
 impl CompositionProjectedShadowCasterCollection {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -14359,24 +12895,8 @@ impl CompositionProjectedShadowCasterCollection {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for CompositionProjectedShadowCasterCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionProjectedShadowCasterCollection {}
-impl ::core::fmt::Debug for CompositionProjectedShadowCasterCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionProjectedShadowCasterCollection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionProjectedShadowCasterCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowCasterCollection;{d2525c0c-e07f-58a3-ac91-37f73ee91740})");
-}
-impl ::core::clone::Clone for CompositionProjectedShadowCasterCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionProjectedShadowCasterCollection {
     type Vtable = ICompositionProjectedShadowCasterCollection_Vtbl;
@@ -14414,6 +12934,7 @@ unsafe impl ::core::marker::Send for CompositionProjectedShadowCasterCollection 
 unsafe impl ::core::marker::Sync for CompositionProjectedShadowCasterCollection {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionProjectedShadowReceiver(::windows_core::IUnknown);
 impl CompositionProjectedShadowReceiver {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -14541,24 +13062,8 @@ impl CompositionProjectedShadowReceiver {
         unsafe { (::windows_core::Interface::vtable(this).SetReceivingVisual)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionProjectedShadowReceiver {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionProjectedShadowReceiver {}
-impl ::core::fmt::Debug for CompositionProjectedShadowReceiver {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionProjectedShadowReceiver").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionProjectedShadowReceiver {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowReceiver;{1377985a-6a49-536a-9be4-a96a8e5298a9})");
-}
-impl ::core::clone::Clone for CompositionProjectedShadowReceiver {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionProjectedShadowReceiver {
     type Vtable = ICompositionProjectedShadowReceiver_Vtbl;
@@ -14578,6 +13083,7 @@ unsafe impl ::core::marker::Send for CompositionProjectedShadowReceiver {}
 unsafe impl ::core::marker::Sync for CompositionProjectedShadowReceiver {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionProjectedShadowReceiverUnorderedCollection(::windows_core::IUnknown);
 impl CompositionProjectedShadowReceiverUnorderedCollection {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -14725,24 +13231,8 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
         }
     }
 }
-impl ::core::cmp::PartialEq for CompositionProjectedShadowReceiverUnorderedCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionProjectedShadowReceiverUnorderedCollection {}
-impl ::core::fmt::Debug for CompositionProjectedShadowReceiverUnorderedCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionProjectedShadowReceiverUnorderedCollection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionProjectedShadowReceiverUnorderedCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowReceiverUnorderedCollection;{02b3e3b7-27d2-599f-ac4b-ab787cdde6fd})");
-}
-impl ::core::clone::Clone for CompositionProjectedShadowReceiverUnorderedCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionProjectedShadowReceiverUnorderedCollection {
     type Vtable = ICompositionProjectedShadowReceiverUnorderedCollection_Vtbl;
@@ -14780,6 +13270,7 @@ unsafe impl ::core::marker::Send for CompositionProjectedShadowReceiverUnordered
 unsafe impl ::core::marker::Sync for CompositionProjectedShadowReceiverUnorderedCollection {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionPropertySet(::windows_core::IUnknown);
 impl CompositionPropertySet {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -15016,24 +13507,8 @@ impl CompositionPropertySet {
         }
     }
 }
-impl ::core::cmp::PartialEq for CompositionPropertySet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionPropertySet {}
-impl ::core::fmt::Debug for CompositionPropertySet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionPropertySet").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionPropertySet {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionPropertySet;{c9d6d202-5f67-4453-9117-9eadd430d3c2})");
-}
-impl ::core::clone::Clone for CompositionPropertySet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionPropertySet {
     type Vtable = ICompositionPropertySet_Vtbl;
@@ -15053,6 +13528,7 @@ unsafe impl ::core::marker::Send for CompositionPropertySet {}
 unsafe impl ::core::marker::Sync for CompositionPropertySet {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionRadialGradientBrush(::windows_core::IUnknown);
 impl CompositionRadialGradientBrush {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -15348,24 +13824,8 @@ impl CompositionRadialGradientBrush {
         unsafe { (::windows_core::Interface::vtable(this).SetGradientOriginOffset)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionRadialGradientBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionRadialGradientBrush {}
-impl ::core::fmt::Debug for CompositionRadialGradientBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionRadialGradientBrush").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionRadialGradientBrush {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRadialGradientBrush;{3d3b50c5-e3fa-4ce2-b9fc-3ee12561788f})");
-}
-impl ::core::clone::Clone for CompositionRadialGradientBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionRadialGradientBrush {
     type Vtable = ICompositionRadialGradientBrush_Vtbl;
@@ -15387,6 +13847,7 @@ unsafe impl ::core::marker::Send for CompositionRadialGradientBrush {}
 unsafe impl ::core::marker::Sync for CompositionRadialGradientBrush {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionRectangleGeometry(::windows_core::IUnknown);
 impl CompositionRectangleGeometry {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -15563,24 +14024,8 @@ impl CompositionRectangleGeometry {
         unsafe { (::windows_core::Interface::vtable(this).SetSize)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionRectangleGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionRectangleGeometry {}
-impl ::core::fmt::Debug for CompositionRectangleGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionRectangleGeometry").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionRectangleGeometry {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRectangleGeometry;{0cd51428-5356-4246-aecf-7a0b76975400})");
-}
-impl ::core::clone::Clone for CompositionRectangleGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionRectangleGeometry {
     type Vtable = ICompositionRectangleGeometry_Vtbl;
@@ -15601,6 +14046,7 @@ unsafe impl ::core::marker::Send for CompositionRectangleGeometry {}
 unsafe impl ::core::marker::Sync for CompositionRectangleGeometry {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionRoundedRectangleGeometry(::windows_core::IUnknown);
 impl CompositionRoundedRectangleGeometry {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -15792,24 +14238,8 @@ impl CompositionRoundedRectangleGeometry {
         unsafe { (::windows_core::Interface::vtable(this).SetSize)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionRoundedRectangleGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionRoundedRectangleGeometry {}
-impl ::core::fmt::Debug for CompositionRoundedRectangleGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionRoundedRectangleGeometry").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionRoundedRectangleGeometry {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRoundedRectangleGeometry;{8770c822-1d50-4b8b-b013-7c9a0e46935f})");
-}
-impl ::core::clone::Clone for CompositionRoundedRectangleGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionRoundedRectangleGeometry {
     type Vtable = ICompositionRoundedRectangleGeometry_Vtbl;
@@ -15830,6 +14260,7 @@ unsafe impl ::core::marker::Send for CompositionRoundedRectangleGeometry {}
 unsafe impl ::core::marker::Sync for CompositionRoundedRectangleGeometry {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionScopedBatch(::windows_core::IUnknown);
 impl CompositionScopedBatch {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -15987,24 +14418,8 @@ impl CompositionScopedBatch {
         unsafe { (::windows_core::Interface::vtable(this).RemoveCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionScopedBatch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionScopedBatch {}
-impl ::core::fmt::Debug for CompositionScopedBatch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionScopedBatch").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionScopedBatch {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionScopedBatch;{0d00dad0-fb07-46fd-8c72-6280d1a3d1dd})");
-}
-impl ::core::clone::Clone for CompositionScopedBatch {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionScopedBatch {
     type Vtable = ICompositionScopedBatch_Vtbl;
@@ -16024,6 +14439,7 @@ unsafe impl ::core::marker::Send for CompositionScopedBatch {}
 unsafe impl ::core::marker::Sync for CompositionScopedBatch {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionShadow(::windows_core::IUnknown);
 impl CompositionShadow {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -16137,24 +14553,8 @@ impl CompositionShadow {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionShadow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionShadow {}
-impl ::core::fmt::Debug for CompositionShadow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionShadow").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionShadow {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionShadow;{329e52e2-4335-49cc-b14a-37782d10f0c4})");
-}
-impl ::core::clone::Clone for CompositionShadow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionShadow {
     type Vtable = ICompositionShadow_Vtbl;
@@ -16174,6 +14574,7 @@ unsafe impl ::core::marker::Send for CompositionShadow {}
 unsafe impl ::core::marker::Sync for CompositionShadow {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionShape(::windows_core::IUnknown);
 impl CompositionShape {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -16369,24 +14770,8 @@ impl CompositionShape {
         unsafe { (::windows_core::Interface::vtable(this).SetTransformMatrix)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionShape {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionShape {}
-impl ::core::fmt::Debug for CompositionShape {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionShape").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionShape {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionShape;{b47ce2f7-9a88-42c4-9e87-2e500ca8688c})");
-}
-impl ::core::clone::Clone for CompositionShape {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionShape {
     type Vtable = ICompositionShape_Vtbl;
@@ -16407,6 +14792,7 @@ unsafe impl ::core::marker::Sync for CompositionShape {}
 #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionShapeCollection(::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl CompositionShapeCollection {
@@ -16630,28 +15016,8 @@ impl CompositionShapeCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for CompositionShapeCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for CompositionShapeCollection {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for CompositionShapeCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionShapeCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for CompositionShapeCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionShapeCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Composition.CompositionShape;{b47ce2f7-9a88-42c4-9e87-2e500ca8688c})))");
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for CompositionShapeCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for CompositionShapeCollection {
@@ -16699,6 +15065,7 @@ unsafe impl ::core::marker::Send for CompositionShapeCollection {}
 unsafe impl ::core::marker::Sync for CompositionShapeCollection {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionSpriteShape(::windows_core::IUnknown);
 impl CompositionSpriteShape {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -17033,24 +15400,8 @@ impl CompositionSpriteShape {
         unsafe { (::windows_core::Interface::vtable(this).SetStrokeThickness)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionSpriteShape {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionSpriteShape {}
-impl ::core::fmt::Debug for CompositionSpriteShape {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionSpriteShape").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionSpriteShape {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionSpriteShape;{401b61bb-0007-4363-b1f3-6bcc003fb83e})");
-}
-impl ::core::clone::Clone for CompositionSpriteShape {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionSpriteShape {
     type Vtable = ICompositionSpriteShape_Vtbl;
@@ -17072,6 +15423,7 @@ unsafe impl ::core::marker::Sync for CompositionSpriteShape {}
 #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionStrokeDashArray(::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl CompositionStrokeDashArray {
@@ -17283,28 +15635,8 @@ impl CompositionStrokeDashArray {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for CompositionStrokeDashArray {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for CompositionStrokeDashArray {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for CompositionStrokeDashArray {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionStrokeDashArray").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for CompositionStrokeDashArray {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionStrokeDashArray;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};f4))");
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for CompositionStrokeDashArray {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for CompositionStrokeDashArray {
@@ -17352,6 +15684,7 @@ unsafe impl ::core::marker::Send for CompositionStrokeDashArray {}
 unsafe impl ::core::marker::Sync for CompositionStrokeDashArray {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionSurfaceBrush(::windows_core::IUnknown);
 impl CompositionSurfaceBrush {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -17631,24 +15964,8 @@ impl CompositionSurfaceBrush {
         unsafe { (::windows_core::Interface::vtable(this).SetSnapToPixels)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionSurfaceBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionSurfaceBrush {}
-impl ::core::fmt::Debug for CompositionSurfaceBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionSurfaceBrush").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionSurfaceBrush {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionSurfaceBrush;{ad016d79-1e4c-4c0d-9c29-83338c87c162})");
-}
-impl ::core::clone::Clone for CompositionSurfaceBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionSurfaceBrush {
     type Vtable = ICompositionSurfaceBrush_Vtbl;
@@ -17669,6 +15986,7 @@ unsafe impl ::core::marker::Send for CompositionSurfaceBrush {}
 unsafe impl ::core::marker::Sync for CompositionSurfaceBrush {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionTarget(::windows_core::IUnknown);
 impl CompositionTarget {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -17796,24 +16114,8 @@ impl CompositionTarget {
         unsafe { (::windows_core::Interface::vtable(this).SetRoot)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionTarget {}
-impl ::core::fmt::Debug for CompositionTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionTarget").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionTarget {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionTarget;{a1bea8ba-d726-4663-8129-6b5e7927ffa6})");
-}
-impl ::core::clone::Clone for CompositionTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionTarget {
     type Vtable = ICompositionTarget_Vtbl;
@@ -17833,6 +16135,7 @@ unsafe impl ::core::marker::Send for CompositionTarget {}
 unsafe impl ::core::marker::Sync for CompositionTarget {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionTransform(::windows_core::IUnknown);
 impl CompositionTransform {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -17946,24 +16249,8 @@ impl CompositionTransform {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionTransform {}
-impl ::core::fmt::Debug for CompositionTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionTransform").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionTransform {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionTransform;{7cd54529-fbed-4112-abc5-185906dd927c})");
-}
-impl ::core::clone::Clone for CompositionTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionTransform {
     type Vtable = ICompositionTransform_Vtbl;
@@ -17983,6 +16270,7 @@ unsafe impl ::core::marker::Send for CompositionTransform {}
 unsafe impl ::core::marker::Sync for CompositionTransform {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionViewBox(::windows_core::IUnknown);
 impl CompositionViewBox {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -18159,24 +16447,8 @@ impl CompositionViewBox {
         unsafe { (::windows_core::Interface::vtable(this).SetVerticalAlignmentRatio)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionViewBox {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionViewBox {}
-impl ::core::fmt::Debug for CompositionViewBox {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionViewBox").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionViewBox {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionViewBox;{b440bf07-068f-4537-84c6-4ecbe019e1f4})");
-}
-impl ::core::clone::Clone for CompositionViewBox {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionViewBox {
     type Vtable = ICompositionViewBox_Vtbl;
@@ -18196,6 +16468,7 @@ unsafe impl ::core::marker::Send for CompositionViewBox {}
 unsafe impl ::core::marker::Sync for CompositionViewBox {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionVirtualDrawingSurface(::windows_core::IUnknown);
 impl CompositionVirtualDrawingSurface {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -18381,24 +16654,8 @@ impl CompositionVirtualDrawingSurface {
         unsafe { (::windows_core::Interface::vtable(this).Trim)(::windows_core::Interface::as_raw(this), rects.len() as u32, rects.as_ptr()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionVirtualDrawingSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionVirtualDrawingSurface {}
-impl ::core::fmt::Debug for CompositionVirtualDrawingSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionVirtualDrawingSurface").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionVirtualDrawingSurface {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionVirtualDrawingSurface;{a9c384db-8740-4f94-8b9d-b68521e7863d})");
-}
-impl ::core::clone::Clone for CompositionVirtualDrawingSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionVirtualDrawingSurface {
     type Vtable = ICompositionVirtualDrawingSurface_Vtbl;
@@ -18420,6 +16677,7 @@ unsafe impl ::core::marker::Send for CompositionVirtualDrawingSurface {}
 unsafe impl ::core::marker::Sync for CompositionVirtualDrawingSurface {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionVisualSurface(::windows_core::IUnknown);
 impl CompositionVisualSurface {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -18577,24 +16835,8 @@ impl CompositionVisualSurface {
         unsafe { (::windows_core::Interface::vtable(this).SetSourceSize)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CompositionVisualSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionVisualSurface {}
-impl ::core::fmt::Debug for CompositionVisualSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionVisualSurface").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CompositionVisualSurface {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionVisualSurface;{b224d803-4f6e-4a3f-8cae-3dc1cda74fc6})");
-}
-impl ::core::clone::Clone for CompositionVisualSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CompositionVisualSurface {
     type Vtable = ICompositionVisualSurface_Vtbl;
@@ -18615,6 +16857,7 @@ unsafe impl ::core::marker::Send for CompositionVisualSurface {}
 unsafe impl ::core::marker::Sync for CompositionVisualSurface {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Compositor(::windows_core::IUnknown);
 impl Compositor {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -19243,24 +17486,8 @@ impl Compositor {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for Compositor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Compositor {}
-impl ::core::fmt::Debug for Compositor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Compositor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Compositor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Compositor;{b403ca50-7f8c-4e83-985f-cc45060036d8})");
-}
-impl ::core::clone::Clone for Compositor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Compositor {
     type Vtable = ICompositor_Vtbl;
@@ -19278,6 +17505,7 @@ unsafe impl ::core::marker::Send for Compositor {}
 unsafe impl ::core::marker::Sync for Compositor {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContainerVisual(::windows_core::IUnknown);
 impl ContainerVisual {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -19682,24 +17910,8 @@ impl ContainerVisual {
         unsafe { (::windows_core::Interface::vtable(this).SetIsPixelSnappingEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ContainerVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContainerVisual {}
-impl ::core::fmt::Debug for ContainerVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContainerVisual").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ContainerVisual {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ContainerVisual;{02f6bc74-ed20-4773-afe6-d49b4a93db32})");
-}
-impl ::core::clone::Clone for ContainerVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ContainerVisual {
     type Vtable = IContainerVisual_Vtbl;
@@ -19720,6 +17932,7 @@ unsafe impl ::core::marker::Send for ContainerVisual {}
 unsafe impl ::core::marker::Sync for ContainerVisual {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CubicBezierEasingFunction(::windows_core::IUnknown);
 impl CubicBezierEasingFunction {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -19851,24 +18064,8 @@ impl CubicBezierEasingFunction {
         }
     }
 }
-impl ::core::cmp::PartialEq for CubicBezierEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CubicBezierEasingFunction {}
-impl ::core::fmt::Debug for CubicBezierEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CubicBezierEasingFunction").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CubicBezierEasingFunction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CubicBezierEasingFunction;{32350666-c1e8-44f9-96b8-c98acf0ae698})");
-}
-impl ::core::clone::Clone for CubicBezierEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CubicBezierEasingFunction {
     type Vtable = ICubicBezierEasingFunction_Vtbl;
@@ -19889,6 +18086,7 @@ unsafe impl ::core::marker::Send for CubicBezierEasingFunction {}
 unsafe impl ::core::marker::Sync for CubicBezierEasingFunction {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DelegatedInkTrailVisual(::windows_core::IUnknown);
 impl DelegatedInkTrailVisual {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -20336,24 +18534,8 @@ impl DelegatedInkTrailVisual {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for DelegatedInkTrailVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DelegatedInkTrailVisual {}
-impl ::core::fmt::Debug for DelegatedInkTrailVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DelegatedInkTrailVisual").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DelegatedInkTrailVisual {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DelegatedInkTrailVisual;{856e60b1-e1ab-5b23-8e3d-d513f221c998})");
-}
-impl ::core::clone::Clone for DelegatedInkTrailVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DelegatedInkTrailVisual {
     type Vtable = IDelegatedInkTrailVisual_Vtbl;
@@ -20374,6 +18556,7 @@ unsafe impl ::core::marker::Send for DelegatedInkTrailVisual {}
 unsafe impl ::core::marker::Sync for DelegatedInkTrailVisual {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DistantLight(::windows_core::IUnknown);
 impl DistantLight {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -20563,24 +18746,8 @@ impl DistantLight {
         unsafe { (::windows_core::Interface::vtable(this).SetIntensity)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for DistantLight {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DistantLight {}
-impl ::core::fmt::Debug for DistantLight {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DistantLight").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DistantLight {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DistantLight;{318cfafc-5ce3-4b55-ab5d-07a00353ac99})");
-}
-impl ::core::clone::Clone for DistantLight {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DistantLight {
     type Vtable = IDistantLight_Vtbl;
@@ -20601,6 +18768,7 @@ unsafe impl ::core::marker::Send for DistantLight {}
 unsafe impl ::core::marker::Sync for DistantLight {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DropShadow(::windows_core::IUnknown);
 impl DropShadow {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -20787,24 +18955,8 @@ impl DropShadow {
         unsafe { (::windows_core::Interface::vtable(this).SetSourcePolicy)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for DropShadow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DropShadow {}
-impl ::core::fmt::Debug for DropShadow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DropShadow").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DropShadow {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DropShadow;{cb977c07-a154-4851-85e7-a8924c84fad8})");
-}
-impl ::core::clone::Clone for DropShadow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DropShadow {
     type Vtable = IDropShadow_Vtbl;
@@ -20825,6 +18977,7 @@ unsafe impl ::core::marker::Send for DropShadow {}
 unsafe impl ::core::marker::Sync for DropShadow {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ElasticEasingFunction(::windows_core::IUnknown);
 impl ElasticEasingFunction {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -20959,24 +19112,8 @@ impl ElasticEasingFunction {
         }
     }
 }
-impl ::core::cmp::PartialEq for ElasticEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ElasticEasingFunction {}
-impl ::core::fmt::Debug for ElasticEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ElasticEasingFunction").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ElasticEasingFunction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ElasticEasingFunction;{66de6285-054e-5594-8475-c22cb51f1bd5})");
-}
-impl ::core::clone::Clone for ElasticEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ElasticEasingFunction {
     type Vtable = IElasticEasingFunction_Vtbl;
@@ -20997,6 +19134,7 @@ unsafe impl ::core::marker::Send for ElasticEasingFunction {}
 unsafe impl ::core::marker::Sync for ElasticEasingFunction {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ExponentialEasingFunction(::windows_core::IUnknown);
 impl ExponentialEasingFunction {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -21124,24 +19262,8 @@ impl ExponentialEasingFunction {
         }
     }
 }
-impl ::core::cmp::PartialEq for ExponentialEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExponentialEasingFunction {}
-impl ::core::fmt::Debug for ExponentialEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExponentialEasingFunction").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ExponentialEasingFunction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ExponentialEasingFunction;{6f7d1a51-98d2-5638-a34a-00486554c750})");
-}
-impl ::core::clone::Clone for ExponentialEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ExponentialEasingFunction {
     type Vtable = IExponentialEasingFunction_Vtbl;
@@ -21162,6 +19284,7 @@ unsafe impl ::core::marker::Send for ExponentialEasingFunction {}
 unsafe impl ::core::marker::Sync for ExponentialEasingFunction {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ExpressionAnimation(::windows_core::IUnknown);
 impl ExpressionAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -21376,24 +19499,8 @@ impl ExpressionAnimation {
         unsafe { (::windows_core::Interface::vtable(this).SetExpression)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ExpressionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExpressionAnimation {}
-impl ::core::fmt::Debug for ExpressionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExpressionAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ExpressionAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ExpressionAnimation;{6acc5431-7d3d-4bf3-abb6-f44bdc4888c1})");
-}
-impl ::core::clone::Clone for ExpressionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ExpressionAnimation {
     type Vtable = IExpressionAnimation_Vtbl;
@@ -21415,6 +19522,7 @@ unsafe impl ::core::marker::Send for ExpressionAnimation {}
 unsafe impl ::core::marker::Sync for ExpressionAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ImplicitAnimationCollection(::windows_core::IUnknown);
 impl ImplicitAnimationCollection {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -21597,24 +19705,8 @@ impl ImplicitAnimationCollection {
         unsafe { (::windows_core::Interface::vtable(this).Clear)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ImplicitAnimationCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ImplicitAnimationCollection {}
-impl ::core::fmt::Debug for ImplicitAnimationCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ImplicitAnimationCollection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ImplicitAnimationCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ImplicitAnimationCollection;{0598a3ff-0a92-4c9d-a427-b25519250dbf})");
-}
-impl ::core::clone::Clone for ImplicitAnimationCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ImplicitAnimationCollection {
     type Vtable = IImplicitAnimationCollection_Vtbl;
@@ -21655,6 +19747,7 @@ unsafe impl ::core::marker::Sync for ImplicitAnimationCollection {}
 #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InitialValueExpressionCollection(::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl InitialValueExpressionCollection {
@@ -21836,28 +19929,8 @@ impl InitialValueExpressionCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for InitialValueExpressionCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for InitialValueExpressionCollection {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for InitialValueExpressionCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InitialValueExpressionCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for InitialValueExpressionCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.InitialValueExpressionCollection;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;string))");
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for InitialValueExpressionCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for InitialValueExpressionCollection {
@@ -21905,6 +19978,7 @@ unsafe impl ::core::marker::Send for InitialValueExpressionCollection {}
 unsafe impl ::core::marker::Sync for InitialValueExpressionCollection {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InsetClip(::windows_core::IUnknown);
 impl InsetClip {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -22159,24 +20233,8 @@ impl InsetClip {
         unsafe { (::windows_core::Interface::vtable(this).SetTopInset)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for InsetClip {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InsetClip {}
-impl ::core::fmt::Debug for InsetClip {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InsetClip").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for InsetClip {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.InsetClip;{1e73e647-84c7-477a-b474-5880e0442e15})");
-}
-impl ::core::clone::Clone for InsetClip {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for InsetClip {
     type Vtable = IInsetClip_Vtbl;
@@ -22197,6 +20255,7 @@ unsafe impl ::core::marker::Send for InsetClip {}
 unsafe impl ::core::marker::Sync for InsetClip {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct KeyFrameAnimation(::windows_core::IUnknown);
 impl KeyFrameAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -22503,24 +20562,8 @@ impl KeyFrameAnimation {
         unsafe { (::windows_core::Interface::vtable(this).SetDelayBehavior)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for KeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyFrameAnimation {}
-impl ::core::fmt::Debug for KeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyFrameAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for KeyFrameAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.KeyFrameAnimation;{126e7f22-3ae9-4540-9a8a-deae8a4a4a84})");
-}
-impl ::core::clone::Clone for KeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for KeyFrameAnimation {
     type Vtable = IKeyFrameAnimation_Vtbl;
@@ -22542,6 +20585,7 @@ unsafe impl ::core::marker::Send for KeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for KeyFrameAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LayerVisual(::windows_core::IUnknown);
 impl LayerVisual {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -22974,24 +21018,8 @@ impl LayerVisual {
         unsafe { (::windows_core::Interface::vtable(this).SetIsPixelSnappingEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for LayerVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LayerVisual {}
-impl ::core::fmt::Debug for LayerVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LayerVisual").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LayerVisual {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.LayerVisual;{af843985-0444-4887-8e83-b40b253f822c})");
-}
-impl ::core::clone::Clone for LayerVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LayerVisual {
     type Vtable = ILayerVisual_Vtbl;
@@ -23013,6 +21041,7 @@ unsafe impl ::core::marker::Send for LayerVisual {}
 unsafe impl ::core::marker::Sync for LayerVisual {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LinearEasingFunction(::windows_core::IUnknown);
 impl LinearEasingFunction {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -23126,24 +21155,8 @@ impl LinearEasingFunction {
         unsafe { (::windows_core::Interface::vtable(this).StartAnimationWithController)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.try_into_param()?.abi(), animationcontroller.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for LinearEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LinearEasingFunction {}
-impl ::core::fmt::Debug for LinearEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LinearEasingFunction").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LinearEasingFunction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.LinearEasingFunction;{9400975a-c7a6-46b3-acf7-1a268a0a117d})");
-}
-impl ::core::clone::Clone for LinearEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LinearEasingFunction {
     type Vtable = ILinearEasingFunction_Vtbl;
@@ -23164,6 +21177,7 @@ unsafe impl ::core::marker::Send for LinearEasingFunction {}
 unsafe impl ::core::marker::Sync for LinearEasingFunction {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct NaturalMotionAnimation(::windows_core::IUnknown);
 impl NaturalMotionAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -23404,24 +21418,8 @@ impl NaturalMotionAnimation {
         unsafe { (::windows_core::Interface::vtable(this).SetStopBehavior)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for NaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NaturalMotionAnimation {}
-impl ::core::fmt::Debug for NaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NaturalMotionAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for NaturalMotionAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.NaturalMotionAnimation;{438de12d-769b-4821-a949-284a6547e873})");
-}
-impl ::core::clone::Clone for NaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for NaturalMotionAnimation {
     type Vtable = INaturalMotionAnimation_Vtbl;
@@ -23443,6 +21441,7 @@ unsafe impl ::core::marker::Send for NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for NaturalMotionAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PathKeyFrameAnimation(::windows_core::IUnknown);
 impl PathKeyFrameAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -23764,24 +21763,8 @@ impl PathKeyFrameAnimation {
         unsafe { (::windows_core::Interface::vtable(this).InsertKeyFrameWithEasingFunction)(::windows_core::Interface::as_raw(this), normalizedprogresskey, path.into_param().abi(), easingfunction.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for PathKeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PathKeyFrameAnimation {}
-impl ::core::fmt::Debug for PathKeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PathKeyFrameAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PathKeyFrameAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PathKeyFrameAnimation;{9d0d18c9-1576-4b3f-be60-1d5031f5e71b})");
-}
-impl ::core::clone::Clone for PathKeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PathKeyFrameAnimation {
     type Vtable = IPathKeyFrameAnimation_Vtbl;
@@ -23804,6 +21787,7 @@ unsafe impl ::core::marker::Send for PathKeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for PathKeyFrameAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PointLight(::windows_core::IUnknown);
 impl PointLight {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -24048,24 +22032,8 @@ impl PointLight {
         unsafe { (::windows_core::Interface::vtable(this).SetMaxAttenuationCutoff)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for PointLight {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PointLight {}
-impl ::core::fmt::Debug for PointLight {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PointLight").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PointLight {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PointLight;{b18545b3-0c5a-4ab0-bedc-4f3546948272})");
-}
-impl ::core::clone::Clone for PointLight {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PointLight {
     type Vtable = IPointLight_Vtbl;
@@ -24086,6 +22054,7 @@ unsafe impl ::core::marker::Send for PointLight {}
 unsafe impl ::core::marker::Sync for PointLight {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PowerEasingFunction(::windows_core::IUnknown);
 impl PowerEasingFunction {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -24213,24 +22182,8 @@ impl PowerEasingFunction {
         }
     }
 }
-impl ::core::cmp::PartialEq for PowerEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PowerEasingFunction {}
-impl ::core::fmt::Debug for PowerEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PowerEasingFunction").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PowerEasingFunction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PowerEasingFunction;{c3ff53d6-138b-5815-891a-b7f615ccc563})");
-}
-impl ::core::clone::Clone for PowerEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PowerEasingFunction {
     type Vtable = IPowerEasingFunction_Vtbl;
@@ -24251,6 +22204,7 @@ unsafe impl ::core::marker::Send for PowerEasingFunction {}
 unsafe impl ::core::marker::Sync for PowerEasingFunction {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct QuaternionKeyFrameAnimation(::windows_core::IUnknown);
 impl QuaternionKeyFrameAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -24572,24 +22526,8 @@ impl QuaternionKeyFrameAnimation {
         unsafe { (::windows_core::Interface::vtable(this).InsertKeyFrameWithEasingFunction)(::windows_core::Interface::as_raw(this), normalizedprogresskey, value, easingfunction.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for QuaternionKeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for QuaternionKeyFrameAnimation {}
-impl ::core::fmt::Debug for QuaternionKeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("QuaternionKeyFrameAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for QuaternionKeyFrameAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.QuaternionKeyFrameAnimation;{404e5835-ecf6-4240-8520-671279cf36bc})");
-}
-impl ::core::clone::Clone for QuaternionKeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for QuaternionKeyFrameAnimation {
     type Vtable = IQuaternionKeyFrameAnimation_Vtbl;
@@ -24612,6 +22550,7 @@ unsafe impl ::core::marker::Send for QuaternionKeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for QuaternionKeyFrameAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RectangleClip(::windows_core::IUnknown);
 impl RectangleClip {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -24926,24 +22865,8 @@ impl RectangleClip {
         unsafe { (::windows_core::Interface::vtable(this).SetTopRightRadius)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for RectangleClip {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RectangleClip {}
-impl ::core::fmt::Debug for RectangleClip {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RectangleClip").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RectangleClip {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RectangleClip;{b3e7549e-00b4-5b53-8be8-353f6c433101})");
-}
-impl ::core::clone::Clone for RectangleClip {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RectangleClip {
     type Vtable = IRectangleClip_Vtbl;
@@ -24964,6 +22887,7 @@ unsafe impl ::core::marker::Send for RectangleClip {}
 unsafe impl ::core::marker::Sync for RectangleClip {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RedirectVisual(::windows_core::IUnknown);
 impl RedirectVisual {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -25382,24 +23306,8 @@ impl RedirectVisual {
         unsafe { (::windows_core::Interface::vtable(this).SetIsPixelSnappingEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for RedirectVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RedirectVisual {}
-impl ::core::fmt::Debug for RedirectVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RedirectVisual").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RedirectVisual {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RedirectVisual;{8cc6e340-8b75-5422-b06f-09ffe9f8617e})");
-}
-impl ::core::clone::Clone for RedirectVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RedirectVisual {
     type Vtable = IRedirectVisual_Vtbl;
@@ -25421,6 +23329,7 @@ unsafe impl ::core::marker::Send for RedirectVisual {}
 unsafe impl ::core::marker::Sync for RedirectVisual {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RenderingDeviceReplacedEventArgs(::windows_core::IUnknown);
 impl RenderingDeviceReplacedEventArgs {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -25541,24 +23450,8 @@ impl RenderingDeviceReplacedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RenderingDeviceReplacedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RenderingDeviceReplacedEventArgs {}
-impl ::core::fmt::Debug for RenderingDeviceReplacedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RenderingDeviceReplacedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RenderingDeviceReplacedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RenderingDeviceReplacedEventArgs;{3a31ac7d-28bf-4e7a-8524-71679d480f38})");
-}
-impl ::core::clone::Clone for RenderingDeviceReplacedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RenderingDeviceReplacedEventArgs {
     type Vtable = IRenderingDeviceReplacedEventArgs_Vtbl;
@@ -25578,6 +23471,7 @@ unsafe impl ::core::marker::Send for RenderingDeviceReplacedEventArgs {}
 unsafe impl ::core::marker::Sync for RenderingDeviceReplacedEventArgs {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ScalarKeyFrameAnimation(::windows_core::IUnknown);
 impl ScalarKeyFrameAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -25895,24 +23789,8 @@ impl ScalarKeyFrameAnimation {
         unsafe { (::windows_core::Interface::vtable(this).InsertKeyFrameWithEasingFunction)(::windows_core::Interface::as_raw(this), normalizedprogresskey, value, easingfunction.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ScalarKeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ScalarKeyFrameAnimation {}
-impl ::core::fmt::Debug for ScalarKeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScalarKeyFrameAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ScalarKeyFrameAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ScalarKeyFrameAnimation;{ae288fa9-252c-4b95-a725-bf85e38000a1})");
-}
-impl ::core::clone::Clone for ScalarKeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ScalarKeyFrameAnimation {
     type Vtable = IScalarKeyFrameAnimation_Vtbl;
@@ -25935,6 +23813,7 @@ unsafe impl ::core::marker::Send for ScalarKeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for ScalarKeyFrameAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ScalarNaturalMotionAnimation(::windows_core::IUnknown);
 impl ScalarNaturalMotionAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -26222,24 +24101,8 @@ impl ScalarNaturalMotionAnimation {
         unsafe { (::windows_core::Interface::vtable(this).SetInitialVelocity)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ScalarNaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ScalarNaturalMotionAnimation {}
-impl ::core::fmt::Debug for ScalarNaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScalarNaturalMotionAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ScalarNaturalMotionAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ScalarNaturalMotionAnimation;{94a94581-bf92-495b-b5bd-d2c659430737})");
-}
-impl ::core::clone::Clone for ScalarNaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ScalarNaturalMotionAnimation {
     type Vtable = IScalarNaturalMotionAnimation_Vtbl;
@@ -26262,6 +24125,7 @@ unsafe impl ::core::marker::Send for ScalarNaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for ScalarNaturalMotionAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ShapeVisual(::windows_core::IUnknown);
 impl ShapeVisual {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -26689,24 +24553,8 @@ impl ShapeVisual {
         unsafe { (::windows_core::Interface::vtable(this).SetIsPixelSnappingEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ShapeVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShapeVisual {}
-impl ::core::fmt::Debug for ShapeVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShapeVisual").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ShapeVisual {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ShapeVisual;{f2bd13c3-ba7e-4b0f-9126-ffb7536b8176})");
-}
-impl ::core::clone::Clone for ShapeVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ShapeVisual {
     type Vtable = IShapeVisual_Vtbl;
@@ -26728,6 +24576,7 @@ unsafe impl ::core::marker::Send for ShapeVisual {}
 unsafe impl ::core::marker::Sync for ShapeVisual {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SineEasingFunction(::windows_core::IUnknown);
 impl SineEasingFunction {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -26848,24 +24697,8 @@ impl SineEasingFunction {
         }
     }
 }
-impl ::core::cmp::PartialEq for SineEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SineEasingFunction {}
-impl ::core::fmt::Debug for SineEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SineEasingFunction").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SineEasingFunction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SineEasingFunction;{f1b518bf-9563-5474-bd13-44b2df4b1d58})");
-}
-impl ::core::clone::Clone for SineEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SineEasingFunction {
     type Vtable = ISineEasingFunction_Vtbl;
@@ -26886,6 +24719,7 @@ unsafe impl ::core::marker::Send for SineEasingFunction {}
 unsafe impl ::core::marker::Sync for SineEasingFunction {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpotLight(::windows_core::IUnknown);
 impl SpotLight {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -27211,24 +25045,8 @@ impl SpotLight {
         unsafe { (::windows_core::Interface::vtable(this).SetMaxAttenuationCutoff)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for SpotLight {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpotLight {}
-impl ::core::fmt::Debug for SpotLight {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpotLight").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SpotLight {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpotLight;{5a9fe273-44a1-4f95-a422-8fa5116bdb44})");
-}
-impl ::core::clone::Clone for SpotLight {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SpotLight {
     type Vtable = ISpotLight_Vtbl;
@@ -27249,6 +25067,7 @@ unsafe impl ::core::marker::Send for SpotLight {}
 unsafe impl ::core::marker::Sync for SpotLight {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpringScalarNaturalMotionAnimation(::windows_core::IUnknown);
 impl SpringScalarNaturalMotionAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -27562,24 +25381,8 @@ impl SpringScalarNaturalMotionAnimation {
         unsafe { (::windows_core::Interface::vtable(this).SetPeriod)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for SpringScalarNaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpringScalarNaturalMotionAnimation {}
-impl ::core::fmt::Debug for SpringScalarNaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpringScalarNaturalMotionAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SpringScalarNaturalMotionAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringScalarNaturalMotionAnimation;{0572a95f-37f9-4fbe-b87b-5cd03a89501c})");
-}
-impl ::core::clone::Clone for SpringScalarNaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SpringScalarNaturalMotionAnimation {
     type Vtable = ISpringScalarNaturalMotionAnimation_Vtbl;
@@ -27603,6 +25406,7 @@ unsafe impl ::core::marker::Send for SpringScalarNaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for SpringScalarNaturalMotionAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpringVector2NaturalMotionAnimation(::windows_core::IUnknown);
 impl SpringVector2NaturalMotionAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -27920,24 +25724,8 @@ impl SpringVector2NaturalMotionAnimation {
         unsafe { (::windows_core::Interface::vtable(this).SetInitialVelocity)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for SpringVector2NaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpringVector2NaturalMotionAnimation {}
-impl ::core::fmt::Debug for SpringVector2NaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpringVector2NaturalMotionAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SpringVector2NaturalMotionAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringVector2NaturalMotionAnimation;{23f494b5-ee73-4f0f-a423-402b946df4b3})");
-}
-impl ::core::clone::Clone for SpringVector2NaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SpringVector2NaturalMotionAnimation {
     type Vtable = ISpringVector2NaturalMotionAnimation_Vtbl;
@@ -27961,6 +25749,7 @@ unsafe impl ::core::marker::Send for SpringVector2NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for SpringVector2NaturalMotionAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpringVector3NaturalMotionAnimation(::windows_core::IUnknown);
 impl SpringVector3NaturalMotionAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -28278,24 +26067,8 @@ impl SpringVector3NaturalMotionAnimation {
         unsafe { (::windows_core::Interface::vtable(this).SetInitialVelocity)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for SpringVector3NaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpringVector3NaturalMotionAnimation {}
-impl ::core::fmt::Debug for SpringVector3NaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpringVector3NaturalMotionAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SpringVector3NaturalMotionAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringVector3NaturalMotionAnimation;{6c8749df-d57b-4794-8e2d-cecb11e194e5})");
-}
-impl ::core::clone::Clone for SpringVector3NaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SpringVector3NaturalMotionAnimation {
     type Vtable = ISpringVector3NaturalMotionAnimation_Vtbl;
@@ -28319,6 +26092,7 @@ unsafe impl ::core::marker::Send for SpringVector3NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for SpringVector3NaturalMotionAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpriteVisual(::windows_core::IUnknown);
 impl SpriteVisual {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -28751,24 +26525,8 @@ impl SpriteVisual {
         unsafe { (::windows_core::Interface::vtable(this).SetIsPixelSnappingEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for SpriteVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpriteVisual {}
-impl ::core::fmt::Debug for SpriteVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpriteVisual").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SpriteVisual {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpriteVisual;{08e05581-1ad1-4f97-9757-402d76e4233b})");
-}
-impl ::core::clone::Clone for SpriteVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SpriteVisual {
     type Vtable = ISpriteVisual_Vtbl;
@@ -28790,6 +26548,7 @@ unsafe impl ::core::marker::Send for SpriteVisual {}
 unsafe impl ::core::marker::Sync for SpriteVisual {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StepEasingFunction(::windows_core::IUnknown);
 impl StepEasingFunction {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -28958,24 +26717,8 @@ impl StepEasingFunction {
         unsafe { (::windows_core::Interface::vtable(this).SetStepCount)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for StepEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StepEasingFunction {}
-impl ::core::fmt::Debug for StepEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StepEasingFunction").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StepEasingFunction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.StepEasingFunction;{d0caa74b-560c-4a0b-a5f6-206ca8c3ecd6})");
-}
-impl ::core::clone::Clone for StepEasingFunction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StepEasingFunction {
     type Vtable = IStepEasingFunction_Vtbl;
@@ -28996,6 +26739,7 @@ unsafe impl ::core::marker::Send for StepEasingFunction {}
 unsafe impl ::core::marker::Sync for StepEasingFunction {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Vector2KeyFrameAnimation(::windows_core::IUnknown);
 impl Vector2KeyFrameAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -29317,24 +27061,8 @@ impl Vector2KeyFrameAnimation {
         unsafe { (::windows_core::Interface::vtable(this).InsertKeyFrameWithEasingFunction)(::windows_core::Interface::as_raw(this), normalizedprogresskey, value, easingfunction.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for Vector2KeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Vector2KeyFrameAnimation {}
-impl ::core::fmt::Debug for Vector2KeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Vector2KeyFrameAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Vector2KeyFrameAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector2KeyFrameAnimation;{df414515-4e29-4f11-b55e-bf2a6eb36294})");
-}
-impl ::core::clone::Clone for Vector2KeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Vector2KeyFrameAnimation {
     type Vtable = IVector2KeyFrameAnimation_Vtbl;
@@ -29357,6 +27085,7 @@ unsafe impl ::core::marker::Send for Vector2KeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for Vector2KeyFrameAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Vector2NaturalMotionAnimation(::windows_core::IUnknown);
 impl Vector2NaturalMotionAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -29648,24 +27377,8 @@ impl Vector2NaturalMotionAnimation {
         unsafe { (::windows_core::Interface::vtable(this).SetInitialVelocity)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for Vector2NaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Vector2NaturalMotionAnimation {}
-impl ::core::fmt::Debug for Vector2NaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Vector2NaturalMotionAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Vector2NaturalMotionAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector2NaturalMotionAnimation;{0f3e0b7d-e512-479d-a00c-77c93a30a395})");
-}
-impl ::core::clone::Clone for Vector2NaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Vector2NaturalMotionAnimation {
     type Vtable = IVector2NaturalMotionAnimation_Vtbl;
@@ -29688,6 +27401,7 @@ unsafe impl ::core::marker::Send for Vector2NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for Vector2NaturalMotionAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Vector3KeyFrameAnimation(::windows_core::IUnknown);
 impl Vector3KeyFrameAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -30009,24 +27723,8 @@ impl Vector3KeyFrameAnimation {
         unsafe { (::windows_core::Interface::vtable(this).InsertKeyFrameWithEasingFunction)(::windows_core::Interface::as_raw(this), normalizedprogresskey, value, easingfunction.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for Vector3KeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Vector3KeyFrameAnimation {}
-impl ::core::fmt::Debug for Vector3KeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Vector3KeyFrameAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Vector3KeyFrameAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector3KeyFrameAnimation;{c8039daa-a281-43c2-a73d-b68e3c533c40})");
-}
-impl ::core::clone::Clone for Vector3KeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Vector3KeyFrameAnimation {
     type Vtable = IVector3KeyFrameAnimation_Vtbl;
@@ -30049,6 +27747,7 @@ unsafe impl ::core::marker::Send for Vector3KeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for Vector3KeyFrameAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Vector3NaturalMotionAnimation(::windows_core::IUnknown);
 impl Vector3NaturalMotionAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -30340,24 +28039,8 @@ impl Vector3NaturalMotionAnimation {
         unsafe { (::windows_core::Interface::vtable(this).SetInitialVelocity)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for Vector3NaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Vector3NaturalMotionAnimation {}
-impl ::core::fmt::Debug for Vector3NaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Vector3NaturalMotionAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Vector3NaturalMotionAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector3NaturalMotionAnimation;{9c17042c-e2ca-45ad-969e-4e78b7b9ad41})");
-}
-impl ::core::clone::Clone for Vector3NaturalMotionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Vector3NaturalMotionAnimation {
     type Vtable = IVector3NaturalMotionAnimation_Vtbl;
@@ -30380,6 +28063,7 @@ unsafe impl ::core::marker::Send for Vector3NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for Vector3NaturalMotionAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Vector4KeyFrameAnimation(::windows_core::IUnknown);
 impl Vector4KeyFrameAnimation {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -30701,24 +28385,8 @@ impl Vector4KeyFrameAnimation {
         unsafe { (::windows_core::Interface::vtable(this).InsertKeyFrameWithEasingFunction)(::windows_core::Interface::as_raw(this), normalizedprogresskey, value, easingfunction.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for Vector4KeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Vector4KeyFrameAnimation {}
-impl ::core::fmt::Debug for Vector4KeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Vector4KeyFrameAnimation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Vector4KeyFrameAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector4KeyFrameAnimation;{2457945b-addd-4385-9606-b6a3d5e4e1b9})");
-}
-impl ::core::clone::Clone for Vector4KeyFrameAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Vector4KeyFrameAnimation {
     type Vtable = IVector4KeyFrameAnimation_Vtbl;
@@ -30741,6 +28409,7 @@ unsafe impl ::core::marker::Send for Vector4KeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for Vector4KeyFrameAnimation {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Visual(::windows_core::IUnknown);
 impl Visual {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -31138,24 +28807,8 @@ impl Visual {
         unsafe { (::windows_core::Interface::vtable(this).SetIsPixelSnappingEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for Visual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Visual {}
-impl ::core::fmt::Debug for Visual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Visual").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Visual {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Visual;{117e202d-a859-4c89-873b-c2aa566788e3})");
-}
-impl ::core::clone::Clone for Visual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Visual {
     type Vtable = IVisual_Vtbl;
@@ -31175,6 +28828,7 @@ unsafe impl ::core::marker::Send for Visual {}
 unsafe impl ::core::marker::Sync for Visual {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VisualCollection(::windows_core::IUnknown);
 impl VisualCollection {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -31345,24 +28999,8 @@ impl VisualCollection {
         unsafe { (::windows_core::Interface::vtable(this).RemoveAll)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for VisualCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VisualCollection {}
-impl ::core::fmt::Debug for VisualCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VisualCollection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VisualCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.VisualCollection;{8b745505-fd3e-4a98-84a8-e949468c6bcb})");
-}
-impl ::core::clone::Clone for VisualCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VisualCollection {
     type Vtable = IVisualCollection_Vtbl;
@@ -31400,6 +29038,7 @@ unsafe impl ::core::marker::Send for VisualCollection {}
 unsafe impl ::core::marker::Sync for VisualCollection {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VisualUnorderedCollection(::windows_core::IUnknown);
 impl VisualUnorderedCollection {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -31547,24 +29186,8 @@ impl VisualUnorderedCollection {
         unsafe { (::windows_core::Interface::vtable(this).RemoveAll)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for VisualUnorderedCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VisualUnorderedCollection {}
-impl ::core::fmt::Debug for VisualUnorderedCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VisualUnorderedCollection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VisualUnorderedCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.VisualUnorderedCollection;{338faa70-54c8-40a7-8029-c9ceeb0aa250})");
-}
-impl ::core::clone::Clone for VisualUnorderedCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VisualUnorderedCollection {
     type Vtable = IVisualUnorderedCollection_Vtbl;

@@ -4,10 +4,12 @@ use windows::{core::*, Win32::Security::Cryptography::*};
 fn test() -> Result<()> {
     unsafe {
         let mut rng = Default::default();
-        BCryptOpenAlgorithmProvider(&mut rng, BCRYPT_RNG_ALGORITHM, None, Default::default())?;
+        BCryptOpenAlgorithmProvider(&mut rng, BCRYPT_RNG_ALGORITHM, None, Default::default())
+            .ok()?;
 
         let mut des = Default::default();
-        BCryptOpenAlgorithmProvider(&mut des, BCRYPT_3DES_ALGORITHM, None, Default::default())?;
+        BCryptOpenAlgorithmProvider(&mut des, BCRYPT_3DES_ALGORITHM, None, Default::default())
+            .ok()?;
 
         let mut object_len = [0; 4];
         let mut bytes_copied = 0;
@@ -17,14 +19,15 @@ fn test() -> Result<()> {
             Some(&mut object_len),
             &mut bytes_copied,
             0,
-        )?;
+        )
+        .ok()?;
         let object_len = u32::from_le_bytes(object_len);
 
         let mut shared_secret = vec![0; object_len as usize];
-        BCryptGenRandom(rng, &mut shared_secret, Default::default())?;
+        BCryptGenRandom(rng, &mut shared_secret, Default::default()).ok()?;
 
         let mut encrypt_key = Default::default();
-        BCryptGenerateSymmetricKey(des, &mut encrypt_key, None, &shared_secret, 0)?;
+        BCryptGenerateSymmetricKey(des, &mut encrypt_key, None, &shared_secret, 0).ok()?;
 
         let mut block_len = [0; 4];
         BCryptGetProperty(
@@ -33,7 +36,8 @@ fn test() -> Result<()> {
             Some(&mut block_len),
             &mut bytes_copied,
             0,
-        )?;
+        )
+        .ok()?;
         let block_len = u32::from_le_bytes(block_len) as usize;
 
         let send_message = "I ❤️ Rust";
@@ -50,7 +54,8 @@ fn test() -> Result<()> {
             None,
             &mut encrypted_len,
             Default::default(),
-        )?;
+        )
+        .ok()?;
 
         let mut encrypted = vec![0; encrypted_len as usize];
         BCryptEncrypt(
@@ -61,10 +66,11 @@ fn test() -> Result<()> {
             Some(&mut encrypted),
             &mut encrypted_len,
             Default::default(),
-        )?;
+        )
+        .ok()?;
 
         let mut decrypt_key = Default::default();
-        BCryptGenerateSymmetricKey(des, &mut decrypt_key, None, &shared_secret, 0)?;
+        BCryptGenerateSymmetricKey(des, &mut decrypt_key, None, &shared_secret, 0).ok()?;
 
         let mut decrypted_len = 0;
         BCryptDecrypt(
@@ -75,7 +81,8 @@ fn test() -> Result<()> {
             None,
             &mut decrypted_len,
             Default::default(),
-        )?;
+        )
+        .ok()?;
 
         let mut decrypted = vec![0; decrypted_len as usize];
         BCryptDecrypt(
@@ -86,7 +93,8 @@ fn test() -> Result<()> {
             Some(&mut decrypted),
             &mut decrypted_len,
             Default::default(),
-        )?;
+        )
+        .ok()?;
 
         let receive_message =
             std::str::from_utf8(trim_null_end(&decrypted)).expect("Not a valid message");

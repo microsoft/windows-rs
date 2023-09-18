@@ -21,8 +21,8 @@ impl IAdvancedMediaCapture_Vtbl {
             GetAdvancedMediaCaptureSettings: GetAdvancedMediaCaptureSettings::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAdvancedMediaCapture as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAdvancedMediaCapture as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -39,8 +39,8 @@ impl IAdvancedMediaCaptureInitializationSettings_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetDirectxDeviceManager: SetDirectxDeviceManager::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAdvancedMediaCaptureInitializationSettings as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAdvancedMediaCaptureInitializationSettings as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -63,8 +63,8 @@ impl IAdvancedMediaCaptureSettings_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDirectxDeviceManager: GetDirectxDeviceManager::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAdvancedMediaCaptureSettings as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAdvancedMediaCaptureSettings as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -81,8 +81,8 @@ impl IAudioSourceProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ProvideInput: ProvideInput::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioSourceProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAudioSourceProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -115,8 +115,8 @@ impl IClusterDetector_Vtbl {
             Detect: Detect::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IClusterDetector as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IClusterDetector as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -249,8 +249,8 @@ impl ICodecAPI_Vtbl {
             SetAllSettingsWithNotify: SetAllSettingsWithNotify::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICodecAPI as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICodecAPI as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -364,8 +364,8 @@ impl ID3D12VideoDecodeCommandList_Vtbl {
             WriteBufferImmediate: WriteBufferImmediate::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -385,8 +385,8 @@ impl ID3D12VideoDecodeCommandList1_Vtbl {
         }
         Self { base__: ID3D12VideoDecodeCommandList_Vtbl::new::<Identity, Impl, OFFSET>(), DecodeFrame1: DecodeFrame1::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoDecodeCommandList1 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoDecodeCommandList1 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -423,8 +423,8 @@ impl ID3D12VideoDecodeCommandList2_Vtbl {
             ExecuteExtensionCommand: ExecuteExtensionCommand::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoDecodeCommandList2 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecodeCommandList1 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoDecodeCommandList2 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecodeCommandList1 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -444,8 +444,8 @@ impl ID3D12VideoDecodeCommandList3_Vtbl {
         }
         Self { base__: ID3D12VideoDecodeCommandList2_Vtbl::new::<Identity, Impl, OFFSET>(), Barrier: Barrier::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoDecodeCommandList3 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecodeCommandList1 as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecodeCommandList2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoDecodeCommandList3 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecodeCommandList1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecodeCommandList2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -465,8 +465,8 @@ impl ID3D12VideoDecoder_Vtbl {
         }
         Self { base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoDecoder as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoDecoder as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -489,8 +489,8 @@ impl ID3D12VideoDecoder1_Vtbl {
             GetProtectedResourceSession: GetProtectedResourceSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoDecoder1 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecoder as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoDecoder1 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecoder as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -510,8 +510,8 @@ impl ID3D12VideoDecoderHeap_Vtbl {
         }
         Self { base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoDecoderHeap as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoDecoderHeap as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -534,8 +534,8 @@ impl ID3D12VideoDecoderHeap1_Vtbl {
             GetProtectedResourceSession: GetProtectedResourceSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoDecoderHeap1 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecoderHeap as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoDecoderHeap1 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecoderHeap as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -579,8 +579,8 @@ impl ID3D12VideoDevice_Vtbl {
             CreateVideoProcessor: CreateVideoProcessor::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoDevice as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoDevice as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -610,8 +610,8 @@ impl ID3D12VideoDevice1_Vtbl {
             CreateVideoMotionVectorHeap: CreateVideoMotionVectorHeap::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoDevice1 as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDevice as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoDevice1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDevice as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -662,8 +662,8 @@ impl ID3D12VideoDevice2_Vtbl {
             ExecuteExtensionCommand: ExecuteExtensionCommand::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoDevice2 as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDevice as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDevice1 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoDevice2 as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDevice as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDevice1 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -693,8 +693,8 @@ impl ID3D12VideoDevice3_Vtbl {
             CreateVideoEncoderHeap: CreateVideoEncoderHeap::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoDevice3 as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDevice as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDevice1 as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDevice2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoDevice3 as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDevice as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDevice1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDevice2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -822,8 +822,8 @@ impl ID3D12VideoEncodeCommandList_Vtbl {
             SetProtectedResourceSession: SetProtectedResourceSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -853,8 +853,8 @@ impl ID3D12VideoEncodeCommandList1_Vtbl {
             ExecuteExtensionCommand: ExecuteExtensionCommand::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoEncodeCommandList1 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoEncodeCommandList1 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -884,8 +884,8 @@ impl ID3D12VideoEncodeCommandList2_Vtbl {
             ResolveEncoderOutputMetadata: ResolveEncoderOutputMetadata::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoEncodeCommandList2 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoEncodeCommandList1 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoEncodeCommandList2 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoEncodeCommandList1 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -905,8 +905,8 @@ impl ID3D12VideoEncodeCommandList3_Vtbl {
         }
         Self { base__: ID3D12VideoEncodeCommandList2_Vtbl::new::<Identity, Impl, OFFSET>(), Barrier: Barrier::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoEncodeCommandList3 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoEncodeCommandList1 as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoEncodeCommandList2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoEncodeCommandList3 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoEncodeCommandList1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoEncodeCommandList2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -971,8 +971,8 @@ impl ID3D12VideoEncoder_Vtbl {
             GetMaxMotionEstimationPrecision: GetMaxMotionEstimationPrecision::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoEncoder as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoEncoder as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -1037,8 +1037,8 @@ impl ID3D12VideoEncoderHeap_Vtbl {
             GetResolutionList: GetResolutionList::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoEncoderHeap as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoEncoderHeap as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -1068,8 +1068,8 @@ impl ID3D12VideoExtensionCommand_Vtbl {
             GetProtectedResourceSession: GetProtectedResourceSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoExtensionCommand as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoExtensionCommand as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -1099,8 +1099,8 @@ impl ID3D12VideoMotionEstimator_Vtbl {
             GetProtectedResourceSession: GetProtectedResourceSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoMotionEstimator as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoMotionEstimator as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -1130,8 +1130,8 @@ impl ID3D12VideoMotionVectorHeap_Vtbl {
             GetProtectedResourceSession: GetProtectedResourceSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoMotionVectorHeap as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoMotionVectorHeap as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -1245,8 +1245,8 @@ impl ID3D12VideoProcessCommandList_Vtbl {
             WriteBufferImmediate: WriteBufferImmediate::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -1266,8 +1266,8 @@ impl ID3D12VideoProcessCommandList1_Vtbl {
         }
         Self { base__: ID3D12VideoProcessCommandList_Vtbl::new::<Identity, Impl, OFFSET>(), ProcessFrames1: ProcessFrames1::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoProcessCommandList1 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoProcessCommandList1 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -1304,8 +1304,8 @@ impl ID3D12VideoProcessCommandList2_Vtbl {
             ExecuteExtensionCommand: ExecuteExtensionCommand::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoProcessCommandList2 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoProcessCommandList1 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoProcessCommandList2 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoProcessCommandList1 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -1325,8 +1325,8 @@ impl ID3D12VideoProcessCommandList3_Vtbl {
         }
         Self { base__: ID3D12VideoProcessCommandList2_Vtbl::new::<Identity, Impl, OFFSET>(), Barrier: Barrier::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoProcessCommandList3 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoProcessCommandList1 as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoProcessCommandList2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoProcessCommandList3 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoProcessCommandList1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoProcessCommandList2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -1370,8 +1370,8 @@ impl ID3D12VideoProcessor_Vtbl {
             GetOutputStreamDesc: GetOutputStreamDesc::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoProcessor as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoProcessor as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -1394,8 +1394,8 @@ impl ID3D12VideoProcessor1_Vtbl {
             GetProtectedResourceSession: GetProtectedResourceSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3D12VideoProcessor1 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoProcessor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ID3D12VideoProcessor1 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoProcessor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1479,8 +1479,8 @@ impl IDXVAHD_Device_Vtbl {
             CreateVideoProcessor: CreateVideoProcessor::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDXVAHD_Device as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDXVAHD_Device as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1531,8 +1531,8 @@ impl IDXVAHD_VideoProcessor_Vtbl {
             VideoProcessBltHD: VideoProcessBltHD::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDXVAHD_VideoProcessor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDXVAHD_VideoProcessor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1552,8 +1552,8 @@ impl IDirect3D9ExOverlayExtension_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CheckDeviceOverlayType: CheckDeviceOverlayType::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3D9ExOverlayExtension as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirect3D9ExOverlayExtension as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1604,8 +1604,8 @@ impl IDirect3DAuthenticatedChannel9_Vtbl {
             Configure: Configure::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DAuthenticatedChannel9 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirect3DAuthenticatedChannel9 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1684,8 +1684,8 @@ impl IDirect3DCryptoSession9_Vtbl {
             GetEncryptionBltKey: GetEncryptionBltKey::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DCryptoSession9 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirect3DCryptoSession9 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1722,8 +1722,8 @@ impl IDirect3DDevice9Video_Vtbl {
             CreateCryptoSession: CreateCryptoSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DDevice9Video as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirect3DDevice9Video as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1794,8 +1794,8 @@ impl IDirect3DDeviceManager9_Vtbl {
             GetVideoService: GetVideoService::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DDeviceManager9 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirect3DDeviceManager9 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1815,8 +1815,8 @@ impl IDirectXVideoAccelerationService_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateSurface: CreateSurface::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectXVideoAccelerationService as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectXVideoAccelerationService as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1887,8 +1887,8 @@ impl IDirectXVideoDecoder_Vtbl {
             Execute: Execute::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectXVideoDecoder as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectXVideoDecoder as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1938,8 +1938,8 @@ impl IDirectXVideoDecoderService_Vtbl {
             CreateVideoDecoder: CreateVideoDecoder::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectXVideoDecoderService as ::windows_core::ComInterface>::IID || iid == &<IDirectXVideoAccelerationService as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectXVideoDecoderService as ::windows_core::ComInterface>::IID || *iid == <IDirectXVideoAccelerationService as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -1972,8 +1972,8 @@ impl IDirectXVideoMemoryConfiguration_Vtbl {
             SetSurfaceType: SetSurfaceType::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectXVideoMemoryConfiguration as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectXVideoMemoryConfiguration as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -2049,8 +2049,8 @@ impl IDirectXVideoProcessor_Vtbl {
             VideoProcessBlt: VideoProcessBlt::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectXVideoProcessor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectXVideoProcessor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -2140,8 +2140,8 @@ impl IDirectXVideoProcessorService_Vtbl {
             CreateVideoProcessor: CreateVideoProcessor::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectXVideoProcessorService as ::windows_core::ComInterface>::IID || iid == &<IDirectXVideoAccelerationService as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectXVideoProcessorService as ::windows_core::ComInterface>::IID || *iid == <IDirectXVideoAccelerationService as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -2174,8 +2174,8 @@ impl IEVRFilterConfig_Vtbl {
             GetNumberOfStreams: GetNumberOfStreams::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEVRFilterConfig as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IEVRFilterConfig as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -2208,8 +2208,8 @@ impl IEVRFilterConfigEx_Vtbl {
             GetConfigPrefs: GetConfigPrefs::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEVRFilterConfigEx as ::windows_core::ComInterface>::IID || iid == &<IEVRFilterConfig as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IEVRFilterConfigEx as ::windows_core::ComInterface>::IID || *iid == <IEVRFilterConfig as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2265,8 +2265,8 @@ impl IEVRTrustedVideoPlugin_Vtbl {
             DisableImageExport: DisableImageExport::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEVRTrustedVideoPlugin as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IEVRTrustedVideoPlugin as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2302,8 +2302,8 @@ impl IEVRVideoStreamControl_Vtbl {
             GetStreamActiveState: GetStreamActiveState::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEVRVideoStreamControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IEVRVideoStreamControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -2337,8 +2337,8 @@ impl IFileClient_Vtbl {
             Read: Read::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFileClient as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IFileClient as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2424,8 +2424,8 @@ impl IFileIo_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFileIo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IFileIo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2502,8 +2502,8 @@ impl IMF2DBuffer_Vtbl {
             ContiguousCopyFrom: ContiguousCopyFrom::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMF2DBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMF2DBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2533,8 +2533,8 @@ impl IMF2DBuffer2_Vtbl {
             Copy2DTo: Copy2DTo::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMF2DBuffer2 as ::windows_core::ComInterface>::IID || iid == &<IMF2DBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMF2DBuffer2 as ::windows_core::ComInterface>::IID || *iid == <IMF2DBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -2629,8 +2629,8 @@ impl IMFASFContentInfo_Vtbl {
             GetEncodingConfigurationPropertyStore: GetEncodingConfigurationPropertyStore::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFASFContentInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFASFContentInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -2761,8 +2761,8 @@ impl IMFASFIndexer_Vtbl {
             GetCompletedIndex: GetCompletedIndex::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFASFIndexer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFASFIndexer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -2850,8 +2850,8 @@ impl IMFASFMultiplexer_Vtbl {
             SetSyncTolerance: SetSyncTolerance::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFASFMultiplexer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFASFMultiplexer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -2951,8 +2951,8 @@ impl IMFASFMutualExclusion_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFASFMutualExclusion as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFASFMutualExclusion as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -3134,8 +3134,8 @@ impl IMFASFProfile_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFASFProfile as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFASFProfile as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -3223,8 +3223,8 @@ impl IMFASFSplitter_Vtbl {
             GetLastSendTime: GetLastSendTime::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFASFSplitter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFASFSplitter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -3334,8 +3334,8 @@ impl IMFASFStreamConfig_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFASFStreamConfig as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFASFStreamConfig as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -3395,8 +3395,8 @@ impl IMFASFStreamPrioritization_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFASFStreamPrioritization as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFASFStreamPrioritization as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -3567,8 +3567,8 @@ impl IMFASFStreamSelector_Vtbl {
             SetStreamSelectorFlags: SetStreamSelectorFlags::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFASFStreamSelector as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFASFStreamSelector as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -3605,8 +3605,8 @@ impl IMFActivate_Vtbl {
             DetachObject: DetachObject::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFActivate as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFActivate as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -3633,8 +3633,8 @@ impl IMFAsyncCallback_Vtbl {
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFAsyncCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFAsyncCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -3661,8 +3661,8 @@ impl IMFAsyncCallbackLogging_Vtbl {
             GetObjectTag: GetObjectTag::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFAsyncCallbackLogging as ::windows_core::ComInterface>::IID || iid == &<IMFAsyncCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFAsyncCallbackLogging as ::windows_core::ComInterface>::IID || *iid == <IMFAsyncCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -3722,8 +3722,8 @@ impl IMFAsyncResult_Vtbl {
             GetStateNoAddRef: GetStateNoAddRef::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFAsyncResult as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFAsyncResult as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -4009,8 +4009,8 @@ impl IMFAttributes_Vtbl {
             CopyAllItems: CopyAllItems::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Media_Audio\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -4030,8 +4030,8 @@ impl IMFAudioMediaType_Vtbl {
         }
         Self { base__: IMFMediaType_Vtbl::new::<Identity, Impl, OFFSET>(), GetAudioFormat: GetAudioFormat::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFAudioMediaType as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID || iid == &<IMFMediaType as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFAudioMediaType as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID || *iid == <IMFMediaType as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -4104,8 +4104,8 @@ impl IMFAudioPolicy_Vtbl {
             GetIconPath: GetIconPath::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFAudioPolicy as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFAudioPolicy as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -4165,8 +4165,8 @@ impl IMFAudioStreamVolume_Vtbl {
             GetAllVolumes: GetAllVolumes::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFAudioStreamVolume as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFAudioStreamVolume as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -4193,8 +4193,8 @@ impl IMFBufferListNotify_Vtbl {
             OnRemoveSourceBuffer: OnRemoveSourceBuffer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFBufferListNotify as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFBufferListNotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4363,8 +4363,8 @@ impl IMFByteStream_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFByteStream as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFByteStream as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4401,8 +4401,8 @@ impl IMFByteStreamBuffering_Vtbl {
             StopBuffering: StopBuffering::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFByteStreamBuffering as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFByteStreamBuffering as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -4419,8 +4419,8 @@ impl IMFByteStreamCacheControl_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), StopBackgroundTransfer: StopBackgroundTransfer::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFByteStreamCacheControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFByteStreamCacheControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4463,8 +4463,8 @@ impl IMFByteStreamCacheControl2_Vtbl {
             IsBackgroundTransferActive: IsBackgroundTransferActive::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFByteStreamCacheControl2 as ::windows_core::ComInterface>::IID || iid == &<IMFByteStreamCacheControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFByteStreamCacheControl2 as ::windows_core::ComInterface>::IID || *iid == <IMFByteStreamCacheControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -4514,8 +4514,8 @@ impl IMFByteStreamHandler_Vtbl {
             GetMaxNumberOfBytesRequiredForResolution: GetMaxNumberOfBytesRequiredForResolution::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFByteStreamHandler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFByteStreamHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -4532,8 +4532,8 @@ impl IMFByteStreamProxyClassFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateByteStreamProxy: CreateByteStreamProxy::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFByteStreamProxyClassFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFByteStreamProxyClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4576,8 +4576,8 @@ impl IMFByteStreamTimeSeek_Vtbl {
             GetTimeSeekResult: GetTimeSeekResult::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFByteStreamTimeSeek as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFByteStreamTimeSeek as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -4617,8 +4617,8 @@ impl IMFCameraConfigurationManager_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCameraConfigurationManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCameraConfigurationManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -4665,8 +4665,8 @@ impl IMFCameraControlDefaults_Vtbl {
             UnlockControlData: UnlockControlData::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCameraControlDefaults as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCameraControlDefaults as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -4742,8 +4742,8 @@ impl IMFCameraControlDefaultsCollection_Vtbl {
             RemoveAllControls: RemoveAllControls::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCameraControlDefaultsCollection as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCameraControlDefaultsCollection as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -4791,8 +4791,8 @@ impl IMFCameraControlMonitor_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCameraControlMonitor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCameraControlMonitor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -4819,8 +4819,8 @@ impl IMFCameraControlNotify_Vtbl {
             OnError: OnError::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCameraControlNotify as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCameraControlNotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -4854,8 +4854,8 @@ impl IMFCameraOcclusionStateMonitor_Vtbl {
             GetSupportedStates: GetSupportedStates::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCameraOcclusionStateMonitor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCameraOcclusionStateMonitor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -4878,8 +4878,8 @@ impl IMFCameraOcclusionStateReport_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetOcclusionState: GetOcclusionState::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCameraOcclusionStateReport as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCameraOcclusionStateReport as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -4896,8 +4896,8 @@ impl IMFCameraOcclusionStateReportCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnOcclusionStateReport: OnOcclusionStateReport::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCameraOcclusionStateReportCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCameraOcclusionStateReportCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -4924,8 +4924,8 @@ impl IMFCameraSyncObject_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCameraSyncObject as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCameraSyncObject as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5009,8 +5009,8 @@ impl IMFCaptureEngine_Vtbl {
             GetSource: GetSource::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCaptureEngine as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCaptureEngine as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -5027,8 +5027,8 @@ impl IMFCaptureEngineClassFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCaptureEngineClassFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCaptureEngineClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -5045,8 +5045,8 @@ impl IMFCaptureEngineOnEventCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEvent: OnEvent::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCaptureEngineOnEventCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCaptureEngineOnEventCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -5063,8 +5063,8 @@ impl IMFCaptureEngineOnSampleCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnSample: OnSample::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCaptureEngineOnSampleCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCaptureEngineOnSampleCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -5084,8 +5084,8 @@ impl IMFCaptureEngineOnSampleCallback2_Vtbl {
             OnSynchronizedEvent: OnSynchronizedEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCaptureEngineOnSampleCallback2 as ::windows_core::ComInterface>::IID || iid == &<IMFCaptureEngineOnSampleCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCaptureEngineOnSampleCallback2 as ::windows_core::ComInterface>::IID || *iid == <IMFCaptureEngineOnSampleCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -5125,8 +5125,8 @@ impl IMFCapturePhotoConfirmation_Vtbl {
             GetPixelFormat: GetPixelFormat::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCapturePhotoConfirmation as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCapturePhotoConfirmation as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -5160,8 +5160,8 @@ impl IMFCapturePhotoSink_Vtbl {
             SetOutputByteStream: SetOutputByteStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCapturePhotoSink as ::windows_core::ComInterface>::IID || iid == &<IMFCaptureSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCapturePhotoSink as ::windows_core::ComInterface>::IID || *iid == <IMFCaptureSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5252,8 +5252,8 @@ impl IMFCapturePreviewSink_Vtbl {
             SetCustomSink: SetCustomSink::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCapturePreviewSink as ::windows_core::ComInterface>::IID || iid == &<IMFCaptureSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCapturePreviewSink as ::windows_core::ComInterface>::IID || *iid == <IMFCaptureSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -5314,8 +5314,8 @@ impl IMFCaptureRecordSink_Vtbl {
             SetRotation: SetRotation::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCaptureRecordSink as ::windows_core::ComInterface>::IID || iid == &<IMFCaptureSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCaptureRecordSink as ::windows_core::ComInterface>::IID || *iid == <IMFCaptureSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -5363,8 +5363,8 @@ impl IMFCaptureSink_Vtbl {
             RemoveAllStreams: RemoveAllStreams::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCaptureSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCaptureSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -5381,8 +5381,8 @@ impl IMFCaptureSink2_Vtbl {
         }
         Self { base__: IMFCaptureSink_Vtbl::new::<Identity, Impl, OFFSET>(), SetOutputMediaType: SetOutputMediaType::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCaptureSink2 as ::windows_core::ComInterface>::IID || iid == &<IMFCaptureSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCaptureSink2 as ::windows_core::ComInterface>::IID || *iid == <IMFCaptureSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5526,8 +5526,8 @@ impl IMFCaptureSource_Vtbl {
             GetStreamIndexFromFriendlyName: GetStreamIndexFromFriendlyName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCaptureSource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCaptureSource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -5550,8 +5550,8 @@ impl IMFCdmSuspendNotify_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Begin: Begin::<Identity, Impl, OFFSET>, End: End::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCdmSuspendNotify as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCdmSuspendNotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -5617,8 +5617,8 @@ impl IMFClock_Vtbl {
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFClock as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFClock as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -5651,8 +5651,8 @@ impl IMFClockConsumer_Vtbl {
             GetPresentationClock: GetPresentationClock::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFClockConsumer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFClockConsumer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -5700,8 +5700,8 @@ impl IMFClockStateSink_Vtbl {
             OnClockSetRate: OnClockSetRate::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFClockStateSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFClockStateSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -5774,8 +5774,8 @@ impl IMFCollection_Vtbl {
             RemoveAllElements: RemoveAllElements::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -5855,8 +5855,8 @@ impl IMFContentDecryptionModule_Vtbl {
             GetProtectionSystemIds: GetProtectionSystemIds::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFContentDecryptionModule as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFContentDecryptionModule as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -5911,8 +5911,8 @@ impl IMFContentDecryptionModuleAccess_Vtbl {
             GetKeySystem: GetKeySystem::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFContentDecryptionModuleAccess as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFContentDecryptionModuleAccess as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -5948,8 +5948,8 @@ impl IMFContentDecryptionModuleFactory_Vtbl {
             CreateContentDecryptionModuleAccess: CreateContentDecryptionModuleAccess::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFContentDecryptionModuleFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFContentDecryptionModuleFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6039,8 +6039,8 @@ impl IMFContentDecryptionModuleSession_Vtbl {
             Remove: Remove::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFContentDecryptionModuleSession as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFContentDecryptionModuleSession as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -6067,8 +6067,8 @@ impl IMFContentDecryptionModuleSessionCallbacks_Vtbl {
             KeyStatusChanged: KeyStatusChanged::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFContentDecryptionModuleSessionCallbacks as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFContentDecryptionModuleSessionCallbacks as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -6091,8 +6091,8 @@ impl IMFContentDecryptorContext_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), InitializeHardwareKey: InitializeHardwareKey::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFContentDecryptorContext as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFContentDecryptorContext as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6169,8 +6169,8 @@ impl IMFContentEnabler_Vtbl {
             Cancel: Cancel::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFContentEnabler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFContentEnabler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -6197,8 +6197,8 @@ impl IMFContentProtectionDevice_Vtbl {
             GetPrivateDataByteCount: GetPrivateDataByteCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFContentProtectionDevice as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFContentProtectionDevice as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -6225,8 +6225,8 @@ impl IMFContentProtectionManager_Vtbl {
             EndEnableContent: EndEnableContent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFContentProtectionManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFContentProtectionManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6256,8 +6256,8 @@ impl IMFD3D12SynchronizationObject_Vtbl {
             Reset: Reset::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFD3D12SynchronizationObject as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFD3D12SynchronizationObject as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -6301,8 +6301,8 @@ impl IMFD3D12SynchronizationObjectCommands_Vtbl {
             EnqueueResourceRelease: EnqueueResourceRelease::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFD3D12SynchronizationObjectCommands as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFD3D12SynchronizationObjectCommands as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6322,8 +6322,8 @@ impl IMFDLNASinkInit_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFDLNASinkInit as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFDLNASinkInit as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -6350,8 +6350,8 @@ impl IMFDRMNetHelper_Vtbl {
             GetChainedLicenseResponse: GetChainedLicenseResponse::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFDRMNetHelper as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFDRMNetHelper as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -6398,8 +6398,8 @@ impl IMFDXGIBuffer_Vtbl {
             SetUnknown: SetUnknown::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFDXGIBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFDXGIBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6470,8 +6470,8 @@ impl IMFDXGIDeviceManager_Vtbl {
             UnlockDevice: UnlockDevice::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFDXGIDeviceManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFDXGIDeviceManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -6494,8 +6494,8 @@ impl IMFDXGIDeviceManagerSource_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetManager: GetManager::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFDXGIDeviceManagerSource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFDXGIDeviceManagerSource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -6529,8 +6529,8 @@ impl IMFDesiredSample_Vtbl {
             Clear: Clear::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFDesiredSample as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFDesiredSample as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -6731,8 +6731,8 @@ impl IMFDeviceTransform_Vtbl {
             FlushOutputStream: FlushOutputStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFDeviceTransform as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFDeviceTransform as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -6749,8 +6749,8 @@ impl IMFDeviceTransformCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnBufferSent: OnBufferSent::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFDeviceTransformCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFDeviceTransformCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -6805,8 +6805,8 @@ impl IMFExtendedCameraControl_Vtbl {
             CommitSettings: CommitSettings::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFExtendedCameraControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFExtendedCameraControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -6829,8 +6829,8 @@ impl IMFExtendedCameraController_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetExtendedCameraControl: GetExtendedCameraControl::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFExtendedCameraController as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFExtendedCameraController as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -6870,8 +6870,8 @@ impl IMFExtendedCameraIntrinsicModel_Vtbl {
             GetDistortionModelType: GetDistortionModelType::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFExtendedCameraIntrinsicModel as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFExtendedCameraIntrinsicModel as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -6944,8 +6944,8 @@ impl IMFExtendedCameraIntrinsics_Vtbl {
             AddIntrinsicModel: AddIntrinsicModel::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFExtendedCameraIntrinsics as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFExtendedCameraIntrinsics as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -6972,8 +6972,8 @@ impl IMFExtendedCameraIntrinsicsDistortionModel6KT_Vtbl {
             SetDistortionModel: SetDistortionModel::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFExtendedCameraIntrinsicsDistortionModel6KT as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFExtendedCameraIntrinsicsDistortionModel6KT as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -7000,8 +7000,8 @@ impl IMFExtendedCameraIntrinsicsDistortionModelArcTan_Vtbl {
             SetDistortionModel: SetDistortionModel::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFExtendedCameraIntrinsicsDistortionModelArcTan as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFExtendedCameraIntrinsicsDistortionModelArcTan as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -7024,8 +7024,8 @@ impl IMFExtendedDRMTypeSupport_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsTypeSupportedEx: IsTypeSupportedEx::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFExtendedDRMTypeSupport as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFExtendedDRMTypeSupport as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -7042,8 +7042,8 @@ impl IMFFieldOfUseMFTUnlock_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Unlock: Unlock::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFFieldOfUseMFTUnlock as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFFieldOfUseMFTUnlock as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -7070,8 +7070,8 @@ impl IMFFinalizableMediaSink_Vtbl {
             EndFinalize: EndFinalize::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFFinalizableMediaSink as ::windows_core::ComInterface>::IID || iid == &<IMFMediaSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFFinalizableMediaSink as ::windows_core::ComInterface>::IID || *iid == <IMFMediaSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -7088,8 +7088,8 @@ impl IMFGetService_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetService: GetService::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFGetService as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFGetService as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7115,8 +7115,8 @@ impl IMFHDCPStatus_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Query: Query::<Identity, Impl, OFFSET>, Set: Set::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFHDCPStatus as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFHDCPStatus as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7286,8 +7286,8 @@ impl IMFHttpDownloadRequest_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFHttpDownloadRequest as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFHttpDownloadRequest as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7330,8 +7330,8 @@ impl IMFHttpDownloadSession_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFHttpDownloadSession as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFHttpDownloadSession as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -7354,8 +7354,8 @@ impl IMFHttpDownloadSessionProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateHttpDownloadSession: CreateHttpDownloadSession::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFHttpDownloadSessionProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFHttpDownloadSessionProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -7389,8 +7389,8 @@ impl IMFImageSharingEngine_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFImageSharingEngine as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFImageSharingEngine as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -7413,8 +7413,8 @@ impl IMFImageSharingEngineClassFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstanceFromUDN: CreateInstanceFromUDN::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFImageSharingEngineClassFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFImageSharingEngineClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -7481,8 +7481,8 @@ impl IMFInputTrustAuthority_Vtbl {
             Reset: Reset::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFInputTrustAuthority as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFInputTrustAuthority as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -7499,8 +7499,8 @@ impl IMFLocalMFTRegistration_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RegisterMFTs: RegisterMFTs::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFLocalMFTRegistration as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFLocalMFTRegistration as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -7560,8 +7560,8 @@ impl IMFMediaBuffer_Vtbl {
             GetMaxLength: GetMaxLength::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7913,8 +7913,8 @@ impl IMFMediaEngine_Vtbl {
             OnVideoStreamTick: OnVideoStreamTick::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngine as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngine as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -7947,8 +7947,8 @@ impl IMFMediaEngineAudioEndpointId_Vtbl {
             GetAudioEndpointId: GetAudioEndpointId::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineAudioEndpointId as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineAudioEndpointId as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -8000,8 +8000,8 @@ impl IMFMediaEngineClassFactory_Vtbl {
             CreateError: CreateError::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineClassFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -8024,8 +8024,8 @@ impl IMFMediaEngineClassFactory2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateMediaKeys2: CreateMediaKeys2::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineClassFactory2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineClassFactory2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -8054,8 +8054,8 @@ impl IMFMediaEngineClassFactory3_Vtbl {
             CreateMediaKeySystemAccess: CreateMediaKeySystemAccess::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineClassFactory3 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineClassFactory3 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -8075,8 +8075,8 @@ impl IMFMediaEngineClassFactory4_Vtbl {
             CreateContentDecryptionModuleFactory: CreateContentDecryptionModuleFactory::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineClassFactory4 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineClassFactory4 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8131,8 +8131,8 @@ impl IMFMediaEngineClassFactoryEx_Vtbl {
             IsTypeSupported: IsTypeSupported::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineClassFactoryEx as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEngineClassFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineClassFactoryEx as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEngineClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -8165,8 +8165,8 @@ impl IMFMediaEngineEME_Vtbl {
             SetMediaKeys: SetMediaKeys::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineEME as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineEME as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -8193,8 +8193,8 @@ impl IMFMediaEngineEMENotify_Vtbl {
             WaitingForKey: WaitingForKey::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineEMENotify as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineEMENotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -8553,8 +8553,8 @@ impl IMFMediaEngineEx_Vtbl {
             EnableTimeUpdateTimer: EnableTimeUpdateTimer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineEx as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEngine as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineEx as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEngine as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8610,8 +8610,8 @@ impl IMFMediaEngineExtension_Vtbl {
             EndCreateObject: EndCreateObject::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineExtension as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineExtension as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -8628,8 +8628,8 @@ impl IMFMediaEngineNeedKeyNotify_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NeedKey: NeedKey::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineNeedKeyNotify as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineNeedKeyNotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -8646,8 +8646,8 @@ impl IMFMediaEngineNotify_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EventNotify: EventNotify::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineNotify as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineNotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8667,8 +8667,8 @@ impl IMFMediaEngineOPMInfo_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetOPMInfo: GetOPMInfo::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineOPMInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineOPMInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8738,8 +8738,8 @@ impl IMFMediaEngineProtectedContent_Vtbl {
             SetApplicationCertificate: SetApplicationCertificate::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineProtectedContent as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineProtectedContent as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -8812,8 +8812,8 @@ impl IMFMediaEngineSrcElements_Vtbl {
             RemoveAllElements: RemoveAllElements::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineSrcElements as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineSrcElements as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -8846,8 +8846,8 @@ impl IMFMediaEngineSrcElementsEx_Vtbl {
             GetKeySystem: GetKeySystem::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineSrcElementsEx as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEngineSrcElements as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineSrcElementsEx as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEngineSrcElements as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8890,8 +8890,8 @@ impl IMFMediaEngineSupportsSourceTransfer_Vtbl {
             AttachMediaSource: AttachMediaSource::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineSupportsSourceTransfer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineSupportsSourceTransfer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -8911,8 +8911,8 @@ impl IMFMediaEngineTransferSource_Vtbl {
             TransferSourceToMediaEngine: TransferSourceToMediaEngine::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineTransferSource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineTransferSource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8955,8 +8955,8 @@ impl IMFMediaEngineWebSupport_Vtbl {
             DisconnectWebAudio: DisconnectWebAudio::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEngineWebSupport as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEngineWebSupport as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -8997,8 +8997,8 @@ impl IMFMediaError_Vtbl {
             SetExtendedErrorCode: SetExtendedErrorCode::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaError as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaError as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -9066,8 +9066,8 @@ impl IMFMediaEvent_Vtbl {
             GetValue: GetValue::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEvent as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEvent as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -9123,8 +9123,8 @@ impl IMFMediaEventGenerator_Vtbl {
             QueueEvent: QueueEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -9201,8 +9201,8 @@ impl IMFMediaEventQueue_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaEventQueue as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaEventQueue as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -9262,8 +9262,8 @@ impl IMFMediaKeySession_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaKeySession as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaKeySession as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -9333,8 +9333,8 @@ impl IMFMediaKeySession2_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaKeySession2 as ::windows_core::ComInterface>::IID || iid == &<IMFMediaKeySession as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaKeySession2 as ::windows_core::ComInterface>::IID || *iid == <IMFMediaKeySession as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -9368,8 +9368,8 @@ impl IMFMediaKeySessionNotify_Vtbl {
             KeyError: KeyError::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaKeySessionNotify as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaKeySessionNotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -9396,8 +9396,8 @@ impl IMFMediaKeySessionNotify2_Vtbl {
             KeyStatusChange: KeyStatusChange::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaKeySessionNotify2 as ::windows_core::ComInterface>::IID || iid == &<IMFMediaKeySessionNotify as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaKeySessionNotify2 as ::windows_core::ComInterface>::IID || *iid == <IMFMediaKeySessionNotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -9452,8 +9452,8 @@ impl IMFMediaKeySystemAccess_Vtbl {
             KeySystem: KeySystem::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaKeySystemAccess as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaKeySystemAccess as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -9512,8 +9512,8 @@ impl IMFMediaKeys_Vtbl {
             GetSuspendNotify: GetSuspendNotify::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaKeys as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaKeys as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -9559,8 +9559,8 @@ impl IMFMediaKeys2_Vtbl {
             GetDOMException: GetDOMException::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaKeys2 as ::windows_core::ComInterface>::IID || iid == &<IMFMediaKeys as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaKeys2 as ::windows_core::ComInterface>::IID || *iid == <IMFMediaKeys as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -9664,8 +9664,8 @@ impl IMFMediaSession_Vtbl {
             GetFullTopology: GetFullTopology::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaSession as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaSession as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -9685,8 +9685,8 @@ impl IMFMediaSharingEngine_Vtbl {
         }
         Self { base__: IMFMediaEngine_Vtbl::new::<Identity, Impl, OFFSET>(), GetDevice: GetDevice::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaSharingEngine as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEngine as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaSharingEngine as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEngine as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -9709,8 +9709,8 @@ impl IMFMediaSharingEngineClassFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaSharingEngineClassFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaSharingEngineClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -9822,8 +9822,8 @@ impl IMFMediaSink_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -9840,8 +9840,8 @@ impl IMFMediaSinkPreroll_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NotifyPreroll: NotifyPreroll::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaSinkPreroll as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaSinkPreroll as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -9911,8 +9911,8 @@ impl IMFMediaSource_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaSource as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaSource as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -9932,8 +9932,8 @@ impl IMFMediaSource2_Vtbl {
         }
         Self { base__: IMFMediaSourceEx_Vtbl::new::<Identity, Impl, OFFSET>(), SetMediaType: SetMediaType::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaSource2 as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID || iid == &<IMFMediaSource as ::windows_core::ComInterface>::IID || iid == &<IMFMediaSourceEx as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaSource2 as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID || *iid == <IMFMediaSource as ::windows_core::ComInterface>::IID || *iid == <IMFMediaSourceEx as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -9982,8 +9982,8 @@ impl IMFMediaSourceEx_Vtbl {
             SetD3DManager: SetD3DManager::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaSourceEx as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID || iid == &<IMFMediaSource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaSourceEx as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID || *iid == <IMFMediaSource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -10075,8 +10075,8 @@ impl IMFMediaSourceExtension_Vtbl {
             GetSourceBuffer: GetSourceBuffer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaSourceExtension as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaSourceExtension as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -10103,8 +10103,8 @@ impl IMFMediaSourceExtensionLiveSeekableRange_Vtbl {
             ClearLiveSeekableRange: ClearLiveSeekableRange::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaSourceExtensionLiveSeekableRange as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaSourceExtensionLiveSeekableRange as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -10138,8 +10138,8 @@ impl IMFMediaSourceExtensionNotify_Vtbl {
             OnSourceClose: OnSourceClose::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaSourceExtensionNotify as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaSourceExtensionNotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -10156,8 +10156,8 @@ impl IMFMediaSourcePresentationProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ForceEndOfPresentation: ForceEndOfPresentation::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaSourcePresentationProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaSourcePresentationProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -10180,8 +10180,8 @@ impl IMFMediaSourceTopologyProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMediaSourceTopology: GetMediaSourceTopology::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaSourceTopologyProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaSourceTopologyProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -10230,8 +10230,8 @@ impl IMFMediaStream_Vtbl {
             RequestSample: RequestSample::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaStream as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaStream as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -10267,8 +10267,8 @@ impl IMFMediaStream2_Vtbl {
             GetStreamState: GetStreamState::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaStream2 as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID || iid == &<IMFMediaStream as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaStream2 as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID || *iid == <IMFMediaStream as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -10285,8 +10285,8 @@ impl IMFMediaStreamSourceSampleRequest_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetSample: SetSample::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaStreamSourceSampleRequest as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaStreamSourceSampleRequest as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -10356,8 +10356,8 @@ impl IMFMediaTimeRange_Vtbl {
             Clear: Clear::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaTimeRange as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaTimeRange as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -10426,8 +10426,8 @@ impl IMFMediaType_Vtbl {
             FreeRepresentation: FreeRepresentation::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaType as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaType as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -10506,8 +10506,8 @@ impl IMFMediaTypeHandler_Vtbl {
             GetMajorType: GetMajorType::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMediaTypeHandler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMediaTypeHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -10596,8 +10596,8 @@ impl IMFMetadata_Vtbl {
             GetAllPropertyNames: GetAllPropertyNames::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMetadata as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMetadata as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -10620,8 +10620,8 @@ impl IMFMetadataProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMFMetadata: GetMFMetadata::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMetadataProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMetadataProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -10660,8 +10660,8 @@ impl IMFMuxStreamAttributesManager_Vtbl {
             GetAttributes: GetAttributes::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMuxStreamAttributesManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMuxStreamAttributesManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -10740,8 +10740,8 @@ impl IMFMuxStreamMediaTypeManager_Vtbl {
             GetStreamConfiguration: GetStreamConfiguration::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMuxStreamMediaTypeManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMuxStreamMediaTypeManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -10787,8 +10787,8 @@ impl IMFMuxStreamSampleManager_Vtbl {
             GetStreamConfiguration: GetStreamConfiguration::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFMuxStreamSampleManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFMuxStreamSampleManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -10845,8 +10845,8 @@ impl IMFNetCredential_Vtbl {
             LoggedOnUser: LoggedOnUser::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFNetCredential as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFNetCredential as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -10883,8 +10883,8 @@ impl IMFNetCredentialCache_Vtbl {
             SetUserOptions: SetUserOptions::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFNetCredentialCache as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFNetCredentialCache as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -10927,8 +10927,8 @@ impl IMFNetCredentialManager_Vtbl {
             SetGood: SetGood::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFNetCredentialManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFNetCredentialManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -10983,8 +10983,8 @@ impl IMFNetCrossOriginSupport_Vtbl {
             IsSameOrigin: IsSameOrigin::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFNetCrossOriginSupport as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFNetCrossOriginSupport as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -11041,8 +11041,8 @@ impl IMFNetProxyLocator_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFNetProxyLocator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFNetProxyLocator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -11065,8 +11065,8 @@ impl IMFNetProxyLocatorFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateProxyLocator: CreateProxyLocator::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFNetProxyLocatorFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFNetProxyLocatorFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -11102,8 +11102,8 @@ impl IMFNetResourceFilter_Vtbl {
             OnSendingRequest: OnSendingRequest::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFNetResourceFilter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFNetResourceFilter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -11149,8 +11149,8 @@ impl IMFNetSchemeHandlerConfig_Vtbl {
             ResetProtocolRolloverSettings: ResetProtocolRolloverSettings::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFNetSchemeHandlerConfig as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFNetSchemeHandlerConfig as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -11177,8 +11177,8 @@ impl IMFObjectReferenceStream_Vtbl {
             LoadReference: LoadReference::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFObjectReferenceStream as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFObjectReferenceStream as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -11233,8 +11233,8 @@ impl IMFOutputPolicy_Vtbl {
             GetMinimumGRLVersion: GetMinimumGRLVersion::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFOutputPolicy as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFOutputPolicy as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -11289,8 +11289,8 @@ impl IMFOutputSchema_Vtbl {
             GetOriginatorID: GetOriginatorID::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFOutputSchema as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFOutputSchema as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -11323,8 +11323,8 @@ impl IMFOutputTrustAuthority_Vtbl {
             SetPolicy: SetPolicy::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFOutputTrustAuthority as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFOutputTrustAuthority as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -11341,8 +11341,8 @@ impl IMFPMPClient_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetPMPHost: SetPMPHost::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFPMPClient as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFPMPClient as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -11359,8 +11359,8 @@ impl IMFPMPClientApp_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetPMPHost: SetPMPHost::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFPMPClientApp as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFPMPClientApp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -11397,8 +11397,8 @@ impl IMFPMPHost_Vtbl {
             CreateObjectByCLSID: CreateObjectByCLSID::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFPMPHost as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFPMPHost as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -11435,8 +11435,8 @@ impl IMFPMPHostApp_Vtbl {
             ActivateClassById: ActivateClassById::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFPMPHostApp as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFPMPHostApp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -11470,8 +11470,8 @@ impl IMFPMPServer_Vtbl {
             CreateObjectByCLSID: CreateObjectByCLSID::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFPMPServer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFPMPServer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -11692,8 +11692,8 @@ impl IMFPMediaItem_Vtbl {
             GetMetadata: GetMetadata::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFPMediaItem as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFPMediaItem as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -12033,8 +12033,8 @@ impl IMFPMediaPlayer_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFPMediaPlayer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFPMediaPlayer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -12054,8 +12054,8 @@ impl IMFPMediaPlayerCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnMediaPlayerEvent: OnMediaPlayerEvent::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFPMediaPlayerCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFPMediaPlayerCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -12125,8 +12125,8 @@ impl IMFPluginControl_Vtbl {
             SetDisabled: SetDisabled::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFPluginControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFPluginControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -12146,8 +12146,8 @@ impl IMFPluginControl2_Vtbl {
         }
         Self { base__: IMFPluginControl_Vtbl::new::<Identity, Impl, OFFSET>(), SetPolicy: SetPolicy::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFPluginControl2 as ::windows_core::ComInterface>::IID || iid == &<IMFPluginControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFPluginControl2 as ::windows_core::ComInterface>::IID || *iid == <IMFPluginControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -12228,8 +12228,8 @@ impl IMFPresentationClock_Vtbl {
             Pause: Pause::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFPresentationClock as ::windows_core::ComInterface>::IID || iid == &<IMFClock as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFPresentationClock as ::windows_core::ComInterface>::IID || *iid == <IMFClock as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -12292,8 +12292,8 @@ impl IMFPresentationDescriptor_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFPresentationDescriptor as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFPresentationDescriptor as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -12316,8 +12316,8 @@ impl IMFPresentationTimeSource_Vtbl {
         }
         Self { base__: IMFClock_Vtbl::new::<Identity, Impl, OFFSET>(), GetUnderlyingClock: GetUnderlyingClock::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFPresentationTimeSource as ::windows_core::ComInterface>::IID || iid == &<IMFClock as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFPresentationTimeSource as ::windows_core::ComInterface>::IID || *iid == <IMFClock as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -12344,8 +12344,8 @@ impl IMFProtectedEnvironmentAccess_Vtbl {
             ReadGRL: ReadGRL::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFProtectedEnvironmentAccess as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFProtectedEnvironmentAccess as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -12405,8 +12405,8 @@ impl IMFQualityAdvise_Vtbl {
             DropTime: DropTime::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFQualityAdvise as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFQualityAdvise as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -12429,8 +12429,8 @@ impl IMFQualityAdvise2_Vtbl {
         }
         Self { base__: IMFQualityAdvise_Vtbl::new::<Identity, Impl, OFFSET>(), NotifyQualityEvent: NotifyQualityEvent::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFQualityAdvise2 as ::windows_core::ComInterface>::IID || iid == &<IMFQualityAdvise as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFQualityAdvise2 as ::windows_core::ComInterface>::IID || *iid == <IMFQualityAdvise as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -12469,8 +12469,8 @@ impl IMFQualityAdviseLimits_Vtbl {
             GetMinimumQualityLevel: GetMinimumQualityLevel::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFQualityAdviseLimits as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFQualityAdviseLimits as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -12525,8 +12525,8 @@ impl IMFQualityManager_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFQualityManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFQualityManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -12556,8 +12556,8 @@ impl IMFRateControl_Vtbl {
             GetRate: GetRate::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFRateControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFRateControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -12606,8 +12606,8 @@ impl IMFRateSupport_Vtbl {
             IsRateSupported: IsRateSupported::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFRateSupport as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFRateSupport as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -12634,8 +12634,8 @@ impl IMFReadWriteClassFactory_Vtbl {
             CreateInstanceFromObject: CreateInstanceFromObject::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFReadWriteClassFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFReadWriteClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -12669,8 +12669,8 @@ impl IMFRealTimeClient_Vtbl {
             SetWorkQueue: SetWorkQueue::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFRealTimeClient as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFRealTimeClient as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -12704,8 +12704,8 @@ impl IMFRealTimeClientEx_Vtbl {
             SetWorkQueueEx: SetWorkQueueEx::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFRealTimeClientEx as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFRealTimeClientEx as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -12728,8 +12728,8 @@ impl IMFRelativePanelReport_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRelativePanel: GetRelativePanel::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFRelativePanelReport as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFRelativePanelReport as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -12775,8 +12775,8 @@ impl IMFRelativePanelWatcher_Vtbl {
             GetReport: GetReport::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFRelativePanelWatcher as ::windows_core::ComInterface>::IID || iid == &<IMFShutdown as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFRelativePanelWatcher as ::windows_core::ComInterface>::IID || *iid == <IMFShutdown as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -12793,8 +12793,8 @@ impl IMFRemoteAsyncCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFRemoteAsyncCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFRemoteAsyncCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -12811,8 +12811,8 @@ impl IMFRemoteDesktopPlugin_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), UpdateTopology: UpdateTopology::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFRemoteDesktopPlugin as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFRemoteDesktopPlugin as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -12839,8 +12839,8 @@ impl IMFRemoteProxy_Vtbl {
             GetRemoteHost: GetRemoteHost::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFRemoteProxy as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFRemoteProxy as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -12902,8 +12902,8 @@ impl IMFSAMIStyle_Vtbl {
             GetSelectedStyle: GetSelectedStyle::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSAMIStyle as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSAMIStyle as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -12960,8 +12960,8 @@ impl IMFSSLCertificateManager_Vtbl {
             OnServerCertificate: OnServerCertificate::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSSLCertificateManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSSLCertificateManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -13117,8 +13117,8 @@ impl IMFSample_Vtbl {
             CopyToBuffer: CopyToBuffer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSample as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSample as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -13145,8 +13145,8 @@ impl IMFSampleAllocatorControl_Vtbl {
             GetAllocatorUsage: GetAllocatorUsage::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSampleAllocatorControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSampleAllocatorControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -13180,8 +13180,8 @@ impl IMFSampleGrabberSinkCallback_Vtbl {
             OnShutdown: OnShutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSampleGrabberSinkCallback as ::windows_core::ComInterface>::IID || iid == &<IMFClockStateSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSampleGrabberSinkCallback as ::windows_core::ComInterface>::IID || *iid == <IMFClockStateSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -13198,8 +13198,8 @@ impl IMFSampleGrabberSinkCallback2_Vtbl {
         }
         Self { base__: IMFSampleGrabberSinkCallback_Vtbl::new::<Identity, Impl, OFFSET>(), OnProcessSampleEx: OnProcessSampleEx::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSampleGrabberSinkCallback2 as ::windows_core::ComInterface>::IID || iid == &<IMFClockStateSink as ::windows_core::ComInterface>::IID || iid == &<IMFSampleGrabberSinkCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSampleGrabberSinkCallback2 as ::windows_core::ComInterface>::IID || *iid == <IMFClockStateSink as ::windows_core::ComInterface>::IID || *iid == <IMFSampleGrabberSinkCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -13233,8 +13233,8 @@ impl IMFSampleOutputStream_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSampleOutputStream as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSampleOutputStream as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -13294,8 +13294,8 @@ impl IMFSampleProtection_Vtbl {
             InitInputProtection: InitInputProtection::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSampleProtection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSampleProtection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -13342,8 +13342,8 @@ impl IMFSaveJob_Vtbl {
             GetProgress: GetProgress::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSaveJob as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSaveJob as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -13380,8 +13380,8 @@ impl IMFSchemeHandler_Vtbl {
             CancelObjectCreation: CancelObjectCreation::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSchemeHandler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSchemeHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -13404,8 +13404,8 @@ impl IMFSecureBuffer_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIdentifier: GetIdentifier::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSecureBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSecureBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -13432,8 +13432,8 @@ impl IMFSecureChannel_Vtbl {
             SetupSession: SetupSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSecureChannel as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSecureChannel as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -13453,8 +13453,8 @@ impl IMFSeekInfo_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetNearestKeyFrames: GetNearestKeyFrames::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSeekInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSeekInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -13506,8 +13506,8 @@ impl IMFSensorActivitiesReport_Vtbl {
             GetActivityReportByDeviceName: GetActivityReportByDeviceName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSensorActivitiesReport as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSensorActivitiesReport as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -13524,8 +13524,8 @@ impl IMFSensorActivitiesReportCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnActivitiesReport: OnActivitiesReport::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSensorActivitiesReportCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSensorActivitiesReportCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -13548,8 +13548,8 @@ impl IMFSensorActivityMonitor_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Start: Start::<Identity, Impl, OFFSET>, Stop: Stop::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSensorActivityMonitor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSensorActivityMonitor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -13602,8 +13602,8 @@ impl IMFSensorActivityReport_Vtbl {
             GetProcessActivity: GetProcessActivity::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSensorActivityReport as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSensorActivityReport as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -13721,8 +13721,8 @@ impl IMFSensorDevice_Vtbl {
             GetSensorDeviceMode: GetSensorDeviceMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSensorDevice as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSensorDevice as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -13827,8 +13827,8 @@ impl IMFSensorGroup_Vtbl {
             CreateMediaSource: CreateMediaSource::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSensorGroup as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSensorGroup as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -13896,8 +13896,8 @@ impl IMFSensorProcessActivity_Vtbl {
             GetReportTime: GetReportTime::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSensorProcessActivity as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSensorProcessActivity as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -13947,8 +13947,8 @@ impl IMFSensorProfile_Vtbl {
             AddBlockedControl: AddBlockedControl::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSensorProfile as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSensorProfile as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14015,8 +14015,8 @@ impl IMFSensorProfileCollection_Vtbl {
             RemoveProfile: RemoveProfile::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSensorProfileCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSensorProfileCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -14071,8 +14071,8 @@ impl IMFSensorStream_Vtbl {
             CloneSensorStream: CloneSensorStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSensorStream as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSensorStream as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14138,8 +14138,8 @@ impl IMFSensorTransformFactory_Vtbl {
             CreateTransform: CreateTransform::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSensorTransformFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSensorTransformFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14193,8 +14193,8 @@ impl IMFSequencerSource_Vtbl {
             UpdateTopologyFlags: UpdateTopologyFlags::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSequencerSource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSequencerSource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14217,8 +14217,8 @@ impl IMFSharingEngineClassFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSharingEngineClassFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSharingEngineClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14251,8 +14251,8 @@ impl IMFShutdown_Vtbl {
             GetShutdownStatus: GetShutdownStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFShutdown as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFShutdown as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14269,8 +14269,8 @@ impl IMFSignedLibrary_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProcedureAddress: GetProcedureAddress::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSignedLibrary as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSignedLibrary as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -14326,8 +14326,8 @@ impl IMFSimpleAudioVolume_Vtbl {
             GetMute: GetMute::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSimpleAudioVolume as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSimpleAudioVolume as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14423,8 +14423,8 @@ impl IMFSinkWriter_Vtbl {
             GetStatistics: GetStatistics::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSinkWriter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSinkWriter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14451,8 +14451,8 @@ impl IMFSinkWriterCallback_Vtbl {
             OnMarker: OnMarker::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSinkWriterCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSinkWriterCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14479,8 +14479,8 @@ impl IMFSinkWriterCallback2_Vtbl {
             OnStreamError: OnStreamError::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSinkWriterCallback2 as ::windows_core::ComInterface>::IID || iid == &<IMFSinkWriterCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSinkWriterCallback2 as ::windows_core::ComInterface>::IID || *iid == <IMFSinkWriterCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14507,8 +14507,8 @@ impl IMFSinkWriterEncoderConfig_Vtbl {
             PlaceEncodingParameters: PlaceEncodingParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSinkWriterEncoderConfig as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSinkWriterEncoderConfig as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14525,8 +14525,8 @@ impl IMFSinkWriterEx_Vtbl {
         }
         Self { base__: IMFSinkWriter_Vtbl::new::<Identity, Impl, OFFSET>(), GetTransformForStream: GetTransformForStream::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSinkWriterEx as ::windows_core::ComInterface>::IID || iid == &<IMFSinkWriter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSinkWriterEx as ::windows_core::ComInterface>::IID || *iid == <IMFSinkWriter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -14632,8 +14632,8 @@ impl IMFSourceBuffer_Vtbl {
             Remove: Remove::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSourceBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSourceBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14660,8 +14660,8 @@ impl IMFSourceBufferAppendMode_Vtbl {
             SetAppendMode: SetAppendMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSourceBufferAppendMode as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSourceBufferAppendMode as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14688,8 +14688,8 @@ impl IMFSourceBufferList_Vtbl {
             GetSourceBuffer: GetSourceBuffer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSourceBufferList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSourceBufferList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14737,8 +14737,8 @@ impl IMFSourceBufferNotify_Vtbl {
             OnUpdateEnd: OnUpdateEnd::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSourceBufferNotify as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSourceBufferNotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14755,8 +14755,8 @@ impl IMFSourceOpenMonitor_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnSourceEvent: OnSourceEvent::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSourceOpenMonitor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSourceOpenMonitor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -14866,8 +14866,8 @@ impl IMFSourceReader_Vtbl {
             GetPresentationAttribute: GetPresentationAttribute::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSourceReader as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSourceReader as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14901,8 +14901,8 @@ impl IMFSourceReaderCallback_Vtbl {
             OnEvent: OnEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSourceReaderCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSourceReaderCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -14929,8 +14929,8 @@ impl IMFSourceReaderCallback2_Vtbl {
             OnStreamError: OnStreamError::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSourceReaderCallback2 as ::windows_core::ComInterface>::IID || iid == &<IMFSourceReaderCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSourceReaderCallback2 as ::windows_core::ComInterface>::IID || *iid == <IMFSourceReaderCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -14980,8 +14980,8 @@ impl IMFSourceReaderEx_Vtbl {
             GetTransformForStream: GetTransformForStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSourceReaderEx as ::windows_core::ComInterface>::IID || iid == &<IMFSourceReader as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSourceReaderEx as ::windows_core::ComInterface>::IID || *iid == <IMFSourceReader as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -15046,8 +15046,8 @@ impl IMFSourceResolver_Vtbl {
             CancelObjectCreation: CancelObjectCreation::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSourceResolver as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSourceResolver as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -15116,8 +15116,8 @@ impl IMFSpatialAudioObjectBuffer_Vtbl {
             GetMetadataItems: GetMetadataItems::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSpatialAudioObjectBuffer as ::windows_core::ComInterface>::IID || iid == &<IMFMediaBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSpatialAudioObjectBuffer as ::windows_core::ComInterface>::IID || *iid == <IMFMediaBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -15166,8 +15166,8 @@ impl IMFSpatialAudioSample_Vtbl {
             GetSpatialAudioObjectByIndex: GetSpatialAudioObjectByIndex::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSpatialAudioSample as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID || iid == &<IMFSample as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSpatialAudioSample as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID || *iid == <IMFSample as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -15209,8 +15209,8 @@ impl IMFStreamDescriptor_Vtbl {
             GetMediaTypeHandler: GetMediaTypeHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFStreamDescriptor as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFStreamDescriptor as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -15286,8 +15286,8 @@ impl IMFStreamSink_Vtbl {
             Flush: Flush::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFStreamSink as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFStreamSink as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -15307,8 +15307,8 @@ impl IMFStreamingSinkConfig_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), StartStreaming: StartStreaming::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFStreamingSinkConfig as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFStreamingSinkConfig as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -15335,8 +15335,8 @@ impl IMFSystemId_Vtbl {
             Setup: Setup::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFSystemId as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFSystemId as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -15392,8 +15392,8 @@ impl IMFTimecodeTranslate_Vtbl {
             EndConvertHNSToTimecode: EndConvertHNSToTimecode::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTimecodeTranslate as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTimecodeTranslate as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -15555,8 +15555,8 @@ impl IMFTimedText_Vtbl {
             IsInBandEnabled: IsInBandEnabled::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTimedText as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTimedText as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -15573,8 +15573,8 @@ impl IMFTimedTextBinary_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetData: GetData::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTimedTextBinary as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTimedTextBinary as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -15626,8 +15626,8 @@ impl IMFTimedTextBouten_Vtbl {
             GetBoutenPosition: GetBoutenPosition::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTimedTextBouten as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTimedTextBouten as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -15747,8 +15747,8 @@ impl IMFTimedTextCue_Vtbl {
             GetLine: GetLine::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTimedTextCue as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTimedTextCue as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -15828,8 +15828,8 @@ impl IMFTimedTextCueList_Vtbl {
             RemoveCue: RemoveCue::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTimedTextCueList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTimedTextCueList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -15869,8 +15869,8 @@ impl IMFTimedTextFormattedText_Vtbl {
             GetSubformatting: GetSubformatting::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTimedTextFormattedText as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTimedTextFormattedText as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -15935,8 +15935,8 @@ impl IMFTimedTextNotify_Vtbl {
             Reset: Reset::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTimedTextNotify as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTimedTextNotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -16084,8 +16084,8 @@ impl IMFTimedTextRegion_Vtbl {
             GetScrollMode: GetScrollMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTimedTextRegion as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTimedTextRegion as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -16150,8 +16150,8 @@ impl IMFTimedTextRuby_Vtbl {
             GetRubyReserve: GetRubyReserve::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTimedTextRuby as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTimedTextRuby as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -16318,8 +16318,8 @@ impl IMFTimedTextStyle_Vtbl {
             GetTextOutline: GetTextOutline::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTimedTextStyle as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTimedTextStyle as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -16387,8 +16387,8 @@ impl IMFTimedTextStyle2_Vtbl {
             GetFontAngleInDegrees: GetFontAngleInDegrees::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTimedTextStyle2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTimedTextStyle2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -16525,8 +16525,8 @@ impl IMFTimedTextTrack_Vtbl {
             GetCueList: GetCueList::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTimedTextTrack as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTimedTextTrack as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -16572,8 +16572,8 @@ impl IMFTimedTextTrackList_Vtbl {
             GetTrackById: GetTrackById::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTimedTextTrackList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTimedTextTrackList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -16606,8 +16606,8 @@ impl IMFTimer_Vtbl {
             CancelTimer: CancelTimer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTimer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTimer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -16624,8 +16624,8 @@ impl IMFTopoLoader_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Load: Load::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTopoLoader as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTopoLoader as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -16747,8 +16747,8 @@ impl IMFTopology_Vtbl {
             GetOutputNodeCollection: GetOutputNodeCollection::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTopology as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTopology as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -16918,8 +16918,8 @@ impl IMFTopologyNode_Vtbl {
             CloneFrom: CloneFrom::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTopologyNode as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTopologyNode as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -16936,8 +16936,8 @@ impl IMFTopologyNodeAttributeEditor_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), UpdateNodeAttributes: UpdateNodeAttributes::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTopologyNodeAttributeEditor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTopologyNodeAttributeEditor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -16954,8 +16954,8 @@ impl IMFTopologyServiceLookup_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LookupService: LookupService::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTopologyServiceLookup as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTopologyServiceLookup as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -16982,8 +16982,8 @@ impl IMFTopologyServiceLookupClient_Vtbl {
             ReleaseServicePointers: ReleaseServicePointers::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTopologyServiceLookupClient as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTopologyServiceLookupClient as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -17000,8 +17000,8 @@ impl IMFTrackedSample_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetAllocator: SetAllocator::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTrackedSample as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTrackedSample as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -17074,8 +17074,8 @@ impl IMFTranscodeProfile_Vtbl {
             GetContainerAttributes: GetContainerAttributes::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTranscodeProfile as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTranscodeProfile as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -17122,8 +17122,8 @@ impl IMFTranscodeSinkInfoProvider_Vtbl {
             GetSinkInfo: GetSinkInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTranscodeSinkInfoProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTranscodeSinkInfoProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -17357,8 +17357,8 @@ impl IMFTransform_Vtbl {
             ProcessOutput: ProcessOutput::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTransform as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTransform as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -17381,8 +17381,8 @@ impl IMFTrustedInput_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetInputTrustAuthority: GetInputTrustAuthority::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTrustedInput as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTrustedInput as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -17437,8 +17437,8 @@ impl IMFTrustedOutput_Vtbl {
             IsFinal: IsFinal::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFTrustedOutput as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFTrustedOutput as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -17458,8 +17458,8 @@ impl IMFVideoCaptureSampleAllocator_Vtbl {
             InitializeCaptureSampleAllocator: InitializeCaptureSampleAllocator::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoCaptureSampleAllocator as ::windows_core::ComInterface>::IID || iid == &<IMFVideoSampleAllocator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoCaptureSampleAllocator as ::windows_core::ComInterface>::IID || *iid == <IMFVideoSampleAllocator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -17482,8 +17482,8 @@ impl IMFVideoDeviceID_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDeviceID: GetDeviceID::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoDeviceID as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoDeviceID as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -17641,8 +17641,8 @@ impl IMFVideoDisplayControl_Vtbl {
             GetFullscreen: GetFullscreen::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoDisplayControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoDisplayControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -17672,8 +17672,8 @@ impl IMFVideoMediaType_Vtbl {
             GetVideoRepresentation: GetVideoRepresentation::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoMediaType as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID || iid == &<IMFMediaType as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoMediaType as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID || *iid == <IMFMediaType as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -17717,8 +17717,8 @@ impl IMFVideoMixerBitmap_Vtbl {
             GetAlphaBitmapParameters: GetAlphaBitmapParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoMixerBitmap as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoMixerBitmap as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -17771,8 +17771,8 @@ impl IMFVideoMixerControl_Vtbl {
             GetStreamOutputRect: GetStreamOutputRect::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoMixerControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoMixerControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -17805,8 +17805,8 @@ impl IMFVideoMixerControl2_Vtbl {
             GetMixingPrefs: GetMixingPrefs::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoMixerControl2 as ::windows_core::ComInterface>::IID || iid == &<IMFVideoMixerControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoMixerControl2 as ::windows_core::ComInterface>::IID || *iid == <IMFVideoMixerControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -17826,8 +17826,8 @@ impl IMFVideoPositionMapper_Vtbl {
             MapOutputCoordinateToInputStream: MapOutputCoordinateToInputStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoPositionMapper as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoPositionMapper as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -17860,8 +17860,8 @@ impl IMFVideoPresenter_Vtbl {
             GetCurrentMediaType: GetCurrentMediaType::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoPresenter as ::windows_core::ComInterface>::IID || iid == &<IMFClockStateSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoPresenter as ::windows_core::ComInterface>::IID || *iid == <IMFClockStateSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -17997,8 +17997,8 @@ impl IMFVideoProcessor_Vtbl {
             SetBackgroundColor: SetBackgroundColor::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoProcessor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoProcessor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -18056,8 +18056,8 @@ impl IMFVideoProcessorControl_Vtbl {
             SetConstrictionSize: SetConstrictionSize::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoProcessorControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoProcessorControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -18100,8 +18100,8 @@ impl IMFVideoProcessorControl2_Vtbl {
             GetSupportedHardwareEffects: GetSupportedHardwareEffects::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoProcessorControl2 as ::windows_core::ComInterface>::IID || iid == &<IMFVideoProcessorControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoProcessorControl2 as ::windows_core::ComInterface>::IID || *iid == <IMFVideoProcessorControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -18151,8 +18151,8 @@ impl IMFVideoProcessorControl3_Vtbl {
             SetOutputDevice: SetOutputDevice::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoProcessorControl3 as ::windows_core::ComInterface>::IID || iid == &<IMFVideoProcessorControl as ::windows_core::ComInterface>::IID || iid == &<IMFVideoProcessorControl2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoProcessorControl3 as ::windows_core::ComInterface>::IID || *iid == <IMFVideoProcessorControl as ::windows_core::ComInterface>::IID || *iid == <IMFVideoProcessorControl2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18169,8 +18169,8 @@ impl IMFVideoRenderer_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), InitializeRenderer: InitializeRenderer::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoRenderer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoRenderer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18190,8 +18190,8 @@ impl IMFVideoRendererEffectControl_Vtbl {
             OnAppServiceConnectionEstablished: OnAppServiceConnectionEstablished::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoRendererEffectControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoRendererEffectControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18238,8 +18238,8 @@ impl IMFVideoSampleAllocator_Vtbl {
             AllocateSample: AllocateSample::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoSampleAllocator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoSampleAllocator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18272,8 +18272,8 @@ impl IMFVideoSampleAllocatorCallback_Vtbl {
             GetFreeSampleCount: GetFreeSampleCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoSampleAllocatorCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoSampleAllocatorCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18293,8 +18293,8 @@ impl IMFVideoSampleAllocatorEx_Vtbl {
             InitializeSampleAllocatorEx: InitializeSampleAllocatorEx::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoSampleAllocatorEx as ::windows_core::ComInterface>::IID || iid == &<IMFVideoSampleAllocator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoSampleAllocatorEx as ::windows_core::ComInterface>::IID || *iid == <IMFVideoSampleAllocator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18311,8 +18311,8 @@ impl IMFVideoSampleAllocatorNotify_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NotifyRelease: NotifyRelease::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoSampleAllocatorNotify as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoSampleAllocatorNotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18329,8 +18329,8 @@ impl IMFVideoSampleAllocatorNotifyEx_Vtbl {
         }
         Self { base__: IMFVideoSampleAllocatorNotify_Vtbl::new::<Identity, Impl, OFFSET>(), NotifyPrune: NotifyPrune::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVideoSampleAllocatorNotifyEx as ::windows_core::ComInterface>::IID || iid == &<IMFVideoSampleAllocatorNotify as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVideoSampleAllocatorNotifyEx as ::windows_core::ComInterface>::IID || *iid == <IMFVideoSampleAllocatorNotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -18441,8 +18441,8 @@ impl IMFVirtualCamera_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFVirtualCamera as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFVirtualCamera as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18557,8 +18557,8 @@ impl IMFWorkQueueServices_Vtbl {
             GetPlatformWorkQueueMMCSSTaskId: GetPlatformWorkQueueMMCSSTaskId::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFWorkQueueServices as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFWorkQueueServices as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18604,8 +18604,8 @@ impl IMFWorkQueueServicesEx_Vtbl {
             GetPlatformWorkQueueMMCSSPriority: GetPlatformWorkQueueMMCSSPriority::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMFWorkQueueServicesEx as ::windows_core::ComInterface>::IID || iid == &<IMFWorkQueueServices as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMFWorkQueueServicesEx as ::windows_core::ComInterface>::IID || *iid == <IMFWorkQueueServices as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18653,8 +18653,8 @@ impl IOPMVideoOutput_Vtbl {
             Configure: Configure::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOPMVideoOutput as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IOPMVideoOutput as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18681,8 +18681,8 @@ impl IPlayToControl_Vtbl {
             Disconnect: Disconnect::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPlayToControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPlayToControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18705,8 +18705,8 @@ impl IPlayToControlWithCapabilities_Vtbl {
         }
         Self { base__: IPlayToControl_Vtbl::new::<Identity, Impl, OFFSET>(), GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPlayToControlWithCapabilities as ::windows_core::ComInterface>::IID || iid == &<IPlayToControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPlayToControlWithCapabilities as ::windows_core::ComInterface>::IID || *iid == <IPlayToControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18729,8 +18729,8 @@ impl IPlayToSourceClassFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPlayToSourceClassFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPlayToSourceClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18826,8 +18826,8 @@ impl IToc_Vtbl {
             RemoveEntryListByIndex: RemoveEntryListByIndex::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IToc as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IToc as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18881,8 +18881,8 @@ impl ITocCollection_Vtbl {
             RemoveEntryByIndex: RemoveEntryByIndex::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITocCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITocCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -18951,8 +18951,8 @@ impl ITocEntry_Vtbl {
             GetDescriptionData: GetDescriptionData::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITocEntry as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITocEntry as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -19006,8 +19006,8 @@ impl ITocEntryList_Vtbl {
             RemoveEntryByIndex: RemoveEntryByIndex::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITocEntryList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITocEntryList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -19088,8 +19088,8 @@ impl ITocParser_Vtbl {
             Commit: Commit::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITocParser as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITocParser as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -19106,8 +19106,8 @@ impl IValidateBinding_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIdentifier: GetIdentifier::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IValidateBinding as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IValidateBinding as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -19148,8 +19148,8 @@ impl IWMCodecLeakyBucket_Vtbl {
             GetBufferFullnessBits: GetBufferFullnessBits::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMCodecLeakyBucket as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMCodecLeakyBucket as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -19166,8 +19166,8 @@ impl IWMCodecOutputTimestamp_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetNextOutputTime: GetNextOutputTime::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMCodecOutputTimestamp as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMCodecOutputTimestamp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DxMediaObjects\"`, `\"implement\"`*"]
@@ -19197,8 +19197,8 @@ impl IWMCodecPrivateData_Vtbl {
             GetPrivateData: GetPrivateData::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMCodecPrivateData as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMCodecPrivateData as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DxMediaObjects\"`, `\"implement\"`*"]
@@ -19228,8 +19228,8 @@ impl IWMCodecProps_Vtbl {
             GetCodecProp: GetCodecProp::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMCodecProps as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMCodecProps as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DxMediaObjects\"`, `\"implement\"`*"]
@@ -19259,8 +19259,8 @@ impl IWMCodecStrings_Vtbl {
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMCodecStrings as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMCodecStrings as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -19287,8 +19287,8 @@ impl IWMColorConvProps_Vtbl {
             SetFullCroppingParam: SetFullCroppingParam::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMColorConvProps as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMColorConvProps as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -19305,8 +19305,8 @@ impl IWMColorLegalizerProps_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetColorLegalizerQuality: SetColorLegalizerQuality::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMColorLegalizerProps as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMColorLegalizerProps as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -19350,8 +19350,8 @@ impl IWMFrameInterpProps_Vtbl {
             SetComplexityLevel: SetComplexityLevel::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMFrameInterpProps as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMFrameInterpProps as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -19385,8 +19385,8 @@ impl IWMInterlaceProps_Vtbl {
             SetLastFrame: SetLastFrame::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMInterlaceProps as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMInterlaceProps as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -19413,8 +19413,8 @@ impl IWMResamplerProps_Vtbl {
             SetUserChannelMtx: SetUserChannelMtx::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMResamplerProps as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMResamplerProps as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -19462,8 +19462,8 @@ impl IWMResizerProps_Vtbl {
             GetFullCropRegion: GetFullCropRegion::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMResizerProps as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMResizerProps as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -19483,8 +19483,8 @@ impl IWMSampleExtensionSupport_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetUseSampleExtensions: SetUseSampleExtensions::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMSampleExtensionSupport as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMSampleExtensionSupport as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -19501,8 +19501,8 @@ impl IWMValidate_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetIdentifier: SetIdentifier::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMValidate as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMValidate as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -19529,8 +19529,8 @@ impl IWMVideoDecoderHurryup_Vtbl {
             GetHurryup: GetHurryup::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMVideoDecoderHurryup as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMVideoDecoderHurryup as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Media_DxMediaObjects\"`, `\"implement\"`*"]
@@ -19567,8 +19567,8 @@ impl IWMVideoDecoderReconBuffer_Vtbl {
             SetReconstructedVideoFrame: SetReconstructedVideoFrame::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMVideoDecoderReconBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMVideoDecoderReconBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -19585,8 +19585,8 @@ impl IWMVideoForceKeyFrame_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetKeyFrame: SetKeyFrame::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMVideoForceKeyFrame as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMVideoForceKeyFrame as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -19596,7 +19596,7 @@ impl MFASYNCRESULT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: MFASYNCRESULT_Impl, const OFFSET: isize>() -> MFASYNCRESULT_Vtbl {
         Self { base__: IMFAsyncResult_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<MFASYNCRESULT as ::windows_core::ComInterface>::IID || iid == &<IMFAsyncResult as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <MFASYNCRESULT as ::windows_core::ComInterface>::IID || *iid == <IMFAsyncResult as ::windows_core::ComInterface>::IID
     }
 }

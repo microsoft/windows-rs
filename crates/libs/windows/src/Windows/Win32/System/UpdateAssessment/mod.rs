@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWaaSAssessor(::windows_core::IUnknown);
 impl IWaaSAssessor {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10,24 +11,8 @@ impl IWaaSAssessor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWaaSAssessor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWaaSAssessor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWaaSAssessor {}
-impl ::core::fmt::Debug for IWaaSAssessor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWaaSAssessor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWaaSAssessor {
     type Vtable = IWaaSAssessor_Vtbl;
-}
-impl ::core::clone::Clone for IWaaSAssessor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWaaSAssessor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2347bbef_1a3b_45a4_902d_3e09c269b45e);

@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceAccountConfiguration(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceAccountConfiguration {
     type Vtable = IDeviceAccountConfiguration_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceAccountConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceAccountConfiguration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad0123a3_fbdc_4d1b_be43_5a27ea4a1b63);
@@ -51,14 +47,10 @@ pub struct IDeviceAccountConfiguration_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceAccountConfiguration2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceAccountConfiguration2 {
     type Vtable = IDeviceAccountConfiguration2_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceAccountConfiguration2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceAccountConfiguration2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2b2e5a6_728d_4a4a_8945_2bf8580136de);
@@ -150,14 +142,10 @@ pub struct IDeviceAccountConfiguration2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataAccountSystemAccessManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataAccountSystemAccessManagerStatics {
     type Vtable = IUserDataAccountSystemAccessManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataAccountSystemAccessManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataAccountSystemAccessManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d6b11b9_cbe5_45f5_822b_c267b81dbdb6);
@@ -173,14 +161,10 @@ pub struct IUserDataAccountSystemAccessManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataAccountSystemAccessManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataAccountSystemAccessManagerStatics2 {
     type Vtable = IUserDataAccountSystemAccessManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataAccountSystemAccessManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataAccountSystemAccessManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x943f854d_4b4e_439f_83d3_979b27c05ac7);
@@ -208,6 +192,7 @@ pub struct IUserDataAccountSystemAccessManagerStatics2_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceAccountConfiguration(::windows_core::IUnknown);
 impl DeviceAccountConfiguration {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -733,24 +718,8 @@ impl DeviceAccountConfiguration {
         unsafe { (::windows_core::Interface::vtable(this).SetIsSyncScheduleManagedBySystem)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for DeviceAccountConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceAccountConfiguration {}
-impl ::core::fmt::Debug for DeviceAccountConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceAccountConfiguration").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DeviceAccountConfiguration {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration;{ad0123a3-fbdc-4d1b-be43-5a27ea4a1b63})");
-}
-impl ::core::clone::Clone for DeviceAccountConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DeviceAccountConfiguration {
     type Vtable = IDeviceAccountConfiguration_Vtbl;

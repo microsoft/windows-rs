@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMessageDialog(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMessageDialog {
     type Vtable = IMessageDialog_Vtbl;
-}
-impl ::core::clone::Clone for IMessageDialog {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMessageDialog {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33f59b01_5325_43ab_9ab3_bdae440e4121);
@@ -37,14 +33,10 @@ pub struct IMessageDialog_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMessageDialogFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMessageDialogFactory {
     type Vtable = IMessageDialogFactory_Vtbl;
-}
-impl ::core::clone::Clone for IMessageDialogFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMessageDialogFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d161777_a66f_4ea5_bb87_793ffa4941f2);
@@ -58,14 +50,10 @@ pub struct IMessageDialogFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPopupMenu(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPopupMenu {
     type Vtable = IPopupMenu_Vtbl;
-}
-impl ::core::clone::Clone for IPopupMenu {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPopupMenu {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e9bc6dc_880d_47fc_a0a1_72b639e62559);
@@ -93,6 +81,7 @@ pub struct IPopupMenu_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUICommand(::windows_core::IUnknown);
 impl IUICommand {
     pub fn Label(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -136,27 +125,11 @@ impl IUICommand {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUICommand, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IUICommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUICommand {}
-impl ::core::fmt::Debug for IUICommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUICommand").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IUICommand {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f}");
 }
 unsafe impl ::windows_core::Interface for IUICommand {
     type Vtable = IUICommand_Vtbl;
-}
-impl ::core::clone::Clone for IUICommand {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUICommand {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
@@ -174,14 +147,10 @@ pub struct IUICommand_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUICommandFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUICommandFactory {
     type Vtable = IUICommandFactory_Vtbl;
-}
-impl ::core::clone::Clone for IUICommandFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUICommandFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa21a8189_26b0_4676_ae94_54041bc125e8);
@@ -196,6 +165,7 @@ pub struct IUICommandFactory_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MessageDialog(::windows_core::IUnknown);
 impl MessageDialog {
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -289,24 +259,8 @@ impl MessageDialog {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for MessageDialog {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MessageDialog {}
-impl ::core::fmt::Debug for MessageDialog {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MessageDialog").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MessageDialog {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.MessageDialog;{33f59b01-5325-43ab-9ab3-bdae440e4121})");
-}
-impl ::core::clone::Clone for MessageDialog {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MessageDialog {
     type Vtable = IMessageDialog_Vtbl;
@@ -320,6 +274,7 @@ impl ::windows_core::RuntimeName for MessageDialog {
 ::windows_core::imp::interface_hierarchy!(MessageDialog, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PopupMenu(::windows_core::IUnknown);
 impl PopupMenu {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -366,24 +321,8 @@ impl PopupMenu {
         }
     }
 }
-impl ::core::cmp::PartialEq for PopupMenu {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PopupMenu {}
-impl ::core::fmt::Debug for PopupMenu {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PopupMenu").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PopupMenu {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.PopupMenu;{4e9bc6dc-880d-47fc-a0a1-72b639e62559})");
-}
-impl ::core::clone::Clone for PopupMenu {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PopupMenu {
     type Vtable = IPopupMenu_Vtbl;
@@ -397,6 +336,7 @@ impl ::windows_core::RuntimeName for PopupMenu {
 ::windows_core::imp::interface_hierarchy!(PopupMenu, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UICommand(::windows_core::IUnknown);
 impl UICommand {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -476,24 +416,8 @@ impl UICommand {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UICommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UICommand {}
-impl ::core::fmt::Debug for UICommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UICommand").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UICommand {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.UICommand;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
-}
-impl ::core::clone::Clone for UICommand {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UICommand {
     type Vtable = IUICommand_Vtbl;
@@ -510,6 +434,7 @@ unsafe impl ::core::marker::Send for UICommand {}
 unsafe impl ::core::marker::Sync for UICommand {}
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UICommandSeparator(::windows_core::IUnknown);
 impl UICommandSeparator {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -559,24 +484,8 @@ impl UICommandSeparator {
         unsafe { (::windows_core::Interface::vtable(this).SetId)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UICommandSeparator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UICommandSeparator {}
-impl ::core::fmt::Debug for UICommandSeparator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UICommandSeparator").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UICommandSeparator {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.UICommandSeparator;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
-}
-impl ::core::clone::Clone for UICommandSeparator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UICommandSeparator {
     type Vtable = IUICommand_Vtbl;
@@ -689,6 +598,7 @@ impl ::windows_core::RuntimeType for Placement {
 }
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UICommandInvokedHandler(pub ::windows_core::IUnknown);
 impl UICommandInvokedHandler {
     pub fn new<F: FnMut(::core::option::Option<&IUICommand>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -714,9 +624,12 @@ impl<F: FnMut(::core::option::Option<&IUICommand>) -> ::windows_core::Result<()>
         base__: ::windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows_core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows_core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<UICommandInvokedHandler as ::windows_core::ComInterface>::IID || iid == &<::windows_core::IUnknown as ::windows_core::ComInterface>::IID || iid == &<::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <UICommandInvokedHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -741,24 +654,8 @@ impl<F: FnMut(::core::option::Option<&IUICommand>) -> ::windows_core::Result<()>
         ((*this).invoke)(::windows_core::from_raw_borrowed(&command)).into()
     }
 }
-impl ::core::cmp::PartialEq for UICommandInvokedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UICommandInvokedHandler {}
-impl ::core::fmt::Debug for UICommandInvokedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UICommandInvokedHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for UICommandInvokedHandler {
     type Vtable = UICommandInvokedHandler_Vtbl;
-}
-impl ::core::clone::Clone for UICommandInvokedHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for UICommandInvokedHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdaf77a4f_c27a_4298_9ac6_2922c45e7da6);

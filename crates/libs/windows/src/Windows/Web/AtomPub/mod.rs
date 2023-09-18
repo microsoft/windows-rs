@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAtomPubClient(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAtomPubClient {
     type Vtable = IAtomPubClient_Vtbl;
-}
-impl ::core::clone::Clone for IAtomPubClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAtomPubClient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x35392c38_cded_4d4c_9637_05f15c1c9406);
@@ -60,14 +56,10 @@ pub struct IAtomPubClient_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAtomPubClientFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAtomPubClientFactory {
     type Vtable = IAtomPubClientFactory_Vtbl;
-}
-impl ::core::clone::Clone for IAtomPubClientFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAtomPubClientFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49d55012_57cb_4bde_ab9f_2610b172777b);
@@ -83,14 +75,10 @@ pub struct IAtomPubClientFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IResourceCollection(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IResourceCollection {
     type Vtable = IResourceCollection_Vtbl;
-}
-impl ::core::clone::Clone for IResourceCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IResourceCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f5fd609_bc88_41d4_88fa_3de6704d428e);
@@ -118,14 +106,10 @@ pub struct IResourceCollection_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IServiceDocument(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IServiceDocument {
     type Vtable = IServiceDocument_Vtbl;
-}
-impl ::core::clone::Clone for IServiceDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IServiceDocument {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b7ec771_2ab3_4dbe_8bcc_778f92b75e51);
@@ -141,14 +125,10 @@ pub struct IServiceDocument_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWorkspace(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWorkspace {
     type Vtable = IWorkspace_Vtbl;
-}
-impl ::core::clone::Clone for IWorkspace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWorkspace {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb41da63b_a4b8_4036_89c5_83c31266ba49);
@@ -168,6 +148,7 @@ pub struct IWorkspace_Vtbl {
 }
 #[doc = "*Required features: `\"Web_AtomPub\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AtomPubClient(::windows_core::IUnknown);
 impl AtomPubClient {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -421,24 +402,8 @@ impl AtomPubClient {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for AtomPubClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AtomPubClient {}
-impl ::core::fmt::Debug for AtomPubClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AtomPubClient").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AtomPubClient {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.AtomPubClient;{35392c38-cded-4d4c-9637-05f15c1c9406})");
-}
-impl ::core::clone::Clone for AtomPubClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AtomPubClient {
     type Vtable = IAtomPubClient_Vtbl;
@@ -456,6 +421,7 @@ unsafe impl ::core::marker::Send for AtomPubClient {}
 unsafe impl ::core::marker::Sync for AtomPubClient {}
 #[doc = "*Required features: `\"Web_AtomPub\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ResourceCollection(::windows_core::IUnknown);
 impl ResourceCollection {
     #[doc = "*Required features: `\"Web_Syndication\"`*"]
@@ -600,24 +566,8 @@ impl ResourceCollection {
         }
     }
 }
-impl ::core::cmp::PartialEq for ResourceCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ResourceCollection {}
-impl ::core::fmt::Debug for ResourceCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceCollection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ResourceCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.ResourceCollection;{7f5fd609-bc88-41d4-88fa-3de6704d428e})");
-}
-impl ::core::clone::Clone for ResourceCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ResourceCollection {
     type Vtable = IResourceCollection_Vtbl;
@@ -635,6 +585,7 @@ unsafe impl ::core::marker::Send for ResourceCollection {}
 unsafe impl ::core::marker::Sync for ResourceCollection {}
 #[doc = "*Required features: `\"Web_AtomPub\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ServiceDocument(::windows_core::IUnknown);
 impl ServiceDocument {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -752,24 +703,8 @@ impl ServiceDocument {
         }
     }
 }
-impl ::core::cmp::PartialEq for ServiceDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ServiceDocument {}
-impl ::core::fmt::Debug for ServiceDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ServiceDocument").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ServiceDocument {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.ServiceDocument;{8b7ec771-2ab3-4dbe-8bcc-778f92b75e51})");
-}
-impl ::core::clone::Clone for ServiceDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ServiceDocument {
     type Vtable = IServiceDocument_Vtbl;
@@ -787,6 +722,7 @@ unsafe impl ::core::marker::Send for ServiceDocument {}
 unsafe impl ::core::marker::Sync for ServiceDocument {}
 #[doc = "*Required features: `\"Web_AtomPub\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Workspace(::windows_core::IUnknown);
 impl Workspace {
     #[doc = "*Required features: `\"Web_Syndication\"`*"]
@@ -913,24 +849,8 @@ impl Workspace {
         }
     }
 }
-impl ::core::cmp::PartialEq for Workspace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Workspace {}
-impl ::core::fmt::Debug for Workspace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Workspace").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Workspace {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.Workspace;{b41da63b-a4b8-4036-89c5-83c31266ba49})");
-}
-impl ::core::clone::Clone for Workspace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Workspace {
     type Vtable = IWorkspace_Vtbl;

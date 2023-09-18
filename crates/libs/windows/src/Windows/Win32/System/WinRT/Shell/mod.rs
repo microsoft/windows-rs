@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_WinRT_Shell\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDDEInitializer(::windows_core::IUnknown);
 impl IDDEInitializer {
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -19,24 +20,8 @@ impl IDDEInitializer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDDEInitializer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDDEInitializer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDDEInitializer {}
-impl ::core::fmt::Debug for IDDEInitializer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDDEInitializer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDDEInitializer {
     type Vtable = IDDEInitializer_Vtbl;
-}
-impl ::core::clone::Clone for IDDEInitializer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDDEInitializer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30dc931f_33fc_4ffd_a168_942258cf3ca4);

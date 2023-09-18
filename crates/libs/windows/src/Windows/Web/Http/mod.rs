@@ -6,14 +6,10 @@ pub mod Filters;
 pub mod Headers;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpBufferContentFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpBufferContentFactory {
     type Vtable = IHttpBufferContentFactory_Vtbl;
-}
-impl ::core::clone::Clone for IHttpBufferContentFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpBufferContentFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc20c193_c41f_4ff7_9123_6435736eadc2);
@@ -33,14 +29,10 @@ pub struct IHttpBufferContentFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpClient(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpClient {
     type Vtable = IHttpClient_Vtbl;
-}
-impl ::core::clone::Clone for IHttpClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpClient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7fda1151_3574_4880_a8ba_e6b1e0061f3d);
@@ -96,14 +88,10 @@ pub struct IHttpClient_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpClient2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpClient2 {
     type Vtable = IHttpClient2_Vtbl;
-}
-impl ::core::clone::Clone for IHttpClient2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpClient2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcdd83348_e8b7_4cec_b1b0_dc455fe72c92);
@@ -155,14 +143,10 @@ pub struct IHttpClient2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpClient3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpClient3 {
     type Vtable = IHttpClient3_Vtbl;
-}
-impl ::core::clone::Clone for IHttpClient3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpClient3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1172fd01_9899_4194_963f_8f9d72a7ec15);
@@ -176,14 +160,10 @@ pub struct IHttpClient3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpClientFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpClientFactory {
     type Vtable = IHttpClientFactory_Vtbl;
-}
-impl ::core::clone::Clone for IHttpClientFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpClientFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc30c4eca_e3fa_4f99_afb4_63cc65009462);
@@ -199,6 +179,7 @@ pub struct IHttpClientFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpContent(::windows_core::IUnknown);
 impl IHttpContent {
     #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
@@ -275,27 +256,11 @@ impl IHttpContent {
 ::windows_core::imp::interface_hierarchy!(IHttpContent, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for IHttpContent {}
-impl ::core::cmp::PartialEq for IHttpContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHttpContent {}
-impl ::core::fmt::Debug for IHttpContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHttpContent").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IHttpContent {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{6b14a441-fba7-4bd2-af0a-839de7c295da}");
 }
 unsafe impl ::windows_core::Interface for IHttpContent {
     type Vtable = IHttpContent_Vtbl;
-}
-impl ::core::clone::Clone for IHttpContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpContent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
@@ -332,14 +297,10 @@ pub struct IHttpContent_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpCookie(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpCookie {
     type Vtable = IHttpCookie_Vtbl;
-}
-impl ::core::clone::Clone for IHttpCookie {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpCookie {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1f5488e2_cc2d_4779_86a7_88f10687d249);
@@ -368,14 +329,10 @@ pub struct IHttpCookie_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpCookieFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpCookieFactory {
     type Vtable = IHttpCookieFactory_Vtbl;
-}
-impl ::core::clone::Clone for IHttpCookieFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpCookieFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a0585a9_931c_4cd1_a96d_c21701785c5f);
@@ -388,14 +345,10 @@ pub struct IHttpCookieFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpCookieManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpCookieManager {
     type Vtable = IHttpCookieManager_Vtbl;
-}
-impl ::core::clone::Clone for IHttpCookieManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpCookieManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a431780_cd4f_4e57_a84a_5b0a53d6bb96);
@@ -414,14 +367,10 @@ pub struct IHttpCookieManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpFormUrlEncodedContentFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpFormUrlEncodedContentFactory {
     type Vtable = IHttpFormUrlEncodedContentFactory_Vtbl;
-}
-impl ::core::clone::Clone for IHttpFormUrlEncodedContentFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpFormUrlEncodedContentFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43f0138c_2f73_4302_b5f3_eae9238a5e01);
@@ -437,14 +386,10 @@ pub struct IHttpFormUrlEncodedContentFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpGetBufferResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpGetBufferResult {
     type Vtable = IHttpGetBufferResult_Vtbl;
-}
-impl ::core::clone::Clone for IHttpGetBufferResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpGetBufferResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53d08e7c_e209_404e_9a49_742d8236fd3a);
@@ -464,14 +409,10 @@ pub struct IHttpGetBufferResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpGetInputStreamResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpGetInputStreamResult {
     type Vtable = IHttpGetInputStreamResult_Vtbl;
-}
-impl ::core::clone::Clone for IHttpGetInputStreamResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpGetInputStreamResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5d63463_13aa_4ee0_be95_a0c39fe91203);
@@ -491,14 +432,10 @@ pub struct IHttpGetInputStreamResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpGetStringResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpGetStringResult {
     type Vtable = IHttpGetStringResult_Vtbl;
-}
-impl ::core::clone::Clone for IHttpGetStringResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpGetStringResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9bac466d_8509_4775_b16d_8953f47a7f5f);
@@ -515,14 +452,10 @@ pub struct IHttpGetStringResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpMethod(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpMethod {
     type Vtable = IHttpMethod_Vtbl;
-}
-impl ::core::clone::Clone for IHttpMethod {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpMethod {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x728d4022_700d_4fe0_afa5_40299c58dbfd);
@@ -535,14 +468,10 @@ pub struct IHttpMethod_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpMethodFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpMethodFactory {
     type Vtable = IHttpMethodFactory_Vtbl;
-}
-impl ::core::clone::Clone for IHttpMethodFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpMethodFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c51d10d_36d7_40f8_a86d_e759caf2f83f);
@@ -555,14 +484,10 @@ pub struct IHttpMethodFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpMethodStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpMethodStatics {
     type Vtable = IHttpMethodStatics_Vtbl;
-}
-impl ::core::clone::Clone for IHttpMethodStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpMethodStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64d171f0_d99a_4153_8dc6_d68cc4cce317);
@@ -581,14 +506,10 @@ pub struct IHttpMethodStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpMultipartContent(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpMultipartContent {
     type Vtable = IHttpMultipartContent_Vtbl;
-}
-impl ::core::clone::Clone for IHttpMultipartContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpMultipartContent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf916aff_9926_4ac9_aaf1_e0d04ef09bb9);
@@ -601,14 +522,10 @@ pub struct IHttpMultipartContent_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpMultipartContentFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpMultipartContentFactory {
     type Vtable = IHttpMultipartContentFactory_Vtbl;
-}
-impl ::core::clone::Clone for IHttpMultipartContentFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpMultipartContentFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7eb42e62_0222_4f20_b372_47d5db5d33b4);
@@ -622,14 +539,10 @@ pub struct IHttpMultipartContentFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpMultipartFormDataContent(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpMultipartFormDataContent {
     type Vtable = IHttpMultipartFormDataContent_Vtbl;
-}
-impl ::core::clone::Clone for IHttpMultipartFormDataContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpMultipartFormDataContent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64d337e2_e967_4624_b6d1_cf74604a4a42);
@@ -644,14 +557,10 @@ pub struct IHttpMultipartFormDataContent_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpMultipartFormDataContentFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpMultipartFormDataContentFactory {
     type Vtable = IHttpMultipartFormDataContentFactory_Vtbl;
-}
-impl ::core::clone::Clone for IHttpMultipartFormDataContentFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpMultipartFormDataContentFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa04d7311_5017_4622_93a8_49b24a4fcbfc);
@@ -664,14 +573,10 @@ pub struct IHttpMultipartFormDataContentFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpRequestMessage(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpRequestMessage {
     type Vtable = IHttpRequestMessage_Vtbl;
-}
-impl ::core::clone::Clone for IHttpRequestMessage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpRequestMessage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5762b3c_74d4_4811_b5dc_9f8b4e2f9abf);
@@ -704,14 +609,10 @@ pub struct IHttpRequestMessage_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpRequestMessage2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpRequestMessage2 {
     type Vtable = IHttpRequestMessage2_Vtbl;
-}
-impl ::core::clone::Clone for IHttpRequestMessage2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpRequestMessage2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc3c60489_62c2_4a3f_9554_226e7c60bd96);
@@ -725,14 +626,10 @@ pub struct IHttpRequestMessage2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpRequestMessageFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpRequestMessageFactory {
     type Vtable = IHttpRequestMessageFactory_Vtbl;
-}
-impl ::core::clone::Clone for IHttpRequestMessageFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpRequestMessageFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5bac994e_3886_412e_aec3_52ec7f25616f);
@@ -748,14 +645,10 @@ pub struct IHttpRequestMessageFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpRequestResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpRequestResult {
     type Vtable = IHttpRequestResult_Vtbl;
-}
-impl ::core::clone::Clone for IHttpRequestResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpRequestResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6acf4da8_b5eb_4a35_a902_4217fbe820c5);
@@ -771,14 +664,10 @@ pub struct IHttpRequestResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpResponseMessage(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpResponseMessage {
     type Vtable = IHttpResponseMessage_Vtbl;
-}
-impl ::core::clone::Clone for IHttpResponseMessage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpResponseMessage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfee200fb_8664_44e0_95d9_42696199bffc);
@@ -808,14 +697,10 @@ pub struct IHttpResponseMessage_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpResponseMessageFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpResponseMessageFactory {
     type Vtable = IHttpResponseMessageFactory_Vtbl;
-}
-impl ::core::clone::Clone for IHttpResponseMessageFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpResponseMessageFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x52a8af99_f095_43da_b60f_7cfc2bc7ea2f);
@@ -828,14 +713,10 @@ pub struct IHttpResponseMessageFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpStreamContentFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpStreamContentFactory {
     type Vtable = IHttpStreamContentFactory_Vtbl;
-}
-impl ::core::clone::Clone for IHttpStreamContentFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpStreamContentFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf3e64d9d_f725_407e_942f_0eda189809f4);
@@ -851,14 +732,10 @@ pub struct IHttpStreamContentFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpStringContentFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpStringContentFactory {
     type Vtable = IHttpStringContentFactory_Vtbl;
-}
-impl ::core::clone::Clone for IHttpStringContentFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpStringContentFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x46649d5b_2e93_48eb_8e61_19677878e57f);
@@ -879,14 +756,10 @@ pub struct IHttpStringContentFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpTransportInformation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpTransportInformation {
     type Vtable = IHttpTransportInformation_Vtbl;
-}
-impl ::core::clone::Clone for IHttpTransportInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpTransportInformation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70127198_c6a7_4ed0_833a_83fd8b8f178d);
@@ -914,6 +787,7 @@ pub struct IHttpTransportInformation_Vtbl {
 }
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpBufferContent(::windows_core::IUnknown);
 impl HttpBufferContent {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1023,24 +897,8 @@ impl HttpBufferContent {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HttpBufferContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpBufferContent {}
-impl ::core::fmt::Debug for HttpBufferContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpBufferContent").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpBufferContent {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpBufferContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
-}
-impl ::core::clone::Clone for HttpBufferContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpBufferContent {
     type Vtable = IHttpContent_Vtbl;
@@ -1061,6 +919,7 @@ unsafe impl ::core::marker::Send for HttpBufferContent {}
 unsafe impl ::core::marker::Sync for HttpBufferContent {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpClient(::windows_core::IUnknown);
 impl HttpClient {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1366,24 +1225,8 @@ impl HttpClient {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HttpClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpClient {}
-impl ::core::fmt::Debug for HttpClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpClient").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpClient {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpClient;{7fda1151-3574-4880-a8ba-e6b1e0061f3d})");
-}
-impl ::core::clone::Clone for HttpClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpClient {
     type Vtable = IHttpClient_Vtbl;
@@ -1403,6 +1246,7 @@ unsafe impl ::core::marker::Send for HttpClient {}
 unsafe impl ::core::marker::Sync for HttpClient {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpCookie(::windows_core::IUnknown);
 impl HttpCookie {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1498,24 +1342,8 @@ impl HttpCookie {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HttpCookie {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpCookie {}
-impl ::core::fmt::Debug for HttpCookie {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCookie").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpCookie {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookie;{1f5488e2-cc2d-4779-86a7-88f10687d249})");
-}
-impl ::core::clone::Clone for HttpCookie {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpCookie {
     type Vtable = IHttpCookie_Vtbl;
@@ -1534,6 +1362,7 @@ unsafe impl ::core::marker::Sync for HttpCookie {}
 #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpCookieCollection(::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl HttpCookieCollection {
@@ -1587,28 +1416,8 @@ impl HttpCookieCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for HttpCookieCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for HttpCookieCollection {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for HttpCookieCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCookieCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for HttpCookieCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookieCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Web.Http.HttpCookie;{1f5488e2-cc2d-4779-86a7-88f10687d249})))");
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for HttpCookieCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for HttpCookieCollection {
@@ -1650,6 +1459,7 @@ unsafe impl ::core::marker::Send for HttpCookieCollection {}
 unsafe impl ::core::marker::Sync for HttpCookieCollection {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpCookieManager(::windows_core::IUnknown);
 impl HttpCookieManager {
     pub fn SetCookie<P0>(&self, cookie: P0) -> ::windows_core::Result<bool>
@@ -1692,24 +1502,8 @@ impl HttpCookieManager {
         }
     }
 }
-impl ::core::cmp::PartialEq for HttpCookieManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpCookieManager {}
-impl ::core::fmt::Debug for HttpCookieManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCookieManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpCookieManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookieManager;{7a431780-cd4f-4e57-a84a-5b0a53d6bb96})");
-}
-impl ::core::clone::Clone for HttpCookieManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpCookieManager {
     type Vtable = IHttpCookieManager_Vtbl;
@@ -1725,6 +1519,7 @@ unsafe impl ::core::marker::Send for HttpCookieManager {}
 unsafe impl ::core::marker::Sync for HttpCookieManager {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpFormUrlEncodedContent(::windows_core::IUnknown);
 impl HttpFormUrlEncodedContent {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1823,24 +1618,8 @@ impl HttpFormUrlEncodedContent {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HttpFormUrlEncodedContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpFormUrlEncodedContent {}
-impl ::core::fmt::Debug for HttpFormUrlEncodedContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpFormUrlEncodedContent").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpFormUrlEncodedContent {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpFormUrlEncodedContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
-}
-impl ::core::clone::Clone for HttpFormUrlEncodedContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpFormUrlEncodedContent {
     type Vtable = IHttpContent_Vtbl;
@@ -1861,6 +1640,7 @@ unsafe impl ::core::marker::Send for HttpFormUrlEncodedContent {}
 unsafe impl ::core::marker::Sync for HttpFormUrlEncodedContent {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpGetBufferResult(::windows_core::IUnknown);
 impl HttpGetBufferResult {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1916,24 +1696,8 @@ impl HttpGetBufferResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for HttpGetBufferResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpGetBufferResult {}
-impl ::core::fmt::Debug for HttpGetBufferResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpGetBufferResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpGetBufferResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetBufferResult;{53d08e7c-e209-404e-9a49-742d8236fd3a})");
-}
-impl ::core::clone::Clone for HttpGetBufferResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpGetBufferResult {
     type Vtable = IHttpGetBufferResult_Vtbl;
@@ -1953,6 +1717,7 @@ unsafe impl ::core::marker::Send for HttpGetBufferResult {}
 unsafe impl ::core::marker::Sync for HttpGetBufferResult {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpGetInputStreamResult(::windows_core::IUnknown);
 impl HttpGetInputStreamResult {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2008,24 +1773,8 @@ impl HttpGetInputStreamResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for HttpGetInputStreamResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpGetInputStreamResult {}
-impl ::core::fmt::Debug for HttpGetInputStreamResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpGetInputStreamResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpGetInputStreamResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetInputStreamResult;{d5d63463-13aa-4ee0-be95-a0c39fe91203})");
-}
-impl ::core::clone::Clone for HttpGetInputStreamResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpGetInputStreamResult {
     type Vtable = IHttpGetInputStreamResult_Vtbl;
@@ -2045,6 +1794,7 @@ unsafe impl ::core::marker::Send for HttpGetInputStreamResult {}
 unsafe impl ::core::marker::Sync for HttpGetInputStreamResult {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpGetStringResult(::windows_core::IUnknown);
 impl HttpGetStringResult {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2098,24 +1848,8 @@ impl HttpGetStringResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for HttpGetStringResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpGetStringResult {}
-impl ::core::fmt::Debug for HttpGetStringResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpGetStringResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpGetStringResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetStringResult;{9bac466d-8509-4775-b16d-8953f47a7f5f})");
-}
-impl ::core::clone::Clone for HttpGetStringResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpGetStringResult {
     type Vtable = IHttpGetStringResult_Vtbl;
@@ -2135,6 +1869,7 @@ unsafe impl ::core::marker::Send for HttpGetStringResult {}
 unsafe impl ::core::marker::Sync for HttpGetStringResult {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpMethod(::windows_core::IUnknown);
 impl HttpMethod {
     pub fn Method(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2212,24 +1947,8 @@ impl HttpMethod {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HttpMethod {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpMethod {}
-impl ::core::fmt::Debug for HttpMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpMethod").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpMethod {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMethod;{728d4022-700d-4fe0-afa5-40299c58dbfd})");
-}
-impl ::core::clone::Clone for HttpMethod {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpMethod {
     type Vtable = IHttpMethod_Vtbl;
@@ -2247,6 +1966,7 @@ unsafe impl ::core::marker::Send for HttpMethod {}
 unsafe impl ::core::marker::Sync for HttpMethod {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpMultipartContent(::windows_core::IUnknown);
 impl HttpMultipartContent {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2369,24 +2089,8 @@ impl HttpMultipartContent {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HttpMultipartContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpMultipartContent {}
-impl ::core::fmt::Debug for HttpMultipartContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpMultipartContent").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpMultipartContent {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMultipartContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
-}
-impl ::core::clone::Clone for HttpMultipartContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpMultipartContent {
     type Vtable = IHttpContent_Vtbl;
@@ -2425,6 +2129,7 @@ unsafe impl ::core::marker::Send for HttpMultipartContent {}
 unsafe impl ::core::marker::Sync for HttpMultipartContent {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpMultipartFormDataContent(::windows_core::IUnknown);
 impl HttpMultipartFormDataContent {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2555,24 +2260,8 @@ impl HttpMultipartFormDataContent {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HttpMultipartFormDataContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpMultipartFormDataContent {}
-impl ::core::fmt::Debug for HttpMultipartFormDataContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpMultipartFormDataContent").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpMultipartFormDataContent {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMultipartFormDataContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
-}
-impl ::core::clone::Clone for HttpMultipartFormDataContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpMultipartFormDataContent {
     type Vtable = IHttpContent_Vtbl;
@@ -2611,6 +2300,7 @@ unsafe impl ::core::marker::Send for HttpMultipartFormDataContent {}
 unsafe impl ::core::marker::Sync for HttpMultipartFormDataContent {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpRequestMessage(::windows_core::IUnknown);
 impl HttpRequestMessage {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2735,24 +2425,8 @@ impl HttpRequestMessage {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HttpRequestMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpRequestMessage {}
-impl ::core::fmt::Debug for HttpRequestMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpRequestMessage").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpRequestMessage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpRequestMessage;{f5762b3c-74d4-4811-b5dc-9f8b4e2f9abf})");
-}
-impl ::core::clone::Clone for HttpRequestMessage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpRequestMessage {
     type Vtable = IHttpRequestMessage_Vtbl;
@@ -2772,6 +2446,7 @@ unsafe impl ::core::marker::Send for HttpRequestMessage {}
 unsafe impl ::core::marker::Sync for HttpRequestMessage {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpRequestResult(::windows_core::IUnknown);
 impl HttpRequestResult {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2818,24 +2493,8 @@ impl HttpRequestResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for HttpRequestResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpRequestResult {}
-impl ::core::fmt::Debug for HttpRequestResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpRequestResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpRequestResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpRequestResult;{6acf4da8-b5eb-4a35-a902-4217fbe820c5})");
-}
-impl ::core::clone::Clone for HttpRequestResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpRequestResult {
     type Vtable = IHttpRequestResult_Vtbl;
@@ -2855,6 +2514,7 @@ unsafe impl ::core::marker::Send for HttpRequestResult {}
 unsafe impl ::core::marker::Sync for HttpRequestResult {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpResponseMessage(::windows_core::IUnknown);
 impl HttpResponseMessage {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2986,24 +2646,8 @@ impl HttpResponseMessage {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HttpResponseMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpResponseMessage {}
-impl ::core::fmt::Debug for HttpResponseMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpResponseMessage").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpResponseMessage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpResponseMessage;{fee200fb-8664-44e0-95d9-42696199bffc})");
-}
-impl ::core::clone::Clone for HttpResponseMessage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpResponseMessage {
     type Vtable = IHttpResponseMessage_Vtbl;
@@ -3023,6 +2667,7 @@ unsafe impl ::core::marker::Send for HttpResponseMessage {}
 unsafe impl ::core::marker::Sync for HttpResponseMessage {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpStreamContent(::windows_core::IUnknown);
 impl HttpStreamContent {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3121,24 +2766,8 @@ impl HttpStreamContent {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HttpStreamContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpStreamContent {}
-impl ::core::fmt::Debug for HttpStreamContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpStreamContent").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpStreamContent {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpStreamContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
-}
-impl ::core::clone::Clone for HttpStreamContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpStreamContent {
     type Vtable = IHttpContent_Vtbl;
@@ -3159,6 +2788,7 @@ unsafe impl ::core::marker::Send for HttpStreamContent {}
 unsafe impl ::core::marker::Sync for HttpStreamContent {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpStringContent(::windows_core::IUnknown);
 impl HttpStringContent {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3268,24 +2898,8 @@ impl HttpStringContent {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HttpStringContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpStringContent {}
-impl ::core::fmt::Debug for HttpStringContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpStringContent").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpStringContent {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpStringContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
-}
-impl ::core::clone::Clone for HttpStringContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpStringContent {
     type Vtable = IHttpContent_Vtbl;
@@ -3306,6 +2920,7 @@ unsafe impl ::core::marker::Send for HttpStringContent {}
 unsafe impl ::core::marker::Sync for HttpStringContent {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpTransportInformation(::windows_core::IUnknown);
 impl HttpTransportInformation {
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -3354,24 +2969,8 @@ impl HttpTransportInformation {
         }
     }
 }
-impl ::core::cmp::PartialEq for HttpTransportInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpTransportInformation {}
-impl ::core::fmt::Debug for HttpTransportInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpTransportInformation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpTransportInformation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpTransportInformation;{70127198-c6a7-4ed0-833a-83fd8b8f178d})");
-}
-impl ::core::clone::Clone for HttpTransportInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpTransportInformation {
     type Vtable = IHttpTransportInformation_Vtbl;

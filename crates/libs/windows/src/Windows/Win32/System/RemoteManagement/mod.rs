@@ -333,6 +333,7 @@ where
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSMan(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSMan {
@@ -364,28 +365,8 @@ impl IWSMan {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWSMan, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWSMan {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWSMan {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWSMan {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSMan").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWSMan {
     type Vtable = IWSMan_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWSMan {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWSMan {
@@ -410,6 +391,7 @@ pub struct IWSMan_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSManConnectionOptions(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManConnectionOptions {
@@ -433,28 +415,8 @@ impl IWSManConnectionOptions {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWSManConnectionOptions, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWSManConnectionOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWSManConnectionOptions {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWSManConnectionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSManConnectionOptions").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWSManConnectionOptions {
     type Vtable = IWSManConnectionOptions_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWSManConnectionOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWSManConnectionOptions {
@@ -472,6 +434,7 @@ pub struct IWSManConnectionOptions_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSManConnectionOptionsEx(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManConnectionOptionsEx {
@@ -505,28 +468,8 @@ impl IWSManConnectionOptionsEx {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWSManConnectionOptionsEx, ::windows_core::IUnknown, super::Com::IDispatch, IWSManConnectionOptions);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWSManConnectionOptionsEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWSManConnectionOptionsEx {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWSManConnectionOptionsEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSManConnectionOptionsEx").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWSManConnectionOptionsEx {
     type Vtable = IWSManConnectionOptionsEx_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWSManConnectionOptionsEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWSManConnectionOptionsEx {
@@ -543,6 +486,7 @@ pub struct IWSManConnectionOptionsEx_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSManConnectionOptionsEx2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManConnectionOptionsEx2 {
@@ -611,28 +555,8 @@ impl IWSManConnectionOptionsEx2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWSManConnectionOptionsEx2, ::windows_core::IUnknown, super::Com::IDispatch, IWSManConnectionOptions, IWSManConnectionOptionsEx);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWSManConnectionOptionsEx2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWSManConnectionOptionsEx2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWSManConnectionOptionsEx2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSManConnectionOptionsEx2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWSManConnectionOptionsEx2 {
     type Vtable = IWSManConnectionOptionsEx2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWSManConnectionOptionsEx2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWSManConnectionOptionsEx2 {
@@ -655,6 +579,7 @@ pub struct IWSManConnectionOptionsEx2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSManEnumerator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManEnumerator {
@@ -676,28 +601,8 @@ impl IWSManEnumerator {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWSManEnumerator, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWSManEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWSManEnumerator {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWSManEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSManEnumerator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWSManEnumerator {
     type Vtable = IWSManEnumerator_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWSManEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWSManEnumerator {
@@ -718,6 +623,7 @@ pub struct IWSManEnumerator_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSManEx(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManEx {
@@ -834,28 +740,8 @@ impl IWSManEx {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWSManEx, ::windows_core::IUnknown, super::Com::IDispatch, IWSMan);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWSManEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWSManEx {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWSManEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSManEx").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWSManEx {
     type Vtable = IWSManEx_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWSManEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWSManEx {
@@ -893,6 +779,7 @@ pub struct IWSManEx_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSManEx2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManEx2 {
@@ -1013,28 +900,8 @@ impl IWSManEx2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWSManEx2, ::windows_core::IUnknown, super::Com::IDispatch, IWSMan, IWSManEx);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWSManEx2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWSManEx2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWSManEx2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSManEx2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWSManEx2 {
     type Vtable = IWSManEx2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWSManEx2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWSManEx2 {
@@ -1050,6 +917,7 @@ pub struct IWSManEx2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSManEx3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManEx3 {
@@ -1198,28 +1066,8 @@ impl IWSManEx3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWSManEx3, ::windows_core::IUnknown, super::Com::IDispatch, IWSMan, IWSManEx, IWSManEx2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWSManEx3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWSManEx3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWSManEx3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSManEx3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWSManEx3 {
     type Vtable = IWSManEx3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWSManEx3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWSManEx3 {
@@ -1241,6 +1089,7 @@ pub struct IWSManEx3_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSManInternal(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManInternal {
@@ -1257,28 +1106,8 @@ impl IWSManInternal {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWSManInternal, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWSManInternal {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWSManInternal {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWSManInternal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSManInternal").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWSManInternal {
     type Vtable = IWSManInternal_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWSManInternal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWSManInternal {
@@ -1297,6 +1126,7 @@ pub struct IWSManInternal_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSManResourceLocator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManResourceLocator {
@@ -1375,28 +1205,8 @@ impl IWSManResourceLocator {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWSManResourceLocator, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWSManResourceLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWSManResourceLocator {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWSManResourceLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSManResourceLocator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWSManResourceLocator {
     type Vtable = IWSManResourceLocator_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWSManResourceLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWSManResourceLocator {
@@ -1435,27 +1245,12 @@ pub struct IWSManResourceLocator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSManResourceLocatorInternal(::windows_core::IUnknown);
 impl IWSManResourceLocatorInternal {}
 ::windows_core::imp::interface_hierarchy!(IWSManResourceLocatorInternal, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSManResourceLocatorInternal {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSManResourceLocatorInternal {}
-impl ::core::fmt::Debug for IWSManResourceLocatorInternal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSManResourceLocatorInternal").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSManResourceLocatorInternal {
     type Vtable = IWSManResourceLocatorInternal_Vtbl;
-}
-impl ::core::clone::Clone for IWSManResourceLocatorInternal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSManResourceLocatorInternal {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeffaead7_7ec8_4716_b9be_f2e7e9fb4adb);
@@ -1468,6 +1263,7 @@ pub struct IWSManResourceLocatorInternal_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSManSession(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManSession {
@@ -1546,28 +1342,8 @@ impl IWSManSession {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWSManSession, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWSManSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWSManSession {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWSManSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSManSession").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWSManSession {
     type Vtable = IWSManSession_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWSManSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWSManSession {

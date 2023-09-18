@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetedContentAction(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITargetedContentAction {
     type Vtable = ITargetedContentAction_Vtbl;
-}
-impl ::core::clone::Clone for ITargetedContentAction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetedContentAction {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6);
@@ -23,14 +19,10 @@ pub struct ITargetedContentAction_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetedContentAvailabilityChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITargetedContentAvailabilityChangedEventArgs {
     type Vtable = ITargetedContentAvailabilityChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ITargetedContentAvailabilityChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetedContentAvailabilityChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0f59d26_5927_4450_965c_1ceb7becde65);
@@ -46,14 +38,10 @@ pub struct ITargetedContentAvailabilityChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetedContentChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITargetedContentChangedEventArgs {
     type Vtable = ITargetedContentChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ITargetedContentChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetedContentChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99d488c9_587e_4586_8ef7_b54ca9453a16);
@@ -70,14 +58,10 @@ pub struct ITargetedContentChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetedContentCollection(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITargetedContentCollection {
     type Vtable = ITargetedContentCollection_Vtbl;
-}
-impl ::core::clone::Clone for ITargetedContentCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetedContentCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d4b66c5_f163_44ba_9f6e_e1a4c2bb559d);
@@ -105,14 +89,10 @@ pub struct ITargetedContentCollection_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetedContentContainer(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITargetedContentContainer {
     type Vtable = ITargetedContentContainer_Vtbl;
-}
-impl ::core::clone::Clone for ITargetedContentContainer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetedContentContainer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc2494c9_8837_47c2_850f_d79d64595926);
@@ -132,14 +112,10 @@ pub struct ITargetedContentContainer_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetedContentContainerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITargetedContentContainerStatics {
     type Vtable = ITargetedContentContainerStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITargetedContentContainerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetedContentContainerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b47e7fb_2140_4c1f_a736_c59583f227d8);
@@ -155,14 +131,10 @@ pub struct ITargetedContentContainerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetedContentImage(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITargetedContentImage {
     type Vtable = ITargetedContentImage_Vtbl;
-}
-impl ::core::clone::Clone for ITargetedContentImage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetedContentImage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7a585d9_779f_4b1e_bbb1_8eaf53fbeab2);
@@ -176,14 +148,10 @@ pub struct ITargetedContentImage_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetedContentItem(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITargetedContentItem {
     type Vtable = ITargetedContentItem_Vtbl;
-}
-impl ::core::clone::Clone for ITargetedContentItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetedContentItem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38168dc4_276c_4c32_96ba_565c6e406e74);
@@ -207,14 +175,10 @@ pub struct ITargetedContentItem_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetedContentItemState(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITargetedContentItemState {
     type Vtable = ITargetedContentItemState_Vtbl;
-}
-impl ::core::clone::Clone for ITargetedContentItemState {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetedContentItemState {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73935454_4c65_4b47_a441_472de53c79b6);
@@ -228,14 +192,10 @@ pub struct ITargetedContentItemState_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetedContentObject(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITargetedContentObject {
     type Vtable = ITargetedContentObject_Vtbl;
-}
-impl ::core::clone::Clone for ITargetedContentObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetedContentObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x041d7969_2212_42d1_9dfa_88a8e3033aa3);
@@ -251,14 +211,10 @@ pub struct ITargetedContentObject_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetedContentStateChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITargetedContentStateChangedEventArgs {
     type Vtable = ITargetedContentStateChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ITargetedContentStateChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetedContentStateChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a1cef3d_8073_4416_8df2_546835a6414f);
@@ -274,14 +230,10 @@ pub struct ITargetedContentStateChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetedContentSubscription(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITargetedContentSubscription {
     type Vtable = ITargetedContentSubscription_Vtbl;
-}
-impl ::core::clone::Clone for ITargetedContentSubscription {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetedContentSubscription {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x882c2c49_c652_4c7a_acad_1f7fa2986c73);
@@ -322,14 +274,10 @@ pub struct ITargetedContentSubscription_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetedContentSubscriptionOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITargetedContentSubscriptionOptions {
     type Vtable = ITargetedContentSubscriptionOptions_Vtbl;
-}
-impl ::core::clone::Clone for ITargetedContentSubscriptionOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetedContentSubscriptionOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61ee6ad0_2c83_421b_8467_413eaf1aeb97);
@@ -353,14 +301,10 @@ pub struct ITargetedContentSubscriptionOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetedContentSubscriptionStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITargetedContentSubscriptionStatics {
     type Vtable = ITargetedContentSubscriptionStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITargetedContentSubscriptionStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetedContentSubscriptionStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfaddfe80_360d_4916_b53c_7ea27090d02a);
@@ -377,14 +321,10 @@ pub struct ITargetedContentSubscriptionStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetedContentValue(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITargetedContentValue {
     type Vtable = ITargetedContentValue_Vtbl;
-}
-impl ::core::clone::Clone for ITargetedContentValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetedContentValue {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaafde4b3_4215_4bf8_867f_43f04865f9bf);
@@ -439,6 +379,7 @@ pub struct ITargetedContentValue_Vtbl {
 }
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetedContentAction(::windows_core::IUnknown);
 impl TargetedContentAction {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -451,24 +392,8 @@ impl TargetedContentAction {
         }
     }
 }
-impl ::core::cmp::PartialEq for TargetedContentAction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentAction {}
-impl ::core::fmt::Debug for TargetedContentAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentAction").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TargetedContentAction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentAction;{d75b691e-6cd6-4ca0-9d8f-4728b0b7e6b6})");
-}
-impl ::core::clone::Clone for TargetedContentAction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TargetedContentAction {
     type Vtable = ITargetedContentAction_Vtbl;
@@ -484,6 +409,7 @@ unsafe impl ::core::marker::Send for TargetedContentAction {}
 unsafe impl ::core::marker::Sync for TargetedContentAction {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetedContentAvailabilityChangedEventArgs(::windows_core::IUnknown);
 impl TargetedContentAvailabilityChangedEventArgs {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -496,24 +422,8 @@ impl TargetedContentAvailabilityChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for TargetedContentAvailabilityChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentAvailabilityChangedEventArgs {}
-impl ::core::fmt::Debug for TargetedContentAvailabilityChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentAvailabilityChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TargetedContentAvailabilityChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs;{e0f59d26-5927-4450-965c-1ceb7becde65})");
-}
-impl ::core::clone::Clone for TargetedContentAvailabilityChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TargetedContentAvailabilityChangedEventArgs {
     type Vtable = ITargetedContentAvailabilityChangedEventArgs_Vtbl;
@@ -529,6 +439,7 @@ unsafe impl ::core::marker::Send for TargetedContentAvailabilityChangedEventArgs
 unsafe impl ::core::marker::Sync for TargetedContentAvailabilityChangedEventArgs {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetedContentChangedEventArgs(::windows_core::IUnknown);
 impl TargetedContentChangedEventArgs {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -548,24 +459,8 @@ impl TargetedContentChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for TargetedContentChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentChangedEventArgs {}
-impl ::core::fmt::Debug for TargetedContentChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TargetedContentChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentChangedEventArgs;{99d488c9-587e-4586-8ef7-b54ca9453a16})");
-}
-impl ::core::clone::Clone for TargetedContentChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TargetedContentChangedEventArgs {
     type Vtable = ITargetedContentChangedEventArgs_Vtbl;
@@ -581,6 +476,7 @@ unsafe impl ::core::marker::Send for TargetedContentChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TargetedContentChangedEventArgs {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetedContentCollection(::windows_core::IUnknown);
 impl TargetedContentCollection {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -633,24 +529,8 @@ impl TargetedContentCollection {
         }
     }
 }
-impl ::core::cmp::PartialEq for TargetedContentCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentCollection {}
-impl ::core::fmt::Debug for TargetedContentCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentCollection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TargetedContentCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentCollection;{2d4b66c5-f163-44ba-9f6e-e1a4c2bb559d})");
-}
-impl ::core::clone::Clone for TargetedContentCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TargetedContentCollection {
     type Vtable = ITargetedContentCollection_Vtbl;
@@ -666,6 +546,7 @@ unsafe impl ::core::marker::Send for TargetedContentCollection {}
 unsafe impl ::core::marker::Sync for TargetedContentCollection {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetedContentContainer(::windows_core::IUnknown);
 impl TargetedContentContainer {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -719,24 +600,8 @@ impl TargetedContentContainer {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TargetedContentContainer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentContainer {}
-impl ::core::fmt::Debug for TargetedContentContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentContainer").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TargetedContentContainer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentContainer;{bc2494c9-8837-47c2-850f-d79d64595926})");
-}
-impl ::core::clone::Clone for TargetedContentContainer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TargetedContentContainer {
     type Vtable = ITargetedContentContainer_Vtbl;
@@ -753,6 +618,7 @@ unsafe impl ::core::marker::Sync for TargetedContentContainer {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Storage_Streams\"`*"]
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetedContentFile(::windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 impl TargetedContentFile {
@@ -767,28 +633,8 @@ impl TargetedContentFile {
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::core::cmp::PartialEq for TargetedContentFile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::cmp::Eq for TargetedContentFile {}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::fmt::Debug for TargetedContentFile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentFile").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeType for TargetedContentFile {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentFile;{33ee3134-1dd6-4e3a-8067-d1c162e8642b})");
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::clone::Clone for TargetedContentFile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows_core::Interface for TargetedContentFile {
@@ -812,6 +658,7 @@ unsafe impl ::core::marker::Send for TargetedContentFile {}
 unsafe impl ::core::marker::Sync for TargetedContentFile {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetedContentImage(::windows_core::IUnknown);
 impl TargetedContentImage {
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -838,24 +685,8 @@ impl TargetedContentImage {
         }
     }
 }
-impl ::core::cmp::PartialEq for TargetedContentImage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentImage {}
-impl ::core::fmt::Debug for TargetedContentImage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentImage").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TargetedContentImage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentImage;{a7a585d9-779f-4b1e-bbb1-8eaf53fbeab2})");
-}
-impl ::core::clone::Clone for TargetedContentImage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TargetedContentImage {
     type Vtable = ITargetedContentImage_Vtbl;
@@ -873,6 +704,7 @@ unsafe impl ::core::marker::Send for TargetedContentImage {}
 unsafe impl ::core::marker::Sync for TargetedContentImage {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetedContentItem(::windows_core::IUnknown);
 impl TargetedContentItem {
     pub fn Path(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -916,24 +748,8 @@ impl TargetedContentItem {
         }
     }
 }
-impl ::core::cmp::PartialEq for TargetedContentItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentItem {}
-impl ::core::fmt::Debug for TargetedContentItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentItem").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TargetedContentItem {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentItem;{38168dc4-276c-4c32-96ba-565c6e406e74})");
-}
-impl ::core::clone::Clone for TargetedContentItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TargetedContentItem {
     type Vtable = ITargetedContentItem_Vtbl;
@@ -949,6 +765,7 @@ unsafe impl ::core::marker::Send for TargetedContentItem {}
 unsafe impl ::core::marker::Sync for TargetedContentItem {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetedContentItemState(::windows_core::IUnknown);
 impl TargetedContentItemState {
     pub fn ShouldDisplay(&self) -> ::windows_core::Result<bool> {
@@ -966,24 +783,8 @@ impl TargetedContentItemState {
         }
     }
 }
-impl ::core::cmp::PartialEq for TargetedContentItemState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentItemState {}
-impl ::core::fmt::Debug for TargetedContentItemState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentItemState").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TargetedContentItemState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentItemState;{73935454-4c65-4b47-a441-472de53c79b6})");
-}
-impl ::core::clone::Clone for TargetedContentItemState {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TargetedContentItemState {
     type Vtable = ITargetedContentItemState_Vtbl;
@@ -999,6 +800,7 @@ unsafe impl ::core::marker::Send for TargetedContentItemState {}
 unsafe impl ::core::marker::Sync for TargetedContentItemState {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetedContentObject(::windows_core::IUnknown);
 impl TargetedContentObject {
     pub fn ObjectKind(&self) -> ::windows_core::Result<TargetedContentObjectKind> {
@@ -1030,24 +832,8 @@ impl TargetedContentObject {
         }
     }
 }
-impl ::core::cmp::PartialEq for TargetedContentObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentObject {}
-impl ::core::fmt::Debug for TargetedContentObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentObject").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TargetedContentObject {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentObject;{041d7969-2212-42d1-9dfa-88a8e3033aa3})");
-}
-impl ::core::clone::Clone for TargetedContentObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TargetedContentObject {
     type Vtable = ITargetedContentObject_Vtbl;
@@ -1063,6 +849,7 @@ unsafe impl ::core::marker::Send for TargetedContentObject {}
 unsafe impl ::core::marker::Sync for TargetedContentObject {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetedContentStateChangedEventArgs(::windows_core::IUnknown);
 impl TargetedContentStateChangedEventArgs {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1075,24 +862,8 @@ impl TargetedContentStateChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for TargetedContentStateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentStateChangedEventArgs {}
-impl ::core::fmt::Debug for TargetedContentStateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentStateChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TargetedContentStateChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs;{9a1cef3d-8073-4416-8df2-546835a6414f})");
-}
-impl ::core::clone::Clone for TargetedContentStateChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TargetedContentStateChangedEventArgs {
     type Vtable = ITargetedContentStateChangedEventArgs_Vtbl;
@@ -1108,6 +879,7 @@ unsafe impl ::core::marker::Send for TargetedContentStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TargetedContentStateChangedEventArgs {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetedContentSubscription(::windows_core::IUnknown);
 impl TargetedContentSubscription {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1200,24 +972,8 @@ impl TargetedContentSubscription {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TargetedContentSubscription {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentSubscription {}
-impl ::core::fmt::Debug for TargetedContentSubscription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentSubscription").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TargetedContentSubscription {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentSubscription;{882c2c49-c652-4c7a-acad-1f7fa2986c73})");
-}
-impl ::core::clone::Clone for TargetedContentSubscription {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TargetedContentSubscription {
     type Vtable = ITargetedContentSubscription_Vtbl;
@@ -1233,6 +989,7 @@ unsafe impl ::core::marker::Send for TargetedContentSubscription {}
 unsafe impl ::core::marker::Sync for TargetedContentSubscription {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetedContentSubscriptionOptions(::windows_core::IUnknown);
 impl TargetedContentSubscriptionOptions {
     pub fn SubscriptionId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1276,24 +1033,8 @@ impl TargetedContentSubscriptionOptions {
         unsafe { (::windows_core::Interface::vtable(this).Update)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for TargetedContentSubscriptionOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentSubscriptionOptions {}
-impl ::core::fmt::Debug for TargetedContentSubscriptionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentSubscriptionOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TargetedContentSubscriptionOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentSubscriptionOptions;{61ee6ad0-2c83-421b-8467-413eaf1aeb97})");
-}
-impl ::core::clone::Clone for TargetedContentSubscriptionOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TargetedContentSubscriptionOptions {
     type Vtable = ITargetedContentSubscriptionOptions_Vtbl;
@@ -1309,6 +1050,7 @@ unsafe impl ::core::marker::Send for TargetedContentSubscriptionOptions {}
 unsafe impl ::core::marker::Sync for TargetedContentSubscriptionOptions {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetedContentValue(::windows_core::IUnknown);
 impl TargetedContentValue {
     pub fn ValueKind(&self) -> ::windows_core::Result<TargetedContentValueKind> {
@@ -1442,24 +1184,8 @@ impl TargetedContentValue {
         }
     }
 }
-impl ::core::cmp::PartialEq for TargetedContentValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentValue {}
-impl ::core::fmt::Debug for TargetedContentValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetedContentValue").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TargetedContentValue {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentValue;{aafde4b3-4215-4bf8-867f-43f04865f9bf})");
-}
-impl ::core::clone::Clone for TargetedContentValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TargetedContentValue {
     type Vtable = ITargetedContentValue_Vtbl;

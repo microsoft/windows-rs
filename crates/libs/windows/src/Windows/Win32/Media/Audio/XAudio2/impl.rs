@@ -87,8 +87,8 @@ impl IXAPO_Vtbl {
             CalcOutputFrames: CalcOutputFrames::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXAPO as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXAPO as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"implement\"`*"]
@@ -129,8 +129,8 @@ impl IXAPOHrtfParameters_Vtbl {
             SetEnvironment: SetEnvironment::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXAPOHrtfParameters as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXAPOHrtfParameters as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"implement\"`*"]
@@ -157,8 +157,8 @@ impl IXAPOParameters_Vtbl {
             GetParameters: GetParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXAPOParameters as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXAPOParameters as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -244,8 +244,8 @@ impl IXAudio2_Vtbl {
             SetDebugConfiguration: SetDebugConfiguration::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXAudio2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXAudio2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"implement\"`*"]
@@ -310,8 +310,8 @@ impl IXAudio2Extension_Vtbl {
             GetProcessor: GetProcessor::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXAudio2Extension as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXAudio2Extension as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]

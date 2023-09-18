@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClosedCaptionPropertiesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClosedCaptionPropertiesStatics {
     type Vtable = IClosedCaptionPropertiesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IClosedCaptionPropertiesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClosedCaptionPropertiesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10aa1f84_cc30_4141_b503_5272289e0c20);

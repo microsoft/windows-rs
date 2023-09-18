@@ -4,14 +4,10 @@ pub mod Core;
 pub mod Provider;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAuthenticationBrokerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAuthenticationBrokerStatics {
     type Vtable = IWebAuthenticationBrokerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IWebAuthenticationBrokerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAuthenticationBrokerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2f149f1a_e673_40b5_bc22_201a6864a37b);
@@ -35,14 +31,10 @@ pub struct IWebAuthenticationBrokerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAuthenticationBrokerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAuthenticationBrokerStatics2 {
     type Vtable = IWebAuthenticationBrokerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IWebAuthenticationBrokerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAuthenticationBrokerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73cdfb9e_14e7_41da_a971_aaf4410b621e);
@@ -74,14 +66,10 @@ pub struct IWebAuthenticationBrokerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAuthenticationResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebAuthenticationResult {
     type Vtable = IWebAuthenticationResult_Vtbl;
-}
-impl ::core::clone::Clone for IWebAuthenticationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebAuthenticationResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64002b4b_ede9_470a_a5cd_0323faf6e262);
@@ -193,6 +181,7 @@ impl ::windows_core::RuntimeName for WebAuthenticationBroker {
 }
 #[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebAuthenticationResult(::windows_core::IUnknown);
 impl WebAuthenticationResult {
     pub fn ResponseData(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -217,24 +206,8 @@ impl WebAuthenticationResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for WebAuthenticationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAuthenticationResult {}
-impl ::core::fmt::Debug for WebAuthenticationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAuthenticationResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebAuthenticationResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.WebAuthenticationResult;{64002b4b-ede9-470a-a5cd-0323faf6e262})");
-}
-impl ::core::clone::Clone for WebAuthenticationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebAuthenticationResult {
     type Vtable = IWebAuthenticationResult_Vtbl;

@@ -86,6 +86,7 @@ fn gen_class(writer: &Writer, def: TypeDef) -> TokenStream {
             #doc
             #features
             #[repr(transparent)]
+            #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
             pub struct #name(::windows_core::IUnknown);
             #features
             impl #name {
@@ -95,7 +96,6 @@ fn gen_class(writer: &Writer, def: TypeDef) -> TokenStream {
             }
         };
 
-        tokens.combine(&writer.interface_core_traits(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
         tokens.combine(&writer.interface_winrt_trait(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
         tokens.combine(&writer.interface_trait(def, &[], &name, &TokenStream::new(), &features, true));
         tokens.combine(&writer.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));
@@ -157,4 +157,28 @@ fn gen_conversions(writer: &Writer, def: TypeDef, name: &TokenStream, interfaces
     }
 
     tokens
+}
+
+fn type_def_has_default_constructor(reader: &Reader, row: TypeDef) -> bool {
+    for attribute in reader.attributes(row) {
+        if reader.attribute_name(attribute) == "ActivatableAttribute" {
+            if reader.attribute_args(attribute).iter().any(|arg| matches!(arg.1, Value::TypeName(_))) {
+                continue;
+            } else {
+                return true;
+            }
+        }
+    }
+    false
+}
+
+fn type_def_has_default_interface(reader: &Reader, row: TypeDef) -> bool {
+    reader.type_def_interface_impls(row).any(|imp| reader.has_attribute(imp, "DefaultAttribute"))
+}
+
+fn type_is_exclusive(reader: &Reader, ty: &Type) -> bool {
+    match ty {
+        Type::TypeDef(row, _) => type_def_is_exclusive(reader, *row),
+        _ => false,
+    }
 }

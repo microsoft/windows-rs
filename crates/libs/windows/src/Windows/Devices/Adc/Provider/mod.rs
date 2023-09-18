@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdcControllerProvider(::windows_core::IUnknown);
 impl IAdcControllerProvider {
     pub fn ChannelCount(&self) -> ::windows_core::Result<i32> {
@@ -65,27 +66,11 @@ impl IAdcControllerProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAdcControllerProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IAdcControllerProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAdcControllerProvider {}
-impl ::core::fmt::Debug for IAdcControllerProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAdcControllerProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IAdcControllerProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{be545828-816d-4de5-a048-aba06958aaa8}");
 }
 unsafe impl ::windows_core::Interface for IAdcControllerProvider {
     type Vtable = IAdcControllerProvider_Vtbl;
-}
-impl ::core::clone::Clone for IAdcControllerProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdcControllerProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe545828_816d_4de5_a048_aba06958aaa8);
@@ -107,6 +92,7 @@ pub struct IAdcControllerProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdcProvider(::windows_core::IUnknown);
 impl IAdcProvider {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -120,27 +106,11 @@ impl IAdcProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAdcProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IAdcProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAdcProvider {}
-impl ::core::fmt::Debug for IAdcProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAdcProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IAdcProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{28953668-9359-4c57-bc88-e275e81638c9}");
 }
 unsafe impl ::windows_core::Interface for IAdcProvider {
     type Vtable = IAdcProvider_Vtbl;
-}
-impl ::core::clone::Clone for IAdcProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdcProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28953668_9359_4c57_bc88_e275e81638c9);

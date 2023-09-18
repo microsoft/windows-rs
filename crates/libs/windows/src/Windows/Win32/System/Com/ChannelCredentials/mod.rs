@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_Com_ChannelCredentials\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChannelCredentials(::windows_core::IUnknown);
 impl IChannelCredentials {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -90,24 +91,8 @@ impl IChannelCredentials {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IChannelCredentials, ::windows_core::IUnknown, super::IDispatch);
-impl ::core::cmp::PartialEq for IChannelCredentials {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IChannelCredentials {}
-impl ::core::fmt::Debug for IChannelCredentials {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IChannelCredentials").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IChannelCredentials {
     type Vtable = IChannelCredentials_Vtbl;
-}
-impl ::core::clone::Clone for IChannelCredentials {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChannelCredentials {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x181b448c_c17c_4b17_ac6d_06699b93198f);

@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundAudioTrack(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBackgroundAudioTrack {
     type Vtable = IBackgroundAudioTrack_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundAudioTrack {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundAudioTrack {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b91b3bd_9e21_4266_a9c2_67dd011a2357);
@@ -66,14 +62,10 @@ pub struct IBackgroundAudioTrack_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundAudioTrackStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBackgroundAudioTrackStatics {
     type Vtable = IBackgroundAudioTrackStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundAudioTrackStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundAudioTrackStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd9b1c0d7_d018_42a8_a559_cb4d9e97e664);
@@ -90,14 +82,10 @@ pub struct IBackgroundAudioTrackStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmbeddedAudioTrack(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmbeddedAudioTrack {
     type Vtable = IEmbeddedAudioTrack_Vtbl;
-}
-impl ::core::clone::Clone for IEmbeddedAudioTrack {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmbeddedAudioTrack {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55ee5a7a_2d30_3fba_a190_4f1a6454f88f);
@@ -113,14 +101,10 @@ pub struct IEmbeddedAudioTrack_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaClip(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaClip {
     type Vtable = IMediaClip_Vtbl;
-}
-impl ::core::clone::Clone for IMediaClip {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaClip {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53f25366_5fba_3ea4_8693_24761811140a);
@@ -189,14 +173,10 @@ pub struct IMediaClip_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaClipStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaClipStatics {
     type Vtable = IMediaClipStatics_Vtbl;
-}
-impl ::core::clone::Clone for IMediaClipStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaClipStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfa402b68_928f_43c4_bc6e_783a1a359656);
@@ -220,14 +200,10 @@ pub struct IMediaClipStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaClipStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaClipStatics2 {
     type Vtable = IMediaClipStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IMediaClipStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaClipStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b1dd7b3_854e_4d9b_877d_4774a556cd12);
@@ -243,14 +219,10 @@ pub struct IMediaClipStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaComposition(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaComposition {
     type Vtable = IMediaComposition_Vtbl;
-}
-impl ::core::clone::Clone for IMediaComposition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaComposition {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e06e605_dc71_41d6_b837_2d2bc14a2947);
@@ -319,14 +291,10 @@ pub struct IMediaComposition_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaComposition2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaComposition2 {
     type Vtable = IMediaComposition2_Vtbl;
-}
-impl ::core::clone::Clone for IMediaComposition2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaComposition2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa59e5372_2366_492c_bec8_e6dfba6d0281);
@@ -342,14 +310,10 @@ pub struct IMediaComposition2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaCompositionStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaCompositionStatics {
     type Vtable = IMediaCompositionStatics_Vtbl;
-}
-impl ::core::clone::Clone for IMediaCompositionStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaCompositionStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x87a08f04_e32a_45ce_8f66_a30df0766224);
@@ -365,14 +329,10 @@ pub struct IMediaCompositionStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaOverlay(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaOverlay {
     type Vtable = IMediaOverlay_Vtbl;
-}
-impl ::core::clone::Clone for IMediaOverlay {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaOverlay {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa902ae5d_7869_4830_8ab1_94dc01c05fa4);
@@ -406,14 +366,10 @@ pub struct IMediaOverlay_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaOverlayFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaOverlayFactory {
     type Vtable = IMediaOverlayFactory_Vtbl;
-}
-impl ::core::clone::Clone for IMediaOverlayFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaOverlayFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb584828a_6188_4f8f_a2e0_aa552d598e18);
@@ -430,14 +386,10 @@ pub struct IMediaOverlayFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaOverlayLayer(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaOverlayLayer {
     type Vtable = IMediaOverlayLayer_Vtbl;
-}
-impl ::core::clone::Clone for IMediaOverlayLayer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaOverlayLayer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa6d9ba57_eeda_46c6_bbe5_e398c84168ac);
@@ -458,14 +410,10 @@ pub struct IMediaOverlayLayer_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaOverlayLayerFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaOverlayLayerFactory {
     type Vtable = IMediaOverlayLayerFactory_Vtbl;
-}
-impl ::core::clone::Clone for IMediaOverlayLayerFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaOverlayLayerFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x947cb473_a39e_4362_abbf_9f8b5070a062);
@@ -481,6 +429,7 @@ pub struct IMediaOverlayLayerFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackgroundAudioTrack(::windows_core::IUnknown);
 impl BackgroundAudioTrack {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -617,24 +566,8 @@ impl BackgroundAudioTrack {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for BackgroundAudioTrack {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundAudioTrack {}
-impl ::core::fmt::Debug for BackgroundAudioTrack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundAudioTrack").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BackgroundAudioTrack {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.BackgroundAudioTrack;{4b91b3bd-9e21-4266-a9c2-67dd011a2357})");
-}
-impl ::core::clone::Clone for BackgroundAudioTrack {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BackgroundAudioTrack {
     type Vtable = IBackgroundAudioTrack_Vtbl;
@@ -650,6 +583,7 @@ unsafe impl ::core::marker::Send for BackgroundAudioTrack {}
 unsafe impl ::core::marker::Sync for BackgroundAudioTrack {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmbeddedAudioTrack(::windows_core::IUnknown);
 impl EmbeddedAudioTrack {
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
@@ -662,24 +596,8 @@ impl EmbeddedAudioTrack {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmbeddedAudioTrack {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmbeddedAudioTrack {}
-impl ::core::fmt::Debug for EmbeddedAudioTrack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmbeddedAudioTrack").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmbeddedAudioTrack {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.EmbeddedAudioTrack;{55ee5a7a-2d30-3fba-a190-4f1a6454f88f})");
-}
-impl ::core::clone::Clone for EmbeddedAudioTrack {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmbeddedAudioTrack {
     type Vtable = IEmbeddedAudioTrack_Vtbl;
@@ -695,6 +613,7 @@ unsafe impl ::core::marker::Send for EmbeddedAudioTrack {}
 unsafe impl ::core::marker::Sync for EmbeddedAudioTrack {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaClip(::windows_core::IUnknown);
 impl MediaClip {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -889,24 +808,8 @@ impl MediaClip {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for MediaClip {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaClip {}
-impl ::core::fmt::Debug for MediaClip {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaClip").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaClip {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaClip;{53f25366-5fba-3ea4-8693-24761811140a})");
-}
-impl ::core::clone::Clone for MediaClip {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaClip {
     type Vtable = IMediaClip_Vtbl;
@@ -922,6 +825,7 @@ unsafe impl ::core::marker::Send for MediaClip {}
 unsafe impl ::core::marker::Sync for MediaClip {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaComposition(::windows_core::IUnknown);
 impl MediaComposition {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1109,24 +1013,8 @@ impl MediaComposition {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for MediaComposition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaComposition {}
-impl ::core::fmt::Debug for MediaComposition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaComposition").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaComposition {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaComposition;{2e06e605-dc71-41d6-b837-2d2bc14a2947})");
-}
-impl ::core::clone::Clone for MediaComposition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaComposition {
     type Vtable = IMediaComposition_Vtbl;
@@ -1142,6 +1030,7 @@ unsafe impl ::core::marker::Send for MediaComposition {}
 unsafe impl ::core::marker::Sync for MediaComposition {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaOverlay(::windows_core::IUnknown);
 impl MediaOverlay {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1236,24 +1125,8 @@ impl MediaOverlay {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for MediaOverlay {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaOverlay {}
-impl ::core::fmt::Debug for MediaOverlay {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaOverlay").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaOverlay {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaOverlay;{a902ae5d-7869-4830-8ab1-94dc01c05fa4})");
-}
-impl ::core::clone::Clone for MediaOverlay {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaOverlay {
     type Vtable = IMediaOverlay_Vtbl;
@@ -1269,6 +1142,7 @@ unsafe impl ::core::marker::Send for MediaOverlay {}
 unsafe impl ::core::marker::Sync for MediaOverlay {}
 #[doc = "*Required features: `\"Media_Editing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaOverlayLayer(::windows_core::IUnknown);
 impl MediaOverlayLayer {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1320,24 +1194,8 @@ impl MediaOverlayLayer {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for MediaOverlayLayer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaOverlayLayer {}
-impl ::core::fmt::Debug for MediaOverlayLayer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaOverlayLayer").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaOverlayLayer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaOverlayLayer;{a6d9ba57-eeda-46c6-bbe5-e398c84168ac})");
-}
-impl ::core::clone::Clone for MediaOverlayLayer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaOverlayLayer {
     type Vtable = IMediaOverlayLayer_Vtbl;

@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumVdsObject(::windows_core::IUnknown);
 impl IEnumVdsObject {
     pub unsafe fn Next(&self, ppobjectarray: &mut [::core::option::Option<::windows_core::IUnknown>], pcfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -17,24 +18,8 @@ impl IEnumVdsObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumVdsObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumVdsObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumVdsObject {}
-impl ::core::fmt::Debug for IEnumVdsObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumVdsObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumVdsObject {
     type Vtable = IEnumVdsObject_Vtbl;
-}
-impl ::core::clone::Clone for IEnumVdsObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumVdsObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x118610b7_8d94_4030_b5b8_500889788e4e);
@@ -50,6 +35,7 @@ pub struct IEnumVdsObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsAdmin(::windows_core::IUnknown);
 impl IVdsAdmin {
     pub unsafe fn RegisterProvider<P0, P1, P2>(&self, providerid: ::windows_core::GUID, providerclsid: ::windows_core::GUID, pwszname: P0, r#type: VDS_PROVIDER_TYPE, pwszmachinename: P1, pwszversion: P2, guidversionid: ::windows_core::GUID) -> ::windows_core::Result<()>
@@ -65,24 +51,8 @@ impl IVdsAdmin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsAdmin, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsAdmin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsAdmin {}
-impl ::core::fmt::Debug for IVdsAdmin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsAdmin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsAdmin {
     type Vtable = IVdsAdmin_Vtbl;
-}
-impl ::core::clone::Clone for IVdsAdmin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsAdmin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd188e97d_85aa_4d33_abc6_26299a10ffc1);
@@ -96,6 +66,7 @@ pub struct IVdsAdmin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsAdvancedDisk(::windows_core::IUnknown);
 impl IVdsAdvancedDisk {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -162,24 +133,8 @@ impl IVdsAdvancedDisk {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsAdvancedDisk, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsAdvancedDisk {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsAdvancedDisk {}
-impl ::core::fmt::Debug for IVdsAdvancedDisk {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsAdvancedDisk").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsAdvancedDisk {
     type Vtable = IVdsAdvancedDisk_Vtbl;
-}
-impl ::core::clone::Clone for IVdsAdvancedDisk {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsAdvancedDisk {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e6f6b40_977c_4069_bddd_ac710059f8c0);
@@ -222,6 +177,7 @@ pub struct IVdsAdvancedDisk_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsAdvancedDisk2(::windows_core::IUnknown);
 impl IVdsAdvancedDisk2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -234,24 +190,8 @@ impl IVdsAdvancedDisk2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsAdvancedDisk2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsAdvancedDisk2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsAdvancedDisk2 {}
-impl ::core::fmt::Debug for IVdsAdvancedDisk2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsAdvancedDisk2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsAdvancedDisk2 {
     type Vtable = IVdsAdvancedDisk2_Vtbl;
-}
-impl ::core::clone::Clone for IVdsAdvancedDisk2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsAdvancedDisk2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9723f420_9355_42de_ab66_e31bb15beeac);
@@ -267,6 +207,7 @@ pub struct IVdsAdvancedDisk2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsAdvancedDisk3(::windows_core::IUnknown);
 impl IVdsAdvancedDisk3 {
     pub unsafe fn GetProperties(&self, padvdiskprop: *mut VDS_ADVANCEDDISK_PROP) -> ::windows_core::Result<()> {
@@ -278,24 +219,8 @@ impl IVdsAdvancedDisk3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsAdvancedDisk3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsAdvancedDisk3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsAdvancedDisk3 {}
-impl ::core::fmt::Debug for IVdsAdvancedDisk3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsAdvancedDisk3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsAdvancedDisk3 {
     type Vtable = IVdsAdvancedDisk3_Vtbl;
-}
-impl ::core::clone::Clone for IVdsAdvancedDisk3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsAdvancedDisk3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3858c0d5_0f35_4bf5_9714_69874963bc36);
@@ -309,6 +234,7 @@ pub struct IVdsAdvancedDisk3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsAdviseSink(::windows_core::IUnknown);
 impl IVdsAdviseSink {
     pub unsafe fn OnNotify(&self, pnotificationarray: &[VDS_NOTIFICATION]) -> ::windows_core::Result<()> {
@@ -316,24 +242,8 @@ impl IVdsAdviseSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsAdviseSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsAdviseSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsAdviseSink {}
-impl ::core::fmt::Debug for IVdsAdviseSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsAdviseSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsAdviseSink {
     type Vtable = IVdsAdviseSink_Vtbl;
-}
-impl ::core::clone::Clone for IVdsAdviseSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsAdviseSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8326cd1d_cf59_4936_b786_5efc08798e25);
@@ -346,6 +256,7 @@ pub struct IVdsAdviseSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsAsync(::windows_core::IUnknown);
 impl IVdsAsync {
     pub unsafe fn Cancel(&self) -> ::windows_core::Result<()> {
@@ -359,24 +270,8 @@ impl IVdsAsync {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsAsync, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsAsync {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsAsync {}
-impl ::core::fmt::Debug for IVdsAsync {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsAsync").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsAsync {
     type Vtable = IVdsAsync_Vtbl;
-}
-impl ::core::clone::Clone for IVdsAsync {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsAsync {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5d23b6d_5a55_4492_9889_397a3c2d2dbc);
@@ -391,6 +286,7 @@ pub struct IVdsAsync_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsController(::windows_core::IUnknown);
 impl IVdsController {
     pub unsafe fn GetProperties(&self, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> ::windows_core::Result<()> {
@@ -421,24 +317,8 @@ impl IVdsController {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsController, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsController {}
-impl ::core::fmt::Debug for IVdsController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsController").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsController {
     type Vtable = IVdsController_Vtbl;
-}
-impl ::core::clone::Clone for IVdsController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsController {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb53d96e_dffb_474a_a078_790d1e2bc082);
@@ -458,6 +338,7 @@ pub struct IVdsController_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsControllerControllerPort(::windows_core::IUnknown);
 impl IVdsControllerControllerPort {
     pub unsafe fn QueryControllerPorts(&self) -> ::windows_core::Result<IEnumVdsObject> {
@@ -466,24 +347,8 @@ impl IVdsControllerControllerPort {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsControllerControllerPort, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsControllerControllerPort {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsControllerControllerPort {}
-impl ::core::fmt::Debug for IVdsControllerControllerPort {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsControllerControllerPort").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsControllerControllerPort {
     type Vtable = IVdsControllerControllerPort_Vtbl;
-}
-impl ::core::clone::Clone for IVdsControllerControllerPort {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsControllerControllerPort {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca5d735f_6bae_42c0_b30e_f2666045ce71);
@@ -496,6 +361,7 @@ pub struct IVdsControllerControllerPort_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsControllerPort(::windows_core::IUnknown);
 impl IVdsControllerPort {
     pub unsafe fn GetProperties(&self, pportprop: *mut VDS_PORT_PROP) -> ::windows_core::Result<()> {
@@ -517,24 +383,8 @@ impl IVdsControllerPort {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsControllerPort, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsControllerPort {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsControllerPort {}
-impl ::core::fmt::Debug for IVdsControllerPort {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsControllerPort").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsControllerPort {
     type Vtable = IVdsControllerPort_Vtbl;
-}
-impl ::core::clone::Clone for IVdsControllerPort {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsControllerPort {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18691d0d_4e7f_43e8_92e4_cf44beeed11c);
@@ -551,6 +401,7 @@ pub struct IVdsControllerPort_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsCreatePartitionEx(::windows_core::IUnknown);
 impl IVdsCreatePartitionEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -561,24 +412,8 @@ impl IVdsCreatePartitionEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsCreatePartitionEx, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsCreatePartitionEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsCreatePartitionEx {}
-impl ::core::fmt::Debug for IVdsCreatePartitionEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsCreatePartitionEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsCreatePartitionEx {
     type Vtable = IVdsCreatePartitionEx_Vtbl;
-}
-impl ::core::clone::Clone for IVdsCreatePartitionEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsCreatePartitionEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9882f547_cfc3_420b_9750_00dfbec50662);
@@ -594,6 +429,7 @@ pub struct IVdsCreatePartitionEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsDisk(::windows_core::IUnknown);
 impl IVdsDisk {
     pub unsafe fn GetProperties(&self, pdiskproperties: *mut VDS_DISK_PROP) -> ::windows_core::Result<()> {
@@ -622,24 +458,8 @@ impl IVdsDisk {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsDisk, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsDisk {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsDisk {}
-impl ::core::fmt::Debug for IVdsDisk {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsDisk").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsDisk {
     type Vtable = IVdsDisk_Vtbl;
-}
-impl ::core::clone::Clone for IVdsDisk {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsDisk {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x07e5c822_f00c_47a1_8fce_b244da56fd06);
@@ -661,6 +481,7 @@ pub struct IVdsDisk_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsDisk2(::windows_core::IUnknown);
 impl IVdsDisk2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -673,24 +494,8 @@ impl IVdsDisk2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsDisk2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsDisk2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsDisk2 {}
-impl ::core::fmt::Debug for IVdsDisk2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsDisk2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsDisk2 {
     type Vtable = IVdsDisk2_Vtbl;
-}
-impl ::core::clone::Clone for IVdsDisk2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsDisk2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x40f73c8b_687d_4a13_8d96_3d7f2e683936);
@@ -706,6 +511,7 @@ pub struct IVdsDisk2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsDisk3(::windows_core::IUnknown);
 impl IVdsDisk3 {
     pub unsafe fn GetProperties2(&self, pdiskproperties: *mut VDS_DISK_PROP2) -> ::windows_core::Result<()> {
@@ -716,24 +522,8 @@ impl IVdsDisk3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsDisk3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsDisk3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsDisk3 {}
-impl ::core::fmt::Debug for IVdsDisk3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsDisk3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsDisk3 {
     type Vtable = IVdsDisk3_Vtbl;
-}
-impl ::core::clone::Clone for IVdsDisk3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsDisk3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f4b2f5d_ec15_4357_992f_473ef10975b9);
@@ -747,6 +537,7 @@ pub struct IVdsDisk3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsDiskOnline(::windows_core::IUnknown);
 impl IVdsDiskOnline {
     pub unsafe fn Online(&self) -> ::windows_core::Result<()> {
@@ -757,24 +548,8 @@ impl IVdsDiskOnline {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsDiskOnline, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsDiskOnline {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsDiskOnline {}
-impl ::core::fmt::Debug for IVdsDiskOnline {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsDiskOnline").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsDiskOnline {
     type Vtable = IVdsDiskOnline_Vtbl;
-}
-impl ::core::clone::Clone for IVdsDiskOnline {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsDiskOnline {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x90681b1d_6a7f_48e8_9061_31b7aa125322);
@@ -788,6 +563,7 @@ pub struct IVdsDiskOnline_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsDiskPartitionMF(::windows_core::IUnknown);
 impl IVdsDiskPartitionMF {
     pub unsafe fn GetPartitionFileSystemProperties(&self, ulloffset: u64, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> ::windows_core::Result<()> {
@@ -815,24 +591,8 @@ impl IVdsDiskPartitionMF {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsDiskPartitionMF, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsDiskPartitionMF {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsDiskPartitionMF {}
-impl ::core::fmt::Debug for IVdsDiskPartitionMF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsDiskPartitionMF").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsDiskPartitionMF {
     type Vtable = IVdsDiskPartitionMF_Vtbl;
-}
-impl ::core::clone::Clone for IVdsDiskPartitionMF {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsDiskPartitionMF {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x538684e0_ba3d_4bc0_aca9_164aff85c2a9);
@@ -851,6 +611,7 @@ pub struct IVdsDiskPartitionMF_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsDiskPartitionMF2(::windows_core::IUnknown);
 impl IVdsDiskPartitionMF2 {
     pub unsafe fn FormatPartitionEx2<P0, P1>(&self, ulloffset: u64, pwszfilesystemtypename: P0, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P1, options: u32) -> ::windows_core::Result<IVdsAsync>
@@ -863,24 +624,8 @@ impl IVdsDiskPartitionMF2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsDiskPartitionMF2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsDiskPartitionMF2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsDiskPartitionMF2 {}
-impl ::core::fmt::Debug for IVdsDiskPartitionMF2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsDiskPartitionMF2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsDiskPartitionMF2 {
     type Vtable = IVdsDiskPartitionMF2_Vtbl;
-}
-impl ::core::clone::Clone for IVdsDiskPartitionMF2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsDiskPartitionMF2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9cbe50ca_f2d2_4bf4_ace1_96896b729625);
@@ -893,6 +638,7 @@ pub struct IVdsDiskPartitionMF2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsDrive(::windows_core::IUnknown);
 impl IVdsDrive {
     pub unsafe fn GetProperties(&self, pdriveprop: *mut VDS_DRIVE_PROP) -> ::windows_core::Result<()> {
@@ -918,24 +664,8 @@ impl IVdsDrive {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsDrive, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsDrive {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsDrive {}
-impl ::core::fmt::Debug for IVdsDrive {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsDrive").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsDrive {
     type Vtable = IVdsDrive_Vtbl;
-}
-impl ::core::clone::Clone for IVdsDrive {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsDrive {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff24efa4_aade_4b6b_898b_eaa6a20887c7);
@@ -956,6 +686,7 @@ pub struct IVdsDrive_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsDrive2(::windows_core::IUnknown);
 impl IVdsDrive2 {
     pub unsafe fn GetProperties2(&self, pdriveprop2: *mut VDS_DRIVE_PROP2) -> ::windows_core::Result<()> {
@@ -963,24 +694,8 @@ impl IVdsDrive2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsDrive2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsDrive2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsDrive2 {}
-impl ::core::fmt::Debug for IVdsDrive2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsDrive2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsDrive2 {
     type Vtable = IVdsDrive2_Vtbl;
-}
-impl ::core::clone::Clone for IVdsDrive2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsDrive2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x60b5a730_addf_4436_8ca7_5769e2d1ffa4);
@@ -993,6 +708,7 @@ pub struct IVdsDrive2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsHbaPort(::windows_core::IUnknown);
 impl IVdsHbaPort {
     pub unsafe fn GetProperties(&self, phbaportprop: *mut VDS_HBAPORT_PROP) -> ::windows_core::Result<()> {
@@ -1003,24 +719,8 @@ impl IVdsHbaPort {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsHbaPort, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsHbaPort {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsHbaPort {}
-impl ::core::fmt::Debug for IVdsHbaPort {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsHbaPort").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsHbaPort {
     type Vtable = IVdsHbaPort_Vtbl;
-}
-impl ::core::clone::Clone for IVdsHbaPort {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsHbaPort {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2abd757f_2851_4997_9a13_47d2a885d6ca);
@@ -1034,6 +734,7 @@ pub struct IVdsHbaPort_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsHwProvider(::windows_core::IUnknown);
 impl IVdsHwProvider {
     pub unsafe fn QuerySubSystems(&self) -> ::windows_core::Result<IEnumVdsObject> {
@@ -1048,24 +749,8 @@ impl IVdsHwProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsHwProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsHwProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsHwProvider {}
-impl ::core::fmt::Debug for IVdsHwProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsHwProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsHwProvider {
     type Vtable = IVdsHwProvider_Vtbl;
-}
-impl ::core::clone::Clone for IVdsHwProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsHwProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd99bdaae_b13a_4178_9fdb_e27f16b4603e);
@@ -1080,6 +765,7 @@ pub struct IVdsHwProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsHwProviderPrivate(::windows_core::IUnknown);
 impl IVdsHwProviderPrivate {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1093,24 +779,8 @@ impl IVdsHwProviderPrivate {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsHwProviderPrivate, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsHwProviderPrivate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsHwProviderPrivate {}
-impl ::core::fmt::Debug for IVdsHwProviderPrivate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsHwProviderPrivate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsHwProviderPrivate {
     type Vtable = IVdsHwProviderPrivate_Vtbl;
-}
-impl ::core::clone::Clone for IVdsHwProviderPrivate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsHwProviderPrivate {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98f17bf3_9f33_4f12_8714_8b4075092c2e);
@@ -1126,6 +796,7 @@ pub struct IVdsHwProviderPrivate_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsHwProviderPrivateMpio(::windows_core::IUnknown);
 impl IVdsHwProviderPrivateMpio {
     pub unsafe fn SetAllPathStatusesFromHbaPort(&self, hbaportprop: VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> ::windows_core::Result<()> {
@@ -1133,24 +804,8 @@ impl IVdsHwProviderPrivateMpio {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsHwProviderPrivateMpio, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsHwProviderPrivateMpio {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsHwProviderPrivateMpio {}
-impl ::core::fmt::Debug for IVdsHwProviderPrivateMpio {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsHwProviderPrivateMpio").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsHwProviderPrivateMpio {
     type Vtable = IVdsHwProviderPrivateMpio_Vtbl;
-}
-impl ::core::clone::Clone for IVdsHwProviderPrivateMpio {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsHwProviderPrivateMpio {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x310a7715_ac2b_4c6f_9827_3d742f351676);
@@ -1163,6 +818,7 @@ pub struct IVdsHwProviderPrivateMpio_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsHwProviderStoragePools(::windows_core::IUnknown);
 impl IVdsHwProviderStoragePools {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1188,24 +844,8 @@ impl IVdsHwProviderStoragePools {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsHwProviderStoragePools, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsHwProviderStoragePools {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsHwProviderStoragePools {}
-impl ::core::fmt::Debug for IVdsHwProviderStoragePools {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsHwProviderStoragePools").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsHwProviderStoragePools {
     type Vtable = IVdsHwProviderStoragePools_Vtbl;
-}
-impl ::core::clone::Clone for IVdsHwProviderStoragePools {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsHwProviderStoragePools {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5b5937a_f188_4c79_b86c_11c920ad11b8);
@@ -1229,6 +869,7 @@ pub struct IVdsHwProviderStoragePools_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsHwProviderType(::windows_core::IUnknown);
 impl IVdsHwProviderType {
     pub unsafe fn GetProviderType(&self) -> ::windows_core::Result<VDS_HWPROVIDER_TYPE> {
@@ -1237,24 +878,8 @@ impl IVdsHwProviderType {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsHwProviderType, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsHwProviderType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsHwProviderType {}
-impl ::core::fmt::Debug for IVdsHwProviderType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsHwProviderType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsHwProviderType {
     type Vtable = IVdsHwProviderType_Vtbl;
-}
-impl ::core::clone::Clone for IVdsHwProviderType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsHwProviderType {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3e0f5166_542d_4fc6_947a_012174240b7e);
@@ -1267,6 +892,7 @@ pub struct IVdsHwProviderType_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsHwProviderType2(::windows_core::IUnknown);
 impl IVdsHwProviderType2 {
     pub unsafe fn GetProviderType2(&self) -> ::windows_core::Result<VDS_HWPROVIDER_TYPE> {
@@ -1275,24 +901,8 @@ impl IVdsHwProviderType2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsHwProviderType2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsHwProviderType2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsHwProviderType2 {}
-impl ::core::fmt::Debug for IVdsHwProviderType2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsHwProviderType2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsHwProviderType2 {
     type Vtable = IVdsHwProviderType2_Vtbl;
-}
-impl ::core::clone::Clone for IVdsHwProviderType2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsHwProviderType2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8190236f_c4d0_4e81_8011_d69512fcc984);
@@ -1305,6 +915,7 @@ pub struct IVdsHwProviderType2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsIscsiInitiatorAdapter(::windows_core::IUnknown);
 impl IVdsIscsiInitiatorAdapter {
     pub unsafe fn GetProperties(&self, pinitiatoradapterprop: *mut VDS_ISCSI_INITIATOR_ADAPTER_PROP) -> ::windows_core::Result<()> {
@@ -1330,24 +941,8 @@ impl IVdsIscsiInitiatorAdapter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsIscsiInitiatorAdapter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsIscsiInitiatorAdapter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsIscsiInitiatorAdapter {}
-impl ::core::fmt::Debug for IVdsIscsiInitiatorAdapter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsIscsiInitiatorAdapter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsIscsiInitiatorAdapter {
     type Vtable = IVdsIscsiInitiatorAdapter_Vtbl;
-}
-impl ::core::clone::Clone for IVdsIscsiInitiatorAdapter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsIscsiInitiatorAdapter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb07fedd4_1682_4440_9189_a39b55194dc5);
@@ -1366,6 +961,7 @@ pub struct IVdsIscsiInitiatorAdapter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsIscsiInitiatorPortal(::windows_core::IUnknown);
 impl IVdsIscsiInitiatorPortal {
     pub unsafe fn GetProperties(&self, pinitiatorportalprop: *mut VDS_ISCSI_INITIATOR_PORTAL_PROP) -> ::windows_core::Result<()> {
@@ -1387,24 +983,8 @@ impl IVdsIscsiInitiatorPortal {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsIscsiInitiatorPortal, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsIscsiInitiatorPortal {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsIscsiInitiatorPortal {}
-impl ::core::fmt::Debug for IVdsIscsiInitiatorPortal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsIscsiInitiatorPortal").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsIscsiInitiatorPortal {
     type Vtable = IVdsIscsiInitiatorPortal_Vtbl;
-}
-impl ::core::clone::Clone for IVdsIscsiInitiatorPortal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsIscsiInitiatorPortal {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38a0a9ab_7cc8_4693_ac07_1f28bd03c3da);
@@ -1421,6 +1001,7 @@ pub struct IVdsIscsiInitiatorPortal_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsIscsiPortal(::windows_core::IUnknown);
 impl IVdsIscsiPortal {
     pub unsafe fn GetProperties(&self, pportalprop: *mut VDS_ISCSI_PORTAL_PROP) -> ::windows_core::Result<()> {
@@ -1449,24 +1030,8 @@ impl IVdsIscsiPortal {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsIscsiPortal, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsIscsiPortal {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsIscsiPortal {}
-impl ::core::fmt::Debug for IVdsIscsiPortal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsIscsiPortal").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsIscsiPortal {
     type Vtable = IVdsIscsiPortal_Vtbl;
-}
-impl ::core::clone::Clone for IVdsIscsiPortal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsIscsiPortal {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7fa1499d_ec85_4a8a_a47b_ff69201fcd34);
@@ -1485,6 +1050,7 @@ pub struct IVdsIscsiPortal_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsIscsiPortalGroup(::windows_core::IUnknown);
 impl IVdsIscsiPortalGroup {
     pub unsafe fn GetProperties(&self, pportalgroupprop: *mut VDS_ISCSI_PORTALGROUP_PROP) -> ::windows_core::Result<()> {
@@ -1512,24 +1078,8 @@ impl IVdsIscsiPortalGroup {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsIscsiPortalGroup, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsIscsiPortalGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsIscsiPortalGroup {}
-impl ::core::fmt::Debug for IVdsIscsiPortalGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsIscsiPortalGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsIscsiPortalGroup {
     type Vtable = IVdsIscsiPortalGroup_Vtbl;
-}
-impl ::core::clone::Clone for IVdsIscsiPortalGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsIscsiPortalGroup {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfef5f89d_a3dd_4b36_bf28_e7dde045c593);
@@ -1547,6 +1097,7 @@ pub struct IVdsIscsiPortalGroup_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsIscsiPortalLocal(::windows_core::IUnknown);
 impl IVdsIscsiPortalLocal {
     pub unsafe fn SetIpsecSecurityLocal(&self, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows_core::Result<()> {
@@ -1554,24 +1105,8 @@ impl IVdsIscsiPortalLocal {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsIscsiPortalLocal, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsIscsiPortalLocal {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsIscsiPortalLocal {}
-impl ::core::fmt::Debug for IVdsIscsiPortalLocal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsIscsiPortalLocal").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsIscsiPortalLocal {
     type Vtable = IVdsIscsiPortalLocal_Vtbl;
-}
-impl ::core::clone::Clone for IVdsIscsiPortalLocal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsIscsiPortalLocal {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad837c28_52c1_421d_bf04_fae7da665396);
@@ -1584,6 +1119,7 @@ pub struct IVdsIscsiPortalLocal_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsIscsiTarget(::windows_core::IUnknown);
 impl IVdsIscsiTarget {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1634,24 +1170,8 @@ impl IVdsIscsiTarget {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsIscsiTarget, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsIscsiTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsIscsiTarget {}
-impl ::core::fmt::Debug for IVdsIscsiTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsIscsiTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsIscsiTarget {
     type Vtable = IVdsIscsiTarget_Vtbl;
-}
-impl ::core::clone::Clone for IVdsIscsiTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsIscsiTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa8f5055_83e5_4bcc_aa73_19851a36a849);
@@ -1676,6 +1196,7 @@ pub struct IVdsIscsiTarget_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsLun(::windows_core::IUnknown);
 impl IVdsLun {
     pub unsafe fn GetProperties(&self, plunprop: *mut VDS_LUN_PROP) -> ::windows_core::Result<()> {
@@ -1749,24 +1270,8 @@ impl IVdsLun {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsLun, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsLun {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsLun {}
-impl ::core::fmt::Debug for IVdsLun {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsLun").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsLun {
     type Vtable = IVdsLun_Vtbl;
-}
-impl ::core::clone::Clone for IVdsLun {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsLun {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3540a9c7_e60f_4111_a840_8bba6c2c83d8);
@@ -1804,6 +1309,7 @@ pub struct IVdsLun_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsLun2(::windows_core::IUnknown);
 impl IVdsLun2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1818,24 +1324,8 @@ impl IVdsLun2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsLun2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsLun2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsLun2 {}
-impl ::core::fmt::Debug for IVdsLun2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsLun2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsLun2 {
     type Vtable = IVdsLun2_Vtbl;
-}
-impl ::core::clone::Clone for IVdsLun2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsLun2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5b3a735_9efb_499a_8071_4394d9ee6fcb);
@@ -1855,6 +1345,7 @@ pub struct IVdsLun2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsLunControllerPorts(::windows_core::IUnknown);
 impl IVdsLunControllerPorts {
     pub unsafe fn AssociateControllerPorts(&self, pactivecontrollerportidarray: &[::windows_core::GUID], pinactivecontrollerportidarray: &[::windows_core::GUID]) -> ::windows_core::Result<()> {
@@ -1866,24 +1357,8 @@ impl IVdsLunControllerPorts {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsLunControllerPorts, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsLunControllerPorts {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsLunControllerPorts {}
-impl ::core::fmt::Debug for IVdsLunControllerPorts {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsLunControllerPorts").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsLunControllerPorts {
     type Vtable = IVdsLunControllerPorts_Vtbl;
-}
-impl ::core::clone::Clone for IVdsLunControllerPorts {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsLunControllerPorts {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x451fe266_da6d_406a_bb60_82e534f85aeb);
@@ -1897,6 +1372,7 @@ pub struct IVdsLunControllerPorts_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsLunIscsi(::windows_core::IUnknown);
 impl IVdsLunIscsi {
     pub unsafe fn AssociateTargets(&self, ptargetidarray: &[::windows_core::GUID]) -> ::windows_core::Result<()> {
@@ -1908,24 +1384,8 @@ impl IVdsLunIscsi {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsLunIscsi, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsLunIscsi {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsLunIscsi {}
-impl ::core::fmt::Debug for IVdsLunIscsi {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsLunIscsi").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsLunIscsi {
     type Vtable = IVdsLunIscsi_Vtbl;
-}
-impl ::core::clone::Clone for IVdsLunIscsi {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsLunIscsi {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d7c1e64_b59b_45ae_b86a_2c2cc6a42067);
@@ -1939,6 +1399,7 @@ pub struct IVdsLunIscsi_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsLunMpio(::windows_core::IUnknown);
 impl IVdsLunMpio {
     pub unsafe fn GetPathInfo(&self, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut i32) -> ::windows_core::Result<()> {
@@ -1960,24 +1421,8 @@ impl IVdsLunMpio {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsLunMpio, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsLunMpio {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsLunMpio {}
-impl ::core::fmt::Debug for IVdsLunMpio {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsLunMpio").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsLunMpio {
     type Vtable = IVdsLunMpio_Vtbl;
-}
-impl ::core::clone::Clone for IVdsLunMpio {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsLunMpio {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c5fbae3_333a_48a1_a982_33c15788cde3);
@@ -1999,6 +1444,7 @@ pub struct IVdsLunMpio_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsLunNaming(::windows_core::IUnknown);
 impl IVdsLunNaming {
     pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> ::windows_core::Result<()>
@@ -2009,24 +1455,8 @@ impl IVdsLunNaming {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsLunNaming, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsLunNaming {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsLunNaming {}
-impl ::core::fmt::Debug for IVdsLunNaming {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsLunNaming").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsLunNaming {
     type Vtable = IVdsLunNaming_Vtbl;
-}
-impl ::core::clone::Clone for IVdsLunNaming {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsLunNaming {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x907504cb_6b4e_4d88_a34d_17ba661fbb06);
@@ -2039,6 +1469,7 @@ pub struct IVdsLunNaming_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsLunNumber(::windows_core::IUnknown);
 impl IVdsLunNumber {
     pub unsafe fn GetLunNumber(&self) -> ::windows_core::Result<u32> {
@@ -2047,24 +1478,8 @@ impl IVdsLunNumber {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsLunNumber, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsLunNumber {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsLunNumber {}
-impl ::core::fmt::Debug for IVdsLunNumber {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsLunNumber").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsLunNumber {
     type Vtable = IVdsLunNumber_Vtbl;
-}
-impl ::core::clone::Clone for IVdsLunNumber {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsLunNumber {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3f95e46_54b3_41f9_b678_0f1871443a08);
@@ -2077,6 +1492,7 @@ pub struct IVdsLunNumber_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsLunPlex(::windows_core::IUnknown);
 impl IVdsLunPlex {
     pub unsafe fn GetProperties(&self, pplexprop: *mut VDS_LUN_PLEX_PROP) -> ::windows_core::Result<()> {
@@ -2103,24 +1519,8 @@ impl IVdsLunPlex {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsLunPlex, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsLunPlex {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsLunPlex {}
-impl ::core::fmt::Debug for IVdsLunPlex {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsLunPlex").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsLunPlex {
     type Vtable = IVdsLunPlex_Vtbl;
-}
-impl ::core::clone::Clone for IVdsLunPlex {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsLunPlex {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ee1a790_5d2e_4abb_8c99_c481e8be2138);
@@ -2146,6 +1546,7 @@ pub struct IVdsLunPlex_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsMaintenance(::windows_core::IUnknown);
 impl IVdsMaintenance {
     pub unsafe fn StartMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> ::windows_core::Result<()> {
@@ -2159,24 +1560,8 @@ impl IVdsMaintenance {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsMaintenance, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsMaintenance {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsMaintenance {}
-impl ::core::fmt::Debug for IVdsMaintenance {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsMaintenance").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsMaintenance {
     type Vtable = IVdsMaintenance_Vtbl;
-}
-impl ::core::clone::Clone for IVdsMaintenance {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsMaintenance {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdaebeef3_8523_47ed_a2b9_05cecce2a1ae);
@@ -2191,6 +1576,7 @@ pub struct IVdsMaintenance_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsOpenVDisk(::windows_core::IUnknown);
 impl IVdsOpenVDisk {
     #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -2232,24 +1618,8 @@ impl IVdsOpenVDisk {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsOpenVDisk, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsOpenVDisk {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsOpenVDisk {}
-impl ::core::fmt::Debug for IVdsOpenVDisk {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsOpenVDisk").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsOpenVDisk {
     type Vtable = IVdsOpenVDisk_Vtbl;
-}
-impl ::core::clone::Clone for IVdsOpenVDisk {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsOpenVDisk {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75c8f324_f715_4fe3_a28e_f9011b61a4a1);
@@ -2285,6 +1655,7 @@ pub struct IVdsOpenVDisk_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsPack(::windows_core::IUnknown);
 impl IVdsPack {
     pub unsafe fn GetProperties(&self, ppackprop: *mut VDS_PACK_PROP) -> ::windows_core::Result<()> {
@@ -2336,24 +1707,8 @@ impl IVdsPack {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsPack, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsPack {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsPack {}
-impl ::core::fmt::Debug for IVdsPack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsPack").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsPack {
     type Vtable = IVdsPack_Vtbl;
-}
-impl ::core::clone::Clone for IVdsPack {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsPack {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b69d7f5_9d94_4648_91ca_79939ba263bf);
@@ -2381,6 +1736,7 @@ pub struct IVdsPack_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsPack2(::windows_core::IUnknown);
 impl IVdsPack2 {
     pub unsafe fn CreateVolume2(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: u32, ulalign: u32) -> ::windows_core::Result<IVdsAsync> {
@@ -2389,24 +1745,8 @@ impl IVdsPack2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsPack2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsPack2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsPack2 {}
-impl ::core::fmt::Debug for IVdsPack2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsPack2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsPack2 {
     type Vtable = IVdsPack2_Vtbl;
-}
-impl ::core::clone::Clone for IVdsPack2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsPack2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13b50bff_290a_47dd_8558_b7c58db1a71a);
@@ -2419,6 +1759,7 @@ pub struct IVdsPack2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsProvider(::windows_core::IUnknown);
 impl IVdsProvider {
     pub unsafe fn GetProperties(&self, pproviderprop: *mut VDS_PROVIDER_PROP) -> ::windows_core::Result<()> {
@@ -2426,24 +1767,8 @@ impl IVdsProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsProvider {}
-impl ::core::fmt::Debug for IVdsProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsProvider {
     type Vtable = IVdsProvider_Vtbl;
-}
-impl ::core::clone::Clone for IVdsProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10c5e575_7984_4e81_a56b_431f5f92ae42);
@@ -2456,6 +1781,7 @@ pub struct IVdsProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsProviderPrivate(::windows_core::IUnknown);
 impl IVdsProviderPrivate {
     pub unsafe fn GetObject(&self, objectid: ::windows_core::GUID, r#type: VDS_OBJECT_TYPE) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -2479,24 +1805,8 @@ impl IVdsProviderPrivate {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsProviderPrivate, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsProviderPrivate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsProviderPrivate {}
-impl ::core::fmt::Debug for IVdsProviderPrivate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsProviderPrivate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsProviderPrivate {
     type Vtable = IVdsProviderPrivate_Vtbl;
-}
-impl ::core::clone::Clone for IVdsProviderPrivate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsProviderPrivate {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11f3cd41_b7e8_48ff_9472_9dff018aa292);
@@ -2514,6 +1824,7 @@ pub struct IVdsProviderPrivate_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsProviderSupport(::windows_core::IUnknown);
 impl IVdsProviderSupport {
     pub unsafe fn GetVersionSupport(&self) -> ::windows_core::Result<u32> {
@@ -2522,24 +1833,8 @@ impl IVdsProviderSupport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsProviderSupport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsProviderSupport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsProviderSupport {}
-impl ::core::fmt::Debug for IVdsProviderSupport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsProviderSupport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsProviderSupport {
     type Vtable = IVdsProviderSupport_Vtbl;
-}
-impl ::core::clone::Clone for IVdsProviderSupport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsProviderSupport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1732be13_e8f9_4a03_bfbc_5f616aa66ce1);
@@ -2552,6 +1847,7 @@ pub struct IVdsProviderSupport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsRemovable(::windows_core::IUnknown);
 impl IVdsRemovable {
     pub unsafe fn QueryMedia(&self) -> ::windows_core::Result<()> {
@@ -2562,24 +1858,8 @@ impl IVdsRemovable {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsRemovable, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsRemovable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsRemovable {}
-impl ::core::fmt::Debug for IVdsRemovable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsRemovable").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsRemovable {
     type Vtable = IVdsRemovable_Vtbl;
-}
-impl ::core::clone::Clone for IVdsRemovable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsRemovable {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0316560b_5db4_4ed9_bbb5_213436ddc0d9);
@@ -2593,6 +1873,7 @@ pub struct IVdsRemovable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsService(::windows_core::IUnknown);
 impl IVdsService {
     pub unsafe fn IsServiceReady(&self) -> ::windows_core::Result<()> {
@@ -2659,24 +1940,8 @@ impl IVdsService {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsService, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsService {}
-impl ::core::fmt::Debug for IVdsService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsService").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsService {
     type Vtable = IVdsService_Vtbl;
-}
-impl ::core::clone::Clone for IVdsService {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsService {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0818a8ef_9ba9_40d8_a6f9_e22833cc771e);
@@ -2708,6 +1973,7 @@ pub struct IVdsService_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsServiceHba(::windows_core::IUnknown);
 impl IVdsServiceHba {
     pub unsafe fn QueryHbaPorts(&self) -> ::windows_core::Result<IEnumVdsObject> {
@@ -2716,24 +1982,8 @@ impl IVdsServiceHba {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsServiceHba, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsServiceHba {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsServiceHba {}
-impl ::core::fmt::Debug for IVdsServiceHba {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsServiceHba").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsServiceHba {
     type Vtable = IVdsServiceHba_Vtbl;
-}
-impl ::core::clone::Clone for IVdsServiceHba {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsServiceHba {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ac13689_3134_47c6_a17c_4669216801be);
@@ -2746,6 +1996,7 @@ pub struct IVdsServiceHba_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsServiceInitialization(::windows_core::IUnknown);
 impl IVdsServiceInitialization {
     pub unsafe fn Initialize<P0>(&self, pwszmachinename: P0) -> ::windows_core::Result<()>
@@ -2756,24 +2007,8 @@ impl IVdsServiceInitialization {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsServiceInitialization, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsServiceInitialization {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsServiceInitialization {}
-impl ::core::fmt::Debug for IVdsServiceInitialization {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsServiceInitialization").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsServiceInitialization {
     type Vtable = IVdsServiceInitialization_Vtbl;
-}
-impl ::core::clone::Clone for IVdsServiceInitialization {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsServiceInitialization {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4afc3636_db01_4052_80c3_03bbcb8d3c69);
@@ -2786,6 +2021,7 @@ pub struct IVdsServiceInitialization_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsServiceIscsi(::windows_core::IUnknown);
 impl IVdsServiceIscsi {
     pub unsafe fn GetInitiatorName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -2813,24 +2049,8 @@ impl IVdsServiceIscsi {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsServiceIscsi, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsServiceIscsi {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsServiceIscsi {}
-impl ::core::fmt::Debug for IVdsServiceIscsi {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsServiceIscsi").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsServiceIscsi {
     type Vtable = IVdsServiceIscsi_Vtbl;
-}
-impl ::core::clone::Clone for IVdsServiceIscsi {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsServiceIscsi {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14fbe036_3ed7_4e10_90e9_a5ff991aff01);
@@ -2849,6 +2069,7 @@ pub struct IVdsServiceIscsi_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsServiceLoader(::windows_core::IUnknown);
 impl IVdsServiceLoader {
     pub unsafe fn LoadService<P0>(&self, pwszmachinename: P0) -> ::windows_core::Result<IVdsService>
@@ -2860,24 +2081,8 @@ impl IVdsServiceLoader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsServiceLoader, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsServiceLoader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsServiceLoader {}
-impl ::core::fmt::Debug for IVdsServiceLoader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsServiceLoader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsServiceLoader {
     type Vtable = IVdsServiceLoader_Vtbl;
-}
-impl ::core::clone::Clone for IVdsServiceLoader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsServiceLoader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0393303_90d4_4a97_ab71_e9b671ee2729);
@@ -2890,6 +2095,7 @@ pub struct IVdsServiceLoader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsServiceSAN(::windows_core::IUnknown);
 impl IVdsServiceSAN {
     pub unsafe fn GetSANPolicy(&self) -> ::windows_core::Result<VDS_SAN_POLICY> {
@@ -2901,24 +2107,8 @@ impl IVdsServiceSAN {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsServiceSAN, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsServiceSAN {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsServiceSAN {}
-impl ::core::fmt::Debug for IVdsServiceSAN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsServiceSAN").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsServiceSAN {
     type Vtable = IVdsServiceSAN_Vtbl;
-}
-impl ::core::clone::Clone for IVdsServiceSAN {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsServiceSAN {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc5d23e8_a88b_41a5_8de0_2d2f73c5a630);
@@ -2932,6 +2122,7 @@ pub struct IVdsServiceSAN_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsServiceSw(::windows_core::IUnknown);
 impl IVdsServiceSw {
     pub unsafe fn GetDiskObject<P0>(&self, pwszdeviceid: P0) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -2943,24 +2134,8 @@ impl IVdsServiceSw {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsServiceSw, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsServiceSw {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsServiceSw {}
-impl ::core::fmt::Debug for IVdsServiceSw {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsServiceSw").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsServiceSw {
     type Vtable = IVdsServiceSw_Vtbl;
-}
-impl ::core::clone::Clone for IVdsServiceSw {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsServiceSw {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15fc031c_0652_4306_b2c3_f558b8f837e2);
@@ -2973,6 +2148,7 @@ pub struct IVdsServiceSw_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsServiceUninstallDisk(::windows_core::IUnknown);
 impl IVdsServiceUninstallDisk {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2991,24 +2167,8 @@ impl IVdsServiceUninstallDisk {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsServiceUninstallDisk, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsServiceUninstallDisk {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsServiceUninstallDisk {}
-impl ::core::fmt::Debug for IVdsServiceUninstallDisk {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsServiceUninstallDisk").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsServiceUninstallDisk {
     type Vtable = IVdsServiceUninstallDisk_Vtbl;
-}
-impl ::core::clone::Clone for IVdsServiceUninstallDisk {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsServiceUninstallDisk {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6b22da8_f903_4be7_b492_c09d875ac9da);
@@ -3028,6 +2188,7 @@ pub struct IVdsServiceUninstallDisk_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsStoragePool(::windows_core::IUnknown);
 impl IVdsStoragePool {
     pub unsafe fn GetProvider(&self) -> ::windows_core::Result<IVdsProvider> {
@@ -3057,24 +2218,8 @@ impl IVdsStoragePool {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsStoragePool, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsStoragePool {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsStoragePool {}
-impl ::core::fmt::Debug for IVdsStoragePool {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsStoragePool").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsStoragePool {
     type Vtable = IVdsStoragePool_Vtbl;
-}
-impl ::core::clone::Clone for IVdsStoragePool {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsStoragePool {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x932ca8cf_0eb3_4ba8_9620_22665d7f8450);
@@ -3098,6 +2243,7 @@ pub struct IVdsStoragePool_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsSubSystem(::windows_core::IUnknown);
 impl IVdsSubSystem {
     pub unsafe fn GetProperties(&self, psubsystemprop: *mut VDS_SUB_SYSTEM_PROP) -> ::windows_core::Result<()> {
@@ -3152,24 +2298,8 @@ impl IVdsSubSystem {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsSubSystem, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsSubSystem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsSubSystem {}
-impl ::core::fmt::Debug for IVdsSubSystem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsSubSystem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsSubSystem {
     type Vtable = IVdsSubSystem_Vtbl;
-}
-impl ::core::clone::Clone for IVdsSubSystem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsSubSystem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fcee2d3_6d90_4f91_80e2_a5c7caaca9d8);
@@ -3199,6 +2329,7 @@ pub struct IVdsSubSystem_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsSubSystem2(::windows_core::IUnknown);
 impl IVdsSubSystem2 {
     pub unsafe fn GetProperties2(&self, psubsystemprop2: *mut VDS_SUB_SYSTEM_PROP2) -> ::windows_core::Result<()> {
@@ -3225,24 +2356,8 @@ impl IVdsSubSystem2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsSubSystem2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsSubSystem2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsSubSystem2 {}
-impl ::core::fmt::Debug for IVdsSubSystem2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsSubSystem2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsSubSystem2 {
     type Vtable = IVdsSubSystem2_Vtbl;
-}
-impl ::core::clone::Clone for IVdsSubSystem2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsSubSystem2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe666735_7800_4a77_9d9c_40f85b87e292);
@@ -3264,6 +2379,7 @@ pub struct IVdsSubSystem2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsSubSystemImportTarget(::windows_core::IUnknown);
 impl IVdsSubSystemImportTarget {
     pub unsafe fn GetImportTarget(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -3278,24 +2394,8 @@ impl IVdsSubSystemImportTarget {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsSubSystemImportTarget, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsSubSystemImportTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsSubSystemImportTarget {}
-impl ::core::fmt::Debug for IVdsSubSystemImportTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsSubSystemImportTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsSubSystemImportTarget {
     type Vtable = IVdsSubSystemImportTarget_Vtbl;
-}
-impl ::core::clone::Clone for IVdsSubSystemImportTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsSubSystemImportTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83bfb87f_43fb_4903_baa6_127f01029eec);
@@ -3309,6 +2409,7 @@ pub struct IVdsSubSystemImportTarget_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsSubSystemInterconnect(::windows_core::IUnknown);
 impl IVdsSubSystemInterconnect {
     pub unsafe fn GetSupportedInterconnects(&self) -> ::windows_core::Result<u32> {
@@ -3317,24 +2418,8 @@ impl IVdsSubSystemInterconnect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsSubSystemInterconnect, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsSubSystemInterconnect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsSubSystemInterconnect {}
-impl ::core::fmt::Debug for IVdsSubSystemInterconnect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsSubSystemInterconnect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsSubSystemInterconnect {
     type Vtable = IVdsSubSystemInterconnect_Vtbl;
-}
-impl ::core::clone::Clone for IVdsSubSystemInterconnect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsSubSystemInterconnect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e6fa560_c141_477b_83ba_0b6c38f7febf);
@@ -3347,6 +2432,7 @@ pub struct IVdsSubSystemInterconnect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsSubSystemIscsi(::windows_core::IUnknown);
 impl IVdsSubSystemIscsi {
     pub unsafe fn QueryTargets(&self) -> ::windows_core::Result<IEnumVdsObject> {
@@ -3370,24 +2456,8 @@ impl IVdsSubSystemIscsi {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsSubSystemIscsi, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsSubSystemIscsi {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsSubSystemIscsi {}
-impl ::core::fmt::Debug for IVdsSubSystemIscsi {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsSubSystemIscsi").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsSubSystemIscsi {
     type Vtable = IVdsSubSystemIscsi_Vtbl;
-}
-impl ::core::clone::Clone for IVdsSubSystemIscsi {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsSubSystemIscsi {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0027346f_40d0_4b45_8cec_5906dc0380c8);
@@ -3403,6 +2473,7 @@ pub struct IVdsSubSystemIscsi_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsSubSystemNaming(::windows_core::IUnknown);
 impl IVdsSubSystemNaming {
     pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> ::windows_core::Result<()>
@@ -3413,24 +2484,8 @@ impl IVdsSubSystemNaming {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsSubSystemNaming, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsSubSystemNaming {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsSubSystemNaming {}
-impl ::core::fmt::Debug for IVdsSubSystemNaming {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsSubSystemNaming").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsSubSystemNaming {
     type Vtable = IVdsSubSystemNaming_Vtbl;
-}
-impl ::core::clone::Clone for IVdsSubSystemNaming {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsSubSystemNaming {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d70faa3_9cd4_4900_aa20_6981b6aafc75);
@@ -3443,6 +2498,7 @@ pub struct IVdsSubSystemNaming_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsSwProvider(::windows_core::IUnknown);
 impl IVdsSwProvider {
     pub unsafe fn QueryPacks(&self) -> ::windows_core::Result<IEnumVdsObject> {
@@ -3455,24 +2511,8 @@ impl IVdsSwProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsSwProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsSwProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsSwProvider {}
-impl ::core::fmt::Debug for IVdsSwProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsSwProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsSwProvider {
     type Vtable = IVdsSwProvider_Vtbl;
-}
-impl ::core::clone::Clone for IVdsSwProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsSwProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9aa58360_ce33_4f92_b658_ed24b14425b8);
@@ -3486,6 +2526,7 @@ pub struct IVdsSwProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsVDisk(::windows_core::IUnknown);
 impl IVdsVDisk {
     #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -3509,24 +2550,8 @@ impl IVdsVDisk {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsVDisk, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsVDisk {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsVDisk {}
-impl ::core::fmt::Debug for IVdsVDisk {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsVDisk").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsVDisk {
     type Vtable = IVdsVDisk_Vtbl;
-}
-impl ::core::clone::Clone for IVdsVDisk {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsVDisk {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e062b84_e5e6_4b4b_8a25_67b81e8f13e8);
@@ -3548,6 +2573,7 @@ pub struct IVdsVDisk_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsVdProvider(::windows_core::IUnknown);
 impl IVdsVdProvider {
     pub unsafe fn QueryVDisks(&self) -> ::windows_core::Result<IEnumVdsObject> {
@@ -3587,24 +2613,8 @@ impl IVdsVdProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsVdProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsVdProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsVdProvider {}
-impl ::core::fmt::Debug for IVdsVdProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsVdProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsVdProvider {
     type Vtable = IVdsVdProvider_Vtbl;
-}
-impl ::core::clone::Clone for IVdsVdProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsVdProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb481498c_8354_45f9_84a0_0bdd2832a91f);
@@ -3627,6 +2637,7 @@ pub struct IVdsVdProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsVolume(::windows_core::IUnknown);
 impl IVdsVolume {
     pub unsafe fn GetProperties(&self, pvolumeproperties: *mut VDS_VOLUME_PROP) -> ::windows_core::Result<()> {
@@ -3681,24 +2692,8 @@ impl IVdsVolume {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsVolume, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsVolume {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsVolume {}
-impl ::core::fmt::Debug for IVdsVolume {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsVolume").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsVolume {
     type Vtable = IVdsVolume_Vtbl;
-}
-impl ::core::clone::Clone for IVdsVolume {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsVolume {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88306bb2_e71f_478c_86a2_79da200a0f11);
@@ -3727,6 +2722,7 @@ pub struct IVdsVolume_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsVolume2(::windows_core::IUnknown);
 impl IVdsVolume2 {
     pub unsafe fn GetProperties2(&self, pvolumeproperties: *mut VDS_VOLUME_PROP2) -> ::windows_core::Result<()> {
@@ -3734,24 +2730,8 @@ impl IVdsVolume2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsVolume2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsVolume2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsVolume2 {}
-impl ::core::fmt::Debug for IVdsVolume2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsVolume2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsVolume2 {
     type Vtable = IVdsVolume2_Vtbl;
-}
-impl ::core::clone::Clone for IVdsVolume2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsVolume2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72ae6713_dcbb_4a03_b36b_371f6ac6b53d);
@@ -3764,6 +2744,7 @@ pub struct IVdsVolume2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsVolumeMF(::windows_core::IUnknown);
 impl IVdsVolumeMF {
     pub unsafe fn GetFileSystemProperties(&self, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> ::windows_core::Result<()> {
@@ -3822,24 +2803,8 @@ impl IVdsVolumeMF {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsVolumeMF, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsVolumeMF {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsVolumeMF {}
-impl ::core::fmt::Debug for IVdsVolumeMF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsVolumeMF").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsVolumeMF {
     type Vtable = IVdsVolumeMF_Vtbl;
-}
-impl ::core::clone::Clone for IVdsVolumeMF {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsVolumeMF {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xee2d5ded_6236_4169_931d_b9778ce03dc6);
@@ -3870,6 +2835,7 @@ pub struct IVdsVolumeMF_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsVolumeMF2(::windows_core::IUnknown);
 impl IVdsVolumeMF2 {
     pub unsafe fn GetFileSystemTypeName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -3894,24 +2860,8 @@ impl IVdsVolumeMF2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsVolumeMF2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsVolumeMF2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsVolumeMF2 {}
-impl ::core::fmt::Debug for IVdsVolumeMF2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsVolumeMF2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsVolumeMF2 {
     type Vtable = IVdsVolumeMF2_Vtbl;
-}
-impl ::core::clone::Clone for IVdsVolumeMF2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsVolumeMF2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4dbcee9a_6343_4651_b85f_5e75d74d983c);
@@ -3929,6 +2879,7 @@ pub struct IVdsVolumeMF2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsVolumeMF3(::windows_core::IUnknown);
 impl IVdsVolumeMF3 {
     pub unsafe fn QueryVolumeGuidPathnames(&self, pwszpatharray: *mut *mut ::windows_core::PWSTR, pulnumberofpaths: *mut u32) -> ::windows_core::Result<()> {
@@ -3947,24 +2898,8 @@ impl IVdsVolumeMF3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsVolumeMF3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsVolumeMF3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsVolumeMF3 {}
-impl ::core::fmt::Debug for IVdsVolumeMF3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsVolumeMF3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsVolumeMF3 {
     type Vtable = IVdsVolumeMF3_Vtbl;
-}
-impl ::core::clone::Clone for IVdsVolumeMF3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsVolumeMF3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6788faf9_214e_4b85_ba59_266953616e09);
@@ -3979,6 +2914,7 @@ pub struct IVdsVolumeMF3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsVolumeOnline(::windows_core::IUnknown);
 impl IVdsVolumeOnline {
     pub unsafe fn Online(&self) -> ::windows_core::Result<()> {
@@ -3986,24 +2922,8 @@ impl IVdsVolumeOnline {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsVolumeOnline, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsVolumeOnline {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsVolumeOnline {}
-impl ::core::fmt::Debug for IVdsVolumeOnline {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsVolumeOnline").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsVolumeOnline {
     type Vtable = IVdsVolumeOnline_Vtbl;
-}
-impl ::core::clone::Clone for IVdsVolumeOnline {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsVolumeOnline {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1be2275a_b315_4f70_9e44_879b3a2a53f2);
@@ -4016,6 +2936,7 @@ pub struct IVdsVolumeOnline_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsVolumePlex(::windows_core::IUnknown);
 impl IVdsVolumePlex {
     pub unsafe fn GetProperties(&self, pplexproperties: *mut VDS_VOLUME_PLEX_PROP) -> ::windows_core::Result<()> {
@@ -4034,24 +2955,8 @@ impl IVdsVolumePlex {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsVolumePlex, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsVolumePlex {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsVolumePlex {}
-impl ::core::fmt::Debug for IVdsVolumePlex {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsVolumePlex").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsVolumePlex {
     type Vtable = IVdsVolumePlex_Vtbl;
-}
-impl ::core::clone::Clone for IVdsVolumePlex {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsVolumePlex {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4daa0135_e1d1_40f1_aaa5_3cc1e53221c3);
@@ -4067,6 +2972,7 @@ pub struct IVdsVolumePlex_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsVolumeShrink(::windows_core::IUnknown);
 impl IVdsVolumeShrink {
     pub unsafe fn QueryMaxReclaimableBytes(&self) -> ::windows_core::Result<u64> {
@@ -4079,24 +2985,8 @@ impl IVdsVolumeShrink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsVolumeShrink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVdsVolumeShrink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVdsVolumeShrink {}
-impl ::core::fmt::Debug for IVdsVolumeShrink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVdsVolumeShrink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVdsVolumeShrink {
     type Vtable = IVdsVolumeShrink_Vtbl;
-}
-impl ::core::clone::Clone for IVdsVolumeShrink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVdsVolumeShrink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd68168c9_82a2_4f85_b6e9_74707c49a58f);

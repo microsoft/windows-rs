@@ -1,34 +1,15 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDummyMBNUCMExt(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDummyMBNUCMExt {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDummyMBNUCMExt, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDummyMBNUCMExt {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDummyMBNUCMExt {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDummyMBNUCMExt {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDummyMBNUCMExt").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDummyMBNUCMExt {
     type Vtable = IDummyMBNUCMExt_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDummyMBNUCMExt {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDummyMBNUCMExt {
@@ -42,6 +23,7 @@ pub struct IDummyMBNUCMExt_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnection(::windows_core::IUnknown);
 impl IMbnConnection {
     pub unsafe fn ConnectionID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -76,24 +58,8 @@ impl IMbnConnection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnConnection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnConnection {}
-impl ::core::fmt::Debug for IMbnConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnConnection {
     type Vtable = IMbnConnection_Vtbl;
-}
-impl ::core::clone::Clone for IMbnConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnConnection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_200d_4bbb_aaee_338e368af6fa);
@@ -112,6 +78,7 @@ pub struct IMbnConnection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionContext(::windows_core::IUnknown);
 impl IMbnConnectionContext {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -129,24 +96,8 @@ impl IMbnConnectionContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnConnectionContext, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnConnectionContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnConnectionContext {}
-impl ::core::fmt::Debug for IMbnConnectionContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnConnectionContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnConnectionContext {
     type Vtable = IMbnConnectionContext_Vtbl;
-}
-impl ::core::clone::Clone for IMbnConnectionContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnConnectionContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_200b_4bbb_aaee_338e368af6fa);
@@ -163,6 +114,7 @@ pub struct IMbnConnectionContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionContextEvents(::windows_core::IUnknown);
 impl IMbnConnectionContextEvents {
     pub unsafe fn OnProvisionedContextListChange<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
@@ -179,24 +131,8 @@ impl IMbnConnectionContextEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnConnectionContextEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnConnectionContextEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnConnectionContextEvents {}
-impl ::core::fmt::Debug for IMbnConnectionContextEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnConnectionContextEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnConnectionContextEvents {
     type Vtable = IMbnConnectionContextEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnConnectionContextEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnConnectionContextEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_200c_4bbb_aaee_338e368af6fa);
@@ -210,6 +146,7 @@ pub struct IMbnConnectionContextEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionEvents(::windows_core::IUnknown);
 impl IMbnConnectionEvents {
     pub unsafe fn OnConnectComplete<P0>(&self, newconnection: P0, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
@@ -238,24 +175,8 @@ impl IMbnConnectionEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnConnectionEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnConnectionEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnConnectionEvents {}
-impl ::core::fmt::Debug for IMbnConnectionEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnConnectionEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnConnectionEvents {
     type Vtable = IMbnConnectionEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnConnectionEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnConnectionEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_200e_4bbb_aaee_338e368af6fa);
@@ -271,6 +192,7 @@ pub struct IMbnConnectionEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionManager(::windows_core::IUnknown);
 impl IMbnConnectionManager {
     pub unsafe fn GetConnection<P0>(&self, connectionid: P0) -> ::windows_core::Result<IMbnConnection>
@@ -288,24 +210,8 @@ impl IMbnConnectionManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnConnectionManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnConnectionManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnConnectionManager {}
-impl ::core::fmt::Debug for IMbnConnectionManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnConnectionManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnConnectionManager {
     type Vtable = IMbnConnectionManager_Vtbl;
-}
-impl ::core::clone::Clone for IMbnConnectionManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnConnectionManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_201d_4bbb_aaee_338e368af6fa);
@@ -322,6 +228,7 @@ pub struct IMbnConnectionManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionManagerEvents(::windows_core::IUnknown);
 impl IMbnConnectionManagerEvents {
     pub unsafe fn OnConnectionArrival<P0>(&self, newconnection: P0) -> ::windows_core::Result<()>
@@ -338,24 +245,8 @@ impl IMbnConnectionManagerEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnConnectionManagerEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnConnectionManagerEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnConnectionManagerEvents {}
-impl ::core::fmt::Debug for IMbnConnectionManagerEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnConnectionManagerEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnConnectionManagerEvents {
     type Vtable = IMbnConnectionManagerEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnConnectionManagerEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnConnectionManagerEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_201e_4bbb_aaee_338e368af6fa);
@@ -369,6 +260,7 @@ pub struct IMbnConnectionManagerEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionProfile(::windows_core::IUnknown);
 impl IMbnConnectionProfile {
     pub unsafe fn GetProfileXmlData(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -386,24 +278,8 @@ impl IMbnConnectionProfile {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnConnectionProfile, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnConnectionProfile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnConnectionProfile {}
-impl ::core::fmt::Debug for IMbnConnectionProfile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnConnectionProfile").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnConnectionProfile {
     type Vtable = IMbnConnectionProfile_Vtbl;
-}
-impl ::core::clone::Clone for IMbnConnectionProfile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnConnectionProfile {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2010_4bbb_aaee_338e368af6fa);
@@ -418,6 +294,7 @@ pub struct IMbnConnectionProfile_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionProfileEvents(::windows_core::IUnknown);
 impl IMbnConnectionProfileEvents {
     pub unsafe fn OnProfileUpdate<P0>(&self, newprofile: P0) -> ::windows_core::Result<()>
@@ -428,24 +305,8 @@ impl IMbnConnectionProfileEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnConnectionProfileEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnConnectionProfileEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnConnectionProfileEvents {}
-impl ::core::fmt::Debug for IMbnConnectionProfileEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnConnectionProfileEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnConnectionProfileEvents {
     type Vtable = IMbnConnectionProfileEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnConnectionProfileEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnConnectionProfileEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2011_4bbb_aaee_338e368af6fa);
@@ -458,6 +319,7 @@ pub struct IMbnConnectionProfileEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionProfileManager(::windows_core::IUnknown);
 impl IMbnConnectionProfileManager {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -485,24 +347,8 @@ impl IMbnConnectionProfileManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnConnectionProfileManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnConnectionProfileManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnConnectionProfileManager {}
-impl ::core::fmt::Debug for IMbnConnectionProfileManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnConnectionProfileManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnConnectionProfileManager {
     type Vtable = IMbnConnectionProfileManager_Vtbl;
-}
-impl ::core::clone::Clone for IMbnConnectionProfileManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnConnectionProfileManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_200f_4bbb_aaee_338e368af6fa);
@@ -520,6 +366,7 @@ pub struct IMbnConnectionProfileManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionProfileManagerEvents(::windows_core::IUnknown);
 impl IMbnConnectionProfileManagerEvents {
     pub unsafe fn OnConnectionProfileArrival<P0>(&self, newconnectionprofile: P0) -> ::windows_core::Result<()>
@@ -536,24 +383,8 @@ impl IMbnConnectionProfileManagerEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnConnectionProfileManagerEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnConnectionProfileManagerEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnConnectionProfileManagerEvents {}
-impl ::core::fmt::Debug for IMbnConnectionProfileManagerEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnConnectionProfileManagerEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnConnectionProfileManagerEvents {
     type Vtable = IMbnConnectionProfileManagerEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnConnectionProfileManagerEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnConnectionProfileManagerEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_201f_4bbb_aaee_338e368af6fa);
@@ -567,6 +398,7 @@ pub struct IMbnConnectionProfileManagerEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnDeviceService(::windows_core::IUnknown);
 impl IMbnDeviceService {
     pub unsafe fn QuerySupportedCommands(&self) -> ::windows_core::Result<u32> {
@@ -629,24 +461,8 @@ impl IMbnDeviceService {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnDeviceService, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnDeviceService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnDeviceService {}
-impl ::core::fmt::Debug for IMbnDeviceService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnDeviceService").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnDeviceService {
     type Vtable = IMbnDeviceService_Vtbl;
-}
-impl ::core::clone::Clone for IMbnDeviceService {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnDeviceService {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3bb9a71_dc70_4be9_a4da_7886ae8b191b);
@@ -685,6 +501,7 @@ pub struct IMbnDeviceService_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnDeviceServiceStateEvents(::windows_core::IUnknown);
 impl IMbnDeviceServiceStateEvents {
     pub unsafe fn OnSessionsStateChange<P0>(&self, interfaceid: P0, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows_core::Result<()>
@@ -695,24 +512,8 @@ impl IMbnDeviceServiceStateEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnDeviceServiceStateEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnDeviceServiceStateEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnDeviceServiceStateEvents {}
-impl ::core::fmt::Debug for IMbnDeviceServiceStateEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnDeviceServiceStateEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnDeviceServiceStateEvents {
     type Vtable = IMbnDeviceServiceStateEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnDeviceServiceStateEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnDeviceServiceStateEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d3ff196_89ee_49d8_8b60_33ffddffc58d);
@@ -725,6 +526,7 @@ pub struct IMbnDeviceServiceStateEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnDeviceServicesContext(::windows_core::IUnknown);
 impl IMbnDeviceServicesContext {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -750,24 +552,8 @@ impl IMbnDeviceServicesContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnDeviceServicesContext, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnDeviceServicesContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnDeviceServicesContext {}
-impl ::core::fmt::Debug for IMbnDeviceServicesContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnDeviceServicesContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnDeviceServicesContext {
     type Vtable = IMbnDeviceServicesContext_Vtbl;
-}
-impl ::core::clone::Clone for IMbnDeviceServicesContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnDeviceServicesContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc5ac347_1592_4068_80bb_6a57580150d8);
@@ -786,6 +572,7 @@ pub struct IMbnDeviceServicesContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnDeviceServicesEvents(::windows_core::IUnknown);
 impl IMbnDeviceServicesEvents {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -866,24 +653,8 @@ impl IMbnDeviceServicesEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnDeviceServicesEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnDeviceServicesEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnDeviceServicesEvents {}
-impl ::core::fmt::Debug for IMbnDeviceServicesEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnDeviceServicesEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnDeviceServicesEvents {
     type Vtable = IMbnDeviceServicesEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnDeviceServicesEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnDeviceServicesEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a900c19_6824_4e97_b76e_cf239d0ca642);
@@ -921,6 +692,7 @@ pub struct IMbnDeviceServicesEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnDeviceServicesManager(::windows_core::IUnknown);
 impl IMbnDeviceServicesManager {
     pub unsafe fn GetDeviceServicesContext<P0>(&self, networkinterfaceid: P0) -> ::windows_core::Result<IMbnDeviceServicesContext>
@@ -932,24 +704,8 @@ impl IMbnDeviceServicesManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnDeviceServicesManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnDeviceServicesManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnDeviceServicesManager {}
-impl ::core::fmt::Debug for IMbnDeviceServicesManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnDeviceServicesManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnDeviceServicesManager {
     type Vtable = IMbnDeviceServicesManager_Vtbl;
-}
-impl ::core::clone::Clone for IMbnDeviceServicesManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnDeviceServicesManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20a26258_6811_4478_ac1d_13324e45e41c);
@@ -962,6 +718,7 @@ pub struct IMbnDeviceServicesManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnInterface(::windows_core::IUnknown);
 impl IMbnInterface {
     pub unsafe fn InterfaceID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -1016,24 +773,8 @@ impl IMbnInterface {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnInterface, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnInterface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnInterface {}
-impl ::core::fmt::Debug for IMbnInterface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnInterface").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnInterface {
     type Vtable = IMbnInterface_Vtbl;
-}
-impl ::core::clone::Clone for IMbnInterface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnInterface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2001_4bbb_aaee_338e368af6fa);
@@ -1068,6 +809,7 @@ pub struct IMbnInterface_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnInterfaceEvents(::windows_core::IUnknown);
 impl IMbnInterfaceEvents {
     pub unsafe fn OnInterfaceCapabilityAvailable<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
@@ -1120,24 +862,8 @@ impl IMbnInterfaceEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnInterfaceEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnInterfaceEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnInterfaceEvents {}
-impl ::core::fmt::Debug for IMbnInterfaceEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnInterfaceEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnInterfaceEvents {
     type Vtable = IMbnInterfaceEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnInterfaceEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnInterfaceEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2002_4bbb_aaee_338e368af6fa);
@@ -1157,6 +883,7 @@ pub struct IMbnInterfaceEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnInterfaceManager(::windows_core::IUnknown);
 impl IMbnInterfaceManager {
     pub unsafe fn GetInterface<P0>(&self, interfaceid: P0) -> ::windows_core::Result<IMbnInterface>
@@ -1174,24 +901,8 @@ impl IMbnInterfaceManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnInterfaceManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnInterfaceManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnInterfaceManager {}
-impl ::core::fmt::Debug for IMbnInterfaceManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnInterfaceManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnInterfaceManager {
     type Vtable = IMbnInterfaceManager_Vtbl;
-}
-impl ::core::clone::Clone for IMbnInterfaceManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnInterfaceManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_201b_4bbb_aaee_338e368af6fa);
@@ -1208,6 +919,7 @@ pub struct IMbnInterfaceManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnInterfaceManagerEvents(::windows_core::IUnknown);
 impl IMbnInterfaceManagerEvents {
     pub unsafe fn OnInterfaceArrival<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
@@ -1224,24 +936,8 @@ impl IMbnInterfaceManagerEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnInterfaceManagerEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnInterfaceManagerEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnInterfaceManagerEvents {}
-impl ::core::fmt::Debug for IMbnInterfaceManagerEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnInterfaceManagerEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnInterfaceManagerEvents {
     type Vtable = IMbnInterfaceManagerEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnInterfaceManagerEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnInterfaceManagerEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_201c_4bbb_aaee_338e368af6fa);
@@ -1255,6 +951,7 @@ pub struct IMbnInterfaceManagerEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnMultiCarrier(::windows_core::IUnknown);
 impl IMbnMultiCarrier {
     pub unsafe fn SetHomeProvider(&self, homeprovider: *const MBN_PROVIDER2) -> ::windows_core::Result<u32> {
@@ -1288,24 +985,8 @@ impl IMbnMultiCarrier {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnMultiCarrier, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnMultiCarrier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnMultiCarrier {}
-impl ::core::fmt::Debug for IMbnMultiCarrier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnMultiCarrier").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnMultiCarrier {
     type Vtable = IMbnMultiCarrier_Vtbl;
-}
-impl ::core::clone::Clone for IMbnMultiCarrier {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnMultiCarrier {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2020_4bbb_aaee_338e368af6fa);
@@ -1332,6 +1013,7 @@ pub struct IMbnMultiCarrier_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnMultiCarrierEvents(::windows_core::IUnknown);
 impl IMbnMultiCarrierEvents {
     pub unsafe fn OnSetHomeProviderComplete<P0>(&self, mbninterface: P0, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
@@ -1366,24 +1048,8 @@ impl IMbnMultiCarrierEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnMultiCarrierEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnMultiCarrierEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnMultiCarrierEvents {}
-impl ::core::fmt::Debug for IMbnMultiCarrierEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnMultiCarrierEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnMultiCarrierEvents {
     type Vtable = IMbnMultiCarrierEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnMultiCarrierEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnMultiCarrierEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcdddab6_2021_4bbb_aaee_338e368af6fa);
@@ -1400,6 +1066,7 @@ pub struct IMbnMultiCarrierEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnPin(::windows_core::IUnknown);
 impl IMbnPin {
     pub unsafe fn PinType(&self) -> ::windows_core::Result<MBN_PIN_TYPE> {
@@ -1465,24 +1132,8 @@ impl IMbnPin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnPin, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnPin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnPin {}
-impl ::core::fmt::Debug for IMbnPin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnPin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnPin {
     type Vtable = IMbnPin_Vtbl;
-}
-impl ::core::clone::Clone for IMbnPin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnPin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2007_4bbb_aaee_338e368af6fa);
@@ -1505,6 +1156,7 @@ pub struct IMbnPin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnPinEvents(::windows_core::IUnknown);
 impl IMbnPinEvents {
     pub unsafe fn OnEnableComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
@@ -1539,24 +1191,8 @@ impl IMbnPinEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnPinEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnPinEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnPinEvents {}
-impl ::core::fmt::Debug for IMbnPinEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnPinEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnPinEvents {
     type Vtable = IMbnPinEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnPinEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnPinEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2008_4bbb_aaee_338e368af6fa);
@@ -1573,6 +1209,7 @@ pub struct IMbnPinEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnPinManager(::windows_core::IUnknown);
 impl IMbnPinManager {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1591,24 +1228,8 @@ impl IMbnPinManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnPinManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnPinManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnPinManager {}
-impl ::core::fmt::Debug for IMbnPinManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnPinManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnPinManager {
     type Vtable = IMbnPinManager_Vtbl;
-}
-impl ::core::clone::Clone for IMbnPinManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnPinManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2005_4bbb_aaee_338e368af6fa);
@@ -1626,6 +1247,7 @@ pub struct IMbnPinManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnPinManagerEvents(::windows_core::IUnknown);
 impl IMbnPinManagerEvents {
     pub unsafe fn OnPinListAvailable<P0>(&self, pinmanager: P0) -> ::windows_core::Result<()>
@@ -1642,24 +1264,8 @@ impl IMbnPinManagerEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnPinManagerEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnPinManagerEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnPinManagerEvents {}
-impl ::core::fmt::Debug for IMbnPinManagerEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnPinManagerEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnPinManagerEvents {
     type Vtable = IMbnPinManagerEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnPinManagerEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnPinManagerEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2006_4bbb_aaee_338e368af6fa);
@@ -1673,6 +1279,7 @@ pub struct IMbnPinManagerEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnRadio(::windows_core::IUnknown);
 impl IMbnRadio {
     pub unsafe fn SoftwareRadioState(&self) -> ::windows_core::Result<MBN_RADIO> {
@@ -1689,24 +1296,8 @@ impl IMbnRadio {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnRadio, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnRadio {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnRadio {}
-impl ::core::fmt::Debug for IMbnRadio {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnRadio").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnRadio {
     type Vtable = IMbnRadio_Vtbl;
-}
-impl ::core::clone::Clone for IMbnRadio {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnRadio {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdccccab6_201f_4bbb_aaee_338e368af6fa);
@@ -1721,6 +1312,7 @@ pub struct IMbnRadio_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnRadioEvents(::windows_core::IUnknown);
 impl IMbnRadioEvents {
     pub unsafe fn OnRadioStateChange<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
@@ -1737,24 +1329,8 @@ impl IMbnRadioEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnRadioEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnRadioEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnRadioEvents {}
-impl ::core::fmt::Debug for IMbnRadioEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnRadioEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnRadioEvents {
     type Vtable = IMbnRadioEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnRadioEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnRadioEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcdddab6_201f_4bbb_aaee_338e368af6fa);
@@ -1768,6 +1344,7 @@ pub struct IMbnRadioEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnRegistration(::windows_core::IUnknown);
 impl IMbnRegistration {
     pub unsafe fn GetRegisterState(&self) -> ::windows_core::Result<MBN_REGISTER_STATE> {
@@ -1815,24 +1392,8 @@ impl IMbnRegistration {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnRegistration, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnRegistration {}
-impl ::core::fmt::Debug for IMbnRegistration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnRegistration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnRegistration {
     type Vtable = IMbnRegistration_Vtbl;
-}
-impl ::core::clone::Clone for IMbnRegistration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnRegistration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2009_4bbb_aaee_338e368af6fa);
@@ -1854,6 +1415,7 @@ pub struct IMbnRegistration_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnRegistrationEvents(::windows_core::IUnknown);
 impl IMbnRegistrationEvents {
     pub unsafe fn OnRegisterModeAvailable<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
@@ -1882,24 +1444,8 @@ impl IMbnRegistrationEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnRegistrationEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnRegistrationEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnRegistrationEvents {}
-impl ::core::fmt::Debug for IMbnRegistrationEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnRegistrationEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnRegistrationEvents {
     type Vtable = IMbnRegistrationEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnRegistrationEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnRegistrationEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_200a_4bbb_aaee_338e368af6fa);
@@ -1915,6 +1461,7 @@ pub struct IMbnRegistrationEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnServiceActivation(::windows_core::IUnknown);
 impl IMbnServiceActivation {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1925,24 +1472,8 @@ impl IMbnServiceActivation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnServiceActivation, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnServiceActivation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnServiceActivation {}
-impl ::core::fmt::Debug for IMbnServiceActivation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnServiceActivation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnServiceActivation {
     type Vtable = IMbnServiceActivation_Vtbl;
-}
-impl ::core::clone::Clone for IMbnServiceActivation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnServiceActivation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2017_4bbb_aaee_338e368af6fa);
@@ -1958,6 +1489,7 @@ pub struct IMbnServiceActivation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnServiceActivationEvents(::windows_core::IUnknown);
 impl IMbnServiceActivationEvents {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1970,24 +1502,8 @@ impl IMbnServiceActivationEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnServiceActivationEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnServiceActivationEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnServiceActivationEvents {}
-impl ::core::fmt::Debug for IMbnServiceActivationEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnServiceActivationEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnServiceActivationEvents {
     type Vtable = IMbnServiceActivationEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnServiceActivationEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnServiceActivationEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2018_4bbb_aaee_338e368af6fa);
@@ -2003,6 +1519,7 @@ pub struct IMbnServiceActivationEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSignal(::windows_core::IUnknown);
 impl IMbnSignal {
     pub unsafe fn GetSignalStrength(&self) -> ::windows_core::Result<u32> {
@@ -2015,24 +1532,8 @@ impl IMbnSignal {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnSignal, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnSignal {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnSignal {}
-impl ::core::fmt::Debug for IMbnSignal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnSignal").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnSignal {
     type Vtable = IMbnSignal_Vtbl;
-}
-impl ::core::clone::Clone for IMbnSignal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnSignal {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2003_4bbb_aaee_338e368af6fa);
@@ -2046,6 +1547,7 @@ pub struct IMbnSignal_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSignalEvents(::windows_core::IUnknown);
 impl IMbnSignalEvents {
     pub unsafe fn OnSignalStateChange<P0>(&self, newinterface: P0) -> ::windows_core::Result<()>
@@ -2056,24 +1558,8 @@ impl IMbnSignalEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnSignalEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnSignalEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnSignalEvents {}
-impl ::core::fmt::Debug for IMbnSignalEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnSignalEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnSignalEvents {
     type Vtable = IMbnSignalEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnSignalEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnSignalEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2004_4bbb_aaee_338e368af6fa);
@@ -2086,6 +1572,7 @@ pub struct IMbnSignalEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSms(::windows_core::IUnknown);
 impl IMbnSms {
     pub unsafe fn GetSmsConfiguration(&self) -> ::windows_core::Result<IMbnSmsConfiguration> {
@@ -2135,24 +1622,8 @@ impl IMbnSms {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnSms, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnSms {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnSms {}
-impl ::core::fmt::Debug for IMbnSms {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnSms").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnSms {
     type Vtable = IMbnSms_Vtbl;
-}
-impl ::core::clone::Clone for IMbnSms {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnSms {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2015_4bbb_aaee_338e368af6fa);
@@ -2178,6 +1649,7 @@ pub struct IMbnSms_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSmsConfiguration(::windows_core::IUnknown);
 impl IMbnSmsConfiguration {
     pub unsafe fn ServiceCenterAddress(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -2207,24 +1679,8 @@ impl IMbnSmsConfiguration {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnSmsConfiguration, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnSmsConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnSmsConfiguration {}
-impl ::core::fmt::Debug for IMbnSmsConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnSmsConfiguration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnSmsConfiguration {
     type Vtable = IMbnSmsConfiguration_Vtbl;
-}
-impl ::core::clone::Clone for IMbnSmsConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnSmsConfiguration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2012_4bbb_aaee_338e368af6fa);
@@ -2242,6 +1698,7 @@ pub struct IMbnSmsConfiguration_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSmsEvents(::windows_core::IUnknown);
 impl IMbnSmsEvents {
     pub unsafe fn OnSmsConfigurationChange<P0>(&self, sms: P0) -> ::windows_core::Result<()>
@@ -2293,24 +1750,8 @@ impl IMbnSmsEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnSmsEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnSmsEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnSmsEvents {}
-impl ::core::fmt::Debug for IMbnSmsEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnSmsEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnSmsEvents {
     type Vtable = IMbnSmsEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnSmsEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnSmsEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2016_4bbb_aaee_338e368af6fa);
@@ -2335,6 +1776,7 @@ pub struct IMbnSmsEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSmsReadMsgPdu(::windows_core::IUnknown);
 impl IMbnSmsReadMsgPdu {
     pub unsafe fn Index(&self) -> ::windows_core::Result<u32> {
@@ -2357,24 +1799,8 @@ impl IMbnSmsReadMsgPdu {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnSmsReadMsgPdu, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnSmsReadMsgPdu {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnSmsReadMsgPdu {}
-impl ::core::fmt::Debug for IMbnSmsReadMsgPdu {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnSmsReadMsgPdu").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnSmsReadMsgPdu {
     type Vtable = IMbnSmsReadMsgPdu_Vtbl;
-}
-impl ::core::clone::Clone for IMbnSmsReadMsgPdu {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnSmsReadMsgPdu {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2013_4bbb_aaee_338e368af6fa);
@@ -2393,6 +1819,7 @@ pub struct IMbnSmsReadMsgPdu_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSmsReadMsgTextCdma(::windows_core::IUnknown);
 impl IMbnSmsReadMsgTextCdma {
     pub unsafe fn Index(&self) -> ::windows_core::Result<u32> {
@@ -2431,24 +1858,8 @@ impl IMbnSmsReadMsgTextCdma {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnSmsReadMsgTextCdma, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnSmsReadMsgTextCdma {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnSmsReadMsgTextCdma {}
-impl ::core::fmt::Debug for IMbnSmsReadMsgTextCdma {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnSmsReadMsgTextCdma").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnSmsReadMsgTextCdma {
     type Vtable = IMbnSmsReadMsgTextCdma_Vtbl;
-}
-impl ::core::clone::Clone for IMbnSmsReadMsgTextCdma {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnSmsReadMsgTextCdma {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2014_4bbb_aaee_338e368af6fa);
@@ -2471,6 +1882,7 @@ pub struct IMbnSmsReadMsgTextCdma_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSubscriberInformation(::windows_core::IUnknown);
 impl IMbnSubscriberInformation {
     pub unsafe fn SubscriberID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -2489,24 +1901,8 @@ impl IMbnSubscriberInformation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnSubscriberInformation, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnSubscriberInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnSubscriberInformation {}
-impl ::core::fmt::Debug for IMbnSubscriberInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnSubscriberInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnSubscriberInformation {
     type Vtable = IMbnSubscriberInformation_Vtbl;
-}
-impl ::core::clone::Clone for IMbnSubscriberInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnSubscriberInformation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x459ecc43_bcf5_11dc_a8a8_001321f1405f);
@@ -2524,6 +1920,7 @@ pub struct IMbnSubscriberInformation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnVendorSpecificEvents(::windows_core::IUnknown);
 impl IMbnVendorSpecificEvents {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2544,24 +1941,8 @@ impl IMbnVendorSpecificEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnVendorSpecificEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnVendorSpecificEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnVendorSpecificEvents {}
-impl ::core::fmt::Debug for IMbnVendorSpecificEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnVendorSpecificEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnVendorSpecificEvents {
     type Vtable = IMbnVendorSpecificEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMbnVendorSpecificEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnVendorSpecificEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_201a_4bbb_aaee_338e368af6fa);
@@ -2581,6 +1962,7 @@ pub struct IMbnVendorSpecificEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnVendorSpecificOperation(::windows_core::IUnknown);
 impl IMbnVendorSpecificOperation {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2591,24 +1973,8 @@ impl IMbnVendorSpecificOperation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMbnVendorSpecificOperation, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMbnVendorSpecificOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMbnVendorSpecificOperation {}
-impl ::core::fmt::Debug for IMbnVendorSpecificOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMbnVendorSpecificOperation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMbnVendorSpecificOperation {
     type Vtable = IMbnVendorSpecificOperation_Vtbl;
-}
-impl ::core::clone::Clone for IMbnVendorSpecificOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMbnVendorSpecificOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcbbbab6_2019_4bbb_aaee_338e368af6fa);

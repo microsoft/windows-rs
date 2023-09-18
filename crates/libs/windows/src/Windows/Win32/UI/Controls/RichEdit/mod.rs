@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRichEditOle(::windows_core::IUnknown);
 impl IRichEditOle {
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -89,24 +90,8 @@ impl IRichEditOle {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRichEditOle, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRichEditOle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRichEditOle {}
-impl ::core::fmt::Debug for IRichEditOle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRichEditOle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRichEditOle {
     type Vtable = IRichEditOle_Vtbl;
-}
-impl ::core::clone::Clone for IRichEditOle {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRichEditOle {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00020d00_0000_0000_c000_000000000046);
@@ -158,6 +143,7 @@ pub struct IRichEditOle_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRichEditOleCallback(::windows_core::IUnknown);
 impl IRichEditOleCallback {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -236,24 +222,8 @@ impl IRichEditOleCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRichEditOleCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRichEditOleCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRichEditOleCallback {}
-impl ::core::fmt::Debug for IRichEditOleCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRichEditOleCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRichEditOleCallback {
     type Vtable = IRichEditOleCallback_Vtbl;
-}
-impl ::core::clone::Clone for IRichEditOleCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRichEditOleCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00020d03_0000_0000_c000_000000000046);
@@ -305,6 +275,7 @@ pub struct IRichEditOleCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRicheditUiaOverrides(::windows_core::IUnknown);
 impl IRicheditUiaOverrides {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -314,24 +285,8 @@ impl IRicheditUiaOverrides {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRicheditUiaOverrides, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRicheditUiaOverrides {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRicheditUiaOverrides {}
-impl ::core::fmt::Debug for IRicheditUiaOverrides {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRicheditUiaOverrides").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRicheditUiaOverrides {
     type Vtable = IRicheditUiaOverrides_Vtbl;
-}
-impl ::core::clone::Clone for IRicheditUiaOverrides {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRicheditUiaOverrides {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -348,34 +303,15 @@ pub struct IRicheditUiaOverrides_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextDisplays(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextDisplays {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextDisplays, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextDisplays {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextDisplays {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextDisplays {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextDisplays").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextDisplays {
     type Vtable = ITextDisplays_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextDisplays {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextDisplays {
@@ -390,6 +326,7 @@ pub struct ITextDisplays_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextDocument(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextDocument {
@@ -478,28 +415,8 @@ impl ITextDocument {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextDocument, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextDocument {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextDocument").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextDocument {
     type Vtable = ITextDocument_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextDocument {
@@ -551,6 +468,7 @@ pub struct ITextDocument_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextDocument2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextDocument2 {
@@ -830,28 +748,8 @@ impl ITextDocument2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextDocument2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextDocument);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextDocument2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextDocument2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextDocument2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextDocument2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextDocument2 {
     type Vtable = ITextDocument2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextDocument2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextDocument2 {
@@ -940,6 +838,7 @@ pub struct ITextDocument2_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextDocument2Old(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextDocument2Old {
@@ -1129,28 +1028,8 @@ impl ITextDocument2Old {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextDocument2Old, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextDocument);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextDocument2Old {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextDocument2Old {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextDocument2Old {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextDocument2Old").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextDocument2Old {
     type Vtable = ITextDocument2Old_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextDocument2Old {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextDocument2Old {
@@ -1204,6 +1083,7 @@ pub struct ITextDocument2Old_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextFont(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextFont {
@@ -1419,28 +1299,8 @@ impl ITextFont {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextFont, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextFont {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextFont {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextFont {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextFont").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextFont {
     type Vtable = ITextFont_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextFont {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextFont {
@@ -1519,6 +1379,7 @@ pub struct ITextFont_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextFont2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextFont2 {
@@ -1906,28 +1767,8 @@ impl ITextFont2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextFont2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextFont);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextFont2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextFont2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextFont2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextFont2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextFont2 {
     type Vtable = ITextFont2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextFont2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextFont2 {
@@ -1996,6 +1837,7 @@ pub struct ITextFont2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextHost(::windows_core::IUnknown);
 impl ITextHost {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -2205,24 +2047,8 @@ impl ITextHost {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextHost, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITextHost {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextHost {}
-impl ::core::fmt::Debug for ITextHost {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextHost").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITextHost {
     type Vtable = ITextHost_Vtbl;
-}
-impl ::core::clone::Clone for ITextHost {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextHost {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -2348,6 +2174,7 @@ pub struct ITextHost_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextHost2(::windows_core::IUnknown);
 impl ITextHost2 {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -2611,24 +2438,8 @@ impl ITextHost2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextHost2, ::windows_core::IUnknown, ITextHost);
-impl ::core::cmp::PartialEq for ITextHost2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextHost2 {}
-impl ::core::fmt::Debug for ITextHost2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextHost2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITextHost2 {
     type Vtable = ITextHost2_Vtbl;
-}
-impl ::core::clone::Clone for ITextHost2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextHost2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -2668,6 +2479,7 @@ pub struct ITextHost2_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextPara(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextPara {
@@ -2855,28 +2667,8 @@ impl ITextPara {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextPara, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextPara {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextPara {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextPara {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextPara").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextPara {
     type Vtable = ITextPara_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextPara {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextPara {
@@ -2948,6 +2740,7 @@ pub struct ITextPara_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextPara2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextPara2 {
@@ -3203,28 +2996,8 @@ impl ITextPara2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextPara2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextPara);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextPara2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextPara2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextPara2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextPara2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextPara2 {
     type Vtable = ITextPara2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextPara2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextPara2 {
@@ -3264,6 +3037,7 @@ pub struct ITextPara2_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextRange(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextRange {
@@ -3529,28 +3303,8 @@ impl ITextRange {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextRange, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextRange {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextRange").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextRange {
     type Vtable = ITextRange_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextRange {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextRange {
@@ -3676,6 +3430,7 @@ pub struct ITextRange_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextRange2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextRange2 {
@@ -4164,28 +3919,8 @@ impl ITextRange2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextRange2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange, ITextSelection);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextRange2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextRange2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextRange2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextRange2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextRange2 {
     type Vtable = ITextRange2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextRange2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextRange2 {
@@ -4270,6 +4005,7 @@ pub struct ITextRange2_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextRow(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextRow {
@@ -4441,28 +4177,8 @@ impl ITextRow {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextRow, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextRow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextRow {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextRow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextRow").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextRow {
     type Vtable = ITextRow_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextRow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextRow {
@@ -4526,6 +4242,7 @@ pub struct ITextRow_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextSelection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextSelection {
@@ -4832,28 +4549,8 @@ impl ITextSelection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextSelection, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextSelection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextSelection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextSelection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextSelection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextSelection {
     type Vtable = ITextSelection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextSelection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextSelection {
@@ -4878,6 +4575,7 @@ pub struct ITextSelection_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextSelection2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextSelection2 {
@@ -5366,28 +5064,8 @@ impl ITextSelection2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextSelection2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange, ITextSelection, ITextRange2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextSelection2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextSelection2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextSelection2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextSelection2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextSelection2 {
     type Vtable = ITextSelection2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextSelection2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextSelection2 {
@@ -5401,6 +5079,7 @@ pub struct ITextSelection2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextServices(::windows_core::IUnknown);
 impl ITextServices {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5501,24 +5180,8 @@ impl ITextServices {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextServices, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITextServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextServices {}
-impl ::core::fmt::Debug for ITextServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextServices").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITextServices {
     type Vtable = ITextServices_Vtbl;
-}
-impl ::core::clone::Clone for ITextServices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextServices {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -5575,6 +5238,7 @@ pub struct ITextServices_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextServices2(::windows_core::IUnknown);
 impl ITextServices2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5692,24 +5356,8 @@ impl ITextServices2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextServices2, ::windows_core::IUnknown, ITextServices);
-impl ::core::cmp::PartialEq for ITextServices2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextServices2 {}
-impl ::core::fmt::Debug for ITextServices2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextServices2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITextServices2 {
     type Vtable = ITextServices2_Vtbl;
-}
-impl ::core::clone::Clone for ITextServices2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextServices2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -5729,6 +5377,7 @@ pub struct ITextServices2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextStory(::windows_core::IUnknown);
 impl ITextStory {
     pub unsafe fn GetActive(&self) -> ::windows_core::Result<i32> {
@@ -5784,24 +5433,8 @@ impl ITextStory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextStory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITextStory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextStory {}
-impl ::core::fmt::Debug for ITextStory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextStory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITextStory {
     type Vtable = ITextStory_Vtbl;
-}
-impl ::core::clone::Clone for ITextStory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextStory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc241f5f3_7206_11d8_a2c7_00a0d1d6c6b3);
@@ -5829,6 +5462,7 @@ pub struct ITextStory_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextStoryRanges(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextStoryRanges {
@@ -5850,28 +5484,8 @@ impl ITextStoryRanges {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextStoryRanges, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextStoryRanges {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextStoryRanges {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextStoryRanges {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextStoryRanges").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextStoryRanges {
     type Vtable = ITextStoryRanges_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextStoryRanges {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextStoryRanges {
@@ -5892,6 +5506,7 @@ pub struct ITextStoryRanges_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextStoryRanges2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextStoryRanges2 {
@@ -5919,28 +5534,8 @@ impl ITextStoryRanges2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextStoryRanges2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextStoryRanges);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextStoryRanges2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextStoryRanges2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextStoryRanges2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextStoryRanges2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextStoryRanges2 {
     type Vtable = ITextStoryRanges2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextStoryRanges2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextStoryRanges2 {
@@ -5959,6 +5554,7 @@ pub struct ITextStoryRanges2_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextStrings(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextStrings {
@@ -6058,28 +5654,8 @@ impl ITextStrings {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextStrings, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ITextStrings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ITextStrings {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ITextStrings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextStrings").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ITextStrings {
     type Vtable = ITextStrings_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ITextStrings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ITextStrings {

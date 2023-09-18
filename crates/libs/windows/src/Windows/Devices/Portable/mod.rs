@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IServiceDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IServiceDeviceStatics {
     type Vtable = IServiceDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IServiceDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IServiceDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa88214e1_59c7_4a20_aba6_9f6707937230);
@@ -21,14 +17,10 @@ pub struct IServiceDeviceStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorageDeviceStatics {
     type Vtable = IStorageDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IStorageDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ece44ee_1b23_4dd2_8652_bc164f003128);

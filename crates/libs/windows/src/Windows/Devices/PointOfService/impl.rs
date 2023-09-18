@@ -24,8 +24,8 @@ impl ICashDrawerEventSourceEventArgs_Vtbl {
             CashDrawer: CashDrawer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICashDrawerEventSourceEventArgs as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICashDrawerEventSourceEventArgs as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"implement\"`*"]
@@ -257,8 +257,8 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             ValidateData: ValidateData::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICommonClaimedPosPrinterStation as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICommonClaimedPosPrinterStation as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -446,8 +446,8 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             SupportedCharactersPerLine: SupportedCharactersPerLine::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICommonPosPrintStationCapabilities as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICommonPosPrintStationCapabilities as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -584,8 +584,8 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             SupportedBitmapRotations: SupportedBitmapRotations::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICommonReceiptSlipCapabilities as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICommonReceiptSlipCapabilities as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -638,8 +638,8 @@ impl IPosPrinterJob_Vtbl {
             ExecuteAsync: ExecuteAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPosPrinterJob as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPosPrinterJob as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Graphics_Imaging\"`, `\"implement\"`*"]
@@ -762,7 +762,7 @@ impl IReceiptOrSlipJob_Vtbl {
             PrintBitmapCustomWidthCustomAlign: PrintBitmapCustomWidthCustomAlign::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IReceiptOrSlipJob as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IReceiptOrSlipJob as ::windows_core::ComInterface>::IID
     }
 }

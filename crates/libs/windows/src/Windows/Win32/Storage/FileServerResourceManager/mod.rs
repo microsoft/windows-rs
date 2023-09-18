@@ -1,34 +1,15 @@
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DIFsrmClassificationEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DIFsrmClassificationEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(DIFsrmClassificationEvents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for DIFsrmClassificationEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for DIFsrmClassificationEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for DIFsrmClassificationEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DIFsrmClassificationEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for DIFsrmClassificationEvents {
     type Vtable = DIFsrmClassificationEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for DIFsrmClassificationEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for DIFsrmClassificationEvents {
@@ -43,6 +24,7 @@ pub struct DIFsrmClassificationEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmAccessDeniedRemediationClient(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmAccessDeniedRemediationClient {
@@ -59,28 +41,8 @@ impl IFsrmAccessDeniedRemediationClient {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmAccessDeniedRemediationClient, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmAccessDeniedRemediationClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmAccessDeniedRemediationClient {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmAccessDeniedRemediationClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmAccessDeniedRemediationClient").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmAccessDeniedRemediationClient {
     type Vtable = IFsrmAccessDeniedRemediationClient_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmAccessDeniedRemediationClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmAccessDeniedRemediationClient {
@@ -96,6 +58,7 @@ pub struct IFsrmAccessDeniedRemediationClient_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmAction(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmAction {
@@ -121,28 +84,8 @@ impl IFsrmAction {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmAction, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmAction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmAction {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmAction").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmAction {
     type Vtable = IFsrmAction_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmAction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmAction {
@@ -162,6 +105,7 @@ pub struct IFsrmAction_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmActionCommand(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmActionCommand {
@@ -259,28 +203,8 @@ impl IFsrmActionCommand {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmActionCommand, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmActionCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmActionCommand {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmActionCommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmActionCommand").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmActionCommand {
     type Vtable = IFsrmActionCommand_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmActionCommand {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmActionCommand {
@@ -321,6 +245,7 @@ pub struct IFsrmActionCommand_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmActionEmail(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmActionEmail {
@@ -416,28 +341,8 @@ impl IFsrmActionEmail {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmActionEmail, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmActionEmail {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmActionEmail {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmActionEmail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmActionEmail").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmActionEmail {
     type Vtable = IFsrmActionEmail_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmActionEmail {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmActionEmail {
@@ -466,6 +371,7 @@ pub struct IFsrmActionEmail_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmActionEmail2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmActionEmail2 {
@@ -568,28 +474,8 @@ impl IFsrmActionEmail2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmActionEmail2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction, IFsrmActionEmail);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmActionEmail2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmActionEmail2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmActionEmail2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmActionEmail2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmActionEmail2 {
     type Vtable = IFsrmActionEmail2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmActionEmail2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmActionEmail2 {
@@ -606,6 +492,7 @@ pub struct IFsrmActionEmail2_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmActionEventLog(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmActionEventLog {
@@ -648,28 +535,8 @@ impl IFsrmActionEventLog {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmActionEventLog, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmActionEventLog {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmActionEventLog {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmActionEventLog {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmActionEventLog").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmActionEventLog {
     type Vtable = IFsrmActionEventLog_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmActionEventLog {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmActionEventLog {
@@ -688,6 +555,7 @@ pub struct IFsrmActionEventLog_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmActionReport(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmActionReport {
@@ -734,28 +602,8 @@ impl IFsrmActionReport {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmActionReport, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmActionReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmActionReport {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmActionReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmActionReport").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmActionReport {
     type Vtable = IFsrmActionReport_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmActionReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmActionReport {
@@ -780,6 +628,7 @@ pub struct IFsrmActionReport_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmAutoApplyQuota(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmAutoApplyQuota {
@@ -897,28 +746,8 @@ impl IFsrmAutoApplyQuota {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmAutoApplyQuota, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase, IFsrmQuotaObject);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmAutoApplyQuota {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmAutoApplyQuota {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmAutoApplyQuota {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmAutoApplyQuota").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmAutoApplyQuota {
     type Vtable = IFsrmAutoApplyQuota_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmAutoApplyQuota {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmAutoApplyQuota {
@@ -945,6 +774,7 @@ pub struct IFsrmAutoApplyQuota_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmClassificationManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmClassificationManager {
@@ -1118,28 +948,8 @@ impl IFsrmClassificationManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmClassificationManager, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmClassificationManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmClassificationManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmClassificationManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmClassificationManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmClassificationManager {
     type Vtable = IFsrmClassificationManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmClassificationManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmClassificationManager {
@@ -1229,6 +1039,7 @@ pub struct IFsrmClassificationManager_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmClassificationManager2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmClassificationManager2 {
@@ -1407,28 +1218,8 @@ impl IFsrmClassificationManager2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmClassificationManager2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmClassificationManager);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmClassificationManager2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmClassificationManager2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmClassificationManager2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmClassificationManager2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmClassificationManager2 {
     type Vtable = IFsrmClassificationManager2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmClassificationManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmClassificationManager2 {
@@ -1447,6 +1238,7 @@ pub struct IFsrmClassificationManager2_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmClassificationRule(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmClassificationRule {
@@ -1560,28 +1352,8 @@ impl IFsrmClassificationRule {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmClassificationRule, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmRule);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmClassificationRule {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmClassificationRule {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmClassificationRule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmClassificationRule").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmClassificationRule {
     type Vtable = IFsrmClassificationRule_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmClassificationRule {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmClassificationRule {
@@ -1602,6 +1374,7 @@ pub struct IFsrmClassificationRule_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmClassifierModuleDefinition(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmClassifierModuleDefinition {
@@ -1766,28 +1539,8 @@ impl IFsrmClassifierModuleDefinition {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmClassifierModuleDefinition, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmPipelineModuleDefinition);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmClassifierModuleDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmClassifierModuleDefinition {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmClassifierModuleDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmClassifierModuleDefinition").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmClassifierModuleDefinition {
     type Vtable = IFsrmClassifierModuleDefinition_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmClassifierModuleDefinition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmClassifierModuleDefinition {
@@ -1826,6 +1579,7 @@ pub struct IFsrmClassifierModuleDefinition_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmClassifierModuleImplementation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmClassifierModuleImplementation {
@@ -1886,28 +1640,8 @@ impl IFsrmClassifierModuleImplementation {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmClassifierModuleImplementation, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmPipelineModuleImplementation);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmClassifierModuleImplementation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmClassifierModuleImplementation {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmClassifierModuleImplementation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmClassifierModuleImplementation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmClassifierModuleImplementation {
     type Vtable = IFsrmClassifierModuleImplementation_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmClassifierModuleImplementation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmClassifierModuleImplementation {
@@ -1940,6 +1674,7 @@ pub struct IFsrmClassifierModuleImplementation_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmCollection {
@@ -1980,28 +1715,8 @@ impl IFsrmCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmCollection {
     type Vtable = IFsrmCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmCollection {
@@ -2032,6 +1747,7 @@ pub struct IFsrmCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmCommittableCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmCommittableCollection {
@@ -2095,28 +1811,8 @@ impl IFsrmCommittableCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmCommittableCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmCollection, IFsrmMutableCollection);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmCommittableCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmCommittableCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmCommittableCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmCommittableCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmCommittableCollection {
     type Vtable = IFsrmCommittableCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmCommittableCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmCommittableCollection {
@@ -2135,6 +1831,7 @@ pub struct IFsrmCommittableCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmDerivedObjectsResult(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmDerivedObjectsResult {
@@ -2154,28 +1851,8 @@ impl IFsrmDerivedObjectsResult {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmDerivedObjectsResult, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmDerivedObjectsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmDerivedObjectsResult {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmDerivedObjectsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmDerivedObjectsResult").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmDerivedObjectsResult {
     type Vtable = IFsrmDerivedObjectsResult_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmDerivedObjectsResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmDerivedObjectsResult {
@@ -2198,6 +1875,7 @@ pub struct IFsrmDerivedObjectsResult_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmExportImport(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmExportImport {
@@ -2262,28 +1940,8 @@ impl IFsrmExportImport {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmExportImport, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmExportImport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmExportImport {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmExportImport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmExportImport").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmExportImport {
     type Vtable = IFsrmExportImport_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmExportImport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmExportImport {
@@ -2322,6 +1980,7 @@ pub struct IFsrmExportImport_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmFileCondition(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileCondition {
@@ -2336,28 +1995,8 @@ impl IFsrmFileCondition {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmFileCondition, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmFileCondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmFileCondition {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmFileCondition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmFileCondition").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmFileCondition {
     type Vtable = IFsrmFileCondition_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmFileCondition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmFileCondition {
@@ -2374,6 +2013,7 @@ pub struct IFsrmFileCondition_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmFileConditionProperty(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileConditionProperty {
@@ -2430,28 +2070,8 @@ impl IFsrmFileConditionProperty {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmFileConditionProperty, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmFileCondition);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmFileConditionProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmFileConditionProperty {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmFileConditionProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmFileConditionProperty").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmFileConditionProperty {
     type Vtable = IFsrmFileConditionProperty_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmFileConditionProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmFileConditionProperty {
@@ -2482,6 +2102,7 @@ pub struct IFsrmFileConditionProperty_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmFileGroup(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileGroup {
@@ -2547,28 +2168,8 @@ impl IFsrmFileGroup {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmFileGroup, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmFileGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmFileGroup {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmFileGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmFileGroup").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmFileGroup {
     type Vtable = IFsrmFileGroup_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmFileGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmFileGroup {
@@ -2601,6 +2202,7 @@ pub struct IFsrmFileGroup_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmFileGroupImported(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileGroupImported {
@@ -2680,28 +2282,8 @@ impl IFsrmFileGroupImported {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmFileGroupImported, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileGroup);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmFileGroupImported {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmFileGroupImported {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmFileGroupImported {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmFileGroupImported").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmFileGroupImported {
     type Vtable = IFsrmFileGroupImported_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmFileGroupImported {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmFileGroupImported {
@@ -2724,6 +2306,7 @@ pub struct IFsrmFileGroupImported_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmFileGroupManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileGroupManager {
@@ -2767,28 +2350,8 @@ impl IFsrmFileGroupManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmFileGroupManager, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmFileGroupManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmFileGroupManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmFileGroupManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmFileGroupManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmFileGroupManager {
     type Vtable = IFsrmFileGroupManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmFileGroupManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmFileGroupManager {
@@ -2823,6 +2386,7 @@ pub struct IFsrmFileGroupManager_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmFileManagementJob(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileManagementJob {
@@ -3085,28 +2649,8 @@ impl IFsrmFileManagementJob {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmFileManagementJob, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmFileManagementJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmFileManagementJob {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmFileManagementJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmFileManagementJob").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmFileManagementJob {
     type Vtable = IFsrmFileManagementJob_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmFileManagementJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmFileManagementJob {
@@ -3224,6 +2768,7 @@ pub struct IFsrmFileManagementJob_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmFileManagementJobManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileManagementJobManager {
@@ -3264,28 +2809,8 @@ impl IFsrmFileManagementJobManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmFileManagementJobManager, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmFileManagementJobManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmFileManagementJobManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmFileManagementJobManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmFileManagementJobManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmFileManagementJobManager {
     type Vtable = IFsrmFileManagementJobManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmFileManagementJobManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmFileManagementJobManager {
@@ -3320,6 +2845,7 @@ pub struct IFsrmFileManagementJobManager_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmFileScreen(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreen {
@@ -3408,28 +2934,8 @@ impl IFsrmFileScreen {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmFileScreen, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileScreenBase);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmFileScreen {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmFileScreen {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmFileScreen {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmFileScreen").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmFileScreen {
     type Vtable = IFsrmFileScreen_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmFileScreen {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmFileScreen {
@@ -3453,6 +2959,7 @@ pub struct IFsrmFileScreen_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmFileScreenBase(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreenBase {
@@ -3513,28 +3020,8 @@ impl IFsrmFileScreenBase {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmFileScreenBase, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmFileScreenBase {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmFileScreenBase {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmFileScreenBase {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmFileScreenBase").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmFileScreenBase {
     type Vtable = IFsrmFileScreenBase_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmFileScreenBase {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmFileScreenBase {
@@ -3567,6 +3054,7 @@ pub struct IFsrmFileScreenBase_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmFileScreenException(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreenException {
@@ -3612,28 +3100,8 @@ impl IFsrmFileScreenException {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmFileScreenException, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmFileScreenException {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmFileScreenException {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmFileScreenException {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmFileScreenException").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmFileScreenException {
     type Vtable = IFsrmFileScreenException_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmFileScreenException {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmFileScreenException {
@@ -3657,6 +3125,7 @@ pub struct IFsrmFileScreenException_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmFileScreenManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreenManager {
@@ -3736,28 +3205,8 @@ impl IFsrmFileScreenManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmFileScreenManager, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmFileScreenManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmFileScreenManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmFileScreenManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmFileScreenManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmFileScreenManager {
     type Vtable = IFsrmFileScreenManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmFileScreenManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmFileScreenManager {
@@ -3808,6 +3257,7 @@ pub struct IFsrmFileScreenManager_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmFileScreenTemplate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreenTemplate {
@@ -3890,28 +3340,8 @@ impl IFsrmFileScreenTemplate {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmFileScreenTemplate, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileScreenBase);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmFileScreenTemplate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmFileScreenTemplate {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmFileScreenTemplate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmFileScreenTemplate").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmFileScreenTemplate {
     type Vtable = IFsrmFileScreenTemplate_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmFileScreenTemplate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmFileScreenTemplate {
@@ -3933,6 +3363,7 @@ pub struct IFsrmFileScreenTemplate_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmFileScreenTemplateImported(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreenTemplateImported {
@@ -4029,28 +3460,8 @@ impl IFsrmFileScreenTemplateImported {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmFileScreenTemplateImported, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileScreenBase, IFsrmFileScreenTemplate);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmFileScreenTemplateImported {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmFileScreenTemplateImported {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmFileScreenTemplateImported {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmFileScreenTemplateImported").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmFileScreenTemplateImported {
     type Vtable = IFsrmFileScreenTemplateImported_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmFileScreenTemplateImported {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmFileScreenTemplateImported {
@@ -4073,6 +3484,7 @@ pub struct IFsrmFileScreenTemplateImported_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmFileScreenTemplateManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreenTemplateManager {
@@ -4116,28 +3528,8 @@ impl IFsrmFileScreenTemplateManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmFileScreenTemplateManager, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmFileScreenTemplateManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmFileScreenTemplateManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmFileScreenTemplateManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmFileScreenTemplateManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmFileScreenTemplateManager {
     type Vtable = IFsrmFileScreenTemplateManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmFileScreenTemplateManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmFileScreenTemplateManager {
@@ -4172,6 +3564,7 @@ pub struct IFsrmFileScreenTemplateManager_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmMutableCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmMutableCollection {
@@ -4229,28 +3622,8 @@ impl IFsrmMutableCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmMutableCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmCollection);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmMutableCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmMutableCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmMutableCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmMutableCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmMutableCollection {
     type Vtable = IFsrmMutableCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmMutableCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmMutableCollection {
@@ -4275,6 +3648,7 @@ pub struct IFsrmMutableCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmObject(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmObject {
@@ -4302,28 +3676,8 @@ impl IFsrmObject {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmObject, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmObject {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmObject").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmObject {
     type Vtable = IFsrmObject_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmObject {
@@ -4343,6 +3697,7 @@ pub struct IFsrmObject_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmPathMapper(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPathMapper {
@@ -4359,28 +3714,8 @@ impl IFsrmPathMapper {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmPathMapper, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmPathMapper {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmPathMapper {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmPathMapper {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmPathMapper").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmPathMapper {
     type Vtable = IFsrmPathMapper_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmPathMapper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmPathMapper {
@@ -4399,6 +3734,7 @@ pub struct IFsrmPathMapper_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmPipelineModuleConnector(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPipelineModuleConnector {
@@ -4433,28 +3769,8 @@ impl IFsrmPipelineModuleConnector {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmPipelineModuleConnector, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmPipelineModuleConnector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmPipelineModuleConnector {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmPipelineModuleConnector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmPipelineModuleConnector").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmPipelineModuleConnector {
     type Vtable = IFsrmPipelineModuleConnector_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmPipelineModuleConnector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmPipelineModuleConnector {
@@ -4480,6 +3796,7 @@ pub struct IFsrmPipelineModuleConnector_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmPipelineModuleDefinition(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPipelineModuleDefinition {
@@ -4608,28 +3925,8 @@ impl IFsrmPipelineModuleDefinition {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmPipelineModuleDefinition, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmPipelineModuleDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmPipelineModuleDefinition {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmPipelineModuleDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmPipelineModuleDefinition").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmPipelineModuleDefinition {
     type Vtable = IFsrmPipelineModuleDefinition_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmPipelineModuleDefinition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmPipelineModuleDefinition {
@@ -4687,6 +3984,7 @@ pub struct IFsrmPipelineModuleDefinition_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmPipelineModuleImplementation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPipelineModuleImplementation {
@@ -4706,28 +4004,8 @@ impl IFsrmPipelineModuleImplementation {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmPipelineModuleImplementation, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmPipelineModuleImplementation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmPipelineModuleImplementation {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmPipelineModuleImplementation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmPipelineModuleImplementation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmPipelineModuleImplementation {
     type Vtable = IFsrmPipelineModuleImplementation_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmPipelineModuleImplementation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmPipelineModuleImplementation {
@@ -4747,6 +4025,7 @@ pub struct IFsrmPipelineModuleImplementation_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmProperty(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmProperty {
@@ -4772,28 +4051,8 @@ impl IFsrmProperty {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmProperty, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmProperty {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmProperty").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmProperty {
     type Vtable = IFsrmProperty_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmProperty {
@@ -4815,6 +4074,7 @@ pub struct IFsrmProperty_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmPropertyBag(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyBag {
@@ -4936,28 +4196,8 @@ impl IFsrmPropertyBag {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmPropertyBag, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmPropertyBag {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmPropertyBag {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmPropertyBag {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmPropertyBag").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmPropertyBag {
     type Vtable = IFsrmPropertyBag_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmPropertyBag {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmPropertyBag {
@@ -5026,6 +4266,7 @@ pub struct IFsrmPropertyBag_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmPropertyBag2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyBag2 {
@@ -5159,28 +4400,8 @@ impl IFsrmPropertyBag2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmPropertyBag2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmPropertyBag);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmPropertyBag2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmPropertyBag2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmPropertyBag2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmPropertyBag2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmPropertyBag2 {
     type Vtable = IFsrmPropertyBag2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmPropertyBag2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmPropertyBag2 {
@@ -5203,6 +4424,7 @@ pub struct IFsrmPropertyBag2_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmPropertyCondition(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyCondition {
@@ -5240,28 +4462,8 @@ impl IFsrmPropertyCondition {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmPropertyCondition, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmPropertyCondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmPropertyCondition {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmPropertyCondition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmPropertyCondition").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmPropertyCondition {
     type Vtable = IFsrmPropertyCondition_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmPropertyCondition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmPropertyCondition {
@@ -5283,6 +4485,7 @@ pub struct IFsrmPropertyCondition_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmPropertyDefinition(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyDefinition {
@@ -5360,28 +4563,8 @@ impl IFsrmPropertyDefinition {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmPropertyDefinition, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmPropertyDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmPropertyDefinition {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmPropertyDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmPropertyDefinition").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmPropertyDefinition {
     type Vtable = IFsrmPropertyDefinition_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmPropertyDefinition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmPropertyDefinition {
@@ -5424,6 +4607,7 @@ pub struct IFsrmPropertyDefinition_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmPropertyDefinition2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyDefinition2 {
@@ -5525,28 +4709,8 @@ impl IFsrmPropertyDefinition2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmPropertyDefinition2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmPropertyDefinition);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmPropertyDefinition2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmPropertyDefinition2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmPropertyDefinition2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmPropertyDefinition2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmPropertyDefinition2 {
     type Vtable = IFsrmPropertyDefinition2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmPropertyDefinition2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmPropertyDefinition2 {
@@ -5569,6 +4733,7 @@ pub struct IFsrmPropertyDefinition2_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmPropertyDefinitionValue(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyDefinitionValue {
@@ -5592,28 +4757,8 @@ impl IFsrmPropertyDefinitionValue {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmPropertyDefinitionValue, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmPropertyDefinitionValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmPropertyDefinitionValue {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmPropertyDefinitionValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmPropertyDefinitionValue").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmPropertyDefinitionValue {
     type Vtable = IFsrmPropertyDefinitionValue_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmPropertyDefinitionValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmPropertyDefinitionValue {
@@ -5632,6 +4777,7 @@ pub struct IFsrmPropertyDefinitionValue_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmQuota(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuota {
@@ -5754,28 +4900,8 @@ impl IFsrmQuota {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmQuota, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase, IFsrmQuotaObject);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmQuota {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmQuota {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmQuota {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmQuota").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmQuota {
     type Vtable = IFsrmQuota_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmQuota {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmQuota {
@@ -5801,6 +4927,7 @@ pub struct IFsrmQuota_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmQuotaBase(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaBase {
@@ -5873,28 +5000,8 @@ impl IFsrmQuotaBase {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmQuotaBase, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmQuotaBase {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmQuotaBase {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmQuotaBase {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmQuotaBase").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmQuotaBase {
     type Vtable = IFsrmQuotaBase_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmQuotaBase {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmQuotaBase {
@@ -5934,6 +5041,7 @@ pub struct IFsrmQuotaBase_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmQuotaManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaManager {
@@ -6038,28 +5146,8 @@ impl IFsrmQuotaManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmQuotaManager, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmQuotaManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmQuotaManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmQuotaManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmQuotaManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmQuotaManager {
     type Vtable = IFsrmQuotaManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmQuotaManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmQuotaManager {
@@ -6119,6 +5207,7 @@ pub struct IFsrmQuotaManager_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmQuotaManagerEx(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaManagerEx {
@@ -6232,28 +5321,8 @@ impl IFsrmQuotaManagerEx {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmQuotaManagerEx, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmQuotaManager);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmQuotaManagerEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmQuotaManagerEx {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmQuotaManagerEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmQuotaManagerEx").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmQuotaManagerEx {
     type Vtable = IFsrmQuotaManagerEx_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmQuotaManagerEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmQuotaManagerEx {
@@ -6272,6 +5341,7 @@ pub struct IFsrmQuotaManagerEx_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmQuotaObject(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaObject {
@@ -6372,28 +5442,8 @@ impl IFsrmQuotaObject {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmQuotaObject, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmQuotaObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmQuotaObject {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmQuotaObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmQuotaObject").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmQuotaObject {
     type Vtable = IFsrmQuotaObject_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmQuotaObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmQuotaObject {
@@ -6417,6 +5467,7 @@ pub struct IFsrmQuotaObject_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmQuotaTemplate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaTemplate {
@@ -6511,28 +5562,8 @@ impl IFsrmQuotaTemplate {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmQuotaTemplate, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmQuotaTemplate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmQuotaTemplate {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmQuotaTemplate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmQuotaTemplate").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmQuotaTemplate {
     type Vtable = IFsrmQuotaTemplate_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmQuotaTemplate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmQuotaTemplate {
@@ -6554,6 +5585,7 @@ pub struct IFsrmQuotaTemplate_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmQuotaTemplateImported(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaTemplateImported {
@@ -6662,28 +5694,8 @@ impl IFsrmQuotaTemplateImported {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmQuotaTemplateImported, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase, IFsrmQuotaTemplate);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmQuotaTemplateImported {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmQuotaTemplateImported {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmQuotaTemplateImported {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmQuotaTemplateImported").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmQuotaTemplateImported {
     type Vtable = IFsrmQuotaTemplateImported_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmQuotaTemplateImported {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmQuotaTemplateImported {
@@ -6706,6 +5718,7 @@ pub struct IFsrmQuotaTemplateImported_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmQuotaTemplateManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaTemplateManager {
@@ -6749,28 +5762,8 @@ impl IFsrmQuotaTemplateManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmQuotaTemplateManager, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmQuotaTemplateManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmQuotaTemplateManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmQuotaTemplateManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmQuotaTemplateManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmQuotaTemplateManager {
     type Vtable = IFsrmQuotaTemplateManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmQuotaTemplateManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmQuotaTemplateManager {
@@ -6805,6 +5798,7 @@ pub struct IFsrmQuotaTemplateManager_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmReport(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmReport {
@@ -6854,28 +5848,8 @@ impl IFsrmReport {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmReport, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmReport {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmReport").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmReport {
     type Vtable = IFsrmReport_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmReport {
@@ -6905,6 +5879,7 @@ pub struct IFsrmReport_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmReportJob(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmReportJob {
@@ -7014,28 +5989,8 @@ impl IFsrmReportJob {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmReportJob, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmReportJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmReportJob {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmReportJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmReportJob").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmReportJob {
     type Vtable = IFsrmReportJob_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmReportJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmReportJob {
@@ -7088,6 +6043,7 @@ pub struct IFsrmReportJob_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmReportManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmReportManager {
@@ -7154,28 +6110,8 @@ impl IFsrmReportManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmReportManager, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmReportManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmReportManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmReportManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmReportManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmReportManager {
     type Vtable = IFsrmReportManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmReportManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmReportManager {
@@ -7224,6 +6160,7 @@ pub struct IFsrmReportManager_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmReportScheduler(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmReportScheduler {
@@ -7260,28 +6197,8 @@ impl IFsrmReportScheduler {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmReportScheduler, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmReportScheduler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmReportScheduler {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmReportScheduler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmReportScheduler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmReportScheduler {
     type Vtable = IFsrmReportScheduler_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmReportScheduler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmReportScheduler {
@@ -7309,6 +6226,7 @@ pub struct IFsrmReportScheduler_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmRule(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmRule {
@@ -7395,28 +6313,8 @@ impl IFsrmRule {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmRule, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmRule {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmRule {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmRule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmRule").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmRule {
     type Vtable = IFsrmRule_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmRule {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmRule {
@@ -7458,6 +6356,7 @@ pub struct IFsrmRule_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmSetting(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmSetting {
@@ -7536,28 +6435,8 @@ impl IFsrmSetting {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmSetting, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmSetting {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmSetting {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmSetting {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmSetting").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmSetting {
     type Vtable = IFsrmSetting_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmSetting {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmSetting {
@@ -7597,6 +6476,7 @@ pub struct IFsrmSetting_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmStorageModuleDefinition(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmStorageModuleDefinition {
@@ -7753,28 +6633,8 @@ impl IFsrmStorageModuleDefinition {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmStorageModuleDefinition, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmPipelineModuleDefinition);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmStorageModuleDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmStorageModuleDefinition {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmStorageModuleDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmStorageModuleDefinition").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmStorageModuleDefinition {
     type Vtable = IFsrmStorageModuleDefinition_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmStorageModuleDefinition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmStorageModuleDefinition {
@@ -7801,6 +6661,7 @@ pub struct IFsrmStorageModuleDefinition_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsrmStorageModuleImplementation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmStorageModuleImplementation {
@@ -7844,28 +6705,8 @@ impl IFsrmStorageModuleImplementation {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFsrmStorageModuleImplementation, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmPipelineModuleImplementation);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFsrmStorageModuleImplementation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFsrmStorageModuleImplementation {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFsrmStorageModuleImplementation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFsrmStorageModuleImplementation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IFsrmStorageModuleImplementation {
     type Vtable = IFsrmStorageModuleImplementation_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFsrmStorageModuleImplementation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IFsrmStorageModuleImplementation {

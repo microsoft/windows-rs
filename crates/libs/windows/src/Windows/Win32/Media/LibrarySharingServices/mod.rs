@@ -1,6 +1,7 @@
 #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsMediaLibrarySharingDevice(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingDevice {
@@ -25,28 +26,8 @@ impl IWindowsMediaLibrarySharingDevice {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWindowsMediaLibrarySharingDevice, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWindowsMediaLibrarySharingDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWindowsMediaLibrarySharingDevice {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWindowsMediaLibrarySharingDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsMediaLibrarySharingDevice").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWindowsMediaLibrarySharingDevice {
     type Vtable = IWindowsMediaLibrarySharingDevice_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWindowsMediaLibrarySharingDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWindowsMediaLibrarySharingDevice {
@@ -68,6 +49,7 @@ pub struct IWindowsMediaLibrarySharingDevice_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsMediaLibrarySharingDeviceProperties(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingDeviceProperties {
@@ -94,28 +76,8 @@ impl IWindowsMediaLibrarySharingDeviceProperties {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWindowsMediaLibrarySharingDeviceProperties, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWindowsMediaLibrarySharingDeviceProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWindowsMediaLibrarySharingDeviceProperties {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWindowsMediaLibrarySharingDeviceProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsMediaLibrarySharingDeviceProperties").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWindowsMediaLibrarySharingDeviceProperties {
     type Vtable = IWindowsMediaLibrarySharingDeviceProperties_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWindowsMediaLibrarySharingDeviceProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWindowsMediaLibrarySharingDeviceProperties {
@@ -139,6 +101,7 @@ pub struct IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsMediaLibrarySharingDeviceProperty(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingDeviceProperty {
@@ -156,28 +119,8 @@ impl IWindowsMediaLibrarySharingDeviceProperty {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWindowsMediaLibrarySharingDeviceProperty, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWindowsMediaLibrarySharingDeviceProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWindowsMediaLibrarySharingDeviceProperty {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWindowsMediaLibrarySharingDeviceProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsMediaLibrarySharingDeviceProperty").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWindowsMediaLibrarySharingDeviceProperty {
     type Vtable = IWindowsMediaLibrarySharingDeviceProperty_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWindowsMediaLibrarySharingDeviceProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWindowsMediaLibrarySharingDeviceProperty {
@@ -197,6 +140,7 @@ pub struct IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsMediaLibrarySharingDevices(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingDevices {
@@ -223,28 +167,8 @@ impl IWindowsMediaLibrarySharingDevices {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWindowsMediaLibrarySharingDevices, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWindowsMediaLibrarySharingDevices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWindowsMediaLibrarySharingDevices {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWindowsMediaLibrarySharingDevices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsMediaLibrarySharingDevices").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWindowsMediaLibrarySharingDevices {
     type Vtable = IWindowsMediaLibrarySharingDevices_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWindowsMediaLibrarySharingDevices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWindowsMediaLibrarySharingDevices {
@@ -268,6 +192,7 @@ pub struct IWindowsMediaLibrarySharingDevices_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsMediaLibrarySharingServices(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingServices {
@@ -402,28 +327,8 @@ impl IWindowsMediaLibrarySharingServices {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWindowsMediaLibrarySharingServices, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWindowsMediaLibrarySharingServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWindowsMediaLibrarySharingServices {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWindowsMediaLibrarySharingServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsMediaLibrarySharingServices").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWindowsMediaLibrarySharingServices {
     type Vtable = IWindowsMediaLibrarySharingServices_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWindowsMediaLibrarySharingServices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWindowsMediaLibrarySharingServices {

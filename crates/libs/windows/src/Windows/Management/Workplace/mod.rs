@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMdmAllowPolicyStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMdmAllowPolicyStatics {
     type Vtable = IMdmAllowPolicyStatics_Vtbl;
-}
-impl ::core::clone::Clone for IMdmAllowPolicyStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMdmAllowPolicyStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc39709e7_741c_41f2_a4b6_314c31502586);
@@ -23,14 +19,10 @@ pub struct IMdmAllowPolicyStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMdmPolicyStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMdmPolicyStatics2 {
     type Vtable = IMdmPolicyStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IMdmPolicyStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMdmPolicyStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc99c7526_03d4_49f9_a993_43efccd265c4);
@@ -43,14 +35,10 @@ pub struct IMdmPolicyStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWorkplaceSettingsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWorkplaceSettingsStatics {
     type Vtable = IWorkplaceSettingsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IWorkplaceSettingsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWorkplaceSettingsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe4676ffd_2d92_4c08_bad4_f6590b54a6d3);

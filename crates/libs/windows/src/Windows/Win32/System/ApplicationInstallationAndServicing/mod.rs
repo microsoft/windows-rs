@@ -3244,6 +3244,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAssemblyCache(::windows_core::IUnknown);
 impl IAssemblyCache {
     pub unsafe fn UninstallAssembly<P0>(&self, dwflags: u32, pszassemblyname: P0, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> ::windows_core::Result<()>
@@ -3276,24 +3277,8 @@ impl IAssemblyCache {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAssemblyCache, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAssemblyCache {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAssemblyCache {}
-impl ::core::fmt::Debug for IAssemblyCache {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAssemblyCache").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAssemblyCache {
     type Vtable = IAssemblyCache_Vtbl;
-}
-impl ::core::clone::Clone for IAssemblyCache {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAssemblyCache {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe707dcde_d1cd_11d2_bab9_00c04f8eceae);
@@ -3310,6 +3295,7 @@ pub struct IAssemblyCache_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAssemblyCacheItem(::windows_core::IUnknown);
 impl IAssemblyCacheItem {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3328,24 +3314,8 @@ impl IAssemblyCacheItem {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAssemblyCacheItem, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAssemblyCacheItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAssemblyCacheItem {}
-impl ::core::fmt::Debug for IAssemblyCacheItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAssemblyCacheItem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAssemblyCacheItem {
     type Vtable = IAssemblyCacheItem_Vtbl;
-}
-impl ::core::clone::Clone for IAssemblyCacheItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAssemblyCacheItem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e3aaeb4_d1cd_11d2_bab9_00c04f8eceae);
@@ -3363,6 +3333,7 @@ pub struct IAssemblyCacheItem_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAssemblyName(::windows_core::IUnknown);
 impl IAssemblyName {
     pub unsafe fn SetProperty(&self, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, cbproperty: u32) -> ::windows_core::Result<()> {
@@ -3403,24 +3374,8 @@ impl IAssemblyName {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAssemblyName, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAssemblyName {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAssemblyName {}
-impl ::core::fmt::Debug for IAssemblyName {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAssemblyName").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAssemblyName {
     type Vtable = IAssemblyName_Vtbl;
-}
-impl ::core::clone::Clone for IAssemblyName {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAssemblyName {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd193bc0_b4bc_11d2_9833_00c04fc31d2e);
@@ -3441,6 +3396,7 @@ pub struct IAssemblyName_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumMsmDependency(::windows_core::IUnknown);
 impl IEnumMsmDependency {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3460,24 +3416,8 @@ impl IEnumMsmDependency {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumMsmDependency, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumMsmDependency {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumMsmDependency {}
-impl ::core::fmt::Debug for IEnumMsmDependency {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumMsmDependency").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumMsmDependency {
     type Vtable = IEnumMsmDependency_Vtbl;
-}
-impl ::core::clone::Clone for IEnumMsmDependency {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumMsmDependency {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0adda82c_2c26_11d2_ad65_00a0c9af11a6);
@@ -3496,6 +3436,7 @@ pub struct IEnumMsmDependency_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumMsmError(::windows_core::IUnknown);
 impl IEnumMsmError {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3515,24 +3456,8 @@ impl IEnumMsmError {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumMsmError, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumMsmError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumMsmError {}
-impl ::core::fmt::Debug for IEnumMsmError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumMsmError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumMsmError {
     type Vtable = IEnumMsmError_Vtbl;
-}
-impl ::core::clone::Clone for IEnumMsmError {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumMsmError {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0adda829_2c26_11d2_ad65_00a0c9af11a6);
@@ -3551,6 +3476,7 @@ pub struct IEnumMsmError_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumMsmString(::windows_core::IUnknown);
 impl IEnumMsmString {
     pub unsafe fn Next(&self, cfetch: u32, rgbstrstrings: *mut ::windows_core::BSTR, pcfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -3568,24 +3494,8 @@ impl IEnumMsmString {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumMsmString, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumMsmString {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumMsmString {}
-impl ::core::fmt::Debug for IEnumMsmString {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumMsmString").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumMsmString {
     type Vtable = IEnumMsmString_Vtbl;
-}
-impl ::core::clone::Clone for IEnumMsmString {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumMsmString {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0adda826_2c26_11d2_ad65_00a0c9af11a6);
@@ -3602,6 +3512,7 @@ pub struct IEnumMsmString_Vtbl {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMsmDependencies(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmDependencies {
@@ -3622,28 +3533,8 @@ impl IMsmDependencies {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMsmDependencies, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMsmDependencies {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMsmDependencies {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMsmDependencies {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMsmDependencies").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMsmDependencies {
     type Vtable = IMsmDependencies_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMsmDependencies {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMsmDependencies {
@@ -3664,6 +3555,7 @@ pub struct IMsmDependencies_Vtbl {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMsmDependency(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmDependency {
@@ -3680,28 +3572,8 @@ impl IMsmDependency {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMsmDependency, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMsmDependency {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMsmDependency {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMsmDependency {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMsmDependency").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMsmDependency {
     type Vtable = IMsmDependency_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMsmDependency {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMsmDependency {
@@ -3719,6 +3591,7 @@ pub struct IMsmDependency_Vtbl {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMsmError(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmError {
@@ -3753,28 +3626,8 @@ impl IMsmError {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMsmError, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMsmError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMsmError {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMsmError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMsmError").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMsmError {
     type Vtable = IMsmError_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMsmError {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMsmError {
@@ -3802,6 +3655,7 @@ pub struct IMsmError_Vtbl {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMsmErrors(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmErrors {
@@ -3822,28 +3676,8 @@ impl IMsmErrors {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMsmErrors, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMsmErrors {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMsmErrors {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMsmErrors {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMsmErrors").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMsmErrors {
     type Vtable = IMsmErrors_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMsmErrors {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMsmErrors {
@@ -3864,6 +3698,7 @@ pub struct IMsmErrors_Vtbl {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMsmGetFiles(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmGetFiles {
@@ -3877,28 +3712,8 @@ impl IMsmGetFiles {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMsmGetFiles, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMsmGetFiles {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMsmGetFiles {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMsmGetFiles {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMsmGetFiles").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMsmGetFiles {
     type Vtable = IMsmGetFiles_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMsmGetFiles {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMsmGetFiles {
@@ -3917,6 +3732,7 @@ pub struct IMsmGetFiles_Vtbl {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMsmMerge(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmMerge {
@@ -3999,28 +3815,8 @@ impl IMsmMerge {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMsmMerge, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMsmMerge {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMsmMerge {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMsmMerge {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMsmMerge").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMsmMerge {
     type Vtable = IMsmMerge_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMsmMerge {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMsmMerge {
@@ -4057,6 +3853,7 @@ pub struct IMsmMerge_Vtbl {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMsmStrings(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmStrings {
@@ -4074,28 +3871,8 @@ impl IMsmStrings {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMsmStrings, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMsmStrings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMsmStrings {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMsmStrings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMsmStrings").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMsmStrings {
     type Vtable = IMsmStrings_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMsmStrings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMsmStrings {
@@ -4112,6 +3889,7 @@ pub struct IMsmStrings_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMApplicationInfo(::windows_core::IUnknown);
 impl IPMApplicationInfo {
     pub unsafe fn ProductID(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -4398,24 +4176,8 @@ impl IPMApplicationInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMApplicationInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMApplicationInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMApplicationInfo {}
-impl ::core::fmt::Debug for IPMApplicationInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMApplicationInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMApplicationInfo {
     type Vtable = IPMApplicationInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPMApplicationInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMApplicationInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50afb58a_438c_4088_9789_f8c4899829c7);
@@ -4569,6 +4331,7 @@ pub struct IPMApplicationInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMApplicationInfoEnumerator(::windows_core::IUnknown);
 impl IPMApplicationInfoEnumerator {
     pub unsafe fn Next(&self) -> ::windows_core::Result<IPMApplicationInfo> {
@@ -4577,24 +4340,8 @@ impl IPMApplicationInfoEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMApplicationInfoEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMApplicationInfoEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMApplicationInfoEnumerator {}
-impl ::core::fmt::Debug for IPMApplicationInfoEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMApplicationInfoEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMApplicationInfoEnumerator {
     type Vtable = IPMApplicationInfoEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IPMApplicationInfoEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMApplicationInfoEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ec42a96_4d46_4dc6_a3d9_a7acaac0f5fa);
@@ -4607,6 +4354,7 @@ pub struct IPMApplicationInfoEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMBackgroundServiceAgentInfo(::windows_core::IUnknown);
 impl IPMBackgroundServiceAgentInfo {
     pub unsafe fn ProductID(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -4677,24 +4425,8 @@ impl IPMBackgroundServiceAgentInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMBackgroundServiceAgentInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMBackgroundServiceAgentInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMBackgroundServiceAgentInfo {}
-impl ::core::fmt::Debug for IPMBackgroundServiceAgentInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMBackgroundServiceAgentInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMBackgroundServiceAgentInfo {
     type Vtable = IPMBackgroundServiceAgentInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPMBackgroundServiceAgentInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMBackgroundServiceAgentInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a8b46da_928c_4879_998c_09dc96f3d490);
@@ -4738,6 +4470,7 @@ pub struct IPMBackgroundServiceAgentInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMBackgroundServiceAgentInfoEnumerator(::windows_core::IUnknown);
 impl IPMBackgroundServiceAgentInfoEnumerator {
     pub unsafe fn Next(&self) -> ::windows_core::Result<IPMBackgroundServiceAgentInfo> {
@@ -4746,24 +4479,8 @@ impl IPMBackgroundServiceAgentInfoEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMBackgroundServiceAgentInfoEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMBackgroundServiceAgentInfoEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMBackgroundServiceAgentInfoEnumerator {}
-impl ::core::fmt::Debug for IPMBackgroundServiceAgentInfoEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMBackgroundServiceAgentInfoEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMBackgroundServiceAgentInfoEnumerator {
     type Vtable = IPMBackgroundServiceAgentInfoEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IPMBackgroundServiceAgentInfoEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMBackgroundServiceAgentInfoEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18eb2072_ab56_43b3_872c_beafb7a6b391);
@@ -4776,6 +4493,7 @@ pub struct IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMBackgroundWorkerInfo(::windows_core::IUnknown);
 impl IPMBackgroundWorkerInfo {
     pub unsafe fn ProductID(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -4804,24 +4522,8 @@ impl IPMBackgroundWorkerInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMBackgroundWorkerInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMBackgroundWorkerInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMBackgroundWorkerInfo {}
-impl ::core::fmt::Debug for IPMBackgroundWorkerInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMBackgroundWorkerInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMBackgroundWorkerInfo {
     type Vtable = IPMBackgroundWorkerInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPMBackgroundWorkerInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMBackgroundWorkerInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7dd4531b_d3bf_4b6b_94f3_69c098b1497d);
@@ -4842,6 +4544,7 @@ pub struct IPMBackgroundWorkerInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMBackgroundWorkerInfoEnumerator(::windows_core::IUnknown);
 impl IPMBackgroundWorkerInfoEnumerator {
     pub unsafe fn Next(&self) -> ::windows_core::Result<IPMBackgroundWorkerInfo> {
@@ -4850,24 +4553,8 @@ impl IPMBackgroundWorkerInfoEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMBackgroundWorkerInfoEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMBackgroundWorkerInfoEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMBackgroundWorkerInfoEnumerator {}
-impl ::core::fmt::Debug for IPMBackgroundWorkerInfoEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMBackgroundWorkerInfoEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMBackgroundWorkerInfoEnumerator {
     type Vtable = IPMBackgroundWorkerInfoEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IPMBackgroundWorkerInfoEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMBackgroundWorkerInfoEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x87f479f8_90d8_4ec7_92b9_72787e2f636b);
@@ -4880,6 +4567,7 @@ pub struct IPMBackgroundWorkerInfoEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMDeploymentManager(::windows_core::IUnknown);
 impl IPMDeploymentManager {
     pub unsafe fn ReportDownloadBegin(&self, productid: ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -5046,24 +4734,8 @@ impl IPMDeploymentManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMDeploymentManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMDeploymentManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMDeploymentManager {}
-impl ::core::fmt::Debug for IPMDeploymentManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMDeploymentManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMDeploymentManager {
     type Vtable = IPMDeploymentManager_Vtbl;
-}
-impl ::core::clone::Clone for IPMDeploymentManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMDeploymentManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x35f785fa_1979_4a8b_bc8f_fd70eb0d1544);
@@ -5128,6 +4800,7 @@ pub struct IPMDeploymentManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMEnumerationManager(::windows_core::IUnknown);
 impl IPMEnumerationManager {
     pub unsafe fn get_AllApplications(&self, ppappenum: *mut ::core::option::Option<IPMApplicationInfoEnumerator>, filter: PM_ENUM_FILTER) -> ::windows_core::Result<()> {
@@ -5218,24 +4891,8 @@ impl IPMEnumerationManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMEnumerationManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMEnumerationManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMEnumerationManager {}
-impl ::core::fmt::Debug for IPMEnumerationManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMEnumerationManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMEnumerationManager {
     type Vtable = IPMEnumerationManager_Vtbl;
-}
-impl ::core::clone::Clone for IPMEnumerationManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMEnumerationManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x698d57c2_292d_4cf3_b73c_d95a6922ed9a);
@@ -5271,6 +4928,7 @@ pub struct IPMEnumerationManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMExtensionCachedFileUpdaterInfo(::windows_core::IUnknown);
 impl IPMExtensionCachedFileUpdaterInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5281,24 +4939,8 @@ impl IPMExtensionCachedFileUpdaterInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMExtensionCachedFileUpdaterInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMExtensionCachedFileUpdaterInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMExtensionCachedFileUpdaterInfo {}
-impl ::core::fmt::Debug for IPMExtensionCachedFileUpdaterInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMExtensionCachedFileUpdaterInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMExtensionCachedFileUpdaterInfo {
     type Vtable = IPMExtensionCachedFileUpdaterInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPMExtensionCachedFileUpdaterInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMExtensionCachedFileUpdaterInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2d77509_4e58_4ba9_af7e_b642e370e1b0);
@@ -5314,6 +4956,7 @@ pub struct IPMExtensionCachedFileUpdaterInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMExtensionContractInfo(::windows_core::IUnknown);
 impl IPMExtensionContractInfo {
     pub unsafe fn get_InvocationInfo(&self, paumid: *mut ::windows_core::BSTR, pargs: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -5321,24 +4964,8 @@ impl IPMExtensionContractInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMExtensionContractInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMExtensionContractInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMExtensionContractInfo {}
-impl ::core::fmt::Debug for IPMExtensionContractInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMExtensionContractInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMExtensionContractInfo {
     type Vtable = IPMExtensionContractInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPMExtensionContractInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMExtensionContractInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5666373_7ba1_467c_b819_b175db1c295b);
@@ -5351,6 +4978,7 @@ pub struct IPMExtensionContractInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMExtensionFileExtensionInfo(::windows_core::IUnknown);
 impl IPMExtensionFileExtensionInfo {
     pub unsafe fn Name(&self, pname: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -5382,24 +5010,8 @@ impl IPMExtensionFileExtensionInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMExtensionFileExtensionInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMExtensionFileExtensionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMExtensionFileExtensionInfo {}
-impl ::core::fmt::Debug for IPMExtensionFileExtensionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMExtensionFileExtensionInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMExtensionFileExtensionInfo {
     type Vtable = IPMExtensionFileExtensionInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPMExtensionFileExtensionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMExtensionFileExtensionInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b87cb6c_0b88_4989_a4ec_033714f710d4);
@@ -5418,6 +5030,7 @@ pub struct IPMExtensionFileExtensionInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMExtensionFileOpenPickerInfo(::windows_core::IUnknown);
 impl IPMExtensionFileOpenPickerInfo {
     pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -5431,24 +5044,8 @@ impl IPMExtensionFileOpenPickerInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMExtensionFileOpenPickerInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMExtensionFileOpenPickerInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMExtensionFileOpenPickerInfo {}
-impl ::core::fmt::Debug for IPMExtensionFileOpenPickerInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMExtensionFileOpenPickerInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMExtensionFileOpenPickerInfo {
     type Vtable = IPMExtensionFileOpenPickerInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPMExtensionFileOpenPickerInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMExtensionFileOpenPickerInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6dc91d25_9606_420c_9a78_e034a3418345);
@@ -5465,6 +5062,7 @@ pub struct IPMExtensionFileOpenPickerInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMExtensionFileSavePickerInfo(::windows_core::IUnknown);
 impl IPMExtensionFileSavePickerInfo {
     pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -5478,24 +5076,8 @@ impl IPMExtensionFileSavePickerInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMExtensionFileSavePickerInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMExtensionFileSavePickerInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMExtensionFileSavePickerInfo {}
-impl ::core::fmt::Debug for IPMExtensionFileSavePickerInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMExtensionFileSavePickerInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMExtensionFileSavePickerInfo {
     type Vtable = IPMExtensionFileSavePickerInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPMExtensionFileSavePickerInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMExtensionFileSavePickerInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38005cba_f81a_493e_a0f8_922c8680da43);
@@ -5512,6 +5094,7 @@ pub struct IPMExtensionFileSavePickerInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMExtensionInfo(::windows_core::IUnknown);
 impl IPMExtensionInfo {
     pub unsafe fn SupplierPID(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -5535,24 +5118,8 @@ impl IPMExtensionInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMExtensionInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMExtensionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMExtensionInfo {}
-impl ::core::fmt::Debug for IPMExtensionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMExtensionInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMExtensionInfo {
     type Vtable = IPMExtensionInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPMExtensionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMExtensionInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49acde79_9788_4d0a_8aa0_1746afdb9e9d);
@@ -5570,6 +5137,7 @@ pub struct IPMExtensionInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMExtensionInfoEnumerator(::windows_core::IUnknown);
 impl IPMExtensionInfoEnumerator {
     pub unsafe fn Next(&self) -> ::windows_core::Result<IPMExtensionInfo> {
@@ -5578,24 +5146,8 @@ impl IPMExtensionInfoEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMExtensionInfoEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMExtensionInfoEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMExtensionInfoEnumerator {}
-impl ::core::fmt::Debug for IPMExtensionInfoEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMExtensionInfoEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMExtensionInfoEnumerator {
     type Vtable = IPMExtensionInfoEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IPMExtensionInfoEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMExtensionInfoEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x403b9e82_1171_4573_8e6f_6f33f39b83dd);
@@ -5608,6 +5160,7 @@ pub struct IPMExtensionInfoEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMExtensionProtocolInfo(::windows_core::IUnknown);
 impl IPMExtensionProtocolInfo {
     pub unsafe fn Protocol(&self, pprotocol: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -5618,24 +5171,8 @@ impl IPMExtensionProtocolInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMExtensionProtocolInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMExtensionProtocolInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMExtensionProtocolInfo {}
-impl ::core::fmt::Debug for IPMExtensionProtocolInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMExtensionProtocolInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMExtensionProtocolInfo {
     type Vtable = IPMExtensionProtocolInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPMExtensionProtocolInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMExtensionProtocolInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e3fa036_51eb_4453_baff_b8d8e4b46c8e);
@@ -5649,6 +5186,7 @@ pub struct IPMExtensionProtocolInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMExtensionShareTargetInfo(::windows_core::IUnknown);
 impl IPMExtensionShareTargetInfo {
     pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -5665,24 +5203,8 @@ impl IPMExtensionShareTargetInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMExtensionShareTargetInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMExtensionShareTargetInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMExtensionShareTargetInfo {}
-impl ::core::fmt::Debug for IPMExtensionShareTargetInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMExtensionShareTargetInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMExtensionShareTargetInfo {
     type Vtable = IPMExtensionShareTargetInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPMExtensionShareTargetInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMExtensionShareTargetInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5471f48b_c65c_4656_8c70_242e31195fea);
@@ -5700,6 +5222,7 @@ pub struct IPMExtensionShareTargetInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMLiveTileJobInfo(::windows_core::IUnknown);
 impl IPMLiveTileJobInfo {
     pub unsafe fn ProductID(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -5801,24 +5324,8 @@ impl IPMLiveTileJobInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMLiveTileJobInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMLiveTileJobInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMLiveTileJobInfo {}
-impl ::core::fmt::Debug for IPMLiveTileJobInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMLiveTileJobInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMLiveTileJobInfo {
     type Vtable = IPMLiveTileJobInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPMLiveTileJobInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMLiveTileJobInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6009a81f_4710_4697_b5f6_2208f6057b8e);
@@ -5872,6 +5379,7 @@ pub struct IPMLiveTileJobInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMLiveTileJobInfoEnumerator(::windows_core::IUnknown);
 impl IPMLiveTileJobInfoEnumerator {
     pub unsafe fn Next(&self) -> ::windows_core::Result<IPMLiveTileJobInfo> {
@@ -5880,24 +5388,8 @@ impl IPMLiveTileJobInfoEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMLiveTileJobInfoEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMLiveTileJobInfoEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMLiveTileJobInfoEnumerator {}
-impl ::core::fmt::Debug for IPMLiveTileJobInfoEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMLiveTileJobInfoEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMLiveTileJobInfoEnumerator {
     type Vtable = IPMLiveTileJobInfoEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IPMLiveTileJobInfoEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMLiveTileJobInfoEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc042582_9415_4f36_9f99_06f104c07c03);
@@ -5910,6 +5402,7 @@ pub struct IPMLiveTileJobInfoEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMTaskInfo(::windows_core::IUnknown);
 impl IPMTaskInfo {
     pub unsafe fn ProductID(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -5997,24 +5490,8 @@ impl IPMTaskInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMTaskInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMTaskInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMTaskInfo {}
-impl ::core::fmt::Debug for IPMTaskInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMTaskInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMTaskInfo {
     type Vtable = IPMTaskInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPMTaskInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMTaskInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf1d8c33_1bf5_4ee0_b549_6b9dd3834942);
@@ -6059,6 +5536,7 @@ pub struct IPMTaskInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMTaskInfoEnumerator(::windows_core::IUnknown);
 impl IPMTaskInfoEnumerator {
     pub unsafe fn Next(&self) -> ::windows_core::Result<IPMTaskInfo> {
@@ -6067,24 +5545,8 @@ impl IPMTaskInfoEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMTaskInfoEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMTaskInfoEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMTaskInfoEnumerator {}
-impl ::core::fmt::Debug for IPMTaskInfoEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMTaskInfoEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMTaskInfoEnumerator {
     type Vtable = IPMTaskInfoEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IPMTaskInfoEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMTaskInfoEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0630b0f8_0bbc_4821_be74_c7995166ed2a);
@@ -6097,6 +5559,7 @@ pub struct IPMTaskInfoEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMTileInfo(::windows_core::IUnknown);
 impl IPMTileInfo {
     pub unsafe fn ProductID(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -6224,24 +5687,8 @@ impl IPMTileInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMTileInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMTileInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMTileInfo {}
-impl ::core::fmt::Debug for IPMTileInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMTileInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMTileInfo {
     type Vtable = IPMTileInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPMTileInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMTileInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1604833_2b08_4001_82cd_183ad734f752);
@@ -6310,6 +5757,7 @@ pub struct IPMTileInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMTileInfoEnumerator(::windows_core::IUnknown);
 impl IPMTileInfoEnumerator {
     pub unsafe fn Next(&self) -> ::windows_core::Result<IPMTileInfo> {
@@ -6318,24 +5766,8 @@ impl IPMTileInfoEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMTileInfoEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMTileInfoEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMTileInfoEnumerator {}
-impl ::core::fmt::Debug for IPMTileInfoEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMTileInfoEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMTileInfoEnumerator {
     type Vtable = IPMTileInfoEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IPMTileInfoEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMTileInfoEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xded83065_e462_4b2c_acb5_e39cea61c874);
@@ -6348,6 +5780,7 @@ pub struct IPMTileInfoEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMTilePropertyEnumerator(::windows_core::IUnknown);
 impl IPMTilePropertyEnumerator {
     pub unsafe fn Next(&self) -> ::windows_core::Result<IPMTilePropertyInfo> {
@@ -6356,24 +5789,8 @@ impl IPMTilePropertyEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMTilePropertyEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMTilePropertyEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMTilePropertyEnumerator {}
-impl ::core::fmt::Debug for IPMTilePropertyEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMTilePropertyEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMTilePropertyEnumerator {
     type Vtable = IPMTilePropertyEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IPMTilePropertyEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMTilePropertyEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc4cd629_9047_4250_aac8_930e47812421);
@@ -6386,6 +5803,7 @@ pub struct IPMTilePropertyEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMTilePropertyInfo(::windows_core::IUnknown);
 impl IPMTilePropertyInfo {
     pub unsafe fn PropertyID(&self) -> ::windows_core::Result<u32> {
@@ -6403,24 +5821,8 @@ impl IPMTilePropertyInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPMTilePropertyInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPMTilePropertyInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPMTilePropertyInfo {}
-impl ::core::fmt::Debug for IPMTilePropertyInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPMTilePropertyInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPMTilePropertyInfo {
     type Vtable = IPMTilePropertyInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPMTilePropertyInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPMTilePropertyInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c2b8017_1efa_42a7_86c0_6d4b640bf528);
@@ -6435,6 +5837,7 @@ pub struct IPMTilePropertyInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IValidate(::windows_core::IUnknown);
 impl IValidate {
     pub unsafe fn OpenDatabase<P0>(&self, szdatabase: P0) -> ::windows_core::Result<()>
@@ -6473,24 +5876,8 @@ impl IValidate {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IValidate, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IValidate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IValidate {}
-impl ::core::fmt::Debug for IValidate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IValidate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IValidate {
     type Vtable = IValidate_Vtbl;
-}
-impl ::core::clone::Clone for IValidate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IValidate {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe482e5c6_e31e_4143_a2e6_dbc3d8e4b8d3);

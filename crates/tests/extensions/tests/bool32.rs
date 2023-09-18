@@ -1,4 +1,4 @@
-use windows::Win32::Foundation::*;
+use windows::{Win32::Foundation::*, Win32::System::Threading::*};
 
 #[test]
 fn test() {
@@ -20,4 +20,13 @@ fn test() {
     assert_eq!(result.is_ok(), false);
     let error = result.unwrap_err();
     assert_eq!(error.code(), E_ACCESSDENIED);
+}
+
+#[test]
+#[ignore]
+fn no_run() {
+    unsafe {
+        _ = CreateEventA(None, false, true, None);
+        _ = CreateEventA(None, BOOL(0), BOOL(1), None);
+    }
 }

@@ -82,6 +82,7 @@ pub unsafe fn GetDeviceID(pguidsrc: ::core::option::Option<*const ::windows_core
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSound(::windows_core::IUnknown);
 impl IDirectSound {
     pub unsafe fn CreateSoundBuffer<P0>(&self, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut ::core::option::Option<IDirectSoundBuffer>, punkouter: P0) -> ::windows_core::Result<()>
@@ -123,24 +124,8 @@ impl IDirectSound {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSound, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSound {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSound {}
-impl ::core::fmt::Debug for IDirectSound {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSound").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSound {
     type Vtable = IDirectSound_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSound {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSound {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x279afa83_4981_11ce_a521_0020af0be560);
@@ -163,6 +148,7 @@ pub struct IDirectSound_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSound3DBuffer(::windows_core::IUnknown);
 impl IDirectSound3DBuffer {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
@@ -238,24 +224,8 @@ impl IDirectSound3DBuffer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSound3DBuffer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSound3DBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSound3DBuffer {}
-impl ::core::fmt::Debug for IDirectSound3DBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSound3DBuffer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSound3DBuffer {
     type Vtable = IDirectSound3DBuffer_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSound3DBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSound3DBuffer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x279afa86_4981_11ce_a521_0020af0be560);
@@ -300,6 +270,7 @@ pub struct IDirectSound3DBuffer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSound3DListener(::windows_core::IUnknown);
 impl IDirectSound3DListener {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
@@ -364,24 +335,8 @@ impl IDirectSound3DListener {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSound3DListener, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSound3DListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSound3DListener {}
-impl ::core::fmt::Debug for IDirectSound3DListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSound3DListener").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSound3DListener {
     type Vtable = IDirectSound3DListener_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSound3DListener {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSound3DListener {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x279afa84_4981_11ce_a521_0020af0be560);
@@ -423,6 +378,7 @@ pub struct IDirectSound3DListener_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSound8(::windows_core::IUnknown);
 impl IDirectSound8 {
     pub unsafe fn CreateSoundBuffer<P0>(&self, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut ::core::option::Option<IDirectSoundBuffer>, punkouter: P0) -> ::windows_core::Result<()>
@@ -468,24 +424,8 @@ impl IDirectSound8 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSound8, ::windows_core::IUnknown, IDirectSound);
-impl ::core::cmp::PartialEq for IDirectSound8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSound8 {}
-impl ::core::fmt::Debug for IDirectSound8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSound8").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSound8 {
     type Vtable = IDirectSound8_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSound8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSound8 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc50a7e93_f395_4834_9ef6_7fa99de50966);
@@ -498,6 +438,7 @@ pub struct IDirectSound8_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundBuffer(::windows_core::IUnknown);
 impl IDirectSoundBuffer {
     pub unsafe fn GetCaps(&self, pdsbuffercaps: *mut DSBCAPS) -> ::windows_core::Result<()> {
@@ -563,24 +504,8 @@ impl IDirectSoundBuffer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundBuffer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundBuffer {}
-impl ::core::fmt::Debug for IDirectSoundBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundBuffer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundBuffer {
     type Vtable = IDirectSoundBuffer_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundBuffer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x279afa85_4981_11ce_a521_0020af0be560);
@@ -610,6 +535,7 @@ pub struct IDirectSoundBuffer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundBuffer8(::windows_core::IUnknown);
 impl IDirectSoundBuffer8 {
     pub unsafe fn GetCaps(&self, pdsbuffercaps: *mut DSBCAPS) -> ::windows_core::Result<()> {
@@ -684,24 +610,8 @@ impl IDirectSoundBuffer8 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundBuffer8, ::windows_core::IUnknown, IDirectSoundBuffer);
-impl ::core::cmp::PartialEq for IDirectSoundBuffer8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundBuffer8 {}
-impl ::core::fmt::Debug for IDirectSoundBuffer8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundBuffer8").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundBuffer8 {
     type Vtable = IDirectSoundBuffer8_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundBuffer8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundBuffer8 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6825a449_7524_4d82_920f_50e36ab3ab1e);
@@ -716,6 +626,7 @@ pub struct IDirectSoundBuffer8_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundCapture(::windows_core::IUnknown);
 impl IDirectSoundCapture {
     pub unsafe fn CreateCaptureBuffer<P0>(&self, pcdscbufferdesc: *const DSCBUFFERDESC, ppdscbuffer: *mut ::core::option::Option<IDirectSoundCaptureBuffer>, punkouter: P0) -> ::windows_core::Result<()>
@@ -733,24 +644,8 @@ impl IDirectSoundCapture {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundCapture, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundCapture {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundCapture {}
-impl ::core::fmt::Debug for IDirectSoundCapture {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundCapture").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundCapture {
     type Vtable = IDirectSoundCapture_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundCapture {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundCapture {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0210781_89cd_11d0_af08_00a0c925cd16);
@@ -765,6 +660,7 @@ pub struct IDirectSoundCapture_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundCaptureBuffer(::windows_core::IUnknown);
 impl IDirectSoundCaptureBuffer {
     pub unsafe fn GetCaps(&self) -> ::windows_core::Result<DSCBCAPS> {
@@ -801,24 +697,8 @@ impl IDirectSoundCaptureBuffer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundCaptureBuffer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundCaptureBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundCaptureBuffer {}
-impl ::core::fmt::Debug for IDirectSoundCaptureBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundCaptureBuffer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundCaptureBuffer {
     type Vtable = IDirectSoundCaptureBuffer_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundCaptureBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundCaptureBuffer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0210782_89cd_11d0_af08_00a0c925cd16);
@@ -839,6 +719,7 @@ pub struct IDirectSoundCaptureBuffer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundCaptureBuffer8(::windows_core::IUnknown);
 impl IDirectSoundCaptureBuffer8 {
     pub unsafe fn GetCaps(&self) -> ::windows_core::Result<DSCBCAPS> {
@@ -881,24 +762,8 @@ impl IDirectSoundCaptureBuffer8 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundCaptureBuffer8, ::windows_core::IUnknown, IDirectSoundCaptureBuffer);
-impl ::core::cmp::PartialEq for IDirectSoundCaptureBuffer8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundCaptureBuffer8 {}
-impl ::core::fmt::Debug for IDirectSoundCaptureBuffer8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundCaptureBuffer8").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundCaptureBuffer8 {
     type Vtable = IDirectSoundCaptureBuffer8_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundCaptureBuffer8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundCaptureBuffer8 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00990df4_0dbb_4872_833e_6d303e80aeb6);
@@ -912,6 +777,7 @@ pub struct IDirectSoundCaptureBuffer8_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundCaptureFXAec(::windows_core::IUnknown);
 impl IDirectSoundCaptureFXAec {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -934,24 +800,8 @@ impl IDirectSoundCaptureFXAec {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundCaptureFXAec, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundCaptureFXAec {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundCaptureFXAec {}
-impl ::core::fmt::Debug for IDirectSoundCaptureFXAec {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundCaptureFXAec").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundCaptureFXAec {
     type Vtable = IDirectSoundCaptureFXAec_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundCaptureFXAec {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundCaptureFXAec {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad74143d_903d_4ab7_8066_28d363036d65);
@@ -973,6 +823,7 @@ pub struct IDirectSoundCaptureFXAec_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundCaptureFXNoiseSuppress(::windows_core::IUnknown);
 impl IDirectSoundCaptureFXNoiseSuppress {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -991,24 +842,8 @@ impl IDirectSoundCaptureFXNoiseSuppress {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundCaptureFXNoiseSuppress, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundCaptureFXNoiseSuppress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundCaptureFXNoiseSuppress {}
-impl ::core::fmt::Debug for IDirectSoundCaptureFXNoiseSuppress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundCaptureFXNoiseSuppress").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundCaptureFXNoiseSuppress {
     type Vtable = IDirectSoundCaptureFXNoiseSuppress_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundCaptureFXNoiseSuppress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundCaptureFXNoiseSuppress {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed311e41_fbae_4175_9625_cd0854f693ca);
@@ -1029,6 +864,7 @@ pub struct IDirectSoundCaptureFXNoiseSuppress_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundFXChorus(::windows_core::IUnknown);
 impl IDirectSoundFXChorus {
     pub unsafe fn SetAllParameters(&self, pcdsfxchorus: *const DSFXChorus) -> ::windows_core::Result<()> {
@@ -1039,24 +875,8 @@ impl IDirectSoundFXChorus {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundFXChorus, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundFXChorus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundFXChorus {}
-impl ::core::fmt::Debug for IDirectSoundFXChorus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundFXChorus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundFXChorus {
     type Vtable = IDirectSoundFXChorus_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundFXChorus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundFXChorus {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x880842e3_145f_43e6_a934_a71806e50547);
@@ -1070,6 +890,7 @@ pub struct IDirectSoundFXChorus_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundFXCompressor(::windows_core::IUnknown);
 impl IDirectSoundFXCompressor {
     pub unsafe fn SetAllParameters(&self, pcdsfxcompressor: *const DSFXCompressor) -> ::windows_core::Result<()> {
@@ -1080,24 +901,8 @@ impl IDirectSoundFXCompressor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundFXCompressor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundFXCompressor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundFXCompressor {}
-impl ::core::fmt::Debug for IDirectSoundFXCompressor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundFXCompressor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundFXCompressor {
     type Vtable = IDirectSoundFXCompressor_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundFXCompressor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundFXCompressor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4bbd1154_62f6_4e2c_a15c_d3b6c417f7a0);
@@ -1111,6 +916,7 @@ pub struct IDirectSoundFXCompressor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundFXDistortion(::windows_core::IUnknown);
 impl IDirectSoundFXDistortion {
     pub unsafe fn SetAllParameters(&self, pcdsfxdistortion: *const DSFXDistortion) -> ::windows_core::Result<()> {
@@ -1121,24 +927,8 @@ impl IDirectSoundFXDistortion {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundFXDistortion, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundFXDistortion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundFXDistortion {}
-impl ::core::fmt::Debug for IDirectSoundFXDistortion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundFXDistortion").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundFXDistortion {
     type Vtable = IDirectSoundFXDistortion_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundFXDistortion {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundFXDistortion {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ecf4326_455f_4d8b_bda9_8d5d3e9e3e0b);
@@ -1152,6 +942,7 @@ pub struct IDirectSoundFXDistortion_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundFXEcho(::windows_core::IUnknown);
 impl IDirectSoundFXEcho {
     pub unsafe fn SetAllParameters(&self, pcdsfxecho: *const DSFXEcho) -> ::windows_core::Result<()> {
@@ -1162,24 +953,8 @@ impl IDirectSoundFXEcho {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundFXEcho, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundFXEcho {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundFXEcho {}
-impl ::core::fmt::Debug for IDirectSoundFXEcho {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundFXEcho").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundFXEcho {
     type Vtable = IDirectSoundFXEcho_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundFXEcho {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundFXEcho {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8bd28edf_50db_4e92_a2bd_445488d1ed42);
@@ -1193,6 +968,7 @@ pub struct IDirectSoundFXEcho_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundFXFlanger(::windows_core::IUnknown);
 impl IDirectSoundFXFlanger {
     pub unsafe fn SetAllParameters(&self, pcdsfxflanger: *const DSFXFlanger) -> ::windows_core::Result<()> {
@@ -1203,24 +979,8 @@ impl IDirectSoundFXFlanger {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundFXFlanger, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundFXFlanger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundFXFlanger {}
-impl ::core::fmt::Debug for IDirectSoundFXFlanger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundFXFlanger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundFXFlanger {
     type Vtable = IDirectSoundFXFlanger_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundFXFlanger {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundFXFlanger {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x903e9878_2c92_4072_9b2c_ea68f5396783);
@@ -1234,6 +994,7 @@ pub struct IDirectSoundFXFlanger_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundFXGargle(::windows_core::IUnknown);
 impl IDirectSoundFXGargle {
     pub unsafe fn SetAllParameters(&self, pcdsfxgargle: *const DSFXGargle) -> ::windows_core::Result<()> {
@@ -1245,24 +1006,8 @@ impl IDirectSoundFXGargle {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundFXGargle, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundFXGargle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundFXGargle {}
-impl ::core::fmt::Debug for IDirectSoundFXGargle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundFXGargle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundFXGargle {
     type Vtable = IDirectSoundFXGargle_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundFXGargle {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundFXGargle {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd616f352_d622_11ce_aac5_0020af0b99a3);
@@ -1276,6 +1021,7 @@ pub struct IDirectSoundFXGargle_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundFXI3DL2Reverb(::windows_core::IUnknown);
 impl IDirectSoundFXI3DL2Reverb {
     pub unsafe fn SetAllParameters(&self, pcdsfxi3dl2reverb: *const DSFXI3DL2Reverb) -> ::windows_core::Result<()> {
@@ -1300,24 +1046,8 @@ impl IDirectSoundFXI3DL2Reverb {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundFXI3DL2Reverb, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundFXI3DL2Reverb {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundFXI3DL2Reverb {}
-impl ::core::fmt::Debug for IDirectSoundFXI3DL2Reverb {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundFXI3DL2Reverb").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundFXI3DL2Reverb {
     type Vtable = IDirectSoundFXI3DL2Reverb_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundFXI3DL2Reverb {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundFXI3DL2Reverb {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b166a6a_0d66_43f3_80e3_ee6280dee1a4);
@@ -1335,6 +1065,7 @@ pub struct IDirectSoundFXI3DL2Reverb_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundFXParamEq(::windows_core::IUnknown);
 impl IDirectSoundFXParamEq {
     pub unsafe fn SetAllParameters(&self, pcdsfxparameq: *const DSFXParamEq) -> ::windows_core::Result<()> {
@@ -1346,24 +1077,8 @@ impl IDirectSoundFXParamEq {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundFXParamEq, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundFXParamEq {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundFXParamEq {}
-impl ::core::fmt::Debug for IDirectSoundFXParamEq {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundFXParamEq").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundFXParamEq {
     type Vtable = IDirectSoundFXParamEq_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundFXParamEq {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundFXParamEq {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc03ca9fe_fe90_4204_8078_82334cd177da);
@@ -1377,6 +1092,7 @@ pub struct IDirectSoundFXParamEq_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundFXWavesReverb(::windows_core::IUnknown);
 impl IDirectSoundFXWavesReverb {
     pub unsafe fn SetAllParameters(&self, pcdsfxwavesreverb: *const DSFXWavesReverb) -> ::windows_core::Result<()> {
@@ -1388,24 +1104,8 @@ impl IDirectSoundFXWavesReverb {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundFXWavesReverb, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundFXWavesReverb {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundFXWavesReverb {}
-impl ::core::fmt::Debug for IDirectSoundFXWavesReverb {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundFXWavesReverb").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundFXWavesReverb {
     type Vtable = IDirectSoundFXWavesReverb_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundFXWavesReverb {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundFXWavesReverb {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x46858c3a_0dc6_45e3_b760_d4eef16cb325);
@@ -1419,6 +1119,7 @@ pub struct IDirectSoundFXWavesReverb_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundFullDuplex(::windows_core::IUnknown);
 impl IDirectSoundFullDuplex {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1431,24 +1132,8 @@ impl IDirectSoundFullDuplex {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundFullDuplex, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundFullDuplex {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundFullDuplex {}
-impl ::core::fmt::Debug for IDirectSoundFullDuplex {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundFullDuplex").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundFullDuplex {
     type Vtable = IDirectSoundFullDuplex_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundFullDuplex {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundFullDuplex {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xedcb4c7a_daab_4216_a42e_6c50596ddc1d);
@@ -1464,6 +1149,7 @@ pub struct IDirectSoundFullDuplex_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectSoundNotify(::windows_core::IUnknown);
 impl IDirectSoundNotify {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1473,24 +1159,8 @@ impl IDirectSoundNotify {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectSoundNotify, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectSoundNotify {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectSoundNotify {}
-impl ::core::fmt::Debug for IDirectSoundNotify {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectSoundNotify").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectSoundNotify {
     type Vtable = IDirectSoundNotify_Vtbl;
-}
-impl ::core::clone::Clone for IDirectSoundNotify {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectSoundNotify {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0210783_89cd_11d0_af08_00a0c925cd16);

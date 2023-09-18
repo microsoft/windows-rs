@@ -2,14 +2,10 @@
 pub mod Foreground;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExtendedExecutionRevokedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IExtendedExecutionRevokedEventArgs {
     type Vtable = IExtendedExecutionRevokedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IExtendedExecutionRevokedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IExtendedExecutionRevokedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3);
@@ -22,14 +18,10 @@ pub struct IExtendedExecutionRevokedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExtendedExecutionSession(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IExtendedExecutionSession {
     type Vtable = IExtendedExecutionSession_Vtbl;
-}
-impl ::core::clone::Clone for IExtendedExecutionSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IExtendedExecutionSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf908a2d_118b_48f1_9308_0c4fc41e200f);
@@ -59,6 +51,7 @@ pub struct IExtendedExecutionSession_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ExtendedExecutionRevokedEventArgs(::windows_core::IUnknown);
 impl ExtendedExecutionRevokedEventArgs {
     pub fn Reason(&self) -> ::windows_core::Result<ExtendedExecutionRevokedReason> {
@@ -69,24 +62,8 @@ impl ExtendedExecutionRevokedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for ExtendedExecutionRevokedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExtendedExecutionRevokedEventArgs {}
-impl ::core::fmt::Debug for ExtendedExecutionRevokedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExtendedExecutionRevokedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ExtendedExecutionRevokedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs;{bfbc9f16-63b5-4c0b-aad6-828af5373ec3})");
-}
-impl ::core::clone::Clone for ExtendedExecutionRevokedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ExtendedExecutionRevokedEventArgs {
     type Vtable = IExtendedExecutionRevokedEventArgs_Vtbl;
@@ -102,6 +79,7 @@ unsafe impl ::core::marker::Send for ExtendedExecutionRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionRevokedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ExtendedExecutionSession(::windows_core::IUnknown);
 impl ExtendedExecutionSession {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -178,24 +156,8 @@ impl ExtendedExecutionSession {
         }
     }
 }
-impl ::core::cmp::PartialEq for ExtendedExecutionSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExtendedExecutionSession {}
-impl ::core::fmt::Debug for ExtendedExecutionSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExtendedExecutionSession").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ExtendedExecutionSession {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession;{af908a2d-118b-48f1-9308-0c4fc41e200f})");
-}
-impl ::core::clone::Clone for ExtendedExecutionSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ExtendedExecutionSession {
     type Vtable = IExtendedExecutionSession_Vtbl;

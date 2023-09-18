@@ -6,14 +6,10 @@ pub mod Telemetry;
 pub mod TraceReporting;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiagnosticActionResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDiagnosticActionResult {
     type Vtable = IDiagnosticActionResult_Vtbl;
-}
-impl ::core::clone::Clone for IDiagnosticActionResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDiagnosticActionResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc265a296_e73b_4097_b28f_3442f03dd831);
@@ -30,14 +26,10 @@ pub struct IDiagnosticActionResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiagnosticInvoker(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDiagnosticInvoker {
     type Vtable = IDiagnosticInvoker_Vtbl;
-}
-impl ::core::clone::Clone for IDiagnosticInvoker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDiagnosticInvoker {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x187b270a_02e3_4f86_84fc_fdd892b5940f);
@@ -53,14 +45,10 @@ pub struct IDiagnosticInvoker_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiagnosticInvoker2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDiagnosticInvoker2 {
     type Vtable = IDiagnosticInvoker2_Vtbl;
-}
-impl ::core::clone::Clone for IDiagnosticInvoker2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDiagnosticInvoker2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe3bf945c_155a_4b52_a8ec_070c44f95000);
@@ -76,14 +64,10 @@ pub struct IDiagnosticInvoker2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiagnosticInvokerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDiagnosticInvokerStatics {
     type Vtable = IDiagnosticInvokerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDiagnosticInvokerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDiagnosticInvokerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5cfad8de_f15c_4554_a813_c113c3881b09);
@@ -98,14 +82,10 @@ pub struct IDiagnosticInvokerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProcessCpuUsage(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProcessCpuUsage {
     type Vtable = IProcessCpuUsage_Vtbl;
-}
-impl ::core::clone::Clone for IProcessCpuUsage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProcessCpuUsage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0bbb2472_c8bf_423a_a810_b559ae4354e2);
@@ -118,14 +98,10 @@ pub struct IProcessCpuUsage_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProcessCpuUsageReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProcessCpuUsageReport {
     type Vtable = IProcessCpuUsageReport_Vtbl;
-}
-impl ::core::clone::Clone for IProcessCpuUsageReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProcessCpuUsageReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a6d9cac_3987_4e2f_a119_6b5fa214f1b4);
@@ -145,14 +121,10 @@ pub struct IProcessCpuUsageReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProcessDiagnosticInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProcessDiagnosticInfo {
     type Vtable = IProcessDiagnosticInfo_Vtbl;
-}
-impl ::core::clone::Clone for IProcessDiagnosticInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProcessDiagnosticInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe830b04b_300e_4ee6_a0ab_5b5f5231b434);
@@ -174,14 +146,10 @@ pub struct IProcessDiagnosticInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProcessDiagnosticInfo2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProcessDiagnosticInfo2 {
     type Vtable = IProcessDiagnosticInfo2_Vtbl;
-}
-impl ::core::clone::Clone for IProcessDiagnosticInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProcessDiagnosticInfo2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9558cb1a_3d0b_49ec_ab70_4f7a112805de);
@@ -198,14 +166,10 @@ pub struct IProcessDiagnosticInfo2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProcessDiagnosticInfoStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProcessDiagnosticInfoStatics {
     type Vtable = IProcessDiagnosticInfoStatics_Vtbl;
-}
-impl ::core::clone::Clone for IProcessDiagnosticInfoStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProcessDiagnosticInfoStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2f41b260_b49f_428c_aa0e_84744f49ca95);
@@ -222,14 +186,10 @@ pub struct IProcessDiagnosticInfoStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProcessDiagnosticInfoStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProcessDiagnosticInfoStatics2 {
     type Vtable = IProcessDiagnosticInfoStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IProcessDiagnosticInfoStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProcessDiagnosticInfoStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a869897_9899_4a44_a29b_091663be09b6);
@@ -242,14 +202,10 @@ pub struct IProcessDiagnosticInfoStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProcessDiskUsage(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProcessDiskUsage {
     type Vtable = IProcessDiskUsage_Vtbl;
-}
-impl ::core::clone::Clone for IProcessDiskUsage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProcessDiskUsage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ad78bfd_7e51_4e53_bfaa_5a6ee1aabbf8);
@@ -262,14 +218,10 @@ pub struct IProcessDiskUsage_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProcessDiskUsageReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProcessDiskUsageReport {
     type Vtable = IProcessDiskUsageReport_Vtbl;
-}
-impl ::core::clone::Clone for IProcessDiskUsageReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProcessDiskUsageReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x401627fd_535d_4c1f_81b8_da54e1be635e);
@@ -287,14 +239,10 @@ pub struct IProcessDiskUsageReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProcessMemoryUsage(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProcessMemoryUsage {
     type Vtable = IProcessMemoryUsage_Vtbl;
-}
-impl ::core::clone::Clone for IProcessMemoryUsage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProcessMemoryUsage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf50b229b_827c_42b7_b07c_0e32627e6b3e);
@@ -307,14 +255,10 @@ pub struct IProcessMemoryUsage_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProcessMemoryUsageReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProcessMemoryUsageReport {
     type Vtable = IProcessMemoryUsageReport_Vtbl;
-}
-impl ::core::clone::Clone for IProcessMemoryUsageReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProcessMemoryUsageReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2c77cba_1951_4685_8532_7e749ecf8eeb);
@@ -338,14 +282,10 @@ pub struct IProcessMemoryUsageReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISystemCpuUsage(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISystemCpuUsage {
     type Vtable = ISystemCpuUsage_Vtbl;
-}
-impl ::core::clone::Clone for ISystemCpuUsage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISystemCpuUsage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6037b3ac_02d6_4234_8362_7fe3adc81f5f);
@@ -358,14 +298,10 @@ pub struct ISystemCpuUsage_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISystemCpuUsageReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISystemCpuUsageReport {
     type Vtable = ISystemCpuUsageReport_Vtbl;
-}
-impl ::core::clone::Clone for ISystemCpuUsageReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISystemCpuUsageReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c26d0b2_9483_4f62_ab57_82b29d9719b8);
@@ -389,14 +325,10 @@ pub struct ISystemCpuUsageReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISystemDiagnosticInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISystemDiagnosticInfo {
     type Vtable = ISystemDiagnosticInfo_Vtbl;
-}
-impl ::core::clone::Clone for ISystemDiagnosticInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISystemDiagnosticInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa290fe05_dff3_407f_9a1b_0b2b317ca800);
@@ -410,14 +342,10 @@ pub struct ISystemDiagnosticInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISystemDiagnosticInfoStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISystemDiagnosticInfoStatics {
     type Vtable = ISystemDiagnosticInfoStatics_Vtbl;
-}
-impl ::core::clone::Clone for ISystemDiagnosticInfoStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISystemDiagnosticInfoStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd404ac21_fc7d_45f0_9a3f_39203aed9f7e);
@@ -430,14 +358,10 @@ pub struct ISystemDiagnosticInfoStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISystemDiagnosticInfoStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISystemDiagnosticInfoStatics2 {
     type Vtable = ISystemDiagnosticInfoStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ISystemDiagnosticInfoStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISystemDiagnosticInfoStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79ded189_6af9_4da9_a422_15f73255b3eb);
@@ -451,14 +375,10 @@ pub struct ISystemDiagnosticInfoStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISystemMemoryUsage(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISystemMemoryUsage {
     type Vtable = ISystemMemoryUsage_Vtbl;
-}
-impl ::core::clone::Clone for ISystemMemoryUsage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISystemMemoryUsage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17ffc595_1702_49cf_aa27_2f0a32591404);
@@ -471,14 +391,10 @@ pub struct ISystemMemoryUsage_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISystemMemoryUsageReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISystemMemoryUsageReport {
     type Vtable = ISystemMemoryUsageReport_Vtbl;
-}
-impl ::core::clone::Clone for ISystemMemoryUsageReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISystemMemoryUsageReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38663c87_2a9f_403a_bd19_2cf3e8169500);
@@ -493,6 +409,7 @@ pub struct ISystemMemoryUsageReport_Vtbl {
 }
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DiagnosticActionResult(::windows_core::IUnknown);
 impl DiagnosticActionResult {
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
@@ -512,24 +429,8 @@ impl DiagnosticActionResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for DiagnosticActionResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DiagnosticActionResult {}
-impl ::core::fmt::Debug for DiagnosticActionResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DiagnosticActionResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DiagnosticActionResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticActionResult;{c265a296-e73b-4097-b28f-3442f03dd831})");
-}
-impl ::core::clone::Clone for DiagnosticActionResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DiagnosticActionResult {
     type Vtable = IDiagnosticActionResult_Vtbl;
@@ -545,6 +446,7 @@ unsafe impl ::core::marker::Send for DiagnosticActionResult {}
 unsafe impl ::core::marker::Sync for DiagnosticActionResult {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DiagnosticInvoker(::windows_core::IUnknown);
 impl DiagnosticInvoker {
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation\"`*"]
@@ -595,24 +497,8 @@ impl DiagnosticInvoker {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for DiagnosticInvoker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DiagnosticInvoker {}
-impl ::core::fmt::Debug for DiagnosticInvoker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DiagnosticInvoker").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DiagnosticInvoker {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticInvoker;{187b270a-02e3-4f86-84fc-fdd892b5940f})");
-}
-impl ::core::clone::Clone for DiagnosticInvoker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DiagnosticInvoker {
     type Vtable = IDiagnosticInvoker_Vtbl;
@@ -628,6 +514,7 @@ unsafe impl ::core::marker::Send for DiagnosticInvoker {}
 unsafe impl ::core::marker::Sync for DiagnosticInvoker {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessCpuUsage(::windows_core::IUnknown);
 impl ProcessCpuUsage {
     pub fn GetReport(&self) -> ::windows_core::Result<ProcessCpuUsageReport> {
@@ -638,24 +525,8 @@ impl ProcessCpuUsage {
         }
     }
 }
-impl ::core::cmp::PartialEq for ProcessCpuUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessCpuUsage {}
-impl ::core::fmt::Debug for ProcessCpuUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessCpuUsage").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProcessCpuUsage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessCpuUsage;{0bbb2472-c8bf-423a-a810-b559ae4354e2})");
-}
-impl ::core::clone::Clone for ProcessCpuUsage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProcessCpuUsage {
     type Vtable = IProcessCpuUsage_Vtbl;
@@ -671,6 +542,7 @@ unsafe impl ::core::marker::Send for ProcessCpuUsage {}
 unsafe impl ::core::marker::Sync for ProcessCpuUsage {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessCpuUsageReport(::windows_core::IUnknown);
 impl ProcessCpuUsageReport {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -692,24 +564,8 @@ impl ProcessCpuUsageReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for ProcessCpuUsageReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessCpuUsageReport {}
-impl ::core::fmt::Debug for ProcessCpuUsageReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessCpuUsageReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProcessCpuUsageReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessCpuUsageReport;{8a6d9cac-3987-4e2f-a119-6b5fa214f1b4})");
-}
-impl ::core::clone::Clone for ProcessCpuUsageReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProcessCpuUsageReport {
     type Vtable = IProcessCpuUsageReport_Vtbl;
@@ -725,6 +581,7 @@ unsafe impl ::core::marker::Send for ProcessCpuUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessCpuUsageReport {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessDiagnosticInfo(::windows_core::IUnknown);
 impl ProcessDiagnosticInfo {
     pub fn ProcessId(&self) -> ::windows_core::Result<u32> {
@@ -825,24 +682,8 @@ impl ProcessDiagnosticInfo {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ProcessDiagnosticInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessDiagnosticInfo {}
-impl ::core::fmt::Debug for ProcessDiagnosticInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessDiagnosticInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProcessDiagnosticInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiagnosticInfo;{e830b04b-300e-4ee6-a0ab-5b5f5231b434})");
-}
-impl ::core::clone::Clone for ProcessDiagnosticInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProcessDiagnosticInfo {
     type Vtable = IProcessDiagnosticInfo_Vtbl;
@@ -858,6 +699,7 @@ unsafe impl ::core::marker::Send for ProcessDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for ProcessDiagnosticInfo {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessDiskUsage(::windows_core::IUnknown);
 impl ProcessDiskUsage {
     pub fn GetReport(&self) -> ::windows_core::Result<ProcessDiskUsageReport> {
@@ -868,24 +710,8 @@ impl ProcessDiskUsage {
         }
     }
 }
-impl ::core::cmp::PartialEq for ProcessDiskUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessDiskUsage {}
-impl ::core::fmt::Debug for ProcessDiskUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessDiskUsage").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProcessDiskUsage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiskUsage;{5ad78bfd-7e51-4e53-bfaa-5a6ee1aabbf8})");
-}
-impl ::core::clone::Clone for ProcessDiskUsage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProcessDiskUsage {
     type Vtable = IProcessDiskUsage_Vtbl;
@@ -901,6 +727,7 @@ unsafe impl ::core::marker::Send for ProcessDiskUsage {}
 unsafe impl ::core::marker::Sync for ProcessDiskUsage {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessDiskUsageReport(::windows_core::IUnknown);
 impl ProcessDiskUsageReport {
     pub fn ReadOperationCount(&self) -> ::windows_core::Result<i64> {
@@ -946,24 +773,8 @@ impl ProcessDiskUsageReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for ProcessDiskUsageReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessDiskUsageReport {}
-impl ::core::fmt::Debug for ProcessDiskUsageReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessDiskUsageReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProcessDiskUsageReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiskUsageReport;{401627fd-535d-4c1f-81b8-da54e1be635e})");
-}
-impl ::core::clone::Clone for ProcessDiskUsageReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProcessDiskUsageReport {
     type Vtable = IProcessDiskUsageReport_Vtbl;
@@ -979,6 +790,7 @@ unsafe impl ::core::marker::Send for ProcessDiskUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessDiskUsageReport {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessMemoryUsage(::windows_core::IUnknown);
 impl ProcessMemoryUsage {
     pub fn GetReport(&self) -> ::windows_core::Result<ProcessMemoryUsageReport> {
@@ -989,24 +801,8 @@ impl ProcessMemoryUsage {
         }
     }
 }
-impl ::core::cmp::PartialEq for ProcessMemoryUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessMemoryUsage {}
-impl ::core::fmt::Debug for ProcessMemoryUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessMemoryUsage").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProcessMemoryUsage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessMemoryUsage;{f50b229b-827c-42b7-b07c-0e32627e6b3e})");
-}
-impl ::core::clone::Clone for ProcessMemoryUsage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProcessMemoryUsage {
     type Vtable = IProcessMemoryUsage_Vtbl;
@@ -1022,6 +818,7 @@ unsafe impl ::core::marker::Send for ProcessMemoryUsage {}
 unsafe impl ::core::marker::Sync for ProcessMemoryUsage {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessMemoryUsageReport(::windows_core::IUnknown);
 impl ProcessMemoryUsageReport {
     pub fn NonPagedPoolSizeInBytes(&self) -> ::windows_core::Result<u64> {
@@ -1109,24 +906,8 @@ impl ProcessMemoryUsageReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for ProcessMemoryUsageReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessMemoryUsageReport {}
-impl ::core::fmt::Debug for ProcessMemoryUsageReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessMemoryUsageReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProcessMemoryUsageReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessMemoryUsageReport;{c2c77cba-1951-4685-8532-7e749ecf8eeb})");
-}
-impl ::core::clone::Clone for ProcessMemoryUsageReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProcessMemoryUsageReport {
     type Vtable = IProcessMemoryUsageReport_Vtbl;
@@ -1142,6 +923,7 @@ unsafe impl ::core::marker::Send for ProcessMemoryUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessMemoryUsageReport {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemCpuUsage(::windows_core::IUnknown);
 impl SystemCpuUsage {
     pub fn GetReport(&self) -> ::windows_core::Result<SystemCpuUsageReport> {
@@ -1152,24 +934,8 @@ impl SystemCpuUsage {
         }
     }
 }
-impl ::core::cmp::PartialEq for SystemCpuUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemCpuUsage {}
-impl ::core::fmt::Debug for SystemCpuUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemCpuUsage").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SystemCpuUsage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemCpuUsage;{6037b3ac-02d6-4234-8362-7fe3adc81f5f})");
-}
-impl ::core::clone::Clone for SystemCpuUsage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SystemCpuUsage {
     type Vtable = ISystemCpuUsage_Vtbl;
@@ -1185,6 +951,7 @@ unsafe impl ::core::marker::Send for SystemCpuUsage {}
 unsafe impl ::core::marker::Sync for SystemCpuUsage {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemCpuUsageReport(::windows_core::IUnknown);
 impl SystemCpuUsageReport {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1215,24 +982,8 @@ impl SystemCpuUsageReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for SystemCpuUsageReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemCpuUsageReport {}
-impl ::core::fmt::Debug for SystemCpuUsageReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemCpuUsageReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SystemCpuUsageReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemCpuUsageReport;{2c26d0b2-9483-4f62-ab57-82b29d9719b8})");
-}
-impl ::core::clone::Clone for SystemCpuUsageReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SystemCpuUsageReport {
     type Vtable = ISystemCpuUsageReport_Vtbl;
@@ -1248,6 +999,7 @@ unsafe impl ::core::marker::Send for SystemCpuUsageReport {}
 unsafe impl ::core::marker::Sync for SystemCpuUsageReport {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemDiagnosticInfo(::windows_core::IUnknown);
 impl SystemDiagnosticInfo {
     pub fn MemoryUsage(&self) -> ::windows_core::Result<SystemMemoryUsage> {
@@ -1293,24 +1045,8 @@ impl SystemDiagnosticInfo {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for SystemDiagnosticInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemDiagnosticInfo {}
-impl ::core::fmt::Debug for SystemDiagnosticInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemDiagnosticInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SystemDiagnosticInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemDiagnosticInfo;{a290fe05-dff3-407f-9a1b-0b2b317ca800})");
-}
-impl ::core::clone::Clone for SystemDiagnosticInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SystemDiagnosticInfo {
     type Vtable = ISystemDiagnosticInfo_Vtbl;
@@ -1326,6 +1062,7 @@ unsafe impl ::core::marker::Send for SystemDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for SystemDiagnosticInfo {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemMemoryUsage(::windows_core::IUnknown);
 impl SystemMemoryUsage {
     pub fn GetReport(&self) -> ::windows_core::Result<SystemMemoryUsageReport> {
@@ -1336,24 +1073,8 @@ impl SystemMemoryUsage {
         }
     }
 }
-impl ::core::cmp::PartialEq for SystemMemoryUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemMemoryUsage {}
-impl ::core::fmt::Debug for SystemMemoryUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemMemoryUsage").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SystemMemoryUsage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemMemoryUsage;{17ffc595-1702-49cf-aa27-2f0a32591404})");
-}
-impl ::core::clone::Clone for SystemMemoryUsage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SystemMemoryUsage {
     type Vtable = ISystemMemoryUsage_Vtbl;
@@ -1369,6 +1090,7 @@ unsafe impl ::core::marker::Send for SystemMemoryUsage {}
 unsafe impl ::core::marker::Sync for SystemMemoryUsage {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemMemoryUsageReport(::windows_core::IUnknown);
 impl SystemMemoryUsageReport {
     pub fn TotalPhysicalSizeInBytes(&self) -> ::windows_core::Result<u64> {
@@ -1393,24 +1115,8 @@ impl SystemMemoryUsageReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for SystemMemoryUsageReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemMemoryUsageReport {}
-impl ::core::fmt::Debug for SystemMemoryUsageReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemMemoryUsageReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SystemMemoryUsageReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemMemoryUsageReport;{38663c87-2a9f-403a-bd19-2cf3e8169500})");
-}
-impl ::core::clone::Clone for SystemMemoryUsageReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SystemMemoryUsageReport {
     type Vtable = ISystemMemoryUsageReport_Vtbl;

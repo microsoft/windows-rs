@@ -55,6 +55,7 @@ pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mu
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDDVideoPortContainer(::windows_core::IUnknown);
 impl IDDVideoPortContainer {
     pub unsafe fn CreateVideoPort<P0>(&self, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut ::core::option::Option<IDirectDrawVideoPort>, param3: P0) -> ::windows_core::Result<()>
@@ -76,24 +77,8 @@ impl IDDVideoPortContainer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDDVideoPortContainer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDDVideoPortContainer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDDVideoPortContainer {}
-impl ::core::fmt::Debug for IDDVideoPortContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDDVideoPortContainer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDDVideoPortContainer {
     type Vtable = IDDVideoPortContainer_Vtbl;
-}
-impl ::core::clone::Clone for IDDVideoPortContainer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDDVideoPortContainer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c142760_a733_11ce_a521_0020af0be560);
@@ -112,6 +97,7 @@ pub struct IDDVideoPortContainer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDraw(::windows_core::IUnknown);
 impl IDirectDraw {
     pub unsafe fn Compact(&self) -> ::windows_core::Result<()> {
@@ -202,24 +188,8 @@ impl IDirectDraw {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDraw, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDraw {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDraw {}
-impl ::core::fmt::Debug for IDirectDraw {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDraw").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDraw {
     type Vtable = IDirectDraw_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDraw {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDraw {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c14db80_a733_11ce_a521_0020af0be560);
@@ -260,6 +230,7 @@ pub struct IDirectDraw_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDraw2(::windows_core::IUnknown);
 impl IDirectDraw2 {
     pub unsafe fn Compact(&self) -> ::windows_core::Result<()> {
@@ -353,24 +324,8 @@ impl IDirectDraw2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDraw2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDraw2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDraw2 {}
-impl ::core::fmt::Debug for IDirectDraw2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDraw2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDraw2 {
     type Vtable = IDirectDraw2_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDraw2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDraw2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356);
@@ -412,6 +367,7 @@ pub struct IDirectDraw2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDraw4(::windows_core::IUnknown);
 impl IDirectDraw4 {
     pub unsafe fn Compact(&self) -> ::windows_core::Result<()> {
@@ -523,24 +479,8 @@ impl IDirectDraw4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDraw4, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDraw4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDraw4 {}
-impl ::core::fmt::Debug for IDirectDraw4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDraw4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDraw4 {
     type Vtable = IDirectDraw4_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDraw4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDraw4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c59509a_39bd_11d1_8c4a_00c04fd930c5);
@@ -589,6 +529,7 @@ pub struct IDirectDraw4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDraw7(::windows_core::IUnknown);
 impl IDirectDraw7 {
     pub unsafe fn Compact(&self) -> ::windows_core::Result<()> {
@@ -708,24 +649,8 @@ impl IDirectDraw7 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDraw7, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDraw7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDraw7 {}
-impl ::core::fmt::Debug for IDirectDraw7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDraw7").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDraw7 {
     type Vtable = IDirectDraw7_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDraw7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDraw7 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15e65ec0_3b9c_11d2_b92f_00609797ea5b);
@@ -779,6 +704,7 @@ pub struct IDirectDraw7_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawClipper(::windows_core::IUnknown);
 impl IDirectDrawClipper {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -817,24 +743,8 @@ impl IDirectDrawClipper {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDrawClipper, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDrawClipper {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDrawClipper {}
-impl ::core::fmt::Debug for IDirectDrawClipper {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDrawClipper").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDrawClipper {
     type Vtable = IDirectDrawClipper_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDrawClipper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDrawClipper {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c14db85_a733_11ce_a521_0020af0be560);
@@ -867,6 +777,7 @@ pub struct IDirectDrawClipper_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawColorControl(::windows_core::IUnknown);
 impl IDirectDrawColorControl {
     pub unsafe fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows_core::Result<()> {
@@ -877,24 +788,8 @@ impl IDirectDrawColorControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDrawColorControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDrawColorControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDrawColorControl {}
-impl ::core::fmt::Debug for IDirectDrawColorControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDrawColorControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDrawColorControl {
     type Vtable = IDirectDrawColorControl_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDrawColorControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDrawColorControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8);
@@ -908,6 +803,7 @@ pub struct IDirectDrawColorControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawGammaControl(::windows_core::IUnknown);
 impl IDirectDrawGammaControl {
     pub unsafe fn GetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows_core::Result<()> {
@@ -918,24 +814,8 @@ impl IDirectDrawGammaControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDrawGammaControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDrawGammaControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDrawGammaControl {}
-impl ::core::fmt::Debug for IDirectDrawGammaControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDrawGammaControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDrawGammaControl {
     type Vtable = IDirectDrawGammaControl_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDrawGammaControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDrawGammaControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e);
@@ -949,6 +829,7 @@ pub struct IDirectDrawGammaControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawKernel(::windows_core::IUnknown);
 impl IDirectDrawKernel {
     pub unsafe fn GetCaps(&self, param0: *mut DDKERNELCAPS) -> ::windows_core::Result<()> {
@@ -962,24 +843,8 @@ impl IDirectDrawKernel {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDrawKernel, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDrawKernel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDrawKernel {}
-impl ::core::fmt::Debug for IDirectDrawKernel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDrawKernel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDrawKernel {
     type Vtable = IDirectDrawKernel_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDrawKernel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDrawKernel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d56c120_6a08_11d0_9b06_00a0c903a3b8);
@@ -994,6 +859,7 @@ pub struct IDirectDrawKernel_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawPalette(::windows_core::IUnknown);
 impl IDirectDrawPalette {
     pub unsafe fn GetCaps(&self, param0: *mut u32) -> ::windows_core::Result<()> {
@@ -1019,24 +885,8 @@ impl IDirectDrawPalette {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDrawPalette, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDrawPalette {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDrawPalette {}
-impl ::core::fmt::Debug for IDirectDrawPalette {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDrawPalette").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDrawPalette {
     type Vtable = IDirectDrawPalette_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDrawPalette {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDrawPalette {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c14db84_a733_11ce_a521_0020af0be560);
@@ -1061,6 +911,7 @@ pub struct IDirectDrawPalette_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawSurface(::windows_core::IUnknown);
 impl IDirectDrawSurface {
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> ::windows_core::Result<()>
@@ -1218,24 +1069,8 @@ impl IDirectDrawSurface {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDrawSurface, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDrawSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDrawSurface {}
-impl ::core::fmt::Debug for IDirectDrawSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDrawSurface").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDrawSurface {
     type Vtable = IDirectDrawSurface_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDrawSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDrawSurface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c14db81_a733_11ce_a521_0020af0be560);
@@ -1304,6 +1139,7 @@ pub struct IDirectDrawSurface_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawSurface2(::windows_core::IUnknown);
 impl IDirectDrawSurface2 {
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> ::windows_core::Result<()>
@@ -1470,24 +1306,8 @@ impl IDirectDrawSurface2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDrawSurface2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDrawSurface2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDrawSurface2 {}
-impl ::core::fmt::Debug for IDirectDrawSurface2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDrawSurface2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDrawSurface2 {
     type Vtable = IDirectDrawSurface2_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDrawSurface2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDrawSurface2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57805885_6eec_11cf_9441_a82303c10e27);
@@ -1559,6 +1379,7 @@ pub struct IDirectDrawSurface2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawSurface3(::windows_core::IUnknown);
 impl IDirectDrawSurface3 {
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> ::windows_core::Result<()>
@@ -1728,24 +1549,8 @@ impl IDirectDrawSurface3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDrawSurface3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDrawSurface3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDrawSurface3 {}
-impl ::core::fmt::Debug for IDirectDrawSurface3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDrawSurface3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDrawSurface3 {
     type Vtable = IDirectDrawSurface3_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDrawSurface3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDrawSurface3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb);
@@ -1818,6 +1623,7 @@ pub struct IDirectDrawSurface3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawSurface4(::windows_core::IUnknown);
 impl IDirectDrawSurface4 {
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> ::windows_core::Result<()>
@@ -2004,24 +1810,8 @@ impl IDirectDrawSurface4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDrawSurface4, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDrawSurface4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDrawSurface4 {}
-impl ::core::fmt::Debug for IDirectDrawSurface4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDrawSurface4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDrawSurface4 {
     type Vtable = IDirectDrawSurface4_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDrawSurface4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDrawSurface4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b2b8630_ad35_11d0_8ea6_00609797ea5b);
@@ -2102,6 +1892,7 @@ pub struct IDirectDrawSurface4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawSurface7(::windows_core::IUnknown);
 impl IDirectDrawSurface7 {
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> ::windows_core::Result<()>
@@ -2300,24 +2091,8 @@ impl IDirectDrawSurface7 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDrawSurface7, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDrawSurface7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDrawSurface7 {}
-impl ::core::fmt::Debug for IDirectDrawSurface7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDrawSurface7").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDrawSurface7 {
     type Vtable = IDirectDrawSurface7_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDrawSurface7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDrawSurface7 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06675a80_3b9b_11d2_b92f_00609797ea5b);
@@ -2402,6 +2177,7 @@ pub struct IDirectDrawSurface7_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawSurfaceKernel(::windows_core::IUnknown);
 impl IDirectDrawSurfaceKernel {
     pub unsafe fn GetKernelHandle(&self, param0: *mut usize) -> ::windows_core::Result<()> {
@@ -2412,24 +2188,8 @@ impl IDirectDrawSurfaceKernel {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDrawSurfaceKernel, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDrawSurfaceKernel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDrawSurfaceKernel {}
-impl ::core::fmt::Debug for IDirectDrawSurfaceKernel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDrawSurfaceKernel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDrawSurfaceKernel {
     type Vtable = IDirectDrawSurfaceKernel_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDrawSurfaceKernel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDrawSurfaceKernel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x60755da0_6a40_11d0_9b06_00a0c903a3b8);
@@ -2443,6 +2203,7 @@ pub struct IDirectDrawSurfaceKernel_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawVideoPort(::windows_core::IUnknown);
 impl IDirectDrawVideoPort {
     pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
@@ -2499,24 +2260,8 @@ impl IDirectDrawVideoPort {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDrawVideoPort, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDrawVideoPort {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDrawVideoPort {}
-impl ::core::fmt::Debug for IDirectDrawVideoPort {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDrawVideoPort").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDrawVideoPort {
     type Vtable = IDirectDrawVideoPort_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDrawVideoPort {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDrawVideoPort {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb36d93e0_2b43_11cf_a2de_00aa00b93356);
@@ -2548,6 +2293,7 @@ pub struct IDirectDrawVideoPort_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawVideoPortNotify(::windows_core::IUnknown);
 impl IDirectDrawVideoPortNotify {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2565,24 +2311,8 @@ impl IDirectDrawVideoPortNotify {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectDrawVideoPortNotify, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectDrawVideoPortNotify {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectDrawVideoPortNotify {}
-impl ::core::fmt::Debug for IDirectDrawVideoPortNotify {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectDrawVideoPortNotify").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectDrawVideoPortNotify {
     type Vtable = IDirectDrawVideoPortNotify_Vtbl;
-}
-impl ::core::clone::Clone for IDirectDrawVideoPortNotify {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectDrawVideoPortNotify {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa655fb94_0589_4e57_b333_567a89468c88);

@@ -10,6 +10,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConnectionRequestCallback(::windows_core::IUnknown);
 impl IConnectionRequestCallback {
     pub unsafe fn OnComplete(&self, hrstatus: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
@@ -17,24 +18,8 @@ impl IConnectionRequestCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConnectionRequestCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IConnectionRequestCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IConnectionRequestCallback {}
-impl ::core::fmt::Debug for IConnectionRequestCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IConnectionRequestCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IConnectionRequestCallback {
     type Vtable = IConnectionRequestCallback_Vtbl;
-}
-impl ::core::clone::Clone for IConnectionRequestCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConnectionRequestCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x272c9ae0_7161_4ae0_91bd_9f448ee9c427);
@@ -47,6 +32,7 @@ pub struct IConnectionRequestCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumPortableDeviceConnectors(::windows_core::IUnknown);
 impl IEnumPortableDeviceConnectors {
     pub unsafe fn Next(&self, pconnectors: &mut [::core::option::Option<IPortableDeviceConnector>], pcfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -64,24 +50,8 @@ impl IEnumPortableDeviceConnectors {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumPortableDeviceConnectors, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumPortableDeviceConnectors {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumPortableDeviceConnectors {}
-impl ::core::fmt::Debug for IEnumPortableDeviceConnectors {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumPortableDeviceConnectors").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumPortableDeviceConnectors {
     type Vtable = IEnumPortableDeviceConnectors_Vtbl;
-}
-impl ::core::clone::Clone for IEnumPortableDeviceConnectors {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumPortableDeviceConnectors {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfdef549_9247_454f_bd82_06fe80853faa);
@@ -97,6 +67,7 @@ pub struct IEnumPortableDeviceConnectors_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumPortableDeviceObjectIDs(::windows_core::IUnknown);
 impl IEnumPortableDeviceObjectIDs {
     pub unsafe fn Next(&self, pobjids: &mut [::windows_core::PWSTR], pcfetched: *mut u32) -> ::windows_core::HRESULT {
@@ -117,24 +88,8 @@ impl IEnumPortableDeviceObjectIDs {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumPortableDeviceObjectIDs, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumPortableDeviceObjectIDs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumPortableDeviceObjectIDs {}
-impl ::core::fmt::Debug for IEnumPortableDeviceObjectIDs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumPortableDeviceObjectIDs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumPortableDeviceObjectIDs {
     type Vtable = IEnumPortableDeviceObjectIDs_Vtbl;
-}
-impl ::core::clone::Clone for IEnumPortableDeviceObjectIDs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumPortableDeviceObjectIDs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10ece955_cf41_4728_bfa0_41eedf1bbf19);
@@ -151,6 +106,7 @@ pub struct IEnumPortableDeviceObjectIDs_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaRadioManager(::windows_core::IUnknown);
 impl IMediaRadioManager {
     pub unsafe fn GetRadioInstances(&self) -> ::windows_core::Result<IRadioInstanceCollection> {
@@ -162,24 +118,8 @@ impl IMediaRadioManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMediaRadioManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMediaRadioManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMediaRadioManager {}
-impl ::core::fmt::Debug for IMediaRadioManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaRadioManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMediaRadioManager {
     type Vtable = IMediaRadioManager_Vtbl;
-}
-impl ::core::clone::Clone for IMediaRadioManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaRadioManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6cfdcab5_fc47_42a5_9241_074b58830e73);
@@ -193,6 +133,7 @@ pub struct IMediaRadioManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaRadioManagerNotifySink(::windows_core::IUnknown);
 impl IMediaRadioManagerNotifySink {
     pub unsafe fn OnInstanceAdd<P0>(&self, pradioinstance: P0) -> ::windows_core::Result<()>
@@ -215,24 +156,8 @@ impl IMediaRadioManagerNotifySink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMediaRadioManagerNotifySink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMediaRadioManagerNotifySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMediaRadioManagerNotifySink {}
-impl ::core::fmt::Debug for IMediaRadioManagerNotifySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaRadioManagerNotifySink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMediaRadioManagerNotifySink {
     type Vtable = IMediaRadioManagerNotifySink_Vtbl;
-}
-impl ::core::clone::Clone for IMediaRadioManagerNotifySink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaRadioManagerNotifySink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89d81f5f_c147_49ed_a11c_77b20c31e7c9);
@@ -247,6 +172,7 @@ pub struct IMediaRadioManagerNotifySink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDevice(::windows_core::IUnknown);
 impl IPortableDevice {
     pub unsafe fn Open<P0, P1>(&self, pszpnpdeviceid: P0, pclientinfo: P1) -> ::windows_core::Result<()>
@@ -297,24 +223,8 @@ impl IPortableDevice {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDevice, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDevice {}
-impl ::core::fmt::Debug for IPortableDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDevice {
     type Vtable = IPortableDevice_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x625e2df8_6392_4cf0_9ad1_3cfa5f17775c);
@@ -335,6 +245,7 @@ pub struct IPortableDevice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceCapabilities(::windows_core::IUnknown);
 impl IPortableDeviceCapabilities {
     pub unsafe fn GetSupportedCommands(&self) -> ::windows_core::Result<IPortableDeviceKeyCollection> {
@@ -386,24 +297,8 @@ impl IPortableDeviceCapabilities {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceCapabilities, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceCapabilities {}
-impl ::core::fmt::Debug for IPortableDeviceCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceCapabilities {
     type Vtable = IPortableDeviceCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c8c6dbf_e3dc_4061_becc_8542e810d126);
@@ -432,6 +327,7 @@ pub struct IPortableDeviceCapabilities_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceConnector(::windows_core::IUnknown);
 impl IPortableDeviceConnector {
     pub unsafe fn Connect<P0>(&self, pcallback: P0) -> ::windows_core::Result<()>
@@ -468,24 +364,8 @@ impl IPortableDeviceConnector {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceConnector, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceConnector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceConnector {}
-impl ::core::fmt::Debug for IPortableDeviceConnector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceConnector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceConnector {
     type Vtable = IPortableDeviceConnector_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceConnector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceConnector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x625e2df8_6392_4cf0_9ad1_3cfa5f17775c);
@@ -509,6 +389,7 @@ pub struct IPortableDeviceConnector_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceContent(::windows_core::IUnknown);
 impl IPortableDeviceContent {
     pub unsafe fn EnumObjects<P0, P1>(&self, dwflags: u32, pszparentobjectid: P0, pfilter: P1) -> ::windows_core::Result<IEnumPortableDeviceObjectIDs>
@@ -573,24 +454,8 @@ impl IPortableDeviceContent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceContent, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceContent {}
-impl ::core::fmt::Debug for IPortableDeviceContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceContent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceContent {
     type Vtable = IPortableDeviceContent_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceContent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a96ed84_7c73_4480_9938_bf5af477d426);
@@ -615,6 +480,7 @@ pub struct IPortableDeviceContent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceContent2(::windows_core::IUnknown);
 impl IPortableDeviceContent2 {
     pub unsafe fn EnumObjects<P0, P1>(&self, dwflags: u32, pszparentobjectid: P0, pfilter: P1) -> ::windows_core::Result<IEnumPortableDeviceObjectIDs>
@@ -688,24 +554,8 @@ impl IPortableDeviceContent2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceContent2, ::windows_core::IUnknown, IPortableDeviceContent);
-impl ::core::cmp::PartialEq for IPortableDeviceContent2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceContent2 {}
-impl ::core::fmt::Debug for IPortableDeviceContent2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceContent2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceContent2 {
     type Vtable = IPortableDeviceContent2_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceContent2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceContent2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b4add96_f6bf_4034_8708_eca72bf10554);
@@ -722,6 +572,7 @@ pub struct IPortableDeviceContent2_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceDataStream(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPortableDeviceDataStream {
@@ -795,28 +646,8 @@ impl IPortableDeviceDataStream {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceDataStream, ::windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPortableDeviceDataStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPortableDeviceDataStream {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPortableDeviceDataStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceDataStream").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPortableDeviceDataStream {
     type Vtable = IPortableDeviceDataStream_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPortableDeviceDataStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPortableDeviceDataStream {
@@ -832,6 +663,7 @@ pub struct IPortableDeviceDataStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceDispatchFactory(::windows_core::IUnknown);
 impl IPortableDeviceDispatchFactory {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -845,24 +677,8 @@ impl IPortableDeviceDispatchFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceDispatchFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceDispatchFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceDispatchFactory {}
-impl ::core::fmt::Debug for IPortableDeviceDispatchFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceDispatchFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceDispatchFactory {
     type Vtable = IPortableDeviceDispatchFactory_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceDispatchFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceDispatchFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e1eafc3_e3d7_4132_96fa_759c0f9d1e0f);
@@ -878,6 +694,7 @@ pub struct IPortableDeviceDispatchFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceEventCallback(::windows_core::IUnknown);
 impl IPortableDeviceEventCallback {
     pub unsafe fn OnEvent<P0>(&self, peventparameters: P0) -> ::windows_core::Result<()>
@@ -888,24 +705,8 @@ impl IPortableDeviceEventCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceEventCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceEventCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceEventCallback {}
-impl ::core::fmt::Debug for IPortableDeviceEventCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceEventCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceEventCallback {
     type Vtable = IPortableDeviceEventCallback_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceEventCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceEventCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8792a31_f385_493c_a893_40f64eb45f6e);
@@ -918,6 +719,7 @@ pub struct IPortableDeviceEventCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceKeyCollection(::windows_core::IUnknown);
 impl IPortableDeviceKeyCollection {
     pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows_core::Result<()> {
@@ -941,24 +743,8 @@ impl IPortableDeviceKeyCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceKeyCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceKeyCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceKeyCollection {}
-impl ::core::fmt::Debug for IPortableDeviceKeyCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceKeyCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceKeyCollection {
     type Vtable = IPortableDeviceKeyCollection_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceKeyCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceKeyCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdada2357_e0ad_492e_98db_dd61c53ba353);
@@ -981,6 +767,7 @@ pub struct IPortableDeviceKeyCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceManager(::windows_core::IUnknown);
 impl IPortableDeviceManager {
     pub unsafe fn GetDevices(&self, ppnpdeviceids: *mut ::windows_core::PWSTR, pcpnpdeviceids: *mut u32) -> ::windows_core::Result<()> {
@@ -1019,24 +806,8 @@ impl IPortableDeviceManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceManager {}
-impl ::core::fmt::Debug for IPortableDeviceManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceManager {
     type Vtable = IPortableDeviceManager_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1567595_4c2f_4574_a6fa_ecef917b9a40);
@@ -1055,6 +826,7 @@ pub struct IPortableDeviceManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDevicePropVariantCollection(::windows_core::IUnknown);
 impl IPortableDevicePropVariantCollection {
     pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows_core::Result<()> {
@@ -1085,24 +857,8 @@ impl IPortableDevicePropVariantCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDevicePropVariantCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDevicePropVariantCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDevicePropVariantCollection {}
-impl ::core::fmt::Debug for IPortableDevicePropVariantCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDevicePropVariantCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDevicePropVariantCollection {
     type Vtable = IPortableDevicePropVariantCollection_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDevicePropVariantCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDevicePropVariantCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89b2e422_4f1b_4316_bcef_a44afea83eb3);
@@ -1127,6 +883,7 @@ pub struct IPortableDevicePropVariantCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceProperties(::windows_core::IUnknown);
 impl IPortableDeviceProperties {
     pub unsafe fn GetSupportedProperties<P0>(&self, pszobjectid: P0) -> ::windows_core::Result<IPortableDeviceKeyCollection>
@@ -1173,24 +930,8 @@ impl IPortableDeviceProperties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceProperties, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceProperties {}
-impl ::core::fmt::Debug for IPortableDeviceProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceProperties {
     type Vtable = IPortableDeviceProperties_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f6d695c_03df_4439_a809_59266beee3a6);
@@ -1211,6 +952,7 @@ pub struct IPortableDeviceProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDevicePropertiesBulk(::windows_core::IUnknown);
 impl IPortableDevicePropertiesBulk {
     pub unsafe fn QueueGetValuesByObjectList<P0, P1, P2>(&self, pobjectids: P0, pkeys: P1, pcallback: P2) -> ::windows_core::Result<::windows_core::GUID>
@@ -1247,24 +989,8 @@ impl IPortableDevicePropertiesBulk {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDevicePropertiesBulk, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDevicePropertiesBulk {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDevicePropertiesBulk {}
-impl ::core::fmt::Debug for IPortableDevicePropertiesBulk {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDevicePropertiesBulk").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDevicePropertiesBulk {
     type Vtable = IPortableDevicePropertiesBulk_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDevicePropertiesBulk {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDevicePropertiesBulk {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x482b05c0_4056_44ed_9e0f_5e23b009da93);
@@ -1281,6 +1007,7 @@ pub struct IPortableDevicePropertiesBulk_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDevicePropertiesBulkCallback(::windows_core::IUnknown);
 impl IPortableDevicePropertiesBulkCallback {
     pub unsafe fn OnStart(&self, pcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -1297,24 +1024,8 @@ impl IPortableDevicePropertiesBulkCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDevicePropertiesBulkCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDevicePropertiesBulkCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDevicePropertiesBulkCallback {}
-impl ::core::fmt::Debug for IPortableDevicePropertiesBulkCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDevicePropertiesBulkCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDevicePropertiesBulkCallback {
     type Vtable = IPortableDevicePropertiesBulkCallback_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDevicePropertiesBulkCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDevicePropertiesBulkCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9deacb80_11e8_40e3_a9f3_f557986a7845);
@@ -1329,6 +1040,7 @@ pub struct IPortableDevicePropertiesBulkCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceResources(::windows_core::IUnknown);
 impl IPortableDeviceResources {
     pub unsafe fn GetSupportedResources<P0>(&self, pszobjectid: P0) -> ::windows_core::Result<IPortableDeviceKeyCollection>
@@ -1375,24 +1087,8 @@ impl IPortableDeviceResources {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceResources, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceResources {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceResources {}
-impl ::core::fmt::Debug for IPortableDeviceResources {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceResources").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceResources {
     type Vtable = IPortableDeviceResources_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceResources {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceResources {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd8878ac_d841_4d17_891c_e6829cdb6934);
@@ -1419,6 +1115,7 @@ pub struct IPortableDeviceResources_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceService(::windows_core::IUnknown);
 impl IPortableDeviceService {
     pub unsafe fn Open<P0, P1>(&self, pszpnpserviceid: P0, pclientinfo: P1) -> ::windows_core::Result<()>
@@ -1477,24 +1174,8 @@ impl IPortableDeviceService {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceService, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceService {}
-impl ::core::fmt::Debug for IPortableDeviceService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceService").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceService {
     type Vtable = IPortableDeviceService_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceService {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceService {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3bd3a44_d7b5_40a9_98b7_2fa4d01dec08);
@@ -1517,6 +1198,7 @@ pub struct IPortableDeviceService_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceServiceActivation(::windows_core::IUnknown);
 impl IPortableDeviceServiceActivation {
     pub unsafe fn OpenAsync<P0, P1, P2>(&self, pszpnpserviceid: P0, pclientinfo: P1, pcallback: P2) -> ::windows_core::Result<()>
@@ -1532,24 +1214,8 @@ impl IPortableDeviceServiceActivation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceActivation, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceServiceActivation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceServiceActivation {}
-impl ::core::fmt::Debug for IPortableDeviceServiceActivation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceServiceActivation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceServiceActivation {
     type Vtable = IPortableDeviceServiceActivation_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceServiceActivation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceServiceActivation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe56b0534_d9b9_425c_9b99_75f97cb3d7c8);
@@ -1563,6 +1229,7 @@ pub struct IPortableDeviceServiceActivation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceServiceCapabilities(::windows_core::IUnknown);
 impl IPortableDeviceServiceCapabilities {
     pub unsafe fn GetSupportedMethods(&self) -> ::windows_core::Result<IPortableDevicePropVariantCollection> {
@@ -1638,24 +1305,8 @@ impl IPortableDeviceServiceCapabilities {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceCapabilities, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceServiceCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceServiceCapabilities {}
-impl ::core::fmt::Debug for IPortableDeviceServiceCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceServiceCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceServiceCapabilities {
     type Vtable = IPortableDeviceServiceCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceServiceCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceServiceCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24dbd89d_413e_43e0_bd5b_197f3c56c886);
@@ -1695,6 +1346,7 @@ pub struct IPortableDeviceServiceCapabilities_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceServiceManager(::windows_core::IUnknown);
 impl IPortableDeviceServiceManager {
     pub unsafe fn GetDeviceServices<P0>(&self, pszpnpdeviceid: P0, guidservicecategory: *const ::windows_core::GUID, pservices: *mut ::windows_core::PWSTR, pcservices: *mut u32) -> ::windows_core::Result<()>
@@ -1712,24 +1364,8 @@ impl IPortableDeviceServiceManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceServiceManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceServiceManager {}
-impl ::core::fmt::Debug for IPortableDeviceServiceManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceServiceManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceServiceManager {
     type Vtable = IPortableDeviceServiceManager_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceServiceManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceServiceManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8abc4e9_a84a_47a9_80b3_c5d9b172a961);
@@ -1743,6 +1379,7 @@ pub struct IPortableDeviceServiceManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceServiceMethodCallback(::windows_core::IUnknown);
 impl IPortableDeviceServiceMethodCallback {
     pub unsafe fn OnComplete<P0>(&self, hrstatus: ::windows_core::HRESULT, presults: P0) -> ::windows_core::Result<()>
@@ -1753,24 +1390,8 @@ impl IPortableDeviceServiceMethodCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceMethodCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceServiceMethodCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceServiceMethodCallback {}
-impl ::core::fmt::Debug for IPortableDeviceServiceMethodCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceServiceMethodCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceServiceMethodCallback {
     type Vtable = IPortableDeviceServiceMethodCallback_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceServiceMethodCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceServiceMethodCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc424233c_afce_4828_a756_7ed7a2350083);
@@ -1783,6 +1404,7 @@ pub struct IPortableDeviceServiceMethodCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceServiceMethods(::windows_core::IUnknown);
 impl IPortableDeviceServiceMethods {
     pub unsafe fn Invoke<P0>(&self, method: *const ::windows_core::GUID, pparameters: P0, ppresults: *mut ::core::option::Option<IPortableDeviceValues>) -> ::windows_core::Result<()>
@@ -1806,24 +1428,8 @@ impl IPortableDeviceServiceMethods {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceMethods, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceServiceMethods {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceServiceMethods {}
-impl ::core::fmt::Debug for IPortableDeviceServiceMethods {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceServiceMethods").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceServiceMethods {
     type Vtable = IPortableDeviceServiceMethods_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceServiceMethods {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceServiceMethods {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe20333c9_fd34_412d_a381_cc6f2d820df7);
@@ -1838,6 +1444,7 @@ pub struct IPortableDeviceServiceMethods_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceServiceOpenCallback(::windows_core::IUnknown);
 impl IPortableDeviceServiceOpenCallback {
     pub unsafe fn OnComplete(&self, hrstatus: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
@@ -1845,24 +1452,8 @@ impl IPortableDeviceServiceOpenCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceOpenCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceServiceOpenCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceServiceOpenCallback {}
-impl ::core::fmt::Debug for IPortableDeviceServiceOpenCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceServiceOpenCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceServiceOpenCallback {
     type Vtable = IPortableDeviceServiceOpenCallback_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceServiceOpenCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceServiceOpenCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbced49c8_8efe_41ed_960b_61313abd47a9);
@@ -1875,6 +1466,7 @@ pub struct IPortableDeviceServiceOpenCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceUnitsStream(::windows_core::IUnknown);
 impl IPortableDeviceUnitsStream {
     pub unsafe fn SeekInUnits(&self, dlibmove: i64, units: WPD_STREAM_UNITS, dworigin: u32, plibnewposition: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -1885,24 +1477,8 @@ impl IPortableDeviceUnitsStream {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceUnitsStream, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceUnitsStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceUnitsStream {}
-impl ::core::fmt::Debug for IPortableDeviceUnitsStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceUnitsStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceUnitsStream {
     type Vtable = IPortableDeviceUnitsStream_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceUnitsStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceUnitsStream {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e98025f_bfc4_47a2_9a5f_bc900a507c67);
@@ -1916,6 +1492,7 @@ pub struct IPortableDeviceUnitsStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceValues(::windows_core::IUnknown);
 impl IPortableDeviceValues {
     pub unsafe fn GetCount(&self, pcelt: *const u32) -> ::windows_core::Result<()> {
@@ -2158,24 +1735,8 @@ impl IPortableDeviceValues {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceValues, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceValues {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceValues {}
-impl ::core::fmt::Debug for IPortableDeviceValues {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceValues").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceValues {
     type Vtable = IPortableDeviceValues_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceValues {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceValues {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6848f6f2_3155_4f86_b6f5_263eeeab3143);
@@ -2341,6 +1902,7 @@ pub struct IPortableDeviceValues_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceValuesCollection(::windows_core::IUnknown);
 impl IPortableDeviceValuesCollection {
     pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows_core::Result<()> {
@@ -2364,24 +1926,8 @@ impl IPortableDeviceValuesCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceValuesCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPortableDeviceValuesCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPortableDeviceValuesCollection {}
-impl ::core::fmt::Debug for IPortableDeviceValuesCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceValuesCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPortableDeviceValuesCollection {
     type Vtable = IPortableDeviceValuesCollection_Vtbl;
-}
-impl ::core::clone::Clone for IPortableDeviceValuesCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPortableDeviceValuesCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e3f2d79_4e07_48c4_8208_d8c2e5af4a99);
@@ -2399,6 +1945,7 @@ pub struct IPortableDeviceValuesCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPortableDeviceWebControl(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPortableDeviceWebControl {
@@ -2425,28 +1972,8 @@ impl IPortableDeviceWebControl {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPortableDeviceWebControl, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPortableDeviceWebControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPortableDeviceWebControl {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPortableDeviceWebControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPortableDeviceWebControl").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPortableDeviceWebControl {
     type Vtable = IPortableDeviceWebControl_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPortableDeviceWebControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPortableDeviceWebControl {
@@ -2468,6 +1995,7 @@ pub struct IPortableDeviceWebControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRadioInstance(::windows_core::IUnknown);
 impl IRadioInstance {
     pub unsafe fn GetRadioManagerSignature(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -2501,24 +2029,8 @@ impl IRadioInstance {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRadioInstance, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRadioInstance {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRadioInstance {}
-impl ::core::fmt::Debug for IRadioInstance {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRadioInstance").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRadioInstance {
     type Vtable = IRadioInstance_Vtbl;
-}
-impl ::core::clone::Clone for IRadioInstance {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRadioInstance {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70aa1c9e_f2b4_4c61_86d3_6b9fb75fd1a2);
@@ -2543,6 +2055,7 @@ pub struct IRadioInstance_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRadioInstanceCollection(::windows_core::IUnknown);
 impl IRadioInstanceCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -2555,24 +2068,8 @@ impl IRadioInstanceCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRadioInstanceCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRadioInstanceCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRadioInstanceCollection {}
-impl ::core::fmt::Debug for IRadioInstanceCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRadioInstanceCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRadioInstanceCollection {
     type Vtable = IRadioInstanceCollection_Vtbl;
-}
-impl ::core::clone::Clone for IRadioInstanceCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRadioInstanceCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5791fae_5665_4e0c_95be_5fde31644185);
@@ -2586,6 +2083,7 @@ pub struct IRadioInstanceCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWpdSerializer(::windows_core::IUnknown);
 impl IWpdSerializer {
     pub unsafe fn GetIPortableDeviceValuesFromBuffer(&self, pbuffer: &[u8]) -> ::windows_core::Result<IPortableDeviceValues> {
@@ -2613,24 +2111,8 @@ impl IWpdSerializer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWpdSerializer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWpdSerializer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWpdSerializer {}
-impl ::core::fmt::Debug for IWpdSerializer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWpdSerializer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWpdSerializer {
     type Vtable = IWpdSerializer_Vtbl;
-}
-impl ::core::clone::Clone for IWpdSerializer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWpdSerializer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb32f4002_bb27_45ff_af4f_06631c1e8dad);

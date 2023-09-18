@@ -36,8 +36,8 @@ impl ISceSvcAttachmentData_Vtbl {
             CloseHandle: CloseHandle::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISceSvcAttachmentData as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISceSvcAttachmentData as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -74,7 +74,7 @@ impl ISceSvcAttachmentPersistInfo_Vtbl {
             FreeBuffer: FreeBuffer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISceSvcAttachmentPersistInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISceSvcAttachmentPersistInfo as ::windows_core::ComInterface>::IID
     }
 }

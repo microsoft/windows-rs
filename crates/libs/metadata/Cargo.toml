@@ -7,6 +7,7 @@ rust-version = "1.64"
 license = "MIT OR Apache-2.0"
 description = "Windows metadata reader"
 repository = "https://github.com/microsoft/windows-rs"
+readme = "readme.md"
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"

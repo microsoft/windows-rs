@@ -15,8 +15,8 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
             CreateFromWin32Handle: CreateFromWin32Handle::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusAttachmentFactoryInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWindowsDevicesAllJoynBusAttachmentFactoryInterop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`, `\"implement\"`*"]
@@ -42,8 +42,8 @@ impl IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
             Win32Handle: Win32Handle::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusAttachmentInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWindowsDevicesAllJoynBusAttachmentInterop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`, `\"implement\"`*"]
@@ -63,8 +63,8 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
             CreateFromWin32Handle: CreateFromWin32Handle::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusObjectFactoryInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWindowsDevicesAllJoynBusObjectFactoryInterop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`, `\"implement\"`*"]
@@ -104,7 +104,7 @@ impl IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
             Win32Handle: Win32Handle::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusObjectInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWindowsDevicesAllJoynBusObjectInterop as ::windows_core::ComInterface>::IID
     }
 }

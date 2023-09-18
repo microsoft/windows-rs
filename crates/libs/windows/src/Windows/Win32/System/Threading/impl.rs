@@ -22,8 +22,8 @@ impl IRtwqAsyncCallback_Vtbl {
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRtwqAsyncCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRtwqAsyncCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"implement\"`*"]
@@ -83,8 +83,8 @@ impl IRtwqAsyncResult_Vtbl {
             GetStateNoAddRef: GetStateNoAddRef::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRtwqAsyncResult as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRtwqAsyncResult as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"implement\"`*"]
@@ -118,8 +118,8 @@ impl IRtwqPlatformEvents_Vtbl {
             ShutdownComplete: ShutdownComplete::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRtwqPlatformEvents as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRtwqPlatformEvents as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"implement\"`*"]
@@ -129,7 +129,7 @@ impl RTWQASYNCRESULT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: RTWQASYNCRESULT_Impl, const OFFSET: isize>() -> RTWQASYNCRESULT_Vtbl {
         Self { base__: IRtwqAsyncResult_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<RTWQASYNCRESULT as ::windows_core::ComInterface>::IID || iid == &<IRtwqAsyncResult as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <RTWQASYNCRESULT as ::windows_core::ComInterface>::IID || *iid == <IRtwqAsyncResult as ::windows_core::ComInterface>::IID
     }
 }

@@ -50,8 +50,8 @@ impl IXpsDocumentPackageTarget_Vtbl {
             GetXpsType: GetXpsType::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsDocumentPackageTarget as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsDocumentPackageTarget as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -93,8 +93,8 @@ impl IXpsDocumentPackageTarget3D_Vtbl {
             GetXpsOMFactory: GetXpsOMFactory::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsDocumentPackageTarget3D as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsDocumentPackageTarget3D as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -127,8 +127,8 @@ impl IXpsOMBrush_Vtbl {
             SetOpacity: SetOpacity::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMBrush as ::windows_core::ComInterface>::IID || iid == &<IXpsOMShareable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMBrush as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -283,8 +283,8 @@ impl IXpsOMCanvas_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMCanvas as ::windows_core::ComInterface>::IID || iid == &<IXpsOMShareable as ::windows_core::ComInterface>::IID || iid == &<IXpsOMVisual as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMCanvas as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID || *iid == <IXpsOMVisual as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -320,8 +320,8 @@ impl IXpsOMColorProfileResource_Vtbl {
             SetContent: SetContent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMColorProfileResource as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID || iid == &<IXpsOMResource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMColorProfileResource as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID || *iid == <IXpsOMResource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -404,8 +404,8 @@ impl IXpsOMColorProfileResourceCollection_Vtbl {
             GetByPartName: GetByPartName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMColorProfileResourceCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMColorProfileResourceCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -767,8 +767,8 @@ impl IXpsOMCoreProperties_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMCoreProperties as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMCoreProperties as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -835,8 +835,8 @@ impl IXpsOMDashCollection_Vtbl {
             Append: Append::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMDashCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMDashCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -949,8 +949,8 @@ impl IXpsOMDictionary_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMDictionary as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMDictionary as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1058,8 +1058,8 @@ impl IXpsOMDocument_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMDocument as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMDocument as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -1126,8 +1126,8 @@ impl IXpsOMDocumentCollection_Vtbl {
             Append: Append::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMDocumentCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMDocumentCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1189,8 +1189,8 @@ impl IXpsOMDocumentSequence_Vtbl {
             SetPrintTicketResource: SetPrintTicketResource::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMDocumentSequence as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMDocumentSequence as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1239,8 +1239,8 @@ impl IXpsOMDocumentStructureResource_Vtbl {
             SetContent: SetContent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMDocumentStructureResource as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID || iid == &<IXpsOMResource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMDocumentStructureResource as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID || *iid == <IXpsOMResource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1289,8 +1289,8 @@ impl IXpsOMFontResource_Vtbl {
             GetEmbeddingOption: GetEmbeddingOption::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMFontResource as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID || iid == &<IXpsOMResource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMFontResource as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID || *iid == <IXpsOMResource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1373,8 +1373,8 @@ impl IXpsOMFontResourceCollection_Vtbl {
             GetByPartName: GetByPartName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMFontResourceCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMFontResourceCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -1486,8 +1486,8 @@ impl IXpsOMGeometry_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMGeometry as ::windows_core::ComInterface>::IID || iid == &<IXpsOMShareable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMGeometry as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1656,8 +1656,8 @@ impl IXpsOMGeometryFigure_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMGeometryFigure as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMGeometryFigure as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -1724,8 +1724,8 @@ impl IXpsOMGeometryFigureCollection_Vtbl {
             Append: Append::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMGeometryFigureCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMGeometryFigureCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2032,8 +2032,8 @@ impl IXpsOMGlyphs_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMGlyphs as ::windows_core::ComInterface>::IID || iid == &<IXpsOMShareable as ::windows_core::ComInterface>::IID || iid == &<IXpsOMVisual as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMGlyphs as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID || *iid == <IXpsOMVisual as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2217,8 +2217,8 @@ impl IXpsOMGlyphsEditor_Vtbl {
             SetDeviceFontName: SetDeviceFontName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMGlyphsEditor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMGlyphsEditor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -2337,8 +2337,8 @@ impl IXpsOMGradientBrush_Vtbl {
             SetColorInterpolationMode: SetColorInterpolationMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMGradientBrush as ::windows_core::ComInterface>::IID || iid == &<IXpsOMShareable as ::windows_core::ComInterface>::IID || iid == &<IXpsOMBrush as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMGradientBrush as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID || *iid == <IXpsOMBrush as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -2411,8 +2411,8 @@ impl IXpsOMGradientStop_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMGradientStop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMGradientStop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -2479,8 +2479,8 @@ impl IXpsOMGradientStopCollection_Vtbl {
             Append: Append::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMGradientStopCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMGradientStopCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -2546,8 +2546,8 @@ impl IXpsOMImageBrush_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMImageBrush as ::windows_core::ComInterface>::IID || iid == &<IXpsOMShareable as ::windows_core::ComInterface>::IID || iid == &<IXpsOMBrush as ::windows_core::ComInterface>::IID || iid == &<IXpsOMTileBrush as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMImageBrush as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID || *iid == <IXpsOMBrush as ::windows_core::ComInterface>::IID || *iid == <IXpsOMTileBrush as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2596,8 +2596,8 @@ impl IXpsOMImageResource_Vtbl {
             GetImageType: GetImageType::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMImageResource as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID || iid == &<IXpsOMResource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMImageResource as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID || *iid == <IXpsOMResource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2680,8 +2680,8 @@ impl IXpsOMImageResourceCollection_Vtbl {
             GetByPartName: GetByPartName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMImageResourceCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMImageResourceCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -2747,8 +2747,8 @@ impl IXpsOMLinearGradientBrush_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMLinearGradientBrush as ::windows_core::ComInterface>::IID || iid == &<IXpsOMShareable as ::windows_core::ComInterface>::IID || iid == &<IXpsOMBrush as ::windows_core::ComInterface>::IID || iid == &<IXpsOMGradientBrush as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMLinearGradientBrush as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID || *iid == <IXpsOMBrush as ::windows_core::ComInterface>::IID || *iid == <IXpsOMGradientBrush as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -2794,8 +2794,8 @@ impl IXpsOMMatrixTransform_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMMatrixTransform as ::windows_core::ComInterface>::IID || iid == &<IXpsOMShareable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMMatrixTransform as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -2834,8 +2834,8 @@ impl IXpsOMNameCollection_Vtbl {
             GetAt: GetAt::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMNameCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMNameCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3343,8 +3343,8 @@ impl IXpsOMObjectFactory_Vtbl {
             CreateReadOnlyStreamOnFile: CreateReadOnlyStreamOnFile::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMObjectFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMObjectFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3516,8 +3516,8 @@ impl IXpsOMObjectFactory1_Vtbl {
             CreateRemoteDictionaryResourceFromStream1: CreateRemoteDictionaryResourceFromStream1::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMObjectFactory1 as ::windows_core::ComInterface>::IID || iid == &<IXpsOMObjectFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMObjectFactory1 as ::windows_core::ComInterface>::IID || *iid == <IXpsOMObjectFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3627,8 +3627,8 @@ impl IXpsOMPackage_Vtbl {
             WriteToStream: WriteToStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMPackage as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMPackage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3671,8 +3671,8 @@ impl IXpsOMPackage1_Vtbl {
             WriteToStream1: WriteToStream1::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMPackage1 as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPackage as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMPackage1 as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPackage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3698,8 +3698,8 @@ impl IXpsOMPackageTarget_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateXpsOMPackageWriter: CreateXpsOMPackageWriter::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMPackageTarget as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMPackageTarget as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3756,8 +3756,8 @@ impl IXpsOMPackageWriter_Vtbl {
             IsClosed: IsClosed::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMPackageWriter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMPackageWriter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3787,8 +3787,8 @@ impl IXpsOMPackageWriter3D_Vtbl {
             SetModelPrintTicket: SetModelPrintTicket::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMPackageWriter3D as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPackageWriter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMPackageWriter3D as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPackageWriter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -4036,8 +4036,8 @@ impl IXpsOMPage_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMPage as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMPage as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -4073,8 +4073,8 @@ impl IXpsOMPage1_Vtbl {
             Write1: Write1::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMPage1 as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPage as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMPage1 as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4275,8 +4275,8 @@ impl IXpsOMPageReference_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMPageReference as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMPageReference as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -4343,8 +4343,8 @@ impl IXpsOMPageReferenceCollection_Vtbl {
             Append: Append::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMPageReferenceCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMPageReferenceCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -4380,8 +4380,8 @@ impl IXpsOMPart_Vtbl {
             SetPartName: SetPartName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -4446,8 +4446,8 @@ impl IXpsOMPartResources_Vtbl {
             GetRemoteDictionaryResources: GetRemoteDictionaryResources::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMPartResources as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMPartResources as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -4517,8 +4517,8 @@ impl IXpsOMPartUriCollection_Vtbl {
             Append: Append::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMPartUriCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMPartUriCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -4919,8 +4919,8 @@ impl IXpsOMPath_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMPath as ::windows_core::ComInterface>::IID || iid == &<IXpsOMShareable as ::windows_core::ComInterface>::IID || iid == &<IXpsOMVisual as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMPath as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID || *iid == <IXpsOMVisual as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -4956,8 +4956,8 @@ impl IXpsOMPrintTicketResource_Vtbl {
             SetContent: SetContent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMPrintTicketResource as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID || iid == &<IXpsOMResource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMPrintTicketResource as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID || *iid == <IXpsOMResource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -5043,8 +5043,8 @@ impl IXpsOMRadialGradientBrush_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMRadialGradientBrush as ::windows_core::ComInterface>::IID || iid == &<IXpsOMShareable as ::windows_core::ComInterface>::IID || iid == &<IXpsOMBrush as ::windows_core::ComInterface>::IID || iid == &<IXpsOMGradientBrush as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMRadialGradientBrush as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID || *iid == <IXpsOMBrush as ::windows_core::ComInterface>::IID || *iid == <IXpsOMGradientBrush as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5080,8 +5080,8 @@ impl IXpsOMRemoteDictionaryResource_Vtbl {
             SetDictionary: SetDictionary::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMRemoteDictionaryResource as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID || iid == &<IXpsOMResource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMRemoteDictionaryResource as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID || *iid == <IXpsOMResource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5117,8 +5117,8 @@ impl IXpsOMRemoteDictionaryResource1_Vtbl {
             Write1: Write1::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMRemoteDictionaryResource1 as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID || iid == &<IXpsOMResource as ::windows_core::ComInterface>::IID || iid == &<IXpsOMRemoteDictionaryResource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMRemoteDictionaryResource1 as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID || *iid == <IXpsOMResource as ::windows_core::ComInterface>::IID || *iid == <IXpsOMRemoteDictionaryResource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5201,8 +5201,8 @@ impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
             GetByPartName: GetByPartName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMRemoteDictionaryResourceCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMRemoteDictionaryResourceCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5215,8 +5215,8 @@ impl IXpsOMResource_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMResource_Impl, const OFFSET: isize>() -> IXpsOMResource_Vtbl {
         Self { base__: IXpsOMPart_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMResource as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMResource as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -5255,8 +5255,8 @@ impl IXpsOMShareable_Vtbl {
             GetType: GetType::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMShareable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5305,8 +5305,8 @@ impl IXpsOMSignatureBlockResource_Vtbl {
             SetContent: SetContent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMSignatureBlockResource as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID || iid == &<IXpsOMResource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMSignatureBlockResource as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID || *iid == <IXpsOMResource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5389,8 +5389,8 @@ impl IXpsOMSignatureBlockResourceCollection_Vtbl {
             GetByPartName: GetByPartName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMSignatureBlockResourceCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMSignatureBlockResourceCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -5430,8 +5430,8 @@ impl IXpsOMSolidColorBrush_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMSolidColorBrush as ::windows_core::ComInterface>::IID || iid == &<IXpsOMShareable as ::windows_core::ComInterface>::IID || iid == &<IXpsOMBrush as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMSolidColorBrush as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID || *iid == <IXpsOMBrush as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5480,8 +5480,8 @@ impl IXpsOMStoryFragmentsResource_Vtbl {
             SetContent: SetContent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMStoryFragmentsResource as ::windows_core::ComInterface>::IID || iid == &<IXpsOMPart as ::windows_core::ComInterface>::IID || iid == &<IXpsOMResource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMStoryFragmentsResource as ::windows_core::ComInterface>::IID || *iid == <IXpsOMPart as ::windows_core::ComInterface>::IID || *iid == <IXpsOMResource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5507,8 +5507,8 @@ impl IXpsOMThumbnailGenerator_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GenerateThumbnail: GenerateThumbnail::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMThumbnailGenerator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMThumbnailGenerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -5634,8 +5634,8 @@ impl IXpsOMTileBrush_Vtbl {
             SetTileMode: SetTileMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMTileBrush as ::windows_core::ComInterface>::IID || iid == &<IXpsOMShareable as ::windows_core::ComInterface>::IID || iid == &<IXpsOMBrush as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMTileBrush as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID || *iid == <IXpsOMBrush as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5910,8 +5910,8 @@ impl IXpsOMVisual_Vtbl {
             SetLanguage: SetLanguage::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMVisual as ::windows_core::ComInterface>::IID || iid == &<IXpsOMShareable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMVisual as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -5990,8 +5990,8 @@ impl IXpsOMVisualBrush_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMVisualBrush as ::windows_core::ComInterface>::IID || iid == &<IXpsOMShareable as ::windows_core::ComInterface>::IID || iid == &<IXpsOMBrush as ::windows_core::ComInterface>::IID || iid == &<IXpsOMTileBrush as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMVisualBrush as ::windows_core::ComInterface>::IID || *iid == <IXpsOMShareable as ::windows_core::ComInterface>::IID || *iid == <IXpsOMBrush as ::windows_core::ComInterface>::IID || *iid == <IXpsOMTileBrush as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -6058,8 +6058,8 @@ impl IXpsOMVisualCollection_Vtbl {
             Append: Append::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsOMVisualCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsOMVisualCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -6213,8 +6213,8 @@ impl IXpsSignature_Vtbl {
             SetSignatureXml: SetSignatureXml::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsSignature as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsSignature as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -6295,8 +6295,8 @@ impl IXpsSignatureBlock_Vtbl {
             CreateRequest: CreateRequest::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsSignatureBlock as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsSignatureBlock as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -6342,8 +6342,8 @@ impl IXpsSignatureBlockCollection_Vtbl {
             RemoveAt: RemoveAt::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsSignatureBlockCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsSignatureBlockCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -6389,8 +6389,8 @@ impl IXpsSignatureCollection_Vtbl {
             RemoveAt: RemoveAt::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsSignatureCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsSignatureCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -6519,8 +6519,8 @@ impl IXpsSignatureManager_Vtbl {
             SavePackageToStream: SavePackageToStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsSignatureManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsSignatureManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -6656,8 +6656,8 @@ impl IXpsSignatureRequest_Vtbl {
             GetSignature: GetSignature::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsSignatureRequest as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsSignatureRequest as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -6703,8 +6703,8 @@ impl IXpsSignatureRequestCollection_Vtbl {
             RemoveAt: RemoveAt::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsSignatureRequestCollection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsSignatureRequestCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -6899,7 +6899,7 @@ impl IXpsSigningOptions_Vtbl {
             SetFlags: SetFlags::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsSigningOptions as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXpsSigningOptions as ::windows_core::ComInterface>::IID
     }
 }

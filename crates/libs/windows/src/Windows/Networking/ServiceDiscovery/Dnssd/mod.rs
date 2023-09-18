@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDnssdRegistrationResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDnssdRegistrationResult {
     type Vtable = IDnssdRegistrationResult_Vtbl;
-}
-impl ::core::clone::Clone for IDnssdRegistrationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDnssdRegistrationResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d786ad2_e606_5350_73ea_7e97f066162f);
@@ -22,14 +18,10 @@ pub struct IDnssdRegistrationResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDnssdServiceInstance(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDnssdServiceInstance {
     type Vtable = IDnssdServiceInstance_Vtbl;
-}
-impl ::core::clone::Clone for IDnssdServiceInstance {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDnssdServiceInstance {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe246db7e_98a5_4ca1_b9e4_c253d33c35ff);
@@ -71,14 +63,10 @@ pub struct IDnssdServiceInstance_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDnssdServiceInstanceFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDnssdServiceInstanceFactory {
     type Vtable = IDnssdServiceInstanceFactory_Vtbl;
-}
-impl ::core::clone::Clone for IDnssdServiceInstanceFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDnssdServiceInstanceFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6cb061a1_c478_4331_9684_4af2186c0a2b);
@@ -91,14 +79,10 @@ pub struct IDnssdServiceInstanceFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDnssdServiceWatcher(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDnssdServiceWatcher {
     type Vtable = IDnssdServiceWatcher_Vtbl;
-}
-impl ::core::clone::Clone for IDnssdServiceWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDnssdServiceWatcher {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc34d9c1_db7d_4b69_983d_c6f83f205682);
@@ -137,6 +121,7 @@ pub struct IDnssdServiceWatcher_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DnssdRegistrationResult(::windows_core::IUnknown);
 impl DnssdRegistrationResult {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -177,24 +162,8 @@ impl DnssdRegistrationResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for DnssdRegistrationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DnssdRegistrationResult {}
-impl ::core::fmt::Debug for DnssdRegistrationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DnssdRegistrationResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DnssdRegistrationResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult;{3d786ad2-e606-5350-73ea-7e97f066162f})");
-}
-impl ::core::clone::Clone for DnssdRegistrationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DnssdRegistrationResult {
     type Vtable = IDnssdRegistrationResult_Vtbl;
@@ -212,6 +181,7 @@ unsafe impl ::core::marker::Send for DnssdRegistrationResult {}
 unsafe impl ::core::marker::Sync for DnssdRegistrationResult {}
 #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DnssdServiceInstance(::windows_core::IUnknown);
 impl DnssdServiceInstance {
     pub fn DnssdServiceInstanceName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -355,24 +325,8 @@ impl DnssdServiceInstance {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for DnssdServiceInstance {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DnssdServiceInstance {}
-impl ::core::fmt::Debug for DnssdServiceInstance {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DnssdServiceInstance").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DnssdServiceInstance {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance;{e246db7e-98a5-4ca1-b9e4-c253d33c35ff})");
-}
-impl ::core::clone::Clone for DnssdServiceInstance {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DnssdServiceInstance {
     type Vtable = IDnssdServiceInstance_Vtbl;
@@ -391,6 +345,7 @@ unsafe impl ::core::marker::Sync for DnssdServiceInstance {}
 #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DnssdServiceInstanceCollection(::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl DnssdServiceInstanceCollection {
@@ -444,28 +399,8 @@ impl DnssdServiceInstanceCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for DnssdServiceInstanceCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for DnssdServiceInstanceCollection {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for DnssdServiceInstanceCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DnssdServiceInstanceCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for DnssdServiceInstanceCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstanceCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance;{e246db7e-98a5-4ca1-b9e4-c253d33c35ff})))");
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for DnssdServiceInstanceCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for DnssdServiceInstanceCollection {
@@ -507,6 +442,7 @@ unsafe impl ::core::marker::Send for DnssdServiceInstanceCollection {}
 unsafe impl ::core::marker::Sync for DnssdServiceInstanceCollection {}
 #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DnssdServiceWatcher(::windows_core::IUnknown);
 impl DnssdServiceWatcher {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -579,24 +515,8 @@ impl DnssdServiceWatcher {
         unsafe { (::windows_core::Interface::vtable(this).Stop)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for DnssdServiceWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DnssdServiceWatcher {}
-impl ::core::fmt::Debug for DnssdServiceWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DnssdServiceWatcher").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DnssdServiceWatcher {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcher;{cc34d9c1-db7d-4b69-983d-c6f83f205682})");
-}
-impl ::core::clone::Clone for DnssdServiceWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DnssdServiceWatcher {
     type Vtable = IDnssdServiceWatcher_Vtbl;

@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpDiagnosticProvider(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpDiagnosticProvider {
     type Vtable = IHttpDiagnosticProvider_Vtbl;
-}
-impl ::core::clone::Clone for IHttpDiagnosticProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpDiagnosticProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbd811501_a056_4d39_b174_833b7b03b02c);
@@ -45,14 +41,10 @@ pub struct IHttpDiagnosticProvider_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x735f98ee_94f6_4532_b26e_61e1b1e4efd4);
@@ -77,14 +69,10 @@ pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpDiagnosticProviderRequestResponseTimestamps(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpDiagnosticProviderRequestResponseTimestamps {
     type Vtable = IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl;
-}
-impl ::core::clone::Clone for IHttpDiagnosticProviderRequestResponseTimestamps {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpDiagnosticProviderRequestResponseTimestamps {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0afde10_55cf_4c01_91d4_a20557d849f0);
@@ -132,14 +120,10 @@ pub struct IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpDiagnosticProviderRequestSentEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpDiagnosticProviderRequestSentEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestSentEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IHttpDiagnosticProviderRequestSentEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpDiagnosticProviderRequestSentEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f5196d0_4c1f_4ebe_a57a_06930771c50d);
@@ -164,14 +148,10 @@ pub struct IHttpDiagnosticProviderRequestSentEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpDiagnosticProviderResponseReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpDiagnosticProviderResponseReceivedEventArgs {
     type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IHttpDiagnosticProviderResponseReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpDiagnosticProviderResponseReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0);
@@ -189,14 +169,10 @@ pub struct IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpDiagnosticProviderStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpDiagnosticProviderStatics {
     type Vtable = IHttpDiagnosticProviderStatics_Vtbl;
-}
-impl ::core::clone::Clone for IHttpDiagnosticProviderStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpDiagnosticProviderStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b824ec1_6a6c_47cc_afec_1e86bc26053b);
@@ -212,14 +188,10 @@ pub struct IHttpDiagnosticProviderStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpDiagnosticSourceLocation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHttpDiagnosticSourceLocation {
     type Vtable = IHttpDiagnosticSourceLocation_Vtbl;
-}
-impl ::core::clone::Clone for IHttpDiagnosticSourceLocation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpDiagnosticSourceLocation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54a9d260_8860_423f_b6fa_d77716f647a7);
@@ -237,6 +209,7 @@ pub struct IHttpDiagnosticSourceLocation_Vtbl {
 }
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpDiagnosticProvider(::windows_core::IUnknown);
 impl HttpDiagnosticProvider {
     pub fn Start(&self) -> ::windows_core::Result<()> {
@@ -318,24 +291,8 @@ impl HttpDiagnosticProvider {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HttpDiagnosticProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpDiagnosticProvider {}
-impl ::core::fmt::Debug for HttpDiagnosticProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpDiagnosticProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpDiagnosticProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProvider;{bd811501-a056-4d39-b174-833b7b03b02c})");
-}
-impl ::core::clone::Clone for HttpDiagnosticProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpDiagnosticProvider {
     type Vtable = IHttpDiagnosticProvider_Vtbl;
@@ -351,6 +308,7 @@ unsafe impl ::core::marker::Send for HttpDiagnosticProvider {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProvider {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpDiagnosticProviderRequestResponseCompletedEventArgs(::windows_core::IUnknown);
 impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     pub fn ActivityId(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -407,24 +365,8 @@ impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
-impl ::core::fmt::Debug for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpDiagnosticProviderRequestResponseCompletedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseCompletedEventArgs;{735f98ee-94f6-4532-b26e-61e1b1e4efd4})");
-}
-impl ::core::clone::Clone for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl;
@@ -440,6 +382,7 @@ unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestResponseComple
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpDiagnosticProviderRequestResponseTimestamps(::windows_core::IUnknown);
 impl HttpDiagnosticProviderRequestResponseTimestamps {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -524,24 +467,8 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         }
     }
 }
-impl ::core::cmp::PartialEq for HttpDiagnosticProviderRequestResponseTimestamps {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpDiagnosticProviderRequestResponseTimestamps {}
-impl ::core::fmt::Debug for HttpDiagnosticProviderRequestResponseTimestamps {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpDiagnosticProviderRequestResponseTimestamps").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpDiagnosticProviderRequestResponseTimestamps {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseTimestamps;{e0afde10-55cf-4c01-91d4-a20557d849f0})");
-}
-impl ::core::clone::Clone for HttpDiagnosticProviderRequestResponseTimestamps {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpDiagnosticProviderRequestResponseTimestamps {
     type Vtable = IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl;
@@ -557,6 +484,7 @@ unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestResponseTimest
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestResponseTimestamps {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpDiagnosticProviderRequestSentEventArgs(::windows_core::IUnknown);
 impl HttpDiagnosticProviderRequestSentEventArgs {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -613,24 +541,8 @@ impl HttpDiagnosticProviderRequestSentEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for HttpDiagnosticProviderRequestSentEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpDiagnosticProviderRequestSentEventArgs {}
-impl ::core::fmt::Debug for HttpDiagnosticProviderRequestSentEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpDiagnosticProviderRequestSentEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpDiagnosticProviderRequestSentEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestSentEventArgs;{3f5196d0-4c1f-4ebe-a57a-06930771c50d})");
-}
-impl ::core::clone::Clone for HttpDiagnosticProviderRequestSentEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpDiagnosticProviderRequestSentEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestSentEventArgs_Vtbl;
@@ -646,6 +558,7 @@ unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestSentEventArgs 
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestSentEventArgs {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpDiagnosticProviderResponseReceivedEventArgs(::windows_core::IUnknown);
 impl HttpDiagnosticProviderResponseReceivedEventArgs {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -672,24 +585,8 @@ impl HttpDiagnosticProviderResponseReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for HttpDiagnosticProviderResponseReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpDiagnosticProviderResponseReceivedEventArgs {}
-impl ::core::fmt::Debug for HttpDiagnosticProviderResponseReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpDiagnosticProviderResponseReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpDiagnosticProviderResponseReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderResponseReceivedEventArgs;{a0a2566c-ab5f-4d66-bb2d-084cf41635d0})");
-}
-impl ::core::clone::Clone for HttpDiagnosticProviderResponseReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpDiagnosticProviderResponseReceivedEventArgs {
     type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl;
@@ -705,6 +602,7 @@ unsafe impl ::core::marker::Send for HttpDiagnosticProviderResponseReceivedEvent
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderResponseReceivedEventArgs {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpDiagnosticSourceLocation(::windows_core::IUnknown);
 impl HttpDiagnosticSourceLocation {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -731,24 +629,8 @@ impl HttpDiagnosticSourceLocation {
         }
     }
 }
-impl ::core::cmp::PartialEq for HttpDiagnosticSourceLocation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpDiagnosticSourceLocation {}
-impl ::core::fmt::Debug for HttpDiagnosticSourceLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpDiagnosticSourceLocation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HttpDiagnosticSourceLocation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticSourceLocation;{54a9d260-8860-423f-b6fa-d77716f647a7})");
-}
-impl ::core::clone::Clone for HttpDiagnosticSourceLocation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HttpDiagnosticSourceLocation {
     type Vtable = IHttpDiagnosticSourceLocation_Vtbl;

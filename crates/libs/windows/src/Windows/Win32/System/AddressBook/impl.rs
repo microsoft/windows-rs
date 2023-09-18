@@ -51,8 +51,8 @@ impl IABContainer_Vtbl {
             ResolveNames: ResolveNames::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IABContainer as ::windows_core::ComInterface>::IID || iid == &<IMAPIProp as ::windows_core::ComInterface>::IID || iid == &<IMAPIContainer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IABContainer as ::windows_core::ComInterface>::IID || *iid == <IMAPIProp as ::windows_core::ComInterface>::IID || *iid == <IMAPIContainer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -194,8 +194,8 @@ impl IAddrBook_Vtbl {
             PrepareRecips: PrepareRecips::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAddrBook as ::windows_core::ComInterface>::IID || iid == &<IMAPIProp as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAddrBook as ::windows_core::ComInterface>::IID || *iid == <IMAPIProp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -208,8 +208,8 @@ impl IAttach_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAttach_Impl, const OFFSET: isize>() -> IAttach_Vtbl {
         Self { base__: IMAPIProp_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAttach as ::windows_core::ComInterface>::IID || iid == &<IMAPIProp as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAttach as ::windows_core::ComInterface>::IID || *iid == <IMAPIProp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -265,8 +265,8 @@ impl IDistList_Vtbl {
             ResolveNames: ResolveNames::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDistList as ::windows_core::ComInterface>::IID || iid == &<IMAPIProp as ::windows_core::ComInterface>::IID || iid == &<IMAPIContainer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDistList as ::windows_core::ComInterface>::IID || *iid == <IMAPIProp as ::windows_core::ComInterface>::IID || *iid == <IMAPIContainer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -286,8 +286,8 @@ impl IMAPIAdviseSink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnNotify: OnNotify::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMAPIAdviseSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMAPIAdviseSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -350,8 +350,8 @@ impl IMAPIContainer_Vtbl {
             GetSearchCriteria: GetSearchCriteria::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMAPIContainer as ::windows_core::ComInterface>::IID || iid == &<IMAPIProp as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMAPIContainer as ::windows_core::ComInterface>::IID || *iid == <IMAPIProp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"implement\"`*"]
@@ -391,8 +391,8 @@ impl IMAPIControl_Vtbl {
             GetState: GetState::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMAPIControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMAPIControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -503,8 +503,8 @@ impl IMAPIFolder_Vtbl {
             EmptyFolder: EmptyFolder::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMAPIFolder as ::windows_core::ComInterface>::IID || iid == &<IMAPIProp as ::windows_core::ComInterface>::IID || iid == &<IMAPIContainer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMAPIFolder as ::windows_core::ComInterface>::IID || *iid == <IMAPIProp as ::windows_core::ComInterface>::IID || *iid == <IMAPIContainer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"implement\"`*"]
@@ -552,8 +552,8 @@ impl IMAPIProgress_Vtbl {
             SetLimits: SetLimits::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMAPIProgress as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMAPIProgress as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -646,8 +646,8 @@ impl IMAPIProp_Vtbl {
             GetIDsFromNames: GetIDsFromNames::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMAPIProp as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMAPIProp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -691,8 +691,8 @@ impl IMAPIStatus_Vtbl {
             FlushQueues: FlushQueues::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMAPIStatus as ::windows_core::ComInterface>::IID || iid == &<IMAPIProp as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMAPIStatus as ::windows_core::ComInterface>::IID || *iid == <IMAPIProp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -869,8 +869,8 @@ impl IMAPITable_Vtbl {
             SetCollapseState: SetCollapseState::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMAPITable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMAPITable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -883,8 +883,8 @@ impl IMailUser_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMailUser_Impl, const OFFSET: isize>() -> IMailUser_Vtbl {
         Self { base__: IMAPIProp_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMailUser as ::windows_core::ComInterface>::IID || iid == &<IMAPIProp as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMailUser as ::windows_core::ComInterface>::IID || *iid == <IMAPIProp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -974,8 +974,8 @@ impl IMessage_Vtbl {
             SetReadFlag: SetReadFlag::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMessage as ::windows_core::ComInterface>::IID || iid == &<IMAPIProp as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMessage as ::windows_core::ComInterface>::IID || *iid == <IMAPIProp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1106,8 +1106,8 @@ impl IMsgStore_Vtbl {
             NotifyNewMail: NotifyNewMail::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMsgStore as ::windows_core::ComInterface>::IID || iid == &<IMAPIProp as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMsgStore as ::windows_core::ComInterface>::IID || *iid == <IMAPIProp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1120,8 +1120,8 @@ impl IProfSect_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IProfSect_Impl, const OFFSET: isize>() -> IProfSect_Vtbl {
         Self { base__: IMAPIProp_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProfSect as ::windows_core::ComInterface>::IID || iid == &<IMAPIProp as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IProfSect as ::windows_core::ComInterface>::IID || *iid == <IMAPIProp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1165,8 +1165,8 @@ impl IPropData_Vtbl {
             HrAddObjProps: HrAddObjProps::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropData as ::windows_core::ComInterface>::IID || iid == &<IMAPIProp as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPropData as ::windows_core::ComInterface>::IID || *iid == <IMAPIProp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1241,8 +1241,8 @@ impl IProviderAdmin_Vtbl {
             OpenProfileSection: OpenProfileSection::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProviderAdmin as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IProviderAdmin as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1321,8 +1321,8 @@ impl ITableData_Vtbl {
             HrDeleteRows: HrDeleteRows::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITableData as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITableData as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1342,8 +1342,8 @@ impl IWABExtInit_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWABExtInit as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWABExtInit as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1462,7 +1462,7 @@ impl IWABObject_Vtbl {
             SetMe: SetMe::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWABObject as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWABObject as ::windows_core::ComInterface>::IID
     }
 }

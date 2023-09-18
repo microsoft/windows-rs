@@ -66,3 +66,8 @@ impl ::core::ops::Not for BOOLEAN {
         }
     }
 }
+impl ::windows_core::IntoParam<BOOLEAN> for bool {
+    fn into_param(self) -> ::windows_core::Param<BOOLEAN> {
+        ::windows_core::Param::Owned(self.into())
+    }
+}

@@ -44,12 +44,4 @@ impl Error {
     pub(crate) fn with_path(self, path: &str) -> Self {
         Self { path: path.to_string(), ..self }
     }
-
-    // pub(crate) fn with_span(self, span: proc_macro2::Span) -> Self {
-    //     let start = span.start();
-    //     Self {
-    //         span: Some((start.line, start.column)),
-    //         ..self
-    //     }
-    // }
 }

@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIAssociatedIdentityProvider(::windows_core::IUnknown);
 impl AsyncIAssociatedIdentityProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -42,24 +43,8 @@ impl AsyncIAssociatedIdentityProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIAssociatedIdentityProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIAssociatedIdentityProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIAssociatedIdentityProvider {}
-impl ::core::fmt::Debug for AsyncIAssociatedIdentityProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIAssociatedIdentityProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIAssociatedIdentityProvider {
     type Vtable = AsyncIAssociatedIdentityProvider_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIAssociatedIdentityProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIAssociatedIdentityProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2834d6ed_297e_4e72_8a51_961e86f05152);
@@ -89,6 +74,7 @@ pub struct AsyncIAssociatedIdentityProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIConnectedIdentityProvider(::windows_core::IUnknown);
 impl AsyncIConnectedIdentityProvider {
     pub unsafe fn Begin_ConnectIdentity(&self, authbuffer: &[u8]) -> ::windows_core::Result<()> {
@@ -134,24 +120,8 @@ impl AsyncIConnectedIdentityProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIConnectedIdentityProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIConnectedIdentityProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIConnectedIdentityProvider {}
-impl ::core::fmt::Debug for AsyncIConnectedIdentityProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIConnectedIdentityProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIConnectedIdentityProvider {
     type Vtable = AsyncIConnectedIdentityProvider_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIConnectedIdentityProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIConnectedIdentityProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ce55141_bce9_4e15_824d_43d79f512f93);
@@ -182,6 +152,7 @@ pub struct AsyncIConnectedIdentityProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIIdentityAdvise(::windows_core::IUnknown);
 impl AsyncIIdentityAdvise {
     pub unsafe fn Begin_IdentityUpdated<P0>(&self, dwidentityupdateevents: u32, lpszuniqueid: P0) -> ::windows_core::Result<()>
@@ -195,24 +166,8 @@ impl AsyncIIdentityAdvise {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIIdentityAdvise, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIIdentityAdvise {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIIdentityAdvise {}
-impl ::core::fmt::Debug for AsyncIIdentityAdvise {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIIdentityAdvise").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIIdentityAdvise {
     type Vtable = AsyncIIdentityAdvise_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIIdentityAdvise {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIIdentityAdvise {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ab4c8da_d038_4830_8dd9_3253c55a127f);
@@ -226,6 +181,7 @@ pub struct AsyncIIdentityAdvise_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIIdentityAuthentication(::windows_core::IUnknown);
 impl AsyncIIdentityAuthentication {
     pub unsafe fn Begin_SetIdentityCredential(&self, credbuffer: ::core::option::Option<&[u8]>) -> ::windows_core::Result<()> {
@@ -246,24 +202,8 @@ impl AsyncIIdentityAuthentication {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIIdentityAuthentication, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIIdentityAuthentication {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIIdentityAuthentication {}
-impl ::core::fmt::Debug for AsyncIIdentityAuthentication {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIIdentityAuthentication").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIIdentityAuthentication {
     type Vtable = AsyncIIdentityAuthentication_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIIdentityAuthentication {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIIdentityAuthentication {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9a2f918_feca_4e9c_9633_61cbf13ed34d);
@@ -285,6 +225,7 @@ pub struct AsyncIIdentityAuthentication_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIIdentityProvider(::windows_core::IUnknown);
 impl AsyncIIdentityProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -373,24 +314,8 @@ impl AsyncIIdentityProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIIdentityProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIIdentityProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIIdentityProvider {}
-impl ::core::fmt::Debug for AsyncIIdentityProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIIdentityProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIIdentityProvider {
     type Vtable = AsyncIIdentityProvider_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIIdentityProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIIdentityProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6fc9901_c433_4646_8f48_4e4687aae2a0);
@@ -442,6 +367,7 @@ pub struct AsyncIIdentityProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIIdentityStore(::windows_core::IUnknown);
 impl AsyncIIdentityStore {
     pub unsafe fn Begin_GetCount(&self) -> ::windows_core::Result<()> {
@@ -494,24 +420,8 @@ impl AsyncIIdentityStore {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIIdentityStore, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIIdentityStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIIdentityStore {}
-impl ::core::fmt::Debug for AsyncIIdentityStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIIdentityStore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIIdentityStore {
     type Vtable = AsyncIIdentityStore_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIIdentityStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIIdentityStore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeefa1616_48de_4872_aa64_6e6206535a51);
@@ -541,6 +451,7 @@ pub struct AsyncIIdentityStore_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIIdentityStoreEx(::windows_core::IUnknown);
 impl AsyncIIdentityStoreEx {
     pub unsafe fn Begin_CreateConnectedIdentity<P0, P1>(&self, localname: P0, connectedname: P1, providerguid: *const ::windows_core::GUID) -> ::windows_core::Result<()>
@@ -564,24 +475,8 @@ impl AsyncIIdentityStoreEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIIdentityStoreEx, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIIdentityStoreEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIIdentityStoreEx {}
-impl ::core::fmt::Debug for AsyncIIdentityStoreEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIIdentityStoreEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIIdentityStoreEx {
     type Vtable = AsyncIIdentityStoreEx_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIIdentityStoreEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIIdentityStoreEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfca3af9a_8a07_4eae_8632_ec3de658a36a);
@@ -597,6 +492,7 @@ pub struct AsyncIIdentityStoreEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAssociatedIdentityProvider(::windows_core::IUnknown);
 impl IAssociatedIdentityProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -628,24 +524,8 @@ impl IAssociatedIdentityProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAssociatedIdentityProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAssociatedIdentityProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAssociatedIdentityProvider {}
-impl ::core::fmt::Debug for IAssociatedIdentityProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAssociatedIdentityProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAssociatedIdentityProvider {
     type Vtable = IAssociatedIdentityProvider_Vtbl;
-}
-impl ::core::clone::Clone for IAssociatedIdentityProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAssociatedIdentityProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2af066b3_4cbb_4cba_a798_204b6af68cc0);
@@ -669,6 +549,7 @@ pub struct IAssociatedIdentityProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConnectedIdentityProvider(::windows_core::IUnknown);
 impl IConnectedIdentityProvider {
     pub unsafe fn ConnectIdentity(&self, authbuffer: &[u8]) -> ::windows_core::Result<()> {
@@ -697,24 +578,8 @@ impl IConnectedIdentityProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConnectedIdentityProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IConnectedIdentityProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IConnectedIdentityProvider {}
-impl ::core::fmt::Debug for IConnectedIdentityProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IConnectedIdentityProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IConnectedIdentityProvider {
     type Vtable = IConnectedIdentityProvider_Vtbl;
-}
-impl ::core::clone::Clone for IConnectedIdentityProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConnectedIdentityProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7417b54_e08c_429b_96c8_678d1369ecb1);
@@ -737,6 +602,7 @@ pub struct IConnectedIdentityProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIdentityAdvise(::windows_core::IUnknown);
 impl IIdentityAdvise {
     pub unsafe fn IdentityUpdated<P0>(&self, dwidentityupdateevents: IdentityUpdateEvent, lpszuniqueid: P0) -> ::windows_core::Result<()>
@@ -747,24 +613,8 @@ impl IIdentityAdvise {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIdentityAdvise, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIdentityAdvise {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIdentityAdvise {}
-impl ::core::fmt::Debug for IIdentityAdvise {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIdentityAdvise").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIdentityAdvise {
     type Vtable = IIdentityAdvise_Vtbl;
-}
-impl ::core::clone::Clone for IIdentityAdvise {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIdentityAdvise {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e982fed_d14b_440c_b8d6_bb386453d386);
@@ -777,6 +627,7 @@ pub struct IIdentityAdvise_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIdentityAuthentication(::windows_core::IUnknown);
 impl IIdentityAuthentication {
     pub unsafe fn SetIdentityCredential(&self, credbuffer: ::core::option::Option<&[u8]>) -> ::windows_core::Result<()> {
@@ -789,24 +640,8 @@ impl IIdentityAuthentication {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIdentityAuthentication, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIdentityAuthentication {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIdentityAuthentication {}
-impl ::core::fmt::Debug for IIdentityAuthentication {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIdentityAuthentication").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIdentityAuthentication {
     type Vtable = IIdentityAuthentication_Vtbl;
-}
-impl ::core::clone::Clone for IIdentityAuthentication {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIdentityAuthentication {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e7ef254_979f_43b5_b74e_06e4eb7df0f9);
@@ -823,6 +658,7 @@ pub struct IIdentityAuthentication_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIdentityProvider(::windows_core::IUnknown);
 impl IIdentityProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -882,24 +718,8 @@ impl IIdentityProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIdentityProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIdentityProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIdentityProvider {}
-impl ::core::fmt::Debug for IIdentityProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIdentityProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIdentityProvider {
     type Vtable = IIdentityProvider_Vtbl;
-}
-impl ::core::clone::Clone for IIdentityProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIdentityProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d1b9e0c_e8ba_4f55_a81b_bce934b948f5);
@@ -937,6 +757,7 @@ pub struct IIdentityProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIdentityStore(::windows_core::IUnknown);
 impl IIdentityStore {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -969,24 +790,8 @@ impl IIdentityStore {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIdentityStore, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIdentityStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIdentityStore {}
-impl ::core::fmt::Debug for IIdentityStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIdentityStore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIdentityStore {
     type Vtable = IIdentityStore_Vtbl;
-}
-impl ::core::clone::Clone for IIdentityStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIdentityStore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf586fa5_6f35_44f1_b209_b38e169772eb);
@@ -1007,6 +812,7 @@ pub struct IIdentityStore_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIdentityStoreEx(::windows_core::IUnknown);
 impl IIdentityStoreEx {
     pub unsafe fn CreateConnectedIdentity<P0, P1>(&self, localname: P0, connectedname: P1, providerguid: *const ::windows_core::GUID) -> ::windows_core::Result<()>
@@ -1024,24 +830,8 @@ impl IIdentityStoreEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIdentityStoreEx, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIdentityStoreEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIdentityStoreEx {}
-impl ::core::fmt::Debug for IIdentityStoreEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIdentityStoreEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIdentityStoreEx {
     type Vtable = IIdentityStoreEx_Vtbl;
-}
-impl ::core::clone::Clone for IIdentityStoreEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIdentityStoreEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9f9eb98_8f7f_4e38_9577_6980114ce32b);

@@ -244,8 +244,8 @@ impl Interface {
                         Self { base__: #parent_vtable::new::<#parent_vtable_generics>(), #(#entries),* }
                     }
 
-                    pub fn matches(iid: &windows::core::GUID) -> bool {
-                        iid == &<#name as ::windows::core::ComInterface>::IID
+                    pub unsafe fn matches(iid: *const windows::core::GUID) -> bool {
+                        *iid == <#name as ::windows::core::ComInterface>::IID
                     }
                 }
             }

@@ -32,8 +32,8 @@ impl WeakRefCount {
     }
 
     /// # Safety
-    pub unsafe fn query(&self, iid: &crate::GUID, object: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
-        if iid != &IWeakReferenceSource::IID {
+    pub unsafe fn query(&self, iid: *const crate::GUID, object: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+        if *iid != IWeakReferenceSource::IID {
             return std::ptr::null_mut();
         }
 
@@ -119,16 +119,20 @@ impl TearOff {
         std::mem::transmute(value << 1)
     }
 
-    unsafe fn query_interface(&self, iid: &crate::GUID, interface: *mut *const std::ffi::c_void) -> crate::HRESULT {
+    unsafe fn query_interface(&self, iid: *const crate::GUID, interface: *mut *mut std::ffi::c_void) -> crate::HRESULT {
         ((*(*(self.object as *mut *mut crate::IUnknown_Vtbl))).QueryInterface)(self.object, iid, interface)
     }
 
-    unsafe extern "system" fn StrongQueryInterface(ptr: *mut std::ffi::c_void, iid: &crate::GUID, interface: *mut *const std::ffi::c_void) -> crate::HRESULT {
+    unsafe extern "system" fn StrongQueryInterface(ptr: *mut std::ffi::c_void, iid: *const crate::GUID, interface: *mut *mut std::ffi::c_void) -> crate::HRESULT {
         let this = Self::from_strong_ptr(ptr);
+
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261); // E_POINTER
+        }
 
         // Only directly respond to queries for the the tear-off's strong interface. This is
         // effectively a self-query.
-        if iid == &IWeakReferenceSource::IID {
+        if *iid == IWeakReferenceSource::IID {
             *interface = ptr;
             this.strong_count.add_ref();
             return crate::HRESULT(0);
@@ -139,14 +143,18 @@ impl TearOff {
         this.query_interface(iid, interface)
     }
 
-    unsafe extern "system" fn WeakQueryInterface(ptr: *mut std::ffi::c_void, iid: &crate::GUID, interface: *mut *const std::ffi::c_void) -> crate::HRESULT {
+    unsafe extern "system" fn WeakQueryInterface(ptr: *mut std::ffi::c_void, iid: *const crate::GUID, interface: *mut *mut std::ffi::c_void) -> crate::HRESULT {
         let this = Self::from_weak_ptr(ptr);
+
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261); // E_POINTER
+        }
 
         // While the weak vtable is packed into the same allocation as the strong vtable and
         // tear-off, it represents a distinct COM identity and thus does not share or delegate to
         // the object.
 
-        *interface = if iid == &IWeakReference::IID || iid == &crate::IUnknown::IID || iid == &IAgileObject::IID { ptr } else { std::ptr::null_mut() };
+        *interface = if *iid == IWeakReference::IID || *iid == crate::IUnknown::IID || *iid == IAgileObject::IID { ptr } else { std::ptr::null_mut() };
 
         // TODO: implement IMarshal
 
@@ -218,7 +226,7 @@ impl TearOff {
             })
             .map(|_| {
                 // Let the object respond to the upgrade query.
-                let result = this.query_interface(&*iid, interface as *mut _);
+                let result = this.query_interface(iid, interface);
                 // Decrement the temporary reference account used to stabilize the object.
                 this.strong_count.0.fetch_sub(1, Ordering::Relaxed);
                 // Return the result of the query.

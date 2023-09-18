@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectMusic(::windows_core::IUnknown);
 impl IDirectMusic {
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows_core::Result<()> {
@@ -50,24 +51,8 @@ impl IDirectMusic {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectMusic, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectMusic {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectMusic {}
-impl ::core::fmt::Debug for IDirectMusic {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectMusic").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectMusic {
     type Vtable = IDirectMusic_Vtbl;
-}
-impl ::core::clone::Clone for IDirectMusic {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectMusic {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6536115a_7b2d_11d2_ba18_0000f875ac12);
@@ -97,6 +82,7 @@ pub struct IDirectMusic_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectMusic8(::windows_core::IUnknown);
 impl IDirectMusic8 {
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows_core::Result<()> {
@@ -153,24 +139,8 @@ impl IDirectMusic8 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectMusic8, ::windows_core::IUnknown, IDirectMusic);
-impl ::core::cmp::PartialEq for IDirectMusic8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectMusic8 {}
-impl ::core::fmt::Debug for IDirectMusic8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectMusic8").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectMusic8 {
     type Vtable = IDirectMusic8_Vtbl;
-}
-impl ::core::clone::Clone for IDirectMusic8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectMusic8 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d3629f7_813d_4939_8508_f05c6b75fd97);
@@ -183,6 +153,7 @@ pub struct IDirectMusic8_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectMusicBuffer(::windows_core::IUnknown);
 impl IDirectMusicBuffer {
     pub unsafe fn Flush(&self) -> ::windows_core::Result<()> {
@@ -226,24 +197,8 @@ impl IDirectMusicBuffer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectMusicBuffer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectMusicBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectMusicBuffer {}
-impl ::core::fmt::Debug for IDirectMusicBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectMusicBuffer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectMusicBuffer {
     type Vtable = IDirectMusicBuffer_Vtbl;
-}
-impl ::core::clone::Clone for IDirectMusicBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectMusicBuffer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2ac2878_b39b_11d1_8704_00600893b1bd);
@@ -268,6 +223,7 @@ pub struct IDirectMusicBuffer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectMusicCollection(::windows_core::IUnknown);
 impl IDirectMusicCollection {
     pub unsafe fn GetInstrument(&self, dwpatch: u32) -> ::windows_core::Result<IDirectMusicInstrument> {
@@ -282,24 +238,8 @@ impl IDirectMusicCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectMusicCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectMusicCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectMusicCollection {}
-impl ::core::fmt::Debug for IDirectMusicCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectMusicCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectMusicCollection {
     type Vtable = IDirectMusicCollection_Vtbl;
-}
-impl ::core::clone::Clone for IDirectMusicCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectMusicCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2ac287c_b39b_11d1_8704_00600893b1bd);
@@ -313,6 +253,7 @@ pub struct IDirectMusicCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectMusicDownload(::windows_core::IUnknown);
 impl IDirectMusicDownload {
     pub unsafe fn GetBuffer(&self, ppvbuffer: *mut *mut ::core::ffi::c_void, pdwsize: *mut u32) -> ::windows_core::Result<()> {
@@ -320,24 +261,8 @@ impl IDirectMusicDownload {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectMusicDownload, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectMusicDownload {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectMusicDownload {}
-impl ::core::fmt::Debug for IDirectMusicDownload {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectMusicDownload").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectMusicDownload {
     type Vtable = IDirectMusicDownload_Vtbl;
-}
-impl ::core::clone::Clone for IDirectMusicDownload {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectMusicDownload {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2ac287b_b39b_11d1_8704_00600893b1bd);
@@ -350,27 +275,12 @@ pub struct IDirectMusicDownload_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectMusicDownloadedInstrument(::windows_core::IUnknown);
 impl IDirectMusicDownloadedInstrument {}
 ::windows_core::imp::interface_hierarchy!(IDirectMusicDownloadedInstrument, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectMusicDownloadedInstrument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectMusicDownloadedInstrument {}
-impl ::core::fmt::Debug for IDirectMusicDownloadedInstrument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectMusicDownloadedInstrument").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectMusicDownloadedInstrument {
     type Vtable = IDirectMusicDownloadedInstrument_Vtbl;
-}
-impl ::core::clone::Clone for IDirectMusicDownloadedInstrument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectMusicDownloadedInstrument {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2ac287e_b39b_11d1_8704_00600893b1bd);
@@ -382,6 +292,7 @@ pub struct IDirectMusicDownloadedInstrument_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectMusicInstrument(::windows_core::IUnknown);
 impl IDirectMusicInstrument {
     pub unsafe fn GetPatch(&self, pdwpatch: *mut u32) -> ::windows_core::Result<()> {
@@ -392,24 +303,8 @@ impl IDirectMusicInstrument {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectMusicInstrument, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectMusicInstrument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectMusicInstrument {}
-impl ::core::fmt::Debug for IDirectMusicInstrument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectMusicInstrument").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectMusicInstrument {
     type Vtable = IDirectMusicInstrument_Vtbl;
-}
-impl ::core::clone::Clone for IDirectMusicInstrument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectMusicInstrument {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2ac287d_b39b_11d1_8704_00600893b1bd);
@@ -423,6 +318,7 @@ pub struct IDirectMusicInstrument_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectMusicPort(::windows_core::IUnknown);
 impl IDirectMusicPort {
     pub unsafe fn PlayBuffer<P0>(&self, pbuffer: P0) -> ::windows_core::Result<()>
@@ -509,24 +405,8 @@ impl IDirectMusicPort {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectMusicPort, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectMusicPort {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectMusicPort {}
-impl ::core::fmt::Debug for IDirectMusicPort {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectMusicPort").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectMusicPort {
     type Vtable = IDirectMusicPort_Vtbl;
-}
-impl ::core::clone::Clone for IDirectMusicPort {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectMusicPort {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08f2d8c9_37c2_11d2_b9f9_0000f875ac12);
@@ -567,6 +447,7 @@ pub struct IDirectMusicPort_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectMusicPortDownload(::windows_core::IUnknown);
 impl IDirectMusicPortDownload {
     pub unsafe fn GetBuffer(&self, dwdlid: u32) -> ::windows_core::Result<IDirectMusicDownload> {
@@ -597,24 +478,8 @@ impl IDirectMusicPortDownload {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectMusicPortDownload, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectMusicPortDownload {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectMusicPortDownload {}
-impl ::core::fmt::Debug for IDirectMusicPortDownload {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectMusicPortDownload").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectMusicPortDownload {
     type Vtable = IDirectMusicPortDownload_Vtbl;
-}
-impl ::core::clone::Clone for IDirectMusicPortDownload {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectMusicPortDownload {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2ac287a_b39b_11d1_8704_00600893b1bd);
@@ -632,6 +497,7 @@ pub struct IDirectMusicPortDownload_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectMusicSynth(::windows_core::IUnknown);
 impl IDirectMusicSynth {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -709,24 +575,8 @@ impl IDirectMusicSynth {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectMusicSynth, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectMusicSynth {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectMusicSynth {}
-impl ::core::fmt::Debug for IDirectMusicSynth {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectMusicSynth").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectMusicSynth {
     type Vtable = IDirectMusicSynth_Vtbl;
-}
-impl ::core::clone::Clone for IDirectMusicSynth {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectMusicSynth {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09823661_5c85_11d2_afa6_00aa0024d8b6);
@@ -767,6 +617,7 @@ pub struct IDirectMusicSynth_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectMusicSynth8(::windows_core::IUnknown);
 impl IDirectMusicSynth8 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -861,24 +712,8 @@ impl IDirectMusicSynth8 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectMusicSynth8, ::windows_core::IUnknown, IDirectMusicSynth);
-impl ::core::cmp::PartialEq for IDirectMusicSynth8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectMusicSynth8 {}
-impl ::core::fmt::Debug for IDirectMusicSynth8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectMusicSynth8").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectMusicSynth8 {
     type Vtable = IDirectMusicSynth8_Vtbl;
-}
-impl ::core::clone::Clone for IDirectMusicSynth8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectMusicSynth8 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53cab625_2711_4c9f_9de7_1b7f925f6fc8);
@@ -898,6 +733,7 @@ pub struct IDirectMusicSynth8_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectMusicSynthSink(::windows_core::IUnknown);
 impl IDirectMusicSynthSink {
     pub unsafe fn Init<P0>(&self, psynth: P0) -> ::windows_core::Result<()>
@@ -944,24 +780,8 @@ impl IDirectMusicSynthSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectMusicSynthSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectMusicSynthSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectMusicSynthSink {}
-impl ::core::fmt::Debug for IDirectMusicSynthSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectMusicSynthSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectMusicSynthSink {
     type Vtable = IDirectMusicSynthSink_Vtbl;
-}
-impl ::core::clone::Clone for IDirectMusicSynthSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectMusicSynthSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09823663_5c85_11d2_afa6_00aa0024d8b6);
@@ -987,6 +807,7 @@ pub struct IDirectMusicSynthSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectMusicThru(::windows_core::IUnknown);
 impl IDirectMusicThru {
     pub unsafe fn ThruChannel<P0>(&self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: P0) -> ::windows_core::Result<()>
@@ -997,24 +818,8 @@ impl IDirectMusicThru {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectMusicThru, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectMusicThru {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectMusicThru {}
-impl ::core::fmt::Debug for IDirectMusicThru {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectMusicThru").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectMusicThru {
     type Vtable = IDirectMusicThru_Vtbl;
-}
-impl ::core::clone::Clone for IDirectMusicThru {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectMusicThru {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xced153e7_3606_11d2_b9f9_0000f875ac12);

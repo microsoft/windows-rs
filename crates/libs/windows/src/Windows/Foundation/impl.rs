@@ -38,8 +38,8 @@ impl IAsyncAction_Vtbl {
             GetResults: GetResults::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAsyncAction as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAsyncAction as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -107,8 +107,8 @@ impl<TProgress: ::windows_core::RuntimeType + 'static> IAsyncActionWithProgress_
             TProgress: ::core::marker::PhantomData::<TProgress>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAsyncActionWithProgress<TProgress> as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAsyncActionWithProgress<TProgress> as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -176,8 +176,8 @@ impl IAsyncInfo_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAsyncInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAsyncInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -231,8 +231,8 @@ impl<TResult: ::windows_core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResul
             TResult: ::core::marker::PhantomData::<TResult>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAsyncOperation<TResult> as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAsyncOperation<TResult> as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -309,8 +309,8 @@ impl<TResult: ::windows_core::RuntimeType + 'static, TProgress: ::windows_core::
             TProgress: ::core::marker::PhantomData::<TProgress>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAsyncOperationWithProgress<TResult, TProgress> as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAsyncOperationWithProgress<TResult, TProgress> as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -329,8 +329,8 @@ impl IClosable_Vtbl {
         }
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IClosable, OFFSET>(), Close: Close::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IClosable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IClosable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -359,8 +359,8 @@ impl IGetActivationFactory_Vtbl {
             GetActivationFactory: GetActivationFactory::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGetActivationFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IGetActivationFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -386,8 +386,8 @@ impl IMemoryBuffer_Vtbl {
         }
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IMemoryBuffer, OFFSET>(), CreateReference: CreateReference::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMemoryBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMemoryBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -435,8 +435,8 @@ impl IMemoryBufferReference_Vtbl {
             RemoveClosed: RemoveClosed::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMemoryBufferReference as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMemoryBufferReference as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -845,8 +845,8 @@ impl IPropertyValue_Vtbl {
             GetRectArray: GetRectArray::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyValue as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPropertyValue as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -879,8 +879,8 @@ impl<T: ::windows_core::RuntimeType + 'static> IReference_Vtbl<T> {
             T: ::core::marker::PhantomData::<T>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IReference<T> as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IReference<T> as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -914,8 +914,8 @@ impl<T: ::windows_core::RuntimeType + 'static> IReferenceArray_Vtbl<T> {
             T: ::core::marker::PhantomData::<T>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IReferenceArray<T> as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IReferenceArray<T> as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -941,8 +941,8 @@ impl IStringable_Vtbl {
         }
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IStringable, OFFSET>(), ToString: ToString::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStringable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStringable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -985,7 +985,7 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
             Value: Value::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWwwFormUrlDecoderEntry as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWwwFormUrlDecoderEntry as ::windows_core::ComInterface>::IID
     }
 }

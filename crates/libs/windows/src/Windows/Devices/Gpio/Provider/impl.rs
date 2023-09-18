@@ -37,8 +37,8 @@ impl IGpioControllerProvider_Vtbl {
             OpenPinProvider: OpenPinProvider::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGpioControllerProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IGpioControllerProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -175,8 +175,8 @@ impl IGpioPinProvider_Vtbl {
             Read: Read::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGpioPinProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IGpioPinProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -205,7 +205,7 @@ impl IGpioProvider_Vtbl {
         }
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IGpioProvider, OFFSET>(), GetControllers: GetControllers::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGpioProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IGpioProvider as ::windows_core::ComInterface>::IID
     }
 }

@@ -498,8 +498,8 @@ impl IInertiaProcessor_Vtbl {
             CompleteTime: CompleteTime::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInertiaProcessor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInertiaProcessor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"implement\"`*"]
@@ -713,8 +713,8 @@ impl IManipulationProcessor_Vtbl {
             SetMinimumScaleRotateRadius: SetMinimumScaleRotateRadius::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IManipulationProcessor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IManipulationProcessor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"implement\"`*"]
@@ -762,7 +762,7 @@ impl _IManipulationEvents_Vtbl {
             ManipulationCompleted: ManipulationCompleted::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<_IManipulationEvents as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <_IManipulationEvents as ::windows_core::ComInterface>::IID
     }
 }

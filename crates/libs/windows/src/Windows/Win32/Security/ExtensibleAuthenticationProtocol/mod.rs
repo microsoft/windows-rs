@@ -238,6 +238,7 @@ pub unsafe fn EapHostPeerUninitialize() {
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccountingProviderConfig(::windows_core::IUnknown);
 impl IAccountingProviderConfig {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0) -> ::windows_core::Result<usize>
@@ -266,24 +267,8 @@ impl IAccountingProviderConfig {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAccountingProviderConfig, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAccountingProviderConfig {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAccountingProviderConfig {}
-impl ::core::fmt::Debug for IAccountingProviderConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccountingProviderConfig").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAccountingProviderConfig {
     type Vtable = IAccountingProviderConfig_Vtbl;
-}
-impl ::core::clone::Clone for IAccountingProviderConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAccountingProviderConfig {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66a2db18_d706_11d0_a37b_00c04fc9da04);
@@ -303,6 +288,7 @@ pub struct IAccountingProviderConfig_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAuthenticationProviderConfig(::windows_core::IUnknown);
 impl IAuthenticationProviderConfig {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0) -> ::windows_core::Result<usize>
@@ -331,24 +317,8 @@ impl IAuthenticationProviderConfig {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAuthenticationProviderConfig, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAuthenticationProviderConfig {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAuthenticationProviderConfig {}
-impl ::core::fmt::Debug for IAuthenticationProviderConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAuthenticationProviderConfig").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAuthenticationProviderConfig {
     type Vtable = IAuthenticationProviderConfig_Vtbl;
-}
-impl ::core::clone::Clone for IAuthenticationProviderConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAuthenticationProviderConfig {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66a2db17_d706_11d0_a37b_00c04fc9da04);
@@ -368,6 +338,7 @@ pub struct IAuthenticationProviderConfig_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEAPProviderConfig(::windows_core::IUnknown);
 impl IEAPProviderConfig {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0, dweaptypeid: u32) -> ::windows_core::Result<usize>
@@ -406,24 +377,8 @@ impl IEAPProviderConfig {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEAPProviderConfig, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEAPProviderConfig {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEAPProviderConfig {}
-impl ::core::fmt::Debug for IEAPProviderConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEAPProviderConfig").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEAPProviderConfig {
     type Vtable = IEAPProviderConfig_Vtbl;
-}
-impl ::core::clone::Clone for IEAPProviderConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEAPProviderConfig {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66a2db19_d706_11d0_a37b_00c04fc9da04);
@@ -449,6 +404,7 @@ pub struct IEAPProviderConfig_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEAPProviderConfig2(::windows_core::IUnknown);
 impl IEAPProviderConfig2 {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0, dweaptypeid: u32) -> ::windows_core::Result<usize>
@@ -498,24 +454,8 @@ impl IEAPProviderConfig2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEAPProviderConfig2, ::windows_core::IUnknown, IEAPProviderConfig);
-impl ::core::cmp::PartialEq for IEAPProviderConfig2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEAPProviderConfig2 {}
-impl ::core::fmt::Debug for IEAPProviderConfig2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEAPProviderConfig2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEAPProviderConfig2 {
     type Vtable = IEAPProviderConfig2_Vtbl;
-}
-impl ::core::clone::Clone for IEAPProviderConfig2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEAPProviderConfig2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd565917a_85c4_4466_856e_671c3742ea9a);
@@ -532,6 +472,7 @@ pub struct IEAPProviderConfig2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEAPProviderConfig3(::windows_core::IUnknown);
 impl IEAPProviderConfig3 {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0, dweaptypeid: u32) -> ::windows_core::Result<usize>
@@ -589,24 +530,8 @@ impl IEAPProviderConfig3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEAPProviderConfig3, ::windows_core::IUnknown, IEAPProviderConfig, IEAPProviderConfig2);
-impl ::core::cmp::PartialEq for IEAPProviderConfig3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEAPProviderConfig3 {}
-impl ::core::fmt::Debug for IEAPProviderConfig3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEAPProviderConfig3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEAPProviderConfig3 {
     type Vtable = IEAPProviderConfig3_Vtbl;
-}
-impl ::core::clone::Clone for IEAPProviderConfig3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEAPProviderConfig3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb78ecd12_68bb_4f86_9bf0_8438dd3be982);
@@ -622,6 +547,7 @@ pub struct IEAPProviderConfig3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRouterProtocolConfig(::windows_core::IUnknown);
 impl IRouterProtocolConfig {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -646,24 +572,8 @@ impl IRouterProtocolConfig {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRouterProtocolConfig, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRouterProtocolConfig {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRouterProtocolConfig {}
-impl ::core::fmt::Debug for IRouterProtocolConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRouterProtocolConfig").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRouterProtocolConfig {
     type Vtable = IRouterProtocolConfig_Vtbl;
-}
-impl ::core::clone::Clone for IRouterProtocolConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRouterProtocolConfig {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66a2db16_d706_11d0_a37b_00c04fc9da04);

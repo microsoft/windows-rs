@@ -1,16 +1,11 @@
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWalletItemSystemStore(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IWalletItemSystemStore {
     type Vtable = IWalletItemSystemStore_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IWalletItemSystemStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IWalletItemSystemStore {
@@ -45,16 +40,11 @@ pub struct IWalletItemSystemStore_Vtbl {
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWalletItemSystemStore2(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IWalletItemSystemStore2 {
     type Vtable = IWalletItemSystemStore2_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IWalletItemSystemStore2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IWalletItemSystemStore2 {
@@ -77,16 +67,11 @@ pub struct IWalletItemSystemStore2_Vtbl {
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWalletManagerSystemStatics(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IWalletManagerSystemStatics {
     type Vtable = IWalletManagerSystemStatics_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IWalletManagerSystemStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IWalletManagerSystemStatics {
@@ -105,6 +90,7 @@ pub struct IWalletManagerSystemStatics_Vtbl {
 #[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WalletItemSystemStore(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl WalletItemSystemStore {
@@ -185,28 +171,8 @@ impl WalletItemSystemStore {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for WalletItemSystemStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for WalletItemSystemStore {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for WalletItemSystemStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletItemSystemStore").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for WalletItemSystemStore {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.System.WalletItemSystemStore;{522e2bff-96a2-4a17-8d19-fe1d9f837561})");
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for WalletItemSystemStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for WalletItemSystemStore {

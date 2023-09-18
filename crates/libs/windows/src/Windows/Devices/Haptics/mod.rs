@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKnownSimpleHapticsControllerWaveformsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKnownSimpleHapticsControllerWaveformsStatics {
     type Vtable = IKnownSimpleHapticsControllerWaveformsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IKnownSimpleHapticsControllerWaveformsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKnownSimpleHapticsControllerWaveformsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d577ef7_4cee_11e6_b535_001bdc06ab3b);
@@ -24,14 +20,10 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKnownSimpleHapticsControllerWaveformsStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKnownSimpleHapticsControllerWaveformsStatics2 {
     type Vtable = IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IKnownSimpleHapticsControllerWaveformsStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKnownSimpleHapticsControllerWaveformsStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7d24c27_b79d_510a_bf79_ff6d49173e1d);
@@ -53,14 +45,10 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISimpleHapticsController(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISimpleHapticsController {
     type Vtable = ISimpleHapticsController_Vtbl;
-}
-impl ::core::clone::Clone for ISimpleHapticsController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISimpleHapticsController {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d577ef9_4cee_11e6_b535_001bdc06ab3b);
@@ -92,14 +80,10 @@ pub struct ISimpleHapticsController_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISimpleHapticsControllerFeedback(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISimpleHapticsControllerFeedback {
     type Vtable = ISimpleHapticsControllerFeedback_Vtbl;
-}
-impl ::core::clone::Clone for ISimpleHapticsControllerFeedback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISimpleHapticsControllerFeedback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d577ef8_4cee_11e6_b535_001bdc06ab3b);
@@ -116,14 +100,10 @@ pub struct ISimpleHapticsControllerFeedback_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVibrationDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVibrationDevice {
     type Vtable = IVibrationDevice_Vtbl;
-}
-impl ::core::clone::Clone for IVibrationDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVibrationDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x40f21a3e_8844_47ff_b312_06185a3844da);
@@ -137,14 +117,10 @@ pub struct IVibrationDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVibrationDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVibrationDeviceStatics {
     type Vtable = IVibrationDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IVibrationDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVibrationDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53e2eded_2290_4ac9_8eb3_1a84122eb71c);
@@ -280,6 +256,7 @@ impl ::windows_core::RuntimeName for KnownSimpleHapticsControllerWaveforms {
 }
 #[doc = "*Required features: `\"Devices_Haptics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SimpleHapticsController(::windows_core::IUnknown);
 impl SimpleHapticsController {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -363,24 +340,8 @@ impl SimpleHapticsController {
         unsafe { (::windows_core::Interface::vtable(this).SendHapticFeedbackForPlayCount)(::windows_core::Interface::as_raw(this), feedback.into_param().abi(), intensity, playcount, replaypauseinterval).ok() }
     }
 }
-impl ::core::cmp::PartialEq for SimpleHapticsController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SimpleHapticsController {}
-impl ::core::fmt::Debug for SimpleHapticsController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SimpleHapticsController").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SimpleHapticsController {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Haptics.SimpleHapticsController;{3d577ef9-4cee-11e6-b535-001bdc06ab3b})");
-}
-impl ::core::clone::Clone for SimpleHapticsController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SimpleHapticsController {
     type Vtable = ISimpleHapticsController_Vtbl;
@@ -396,6 +357,7 @@ unsafe impl ::core::marker::Send for SimpleHapticsController {}
 unsafe impl ::core::marker::Sync for SimpleHapticsController {}
 #[doc = "*Required features: `\"Devices_Haptics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SimpleHapticsControllerFeedback(::windows_core::IUnknown);
 impl SimpleHapticsControllerFeedback {
     pub fn Waveform(&self) -> ::windows_core::Result<u16> {
@@ -415,24 +377,8 @@ impl SimpleHapticsControllerFeedback {
         }
     }
 }
-impl ::core::cmp::PartialEq for SimpleHapticsControllerFeedback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SimpleHapticsControllerFeedback {}
-impl ::core::fmt::Debug for SimpleHapticsControllerFeedback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SimpleHapticsControllerFeedback").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SimpleHapticsControllerFeedback {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Haptics.SimpleHapticsControllerFeedback;{3d577ef8-4cee-11e6-b535-001bdc06ab3b})");
-}
-impl ::core::clone::Clone for SimpleHapticsControllerFeedback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SimpleHapticsControllerFeedback {
     type Vtable = ISimpleHapticsControllerFeedback_Vtbl;
@@ -448,6 +394,7 @@ unsafe impl ::core::marker::Send for SimpleHapticsControllerFeedback {}
 unsafe impl ::core::marker::Sync for SimpleHapticsControllerFeedback {}
 #[doc = "*Required features: `\"Devices_Haptics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VibrationDevice(::windows_core::IUnknown);
 impl VibrationDevice {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -508,24 +455,8 @@ impl VibrationDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for VibrationDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VibrationDevice {}
-impl ::core::fmt::Debug for VibrationDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VibrationDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VibrationDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Haptics.VibrationDevice;{40f21a3e-8844-47ff-b312-06185a3844da})");
-}
-impl ::core::clone::Clone for VibrationDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VibrationDevice {
     type Vtable = IVibrationDevice_Vtbl;

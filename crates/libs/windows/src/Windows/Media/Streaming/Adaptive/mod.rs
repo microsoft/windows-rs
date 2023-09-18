@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSource(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSource {
     type Vtable = IAdaptiveMediaSource_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c7332ef_d39f_4396_b4d9_043957a7c964);
@@ -102,14 +98,10 @@ pub struct IAdaptiveMediaSource_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSource2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSource2 {
     type Vtable = IAdaptiveMediaSource2_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSource2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSource2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17890342_6760_4bb9_a58a_f7aa98b08c0e);
@@ -122,14 +114,10 @@ pub struct IAdaptiveMediaSource2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSource3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSource3 {
     type Vtable = IAdaptiveMediaSource3_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSource3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSource3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xba7023fd_c334_461b_a36e_c99f54f7174a);
@@ -159,14 +147,10 @@ pub struct IAdaptiveMediaSource3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceAdvancedSettings(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceAdvancedSettings {
     type Vtable = IAdaptiveMediaSourceAdvancedSettings_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceAdvancedSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceAdvancedSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55db1680_1aeb_47dc_aa08_9a11610ba45a);
@@ -196,14 +180,10 @@ pub struct IAdaptiveMediaSourceAdvancedSettings_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceCorrelatedTimes(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceCorrelatedTimes {
     type Vtable = IAdaptiveMediaSourceCorrelatedTimes_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceCorrelatedTimes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceCorrelatedTimes {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05108787_e032_48e1_ab8d_002b0b3051df);
@@ -227,14 +207,10 @@ pub struct IAdaptiveMediaSourceCorrelatedTimes_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceCreationResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceCreationResult {
     type Vtable = IAdaptiveMediaSourceCreationResult_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceCreationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceCreationResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4686b6b2_800f_4e31_9093_76d4782013e7);
@@ -252,14 +228,10 @@ pub struct IAdaptiveMediaSourceCreationResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceCreationResult2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceCreationResult2 {
     type Vtable = IAdaptiveMediaSourceCreationResult2_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceCreationResult2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceCreationResult2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c3243bf_1c44_404b_a201_df45ac7898e8);
@@ -272,14 +244,10 @@ pub struct IAdaptiveMediaSourceCreationResult2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDiagnosticAvailableEventArgs {
     type Vtable = IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDiagnosticAvailableEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDiagnosticAvailableEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3af64f06_6d9c_494a_b7a9_b3a5dee6ad68);
@@ -324,14 +292,10 @@ pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDiagnosticAvailableEventArgs2 {
     type Vtable = IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDiagnosticAvailableEventArgs2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDiagnosticAvailableEventArgs2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c6dd857_16a5_4d9f_810e_00bd901b3ef9);
@@ -344,14 +308,10 @@ pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDiagnosticAvailableEventArgs3 {
     type Vtable = IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDiagnosticAvailableEventArgs3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDiagnosticAvailableEventArgs3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc3650cd5_daeb_4103_84da_68769ad513ff);
@@ -368,14 +328,10 @@ pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDiagnostics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDiagnostics {
     type Vtable = IAdaptiveMediaSourceDiagnostics_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDiagnostics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDiagnostics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b24ee68_962e_448c_aebf_b29b56098e23);
@@ -395,14 +351,10 @@ pub struct IAdaptiveMediaSourceDiagnostics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDownloadBitrateChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x670c0a44_e04e_4eff_816a_17399f78f4ba);
@@ -416,14 +368,10 @@ pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2 {
     type Vtable = IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf3f1f444_96ae_4de0_b540_2b3246e6968c);
@@ -436,14 +384,10 @@ pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDownloadCompletedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadCompletedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDownloadCompletedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDownloadCompletedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x19240dc3_5b37_4a1a_8970_d621cb6ca83b);
@@ -472,14 +416,10 @@ pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDownloadCompletedEventArgs2 {
     type Vtable = IAdaptiveMediaSourceDownloadCompletedEventArgs2_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDownloadCompletedEventArgs2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDownloadCompletedEventArgs2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x704744c4_964a_40e4_af95_9177dd6dfa00);
@@ -497,14 +437,10 @@ pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDownloadCompletedEventArgs3 {
     type Vtable = IAdaptiveMediaSourceDownloadCompletedEventArgs3_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDownloadCompletedEventArgs3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDownloadCompletedEventArgs3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f8a8bd1_93b2_47c6_badc_8be2c8f7f6e8);
@@ -521,14 +457,10 @@ pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDownloadFailedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDownloadFailedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDownloadFailedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37739048_f4ab_40a4_b135_c6dfd8bd7ff1);
@@ -557,14 +489,10 @@ pub struct IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDownloadFailedEventArgs2 {
     type Vtable = IAdaptiveMediaSourceDownloadFailedEventArgs2_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDownloadFailedEventArgs2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDownloadFailedEventArgs2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70919568_967c_4986_90c5_c6fc4b31e2d8);
@@ -583,14 +511,10 @@ pub struct IAdaptiveMediaSourceDownloadFailedEventArgs2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDownloadFailedEventArgs3 {
     type Vtable = IAdaptiveMediaSourceDownloadFailedEventArgs3_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDownloadFailedEventArgs3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDownloadFailedEventArgs3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0354549_1132_4a10_915a_c2211b5b9409);
@@ -607,14 +531,10 @@ pub struct IAdaptiveMediaSourceDownloadFailedEventArgs3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDownloadRequestedDeferral(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDownloadRequestedDeferral {
     type Vtable = IAdaptiveMediaSourceDownloadRequestedDeferral_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDownloadRequestedDeferral {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDownloadRequestedDeferral {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05c68f64_fa20_4dbd_9821_4bf4c9bf77ab);
@@ -627,14 +547,10 @@ pub struct IAdaptiveMediaSourceDownloadRequestedDeferral_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDownloadRequestedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDownloadRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDownloadRequestedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc83fdffd_44a9_47a2_bf96_03398b4bfaaf);
@@ -661,14 +577,10 @@ pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDownloadRequestedEventArgs2 {
     type Vtable = IAdaptiveMediaSourceDownloadRequestedEventArgs2_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDownloadRequestedEventArgs2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDownloadRequestedEventArgs2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb37d8bfe_aa44_4d82_825b_611de3bcfecb);
@@ -685,14 +597,10 @@ pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDownloadRequestedEventArgs3 {
     type Vtable = IAdaptiveMediaSourceDownloadRequestedEventArgs3_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDownloadRequestedEventArgs3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDownloadRequestedEventArgs3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x333c50fd_4f62_4481_ab44_1e47b0574225);
@@ -709,14 +617,10 @@ pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDownloadResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDownloadResult {
     type Vtable = IAdaptiveMediaSourceDownloadResult_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDownloadResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDownloadResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf4afdc73_bcee_4a6a_9f0a_fec41e2339b0);
@@ -756,14 +660,10 @@ pub struct IAdaptiveMediaSourceDownloadResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDownloadResult2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDownloadResult2 {
     type Vtable = IAdaptiveMediaSourceDownloadResult2_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDownloadResult2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDownloadResult2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15552cb7_7b80_4ac4_8660_a4b97f7c70f0);
@@ -791,14 +691,10 @@ pub struct IAdaptiveMediaSourceDownloadResult2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceDownloadStatistics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceDownloadStatistics {
     type Vtable = IAdaptiveMediaSourceDownloadStatistics_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceDownloadStatistics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceDownloadStatistics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa306cefb_e96a_4dff_a9b8_1ae08c01ae98);
@@ -823,14 +719,10 @@ pub struct IAdaptiveMediaSourceDownloadStatistics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
     type Vtable = IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23a29f6d_7dda_4a51_87a9_6fa8c5b292be);
@@ -845,14 +737,10 @@ pub struct IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveMediaSourceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveMediaSourceStatics {
     type Vtable = IAdaptiveMediaSourceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveMediaSourceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveMediaSourceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50a6bd5d_66ef_4cd3_9579_9e660507dc3f);
@@ -881,6 +769,7 @@ pub struct IAdaptiveMediaSourceStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSource(::windows_core::IUnknown);
 impl AdaptiveMediaSource {
     pub fn IsLive(&self) -> ::windows_core::Result<bool> {
@@ -1217,24 +1106,8 @@ impl AdaptiveMediaSource {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSource {}
-impl ::core::fmt::Debug for AdaptiveMediaSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSource").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdaptiveMediaSource {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSource;{4c7332ef-d39f-4396-b4d9-043957a7c964})");
-}
-impl ::core::clone::Clone for AdaptiveMediaSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdaptiveMediaSource {
     type Vtable = IAdaptiveMediaSource_Vtbl;
@@ -1254,6 +1127,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSource {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSource {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourceAdvancedSettings(::windows_core::IUnknown);
 impl AdaptiveMediaSourceAdvancedSettings {
     pub fn AllSegmentsIndependent(&self) -> ::windows_core::Result<bool> {
@@ -1304,24 +1178,8 @@ impl AdaptiveMediaSourceAdvancedSettings {
         unsafe { (::windows_core::Interface::vtable(this).SetBitrateDowngradeTriggerRatio)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceAdvancedSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceAdvancedSettings {}
-impl ::core::fmt::Debug for AdaptiveMediaSourceAdvancedSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceAdvancedSettings").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdaptiveMediaSourceAdvancedSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceAdvancedSettings;{55db1680-1aeb-47dc-aa08-9a11610ba45a})");
-}
-impl ::core::clone::Clone for AdaptiveMediaSourceAdvancedSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdaptiveMediaSourceAdvancedSettings {
     type Vtable = IAdaptiveMediaSourceAdvancedSettings_Vtbl;
@@ -1337,6 +1195,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourceAdvancedSettings {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceAdvancedSettings {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourceCorrelatedTimes(::windows_core::IUnknown);
 impl AdaptiveMediaSourceCorrelatedTimes {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1367,24 +1226,8 @@ impl AdaptiveMediaSourceCorrelatedTimes {
         }
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceCorrelatedTimes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceCorrelatedTimes {}
-impl ::core::fmt::Debug for AdaptiveMediaSourceCorrelatedTimes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceCorrelatedTimes").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdaptiveMediaSourceCorrelatedTimes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCorrelatedTimes;{05108787-e032-48e1-ab8d-002b0b3051df})");
-}
-impl ::core::clone::Clone for AdaptiveMediaSourceCorrelatedTimes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdaptiveMediaSourceCorrelatedTimes {
     type Vtable = IAdaptiveMediaSourceCorrelatedTimes_Vtbl;
@@ -1400,6 +1243,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourceCorrelatedTimes {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceCorrelatedTimes {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourceCreationResult(::windows_core::IUnknown);
 impl AdaptiveMediaSourceCreationResult {
     pub fn Status(&self) -> ::windows_core::Result<AdaptiveMediaSourceCreationStatus> {
@@ -1433,24 +1277,8 @@ impl AdaptiveMediaSourceCreationResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceCreationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceCreationResult {}
-impl ::core::fmt::Debug for AdaptiveMediaSourceCreationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceCreationResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdaptiveMediaSourceCreationResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationResult;{4686b6b2-800f-4e31-9093-76d4782013e7})");
-}
-impl ::core::clone::Clone for AdaptiveMediaSourceCreationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdaptiveMediaSourceCreationResult {
     type Vtable = IAdaptiveMediaSourceCreationResult_Vtbl;
@@ -1466,6 +1294,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourceCreationResult {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceCreationResult {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourceDiagnosticAvailableEventArgs(::windows_core::IUnknown);
 impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
     pub fn DiagnosticType(&self) -> ::windows_core::Result<AdaptiveMediaSourceDiagnosticType> {
@@ -1571,24 +1400,8 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
-impl ::core::fmt::Debug for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceDiagnosticAvailableEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticAvailableEventArgs;{3af64f06-6d9c-494a-b7a9-b3a5dee6ad68})");
-}
-impl ::core::clone::Clone for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
     type Vtable = IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl;
@@ -1604,6 +1417,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourceDiagnosticAvailableEvent
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourceDiagnostics(::windows_core::IUnknown);
 impl AdaptiveMediaSourceDiagnostics {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1625,24 +1439,8 @@ impl AdaptiveMediaSourceDiagnostics {
         unsafe { (::windows_core::Interface::vtable(this).RemoveDiagnosticAvailable)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceDiagnostics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceDiagnostics {}
-impl ::core::fmt::Debug for AdaptiveMediaSourceDiagnostics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceDiagnostics").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdaptiveMediaSourceDiagnostics {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnostics;{9b24ee68-962e-448c-aebf-b29b56098e23})");
-}
-impl ::core::clone::Clone for AdaptiveMediaSourceDiagnostics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdaptiveMediaSourceDiagnostics {
     type Vtable = IAdaptiveMediaSourceDiagnostics_Vtbl;
@@ -1658,6 +1456,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourceDiagnostics {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDiagnostics {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourceDownloadBitrateChangedEventArgs(::windows_core::IUnknown);
 impl AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     pub fn OldValue(&self) -> ::windows_core::Result<u32> {
@@ -1682,24 +1481,8 @@ impl AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
-impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceDownloadBitrateChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedEventArgs;{670c0a44-e04e-4eff-816a-17399f78f4ba})");
-}
-impl ::core::clone::Clone for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl;
@@ -1715,6 +1498,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadBitrateChangedEv
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourceDownloadCompletedEventArgs(::windows_core::IUnknown);
 impl AdaptiveMediaSourceDownloadCompletedEventArgs {
     pub fn ResourceType(&self) -> ::windows_core::Result<AdaptiveMediaSourceResourceType> {
@@ -1800,24 +1584,8 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadCompletedEventArgs {}
-impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceDownloadCompletedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdaptiveMediaSourceDownloadCompletedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadCompletedEventArgs;{19240dc3-5b37-4a1a-8970-d621cb6ca83b})");
-}
-impl ::core::clone::Clone for AdaptiveMediaSourceDownloadCompletedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdaptiveMediaSourceDownloadCompletedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadCompletedEventArgs_Vtbl;
@@ -1833,6 +1601,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadCompletedEventAr
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadCompletedEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourceDownloadFailedEventArgs(::windows_core::IUnknown);
 impl AdaptiveMediaSourceDownloadFailedEventArgs {
     pub fn ResourceType(&self) -> ::windows_core::Result<AdaptiveMediaSourceResourceType> {
@@ -1925,24 +1694,8 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadFailedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadFailedEventArgs {}
-impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadFailedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceDownloadFailedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdaptiveMediaSourceDownloadFailedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadFailedEventArgs;{37739048-f4ab-40a4-b135-c6dfd8bd7ff1})");
-}
-impl ::core::clone::Clone for AdaptiveMediaSourceDownloadFailedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdaptiveMediaSourceDownloadFailedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl;
@@ -1958,6 +1711,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadFailedEventArgs 
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadFailedEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourceDownloadRequestedDeferral(::windows_core::IUnknown);
 impl AdaptiveMediaSourceDownloadRequestedDeferral {
     pub fn Complete(&self) -> ::windows_core::Result<()> {
@@ -1965,24 +1719,8 @@ impl AdaptiveMediaSourceDownloadRequestedDeferral {
         unsafe { (::windows_core::Interface::vtable(this).Complete)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadRequestedDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadRequestedDeferral {}
-impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadRequestedDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceDownloadRequestedDeferral").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdaptiveMediaSourceDownloadRequestedDeferral {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedDeferral;{05c68f64-fa20-4dbd-9821-4bf4c9bf77ab})");
-}
-impl ::core::clone::Clone for AdaptiveMediaSourceDownloadRequestedDeferral {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdaptiveMediaSourceDownloadRequestedDeferral {
     type Vtable = IAdaptiveMediaSourceDownloadRequestedDeferral_Vtbl;
@@ -1998,6 +1736,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadRequestedDeferra
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadRequestedDeferral {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourceDownloadRequestedEventArgs(::windows_core::IUnknown);
 impl AdaptiveMediaSourceDownloadRequestedEventArgs {
     pub fn ResourceType(&self) -> ::windows_core::Result<AdaptiveMediaSourceResourceType> {
@@ -2081,24 +1820,8 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadRequestedEventArgs {}
-impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceDownloadRequestedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdaptiveMediaSourceDownloadRequestedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedEventArgs;{c83fdffd-44a9-47a2-bf96-03398b4bfaaf})");
-}
-impl ::core::clone::Clone for AdaptiveMediaSourceDownloadRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdaptiveMediaSourceDownloadRequestedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl;
@@ -2114,6 +1837,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadRequestedEventAr
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadRequestedEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourceDownloadResult(::windows_core::IUnknown);
 impl AdaptiveMediaSourceDownloadResult {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2229,24 +1953,8 @@ impl AdaptiveMediaSourceDownloadResult {
         unsafe { (::windows_core::Interface::vtable(this).SetResourceByteRangeLength)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadResult {}
-impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceDownloadResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdaptiveMediaSourceDownloadResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadResult;{f4afdc73-bcee-4a6a-9f0a-fec41e2339b0})");
-}
-impl ::core::clone::Clone for AdaptiveMediaSourceDownloadResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdaptiveMediaSourceDownloadResult {
     type Vtable = IAdaptiveMediaSourceDownloadResult_Vtbl;
@@ -2262,6 +1970,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadResult {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadResult {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourceDownloadStatistics(::windows_core::IUnknown);
 impl AdaptiveMediaSourceDownloadStatistics {
     pub fn ContentBytesReceivedCount(&self) -> ::windows_core::Result<u64> {
@@ -2299,24 +2008,8 @@ impl AdaptiveMediaSourceDownloadStatistics {
         }
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadStatistics {}
-impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadStatistics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourceDownloadStatistics").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdaptiveMediaSourceDownloadStatistics {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadStatistics;{a306cefb-e96a-4dff-a9b8-1ae08c01ae98})");
-}
-impl ::core::clone::Clone for AdaptiveMediaSourceDownloadStatistics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdaptiveMediaSourceDownloadStatistics {
     type Vtable = IAdaptiveMediaSourceDownloadStatistics_Vtbl;
@@ -2332,6 +2025,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadStatistics {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadStatistics {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveMediaSourcePlaybackBitrateChangedEventArgs(::windows_core::IUnknown);
 impl AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
     pub fn OldValue(&self) -> ::windows_core::Result<u32> {
@@ -2356,24 +2050,8 @@ impl AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {}
-impl ::core::fmt::Debug for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveMediaSourcePlaybackBitrateChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourcePlaybackBitrateChangedEventArgs;{23a29f6d-7dda-4a51-87a9-6fa8c5b292be})");
-}
-impl ::core::clone::Clone for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
     type Vtable = IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Vtbl;

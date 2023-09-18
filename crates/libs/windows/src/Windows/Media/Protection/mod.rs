@@ -2,14 +2,10 @@
 pub mod PlayReady;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IComponentLoadFailedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IComponentLoadFailedEventArgs {
     type Vtable = IComponentLoadFailedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IComponentLoadFailedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IComponentLoadFailedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95972e93_7746_417e_8495_f031bbc5862c);
@@ -23,14 +19,10 @@ pub struct IComponentLoadFailedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IComponentRenewalStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IComponentRenewalStatics {
     type Vtable = IComponentRenewalStatics_Vtbl;
-}
-impl ::core::clone::Clone for IComponentRenewalStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IComponentRenewalStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ffbcd67_b795_48c5_8b7b_a7c4efe202e3);
@@ -46,14 +38,10 @@ pub struct IComponentRenewalStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHdcpSession(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHdcpSession {
     type Vtable = IHdcpSession_Vtbl;
-}
-impl ::core::clone::Clone for IHdcpSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHdcpSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x718845e9_64d7_426d_809b_1be461941a2a);
@@ -82,14 +70,10 @@ pub struct IHdcpSession_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaProtectionManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaProtectionManager {
     type Vtable = IMediaProtectionManager_Vtbl;
-}
-impl ::core::clone::Clone for IMediaProtectionManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaProtectionManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45694947_c741_434b_a79e_474c12d93d2f);
@@ -129,14 +113,10 @@ pub struct IMediaProtectionManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaProtectionPMPServer(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaProtectionPMPServer {
     type Vtable = IMediaProtectionPMPServer_Vtbl;
-}
-impl ::core::clone::Clone for IMediaProtectionPMPServer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaProtectionPMPServer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c111226_7b26_4d31_95bb_9c1b08ef7fc0);
@@ -152,14 +132,10 @@ pub struct IMediaProtectionPMPServer_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaProtectionPMPServerFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaProtectionPMPServerFactory {
     type Vtable = IMediaProtectionPMPServerFactory_Vtbl;
-}
-impl ::core::clone::Clone for IMediaProtectionPMPServerFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaProtectionPMPServerFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x602c8e5e_f7d2_487e_af91_dbc4252b2182);
@@ -175,14 +151,10 @@ pub struct IMediaProtectionPMPServerFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaProtectionServiceCompletion(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaProtectionServiceCompletion {
     type Vtable = IMediaProtectionServiceCompletion_Vtbl;
-}
-impl ::core::clone::Clone for IMediaProtectionServiceCompletion {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaProtectionServiceCompletion {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b5cca18_cfd5_44ee_a2ed_df76010c14b5);
@@ -195,6 +167,7 @@ pub struct IMediaProtectionServiceCompletion_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaProtectionServiceRequest(::windows_core::IUnknown);
 impl IMediaProtectionServiceRequest {
     pub fn ProtectionSystem(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -213,27 +186,11 @@ impl IMediaProtectionServiceRequest {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMediaProtectionServiceRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IMediaProtectionServiceRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMediaProtectionServiceRequest {}
-impl ::core::fmt::Debug for IMediaProtectionServiceRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaProtectionServiceRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IMediaProtectionServiceRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{b1de0ea6-2094-478d-87a4-8b95200f85c6}");
 }
 unsafe impl ::windows_core::Interface for IMediaProtectionServiceRequest {
     type Vtable = IMediaProtectionServiceRequest_Vtbl;
-}
-impl ::core::clone::Clone for IMediaProtectionServiceRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaProtectionServiceRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb1de0ea6_2094_478d_87a4_8b95200f85c6);
@@ -247,14 +204,10 @@ pub struct IMediaProtectionServiceRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectionCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IProtectionCapabilities {
     type Vtable = IProtectionCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for IProtectionCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectionCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7ac5d7e_7480_4d29_a464_7bcd913dd8e4);
@@ -267,14 +220,10 @@ pub struct IProtectionCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRevocationAndRenewalInformation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRevocationAndRenewalInformation {
     type Vtable = IRevocationAndRenewalInformation_Vtbl;
-}
-impl ::core::clone::Clone for IRevocationAndRenewalInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRevocationAndRenewalInformation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf3a1937b_2501_439e_a6e7_6fc95e175fcf);
@@ -290,14 +239,10 @@ pub struct IRevocationAndRenewalInformation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRevocationAndRenewalItem(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRevocationAndRenewalItem {
     type Vtable = IRevocationAndRenewalItem_Vtbl;
-}
-impl ::core::clone::Clone for IRevocationAndRenewalItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRevocationAndRenewalItem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3099c20c_3cf0_49ea_902d_caf32d2dde2c);
@@ -314,14 +259,10 @@ pub struct IRevocationAndRenewalItem_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IServiceRequestedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IServiceRequestedEventArgs {
     type Vtable = IServiceRequestedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IServiceRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IServiceRequestedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x34283baf_abb4_4fc1_bd89_93f106573a49);
@@ -335,14 +276,10 @@ pub struct IServiceRequestedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IServiceRequestedEventArgs2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IServiceRequestedEventArgs2 {
     type Vtable = IServiceRequestedEventArgs2_Vtbl;
-}
-impl ::core::clone::Clone for IServiceRequestedEventArgs2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IServiceRequestedEventArgs2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x553c69d6_fafe_4128_8dfa_130e398a13a7);
@@ -358,6 +295,7 @@ pub struct IServiceRequestedEventArgs2_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ComponentLoadFailedEventArgs(::windows_core::IUnknown);
 impl ComponentLoadFailedEventArgs {
     pub fn Information(&self) -> ::windows_core::Result<RevocationAndRenewalInformation> {
@@ -375,24 +313,8 @@ impl ComponentLoadFailedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for ComponentLoadFailedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ComponentLoadFailedEventArgs {}
-impl ::core::fmt::Debug for ComponentLoadFailedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ComponentLoadFailedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ComponentLoadFailedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.ComponentLoadFailedEventArgs;{95972e93-7746-417e-8495-f031bbc5862c})");
-}
-impl ::core::clone::Clone for ComponentLoadFailedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ComponentLoadFailedEventArgs {
     type Vtable = IComponentLoadFailedEventArgs_Vtbl;
@@ -431,6 +353,7 @@ impl ::windows_core::RuntimeName for ComponentRenewal {
 }
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HdcpSession(::windows_core::IUnknown);
 impl HdcpSession {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -490,24 +413,8 @@ impl HdcpSession {
         unsafe { (::windows_core::Interface::vtable(this).RemoveProtectionChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for HdcpSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HdcpSession {}
-impl ::core::fmt::Debug for HdcpSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HdcpSession").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HdcpSession {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.HdcpSession;{718845e9-64d7-426d-809b-1be461941a2a})");
-}
-impl ::core::clone::Clone for HdcpSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HdcpSession {
     type Vtable = IHdcpSession_Vtbl;
@@ -525,6 +432,7 @@ unsafe impl ::core::marker::Send for HdcpSession {}
 unsafe impl ::core::marker::Sync for HdcpSession {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaProtectionManager(::windows_core::IUnknown);
 impl MediaProtectionManager {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -598,24 +506,8 @@ impl MediaProtectionManager {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaProtectionManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaProtectionManager {}
-impl ::core::fmt::Debug for MediaProtectionManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaProtectionManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaProtectionManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.MediaProtectionManager;{45694947-c741-434b-a79e-474c12d93d2f})");
-}
-impl ::core::clone::Clone for MediaProtectionManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaProtectionManager {
     type Vtable = IMediaProtectionManager_Vtbl;
@@ -631,6 +523,7 @@ unsafe impl ::core::marker::Send for MediaProtectionManager {}
 unsafe impl ::core::marker::Sync for MediaProtectionManager {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaProtectionPMPServer(::windows_core::IUnknown);
 impl MediaProtectionPMPServer {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -659,24 +552,8 @@ impl MediaProtectionPMPServer {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for MediaProtectionPMPServer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaProtectionPMPServer {}
-impl ::core::fmt::Debug for MediaProtectionPMPServer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaProtectionPMPServer").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaProtectionPMPServer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.MediaProtectionPMPServer;{0c111226-7b26-4d31-95bb-9c1b08ef7fc0})");
-}
-impl ::core::clone::Clone for MediaProtectionPMPServer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaProtectionPMPServer {
     type Vtable = IMediaProtectionPMPServer_Vtbl;
@@ -692,6 +569,7 @@ unsafe impl ::core::marker::Send for MediaProtectionPMPServer {}
 unsafe impl ::core::marker::Sync for MediaProtectionPMPServer {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaProtectionServiceCompletion(::windows_core::IUnknown);
 impl MediaProtectionServiceCompletion {
     pub fn Complete(&self, success: bool) -> ::windows_core::Result<()> {
@@ -699,24 +577,8 @@ impl MediaProtectionServiceCompletion {
         unsafe { (::windows_core::Interface::vtable(this).Complete)(::windows_core::Interface::as_raw(this), success).ok() }
     }
 }
-impl ::core::cmp::PartialEq for MediaProtectionServiceCompletion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaProtectionServiceCompletion {}
-impl ::core::fmt::Debug for MediaProtectionServiceCompletion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaProtectionServiceCompletion").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaProtectionServiceCompletion {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.MediaProtectionServiceCompletion;{8b5cca18-cfd5-44ee-a2ed-df76010c14b5})");
-}
-impl ::core::clone::Clone for MediaProtectionServiceCompletion {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaProtectionServiceCompletion {
     type Vtable = IMediaProtectionServiceCompletion_Vtbl;
@@ -732,6 +594,7 @@ unsafe impl ::core::marker::Send for MediaProtectionServiceCompletion {}
 unsafe impl ::core::marker::Sync for MediaProtectionServiceCompletion {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProtectionCapabilities(::windows_core::IUnknown);
 impl ProtectionCapabilities {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -749,24 +612,8 @@ impl ProtectionCapabilities {
         }
     }
 }
-impl ::core::cmp::PartialEq for ProtectionCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtectionCapabilities {}
-impl ::core::fmt::Debug for ProtectionCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtectionCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ProtectionCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.ProtectionCapabilities;{c7ac5d7e-7480-4d29-a464-7bcd913dd8e4})");
-}
-impl ::core::clone::Clone for ProtectionCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ProtectionCapabilities {
     type Vtable = IProtectionCapabilities_Vtbl;
@@ -782,6 +629,7 @@ unsafe impl ::core::marker::Send for ProtectionCapabilities {}
 unsafe impl ::core::marker::Sync for ProtectionCapabilities {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RevocationAndRenewalInformation(::windows_core::IUnknown);
 impl RevocationAndRenewalInformation {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -794,24 +642,8 @@ impl RevocationAndRenewalInformation {
         }
     }
 }
-impl ::core::cmp::PartialEq for RevocationAndRenewalInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RevocationAndRenewalInformation {}
-impl ::core::fmt::Debug for RevocationAndRenewalInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RevocationAndRenewalInformation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RevocationAndRenewalInformation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.RevocationAndRenewalInformation;{f3a1937b-2501-439e-a6e7-6fc95e175fcf})");
-}
-impl ::core::clone::Clone for RevocationAndRenewalInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RevocationAndRenewalInformation {
     type Vtable = IRevocationAndRenewalInformation_Vtbl;
@@ -827,6 +659,7 @@ unsafe impl ::core::marker::Send for RevocationAndRenewalInformation {}
 unsafe impl ::core::marker::Sync for RevocationAndRenewalInformation {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RevocationAndRenewalItem(::windows_core::IUnknown);
 impl RevocationAndRenewalItem {
     pub fn Reasons(&self) -> ::windows_core::Result<RevocationAndRenewalReasons> {
@@ -865,24 +698,8 @@ impl RevocationAndRenewalItem {
         }
     }
 }
-impl ::core::cmp::PartialEq for RevocationAndRenewalItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RevocationAndRenewalItem {}
-impl ::core::fmt::Debug for RevocationAndRenewalItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RevocationAndRenewalItem").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RevocationAndRenewalItem {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.RevocationAndRenewalItem;{3099c20c-3cf0-49ea-902d-caf32d2dde2c})");
-}
-impl ::core::clone::Clone for RevocationAndRenewalItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RevocationAndRenewalItem {
     type Vtable = IRevocationAndRenewalItem_Vtbl;
@@ -898,6 +715,7 @@ unsafe impl ::core::marker::Send for RevocationAndRenewalItem {}
 unsafe impl ::core::marker::Sync for RevocationAndRenewalItem {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ServiceRequestedEventArgs(::windows_core::IUnknown);
 impl ServiceRequestedEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<IMediaProtectionServiceRequest> {
@@ -924,24 +742,8 @@ impl ServiceRequestedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for ServiceRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ServiceRequestedEventArgs {}
-impl ::core::fmt::Debug for ServiceRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ServiceRequestedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ServiceRequestedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.ServiceRequestedEventArgs;{34283baf-abb4-4fc1-bd89-93f106573a49})");
-}
-impl ::core::clone::Clone for ServiceRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ServiceRequestedEventArgs {
     type Vtable = IServiceRequestedEventArgs_Vtbl;
@@ -1194,6 +996,7 @@ impl ::windows_core::RuntimeType for RevocationAndRenewalReasons {
 }
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ComponentLoadFailedEventHandler(pub ::windows_core::IUnknown);
 impl ComponentLoadFailedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&MediaProtectionManager>, ::core::option::Option<&ComponentLoadFailedEventArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -1220,9 +1023,12 @@ impl<F: FnMut(::core::option::Option<&MediaProtectionManager>, ::core::option::O
         base__: ::windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows_core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows_core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<ComponentLoadFailedEventHandler as ::windows_core::ComInterface>::IID || iid == &<::windows_core::IUnknown as ::windows_core::ComInterface>::IID || iid == &<::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <ComponentLoadFailedEventHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -1247,24 +1053,8 @@ impl<F: FnMut(::core::option::Option<&MediaProtectionManager>, ::core::option::O
         ((*this).invoke)(::windows_core::from_raw_borrowed(&sender), ::windows_core::from_raw_borrowed(&e)).into()
     }
 }
-impl ::core::cmp::PartialEq for ComponentLoadFailedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ComponentLoadFailedEventHandler {}
-impl ::core::fmt::Debug for ComponentLoadFailedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ComponentLoadFailedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ComponentLoadFailedEventHandler {
     type Vtable = ComponentLoadFailedEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for ComponentLoadFailedEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ComponentLoadFailedEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95da643c_6db9_424b_86ca_091af432081c);
@@ -1280,6 +1070,7 @@ pub struct ComponentLoadFailedEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RebootNeededEventHandler(pub ::windows_core::IUnknown);
 impl RebootNeededEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&MediaProtectionManager>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -1305,9 +1096,12 @@ impl<F: FnMut(::core::option::Option<&MediaProtectionManager>) -> ::windows_core
         base__: ::windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows_core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows_core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<RebootNeededEventHandler as ::windows_core::ComInterface>::IID || iid == &<::windows_core::IUnknown as ::windows_core::ComInterface>::IID || iid == &<::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <RebootNeededEventHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -1332,24 +1126,8 @@ impl<F: FnMut(::core::option::Option<&MediaProtectionManager>) -> ::windows_core
         ((*this).invoke)(::windows_core::from_raw_borrowed(&sender)).into()
     }
 }
-impl ::core::cmp::PartialEq for RebootNeededEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RebootNeededEventHandler {}
-impl ::core::fmt::Debug for RebootNeededEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RebootNeededEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for RebootNeededEventHandler {
     type Vtable = RebootNeededEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for RebootNeededEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for RebootNeededEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64e12a45_973b_4a3a_b260_91898a49a82c);
@@ -1365,6 +1143,7 @@ pub struct RebootNeededEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ServiceRequestedEventHandler(pub ::windows_core::IUnknown);
 impl ServiceRequestedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&MediaProtectionManager>, ::core::option::Option<&ServiceRequestedEventArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -1391,9 +1170,12 @@ impl<F: FnMut(::core::option::Option<&MediaProtectionManager>, ::core::option::O
         base__: ::windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows_core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows_core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<ServiceRequestedEventHandler as ::windows_core::ComInterface>::IID || iid == &<::windows_core::IUnknown as ::windows_core::ComInterface>::IID || iid == &<::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <ServiceRequestedEventHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -1418,24 +1200,8 @@ impl<F: FnMut(::core::option::Option<&MediaProtectionManager>, ::core::option::O
         ((*this).invoke)(::windows_core::from_raw_borrowed(&sender), ::windows_core::from_raw_borrowed(&e)).into()
     }
 }
-impl ::core::cmp::PartialEq for ServiceRequestedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ServiceRequestedEventHandler {}
-impl ::core::fmt::Debug for ServiceRequestedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ServiceRequestedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ServiceRequestedEventHandler {
     type Vtable = ServiceRequestedEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for ServiceRequestedEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ServiceRequestedEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2d690ba_cac9_48e1_95c0_d38495a84055);

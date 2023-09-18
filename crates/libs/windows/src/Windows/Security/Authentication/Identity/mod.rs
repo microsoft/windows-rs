@@ -2,14 +2,10 @@
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnterpriseKeyCredentialRegistrationInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEnterpriseKeyCredentialRegistrationInfo {
     type Vtable = IEnterpriseKeyCredentialRegistrationInfo_Vtbl;
-}
-impl ::core::clone::Clone for IEnterpriseKeyCredentialRegistrationInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnterpriseKeyCredentialRegistrationInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38321acc_672b_4823_b603_6b3c753daf97);
@@ -26,14 +22,10 @@ pub struct IEnterpriseKeyCredentialRegistrationInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnterpriseKeyCredentialRegistrationManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEnterpriseKeyCredentialRegistrationManager {
     type Vtable = IEnterpriseKeyCredentialRegistrationManager_Vtbl;
-}
-impl ::core::clone::Clone for IEnterpriseKeyCredentialRegistrationManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnterpriseKeyCredentialRegistrationManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83f3be3f_a25f_4cba_bb8e_bdc32d03c297);
@@ -49,14 +41,10 @@ pub struct IEnterpriseKeyCredentialRegistrationManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnterpriseKeyCredentialRegistrationManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEnterpriseKeyCredentialRegistrationManagerStatics {
     type Vtable = IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IEnterpriseKeyCredentialRegistrationManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnterpriseKeyCredentialRegistrationManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x77b85e9e_acf4_4bc0_bac2_40bb46efbb3f);
@@ -69,6 +57,7 @@ pub struct IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EnterpriseKeyCredentialRegistrationInfo(::windows_core::IUnknown);
 impl EnterpriseKeyCredentialRegistrationInfo {
     pub fn TenantId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -107,24 +96,8 @@ impl EnterpriseKeyCredentialRegistrationInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for EnterpriseKeyCredentialRegistrationInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EnterpriseKeyCredentialRegistrationInfo {}
-impl ::core::fmt::Debug for EnterpriseKeyCredentialRegistrationInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnterpriseKeyCredentialRegistrationInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EnterpriseKeyCredentialRegistrationInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo;{38321acc-672b-4823-b603-6b3c753daf97})");
-}
-impl ::core::clone::Clone for EnterpriseKeyCredentialRegistrationInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EnterpriseKeyCredentialRegistrationInfo {
     type Vtable = IEnterpriseKeyCredentialRegistrationInfo_Vtbl;
@@ -140,6 +113,7 @@ unsafe impl ::core::marker::Send for EnterpriseKeyCredentialRegistrationInfo {}
 unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationInfo {}
 #[doc = "*Required features: `\"Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EnterpriseKeyCredentialRegistrationManager(::windows_core::IUnknown);
 impl EnterpriseKeyCredentialRegistrationManager {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -163,24 +137,8 @@ impl EnterpriseKeyCredentialRegistrationManager {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for EnterpriseKeyCredentialRegistrationManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EnterpriseKeyCredentialRegistrationManager {}
-impl ::core::fmt::Debug for EnterpriseKeyCredentialRegistrationManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnterpriseKeyCredentialRegistrationManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EnterpriseKeyCredentialRegistrationManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationManager;{83f3be3f-a25f-4cba-bb8e-bdc32d03c297})");
-}
-impl ::core::clone::Clone for EnterpriseKeyCredentialRegistrationManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EnterpriseKeyCredentialRegistrationManager {
     type Vtable = IEnterpriseKeyCredentialRegistrationManager_Vtbl;

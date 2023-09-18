@@ -22,6 +22,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DDxgiInterfaceAccess(::windows_core::IUnknown);
 impl IDirect3DDxgiInterfaceAccess {
     pub unsafe fn GetInterface<T>(&self) -> ::windows_core::Result<T>
@@ -33,24 +34,8 @@ impl IDirect3DDxgiInterfaceAccess {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirect3DDxgiInterfaceAccess, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirect3DDxgiInterfaceAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirect3DDxgiInterfaceAccess {}
-impl ::core::fmt::Debug for IDirect3DDxgiInterfaceAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirect3DDxgiInterfaceAccess").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirect3DDxgiInterfaceAccess {
     type Vtable = IDirect3DDxgiInterfaceAccess_Vtbl;
-}
-impl ::core::clone::Clone for IDirect3DDxgiInterfaceAccess {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirect3DDxgiInterfaceAccess {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1);

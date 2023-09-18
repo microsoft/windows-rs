@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAsymmetricAlgorithmNamesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAsymmetricAlgorithmNamesStatics {
     type Vtable = IAsymmetricAlgorithmNamesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IAsymmetricAlgorithmNamesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAsymmetricAlgorithmNamesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaf6fce4_67c0_46aa_84f9_752e77449f9b);
@@ -37,14 +33,10 @@ pub struct IAsymmetricAlgorithmNamesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAsymmetricAlgorithmNamesStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAsymmetricAlgorithmNamesStatics2 {
     type Vtable = IAsymmetricAlgorithmNamesStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IAsymmetricAlgorithmNamesStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAsymmetricAlgorithmNamesStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf141c0d6_4bff_4f23_ba66_6045b137d5df);
@@ -59,14 +51,10 @@ pub struct IAsymmetricAlgorithmNamesStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAsymmetricKeyAlgorithmProvider(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAsymmetricKeyAlgorithmProvider {
     type Vtable = IAsymmetricKeyAlgorithmProvider_Vtbl;
-}
-impl ::core::clone::Clone for IAsymmetricKeyAlgorithmProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAsymmetricKeyAlgorithmProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe8d2ff37_6259_4e88_b7e0_94191fde699e);
@@ -96,14 +84,10 @@ pub struct IAsymmetricKeyAlgorithmProvider_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAsymmetricKeyAlgorithmProvider2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAsymmetricKeyAlgorithmProvider2 {
     type Vtable = IAsymmetricKeyAlgorithmProvider2_Vtbl;
-}
-impl ::core::clone::Clone for IAsymmetricKeyAlgorithmProvider2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAsymmetricKeyAlgorithmProvider2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e322a7e_7c4d_4997_ac4f_1b848b36306e);
@@ -117,14 +101,10 @@ pub struct IAsymmetricKeyAlgorithmProvider2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAsymmetricKeyAlgorithmProviderStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAsymmetricKeyAlgorithmProviderStatics {
     type Vtable = IAsymmetricKeyAlgorithmProviderStatics_Vtbl;
-}
-impl ::core::clone::Clone for IAsymmetricKeyAlgorithmProviderStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAsymmetricKeyAlgorithmProviderStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x425bde18_a7f3_47a6_a8d2_c48d6033a65c);
@@ -137,14 +117,10 @@ pub struct IAsymmetricKeyAlgorithmProviderStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICryptographicEngineStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICryptographicEngineStatics {
     type Vtable = ICryptographicEngineStatics_Vtbl;
-}
-impl ::core::clone::Clone for ICryptographicEngineStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICryptographicEngineStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9fea0639_6ff7_4c85_a095_95eb31715eb9);
@@ -184,14 +160,10 @@ pub struct ICryptographicEngineStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICryptographicEngineStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICryptographicEngineStatics2 {
     type Vtable = ICryptographicEngineStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ICryptographicEngineStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICryptographicEngineStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x675948fe_df9f_4191_92c7_6ce6f58420e0);
@@ -223,14 +195,10 @@ pub struct ICryptographicEngineStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICryptographicKey(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICryptographicKey {
     type Vtable = ICryptographicKey_Vtbl;
-}
-impl ::core::clone::Clone for ICryptographicKey {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICryptographicKey {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed2a3b70_8e7b_4009_8401_ffd1a62eeb27);
@@ -259,14 +227,10 @@ pub struct ICryptographicKey_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEccCurveNamesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEccCurveNamesStatics {
     type Vtable = IEccCurveNamesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IEccCurveNamesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEccCurveNamesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3ff930c_aeeb_409e_b7d4_9b95295aaecf);
@@ -327,14 +291,10 @@ pub struct IEccCurveNamesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEncryptedAndAuthenticatedData(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEncryptedAndAuthenticatedData {
     type Vtable = IEncryptedAndAuthenticatedData_Vtbl;
-}
-impl ::core::clone::Clone for IEncryptedAndAuthenticatedData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEncryptedAndAuthenticatedData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fa42fe7_1ecb_4b00_bea5_60b83f862f17);
@@ -354,14 +314,10 @@ pub struct IEncryptedAndAuthenticatedData_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHashAlgorithmNamesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHashAlgorithmNamesStatics {
     type Vtable = IHashAlgorithmNamesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IHashAlgorithmNamesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHashAlgorithmNamesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b5e0516_de96_4f0a_8d57_dcc9dae36c76);
@@ -378,14 +334,10 @@ pub struct IHashAlgorithmNamesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHashAlgorithmProvider(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHashAlgorithmProvider {
     type Vtable = IHashAlgorithmProvider_Vtbl;
-}
-impl ::core::clone::Clone for IHashAlgorithmProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHashAlgorithmProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe9b3080_b2c3_422b_bce1_ec90efb5d7b5);
@@ -404,14 +356,10 @@ pub struct IHashAlgorithmProvider_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHashAlgorithmProviderStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHashAlgorithmProviderStatics {
     type Vtable = IHashAlgorithmProviderStatics_Vtbl;
-}
-impl ::core::clone::Clone for IHashAlgorithmProviderStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHashAlgorithmProviderStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9fac9741_5cc4_4336_ae38_6212b75a915a);
@@ -424,14 +372,10 @@ pub struct IHashAlgorithmProviderStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHashComputation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHashComputation {
     type Vtable = IHashComputation_Vtbl;
-}
-impl ::core::clone::Clone for IHashComputation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHashComputation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5904d1b6_ad31_4603_a3a4_b1bda98e2562);
@@ -451,14 +395,10 @@ pub struct IHashComputation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyDerivationAlgorithmNamesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKeyDerivationAlgorithmNamesStatics {
     type Vtable = IKeyDerivationAlgorithmNamesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IKeyDerivationAlgorithmNamesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKeyDerivationAlgorithmNamesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b6e363e_94d2_4739_a57b_022e0c3a402a);
@@ -485,14 +425,10 @@ pub struct IKeyDerivationAlgorithmNamesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyDerivationAlgorithmNamesStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKeyDerivationAlgorithmNamesStatics2 {
     type Vtable = IKeyDerivationAlgorithmNamesStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IKeyDerivationAlgorithmNamesStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKeyDerivationAlgorithmNamesStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57953fab_6044_466f_97f4_337b7808384d);
@@ -509,14 +445,10 @@ pub struct IKeyDerivationAlgorithmNamesStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyDerivationAlgorithmProvider(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKeyDerivationAlgorithmProvider {
     type Vtable = IKeyDerivationAlgorithmProvider_Vtbl;
-}
-impl ::core::clone::Clone for IKeyDerivationAlgorithmProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKeyDerivationAlgorithmProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe1fba83b_4671_43b7_9158_763aaa98b6bf);
@@ -533,14 +465,10 @@ pub struct IKeyDerivationAlgorithmProvider_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyDerivationAlgorithmProviderStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKeyDerivationAlgorithmProviderStatics {
     type Vtable = IKeyDerivationAlgorithmProviderStatics_Vtbl;
-}
-impl ::core::clone::Clone for IKeyDerivationAlgorithmProviderStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKeyDerivationAlgorithmProviderStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a22097a_0a1c_443b_9418_b9498aeb1603);
@@ -553,14 +481,10 @@ pub struct IKeyDerivationAlgorithmProviderStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyDerivationParameters(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKeyDerivationParameters {
     type Vtable = IKeyDerivationParameters_Vtbl;
-}
-impl ::core::clone::Clone for IKeyDerivationParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKeyDerivationParameters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7bf05967_047b_4a8c_964a_469ffd5522e2);
@@ -581,14 +505,10 @@ pub struct IKeyDerivationParameters_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyDerivationParameters2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKeyDerivationParameters2 {
     type Vtable = IKeyDerivationParameters2_Vtbl;
-}
-impl ::core::clone::Clone for IKeyDerivationParameters2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKeyDerivationParameters2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd4166d1_417e_4f4c_b666_c0d879f3f8e0);
@@ -602,14 +522,10 @@ pub struct IKeyDerivationParameters2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyDerivationParametersStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKeyDerivationParametersStatics {
     type Vtable = IKeyDerivationParametersStatics_Vtbl;
-}
-impl ::core::clone::Clone for IKeyDerivationParametersStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKeyDerivationParametersStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea961fbe_f37f_4146_9dfe_a456f1735f4b);
@@ -633,14 +549,10 @@ pub struct IKeyDerivationParametersStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyDerivationParametersStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKeyDerivationParametersStatics2 {
     type Vtable = IKeyDerivationParametersStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IKeyDerivationParametersStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKeyDerivationParametersStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa5783dd5_58e3_4efb_b283_a1653126e1be);
@@ -653,14 +565,10 @@ pub struct IKeyDerivationParametersStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMacAlgorithmNamesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMacAlgorithmNamesStatics {
     type Vtable = IMacAlgorithmNamesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IMacAlgorithmNamesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMacAlgorithmNamesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41412678_fb1e_43a4_895e_a9026e4390a3);
@@ -678,14 +586,10 @@ pub struct IMacAlgorithmNamesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMacAlgorithmProvider(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMacAlgorithmProvider {
     type Vtable = IMacAlgorithmProvider_Vtbl;
-}
-impl ::core::clone::Clone for IMacAlgorithmProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMacAlgorithmProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a3fc5c3_1cbd_41ce_a092_aa0bc5d2d2f5);
@@ -703,14 +607,10 @@ pub struct IMacAlgorithmProvider_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMacAlgorithmProvider2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMacAlgorithmProvider2 {
     type Vtable = IMacAlgorithmProvider2_Vtbl;
-}
-impl ::core::clone::Clone for IMacAlgorithmProvider2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMacAlgorithmProvider2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6da32a15_d931_42ed_8e7e_c301caee119c);
@@ -726,14 +626,10 @@ pub struct IMacAlgorithmProvider2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMacAlgorithmProviderStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMacAlgorithmProviderStatics {
     type Vtable = IMacAlgorithmProviderStatics_Vtbl;
-}
-impl ::core::clone::Clone for IMacAlgorithmProviderStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMacAlgorithmProviderStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9bdc147_cc77_4df0_9e4e_b921e080644c);
@@ -746,14 +642,10 @@ pub struct IMacAlgorithmProviderStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPersistedKeyProviderStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPersistedKeyProviderStatics {
     type Vtable = IPersistedKeyProviderStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPersistedKeyProviderStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPersistedKeyProviderStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x77274814_d9d4_4cf5_b668_e0457df30894);
@@ -773,14 +665,10 @@ pub struct IPersistedKeyProviderStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISymmetricAlgorithmNamesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISymmetricAlgorithmNamesStatics {
     type Vtable = ISymmetricAlgorithmNamesStatics_Vtbl;
-}
-impl ::core::clone::Clone for ISymmetricAlgorithmNamesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISymmetricAlgorithmNamesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6870727b_c996_4eae_84d7_79b2aeb73b9c);
@@ -811,14 +699,10 @@ pub struct ISymmetricAlgorithmNamesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISymmetricKeyAlgorithmProvider(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISymmetricKeyAlgorithmProvider {
     type Vtable = ISymmetricKeyAlgorithmProvider_Vtbl;
-}
-impl ::core::clone::Clone for ISymmetricKeyAlgorithmProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISymmetricKeyAlgorithmProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d7e4a33_3bd0_4902_8ac8_470d50d21376);
@@ -836,14 +720,10 @@ pub struct ISymmetricKeyAlgorithmProvider_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISymmetricKeyAlgorithmProviderStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISymmetricKeyAlgorithmProviderStatics {
     type Vtable = ISymmetricKeyAlgorithmProviderStatics_Vtbl;
-}
-impl ::core::clone::Clone for ISymmetricKeyAlgorithmProviderStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISymmetricKeyAlgorithmProviderStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d3b2326_1f37_491f_b60e_f5431b26b483);
@@ -999,6 +879,7 @@ impl ::windows_core::RuntimeName for AsymmetricAlgorithmNames {
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsymmetricKeyAlgorithmProvider(::windows_core::IUnknown);
 impl AsymmetricKeyAlgorithmProvider {
     pub fn AlgorithmName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1089,24 +970,8 @@ impl AsymmetricKeyAlgorithmProvider {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for AsymmetricKeyAlgorithmProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsymmetricKeyAlgorithmProvider {}
-impl ::core::fmt::Debug for AsymmetricKeyAlgorithmProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsymmetricKeyAlgorithmProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AsymmetricKeyAlgorithmProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider;{e8d2ff37-6259-4e88-b7e0-94191fde699e})");
-}
-impl ::core::clone::Clone for AsymmetricKeyAlgorithmProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AsymmetricKeyAlgorithmProvider {
     type Vtable = IAsymmetricKeyAlgorithmProvider_Vtbl;
@@ -1293,6 +1158,7 @@ impl ::windows_core::RuntimeName for CryptographicEngine {
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CryptographicHash(::windows_core::IUnknown);
 impl CryptographicHash {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1314,24 +1180,8 @@ impl CryptographicHash {
         }
     }
 }
-impl ::core::cmp::PartialEq for CryptographicHash {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CryptographicHash {}
-impl ::core::fmt::Debug for CryptographicHash {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CryptographicHash").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CryptographicHash {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.CryptographicHash;{5904d1b6-ad31-4603-a3a4-b1bda98e2562})");
-}
-impl ::core::clone::Clone for CryptographicHash {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CryptographicHash {
     type Vtable = IHashComputation_Vtbl;
@@ -1347,6 +1197,7 @@ unsafe impl ::core::marker::Send for CryptographicHash {}
 unsafe impl ::core::marker::Sync for CryptographicHash {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CryptographicKey(::windows_core::IUnknown);
 impl CryptographicKey {
     pub fn KeySize(&self) -> ::windows_core::Result<u32> {
@@ -1393,24 +1244,8 @@ impl CryptographicKey {
         }
     }
 }
-impl ::core::cmp::PartialEq for CryptographicKey {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CryptographicKey {}
-impl ::core::fmt::Debug for CryptographicKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CryptographicKey").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CryptographicKey {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.CryptographicKey;{ed2a3b70-8e7b-4009-8401-ffd1a62eeb27})");
-}
-impl ::core::clone::Clone for CryptographicKey {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CryptographicKey {
     type Vtable = ICryptographicKey_Vtbl;
@@ -1716,6 +1551,7 @@ impl ::windows_core::RuntimeName for EccCurveNames {
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EncryptedAndAuthenticatedData(::windows_core::IUnknown);
 impl EncryptedAndAuthenticatedData {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1737,24 +1573,8 @@ impl EncryptedAndAuthenticatedData {
         }
     }
 }
-impl ::core::cmp::PartialEq for EncryptedAndAuthenticatedData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EncryptedAndAuthenticatedData {}
-impl ::core::fmt::Debug for EncryptedAndAuthenticatedData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EncryptedAndAuthenticatedData").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EncryptedAndAuthenticatedData {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData;{6fa42fe7-1ecb-4b00-bea5-60b83f862f17})");
-}
-impl ::core::clone::Clone for EncryptedAndAuthenticatedData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EncryptedAndAuthenticatedData {
     type Vtable = IEncryptedAndAuthenticatedData_Vtbl;
@@ -1812,6 +1632,7 @@ impl ::windows_core::RuntimeName for HashAlgorithmNames {
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HashAlgorithmProvider(::windows_core::IUnknown);
 impl HashAlgorithmProvider {
     pub fn AlgorithmName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1859,24 +1680,8 @@ impl HashAlgorithmProvider {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HashAlgorithmProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HashAlgorithmProvider {}
-impl ::core::fmt::Debug for HashAlgorithmProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HashAlgorithmProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HashAlgorithmProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.HashAlgorithmProvider;{be9b3080-b2c3-422b-bce1-ec90efb5d7b5})");
-}
-impl ::core::clone::Clone for HashAlgorithmProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HashAlgorithmProvider {
     type Vtable = IHashAlgorithmProvider_Vtbl;
@@ -2029,6 +1834,7 @@ impl ::windows_core::RuntimeName for KeyDerivationAlgorithmNames {
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct KeyDerivationAlgorithmProvider(::windows_core::IUnknown);
 impl KeyDerivationAlgorithmProvider {
     pub fn AlgorithmName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2062,24 +1868,8 @@ impl KeyDerivationAlgorithmProvider {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for KeyDerivationAlgorithmProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyDerivationAlgorithmProvider {}
-impl ::core::fmt::Debug for KeyDerivationAlgorithmProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyDerivationAlgorithmProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for KeyDerivationAlgorithmProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider;{e1fba83b-4671-43b7-9158-763aaa98b6bf})");
-}
-impl ::core::clone::Clone for KeyDerivationAlgorithmProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for KeyDerivationAlgorithmProvider {
     type Vtable = IKeyDerivationAlgorithmProvider_Vtbl;
@@ -2095,6 +1885,7 @@ unsafe impl ::core::marker::Send for KeyDerivationAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for KeyDerivationAlgorithmProvider {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct KeyDerivationParameters(::windows_core::IUnknown);
 impl KeyDerivationParameters {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -2188,24 +1979,8 @@ impl KeyDerivationParameters {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for KeyDerivationParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyDerivationParameters {}
-impl ::core::fmt::Debug for KeyDerivationParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyDerivationParameters").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for KeyDerivationParameters {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.KeyDerivationParameters;{7bf05967-047b-4a8c-964a-469ffd5522e2})");
-}
-impl ::core::clone::Clone for KeyDerivationParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for KeyDerivationParameters {
     type Vtable = IKeyDerivationParameters_Vtbl;
@@ -2269,6 +2044,7 @@ impl ::windows_core::RuntimeName for MacAlgorithmNames {
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MacAlgorithmProvider(::windows_core::IUnknown);
 impl MacAlgorithmProvider {
     pub fn AlgorithmName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2321,24 +2097,8 @@ impl MacAlgorithmProvider {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for MacAlgorithmProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MacAlgorithmProvider {}
-impl ::core::fmt::Debug for MacAlgorithmProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MacAlgorithmProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MacAlgorithmProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.MacAlgorithmProvider;{4a3fc5c3-1cbd-41ce-a092-aa0bc5d2d2f5})");
-}
-impl ::core::clone::Clone for MacAlgorithmProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MacAlgorithmProvider {
     type Vtable = IMacAlgorithmProvider_Vtbl;
@@ -2514,6 +2274,7 @@ impl ::windows_core::RuntimeName for SymmetricAlgorithmNames {
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SymmetricKeyAlgorithmProvider(::windows_core::IUnknown);
 impl SymmetricKeyAlgorithmProvider {
     pub fn AlgorithmName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2554,24 +2315,8 @@ impl SymmetricKeyAlgorithmProvider {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for SymmetricKeyAlgorithmProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SymmetricKeyAlgorithmProvider {}
-impl ::core::fmt::Debug for SymmetricKeyAlgorithmProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SymmetricKeyAlgorithmProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SymmetricKeyAlgorithmProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider;{3d7e4a33-3bd0-4902-8ac8-470d50d21376})");
-}
-impl ::core::clone::Clone for SymmetricKeyAlgorithmProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SymmetricKeyAlgorithmProvider {
     type Vtable = ISymmetricKeyAlgorithmProvider_Vtbl;

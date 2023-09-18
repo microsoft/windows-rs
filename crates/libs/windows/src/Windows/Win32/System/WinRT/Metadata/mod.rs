@@ -102,6 +102,7 @@ pub unsafe fn RoResolveNamespace(name: &::windows_core::HSTRING, windowsmetadata
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICeeGen(::windows_core::IUnknown);
 impl ICeeGen {
     pub unsafe fn EmitString<P0>(&self, lpstring: P0, rva: *mut u32) -> ::windows_core::Result<()>
@@ -158,24 +159,8 @@ impl ICeeGen {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICeeGen, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICeeGen {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICeeGen {}
-impl ::core::fmt::Debug for ICeeGen {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICeeGen").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICeeGen {
     type Vtable = ICeeGen_Vtbl;
-}
-impl ::core::clone::Clone for ICeeGen {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICeeGen {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ed1bdff_8e36_11d2_9c56_00a0c9b7cc45);
@@ -202,6 +187,7 @@ pub struct ICeeGen_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostFilter(::windows_core::IUnknown);
 impl IHostFilter {
     pub unsafe fn MarkToken(&self, tk: u32) -> ::windows_core::Result<()> {
@@ -209,24 +195,8 @@ impl IHostFilter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostFilter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostFilter {}
-impl ::core::fmt::Debug for IHostFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostFilter {
     type Vtable = IHostFilter_Vtbl;
-}
-impl ::core::clone::Clone for IHostFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0e80dd3_12d4_11d3_b39d_00c04ff81795);
@@ -239,6 +209,7 @@ pub struct IHostFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMapToken(::windows_core::IUnknown);
 impl IMapToken {
     pub unsafe fn Map(&self, tkimp: u32, tkemit: u32) -> ::windows_core::Result<()> {
@@ -246,24 +217,8 @@ impl IMapToken {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMapToken, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMapToken {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMapToken {}
-impl ::core::fmt::Debug for IMapToken {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMapToken").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMapToken {
     type Vtable = IMapToken_Vtbl;
-}
-impl ::core::clone::Clone for IMapToken {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMapToken {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06a3ea8b_0225_11d1_bf72_00c04fc31e12);
@@ -276,6 +231,7 @@ pub struct IMapToken_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaDataAssemblyEmit(::windows_core::IUnknown);
 impl IMetaDataAssemblyEmit {
     pub unsafe fn DefineAssembly<P0>(&self, pbpublickey: *const ::core::ffi::c_void, cbpublickey: u32, ulhashalgid: u32, szname: P0, pmetadata: *const ASSEMBLYMETADATA, dwassemblyflags: u32, pma: *mut u32) -> ::windows_core::Result<()>
@@ -331,24 +287,8 @@ impl IMetaDataAssemblyEmit {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaDataAssemblyEmit, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMetaDataAssemblyEmit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaDataAssemblyEmit {}
-impl ::core::fmt::Debug for IMetaDataAssemblyEmit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaDataAssemblyEmit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaDataAssemblyEmit {
     type Vtable = IMetaDataAssemblyEmit_Vtbl;
-}
-impl ::core::clone::Clone for IMetaDataAssemblyEmit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaDataAssemblyEmit {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x211ef15b_5317_4438_b196_dec87b887693);
@@ -370,6 +310,7 @@ pub struct IMetaDataAssemblyEmit_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaDataAssemblyImport(::windows_core::IUnknown);
 impl IMetaDataAssemblyImport {
     pub unsafe fn GetAssemblyProps(&self, mda: u32, ppbpublickey: *const *const ::core::ffi::c_void, pcbpublickey: *mut u32, pulhashalgid: *mut u32, szname: ::core::option::Option<&mut [u16]>, pchname: *mut u32, pmetadata: *mut ASSEMBLYMETADATA, pdwassemblyflags: *mut u32) -> ::windows_core::Result<()> {
@@ -427,24 +368,8 @@ impl IMetaDataAssemblyImport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaDataAssemblyImport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMetaDataAssemblyImport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaDataAssemblyImport {}
-impl ::core::fmt::Debug for IMetaDataAssemblyImport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaDataAssemblyImport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaDataAssemblyImport {
     type Vtable = IMetaDataAssemblyImport_Vtbl;
-}
-impl ::core::clone::Clone for IMetaDataAssemblyImport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaDataAssemblyImport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xee62470b_e94b_424e_9b7c_2f00c9249f93);
@@ -470,6 +395,7 @@ pub struct IMetaDataAssemblyImport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaDataDispenser(::windows_core::IUnknown);
 impl IMetaDataDispenser {
     pub unsafe fn DefineScope(&self, rclsid: *const ::windows_core::GUID, dwcreateflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -489,24 +415,8 @@ impl IMetaDataDispenser {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaDataDispenser, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMetaDataDispenser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaDataDispenser {}
-impl ::core::fmt::Debug for IMetaDataDispenser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaDataDispenser").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaDataDispenser {
     type Vtable = IMetaDataDispenser_Vtbl;
-}
-impl ::core::clone::Clone for IMetaDataDispenser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaDataDispenser {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x809c652e_7396_11d2_9771_00a0c9b4d50c);
@@ -521,6 +431,7 @@ pub struct IMetaDataDispenser_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaDataDispenserEx(::windows_core::IUnknown);
 impl IMetaDataDispenserEx {
     pub unsafe fn DefineScope(&self, rclsid: *const ::windows_core::GUID, dwcreateflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -582,24 +493,8 @@ impl IMetaDataDispenserEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaDataDispenserEx, ::windows_core::IUnknown, IMetaDataDispenser);
-impl ::core::cmp::PartialEq for IMetaDataDispenserEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaDataDispenserEx {}
-impl ::core::fmt::Debug for IMetaDataDispenserEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaDataDispenserEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaDataDispenserEx {
     type Vtable = IMetaDataDispenserEx_Vtbl;
-}
-impl ::core::clone::Clone for IMetaDataDispenserEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaDataDispenserEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31bcfce2_dafb_11d2_9f81_00c04f79a0a3);
@@ -626,6 +521,7 @@ pub struct IMetaDataDispenserEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaDataEmit(::windows_core::IUnknown);
 impl IMetaDataEmit {
     pub unsafe fn SetModuleProps<P0>(&self, szname: P0) -> ::windows_core::Result<()>
@@ -857,24 +753,8 @@ impl IMetaDataEmit {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaDataEmit, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMetaDataEmit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaDataEmit {}
-impl ::core::fmt::Debug for IMetaDataEmit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaDataEmit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaDataEmit {
     type Vtable = IMetaDataEmit_Vtbl;
-}
-impl ::core::clone::Clone for IMetaDataEmit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaDataEmit {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xba3fee4c_ecb9_4e41_83b7_183fa41cd859);
@@ -938,6 +818,7 @@ pub struct IMetaDataEmit_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaDataEmit2(::windows_core::IUnknown);
 impl IMetaDataEmit2 {
     pub unsafe fn SetModuleProps<P0>(&self, szname: P0) -> ::windows_core::Result<()>
@@ -1207,24 +1088,8 @@ impl IMetaDataEmit2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaDataEmit2, ::windows_core::IUnknown, IMetaDataEmit);
-impl ::core::cmp::PartialEq for IMetaDataEmit2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaDataEmit2 {}
-impl ::core::fmt::Debug for IMetaDataEmit2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaDataEmit2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaDataEmit2 {
     type Vtable = IMetaDataEmit2_Vtbl;
-}
-impl ::core::clone::Clone for IMetaDataEmit2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaDataEmit2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5dd9950_f693_42e6_830e_7b833e8146a9);
@@ -1247,6 +1112,7 @@ pub struct IMetaDataEmit2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaDataError(::windows_core::IUnknown);
 impl IMetaDataError {
     pub unsafe fn OnError(&self, hrerror: ::windows_core::HRESULT, token: u32) -> ::windows_core::Result<()> {
@@ -1254,24 +1120,8 @@ impl IMetaDataError {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaDataError, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMetaDataError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaDataError {}
-impl ::core::fmt::Debug for IMetaDataError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaDataError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaDataError {
     type Vtable = IMetaDataError_Vtbl;
-}
-impl ::core::clone::Clone for IMetaDataError {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaDataError {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb81ff171_20f3_11d2_8dcc_00a0c9b09c19);
@@ -1284,6 +1134,7 @@ pub struct IMetaDataError_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaDataFilter(::windows_core::IUnknown);
 impl IMetaDataFilter {
     pub unsafe fn UnmarkAll(&self) -> ::windows_core::Result<()> {
@@ -1299,24 +1150,8 @@ impl IMetaDataFilter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaDataFilter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMetaDataFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaDataFilter {}
-impl ::core::fmt::Debug for IMetaDataFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaDataFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaDataFilter {
     type Vtable = IMetaDataFilter_Vtbl;
-}
-impl ::core::clone::Clone for IMetaDataFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaDataFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0e80dd1_12d4_11d3_b39d_00c04ff81795);
@@ -1334,6 +1169,7 @@ pub struct IMetaDataFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaDataImport(::windows_core::IUnknown);
 impl IMetaDataImport {
     pub unsafe fn CloseEnum(&self, henum: *mut ::core::ffi::c_void) {
@@ -1562,24 +1398,8 @@ impl IMetaDataImport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaDataImport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMetaDataImport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaDataImport {}
-impl ::core::fmt::Debug for IMetaDataImport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaDataImport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaDataImport {
     type Vtable = IMetaDataImport_Vtbl;
-}
-impl ::core::clone::Clone for IMetaDataImport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaDataImport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7dac8207_d3ae_4c75_9b67_92801a497d44);
@@ -1656,6 +1476,7 @@ pub struct IMetaDataImport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaDataImport2(::windows_core::IUnknown);
 impl IMetaDataImport2 {
     pub unsafe fn CloseEnum(&self, henum: *mut ::core::ffi::c_void) {
@@ -1908,24 +1729,8 @@ impl IMetaDataImport2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaDataImport2, ::windows_core::IUnknown, IMetaDataImport);
-impl ::core::cmp::PartialEq for IMetaDataImport2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaDataImport2 {}
-impl ::core::fmt::Debug for IMetaDataImport2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaDataImport2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaDataImport2 {
     type Vtable = IMetaDataImport2_Vtbl;
-}
-impl ::core::clone::Clone for IMetaDataImport2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaDataImport2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfce5efa0_8bba_4f8e_a036_8f2022b08466);
@@ -1945,6 +1750,7 @@ pub struct IMetaDataImport2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaDataInfo(::windows_core::IUnknown);
 impl IMetaDataInfo {
     pub unsafe fn GetFileMapping(&self, ppvdata: *const *const ::core::ffi::c_void, pcbdata: *mut u64, pdwmappingtype: *mut u32) -> ::windows_core::Result<()> {
@@ -1952,24 +1758,8 @@ impl IMetaDataInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaDataInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMetaDataInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaDataInfo {}
-impl ::core::fmt::Debug for IMetaDataInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaDataInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaDataInfo {
     type Vtable = IMetaDataInfo_Vtbl;
-}
-impl ::core::clone::Clone for IMetaDataInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaDataInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7998ea64_7f95_48b8_86fc_17caf48bf5cb);
@@ -1982,6 +1772,7 @@ pub struct IMetaDataInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaDataTables(::windows_core::IUnknown);
 impl IMetaDataTables {
     pub unsafe fn GetStringHeapSize(&self, pcbstrings: *mut u32) -> ::windows_core::Result<()> {
@@ -2043,24 +1834,8 @@ impl IMetaDataTables {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaDataTables, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMetaDataTables {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaDataTables {}
-impl ::core::fmt::Debug for IMetaDataTables {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaDataTables").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaDataTables {
     type Vtable = IMetaDataTables_Vtbl;
-}
-impl ::core::clone::Clone for IMetaDataTables {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaDataTables {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8f579ab_402d_4b8e_82d9_5d63b1065c68);
@@ -2091,6 +1866,7 @@ pub struct IMetaDataTables_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaDataTables2(::windows_core::IUnknown);
 impl IMetaDataTables2 {
     pub unsafe fn GetStringHeapSize(&self, pcbstrings: *mut u32) -> ::windows_core::Result<()> {
@@ -2158,24 +1934,8 @@ impl IMetaDataTables2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaDataTables2, ::windows_core::IUnknown, IMetaDataTables);
-impl ::core::cmp::PartialEq for IMetaDataTables2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaDataTables2 {}
-impl ::core::fmt::Debug for IMetaDataTables2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaDataTables2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaDataTables2 {
     type Vtable = IMetaDataTables2_Vtbl;
-}
-impl ::core::clone::Clone for IMetaDataTables2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaDataTables2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbadb5f70_58da_43a9_a1c6_d74819f19b15);
@@ -2189,6 +1949,7 @@ pub struct IMetaDataTables2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaDataValidate(::windows_core::IUnknown);
 impl IMetaDataValidate {
     pub unsafe fn ValidatorInit<P0>(&self, dwmoduletype: u32, punk: P0) -> ::windows_core::Result<()>
@@ -2202,24 +1963,8 @@ impl IMetaDataValidate {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaDataValidate, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMetaDataValidate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaDataValidate {}
-impl ::core::fmt::Debug for IMetaDataValidate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaDataValidate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaDataValidate {
     type Vtable = IMetaDataValidate_Vtbl;
-}
-impl ::core::clone::Clone for IMetaDataValidate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaDataValidate {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4709c9c6_81ff_11d3_9fc7_00c04f79a0a3);
@@ -2233,6 +1978,7 @@ pub struct IMetaDataValidate_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaDataWinMDImport(::windows_core::IUnknown);
 impl IMetaDataWinMDImport {
     pub unsafe fn GetUntransformedTypeRefProps(&self, tr: u32, ptkresolutionscope: *mut u32, szname: ::core::option::Option<&mut [u16]>, pchname: *mut u32) -> ::windows_core::Result<()> {
@@ -2240,24 +1986,8 @@ impl IMetaDataWinMDImport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaDataWinMDImport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMetaDataWinMDImport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaDataWinMDImport {}
-impl ::core::fmt::Debug for IMetaDataWinMDImport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaDataWinMDImport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaDataWinMDImport {
     type Vtable = IMetaDataWinMDImport_Vtbl;
-}
-impl ::core::clone::Clone for IMetaDataWinMDImport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaDataWinMDImport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x969ea0c5_964e_411b_a807_b0f3c2dfcbd4);
@@ -2270,6 +2000,7 @@ pub struct IMetaDataWinMDImport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRoMetaDataLocator(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IRoMetaDataLocator {
     pub unsafe fn Locate<P0, P1>(&self, nameelement: P0, metadatadestination: P1) -> ::windows_core::Result<()>
@@ -2280,24 +2011,8 @@ impl IRoMetaDataLocator {
         (::windows_core::Interface::vtable(self).Locate)(::windows_core::Interface::as_raw(self), nameelement.into_param().abi(), metadatadestination.into_param().abi()).ok()
     }
 }
-impl ::core::cmp::PartialEq for IRoMetaDataLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRoMetaDataLocator {}
-impl ::core::fmt::Debug for IRoMetaDataLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRoMetaDataLocator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRoMetaDataLocator {
     type Vtable = IRoMetaDataLocator_Vtbl;
-}
-impl ::core::clone::Clone for IRoMetaDataLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2306,6 +2021,7 @@ pub struct IRoMetaDataLocator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRoSimpleMetaDataBuilder(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IRoSimpleMetaDataBuilder {
     pub unsafe fn SetWinRtInterface(&self, iid: ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -2360,24 +2076,8 @@ impl IRoSimpleMetaDataBuilder {
         (::windows_core::Interface::vtable(self).SetParameterizedDelegate)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(piid), numargs).ok()
     }
 }
-impl ::core::cmp::PartialEq for IRoSimpleMetaDataBuilder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRoSimpleMetaDataBuilder {}
-impl ::core::fmt::Debug for IRoSimpleMetaDataBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRoSimpleMetaDataBuilder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRoSimpleMetaDataBuilder {
     type Vtable = IRoSimpleMetaDataBuilder_Vtbl;
-}
-impl ::core::clone::Clone for IRoSimpleMetaDataBuilder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

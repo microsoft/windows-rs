@@ -124,8 +124,8 @@ impl IBackgroundTransferBase_Vtbl {
             SetCostPolicy: SetCostPolicy::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBackgroundTransferBase as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IBackgroundTransferBase as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"implement\"`*"]
@@ -168,8 +168,8 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
             CreateWithNameAndFileName: CreateWithNameAndFileName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBackgroundTransferContentPartFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IBackgroundTransferContentPartFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -290,8 +290,8 @@ impl IBackgroundTransferOperation_Vtbl {
             GetResponseInformation: GetResponseInformation::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBackgroundTransferOperation as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IBackgroundTransferOperation as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"implement\"`*"]
@@ -326,7 +326,7 @@ impl IBackgroundTransferOperationPriority_Vtbl {
             SetPriority: SetPriority::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBackgroundTransferOperationPriority as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IBackgroundTransferOperationPriority as ::windows_core::ComInterface>::IID
     }
 }

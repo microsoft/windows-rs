@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGeofence(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGeofence {
     type Vtable = IGeofence_Vtbl;
-}
-impl ::core::clone::Clone for IGeofence {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGeofence {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c090823_edb8_47e0_8245_5bf61d321f2d);
@@ -35,14 +31,10 @@ pub struct IGeofence_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGeofenceFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGeofenceFactory {
     type Vtable = IGeofenceFactory_Vtbl;
-}
-impl ::core::clone::Clone for IGeofenceFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGeofenceFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x841f624b_325f_4b90_bca7_2b8022a93796);
@@ -64,14 +56,10 @@ pub struct IGeofenceFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGeofenceMonitor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGeofenceMonitor {
     type Vtable = IGeofenceMonitor_Vtbl;
-}
-impl ::core::clone::Clone for IGeofenceMonitor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGeofenceMonitor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c0f5f78_1c1f_4621_bbbd_833b92247226);
@@ -109,14 +97,10 @@ pub struct IGeofenceMonitor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGeofenceMonitorStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGeofenceMonitorStatics {
     type Vtable = IGeofenceMonitorStatics_Vtbl;
-}
-impl ::core::clone::Clone for IGeofenceMonitorStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGeofenceMonitorStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2dd32fcf_7e75_4899_ace3_2bd0a65cce06);
@@ -129,14 +113,10 @@ pub struct IGeofenceMonitorStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGeofenceStateChangeReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGeofenceStateChangeReport {
     type Vtable = IGeofenceStateChangeReport_Vtbl;
-}
-impl ::core::clone::Clone for IGeofenceStateChangeReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGeofenceStateChangeReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a243c18_2464_4c89_be05_b3ffff5babc5);
@@ -152,6 +132,7 @@ pub struct IGeofenceStateChangeReport_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Geofence(::windows_core::IUnknown);
 impl Geofence {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -255,24 +236,8 @@ impl Geofence {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for Geofence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Geofence {}
-impl ::core::fmt::Debug for Geofence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Geofence").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Geofence {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.Geofence;{9c090823-edb8-47e0-8245-5bf61d321f2d})");
-}
-impl ::core::clone::Clone for Geofence {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Geofence {
     type Vtable = IGeofence_Vtbl;
@@ -288,6 +253,7 @@ unsafe impl ::core::marker::Send for Geofence {}
 unsafe impl ::core::marker::Sync for Geofence {}
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GeofenceMonitor(::windows_core::IUnknown);
 impl GeofenceMonitor {
     pub fn Status(&self) -> ::windows_core::Result<GeofenceMonitorStatus> {
@@ -370,24 +336,8 @@ impl GeofenceMonitor {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for GeofenceMonitor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeofenceMonitor {}
-impl ::core::fmt::Debug for GeofenceMonitor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeofenceMonitor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for GeofenceMonitor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceMonitor;{4c0f5f78-1c1f-4621-bbbd-833b92247226})");
-}
-impl ::core::clone::Clone for GeofenceMonitor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for GeofenceMonitor {
     type Vtable = IGeofenceMonitor_Vtbl;
@@ -403,6 +353,7 @@ unsafe impl ::core::marker::Send for GeofenceMonitor {}
 unsafe impl ::core::marker::Sync for GeofenceMonitor {}
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GeofenceStateChangeReport(::windows_core::IUnknown);
 impl GeofenceStateChangeReport {
     pub fn NewState(&self) -> ::windows_core::Result<GeofenceState> {
@@ -434,24 +385,8 @@ impl GeofenceStateChangeReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for GeofenceStateChangeReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeofenceStateChangeReport {}
-impl ::core::fmt::Debug for GeofenceStateChangeReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeofenceStateChangeReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for GeofenceStateChangeReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport;{9a243c18-2464-4c89-be05-b3ffff5babc5})");
-}
-impl ::core::clone::Clone for GeofenceStateChangeReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for GeofenceStateChangeReport {
     type Vtable = IGeofenceStateChangeReport_Vtbl;

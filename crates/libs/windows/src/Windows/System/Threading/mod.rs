@@ -2,14 +2,10 @@
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IThreadPoolStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IThreadPoolStatics {
     type Vtable = IThreadPoolStatics_Vtbl;
-}
-impl ::core::clone::Clone for IThreadPoolStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IThreadPoolStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
@@ -33,14 +29,10 @@ pub struct IThreadPoolStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IThreadPoolTimer(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IThreadPoolTimer {
     type Vtable = IThreadPoolTimer_Vtbl;
-}
-impl ::core::clone::Clone for IThreadPoolTimer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IThreadPoolTimer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
@@ -61,14 +53,10 @@ pub struct IThreadPoolTimer_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IThreadPoolTimerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IThreadPoolTimerStatics {
     type Vtable = IThreadPoolTimerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IThreadPoolTimerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IThreadPoolTimerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a8a9d02_e482_461b_b8c7_8efad1cce590);
@@ -141,6 +129,7 @@ impl ::windows_core::RuntimeName for ThreadPool {
 }
 #[doc = "*Required features: `\"System_Threading\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ThreadPoolTimer(::windows_core::IUnknown);
 impl ThreadPoolTimer {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -217,24 +206,8 @@ impl ThreadPoolTimer {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ThreadPoolTimer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ThreadPoolTimer {}
-impl ::core::fmt::Debug for ThreadPoolTimer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ThreadPoolTimer").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ThreadPoolTimer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Threading.ThreadPoolTimer;{594ebe78-55ea-4a88-a50d-3402ae1f9cf2})");
-}
-impl ::core::clone::Clone for ThreadPoolTimer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ThreadPoolTimer {
     type Vtable = IThreadPoolTimer_Vtbl;
@@ -344,6 +317,7 @@ impl ::windows_core::RuntimeType for WorkItemPriority {
 }
 #[doc = "*Required features: `\"System_Threading\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TimerDestroyedHandler(pub ::windows_core::IUnknown);
 impl TimerDestroyedHandler {
     pub fn new<F: FnMut(::core::option::Option<&ThreadPoolTimer>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -369,9 +343,12 @@ impl<F: FnMut(::core::option::Option<&ThreadPoolTimer>) -> ::windows_core::Resul
         base__: ::windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows_core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows_core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<TimerDestroyedHandler as ::windows_core::ComInterface>::IID || iid == &<::windows_core::IUnknown as ::windows_core::ComInterface>::IID || iid == &<::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <TimerDestroyedHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -396,24 +373,8 @@ impl<F: FnMut(::core::option::Option<&ThreadPoolTimer>) -> ::windows_core::Resul
         ((*this).invoke)(::windows_core::from_raw_borrowed(&timer)).into()
     }
 }
-impl ::core::cmp::PartialEq for TimerDestroyedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimerDestroyedHandler {}
-impl ::core::fmt::Debug for TimerDestroyedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimerDestroyedHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for TimerDestroyedHandler {
     type Vtable = TimerDestroyedHandler_Vtbl;
-}
-impl ::core::clone::Clone for TimerDestroyedHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for TimerDestroyedHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x34ed19fa_8384_4eb9_8209_fb5094eeec35);
@@ -429,6 +390,7 @@ pub struct TimerDestroyedHandler_Vtbl {
 }
 #[doc = "*Required features: `\"System_Threading\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TimerElapsedHandler(pub ::windows_core::IUnknown);
 impl TimerElapsedHandler {
     pub fn new<F: FnMut(::core::option::Option<&ThreadPoolTimer>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -454,9 +416,12 @@ impl<F: FnMut(::core::option::Option<&ThreadPoolTimer>) -> ::windows_core::Resul
         base__: ::windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows_core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows_core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<TimerElapsedHandler as ::windows_core::ComInterface>::IID || iid == &<::windows_core::IUnknown as ::windows_core::ComInterface>::IID || iid == &<::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <TimerElapsedHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -481,24 +446,8 @@ impl<F: FnMut(::core::option::Option<&ThreadPoolTimer>) -> ::windows_core::Resul
         ((*this).invoke)(::windows_core::from_raw_borrowed(&timer)).into()
     }
 }
-impl ::core::cmp::PartialEq for TimerElapsedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimerElapsedHandler {}
-impl ::core::fmt::Debug for TimerElapsedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimerElapsedHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for TimerElapsedHandler {
     type Vtable = TimerElapsedHandler_Vtbl;
-}
-impl ::core::clone::Clone for TimerElapsedHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for TimerElapsedHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfaaea667_fbeb_49cb_adb2_71184c556e43);
@@ -515,6 +464,7 @@ pub struct TimerElapsedHandler_Vtbl {
 #[doc = "*Required features: `\"System_Threading\"`, `\"Foundation\"`*"]
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WorkItemHandler(pub ::windows_core::IUnknown);
 #[cfg(feature = "Foundation")]
 impl WorkItemHandler {
@@ -545,9 +495,12 @@ impl<F: FnMut(::core::option::Option<&super::super::Foundation::IAsyncAction>) -
         base__: ::windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows_core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows_core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<WorkItemHandler as ::windows_core::ComInterface>::IID || iid == &<::windows_core::IUnknown as ::windows_core::ComInterface>::IID || iid == &<::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <WorkItemHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -573,28 +526,8 @@ impl<F: FnMut(::core::option::Option<&super::super::Foundation::IAsyncAction>) -
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::core::cmp::PartialEq for WorkItemHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::Eq for WorkItemHandler {}
-#[cfg(feature = "Foundation")]
-impl ::core::fmt::Debug for WorkItemHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WorkItemHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation")]
 unsafe impl ::windows_core::Interface for WorkItemHandler {
     type Vtable = WorkItemHandler_Vtbl;
-}
-#[cfg(feature = "Foundation")]
-impl ::core::clone::Clone for WorkItemHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows_core::ComInterface for WorkItemHandler {

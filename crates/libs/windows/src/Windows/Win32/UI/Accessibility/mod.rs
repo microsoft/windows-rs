@@ -1140,6 +1140,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccIdentity(::windows_core::IUnknown);
 impl IAccIdentity {
     pub unsafe fn GetIdentityString(&self, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows_core::Result<()> {
@@ -1147,24 +1148,8 @@ impl IAccIdentity {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAccIdentity, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAccIdentity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAccIdentity {}
-impl ::core::fmt::Debug for IAccIdentity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccIdentity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAccIdentity {
     type Vtable = IAccIdentity_Vtbl;
-}
-impl ::core::clone::Clone for IAccIdentity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAccIdentity {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7852b78d_1cfd_41c1_a615_9c0c85960b5f);
@@ -1177,6 +1162,7 @@ pub struct IAccIdentity_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccPropServer(::windows_core::IUnknown);
 impl IAccPropServer {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -1186,24 +1172,8 @@ impl IAccPropServer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAccPropServer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAccPropServer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAccPropServer {}
-impl ::core::fmt::Debug for IAccPropServer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccPropServer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAccPropServer {
     type Vtable = IAccPropServer_Vtbl;
-}
-impl ::core::clone::Clone for IAccPropServer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAccPropServer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x76c0dbbb_15e0_4e7b_b61b_20eeea2001e0);
@@ -1219,6 +1189,7 @@ pub struct IAccPropServer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccPropServices(::windows_core::IUnknown);
 impl IAccPropServices {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -1331,24 +1302,8 @@ impl IAccPropServices {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAccPropServices, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAccPropServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAccPropServices {}
-impl ::core::fmt::Debug for IAccPropServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccPropServices").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAccPropServices {
     type Vtable = IAccPropServices_Vtbl;
-}
-impl ::core::clone::Clone for IAccPropServices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAccPropServices {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e26e776_04f0_495d_80e4_3330352e3169);
@@ -1415,6 +1370,7 @@ pub struct IAccPropServices_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccessible(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAccessible {
@@ -1546,28 +1502,8 @@ impl IAccessible {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAccessible, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAccessible {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAccessible {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAccessible {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccessible").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAccessible {
     type Vtable = IAccessible_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAccessible {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAccessible {
@@ -1662,6 +1598,7 @@ pub struct IAccessible_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccessibleEx(::windows_core::IUnknown);
 impl IAccessibleEx {
     pub unsafe fn GetObjectForChild(&self, idchild: i32) -> ::windows_core::Result<IAccessibleEx> {
@@ -1688,24 +1625,8 @@ impl IAccessibleEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAccessibleEx, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAccessibleEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAccessibleEx {}
-impl ::core::fmt::Debug for IAccessibleEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccessibleEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAccessibleEx {
     type Vtable = IAccessibleEx_Vtbl;
-}
-impl ::core::clone::Clone for IAccessibleEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAccessibleEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf8b80ada_2c44_48d0_89be_5ff23c9cd875);
@@ -1727,6 +1648,7 @@ pub struct IAccessibleEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccessibleHandler(::windows_core::IUnknown);
 impl IAccessibleHandler {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1737,24 +1659,8 @@ impl IAccessibleHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAccessibleHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAccessibleHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAccessibleHandler {}
-impl ::core::fmt::Debug for IAccessibleHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccessibleHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAccessibleHandler {
     type Vtable = IAccessibleHandler_Vtbl;
-}
-impl ::core::clone::Clone for IAccessibleHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAccessibleHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03022430_abc4_11d0_bde2_00aa001a1953);
@@ -1770,6 +1676,7 @@ pub struct IAccessibleHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccessibleHostingElementProviders(::windows_core::IUnknown);
 impl IAccessibleHostingElementProviders {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1787,24 +1694,8 @@ impl IAccessibleHostingElementProviders {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAccessibleHostingElementProviders, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAccessibleHostingElementProviders {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAccessibleHostingElementProviders {}
-impl ::core::fmt::Debug for IAccessibleHostingElementProviders {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccessibleHostingElementProviders").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAccessibleHostingElementProviders {
     type Vtable = IAccessibleHostingElementProviders_Vtbl;
-}
-impl ::core::clone::Clone for IAccessibleHostingElementProviders {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAccessibleHostingElementProviders {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33ac331b_943e_4020_b295_db37784974a3);
@@ -1821,6 +1712,7 @@ pub struct IAccessibleHostingElementProviders_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccessibleWindowlessSite(::windows_core::IUnknown);
 impl IAccessibleWindowlessSite {
     pub unsafe fn AcquireObjectIdRange<P0>(&self, rangesize: i32, prangeowner: P0) -> ::windows_core::Result<i32>
@@ -1853,24 +1745,8 @@ impl IAccessibleWindowlessSite {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAccessibleWindowlessSite, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAccessibleWindowlessSite {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAccessibleWindowlessSite {}
-impl ::core::fmt::Debug for IAccessibleWindowlessSite {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccessibleWindowlessSite").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAccessibleWindowlessSite {
     type Vtable = IAccessibleWindowlessSite_Vtbl;
-}
-impl ::core::clone::Clone for IAccessibleWindowlessSite {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAccessibleWindowlessSite {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf3abd9c_76da_4389_9eb6_1427d25abab7);
@@ -1892,6 +1768,7 @@ pub struct IAccessibleWindowlessSite_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAnnotationProvider(::windows_core::IUnknown);
 impl IAnnotationProvider {
     pub unsafe fn AnnotationTypeId(&self) -> ::windows_core::Result<UIA_ANNOTATIONTYPE> {
@@ -1916,24 +1793,8 @@ impl IAnnotationProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAnnotationProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAnnotationProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAnnotationProvider {}
-impl ::core::fmt::Debug for IAnnotationProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAnnotationProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAnnotationProvider {
     type Vtable = IAnnotationProvider_Vtbl;
-}
-impl ::core::clone::Clone for IAnnotationProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAnnotationProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf95c7e80_bd63_4601_9782_445ebff011fc);
@@ -1950,6 +1811,7 @@ pub struct IAnnotationProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICustomNavigationProvider(::windows_core::IUnknown);
 impl ICustomNavigationProvider {
     pub unsafe fn Navigate(&self, direction: NavigateDirection) -> ::windows_core::Result<IRawElementProviderSimple> {
@@ -1958,24 +1820,8 @@ impl ICustomNavigationProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICustomNavigationProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICustomNavigationProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICustomNavigationProvider {}
-impl ::core::fmt::Debug for ICustomNavigationProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICustomNavigationProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICustomNavigationProvider {
     type Vtable = ICustomNavigationProvider_Vtbl;
-}
-impl ::core::clone::Clone for ICustomNavigationProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICustomNavigationProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2062a28a_8c07_4b94_8e12_7037c622aeb8);
@@ -1988,6 +1834,7 @@ pub struct ICustomNavigationProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDockProvider(::windows_core::IUnknown);
 impl IDockProvider {
     pub unsafe fn SetDockPosition(&self, dockposition: DockPosition) -> ::windows_core::Result<()> {
@@ -1999,24 +1846,8 @@ impl IDockProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDockProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDockProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDockProvider {}
-impl ::core::fmt::Debug for IDockProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDockProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDockProvider {
     type Vtable = IDockProvider_Vtbl;
-}
-impl ::core::clone::Clone for IDockProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDockProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x159bc72c_4ad3_485e_9637_d7052edf0146);
@@ -2030,6 +1861,7 @@ pub struct IDockProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDragProvider(::windows_core::IUnknown);
 impl IDragProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2056,24 +1888,8 @@ impl IDragProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDragProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDragProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDragProvider {}
-impl ::core::fmt::Debug for IDragProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDragProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDragProvider {
     type Vtable = IDragProvider_Vtbl;
-}
-impl ::core::clone::Clone for IDragProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDragProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6aa7bbbb_7ff9_497d_904f_d20b897929d8);
@@ -2098,6 +1914,7 @@ pub struct IDragProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDropTargetProvider(::windows_core::IUnknown);
 impl IDropTargetProvider {
     pub unsafe fn DropTargetEffect(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -2112,24 +1929,8 @@ impl IDropTargetProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDropTargetProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDropTargetProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDropTargetProvider {}
-impl ::core::fmt::Debug for IDropTargetProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDropTargetProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDropTargetProvider {
     type Vtable = IDropTargetProvider_Vtbl;
-}
-impl ::core::clone::Clone for IDropTargetProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDropTargetProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbae82bfd_358a_481c_85a0_d8b4d90a5d61);
@@ -2146,6 +1947,7 @@ pub struct IDropTargetProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExpandCollapseProvider(::windows_core::IUnknown);
 impl IExpandCollapseProvider {
     pub unsafe fn Expand(&self) -> ::windows_core::Result<()> {
@@ -2160,24 +1962,8 @@ impl IExpandCollapseProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IExpandCollapseProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IExpandCollapseProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IExpandCollapseProvider {}
-impl ::core::fmt::Debug for IExpandCollapseProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IExpandCollapseProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IExpandCollapseProvider {
     type Vtable = IExpandCollapseProvider_Vtbl;
-}
-impl ::core::clone::Clone for IExpandCollapseProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IExpandCollapseProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd847d3a5_cab0_4a98_8c32_ecb45c59ad24);
@@ -2192,6 +1978,7 @@ pub struct IExpandCollapseProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGridItemProvider(::windows_core::IUnknown);
 impl IGridItemProvider {
     pub unsafe fn Row(&self) -> ::windows_core::Result<i32> {
@@ -2216,24 +2003,8 @@ impl IGridItemProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGridItemProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGridItemProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGridItemProvider {}
-impl ::core::fmt::Debug for IGridItemProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGridItemProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGridItemProvider {
     type Vtable = IGridItemProvider_Vtbl;
-}
-impl ::core::clone::Clone for IGridItemProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGridItemProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd02541f1_fb81_4d64_ae32_f520f8a6dbd1);
@@ -2250,6 +2021,7 @@ pub struct IGridItemProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGridProvider(::windows_core::IUnknown);
 impl IGridProvider {
     pub unsafe fn GetItem(&self, row: i32, column: i32) -> ::windows_core::Result<IRawElementProviderSimple> {
@@ -2266,24 +2038,8 @@ impl IGridProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGridProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGridProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGridProvider {}
-impl ::core::fmt::Debug for IGridProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGridProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGridProvider {
     type Vtable = IGridProvider_Vtbl;
-}
-impl ::core::clone::Clone for IGridProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGridProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb17d6187_0907_464b_a168_0ef17a1572b1);
@@ -2298,6 +2054,7 @@ pub struct IGridProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInvokeProvider(::windows_core::IUnknown);
 impl IInvokeProvider {
     pub unsafe fn Invoke(&self) -> ::windows_core::Result<()> {
@@ -2305,24 +2062,8 @@ impl IInvokeProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInvokeProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInvokeProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInvokeProvider {}
-impl ::core::fmt::Debug for IInvokeProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInvokeProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInvokeProvider {
     type Vtable = IInvokeProvider_Vtbl;
-}
-impl ::core::clone::Clone for IInvokeProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInvokeProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54fcb24b_e18e_47a2_b4d3_eccbe77599a2);
@@ -2335,6 +2076,7 @@ pub struct IInvokeProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IItemContainerProvider(::windows_core::IUnknown);
 impl IItemContainerProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -2348,24 +2090,8 @@ impl IItemContainerProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IItemContainerProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IItemContainerProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IItemContainerProvider {}
-impl ::core::fmt::Debug for IItemContainerProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IItemContainerProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IItemContainerProvider {
     type Vtable = IItemContainerProvider_Vtbl;
-}
-impl ::core::clone::Clone for IItemContainerProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IItemContainerProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe747770b_39ce_4382_ab30_d8fb3f336f24);
@@ -2381,6 +2107,7 @@ pub struct IItemContainerProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILegacyIAccessibleProvider(::windows_core::IUnknown);
 impl ILegacyIAccessibleProvider {
     pub unsafe fn Select(&self, flagsselect: i32) -> ::windows_core::Result<()> {
@@ -2445,24 +2172,8 @@ impl ILegacyIAccessibleProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ILegacyIAccessibleProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ILegacyIAccessibleProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILegacyIAccessibleProvider {}
-impl ::core::fmt::Debug for ILegacyIAccessibleProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILegacyIAccessibleProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ILegacyIAccessibleProvider {
     type Vtable = ILegacyIAccessibleProvider_Vtbl;
-}
-impl ::core::clone::Clone for ILegacyIAccessibleProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILegacyIAccessibleProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe44c3566_915d_4070_99c6_047bff5a08f5);
@@ -2494,6 +2205,7 @@ pub struct ILegacyIAccessibleProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMultipleViewProvider(::windows_core::IUnknown);
 impl IMultipleViewProvider {
     pub unsafe fn GetViewName(&self, viewid: i32) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -2515,24 +2227,8 @@ impl IMultipleViewProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMultipleViewProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMultipleViewProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMultipleViewProvider {}
-impl ::core::fmt::Debug for IMultipleViewProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMultipleViewProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMultipleViewProvider {
     type Vtable = IMultipleViewProvider_Vtbl;
-}
-impl ::core::clone::Clone for IMultipleViewProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMultipleViewProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6278cab1_b556_4a1a_b4e0_418acc523201);
@@ -2551,6 +2247,7 @@ pub struct IMultipleViewProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IObjectModelProvider(::windows_core::IUnknown);
 impl IObjectModelProvider {
     pub unsafe fn GetUnderlyingObjectModel(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -2559,24 +2256,8 @@ impl IObjectModelProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IObjectModelProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IObjectModelProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IObjectModelProvider {}
-impl ::core::fmt::Debug for IObjectModelProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IObjectModelProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IObjectModelProvider {
     type Vtable = IObjectModelProvider_Vtbl;
-}
-impl ::core::clone::Clone for IObjectModelProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IObjectModelProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ad86ebd_f5ef_483d_bb18_b1042a475d64);
@@ -2589,6 +2270,7 @@ pub struct IObjectModelProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProxyProviderWinEventHandler(::windows_core::IUnknown);
 impl IProxyProviderWinEventHandler {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2602,24 +2284,8 @@ impl IProxyProviderWinEventHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IProxyProviderWinEventHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IProxyProviderWinEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProxyProviderWinEventHandler {}
-impl ::core::fmt::Debug for IProxyProviderWinEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProxyProviderWinEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IProxyProviderWinEventHandler {
     type Vtable = IProxyProviderWinEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for IProxyProviderWinEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProxyProviderWinEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89592ad4_f4e0_43d5_a3b6_bad7e111b435);
@@ -2635,6 +2301,7 @@ pub struct IProxyProviderWinEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProxyProviderWinEventSink(::windows_core::IUnknown);
 impl IProxyProviderWinEventSink {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -2661,24 +2328,8 @@ impl IProxyProviderWinEventSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IProxyProviderWinEventSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IProxyProviderWinEventSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProxyProviderWinEventSink {}
-impl ::core::fmt::Debug for IProxyProviderWinEventSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProxyProviderWinEventSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IProxyProviderWinEventSink {
     type Vtable = IProxyProviderWinEventSink_Vtbl;
-}
-impl ::core::clone::Clone for IProxyProviderWinEventSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProxyProviderWinEventSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4fd82b78_a43e_46ac_9803_0a6969c7c183);
@@ -2699,6 +2350,7 @@ pub struct IProxyProviderWinEventSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRangeValueProvider(::windows_core::IUnknown);
 impl IRangeValueProvider {
     pub unsafe fn SetValue(&self, val: f64) -> ::windows_core::Result<()> {
@@ -2732,24 +2384,8 @@ impl IRangeValueProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRangeValueProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRangeValueProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRangeValueProvider {}
-impl ::core::fmt::Debug for IRangeValueProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRangeValueProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRangeValueProvider {
     type Vtable = IRangeValueProvider_Vtbl;
-}
-impl ::core::clone::Clone for IRangeValueProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRangeValueProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36dc7aef_33e6_4691_afe1_2be7274b3d33);
@@ -2771,6 +2407,7 @@ pub struct IRangeValueProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderAdviseEvents(::windows_core::IUnknown);
 impl IRawElementProviderAdviseEvents {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2785,24 +2422,8 @@ impl IRawElementProviderAdviseEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRawElementProviderAdviseEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRawElementProviderAdviseEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRawElementProviderAdviseEvents {}
-impl ::core::fmt::Debug for IRawElementProviderAdviseEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRawElementProviderAdviseEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRawElementProviderAdviseEvents {
     type Vtable = IRawElementProviderAdviseEvents_Vtbl;
-}
-impl ::core::clone::Clone for IRawElementProviderAdviseEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRawElementProviderAdviseEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa407b27b_0f6d_4427_9292_473c7bf93258);
@@ -2822,6 +2443,7 @@ pub struct IRawElementProviderAdviseEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderFragment(::windows_core::IUnknown);
 impl IRawElementProviderFragment {
     pub unsafe fn Navigate(&self, direction: NavigateDirection) -> ::windows_core::Result<IRawElementProviderFragment> {
@@ -2853,24 +2475,8 @@ impl IRawElementProviderFragment {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRawElementProviderFragment, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRawElementProviderFragment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRawElementProviderFragment {}
-impl ::core::fmt::Debug for IRawElementProviderFragment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRawElementProviderFragment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRawElementProviderFragment {
     type Vtable = IRawElementProviderFragment_Vtbl;
-}
-impl ::core::clone::Clone for IRawElementProviderFragment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRawElementProviderFragment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf7063da8_8359_439c_9297_bbc5299a7d87);
@@ -2894,6 +2500,7 @@ pub struct IRawElementProviderFragment_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderFragmentRoot(::windows_core::IUnknown);
 impl IRawElementProviderFragmentRoot {
     pub unsafe fn ElementProviderFromPoint(&self, x: f64, y: f64) -> ::windows_core::Result<IRawElementProviderFragment> {
@@ -2906,24 +2513,8 @@ impl IRawElementProviderFragmentRoot {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRawElementProviderFragmentRoot, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRawElementProviderFragmentRoot {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRawElementProviderFragmentRoot {}
-impl ::core::fmt::Debug for IRawElementProviderFragmentRoot {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRawElementProviderFragmentRoot").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRawElementProviderFragmentRoot {
     type Vtable = IRawElementProviderFragmentRoot_Vtbl;
-}
-impl ::core::clone::Clone for IRawElementProviderFragmentRoot {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRawElementProviderFragmentRoot {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x620ce2a5_ab8f_40a9_86cb_de3c75599b58);
@@ -2937,6 +2528,7 @@ pub struct IRawElementProviderFragmentRoot_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderHostingAccessibles(::windows_core::IUnknown);
 impl IRawElementProviderHostingAccessibles {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2947,24 +2539,8 @@ impl IRawElementProviderHostingAccessibles {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRawElementProviderHostingAccessibles, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRawElementProviderHostingAccessibles {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRawElementProviderHostingAccessibles {}
-impl ::core::fmt::Debug for IRawElementProviderHostingAccessibles {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRawElementProviderHostingAccessibles").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRawElementProviderHostingAccessibles {
     type Vtable = IRawElementProviderHostingAccessibles_Vtbl;
-}
-impl ::core::clone::Clone for IRawElementProviderHostingAccessibles {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRawElementProviderHostingAccessibles {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24be0b07_d37d_487a_98cf_a13ed465e9b3);
@@ -2980,6 +2556,7 @@ pub struct IRawElementProviderHostingAccessibles_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderHwndOverride(::windows_core::IUnknown);
 impl IRawElementProviderHwndOverride {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2993,24 +2570,8 @@ impl IRawElementProviderHwndOverride {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRawElementProviderHwndOverride, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRawElementProviderHwndOverride {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRawElementProviderHwndOverride {}
-impl ::core::fmt::Debug for IRawElementProviderHwndOverride {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRawElementProviderHwndOverride").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRawElementProviderHwndOverride {
     type Vtable = IRawElementProviderHwndOverride_Vtbl;
-}
-impl ::core::clone::Clone for IRawElementProviderHwndOverride {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRawElementProviderHwndOverride {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d5df27c_8947_4425_b8d9_79787bb460b8);
@@ -3026,6 +2587,7 @@ pub struct IRawElementProviderHwndOverride_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderSimple(::windows_core::IUnknown);
 impl IRawElementProviderSimple {
     pub unsafe fn ProviderOptions(&self) -> ::windows_core::Result<ProviderOptions> {
@@ -3048,24 +2610,8 @@ impl IRawElementProviderSimple {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRawElementProviderSimple, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRawElementProviderSimple {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRawElementProviderSimple {}
-impl ::core::fmt::Debug for IRawElementProviderSimple {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRawElementProviderSimple").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRawElementProviderSimple {
     type Vtable = IRawElementProviderSimple_Vtbl;
-}
-impl ::core::clone::Clone for IRawElementProviderSimple {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRawElementProviderSimple {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd6dd68d1_86fd_4332_8666_9abedea2d24c);
@@ -3084,6 +2630,7 @@ pub struct IRawElementProviderSimple_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderSimple2(::windows_core::IUnknown);
 impl IRawElementProviderSimple2 {
     pub unsafe fn ProviderOptions(&self) -> ::windows_core::Result<ProviderOptions> {
@@ -3109,24 +2656,8 @@ impl IRawElementProviderSimple2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRawElementProviderSimple2, ::windows_core::IUnknown, IRawElementProviderSimple);
-impl ::core::cmp::PartialEq for IRawElementProviderSimple2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRawElementProviderSimple2 {}
-impl ::core::fmt::Debug for IRawElementProviderSimple2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRawElementProviderSimple2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRawElementProviderSimple2 {
     type Vtable = IRawElementProviderSimple2_Vtbl;
-}
-impl ::core::clone::Clone for IRawElementProviderSimple2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRawElementProviderSimple2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0a839a9_8da1_4a82_806a_8e0d44e79f56);
@@ -3139,6 +2670,7 @@ pub struct IRawElementProviderSimple2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderSimple3(::windows_core::IUnknown);
 impl IRawElementProviderSimple3 {
     pub unsafe fn ProviderOptions(&self) -> ::windows_core::Result<ProviderOptions> {
@@ -3170,24 +2702,8 @@ impl IRawElementProviderSimple3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRawElementProviderSimple3, ::windows_core::IUnknown, IRawElementProviderSimple, IRawElementProviderSimple2);
-impl ::core::cmp::PartialEq for IRawElementProviderSimple3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRawElementProviderSimple3 {}
-impl ::core::fmt::Debug for IRawElementProviderSimple3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRawElementProviderSimple3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRawElementProviderSimple3 {
     type Vtable = IRawElementProviderSimple3_Vtbl;
-}
-impl ::core::clone::Clone for IRawElementProviderSimple3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRawElementProviderSimple3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfcf5d820_d7ec_4613_bdf6_42a84ce7daaf);
@@ -3203,6 +2719,7 @@ pub struct IRawElementProviderSimple3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderWindowlessSite(::windows_core::IUnknown);
 impl IRawElementProviderWindowlessSite {
     pub unsafe fn GetAdjacentFragment(&self, direction: NavigateDirection) -> ::windows_core::Result<IRawElementProviderFragment> {
@@ -3217,24 +2734,8 @@ impl IRawElementProviderWindowlessSite {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRawElementProviderWindowlessSite, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRawElementProviderWindowlessSite {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRawElementProviderWindowlessSite {}
-impl ::core::fmt::Debug for IRawElementProviderWindowlessSite {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRawElementProviderWindowlessSite").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRawElementProviderWindowlessSite {
     type Vtable = IRawElementProviderWindowlessSite_Vtbl;
-}
-impl ::core::clone::Clone for IRawElementProviderWindowlessSite {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRawElementProviderWindowlessSite {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a2a93cc_bfad_42ac_9b2e_0991fb0d3ea0);
@@ -3251,6 +2752,7 @@ pub struct IRawElementProviderWindowlessSite_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRichEditUiaInformation(::windows_core::IUnknown);
 impl IRichEditUiaInformation {
     pub unsafe fn GetBoundaryRectangle(&self, puiarect: *mut UiaRect) -> ::windows_core::Result<()> {
@@ -3261,24 +2763,8 @@ impl IRichEditUiaInformation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRichEditUiaInformation, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRichEditUiaInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRichEditUiaInformation {}
-impl ::core::fmt::Debug for IRichEditUiaInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRichEditUiaInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRichEditUiaInformation {
     type Vtable = IRichEditUiaInformation_Vtbl;
-}
-impl ::core::clone::Clone for IRichEditUiaInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRichEditUiaInformation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -3292,6 +2778,7 @@ pub struct IRichEditUiaInformation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRicheditWindowlessAccessibility(::windows_core::IUnknown);
 impl IRicheditWindowlessAccessibility {
     pub unsafe fn CreateProvider<P0>(&self, psite: P0) -> ::windows_core::Result<IRawElementProviderSimple>
@@ -3303,24 +2790,8 @@ impl IRicheditWindowlessAccessibility {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRicheditWindowlessAccessibility, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRicheditWindowlessAccessibility {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRicheditWindowlessAccessibility {}
-impl ::core::fmt::Debug for IRicheditWindowlessAccessibility {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRicheditWindowlessAccessibility").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRicheditWindowlessAccessibility {
     type Vtable = IRicheditWindowlessAccessibility_Vtbl;
-}
-impl ::core::clone::Clone for IRicheditWindowlessAccessibility {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRicheditWindowlessAccessibility {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -3333,6 +2804,7 @@ pub struct IRicheditWindowlessAccessibility_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScrollItemProvider(::windows_core::IUnknown);
 impl IScrollItemProvider {
     pub unsafe fn ScrollIntoView(&self) -> ::windows_core::Result<()> {
@@ -3340,24 +2812,8 @@ impl IScrollItemProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IScrollItemProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IScrollItemProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IScrollItemProvider {}
-impl ::core::fmt::Debug for IScrollItemProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IScrollItemProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IScrollItemProvider {
     type Vtable = IScrollItemProvider_Vtbl;
-}
-impl ::core::clone::Clone for IScrollItemProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScrollItemProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2360c714_4bf1_4b26_ba65_9b21316127eb);
@@ -3370,6 +2826,7 @@ pub struct IScrollItemProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScrollProvider(::windows_core::IUnknown);
 impl IScrollProvider {
     pub unsafe fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows_core::Result<()> {
@@ -3408,24 +2865,8 @@ impl IScrollProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IScrollProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IScrollProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IScrollProvider {}
-impl ::core::fmt::Debug for IScrollProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IScrollProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IScrollProvider {
     type Vtable = IScrollProvider_Vtbl;
-}
-impl ::core::clone::Clone for IScrollProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScrollProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb38b8077_1fc3_42a5_8cae_d40c2215055a);
@@ -3451,6 +2892,7 @@ pub struct IScrollProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISelectionItemProvider(::windows_core::IUnknown);
 impl ISelectionItemProvider {
     pub unsafe fn Select(&self) -> ::windows_core::Result<()> {
@@ -3474,24 +2916,8 @@ impl ISelectionItemProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISelectionItemProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISelectionItemProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISelectionItemProvider {}
-impl ::core::fmt::Debug for ISelectionItemProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISelectionItemProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISelectionItemProvider {
     type Vtable = ISelectionItemProvider_Vtbl;
-}
-impl ::core::clone::Clone for ISelectionItemProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISelectionItemProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2acad808_b2d4_452d_a407_91ff1ad167b2);
@@ -3511,6 +2937,7 @@ pub struct ISelectionItemProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISelectionProvider(::windows_core::IUnknown);
 impl ISelectionProvider {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3533,24 +2960,8 @@ impl ISelectionProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISelectionProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISelectionProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISelectionProvider {}
-impl ::core::fmt::Debug for ISelectionProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISelectionProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISelectionProvider {
     type Vtable = ISelectionProvider_Vtbl;
-}
-impl ::core::clone::Clone for ISelectionProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISelectionProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb8b03af_3bdf_48d4_bd36_1a65793be168);
@@ -3574,6 +2985,7 @@ pub struct ISelectionProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISelectionProvider2(::windows_core::IUnknown);
 impl ISelectionProvider2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3612,24 +3024,8 @@ impl ISelectionProvider2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISelectionProvider2, ::windows_core::IUnknown, ISelectionProvider);
-impl ::core::cmp::PartialEq for ISelectionProvider2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISelectionProvider2 {}
-impl ::core::fmt::Debug for ISelectionProvider2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISelectionProvider2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISelectionProvider2 {
     type Vtable = ISelectionProvider2_Vtbl;
-}
-impl ::core::clone::Clone for ISelectionProvider2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISelectionProvider2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14f68475_ee1c_44f6_a869_d239381f0fe7);
@@ -3645,6 +3041,7 @@ pub struct ISelectionProvider2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpreadsheetItemProvider(::windows_core::IUnknown);
 impl ISpreadsheetItemProvider {
     pub unsafe fn Formula(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3665,24 +3062,8 @@ impl ISpreadsheetItemProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpreadsheetItemProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpreadsheetItemProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpreadsheetItemProvider {}
-impl ::core::fmt::Debug for ISpreadsheetItemProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpreadsheetItemProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpreadsheetItemProvider {
     type Vtable = ISpreadsheetItemProvider_Vtbl;
-}
-impl ::core::clone::Clone for ISpreadsheetItemProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpreadsheetItemProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeaed4660_7b3d_4879_a2e6_365ce603f3d0);
@@ -3703,6 +3084,7 @@ pub struct ISpreadsheetItemProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpreadsheetProvider(::windows_core::IUnknown);
 impl ISpreadsheetProvider {
     pub unsafe fn GetItemByName<P0>(&self, name: P0) -> ::windows_core::Result<IRawElementProviderSimple>
@@ -3714,24 +3096,8 @@ impl ISpreadsheetProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpreadsheetProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpreadsheetProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpreadsheetProvider {}
-impl ::core::fmt::Debug for ISpreadsheetProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpreadsheetProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpreadsheetProvider {
     type Vtable = ISpreadsheetProvider_Vtbl;
-}
-impl ::core::clone::Clone for ISpreadsheetProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpreadsheetProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f6b5d35_5525_4f80_b758_85473832ffc7);
@@ -3744,6 +3110,7 @@ pub struct ISpreadsheetProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStylesProvider(::windows_core::IUnknown);
 impl IStylesProvider {
     pub unsafe fn StyleId(&self) -> ::windows_core::Result<UIA_STYLE_ID> {
@@ -3776,24 +3143,8 @@ impl IStylesProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStylesProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IStylesProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStylesProvider {}
-impl ::core::fmt::Debug for IStylesProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStylesProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStylesProvider {
     type Vtable = IStylesProvider_Vtbl;
-}
-impl ::core::clone::Clone for IStylesProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStylesProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x19b6b649_f5d7_4a6d_bdcb_129252be588a);
@@ -3812,6 +3163,7 @@ pub struct IStylesProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISynchronizedInputProvider(::windows_core::IUnknown);
 impl ISynchronizedInputProvider {
     pub unsafe fn StartListening(&self, inputtype: SynchronizedInputType) -> ::windows_core::Result<()> {
@@ -3822,24 +3174,8 @@ impl ISynchronizedInputProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISynchronizedInputProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISynchronizedInputProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISynchronizedInputProvider {}
-impl ::core::fmt::Debug for ISynchronizedInputProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISynchronizedInputProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISynchronizedInputProvider {
     type Vtable = ISynchronizedInputProvider_Vtbl;
-}
-impl ::core::clone::Clone for ISynchronizedInputProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISynchronizedInputProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x29db1a06_02ce_4cf7_9b42_565d4fab20ee);
@@ -3853,6 +3189,7 @@ pub struct ISynchronizedInputProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITableItemProvider(::windows_core::IUnknown);
 impl ITableItemProvider {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3869,24 +3206,8 @@ impl ITableItemProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITableItemProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITableItemProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITableItemProvider {}
-impl ::core::fmt::Debug for ITableItemProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITableItemProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITableItemProvider {
     type Vtable = ITableItemProvider_Vtbl;
-}
-impl ::core::clone::Clone for ITableItemProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITableItemProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9734fa6_771f_4d78_9c90_2517999349cd);
@@ -3906,6 +3227,7 @@ pub struct ITableItemProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITableProvider(::windows_core::IUnknown);
 impl ITableProvider {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3926,24 +3248,8 @@ impl ITableProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITableProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITableProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITableProvider {}
-impl ::core::fmt::Debug for ITableProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITableProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITableProvider {
     type Vtable = ITableProvider_Vtbl;
-}
-impl ::core::clone::Clone for ITableProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITableProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c860395_97b3_490a_b52a_858cc22af166);
@@ -3964,6 +3270,7 @@ pub struct ITableProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextChildProvider(::windows_core::IUnknown);
 impl ITextChildProvider {
     pub unsafe fn TextContainer(&self) -> ::windows_core::Result<IRawElementProviderSimple> {
@@ -3976,24 +3283,8 @@ impl ITextChildProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextChildProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITextChildProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextChildProvider {}
-impl ::core::fmt::Debug for ITextChildProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextChildProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITextChildProvider {
     type Vtable = ITextChildProvider_Vtbl;
-}
-impl ::core::clone::Clone for ITextChildProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextChildProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c2de2b9_c88f_4f88_a111_f1d336b7d1a9);
@@ -4007,6 +3298,7 @@ pub struct ITextChildProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextEditProvider(::windows_core::IUnknown);
 impl ITextEditProvider {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4050,24 +3342,8 @@ impl ITextEditProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextEditProvider, ::windows_core::IUnknown, ITextProvider);
-impl ::core::cmp::PartialEq for ITextEditProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextEditProvider {}
-impl ::core::fmt::Debug for ITextEditProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextEditProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITextEditProvider {
     type Vtable = ITextEditProvider_Vtbl;
-}
-impl ::core::clone::Clone for ITextEditProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextEditProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea3605b4_3a05_400e_b5f9_4e91b40f6176);
@@ -4081,6 +3357,7 @@ pub struct ITextEditProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextProvider(::windows_core::IUnknown);
 impl ITextProvider {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4116,24 +3393,8 @@ impl ITextProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITextProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextProvider {}
-impl ::core::fmt::Debug for ITextProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITextProvider {
     type Vtable = ITextProvider_Vtbl;
-}
-impl ::core::clone::Clone for ITextProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3589c92c_63f3_4367_99bb_ada653b77cf2);
@@ -4157,6 +3418,7 @@ pub struct ITextProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextProvider2(::windows_core::IUnknown);
 impl ITextProvider2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4204,24 +3466,8 @@ impl ITextProvider2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextProvider2, ::windows_core::IUnknown, ITextProvider);
-impl ::core::cmp::PartialEq for ITextProvider2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextProvider2 {}
-impl ::core::fmt::Debug for ITextProvider2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextProvider2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITextProvider2 {
     type Vtable = ITextProvider2_Vtbl;
-}
-impl ::core::clone::Clone for ITextProvider2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextProvider2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0dc5e6ed_3e16_4bf1_8f9a_a979878bc195);
@@ -4238,6 +3484,7 @@ pub struct ITextProvider2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextRangeProvider(::windows_core::IUnknown);
 impl ITextRangeProvider {
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITextRangeProvider> {
@@ -4342,24 +3589,8 @@ impl ITextRangeProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextRangeProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITextRangeProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextRangeProvider {}
-impl ::core::fmt::Debug for ITextRangeProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextRangeProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITextRangeProvider {
     type Vtable = ITextRangeProvider_Vtbl;
-}
-impl ::core::clone::Clone for ITextRangeProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextRangeProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5347ad7b_c355_46f8_aff5_909033582f63);
@@ -4410,6 +3641,7 @@ pub struct ITextRangeProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextRangeProvider2(::windows_core::IUnknown);
 impl ITextRangeProvider2 {
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITextRangeProvider> {
@@ -4517,24 +3749,8 @@ impl ITextRangeProvider2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextRangeProvider2, ::windows_core::IUnknown, ITextRangeProvider);
-impl ::core::cmp::PartialEq for ITextRangeProvider2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextRangeProvider2 {}
-impl ::core::fmt::Debug for ITextRangeProvider2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextRangeProvider2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITextRangeProvider2 {
     type Vtable = ITextRangeProvider2_Vtbl;
-}
-impl ::core::clone::Clone for ITextRangeProvider2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextRangeProvider2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9bbce42c_1921_4f18_89ca_dba1910a0386);
@@ -4547,6 +3763,7 @@ pub struct ITextRangeProvider2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToggleProvider(::windows_core::IUnknown);
 impl IToggleProvider {
     pub unsafe fn Toggle(&self) -> ::windows_core::Result<()> {
@@ -4558,24 +3775,8 @@ impl IToggleProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IToggleProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IToggleProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IToggleProvider {}
-impl ::core::fmt::Debug for IToggleProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IToggleProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IToggleProvider {
     type Vtable = IToggleProvider_Vtbl;
-}
-impl ::core::clone::Clone for IToggleProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToggleProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56d00bd0_c4f4_433c_a836_1a52a57e0892);
@@ -4589,6 +3790,7 @@ pub struct IToggleProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITransformProvider(::windows_core::IUnknown);
 impl ITransformProvider {
     pub unsafe fn Move(&self, x: f64, y: f64) -> ::windows_core::Result<()> {
@@ -4620,24 +3822,8 @@ impl ITransformProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITransformProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITransformProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITransformProvider {}
-impl ::core::fmt::Debug for ITransformProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITransformProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITransformProvider {
     type Vtable = ITransformProvider_Vtbl;
-}
-impl ::core::clone::Clone for ITransformProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITransformProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6829ddc4_4f91_4ffa_b86f_bd3e2987cb4c);
@@ -4664,6 +3850,7 @@ pub struct ITransformProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITransformProvider2(::windows_core::IUnknown);
 impl ITransformProvider2 {
     pub unsafe fn Move(&self, x: f64, y: f64) -> ::windows_core::Result<()> {
@@ -4719,24 +3906,8 @@ impl ITransformProvider2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITransformProvider2, ::windows_core::IUnknown, ITransformProvider);
-impl ::core::cmp::PartialEq for ITransformProvider2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITransformProvider2 {}
-impl ::core::fmt::Debug for ITransformProvider2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITransformProvider2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITransformProvider2 {
     type Vtable = ITransformProvider2_Vtbl;
-}
-impl ::core::clone::Clone for ITransformProvider2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITransformProvider2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4758742f_7ac2_460c_bc48_09fc09308a93);
@@ -4757,6 +3928,7 @@ pub struct ITransformProvider2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomation(::windows_core::IUnknown);
 impl IUIAutomation {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5098,24 +4270,8 @@ impl IUIAutomation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomation, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomation {}
-impl ::core::fmt::Debug for IUIAutomation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomation {
     type Vtable = IUIAutomation_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30cbe57d_d9d0_452a_ab13_7ac5ac4825ee);
@@ -5245,6 +4401,7 @@ pub struct IUIAutomation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomation2(::windows_core::IUnknown);
 impl IUIAutomation2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5614,24 +4771,8 @@ impl IUIAutomation2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomation2, ::windows_core::IUnknown, IUIAutomation);
-impl ::core::cmp::PartialEq for IUIAutomation2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomation2 {}
-impl ::core::fmt::Debug for IUIAutomation2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomation2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomation2 {
     type Vtable = IUIAutomation2_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomation2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomation2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x34723aff_0c9d_49d0_9896_7ab52df8cd8a);
@@ -5655,6 +4796,7 @@ pub struct IUIAutomation2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomation3(::windows_core::IUnknown);
 impl IUIAutomation3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6039,24 +5181,8 @@ impl IUIAutomation3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomation3, ::windows_core::IUnknown, IUIAutomation, IUIAutomation2);
-impl ::core::cmp::PartialEq for IUIAutomation3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomation3 {}
-impl ::core::fmt::Debug for IUIAutomation3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomation3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomation3 {
     type Vtable = IUIAutomation3_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomation3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomation3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73d768da_9b51_4b89_936e_c209290973e7);
@@ -6070,6 +5196,7 @@ pub struct IUIAutomation3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomation4(::windows_core::IUnknown);
 impl IUIAutomation4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6469,24 +5596,8 @@ impl IUIAutomation4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomation4, ::windows_core::IUnknown, IUIAutomation, IUIAutomation2, IUIAutomation3);
-impl ::core::cmp::PartialEq for IUIAutomation4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomation4 {}
-impl ::core::fmt::Debug for IUIAutomation4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomation4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomation4 {
     type Vtable = IUIAutomation4_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomation4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomation4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1189c02a_05f8_4319_8e21_e817e3db2860);
@@ -6500,6 +5611,7 @@ pub struct IUIAutomation4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomation5(::windows_core::IUnknown);
 impl IUIAutomation5 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6914,24 +6026,8 @@ impl IUIAutomation5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomation5, ::windows_core::IUnknown, IUIAutomation, IUIAutomation2, IUIAutomation3, IUIAutomation4);
-impl ::core::cmp::PartialEq for IUIAutomation5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomation5 {}
-impl ::core::fmt::Debug for IUIAutomation5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomation5").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomation5 {
     type Vtable = IUIAutomation5_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomation5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomation5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x25f700c8_d816_4057_a9dc_3cbdee77e256);
@@ -6945,6 +6041,7 @@ pub struct IUIAutomation5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomation6(::windows_core::IUnknown);
 impl IUIAutomation6 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7406,24 +6503,8 @@ impl IUIAutomation6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomation6, ::windows_core::IUnknown, IUIAutomation, IUIAutomation2, IUIAutomation3, IUIAutomation4, IUIAutomation5);
-impl ::core::cmp::PartialEq for IUIAutomation6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomation6 {}
-impl ::core::fmt::Debug for IUIAutomation6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomation6").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomation6 {
     type Vtable = IUIAutomation6_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomation6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomation6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaae072da_29e3_413d_87a7_192dbf81ed10);
@@ -7444,6 +6525,7 @@ pub struct IUIAutomation6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationActiveTextPositionChangedEventHandler(::windows_core::IUnknown);
 impl IUIAutomationActiveTextPositionChangedEventHandler {
     pub unsafe fn HandleActiveTextPositionChangedEvent<P0, P1>(&self, sender: P0, range: P1) -> ::windows_core::Result<()>
@@ -7455,24 +6537,8 @@ impl IUIAutomationActiveTextPositionChangedEventHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationActiveTextPositionChangedEventHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationActiveTextPositionChangedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationActiveTextPositionChangedEventHandler {}
-impl ::core::fmt::Debug for IUIAutomationActiveTextPositionChangedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationActiveTextPositionChangedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationActiveTextPositionChangedEventHandler {
     type Vtable = IUIAutomationActiveTextPositionChangedEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationActiveTextPositionChangedEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationActiveTextPositionChangedEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf97933b0_8dae_4496_8997_5ba015fe0d82);
@@ -7485,6 +6551,7 @@ pub struct IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationAndCondition(::windows_core::IUnknown);
 impl IUIAutomationAndCondition {
     pub unsafe fn ChildCount(&self) -> ::windows_core::Result<i32> {
@@ -7502,24 +6569,8 @@ impl IUIAutomationAndCondition {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationAndCondition, ::windows_core::IUnknown, IUIAutomationCondition);
-impl ::core::cmp::PartialEq for IUIAutomationAndCondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationAndCondition {}
-impl ::core::fmt::Debug for IUIAutomationAndCondition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationAndCondition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationAndCondition {
     type Vtable = IUIAutomationAndCondition_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationAndCondition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationAndCondition {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7d0af36_b912_45fe_9855_091ddc174aec);
@@ -7537,6 +6588,7 @@ pub struct IUIAutomationAndCondition_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationAnnotationPattern(::windows_core::IUnknown);
 impl IUIAutomationAnnotationPattern {
     pub unsafe fn CurrentAnnotationTypeId(&self) -> ::windows_core::Result<UIA_ANNOTATIONTYPE> {
@@ -7581,24 +6633,8 @@ impl IUIAutomationAnnotationPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationAnnotationPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationAnnotationPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationAnnotationPattern {}
-impl ::core::fmt::Debug for IUIAutomationAnnotationPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationAnnotationPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationAnnotationPattern {
     type Vtable = IUIAutomationAnnotationPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationAnnotationPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationAnnotationPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a175b21_339e_41b1_8e8b_623f6b681098);
@@ -7620,6 +6656,7 @@ pub struct IUIAutomationAnnotationPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationBoolCondition(::windows_core::IUnknown);
 impl IUIAutomationBoolCondition {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7630,24 +6667,8 @@ impl IUIAutomationBoolCondition {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationBoolCondition, ::windows_core::IUnknown, IUIAutomationCondition);
-impl ::core::cmp::PartialEq for IUIAutomationBoolCondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationBoolCondition {}
-impl ::core::fmt::Debug for IUIAutomationBoolCondition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationBoolCondition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationBoolCondition {
     type Vtable = IUIAutomationBoolCondition_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationBoolCondition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationBoolCondition {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b4e1f2e_75eb_4d0b_8952_5a69988e2307);
@@ -7663,6 +6684,7 @@ pub struct IUIAutomationBoolCondition_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationCacheRequest(::windows_core::IUnknown);
 impl IUIAutomationCacheRequest {
     pub unsafe fn AddProperty(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<()> {
@@ -7701,24 +6723,8 @@ impl IUIAutomationCacheRequest {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationCacheRequest, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationCacheRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationCacheRequest {}
-impl ::core::fmt::Debug for IUIAutomationCacheRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationCacheRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationCacheRequest {
     type Vtable = IUIAutomationCacheRequest_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationCacheRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationCacheRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb32a92b5_bc25_4078_9c08_d7ee95c48e03);
@@ -7739,6 +6745,7 @@ pub struct IUIAutomationCacheRequest_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationChangesEventHandler(::windows_core::IUnknown);
 impl IUIAutomationChangesEventHandler {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -7751,24 +6758,8 @@ impl IUIAutomationChangesEventHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationChangesEventHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationChangesEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationChangesEventHandler {}
-impl ::core::fmt::Debug for IUIAutomationChangesEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationChangesEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationChangesEventHandler {
     type Vtable = IUIAutomationChangesEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationChangesEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationChangesEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x58edca55_2c3e_4980_b1b9_56c17f27a2a0);
@@ -7784,27 +6775,12 @@ pub struct IUIAutomationChangesEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationCondition(::windows_core::IUnknown);
 impl IUIAutomationCondition {}
 ::windows_core::imp::interface_hierarchy!(IUIAutomationCondition, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationCondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationCondition {}
-impl ::core::fmt::Debug for IUIAutomationCondition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationCondition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationCondition {
     type Vtable = IUIAutomationCondition_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationCondition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationCondition {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x352ffba8_0973_437c_a61f_f64cafd81df9);
@@ -7816,6 +6792,7 @@ pub struct IUIAutomationCondition_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationCustomNavigationPattern(::windows_core::IUnknown);
 impl IUIAutomationCustomNavigationPattern {
     pub unsafe fn Navigate(&self, direction: NavigateDirection) -> ::windows_core::Result<IUIAutomationElement> {
@@ -7824,24 +6801,8 @@ impl IUIAutomationCustomNavigationPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationCustomNavigationPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationCustomNavigationPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationCustomNavigationPattern {}
-impl ::core::fmt::Debug for IUIAutomationCustomNavigationPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationCustomNavigationPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationCustomNavigationPattern {
     type Vtable = IUIAutomationCustomNavigationPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationCustomNavigationPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationCustomNavigationPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01ea217a_1766_47ed_a6cc_acf492854b1f);
@@ -7854,6 +6815,7 @@ pub struct IUIAutomationCustomNavigationPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationDockPattern(::windows_core::IUnknown);
 impl IUIAutomationDockPattern {
     pub unsafe fn SetDockPosition(&self, dockpos: DockPosition) -> ::windows_core::Result<()> {
@@ -7869,24 +6831,8 @@ impl IUIAutomationDockPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationDockPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationDockPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationDockPattern {}
-impl ::core::fmt::Debug for IUIAutomationDockPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationDockPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationDockPattern {
     type Vtable = IUIAutomationDockPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationDockPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationDockPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfde5ef97_1464_48f6_90bf_43d0948e86ec);
@@ -7901,6 +6847,7 @@ pub struct IUIAutomationDockPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationDragPattern(::windows_core::IUnknown);
 impl IUIAutomationDragPattern {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7945,24 +6892,8 @@ impl IUIAutomationDragPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationDragPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationDragPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationDragPattern {}
-impl ::core::fmt::Debug for IUIAutomationDragPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationDragPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationDragPattern {
     type Vtable = IUIAutomationDragPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationDragPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationDragPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1dc7b570_1f54_4bad_bcda_d36a722fb7bd);
@@ -7994,6 +6925,7 @@ pub struct IUIAutomationDragPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationDropTargetPattern(::windows_core::IUnknown);
 impl IUIAutomationDropTargetPattern {
     pub unsafe fn CurrentDropTargetEffect(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -8018,24 +6950,8 @@ impl IUIAutomationDropTargetPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationDropTargetPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationDropTargetPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationDropTargetPattern {}
-impl ::core::fmt::Debug for IUIAutomationDropTargetPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationDropTargetPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationDropTargetPattern {
     type Vtable = IUIAutomationDropTargetPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationDropTargetPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationDropTargetPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69a095f7_eee4_430e_a46b_fb73b1ae39a5);
@@ -8057,6 +6973,7 @@ pub struct IUIAutomationDropTargetPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement(::windows_core::IUnknown);
 impl IUIAutomationElement {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
@@ -8472,24 +7389,8 @@ impl IUIAutomationElement {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationElement, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationElement {}
-impl ::core::fmt::Debug for IUIAutomationElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationElement").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationElement {
     type Vtable = IUIAutomationElement_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationElement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationElement {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd22108aa_8ac5_49a5_837b_37bbb3d7591e);
@@ -8667,6 +7568,7 @@ pub struct IUIAutomationElement_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement2(::windows_core::IUnknown);
 impl IUIAutomationElement2 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
@@ -9110,24 +8012,8 @@ impl IUIAutomationElement2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationElement2, ::windows_core::IUnknown, IUIAutomationElement);
-impl ::core::cmp::PartialEq for IUIAutomationElement2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationElement2 {}
-impl ::core::fmt::Debug for IUIAutomationElement2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationElement2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationElement2 {
     type Vtable = IUIAutomationElement2_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationElement2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationElement2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6749c683_f70d_4487_a698_5f79d55290d6);
@@ -9151,6 +8037,7 @@ pub struct IUIAutomationElement2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement3(::windows_core::IUnknown);
 impl IUIAutomationElement3 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
@@ -9609,24 +8496,8 @@ impl IUIAutomationElement3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationElement3, ::windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2);
-impl ::core::cmp::PartialEq for IUIAutomationElement3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationElement3 {}
-impl ::core::fmt::Debug for IUIAutomationElement3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationElement3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationElement3 {
     type Vtable = IUIAutomationElement3_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationElement3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationElement3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8471df34_aee0_4a01_a7de_7db9af12c296);
@@ -9647,6 +8518,7 @@ pub struct IUIAutomationElement3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement4(::windows_core::IUnknown);
 impl IUIAutomationElement4 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
@@ -10149,24 +9021,8 @@ impl IUIAutomationElement4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationElement4, ::windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3);
-impl ::core::cmp::PartialEq for IUIAutomationElement4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationElement4 {}
-impl ::core::fmt::Debug for IUIAutomationElement4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationElement4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationElement4 {
     type Vtable = IUIAutomationElement4_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationElement4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationElement4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b6e233c_52fb_4063_a4c9_77c075c2a06b);
@@ -10194,6 +9050,7 @@ pub struct IUIAutomationElement4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement5(::windows_core::IUnknown);
 impl IUIAutomationElement5 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
@@ -10712,24 +9569,8 @@ impl IUIAutomationElement5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationElement5, ::windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4);
-impl ::core::cmp::PartialEq for IUIAutomationElement5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationElement5 {}
-impl ::core::fmt::Debug for IUIAutomationElement5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationElement5").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationElement5 {
     type Vtable = IUIAutomationElement5_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationElement5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationElement5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98141c1d_0d0e_4175_bbe2_6bff455842a7);
@@ -10745,6 +9586,7 @@ pub struct IUIAutomationElement5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement6(::windows_core::IUnknown);
 impl IUIAutomationElement6 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
@@ -11271,24 +10113,8 @@ impl IUIAutomationElement6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationElement6, ::windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5);
-impl ::core::cmp::PartialEq for IUIAutomationElement6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationElement6 {}
-impl ::core::fmt::Debug for IUIAutomationElement6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationElement6").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationElement6 {
     type Vtable = IUIAutomationElement6_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationElement6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationElement6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4780d450_8bca_4977_afa5_a4a517f555e3);
@@ -11302,6 +10128,7 @@ pub struct IUIAutomationElement6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement7(::windows_core::IUnknown);
 impl IUIAutomationElement7 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
@@ -11868,24 +10695,8 @@ impl IUIAutomationElement7 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationElement7, ::windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5, IUIAutomationElement6);
-impl ::core::cmp::PartialEq for IUIAutomationElement7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationElement7 {}
-impl ::core::fmt::Debug for IUIAutomationElement7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationElement7").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationElement7 {
     type Vtable = IUIAutomationElement7_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationElement7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationElement7 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x204e8572_cfc3_4c11_b0c8_7da7420750b7);
@@ -11905,6 +10716,7 @@ pub struct IUIAutomationElement7_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement8(::windows_core::IUnknown);
 impl IUIAutomationElement8 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
@@ -12479,24 +11291,8 @@ impl IUIAutomationElement8 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationElement8, ::windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5, IUIAutomationElement6, IUIAutomationElement7);
-impl ::core::cmp::PartialEq for IUIAutomationElement8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationElement8 {}
-impl ::core::fmt::Debug for IUIAutomationElement8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationElement8").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationElement8 {
     type Vtable = IUIAutomationElement8_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationElement8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationElement8 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c60217d_5411_4cde_bcc0_1ceda223830c);
@@ -12510,6 +11306,7 @@ pub struct IUIAutomationElement8_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement9(::windows_core::IUnknown);
 impl IUIAutomationElement9 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
@@ -13096,24 +11893,8 @@ impl IUIAutomationElement9 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationElement9, ::windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5, IUIAutomationElement6, IUIAutomationElement7, IUIAutomationElement8);
-impl ::core::cmp::PartialEq for IUIAutomationElement9 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationElement9 {}
-impl ::core::fmt::Debug for IUIAutomationElement9 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationElement9").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationElement9 {
     type Vtable = IUIAutomationElement9_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationElement9 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationElement9 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x39325fac_039d_440e_a3a3_5eb81a5cecc3);
@@ -13133,6 +11914,7 @@ pub struct IUIAutomationElement9_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElementArray(::windows_core::IUnknown);
 impl IUIAutomationElementArray {
     pub unsafe fn Length(&self) -> ::windows_core::Result<i32> {
@@ -13145,24 +11927,8 @@ impl IUIAutomationElementArray {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationElementArray, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationElementArray {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationElementArray {}
-impl ::core::fmt::Debug for IUIAutomationElementArray {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationElementArray").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationElementArray {
     type Vtable = IUIAutomationElementArray_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationElementArray {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationElementArray {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14314595_b4bc_4055_95f2_58f2e42c9855);
@@ -13176,6 +11942,7 @@ pub struct IUIAutomationElementArray_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationEventHandler(::windows_core::IUnknown);
 impl IUIAutomationEventHandler {
     pub unsafe fn HandleAutomationEvent<P0>(&self, sender: P0, eventid: UIA_EVENT_ID) -> ::windows_core::Result<()>
@@ -13186,24 +11953,8 @@ impl IUIAutomationEventHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationEventHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationEventHandler {}
-impl ::core::fmt::Debug for IUIAutomationEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationEventHandler {
     type Vtable = IUIAutomationEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x146c3c17_f12e_4e22_8c27_f894b9b79c69);
@@ -13216,6 +11967,7 @@ pub struct IUIAutomationEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationEventHandlerGroup(::windows_core::IUnknown);
 impl IUIAutomationEventHandlerGroup {
     pub unsafe fn AddActiveTextPositionChangedEventHandler<P0, P1>(&self, scope: TreeScope, cacherequest: P0, handler: P1) -> ::windows_core::Result<()>
@@ -13269,24 +12021,8 @@ impl IUIAutomationEventHandlerGroup {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationEventHandlerGroup, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationEventHandlerGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationEventHandlerGroup {}
-impl ::core::fmt::Debug for IUIAutomationEventHandlerGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationEventHandlerGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationEventHandlerGroup {
     type Vtable = IUIAutomationEventHandlerGroup_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationEventHandlerGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationEventHandlerGroup {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9ee12f2_c13b_4408_997c_639914377f4e);
@@ -13305,6 +12041,7 @@ pub struct IUIAutomationEventHandlerGroup_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationExpandCollapsePattern(::windows_core::IUnknown);
 impl IUIAutomationExpandCollapsePattern {
     pub unsafe fn Expand(&self) -> ::windows_core::Result<()> {
@@ -13323,24 +12060,8 @@ impl IUIAutomationExpandCollapsePattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationExpandCollapsePattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationExpandCollapsePattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationExpandCollapsePattern {}
-impl ::core::fmt::Debug for IUIAutomationExpandCollapsePattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationExpandCollapsePattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationExpandCollapsePattern {
     type Vtable = IUIAutomationExpandCollapsePattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationExpandCollapsePattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationExpandCollapsePattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x619be086_1f4e_4ee4_bafa_210128738730);
@@ -13356,6 +12077,7 @@ pub struct IUIAutomationExpandCollapsePattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationFocusChangedEventHandler(::windows_core::IUnknown);
 impl IUIAutomationFocusChangedEventHandler {
     pub unsafe fn HandleFocusChangedEvent<P0>(&self, sender: P0) -> ::windows_core::Result<()>
@@ -13366,24 +12088,8 @@ impl IUIAutomationFocusChangedEventHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationFocusChangedEventHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationFocusChangedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationFocusChangedEventHandler {}
-impl ::core::fmt::Debug for IUIAutomationFocusChangedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationFocusChangedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationFocusChangedEventHandler {
     type Vtable = IUIAutomationFocusChangedEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationFocusChangedEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationFocusChangedEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc270f6b5_5c69_4290_9745_7a7f97169468);
@@ -13396,6 +12102,7 @@ pub struct IUIAutomationFocusChangedEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationGridItemPattern(::windows_core::IUnknown);
 impl IUIAutomationGridItemPattern {
     pub unsafe fn CurrentContainingGrid(&self) -> ::windows_core::Result<IUIAutomationElement> {
@@ -13440,24 +12147,8 @@ impl IUIAutomationGridItemPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationGridItemPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationGridItemPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationGridItemPattern {}
-impl ::core::fmt::Debug for IUIAutomationGridItemPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationGridItemPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationGridItemPattern {
     type Vtable = IUIAutomationGridItemPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationGridItemPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationGridItemPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x78f8ef57_66c3_4e09_bd7c_e79b2004894d);
@@ -13479,6 +12170,7 @@ pub struct IUIAutomationGridItemPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationGridPattern(::windows_core::IUnknown);
 impl IUIAutomationGridPattern {
     pub unsafe fn GetItem(&self, row: i32, column: i32) -> ::windows_core::Result<IUIAutomationElement> {
@@ -13503,24 +12195,8 @@ impl IUIAutomationGridPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationGridPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationGridPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationGridPattern {}
-impl ::core::fmt::Debug for IUIAutomationGridPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationGridPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationGridPattern {
     type Vtable = IUIAutomationGridPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationGridPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationGridPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x414c3cdc_856b_4f5b_8538_3131c6302550);
@@ -13537,6 +12213,7 @@ pub struct IUIAutomationGridPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationInvokePattern(::windows_core::IUnknown);
 impl IUIAutomationInvokePattern {
     pub unsafe fn Invoke(&self) -> ::windows_core::Result<()> {
@@ -13544,24 +12221,8 @@ impl IUIAutomationInvokePattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationInvokePattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationInvokePattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationInvokePattern {}
-impl ::core::fmt::Debug for IUIAutomationInvokePattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationInvokePattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationInvokePattern {
     type Vtable = IUIAutomationInvokePattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationInvokePattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationInvokePattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb377fbe_8ea6_46d5_9c73_6499642d3059);
@@ -13574,6 +12235,7 @@ pub struct IUIAutomationInvokePattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationItemContainerPattern(::windows_core::IUnknown);
 impl IUIAutomationItemContainerPattern {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -13587,24 +12249,8 @@ impl IUIAutomationItemContainerPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationItemContainerPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationItemContainerPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationItemContainerPattern {}
-impl ::core::fmt::Debug for IUIAutomationItemContainerPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationItemContainerPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationItemContainerPattern {
     type Vtable = IUIAutomationItemContainerPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationItemContainerPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationItemContainerPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc690fdb2_27a8_423c_812d_429773c9084e);
@@ -13620,6 +12266,7 @@ pub struct IUIAutomationItemContainerPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationLegacyIAccessiblePattern(::windows_core::IUnknown);
 impl IUIAutomationLegacyIAccessiblePattern {
     pub unsafe fn Select(&self, flagsselect: i32) -> ::windows_core::Result<()> {
@@ -13722,24 +12369,8 @@ impl IUIAutomationLegacyIAccessiblePattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationLegacyIAccessiblePattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationLegacyIAccessiblePattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationLegacyIAccessiblePattern {}
-impl ::core::fmt::Debug for IUIAutomationLegacyIAccessiblePattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationLegacyIAccessiblePattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationLegacyIAccessiblePattern {
     type Vtable = IUIAutomationLegacyIAccessiblePattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationLegacyIAccessiblePattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationLegacyIAccessiblePattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x828055ad_355b_4435_86d5_3b51c14a9b1b);
@@ -13778,6 +12409,7 @@ pub struct IUIAutomationLegacyIAccessiblePattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationMultipleViewPattern(::windows_core::IUnknown);
 impl IUIAutomationMultipleViewPattern {
     pub unsafe fn GetViewName(&self, view: i32) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -13809,24 +12441,8 @@ impl IUIAutomationMultipleViewPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationMultipleViewPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationMultipleViewPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationMultipleViewPattern {}
-impl ::core::fmt::Debug for IUIAutomationMultipleViewPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationMultipleViewPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationMultipleViewPattern {
     type Vtable = IUIAutomationMultipleViewPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationMultipleViewPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationMultipleViewPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d253c91_1dc5_4bb5_b18f_ade16fa495e8);
@@ -13850,6 +12466,7 @@ pub struct IUIAutomationMultipleViewPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationNotCondition(::windows_core::IUnknown);
 impl IUIAutomationNotCondition {
     pub unsafe fn GetChild(&self) -> ::windows_core::Result<IUIAutomationCondition> {
@@ -13858,24 +12475,8 @@ impl IUIAutomationNotCondition {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationNotCondition, ::windows_core::IUnknown, IUIAutomationCondition);
-impl ::core::cmp::PartialEq for IUIAutomationNotCondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationNotCondition {}
-impl ::core::fmt::Debug for IUIAutomationNotCondition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationNotCondition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationNotCondition {
     type Vtable = IUIAutomationNotCondition_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationNotCondition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationNotCondition {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf528b657_847b_498c_8896_d52b565407a1);
@@ -13888,6 +12489,7 @@ pub struct IUIAutomationNotCondition_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationNotificationEventHandler(::windows_core::IUnknown);
 impl IUIAutomationNotificationEventHandler {
     pub unsafe fn HandleNotificationEvent<P0, P1, P2>(&self, sender: P0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: P1, activityid: P2) -> ::windows_core::Result<()>
@@ -13900,24 +12502,8 @@ impl IUIAutomationNotificationEventHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationNotificationEventHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationNotificationEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationNotificationEventHandler {}
-impl ::core::fmt::Debug for IUIAutomationNotificationEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationNotificationEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationNotificationEventHandler {
     type Vtable = IUIAutomationNotificationEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationNotificationEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationNotificationEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7cb2637_e6c2_4d0c_85de_4948c02175c7);
@@ -13930,6 +12516,7 @@ pub struct IUIAutomationNotificationEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationObjectModelPattern(::windows_core::IUnknown);
 impl IUIAutomationObjectModelPattern {
     pub unsafe fn GetUnderlyingObjectModel(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -13938,24 +12525,8 @@ impl IUIAutomationObjectModelPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationObjectModelPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationObjectModelPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationObjectModelPattern {}
-impl ::core::fmt::Debug for IUIAutomationObjectModelPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationObjectModelPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationObjectModelPattern {
     type Vtable = IUIAutomationObjectModelPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationObjectModelPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationObjectModelPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71c284b3_c14d_4d14_981e_19751b0d756d);
@@ -13968,6 +12539,7 @@ pub struct IUIAutomationObjectModelPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationOrCondition(::windows_core::IUnknown);
 impl IUIAutomationOrCondition {
     pub unsafe fn ChildCount(&self) -> ::windows_core::Result<i32> {
@@ -13985,24 +12557,8 @@ impl IUIAutomationOrCondition {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationOrCondition, ::windows_core::IUnknown, IUIAutomationCondition);
-impl ::core::cmp::PartialEq for IUIAutomationOrCondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationOrCondition {}
-impl ::core::fmt::Debug for IUIAutomationOrCondition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationOrCondition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationOrCondition {
     type Vtable = IUIAutomationOrCondition_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationOrCondition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationOrCondition {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8753f032_3db1_47b5_a1fc_6e34a266c712);
@@ -14020,6 +12576,7 @@ pub struct IUIAutomationOrCondition_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationPatternHandler(::windows_core::IUnknown);
 impl IUIAutomationPatternHandler {
     pub unsafe fn CreateClientWrapper<P0>(&self, ppatterninstance: P0) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -14037,24 +12594,8 @@ impl IUIAutomationPatternHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationPatternHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationPatternHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationPatternHandler {}
-impl ::core::fmt::Debug for IUIAutomationPatternHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationPatternHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationPatternHandler {
     type Vtable = IUIAutomationPatternHandler_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationPatternHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationPatternHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd97022f3_a947_465e_8b2a_ac4315fa54e8);
@@ -14068,6 +12609,7 @@ pub struct IUIAutomationPatternHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationPatternInstance(::windows_core::IUnknown);
 impl IUIAutomationPatternInstance {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -14083,24 +12625,8 @@ impl IUIAutomationPatternInstance {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationPatternInstance, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationPatternInstance {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationPatternInstance {}
-impl ::core::fmt::Debug for IUIAutomationPatternInstance {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationPatternInstance").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationPatternInstance {
     type Vtable = IUIAutomationPatternInstance_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationPatternInstance {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationPatternInstance {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc03a7fe4_9431_409f_bed8_ae7c2299bc8d);
@@ -14117,6 +12643,7 @@ pub struct IUIAutomationPatternInstance_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationPropertyChangedEventHandler(::windows_core::IUnknown);
 impl IUIAutomationPropertyChangedEventHandler {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -14129,24 +12656,8 @@ impl IUIAutomationPropertyChangedEventHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationPropertyChangedEventHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationPropertyChangedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationPropertyChangedEventHandler {}
-impl ::core::fmt::Debug for IUIAutomationPropertyChangedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationPropertyChangedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationPropertyChangedEventHandler {
     type Vtable = IUIAutomationPropertyChangedEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationPropertyChangedEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationPropertyChangedEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x40cd37d4_c756_4b0c_8c6f_bddfeeb13b50);
@@ -14162,6 +12673,7 @@ pub struct IUIAutomationPropertyChangedEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationPropertyCondition(::windows_core::IUnknown);
 impl IUIAutomationPropertyCondition {
     pub unsafe fn PropertyId(&self) -> ::windows_core::Result<UIA_PROPERTY_ID> {
@@ -14180,24 +12692,8 @@ impl IUIAutomationPropertyCondition {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationPropertyCondition, ::windows_core::IUnknown, IUIAutomationCondition);
-impl ::core::cmp::PartialEq for IUIAutomationPropertyCondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationPropertyCondition {}
-impl ::core::fmt::Debug for IUIAutomationPropertyCondition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationPropertyCondition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationPropertyCondition {
     type Vtable = IUIAutomationPropertyCondition_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationPropertyCondition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationPropertyCondition {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99ebf2cb_5578_4267_9ad4_afd6ea77e94b);
@@ -14215,6 +12711,7 @@ pub struct IUIAutomationPropertyCondition_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationProxyFactory(::windows_core::IUnknown);
 impl IUIAutomationProxyFactory {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -14232,24 +12729,8 @@ impl IUIAutomationProxyFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationProxyFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationProxyFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationProxyFactory {}
-impl ::core::fmt::Debug for IUIAutomationProxyFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationProxyFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationProxyFactory {
     type Vtable = IUIAutomationProxyFactory_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationProxyFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationProxyFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85b94ecd_849d_42b6_b94d_d6db23fdf5a4);
@@ -14266,6 +12747,7 @@ pub struct IUIAutomationProxyFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationProxyFactoryEntry(::windows_core::IUnknown);
 impl IUIAutomationProxyFactoryEntry {
     pub unsafe fn ProxyFactory(&self) -> ::windows_core::Result<IUIAutomationProxyFactory> {
@@ -14347,24 +12829,8 @@ impl IUIAutomationProxyFactoryEntry {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationProxyFactoryEntry, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationProxyFactoryEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationProxyFactoryEntry {}
-impl ::core::fmt::Debug for IUIAutomationProxyFactoryEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationProxyFactoryEntry").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationProxyFactoryEntry {
     type Vtable = IUIAutomationProxyFactoryEntry_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationProxyFactoryEntry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationProxyFactoryEntry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd50e472e_b64b_490c_bca1_d30696f9f289);
@@ -14413,6 +12879,7 @@ pub struct IUIAutomationProxyFactoryEntry_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationProxyFactoryMapping(::windows_core::IUnknown);
 impl IUIAutomationProxyFactoryMapping {
     pub unsafe fn Count(&self) -> ::windows_core::Result<u32> {
@@ -14456,24 +12923,8 @@ impl IUIAutomationProxyFactoryMapping {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationProxyFactoryMapping, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationProxyFactoryMapping {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationProxyFactoryMapping {}
-impl ::core::fmt::Debug for IUIAutomationProxyFactoryMapping {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationProxyFactoryMapping").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationProxyFactoryMapping {
     type Vtable = IUIAutomationProxyFactoryMapping_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationProxyFactoryMapping {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationProxyFactoryMapping {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09e31e18_872d_4873_93d1_1e541ec133fd);
@@ -14503,6 +12954,7 @@ pub struct IUIAutomationProxyFactoryMapping_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationRangeValuePattern(::windows_core::IUnknown);
 impl IUIAutomationRangeValuePattern {
     pub unsafe fn SetValue(&self, val: f64) -> ::windows_core::Result<()> {
@@ -14562,24 +13014,8 @@ impl IUIAutomationRangeValuePattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationRangeValuePattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationRangeValuePattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationRangeValuePattern {}
-impl ::core::fmt::Debug for IUIAutomationRangeValuePattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationRangeValuePattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationRangeValuePattern {
     type Vtable = IUIAutomationRangeValuePattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationRangeValuePattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationRangeValuePattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59213f4f_7346_49e5_b120_80555987a148);
@@ -14610,6 +13046,7 @@ pub struct IUIAutomationRangeValuePattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationRegistrar(::windows_core::IUnknown);
 impl IUIAutomationRegistrar {
     pub unsafe fn RegisterProperty(&self, property: *const UIAutomationPropertyInfo) -> ::windows_core::Result<i32> {
@@ -14627,24 +13064,8 @@ impl IUIAutomationRegistrar {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationRegistrar, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationRegistrar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationRegistrar {}
-impl ::core::fmt::Debug for IUIAutomationRegistrar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationRegistrar").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationRegistrar {
     type Vtable = IUIAutomationRegistrar_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationRegistrar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationRegistrar {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8609c4ec_4a1a_4d88_a357_5a66e060e1cf);
@@ -14662,6 +13083,7 @@ pub struct IUIAutomationRegistrar_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationScrollItemPattern(::windows_core::IUnknown);
 impl IUIAutomationScrollItemPattern {
     pub unsafe fn ScrollIntoView(&self) -> ::windows_core::Result<()> {
@@ -14669,24 +13091,8 @@ impl IUIAutomationScrollItemPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationScrollItemPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationScrollItemPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationScrollItemPattern {}
-impl ::core::fmt::Debug for IUIAutomationScrollItemPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationScrollItemPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationScrollItemPattern {
     type Vtable = IUIAutomationScrollItemPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationScrollItemPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationScrollItemPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb488300f_d015_4f19_9c29_bb595e3645ef);
@@ -14699,6 +13105,7 @@ pub struct IUIAutomationScrollItemPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationScrollPattern(::windows_core::IUnknown);
 impl IUIAutomationScrollPattern {
     pub unsafe fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows_core::Result<()> {
@@ -14765,24 +13172,8 @@ impl IUIAutomationScrollPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationScrollPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationScrollPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationScrollPattern {}
-impl ::core::fmt::Debug for IUIAutomationScrollPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationScrollPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationScrollPattern {
     type Vtable = IUIAutomationScrollPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationScrollPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationScrollPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88f4d42a_e881_459d_a77c_73bbbb7e02dc);
@@ -14820,6 +13211,7 @@ pub struct IUIAutomationScrollPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationSelectionItemPattern(::windows_core::IUnknown);
 impl IUIAutomationSelectionItemPattern {
     pub unsafe fn Select(&self) -> ::windows_core::Result<()> {
@@ -14853,24 +13245,8 @@ impl IUIAutomationSelectionItemPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationSelectionItemPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationSelectionItemPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationSelectionItemPattern {}
-impl ::core::fmt::Debug for IUIAutomationSelectionItemPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationSelectionItemPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationSelectionItemPattern {
     type Vtable = IUIAutomationSelectionItemPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationSelectionItemPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationSelectionItemPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8efa66a_0fda_421a_9194_38021f3578ea);
@@ -14895,6 +13271,7 @@ pub struct IUIAutomationSelectionItemPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationSelectionPattern(::windows_core::IUnknown);
 impl IUIAutomationSelectionPattern {
     pub unsafe fn GetCurrentSelection(&self) -> ::windows_core::Result<IUIAutomationElementArray> {
@@ -14931,24 +13308,8 @@ impl IUIAutomationSelectionPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationSelectionPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationSelectionPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationSelectionPattern {}
-impl ::core::fmt::Debug for IUIAutomationSelectionPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationSelectionPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationSelectionPattern {
     type Vtable = IUIAutomationSelectionPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationSelectionPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationSelectionPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ed5202e_b2ac_47a6_b638_4b0bf140d78e);
@@ -14978,6 +13339,7 @@ pub struct IUIAutomationSelectionPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationSelectionPattern2(::windows_core::IUnknown);
 impl IUIAutomationSelectionPattern2 {
     pub unsafe fn GetCurrentSelection(&self) -> ::windows_core::Result<IUIAutomationElementArray> {
@@ -15046,24 +13408,8 @@ impl IUIAutomationSelectionPattern2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationSelectionPattern2, ::windows_core::IUnknown, IUIAutomationSelectionPattern);
-impl ::core::cmp::PartialEq for IUIAutomationSelectionPattern2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationSelectionPattern2 {}
-impl ::core::fmt::Debug for IUIAutomationSelectionPattern2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationSelectionPattern2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationSelectionPattern2 {
     type Vtable = IUIAutomationSelectionPattern2_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationSelectionPattern2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationSelectionPattern2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0532bfae_c011_4e32_a343_6d642d798555);
@@ -15083,6 +13429,7 @@ pub struct IUIAutomationSelectionPattern2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationSpreadsheetItemPattern(::windows_core::IUnknown);
 impl IUIAutomationSpreadsheetItemPattern {
     pub unsafe fn CurrentFormula(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -15115,24 +13462,8 @@ impl IUIAutomationSpreadsheetItemPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationSpreadsheetItemPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationSpreadsheetItemPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationSpreadsheetItemPattern {}
-impl ::core::fmt::Debug for IUIAutomationSpreadsheetItemPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationSpreadsheetItemPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationSpreadsheetItemPattern {
     type Vtable = IUIAutomationSpreadsheetItemPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationSpreadsheetItemPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationSpreadsheetItemPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d4fb86c_8d34_40e1_8e83_62c15204e335);
@@ -15156,6 +13487,7 @@ pub struct IUIAutomationSpreadsheetItemPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationSpreadsheetPattern(::windows_core::IUnknown);
 impl IUIAutomationSpreadsheetPattern {
     pub unsafe fn GetItemByName<P0>(&self, name: P0) -> ::windows_core::Result<IUIAutomationElement>
@@ -15167,24 +13499,8 @@ impl IUIAutomationSpreadsheetPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationSpreadsheetPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationSpreadsheetPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationSpreadsheetPattern {}
-impl ::core::fmt::Debug for IUIAutomationSpreadsheetPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationSpreadsheetPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationSpreadsheetPattern {
     type Vtable = IUIAutomationSpreadsheetPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationSpreadsheetPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationSpreadsheetPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7517a7c8_faae_4de9_9f08_29b91e8595c1);
@@ -15197,6 +13513,7 @@ pub struct IUIAutomationSpreadsheetPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationStructureChangedEventHandler(::windows_core::IUnknown);
 impl IUIAutomationStructureChangedEventHandler {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -15209,24 +13526,8 @@ impl IUIAutomationStructureChangedEventHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationStructureChangedEventHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationStructureChangedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationStructureChangedEventHandler {}
-impl ::core::fmt::Debug for IUIAutomationStructureChangedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationStructureChangedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationStructureChangedEventHandler {
     type Vtable = IUIAutomationStructureChangedEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationStructureChangedEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationStructureChangedEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe81d1b4e_11c5_42f8_9754_e7036c79f054);
@@ -15242,6 +13543,7 @@ pub struct IUIAutomationStructureChangedEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationStylesPattern(::windows_core::IUnknown);
 impl IUIAutomationStylesPattern {
     pub unsafe fn CurrentStyleId(&self) -> ::windows_core::Result<UIA_STYLE_ID> {
@@ -15308,24 +13610,8 @@ impl IUIAutomationStylesPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationStylesPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationStylesPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationStylesPattern {}
-impl ::core::fmt::Debug for IUIAutomationStylesPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationStylesPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationStylesPattern {
     type Vtable = IUIAutomationStylesPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationStylesPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationStylesPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85b5f0a2_bd79_484a_ad2b_388c9838d5fb);
@@ -15353,6 +13639,7 @@ pub struct IUIAutomationStylesPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationSynchronizedInputPattern(::windows_core::IUnknown);
 impl IUIAutomationSynchronizedInputPattern {
     pub unsafe fn StartListening(&self, inputtype: SynchronizedInputType) -> ::windows_core::Result<()> {
@@ -15363,24 +13650,8 @@ impl IUIAutomationSynchronizedInputPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationSynchronizedInputPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationSynchronizedInputPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationSynchronizedInputPattern {}
-impl ::core::fmt::Debug for IUIAutomationSynchronizedInputPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationSynchronizedInputPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationSynchronizedInputPattern {
     type Vtable = IUIAutomationSynchronizedInputPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationSynchronizedInputPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationSynchronizedInputPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2233be0b_afb7_448b_9fda_3b378aa5eae1);
@@ -15394,6 +13665,7 @@ pub struct IUIAutomationSynchronizedInputPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTableItemPattern(::windows_core::IUnknown);
 impl IUIAutomationTableItemPattern {
     pub unsafe fn GetCurrentRowHeaderItems(&self) -> ::windows_core::Result<IUIAutomationElementArray> {
@@ -15414,24 +13686,8 @@ impl IUIAutomationTableItemPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationTableItemPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationTableItemPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationTableItemPattern {}
-impl ::core::fmt::Debug for IUIAutomationTableItemPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationTableItemPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationTableItemPattern {
     type Vtable = IUIAutomationTableItemPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationTableItemPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationTableItemPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b964eb3_ef2e_4464_9c79_61d61737a27e);
@@ -15447,6 +13703,7 @@ pub struct IUIAutomationTableItemPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTablePattern(::windows_core::IUnknown);
 impl IUIAutomationTablePattern {
     pub unsafe fn GetCurrentRowHeaders(&self) -> ::windows_core::Result<IUIAutomationElementArray> {
@@ -15475,24 +13732,8 @@ impl IUIAutomationTablePattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationTablePattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationTablePattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationTablePattern {}
-impl ::core::fmt::Debug for IUIAutomationTablePattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationTablePattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationTablePattern {
     type Vtable = IUIAutomationTablePattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationTablePattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationTablePattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x620e691c_ea96_4710_a850_754b24ce2417);
@@ -15510,6 +13751,7 @@ pub struct IUIAutomationTablePattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextChildPattern(::windows_core::IUnknown);
 impl IUIAutomationTextChildPattern {
     pub unsafe fn TextContainer(&self) -> ::windows_core::Result<IUIAutomationElement> {
@@ -15522,24 +13764,8 @@ impl IUIAutomationTextChildPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationTextChildPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationTextChildPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationTextChildPattern {}
-impl ::core::fmt::Debug for IUIAutomationTextChildPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationTextChildPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationTextChildPattern {
     type Vtable = IUIAutomationTextChildPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationTextChildPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationTextChildPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6552b038_ae05_40c8_abfd_aa08352aab86);
@@ -15553,6 +13779,7 @@ pub struct IUIAutomationTextChildPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextEditPattern(::windows_core::IUnknown);
 impl IUIAutomationTextEditPattern {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -15594,24 +13821,8 @@ impl IUIAutomationTextEditPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationTextEditPattern, ::windows_core::IUnknown, IUIAutomationTextPattern);
-impl ::core::cmp::PartialEq for IUIAutomationTextEditPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationTextEditPattern {}
-impl ::core::fmt::Debug for IUIAutomationTextEditPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationTextEditPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationTextEditPattern {
     type Vtable = IUIAutomationTextEditPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationTextEditPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationTextEditPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17e21576_996c_4870_99d9_bff323380c06);
@@ -15625,6 +13836,7 @@ pub struct IUIAutomationTextEditPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextEditTextChangedEventHandler(::windows_core::IUnknown);
 impl IUIAutomationTextEditTextChangedEventHandler {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -15637,24 +13849,8 @@ impl IUIAutomationTextEditTextChangedEventHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationTextEditTextChangedEventHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationTextEditTextChangedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationTextEditTextChangedEventHandler {}
-impl ::core::fmt::Debug for IUIAutomationTextEditTextChangedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationTextEditTextChangedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationTextEditTextChangedEventHandler {
     type Vtable = IUIAutomationTextEditTextChangedEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationTextEditTextChangedEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationTextEditTextChangedEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92faa680_e704_4156_931a_e32d5bb38f3f);
@@ -15670,6 +13866,7 @@ pub struct IUIAutomationTextEditTextChangedEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextPattern(::windows_core::IUnknown);
 impl IUIAutomationTextPattern {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -15703,24 +13900,8 @@ impl IUIAutomationTextPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationTextPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationTextPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationTextPattern {}
-impl ::core::fmt::Debug for IUIAutomationTextPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationTextPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationTextPattern {
     type Vtable = IUIAutomationTextPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationTextPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationTextPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x32eba289_3583_42c9_9c59_3b6d9a1e9b6a);
@@ -15741,6 +13922,7 @@ pub struct IUIAutomationTextPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextPattern2(::windows_core::IUnknown);
 impl IUIAutomationTextPattern2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -15786,24 +13968,8 @@ impl IUIAutomationTextPattern2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationTextPattern2, ::windows_core::IUnknown, IUIAutomationTextPattern);
-impl ::core::cmp::PartialEq for IUIAutomationTextPattern2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationTextPattern2 {}
-impl ::core::fmt::Debug for IUIAutomationTextPattern2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationTextPattern2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationTextPattern2 {
     type Vtable = IUIAutomationTextPattern2_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationTextPattern2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationTextPattern2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x506a921a_fcc9_409f_b23b_37eb74106872);
@@ -15820,6 +13986,7 @@ pub struct IUIAutomationTextPattern2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextRange(::windows_core::IUnknown);
 impl IUIAutomationTextRange {
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IUIAutomationTextRange> {
@@ -15922,24 +14089,8 @@ impl IUIAutomationTextRange {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationTextRange, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationTextRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationTextRange {}
-impl ::core::fmt::Debug for IUIAutomationTextRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationTextRange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationTextRange {
     type Vtable = IUIAutomationTextRange_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationTextRange {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationTextRange {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa543cc6a_f4ae_494b_8239_c814481187a8);
@@ -15987,6 +14138,7 @@ pub struct IUIAutomationTextRange_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextRange2(::windows_core::IUnknown);
 impl IUIAutomationTextRange2 {
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IUIAutomationTextRange> {
@@ -16092,24 +14244,8 @@ impl IUIAutomationTextRange2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationTextRange2, ::windows_core::IUnknown, IUIAutomationTextRange);
-impl ::core::cmp::PartialEq for IUIAutomationTextRange2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationTextRange2 {}
-impl ::core::fmt::Debug for IUIAutomationTextRange2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationTextRange2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationTextRange2 {
     type Vtable = IUIAutomationTextRange2_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationTextRange2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationTextRange2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb9b40e0_5e04_46bd_9be0_4b601b9afad4);
@@ -16122,6 +14258,7 @@ pub struct IUIAutomationTextRange2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextRange3(::windows_core::IUnknown);
 impl IUIAutomationTextRange3 {
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IUIAutomationTextRange> {
@@ -16247,24 +14384,8 @@ impl IUIAutomationTextRange3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationTextRange3, ::windows_core::IUnknown, IUIAutomationTextRange, IUIAutomationTextRange2);
-impl ::core::cmp::PartialEq for IUIAutomationTextRange3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationTextRange3 {}
-impl ::core::fmt::Debug for IUIAutomationTextRange3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationTextRange3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationTextRange3 {
     type Vtable = IUIAutomationTextRange3_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationTextRange3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationTextRange3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a315d69_5512_4c2e_85f0_53fce6dd4bc2);
@@ -16282,6 +14403,7 @@ pub struct IUIAutomationTextRange3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextRangeArray(::windows_core::IUnknown);
 impl IUIAutomationTextRangeArray {
     pub unsafe fn Length(&self) -> ::windows_core::Result<i32> {
@@ -16294,24 +14416,8 @@ impl IUIAutomationTextRangeArray {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationTextRangeArray, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationTextRangeArray {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationTextRangeArray {}
-impl ::core::fmt::Debug for IUIAutomationTextRangeArray {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationTextRangeArray").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationTextRangeArray {
     type Vtable = IUIAutomationTextRangeArray_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationTextRangeArray {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationTextRangeArray {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xce4ae76a_e717_4c98_81ea_47371d028eb6);
@@ -16325,6 +14431,7 @@ pub struct IUIAutomationTextRangeArray_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTogglePattern(::windows_core::IUnknown);
 impl IUIAutomationTogglePattern {
     pub unsafe fn Toggle(&self) -> ::windows_core::Result<()> {
@@ -16340,24 +14447,8 @@ impl IUIAutomationTogglePattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationTogglePattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationTogglePattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationTogglePattern {}
-impl ::core::fmt::Debug for IUIAutomationTogglePattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationTogglePattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationTogglePattern {
     type Vtable = IUIAutomationTogglePattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationTogglePattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationTogglePattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94cf8058_9b8d_4ab9_8bfd_4cd0a33c8c70);
@@ -16372,6 +14463,7 @@ pub struct IUIAutomationTogglePattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTransformPattern(::windows_core::IUnknown);
 impl IUIAutomationTransformPattern {
     pub unsafe fn Move(&self, x: f64, y: f64) -> ::windows_core::Result<()> {
@@ -16421,24 +14513,8 @@ impl IUIAutomationTransformPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationTransformPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationTransformPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationTransformPattern {}
-impl ::core::fmt::Debug for IUIAutomationTransformPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationTransformPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationTransformPattern {
     type Vtable = IUIAutomationTransformPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationTransformPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationTransformPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9b55844_a55d_4ef0_926d_569c16ff89bb);
@@ -16477,6 +14553,7 @@ pub struct IUIAutomationTransformPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTransformPattern2(::windows_core::IUnknown);
 impl IUIAutomationTransformPattern2 {
     pub unsafe fn Move(&self, x: f64, y: f64) -> ::windows_core::Result<()> {
@@ -16568,24 +14645,8 @@ impl IUIAutomationTransformPattern2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationTransformPattern2, ::windows_core::IUnknown, IUIAutomationTransformPattern);
-impl ::core::cmp::PartialEq for IUIAutomationTransformPattern2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationTransformPattern2 {}
-impl ::core::fmt::Debug for IUIAutomationTransformPattern2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationTransformPattern2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationTransformPattern2 {
     type Vtable = IUIAutomationTransformPattern2_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationTransformPattern2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationTransformPattern2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d74d017_6ecb_4381_b38b_3c17a48ff1c2);
@@ -16613,6 +14674,7 @@ pub struct IUIAutomationTransformPattern2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTreeWalker(::windows_core::IUnknown);
 impl IUIAutomationTreeWalker {
     pub unsafe fn GetParentElement<P0>(&self, element: P0) -> ::windows_core::Result<IUIAutomationElement>
@@ -16711,24 +14773,8 @@ impl IUIAutomationTreeWalker {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationTreeWalker, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationTreeWalker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationTreeWalker {}
-impl ::core::fmt::Debug for IUIAutomationTreeWalker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationTreeWalker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationTreeWalker {
     type Vtable = IUIAutomationTreeWalker_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationTreeWalker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationTreeWalker {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4042c624_389c_4afc_a630_9df854a541fc);
@@ -16753,6 +14799,7 @@ pub struct IUIAutomationTreeWalker_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationValuePattern(::windows_core::IUnknown);
 impl IUIAutomationValuePattern {
     pub unsafe fn SetValue<P0>(&self, val: P0) -> ::windows_core::Result<()>
@@ -16783,24 +14830,8 @@ impl IUIAutomationValuePattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationValuePattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationValuePattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationValuePattern {}
-impl ::core::fmt::Debug for IUIAutomationValuePattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationValuePattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationValuePattern {
     type Vtable = IUIAutomationValuePattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationValuePattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationValuePattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa94cd8b1_0844_4cd6_9d2d_640537ab39e9);
@@ -16823,6 +14854,7 @@ pub struct IUIAutomationValuePattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationVirtualizedItemPattern(::windows_core::IUnknown);
 impl IUIAutomationVirtualizedItemPattern {
     pub unsafe fn Realize(&self) -> ::windows_core::Result<()> {
@@ -16830,24 +14862,8 @@ impl IUIAutomationVirtualizedItemPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationVirtualizedItemPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationVirtualizedItemPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationVirtualizedItemPattern {}
-impl ::core::fmt::Debug for IUIAutomationVirtualizedItemPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationVirtualizedItemPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationVirtualizedItemPattern {
     type Vtable = IUIAutomationVirtualizedItemPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationVirtualizedItemPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationVirtualizedItemPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ba3d7a6_04cf_4f11_8793_a8d1cde9969f);
@@ -16860,6 +14876,7 @@ pub struct IUIAutomationVirtualizedItemPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationWindowPattern(::windows_core::IUnknown);
 impl IUIAutomationWindowPattern {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
@@ -16940,24 +14957,8 @@ impl IUIAutomationWindowPattern {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUIAutomationWindowPattern, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUIAutomationWindowPattern {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAutomationWindowPattern {}
-impl ::core::fmt::Debug for IUIAutomationWindowPattern {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAutomationWindowPattern").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUIAutomationWindowPattern {
     type Vtable = IUIAutomationWindowPattern_Vtbl;
-}
-impl ::core::clone::Clone for IUIAutomationWindowPattern {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUIAutomationWindowPattern {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0faef453_9208_43ef_bbb2_3b485177864f);
@@ -17011,6 +15012,7 @@ pub struct IUIAutomationWindowPattern_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IValueProvider(::windows_core::IUnknown);
 impl IValueProvider {
     pub unsafe fn SetValue<P0>(&self, val: P0) -> ::windows_core::Result<()>
@@ -17031,24 +15033,8 @@ impl IValueProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IValueProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IValueProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IValueProvider {}
-impl ::core::fmt::Debug for IValueProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IValueProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IValueProvider {
     type Vtable = IValueProvider_Vtbl;
-}
-impl ::core::clone::Clone for IValueProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IValueProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7935180_6fb3_4201_b174_7df73adbf64a);
@@ -17066,6 +15052,7 @@ pub struct IValueProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVirtualizedItemProvider(::windows_core::IUnknown);
 impl IVirtualizedItemProvider {
     pub unsafe fn Realize(&self) -> ::windows_core::Result<()> {
@@ -17073,24 +15060,8 @@ impl IVirtualizedItemProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVirtualizedItemProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IVirtualizedItemProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVirtualizedItemProvider {}
-impl ::core::fmt::Debug for IVirtualizedItemProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVirtualizedItemProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVirtualizedItemProvider {
     type Vtable = IVirtualizedItemProvider_Vtbl;
-}
-impl ::core::clone::Clone for IVirtualizedItemProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVirtualizedItemProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb98b665_2d35_4fac_ad35_f3c60d0c0b8b);
@@ -17103,6 +15074,7 @@ pub struct IVirtualizedItemProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowProvider(::windows_core::IUnknown);
 impl IWindowProvider {
     pub unsafe fn SetVisualState(&self, state: WindowVisualState) -> ::windows_core::Result<()> {
@@ -17151,24 +15123,8 @@ impl IWindowProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWindowProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWindowProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWindowProvider {}
-impl ::core::fmt::Debug for IWindowProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWindowProvider {
     type Vtable = IWindowProvider_Vtbl;
-}
-impl ::core::clone::Clone for IWindowProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWindowProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x987df77b_db06_4d77_8f8a_86a9c3bb90b9);

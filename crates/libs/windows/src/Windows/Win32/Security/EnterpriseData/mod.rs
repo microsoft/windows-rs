@@ -85,12 +85,12 @@ pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SrpIsTokenService<P0>(tokenhandle: P0, istokenservice: *mut u8) -> ::windows_core::Result<()>
+pub unsafe fn SrpIsTokenService<P0>(tokenhandle: P0, istokenservice: *mut u8) -> super::super::Foundation::NTSTATUS
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("srpapi.dll" "system" fn SrpIsTokenService(tokenhandle : super::super::Foundation:: HANDLE, istokenservice : *mut u8) -> super::super::Foundation:: NTSTATUS);
-    SrpIsTokenService(tokenhandle.into_param().abi(), istokenservice).ok()
+    SrpIsTokenService(tokenhandle.into_param().abi(), istokenservice)
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -114,6 +114,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectionPolicyManagerInterop(::windows_core::IUnknown);
 impl IProtectionPolicyManagerInterop {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -138,24 +139,8 @@ impl IProtectionPolicyManagerInterop {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IProtectionPolicyManagerInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IProtectionPolicyManagerInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProtectionPolicyManagerInterop {}
-impl ::core::fmt::Debug for IProtectionPolicyManagerInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProtectionPolicyManagerInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IProtectionPolicyManagerInterop {
     type Vtable = IProtectionPolicyManagerInterop_Vtbl;
-}
-impl ::core::clone::Clone for IProtectionPolicyManagerInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectionPolicyManagerInterop {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4652651d_c1fe_4ba1_9f0a_c0f56596f721);
@@ -175,6 +160,7 @@ pub struct IProtectionPolicyManagerInterop_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectionPolicyManagerInterop2(::windows_core::IUnknown);
 impl IProtectionPolicyManagerInterop2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -233,24 +219,8 @@ impl IProtectionPolicyManagerInterop2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IProtectionPolicyManagerInterop2, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IProtectionPolicyManagerInterop2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProtectionPolicyManagerInterop2 {}
-impl ::core::fmt::Debug for IProtectionPolicyManagerInterop2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProtectionPolicyManagerInterop2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IProtectionPolicyManagerInterop2 {
     type Vtable = IProtectionPolicyManagerInterop2_Vtbl;
-}
-impl ::core::clone::Clone for IProtectionPolicyManagerInterop2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectionPolicyManagerInterop2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x157cfbe4_a78d_4156_b384_61fdac41e686);
@@ -282,6 +252,7 @@ pub struct IProtectionPolicyManagerInterop2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtectionPolicyManagerInterop3(::windows_core::IUnknown);
 impl IProtectionPolicyManagerInterop3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -356,24 +327,8 @@ impl IProtectionPolicyManagerInterop3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IProtectionPolicyManagerInterop3, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IProtectionPolicyManagerInterop3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProtectionPolicyManagerInterop3 {}
-impl ::core::fmt::Debug for IProtectionPolicyManagerInterop3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProtectionPolicyManagerInterop3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IProtectionPolicyManagerInterop3 {
     type Vtable = IProtectionPolicyManagerInterop3_Vtbl;
-}
-impl ::core::clone::Clone for IProtectionPolicyManagerInterop3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtectionPolicyManagerInterop3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc1c03933_b398_4d93_b0fd_2972adf802c2);

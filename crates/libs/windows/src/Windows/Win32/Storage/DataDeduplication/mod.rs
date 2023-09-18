@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDedupBackupSupport(::windows_core::IUnknown);
 impl IDedupBackupSupport {
     pub unsafe fn RestoreFiles<P0>(&self, numberoffiles: u32, filefullpaths: *const ::windows_core::BSTR, store: P0, flags: u32, fileresults: *mut ::windows_core::HRESULT) -> ::windows_core::Result<()>
@@ -10,24 +11,8 @@ impl IDedupBackupSupport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDedupBackupSupport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDedupBackupSupport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDedupBackupSupport {}
-impl ::core::fmt::Debug for IDedupBackupSupport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDedupBackupSupport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDedupBackupSupport {
     type Vtable = IDedupBackupSupport_Vtbl;
-}
-impl ::core::clone::Clone for IDedupBackupSupport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDedupBackupSupport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc719d963_2b2d_415e_acf7_7eb7ca596ff4);
@@ -40,6 +25,7 @@ pub struct IDedupBackupSupport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDedupChunkLibrary(::windows_core::IUnknown);
 impl IDedupChunkLibrary {
     pub unsafe fn InitializeForPushBuffers(&self) -> ::windows_core::Result<()> {
@@ -59,24 +45,8 @@ impl IDedupChunkLibrary {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDedupChunkLibrary, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDedupChunkLibrary {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDedupChunkLibrary {}
-impl ::core::fmt::Debug for IDedupChunkLibrary {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDedupChunkLibrary").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDedupChunkLibrary {
     type Vtable = IDedupChunkLibrary_Vtbl;
-}
-impl ::core::clone::Clone for IDedupChunkLibrary {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDedupChunkLibrary {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb5144d7_2720_4dcc_8777_78597416ec23);
@@ -95,6 +65,7 @@ pub struct IDedupChunkLibrary_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDedupDataPort(::windows_core::IUnknown);
 impl IDedupDataPort {
     pub unsafe fn GetStatus(&self, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> ::windows_core::Result<()> {
@@ -153,24 +124,8 @@ impl IDedupDataPort {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDedupDataPort, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDedupDataPort {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDedupDataPort {}
-impl ::core::fmt::Debug for IDedupDataPort {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDedupDataPort").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDedupDataPort {
     type Vtable = IDedupDataPort_Vtbl;
-}
-impl ::core::clone::Clone for IDedupDataPort {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDedupDataPort {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7963d734_40a9_4ea3_bbf6_5a89d26f7ae8);
@@ -200,6 +155,7 @@ pub struct IDedupDataPort_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDedupDataPortManager(::windows_core::IUnknown);
 impl IDedupDataPortManager {
     pub unsafe fn GetConfiguration(&self, pminchunksize: *mut u32, pmaxchunksize: *mut u32, pchunkingalgorithm: *mut DedupChunkingAlgorithm, phashingalgorithm: *mut DedupHashingAlgorithm, pcompressionalgorithm: *mut DedupCompressionAlgorithm) -> ::windows_core::Result<()> {
@@ -221,24 +177,8 @@ impl IDedupDataPortManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDedupDataPortManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDedupDataPortManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDedupDataPortManager {}
-impl ::core::fmt::Debug for IDedupDataPortManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDedupDataPortManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDedupDataPortManager {
     type Vtable = IDedupDataPortManager_Vtbl;
-}
-impl ::core::clone::Clone for IDedupDataPortManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDedupDataPortManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44677452_b90a_445e_8192_cdcfe81511fb);
@@ -253,6 +193,7 @@ pub struct IDedupDataPortManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDedupIterateChunksHash32(::windows_core::IUnknown);
 impl IDedupIterateChunksHash32 {
     pub unsafe fn PushBuffer(&self, pbuffer: &[u8]) -> ::windows_core::Result<()> {
@@ -269,24 +210,8 @@ impl IDedupIterateChunksHash32 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDedupIterateChunksHash32, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDedupIterateChunksHash32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDedupIterateChunksHash32 {}
-impl ::core::fmt::Debug for IDedupIterateChunksHash32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDedupIterateChunksHash32").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDedupIterateChunksHash32 {
     type Vtable = IDedupIterateChunksHash32_Vtbl;
-}
-impl ::core::clone::Clone for IDedupIterateChunksHash32 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDedupIterateChunksHash32 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x90b584d3_72aa_400f_9767_cad866a5a2d8);
@@ -302,6 +227,7 @@ pub struct IDedupIterateChunksHash32_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDedupReadFileCallback(::windows_core::IUnknown);
 impl IDedupReadFileCallback {
     pub unsafe fn ReadBackupFile<P0>(&self, filefullpath: P0, fileoffset: i64, filebuffer: &mut [u8], returnedsize: *mut u32, flags: u32) -> ::windows_core::Result<()>
@@ -321,24 +247,8 @@ impl IDedupReadFileCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDedupReadFileCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDedupReadFileCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDedupReadFileCallback {}
-impl ::core::fmt::Debug for IDedupReadFileCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDedupReadFileCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDedupReadFileCallback {
     type Vtable = IDedupReadFileCallback_Vtbl;
-}
-impl ::core::clone::Clone for IDedupReadFileCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDedupReadFileCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7bacc67a_2f1d_42d0_897e_6ff62dd533bb);

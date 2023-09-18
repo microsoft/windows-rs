@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialSurfaceInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpatialSurfaceInfo {
     type Vtable = ISpatialSurfaceInfo_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialSurfaceInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialSurfaceInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf8e9ebe7_39b7_3962_bb03_57f56e1fb0a1);
@@ -36,14 +32,10 @@ pub struct ISpatialSurfaceInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialSurfaceMesh(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpatialSurfaceMesh {
     type Vtable = ISpatialSurfaceMesh_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialSurfaceMesh {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialSurfaceMesh {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x108f57d9_df0d_3950_a0fd_f972c77c27b4);
@@ -64,14 +56,10 @@ pub struct ISpatialSurfaceMesh_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialSurfaceMeshBuffer(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpatialSurfaceMeshBuffer {
     type Vtable = ISpatialSurfaceMeshBuffer_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialSurfaceMeshBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialSurfaceMeshBuffer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93cf59e0_871f_33f8_98b2_03d101458f6f);
@@ -93,14 +81,10 @@ pub struct ISpatialSurfaceMeshBuffer_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialSurfaceMeshOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpatialSurfaceMeshOptions {
     type Vtable = ISpatialSurfaceMeshOptions_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialSurfaceMeshOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialSurfaceMeshOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2759f89_3572_3d2d_a10d_5fee9394aa37);
@@ -138,14 +122,10 @@ pub struct ISpatialSurfaceMeshOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialSurfaceMeshOptionsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpatialSurfaceMeshOptionsStatics {
     type Vtable = ISpatialSurfaceMeshOptionsStatics_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialSurfaceMeshOptionsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialSurfaceMeshOptionsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b340abf_9781_4505_8935_013575caae5e);
@@ -169,14 +149,10 @@ pub struct ISpatialSurfaceMeshOptionsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialSurfaceObserver(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpatialSurfaceObserver {
     type Vtable = ISpatialSurfaceObserver_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialSurfaceObserver {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialSurfaceObserver {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10b69819_ddca_3483_ac3a_748fe8c86df5);
@@ -205,14 +181,10 @@ pub struct ISpatialSurfaceObserver_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialSurfaceObserverStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpatialSurfaceObserverStatics {
     type Vtable = ISpatialSurfaceObserverStatics_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialSurfaceObserverStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialSurfaceObserverStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x165951ed_2108_4168_9175_87e027bc9285);
@@ -228,14 +200,10 @@ pub struct ISpatialSurfaceObserverStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialSurfaceObserverStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpatialSurfaceObserverStatics2 {
     type Vtable = ISpatialSurfaceObserverStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialSurfaceObserverStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialSurfaceObserverStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f534261_c55d_4e6b_a895_a19de69a42e3);
@@ -248,6 +216,7 @@ pub struct ISpatialSurfaceObserverStatics2_Vtbl {
 }
 #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialSurfaceInfo(::windows_core::IUnknown);
 impl SpatialSurfaceInfo {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -300,24 +269,8 @@ impl SpatialSurfaceInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for SpatialSurfaceInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialSurfaceInfo {}
-impl ::core::fmt::Debug for SpatialSurfaceInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialSurfaceInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SpatialSurfaceInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceInfo;{f8e9ebe7-39b7-3962-bb03-57f56e1fb0a1})");
-}
-impl ::core::clone::Clone for SpatialSurfaceInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SpatialSurfaceInfo {
     type Vtable = ISpatialSurfaceInfo_Vtbl;
@@ -333,6 +286,7 @@ unsafe impl ::core::marker::Send for SpatialSurfaceInfo {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceInfo {}
 #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialSurfaceMesh(::windows_core::IUnknown);
 impl SpatialSurfaceMesh {
     pub fn SurfaceInfo(&self) -> ::windows_core::Result<SpatialSurfaceInfo> {
@@ -380,24 +334,8 @@ impl SpatialSurfaceMesh {
         }
     }
 }
-impl ::core::cmp::PartialEq for SpatialSurfaceMesh {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialSurfaceMesh {}
-impl ::core::fmt::Debug for SpatialSurfaceMesh {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialSurfaceMesh").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SpatialSurfaceMesh {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceMesh;{108f57d9-df0d-3950-a0fd-f972c77c27b4})");
-}
-impl ::core::clone::Clone for SpatialSurfaceMesh {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SpatialSurfaceMesh {
     type Vtable = ISpatialSurfaceMesh_Vtbl;
@@ -413,6 +351,7 @@ unsafe impl ::core::marker::Send for SpatialSurfaceMesh {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceMesh {}
 #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialSurfaceMeshBuffer(::windows_core::IUnknown);
 impl SpatialSurfaceMeshBuffer {
     #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
@@ -448,24 +387,8 @@ impl SpatialSurfaceMeshBuffer {
         }
     }
 }
-impl ::core::cmp::PartialEq for SpatialSurfaceMeshBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialSurfaceMeshBuffer {}
-impl ::core::fmt::Debug for SpatialSurfaceMeshBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialSurfaceMeshBuffer").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SpatialSurfaceMeshBuffer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshBuffer;{93cf59e0-871f-33f8-98b2-03d101458f6f})");
-}
-impl ::core::clone::Clone for SpatialSurfaceMeshBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SpatialSurfaceMeshBuffer {
     type Vtable = ISpatialSurfaceMeshBuffer_Vtbl;
@@ -481,6 +404,7 @@ unsafe impl ::core::marker::Send for SpatialSurfaceMeshBuffer {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceMeshBuffer {}
 #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialSurfaceMeshOptions(::windows_core::IUnknown);
 impl SpatialSurfaceMeshOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -576,24 +500,8 @@ impl SpatialSurfaceMeshOptions {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for SpatialSurfaceMeshOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialSurfaceMeshOptions {}
-impl ::core::fmt::Debug for SpatialSurfaceMeshOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialSurfaceMeshOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SpatialSurfaceMeshOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshOptions;{d2759f89-3572-3d2d-a10d-5fee9394aa37})");
-}
-impl ::core::clone::Clone for SpatialSurfaceMeshOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SpatialSurfaceMeshOptions {
     type Vtable = ISpatialSurfaceMeshOptions_Vtbl;
@@ -609,6 +517,7 @@ unsafe impl ::core::marker::Send for SpatialSurfaceMeshOptions {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceMeshOptions {}
 #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialSurfaceObserver(::windows_core::IUnknown);
 impl SpatialSurfaceObserver {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -686,24 +595,8 @@ impl SpatialSurfaceObserver {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for SpatialSurfaceObserver {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialSurfaceObserver {}
-impl ::core::fmt::Debug for SpatialSurfaceObserver {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialSurfaceObserver").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SpatialSurfaceObserver {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceObserver;{10b69819-ddca-3483-ac3a-748fe8c86df5})");
-}
-impl ::core::clone::Clone for SpatialSurfaceObserver {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SpatialSurfaceObserver {
     type Vtable = ISpatialSurfaceObserver_Vtbl;

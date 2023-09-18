@@ -225,14 +225,6 @@ fn gen_link(writer: &Writer, namespace: &str, signature: &Signature, cfg: &Cfg) 
                 pub fn #ident(#(#params,)* #vararg) #return_type;
             }
         }
-    } else if let Some(library) = method_def_static_lib(writer.reader, signature.def) {
-        quote! {
-            #[link(name = #library, kind = "static")]
-            extern #abi {
-                #link_name
-                pub fn #ident(#(#params,)* #vararg) #return_type;
-            }
-        }
     } else {
         let symbol = if symbol != name { format!(" \"{symbol}\"") } else { String::new() };
 
@@ -272,4 +264,17 @@ fn handle_last_error(writer: &Writer, def: MethodDef, signature: &Signature) -> 
         }
     }
     false
+}
+
+fn method_def_extern_abi(reader: &Reader, def: MethodDef) -> &'static str {
+    let impl_map = reader.method_def_impl_map(def).expect("ImplMap not found");
+    let flags = reader.impl_map_flags(impl_map);
+
+    if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
+        "system"
+    } else if flags.contains(PInvokeAttributes::CallConvCdecl) {
+        "cdecl"
+    } else {
+        unimplemented!()
+    }
 }

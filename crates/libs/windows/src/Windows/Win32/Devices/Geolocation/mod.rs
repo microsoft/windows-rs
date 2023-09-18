@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICivicAddressReport(::windows_core::IUnknown);
 impl ICivicAddressReport {
     pub unsafe fn GetSensorID(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -48,24 +49,8 @@ impl ICivicAddressReport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICivicAddressReport, ::windows_core::IUnknown, ILocationReport);
-impl ::core::cmp::PartialEq for ICivicAddressReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICivicAddressReport {}
-impl ::core::fmt::Debug for ICivicAddressReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICivicAddressReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICivicAddressReport {
     type Vtable = ICivicAddressReport_Vtbl;
-}
-impl ::core::clone::Clone for ICivicAddressReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICivicAddressReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0b19f70_4adf_445d_87f2_cad8fd711792);
@@ -85,6 +70,7 @@ pub struct ICivicAddressReport_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICivicAddressReportFactory(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICivicAddressReportFactory {
@@ -125,28 +111,8 @@ impl ICivicAddressReportFactory {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICivicAddressReportFactory, ::windows_core::IUnknown, super::super::System::Com::IDispatch, ILocationReportFactory);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICivicAddressReportFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICivicAddressReportFactory {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICivicAddressReportFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICivicAddressReportFactory").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICivicAddressReportFactory {
     type Vtable = ICivicAddressReportFactory_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICivicAddressReportFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICivicAddressReportFactory {
@@ -164,6 +130,7 @@ pub struct ICivicAddressReportFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDefaultLocation(::windows_core::IUnknown);
 impl IDefaultLocation {
     pub unsafe fn SetReport<P0>(&self, reporttype: *const ::windows_core::GUID, plocationreport: P0) -> ::windows_core::Result<()>
@@ -178,24 +145,8 @@ impl IDefaultLocation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDefaultLocation, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDefaultLocation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDefaultLocation {}
-impl ::core::fmt::Debug for IDefaultLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDefaultLocation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDefaultLocation {
     type Vtable = IDefaultLocation_Vtbl;
-}
-impl ::core::clone::Clone for IDefaultLocation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDefaultLocation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa65af77e_969a_4a2e_8aca_33bb7cbb1235);
@@ -210,6 +161,7 @@ pub struct IDefaultLocation_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDispCivicAddressReport(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDispCivicAddressReport {
@@ -249,28 +201,8 @@ impl IDispCivicAddressReport {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDispCivicAddressReport, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDispCivicAddressReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDispCivicAddressReport {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDispCivicAddressReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDispCivicAddressReport").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDispCivicAddressReport {
     type Vtable = IDispCivicAddressReport_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDispCivicAddressReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDispCivicAddressReport {
@@ -293,6 +225,7 @@ pub struct IDispCivicAddressReport_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDispLatLongReport(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDispLatLongReport {
@@ -324,28 +257,8 @@ impl IDispLatLongReport {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDispLatLongReport, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDispLatLongReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDispLatLongReport {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDispLatLongReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDispLatLongReport").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDispLatLongReport {
     type Vtable = IDispLatLongReport_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDispLatLongReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDispLatLongReport {
@@ -365,6 +278,7 @@ pub struct IDispLatLongReport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILatLongReport(::windows_core::IUnknown);
 impl ILatLongReport {
     pub unsafe fn GetSensorID(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -405,24 +319,8 @@ impl ILatLongReport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ILatLongReport, ::windows_core::IUnknown, ILocationReport);
-impl ::core::cmp::PartialEq for ILatLongReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILatLongReport {}
-impl ::core::fmt::Debug for ILatLongReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILatLongReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ILatLongReport {
     type Vtable = ILatLongReport_Vtbl;
-}
-impl ::core::clone::Clone for ILatLongReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILatLongReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7fed806d_0ef8_4f07_80ac_36a0beae3134);
@@ -440,6 +338,7 @@ pub struct ILatLongReport_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILatLongReportFactory(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ILatLongReportFactory {
@@ -480,28 +379,8 @@ impl ILatLongReportFactory {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ILatLongReportFactory, ::windows_core::IUnknown, super::super::System::Com::IDispatch, ILocationReportFactory);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ILatLongReportFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ILatLongReportFactory {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ILatLongReportFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILatLongReportFactory").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ILatLongReportFactory {
     type Vtable = ILatLongReportFactory_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ILatLongReportFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ILatLongReportFactory {
@@ -519,6 +398,7 @@ pub struct ILatLongReportFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILocation(::windows_core::IUnknown);
 impl ILocation {
     pub unsafe fn RegisterForReport<P0>(&self, pevents: P0, reporttype: *const ::windows_core::GUID, dwrequestedreportinterval: u32) -> ::windows_core::Result<()>
@@ -567,24 +447,8 @@ impl ILocation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ILocation, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ILocation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILocation {}
-impl ::core::fmt::Debug for ILocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILocation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ILocation {
     type Vtable = ILocation_Vtbl;
-}
-impl ::core::clone::Clone for ILocation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILocation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab2ece69_56d9_4f28_b525_de1b0ee44237);
@@ -614,6 +478,7 @@ pub struct ILocation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILocationEvents(::windows_core::IUnknown);
 impl ILocationEvents {
     pub unsafe fn OnLocationChanged<P0>(&self, reporttype: *const ::windows_core::GUID, plocationreport: P0) -> ::windows_core::Result<()>
@@ -627,24 +492,8 @@ impl ILocationEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ILocationEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ILocationEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILocationEvents {}
-impl ::core::fmt::Debug for ILocationEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILocationEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ILocationEvents {
     type Vtable = ILocationEvents_Vtbl;
-}
-impl ::core::clone::Clone for ILocationEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILocationEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcae02bbf_798b_4508_a207_35a7906dc73d);
@@ -658,6 +507,7 @@ pub struct ILocationEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILocationPower(::windows_core::IUnknown);
 impl ILocationPower {
     pub unsafe fn Connect(&self) -> ::windows_core::Result<()> {
@@ -668,24 +518,8 @@ impl ILocationPower {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ILocationPower, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ILocationPower {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILocationPower {}
-impl ::core::fmt::Debug for ILocationPower {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILocationPower").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ILocationPower {
     type Vtable = ILocationPower_Vtbl;
-}
-impl ::core::clone::Clone for ILocationPower {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILocationPower {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x193e7729_ab6b_4b12_8617_7596e1bb191c);
@@ -699,6 +533,7 @@ pub struct ILocationPower_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILocationReport(::windows_core::IUnknown);
 impl ILocationReport {
     pub unsafe fn GetSensorID(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -719,24 +554,8 @@ impl ILocationReport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ILocationReport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ILocationReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILocationReport {}
-impl ::core::fmt::Debug for ILocationReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILocationReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ILocationReport {
     type Vtable = ILocationReport_Vtbl;
-}
-impl ::core::clone::Clone for ILocationReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILocationReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8b7f7ee_75d0_4db9_b62d_7a0f369ca456);
@@ -758,6 +577,7 @@ pub struct ILocationReport_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILocationReportFactory(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ILocationReportFactory {
@@ -792,28 +612,8 @@ impl ILocationReportFactory {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ILocationReportFactory, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ILocationReportFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ILocationReportFactory {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ILocationReportFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILocationReportFactory").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ILocationReportFactory {
     type Vtable = ILocationReportFactory_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ILocationReportFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ILocationReportFactory {
@@ -836,34 +636,15 @@ pub struct ILocationReportFactory_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _ICivicAddressReportFactoryEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _ICivicAddressReportFactoryEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_ICivicAddressReportFactoryEvents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _ICivicAddressReportFactoryEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _ICivicAddressReportFactoryEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _ICivicAddressReportFactoryEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_ICivicAddressReportFactoryEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _ICivicAddressReportFactoryEvents {
     type Vtable = _ICivicAddressReportFactoryEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _ICivicAddressReportFactoryEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _ICivicAddressReportFactoryEvents {
@@ -878,34 +659,15 @@ pub struct _ICivicAddressReportFactoryEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _ILatLongReportFactoryEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _ILatLongReportFactoryEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_ILatLongReportFactoryEvents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _ILatLongReportFactoryEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _ILatLongReportFactoryEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _ILatLongReportFactoryEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_ILatLongReportFactoryEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _ILatLongReportFactoryEvents {
     type Vtable = _ILatLongReportFactoryEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _ILatLongReportFactoryEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _ILatLongReportFactoryEvents {

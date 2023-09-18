@@ -14,6 +14,7 @@ pub unsafe fn WinMLCreateRuntime() -> ::windows_core::Result<IWinMLRuntime> {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLOperatorAttributes(::windows_core::IUnknown);
 impl IMLOperatorAttributes {
     pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> ::windows_core::Result<u32>
@@ -44,24 +45,8 @@ impl IMLOperatorAttributes {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLOperatorAttributes, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMLOperatorAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLOperatorAttributes {}
-impl ::core::fmt::Debug for IMLOperatorAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLOperatorAttributes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLOperatorAttributes {
     type Vtable = IMLOperatorAttributes_Vtbl;
-}
-impl ::core::clone::Clone for IMLOperatorAttributes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLOperatorAttributes {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b1b1759_ec40_466c_aab4_beb5347fd24c);
@@ -77,6 +62,7 @@ pub struct IMLOperatorAttributes_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLOperatorKernel(::windows_core::IUnknown);
 impl IMLOperatorKernel {
     pub unsafe fn Compute<P0>(&self, context: P0) -> ::windows_core::Result<()>
@@ -87,24 +73,8 @@ impl IMLOperatorKernel {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLOperatorKernel, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMLOperatorKernel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLOperatorKernel {}
-impl ::core::fmt::Debug for IMLOperatorKernel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLOperatorKernel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLOperatorKernel {
     type Vtable = IMLOperatorKernel_Vtbl;
-}
-impl ::core::clone::Clone for IMLOperatorKernel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLOperatorKernel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11c4b4a0_b467_4eaa_a1a6_b961d8d0ed79);
@@ -117,6 +87,7 @@ pub struct IMLOperatorKernel_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLOperatorKernelContext(::windows_core::IUnknown);
 impl IMLOperatorKernelContext {
     pub unsafe fn GetInputTensor(&self, inputindex: u32) -> ::windows_core::Result<IMLOperatorTensor> {
@@ -142,24 +113,8 @@ impl IMLOperatorKernelContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLOperatorKernelContext, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMLOperatorKernelContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLOperatorKernelContext {}
-impl ::core::fmt::Debug for IMLOperatorKernelContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLOperatorKernelContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLOperatorKernelContext {
     type Vtable = IMLOperatorKernelContext_Vtbl;
-}
-impl ::core::clone::Clone for IMLOperatorKernelContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLOperatorKernelContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x82536a28_f022_4769_9d3f_8b278f84c0c3);
@@ -176,6 +131,7 @@ pub struct IMLOperatorKernelContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLOperatorKernelCreationContext(::windows_core::IUnknown);
 impl IMLOperatorKernelCreationContext {
     pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> ::windows_core::Result<u32>
@@ -238,24 +194,8 @@ impl IMLOperatorKernelCreationContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLOperatorKernelCreationContext, ::windows_core::IUnknown, IMLOperatorAttributes);
-impl ::core::cmp::PartialEq for IMLOperatorKernelCreationContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLOperatorKernelCreationContext {}
-impl ::core::fmt::Debug for IMLOperatorKernelCreationContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLOperatorKernelCreationContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLOperatorKernelCreationContext {
     type Vtable = IMLOperatorKernelCreationContext_Vtbl;
-}
-impl ::core::clone::Clone for IMLOperatorKernelCreationContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLOperatorKernelCreationContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5459b53d_a0fc_4665_addd_70171ef7e631);
@@ -276,6 +216,7 @@ pub struct IMLOperatorKernelCreationContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLOperatorKernelFactory(::windows_core::IUnknown);
 impl IMLOperatorKernelFactory {
     pub unsafe fn CreateKernel<P0>(&self, context: P0) -> ::windows_core::Result<IMLOperatorKernel>
@@ -287,24 +228,8 @@ impl IMLOperatorKernelFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLOperatorKernelFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMLOperatorKernelFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLOperatorKernelFactory {}
-impl ::core::fmt::Debug for IMLOperatorKernelFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLOperatorKernelFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLOperatorKernelFactory {
     type Vtable = IMLOperatorKernelFactory_Vtbl;
-}
-impl ::core::clone::Clone for IMLOperatorKernelFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLOperatorKernelFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef15ad6f_0dc9_4908_ab35_a575a30dfbf8);
@@ -317,6 +242,7 @@ pub struct IMLOperatorKernelFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLOperatorRegistry(::windows_core::IUnknown);
 impl IMLOperatorRegistry {
     pub unsafe fn RegisterOperatorSetSchema<P0, P1>(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: ::core::option::Option<&[*const MLOperatorSchemaDescription]>, typeinferrer: P0, shapeinferrer: P1) -> ::windows_core::Result<()>
@@ -335,24 +261,8 @@ impl IMLOperatorRegistry {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLOperatorRegistry, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMLOperatorRegistry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLOperatorRegistry {}
-impl ::core::fmt::Debug for IMLOperatorRegistry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLOperatorRegistry").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLOperatorRegistry {
     type Vtable = IMLOperatorRegistry_Vtbl;
-}
-impl ::core::clone::Clone for IMLOperatorRegistry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLOperatorRegistry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2af9dd2d_b516_4672_9ab5_530c208493ad);
@@ -366,6 +276,7 @@ pub struct IMLOperatorRegistry_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLOperatorShapeInferenceContext(::windows_core::IUnknown);
 impl IMLOperatorShapeInferenceContext {
     pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> ::windows_core::Result<u32>
@@ -422,24 +333,8 @@ impl IMLOperatorShapeInferenceContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLOperatorShapeInferenceContext, ::windows_core::IUnknown, IMLOperatorAttributes);
-impl ::core::cmp::PartialEq for IMLOperatorShapeInferenceContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLOperatorShapeInferenceContext {}
-impl ::core::fmt::Debug for IMLOperatorShapeInferenceContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLOperatorShapeInferenceContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLOperatorShapeInferenceContext {
     type Vtable = IMLOperatorShapeInferenceContext_Vtbl;
-}
-impl ::core::clone::Clone for IMLOperatorShapeInferenceContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLOperatorShapeInferenceContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x105b6b29_5408_4a68_9959_09b5955a3492);
@@ -459,6 +354,7 @@ pub struct IMLOperatorShapeInferenceContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLOperatorShapeInferrer(::windows_core::IUnknown);
 impl IMLOperatorShapeInferrer {
     pub unsafe fn InferOutputShapes<P0>(&self, context: P0) -> ::windows_core::Result<()>
@@ -469,24 +365,8 @@ impl IMLOperatorShapeInferrer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLOperatorShapeInferrer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMLOperatorShapeInferrer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLOperatorShapeInferrer {}
-impl ::core::fmt::Debug for IMLOperatorShapeInferrer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLOperatorShapeInferrer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLOperatorShapeInferrer {
     type Vtable = IMLOperatorShapeInferrer_Vtbl;
-}
-impl ::core::clone::Clone for IMLOperatorShapeInferrer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLOperatorShapeInferrer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x540be5be_a6c9_40ee_83f6_d2b8b40a7798);
@@ -499,6 +379,7 @@ pub struct IMLOperatorShapeInferrer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLOperatorTensor(::windows_core::IUnknown);
 impl IMLOperatorTensor {
     pub unsafe fn GetDimensionCount(&self) -> u32 {
@@ -526,24 +407,8 @@ impl IMLOperatorTensor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLOperatorTensor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMLOperatorTensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLOperatorTensor {}
-impl ::core::fmt::Debug for IMLOperatorTensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLOperatorTensor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLOperatorTensor {
     type Vtable = IMLOperatorTensor_Vtbl;
-}
-impl ::core::clone::Clone for IMLOperatorTensor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLOperatorTensor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7fe41f41_f430_440e_aece_54416dc8b9db);
@@ -562,6 +427,7 @@ pub struct IMLOperatorTensor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLOperatorTensorShapeDescription(::windows_core::IUnknown);
 impl IMLOperatorTensorShapeDescription {
     pub unsafe fn GetInputTensorDimensionCount(&self, inputindex: u32) -> ::windows_core::Result<u32> {
@@ -583,24 +449,8 @@ impl IMLOperatorTensorShapeDescription {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLOperatorTensorShapeDescription, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMLOperatorTensorShapeDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLOperatorTensorShapeDescription {}
-impl ::core::fmt::Debug for IMLOperatorTensorShapeDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLOperatorTensorShapeDescription").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLOperatorTensorShapeDescription {
     type Vtable = IMLOperatorTensorShapeDescription_Vtbl;
-}
-impl ::core::clone::Clone for IMLOperatorTensorShapeDescription {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLOperatorTensorShapeDescription {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf20e8cbe_3b28_4248_be95_f96fbc6e4643);
@@ -617,6 +467,7 @@ pub struct IMLOperatorTensorShapeDescription_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLOperatorTypeInferenceContext(::windows_core::IUnknown);
 impl IMLOperatorTypeInferenceContext {
     pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> ::windows_core::Result<u32>
@@ -666,24 +517,8 @@ impl IMLOperatorTypeInferenceContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLOperatorTypeInferenceContext, ::windows_core::IUnknown, IMLOperatorAttributes);
-impl ::core::cmp::PartialEq for IMLOperatorTypeInferenceContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLOperatorTypeInferenceContext {}
-impl ::core::fmt::Debug for IMLOperatorTypeInferenceContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLOperatorTypeInferenceContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLOperatorTypeInferenceContext {
     type Vtable = IMLOperatorTypeInferenceContext_Vtbl;
-}
-impl ::core::clone::Clone for IMLOperatorTypeInferenceContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLOperatorTypeInferenceContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec893bb1_f938_427b_8488_c8dcf775f138);
@@ -701,6 +536,7 @@ pub struct IMLOperatorTypeInferenceContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLOperatorTypeInferrer(::windows_core::IUnknown);
 impl IMLOperatorTypeInferrer {
     pub unsafe fn InferOutputTypes<P0>(&self, context: P0) -> ::windows_core::Result<()>
@@ -711,24 +547,8 @@ impl IMLOperatorTypeInferrer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLOperatorTypeInferrer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMLOperatorTypeInferrer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLOperatorTypeInferrer {}
-impl ::core::fmt::Debug for IMLOperatorTypeInferrer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLOperatorTypeInferrer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLOperatorTypeInferrer {
     type Vtable = IMLOperatorTypeInferrer_Vtbl;
-}
-impl ::core::clone::Clone for IMLOperatorTypeInferrer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLOperatorTypeInferrer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x781aeb48_9bcb_4797_bf77_8bf455217beb);
@@ -741,6 +561,7 @@ pub struct IMLOperatorTypeInferrer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWinMLEvaluationContext(::windows_core::IUnknown);
 impl IWinMLEvaluationContext {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
@@ -762,24 +583,8 @@ impl IWinMLEvaluationContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWinMLEvaluationContext, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWinMLEvaluationContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWinMLEvaluationContext {}
-impl ::core::fmt::Debug for IWinMLEvaluationContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWinMLEvaluationContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWinMLEvaluationContext {
     type Vtable = IWinMLEvaluationContext_Vtbl;
-}
-impl ::core::clone::Clone for IWinMLEvaluationContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWinMLEvaluationContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95848f9e_583d_4054_af12_916387cd8426);
@@ -800,6 +605,7 @@ pub struct IWinMLEvaluationContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWinMLModel(::windows_core::IUnknown);
 impl IWinMLModel {
     pub unsafe fn GetDescription(&self) -> ::windows_core::Result<*mut WINML_MODEL_DESC> {
@@ -823,24 +629,8 @@ impl IWinMLModel {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWinMLModel, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWinMLModel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWinMLModel {}
-impl ::core::fmt::Debug for IWinMLModel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWinMLModel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWinMLModel {
     type Vtable = IWinMLModel_Vtbl;
-}
-impl ::core::clone::Clone for IWinMLModel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWinMLModel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2eeb6a9_f31f_4055_a521_e30b5b33664a);
@@ -862,6 +652,7 @@ pub struct IWinMLModel_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWinMLRuntime(::windows_core::IUnknown);
 impl IWinMLRuntime {
     pub unsafe fn LoadModel<P0>(&self, path: P0) -> ::windows_core::Result<IWinMLModel>
@@ -888,24 +679,8 @@ impl IWinMLRuntime {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWinMLRuntime, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWinMLRuntime {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWinMLRuntime {}
-impl ::core::fmt::Debug for IWinMLRuntime {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWinMLRuntime").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWinMLRuntime {
     type Vtable = IWinMLRuntime_Vtbl;
-}
-impl ::core::clone::Clone for IWinMLRuntime {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWinMLRuntime {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0425329_40ae_48d9_bce3_829ef7b8a41a);
@@ -923,6 +698,7 @@ pub struct IWinMLRuntime_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWinMLRuntimeFactory(::windows_core::IUnknown);
 impl IWinMLRuntimeFactory {
     pub unsafe fn CreateRuntime(&self, runtimetype: WINML_RUNTIME_TYPE) -> ::windows_core::Result<IWinMLRuntime> {
@@ -931,24 +707,8 @@ impl IWinMLRuntimeFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWinMLRuntimeFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWinMLRuntimeFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWinMLRuntimeFactory {}
-impl ::core::fmt::Debug for IWinMLRuntimeFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWinMLRuntimeFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWinMLRuntimeFactory {
     type Vtable = IWinMLRuntimeFactory_Vtbl;
-}
-impl ::core::clone::Clone for IWinMLRuntimeFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWinMLRuntimeFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa807b84d_4ae5_4bc0_a76a_941aa246bd41);

@@ -22,8 +22,8 @@ impl IComponentAuthenticate_Vtbl {
             SACGetProtocols: SACGetProtocols::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComponentAuthenticate as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IComponentAuthenticate as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -146,8 +146,8 @@ impl IMDSPDevice_Vtbl {
             SendOpaqueCommand: SendOpaqueCommand::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPDevice as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPDevice as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -197,8 +197,8 @@ impl IMDSPDevice2_Vtbl {
             GetCanonicalName: GetCanonicalName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPDevice2 as ::windows_core::ComInterface>::IID || iid == &<IMDSPDevice as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPDevice2 as ::windows_core::ComInterface>::IID || *iid == <IMDSPDevice as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -267,8 +267,8 @@ impl IMDSPDevice3_Vtbl {
             FindStorage: FindStorage::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPDevice3 as ::windows_core::ComInterface>::IID || iid == &<IMDSPDevice as ::windows_core::ComInterface>::IID || iid == &<IMDSPDevice2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPDevice3 as ::windows_core::ComInterface>::IID || *iid == <IMDSPDevice as ::windows_core::ComInterface>::IID || *iid == <IMDSPDevice2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -352,8 +352,8 @@ impl IMDSPDeviceControl_Vtbl {
             Seek: Seek::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPDeviceControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPDeviceControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -376,8 +376,8 @@ impl IMDSPDirectTransfer_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TransferToDevice: TransferToDevice::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPDirectTransfer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPDirectTransfer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -430,8 +430,8 @@ impl IMDSPEnumDevice_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPEnumDevice as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPEnumDevice as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -484,8 +484,8 @@ impl IMDSPEnumStorage_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPEnumStorage as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPEnumStorage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -554,8 +554,8 @@ impl IMDSPObject_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPObject as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPObject as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -582,8 +582,8 @@ impl IMDSPObject2_Vtbl {
             WriteOnClearChannel: WriteOnClearChannel::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPObject2 as ::windows_core::ComInterface>::IID || iid == &<IMDSPObject as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPObject2 as ::windows_core::ComInterface>::IID || *iid == <IMDSPObject as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -675,8 +675,8 @@ impl IMDSPObjectInfo_Vtbl {
             GetLongestPlayPosition: GetLongestPlayPosition::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPObjectInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPObjectInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -693,8 +693,8 @@ impl IMDSPRevoked_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRevocationURL: GetRevocationURL::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPRevoked as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPRevoked as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -804,8 +804,8 @@ impl IMDSPStorage_Vtbl {
             SendOpaqueCommand: SendOpaqueCommand::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPStorage as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPStorage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -861,8 +861,8 @@ impl IMDSPStorage2_Vtbl {
             GetAttributes2: GetAttributes2::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPStorage2 as ::windows_core::ComInterface>::IID || iid == &<IMDSPStorage as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPStorage2 as ::windows_core::ComInterface>::IID || *iid == <IMDSPStorage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -892,8 +892,8 @@ impl IMDSPStorage3_Vtbl {
             SetMetadata: SetMetadata::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPStorage3 as ::windows_core::ComInterface>::IID || iid == &<IMDSPStorage as ::windows_core::ComInterface>::IID || iid == &<IMDSPStorage2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPStorage3 as ::windows_core::ComInterface>::IID || *iid == <IMDSPStorage as ::windows_core::ComInterface>::IID || *iid == <IMDSPStorage2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -969,8 +969,8 @@ impl IMDSPStorage4_Vtbl {
             GetParent: GetParent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPStorage4 as ::windows_core::ComInterface>::IID || iid == &<IMDSPStorage as ::windows_core::ComInterface>::IID || iid == &<IMDSPStorage2 as ::windows_core::ComInterface>::IID || iid == &<IMDSPStorage3 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPStorage4 as ::windows_core::ComInterface>::IID || *iid == <IMDSPStorage as ::windows_core::ComInterface>::IID || *iid == <IMDSPStorage2 as ::windows_core::ComInterface>::IID || *iid == <IMDSPStorage3 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1070,8 +1070,8 @@ impl IMDSPStorageGlobals_Vtbl {
             GetRootStorage: GetRootStorage::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPStorageGlobals as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDSPStorageGlobals as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1110,8 +1110,8 @@ impl IMDServiceProvider_Vtbl {
             EnumDevices: EnumDevices::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDServiceProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDServiceProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1128,8 +1128,8 @@ impl IMDServiceProvider2_Vtbl {
         }
         Self { base__: IMDServiceProvider_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice: CreateDevice::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDServiceProvider2 as ::windows_core::ComInterface>::IID || iid == &<IMDServiceProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDServiceProvider2 as ::windows_core::ComInterface>::IID || *iid == <IMDServiceProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1146,8 +1146,8 @@ impl IMDServiceProvider3_Vtbl {
         }
         Self { base__: IMDServiceProvider2_Vtbl::new::<Identity, Impl, OFFSET>(), SetDeviceEnumPreference: SetDeviceEnumPreference::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDServiceProvider3 as ::windows_core::ComInterface>::IID || iid == &<IMDServiceProvider as ::windows_core::ComInterface>::IID || iid == &<IMDServiceProvider2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMDServiceProvider3 as ::windows_core::ComInterface>::IID || *iid == <IMDServiceProvider as ::windows_core::ComInterface>::IID || *iid == <IMDServiceProvider2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1170,8 +1170,8 @@ impl ISCPSecureAuthenticate_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSecureQuery: GetSecureQuery::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureAuthenticate as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISCPSecureAuthenticate as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1194,8 +1194,8 @@ impl ISCPSecureAuthenticate2_Vtbl {
         }
         Self { base__: ISCPSecureAuthenticate_Vtbl::new::<Identity, Impl, OFFSET>(), GetSCPSession: GetSCPSession::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureAuthenticate2 as ::windows_core::ComInterface>::IID || iid == &<ISCPSecureAuthenticate as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISCPSecureAuthenticate2 as ::windows_core::ComInterface>::IID || *iid == <ISCPSecureAuthenticate as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1229,8 +1229,8 @@ impl ISCPSecureExchange_Vtbl {
             TransferComplete: TransferComplete::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureExchange as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISCPSecureExchange as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1247,8 +1247,8 @@ impl ISCPSecureExchange2_Vtbl {
         }
         Self { base__: ISCPSecureExchange_Vtbl::new::<Identity, Impl, OFFSET>(), TransferContainerData2: TransferContainerData2::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureExchange2 as ::windows_core::ComInterface>::IID || iid == &<ISCPSecureExchange as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISCPSecureExchange2 as ::windows_core::ComInterface>::IID || *iid == <ISCPSecureExchange as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1288,8 +1288,8 @@ impl ISCPSecureExchange3_Vtbl {
             TransferCompleteForDevice: TransferCompleteForDevice::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureExchange3 as ::windows_core::ComInterface>::IID || iid == &<ISCPSecureExchange as ::windows_core::ComInterface>::IID || iid == &<ISCPSecureExchange2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISCPSecureExchange3 as ::windows_core::ComInterface>::IID || *iid == <ISCPSecureExchange as ::windows_core::ComInterface>::IID || *iid == <ISCPSecureExchange2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1330,8 +1330,8 @@ impl ISCPSecureQuery_Vtbl {
             GetRights: GetRights::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureQuery as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISCPSecureQuery as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1368,8 +1368,8 @@ impl ISCPSecureQuery2_Vtbl {
         }
         Self { base__: ISCPSecureQuery_Vtbl::new::<Identity, Impl, OFFSET>(), MakeDecision2: MakeDecision2::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureQuery2 as ::windows_core::ComInterface>::IID || iid == &<ISCPSecureQuery as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISCPSecureQuery2 as ::windows_core::ComInterface>::IID || *iid == <ISCPSecureQuery as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1416,8 +1416,8 @@ impl ISCPSecureQuery3_Vtbl {
             MakeDecisionOnClearChannel: MakeDecisionOnClearChannel::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureQuery3 as ::windows_core::ComInterface>::IID || iid == &<ISCPSecureQuery as ::windows_core::ComInterface>::IID || iid == &<ISCPSecureQuery2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISCPSecureQuery3 as ::windows_core::ComInterface>::IID || *iid == <ISCPSecureQuery as ::windows_core::ComInterface>::IID || *iid == <ISCPSecureQuery2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1457,8 +1457,8 @@ impl ISCPSession_Vtbl {
             GetSecureQuery: GetSecureQuery::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSession as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISCPSession as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -1581,8 +1581,8 @@ impl IWMDMDevice_Vtbl {
             SendOpaqueCommand: SendOpaqueCommand::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMDevice as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMDevice as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1632,8 +1632,8 @@ impl IWMDMDevice2_Vtbl {
             GetCanonicalName: GetCanonicalName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMDevice2 as ::windows_core::ComInterface>::IID || iid == &<IWMDMDevice as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMDevice2 as ::windows_core::ComInterface>::IID || *iid == <IWMDMDevice as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -1702,8 +1702,8 @@ impl IWMDMDevice3_Vtbl {
             FindStorage: FindStorage::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMDevice3 as ::windows_core::ComInterface>::IID || iid == &<IWMDMDevice as ::windows_core::ComInterface>::IID || iid == &<IWMDMDevice2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMDevice3 as ::windows_core::ComInterface>::IID || *iid == <IWMDMDevice as ::windows_core::ComInterface>::IID || *iid == <IWMDMDevice2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -1787,8 +1787,8 @@ impl IWMDMDeviceControl_Vtbl {
             Seek: Seek::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMDeviceControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMDeviceControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1815,8 +1815,8 @@ impl IWMDMDeviceSession_Vtbl {
             EndSession: EndSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMDeviceSession as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMDeviceSession as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1869,8 +1869,8 @@ impl IWMDMEnumDevice_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMEnumDevice as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMEnumDevice as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -1923,8 +1923,8 @@ impl IWMDMEnumStorage_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMEnumStorage as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMEnumStorage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2009,8 +2009,8 @@ impl IWMDMLogger_Vtbl {
             SetSizeParams: SetSizeParams::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMLogger as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMLogger as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -2057,8 +2057,8 @@ impl IWMDMMetaData_Vtbl {
             GetItemCount: GetItemCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMMetaData as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMMetaData as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -2075,8 +2075,8 @@ impl IWMDMNotification_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), WMDMMessage: WMDMMessage::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMNotification as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMNotification as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -2168,8 +2168,8 @@ impl IWMDMObjectInfo_Vtbl {
             GetLongestPlayPosition: GetLongestPlayPosition::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMObjectInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMObjectInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -2255,8 +2255,8 @@ impl IWMDMOperation_Vtbl {
             End: End::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMOperation as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMOperation as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -2286,8 +2286,8 @@ impl IWMDMOperation2_Vtbl {
             GetObjectAttributes2: GetObjectAttributes2::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMOperation2 as ::windows_core::ComInterface>::IID || iid == &<IWMDMOperation as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMOperation2 as ::windows_core::ComInterface>::IID || *iid == <IWMDMOperation as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -2310,8 +2310,8 @@ impl IWMDMOperation3_Vtbl {
             TransferObjectDataOnClearChannel: TransferObjectDataOnClearChannel::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMOperation3 as ::windows_core::ComInterface>::IID || iid == &<IWMDMOperation as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMOperation3 as ::windows_core::ComInterface>::IID || *iid == <IWMDMOperation as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -2345,8 +2345,8 @@ impl IWMDMProgress_Vtbl {
             End: End::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMProgress as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMProgress as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -2363,8 +2363,8 @@ impl IWMDMProgress2_Vtbl {
         }
         Self { base__: IWMDMProgress_Vtbl::new::<Identity, Impl, OFFSET>(), End2: End2::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMProgress2 as ::windows_core::ComInterface>::IID || iid == &<IWMDMProgress as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMProgress2 as ::windows_core::ComInterface>::IID || *iid == <IWMDMProgress as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -2398,8 +2398,8 @@ impl IWMDMProgress3_Vtbl {
             End3: End3::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMProgress3 as ::windows_core::ComInterface>::IID || iid == &<IWMDMProgress as ::windows_core::ComInterface>::IID || iid == &<IWMDMProgress2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMProgress3 as ::windows_core::ComInterface>::IID || *iid == <IWMDMProgress as ::windows_core::ComInterface>::IID || *iid == <IWMDMProgress2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -2416,8 +2416,8 @@ impl IWMDMRevoked_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRevocationURL: GetRevocationURL::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMRevoked as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMRevoked as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`, `\"implement\"`*"]
@@ -2514,8 +2514,8 @@ impl IWMDMStorage_Vtbl {
             SendOpaqueCommand: SendOpaqueCommand::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorage as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMStorage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -2558,8 +2558,8 @@ impl IWMDMStorage2_Vtbl {
             GetAttributes2: GetAttributes2::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorage2 as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorage as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMStorage2 as ::windows_core::ComInterface>::IID || *iid == <IWMDMStorage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -2615,8 +2615,8 @@ impl IWMDMStorage3_Vtbl {
             SetEnumPreference: SetEnumPreference::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorage3 as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorage as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorage2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMStorage3 as ::windows_core::ComInterface>::IID || *iid == <IWMDMStorage as ::windows_core::ComInterface>::IID || *iid == <IWMDMStorage2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -2692,8 +2692,8 @@ impl IWMDMStorage4_Vtbl {
             GetParent: GetParent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorage4 as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorage as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorage2 as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorage3 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMStorage4 as ::windows_core::ComInterface>::IID || *iid == <IWMDMStorage as ::windows_core::ComInterface>::IID || *iid == <IWMDMStorage2 as ::windows_core::ComInterface>::IID || *iid == <IWMDMStorage3 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -2747,8 +2747,8 @@ impl IWMDMStorageControl_Vtbl {
             Move: Move::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorageControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMStorageControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -2765,8 +2765,8 @@ impl IWMDMStorageControl2_Vtbl {
         }
         Self { base__: IWMDMStorageControl_Vtbl::new::<Identity, Impl, OFFSET>(), Insert2: Insert2::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorageControl2 as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorageControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMStorageControl2 as ::windows_core::ComInterface>::IID || *iid == <IWMDMStorageControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -2783,8 +2783,8 @@ impl IWMDMStorageControl3_Vtbl {
         }
         Self { base__: IWMDMStorageControl2_Vtbl::new::<Identity, Impl, OFFSET>(), Insert3: Insert3::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorageControl3 as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorageControl as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorageControl2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMStorageControl3 as ::windows_core::ComInterface>::IID || *iid == <IWMDMStorageControl as ::windows_core::ComInterface>::IID || *iid == <IWMDMStorageControl2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -2858,8 +2858,8 @@ impl IWMDMStorageGlobals_Vtbl {
             Initialize: Initialize::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorageGlobals as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDMStorageGlobals as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -2911,8 +2911,8 @@ impl IWMDeviceManager_Vtbl {
             EnumDevices: EnumDevices::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDeviceManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDeviceManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -2958,8 +2958,8 @@ impl IWMDeviceManager2_Vtbl {
             Reinitialize: Reinitialize::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDeviceManager2 as ::windows_core::ComInterface>::IID || iid == &<IWMDeviceManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDeviceManager2 as ::windows_core::ComInterface>::IID || *iid == <IWMDeviceManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"implement\"`*"]
@@ -2976,7 +2976,7 @@ impl IWMDeviceManager3_Vtbl {
         }
         Self { base__: IWMDeviceManager2_Vtbl::new::<Identity, Impl, OFFSET>(), SetDeviceEnumPreference: SetDeviceEnumPreference::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDeviceManager3 as ::windows_core::ComInterface>::IID || iid == &<IWMDeviceManager as ::windows_core::ComInterface>::IID || iid == &<IWMDeviceManager2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDeviceManager3 as ::windows_core::ComInterface>::IID || *iid == <IWMDeviceManager as ::windows_core::ComInterface>::IID || *iid == <IWMDeviceManager2 as ::windows_core::ComInterface>::IID
     }
 }

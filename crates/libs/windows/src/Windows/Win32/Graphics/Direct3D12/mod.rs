@@ -61,6 +61,7 @@ pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12CommandAllocator(::windows_core::IUnknown);
 impl ID3D12CommandAllocator {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -92,26 +93,10 @@ impl ID3D12CommandAllocator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12CommandAllocator, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
-impl ::core::cmp::PartialEq for ID3D12CommandAllocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12CommandAllocator {}
-impl ::core::fmt::Debug for ID3D12CommandAllocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12CommandAllocator").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12CommandAllocator {}
 unsafe impl ::core::marker::Sync for ID3D12CommandAllocator {}
 unsafe impl ::windows_core::Interface for ID3D12CommandAllocator {
     type Vtable = ID3D12CommandAllocator_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12CommandAllocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12CommandAllocator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6102dee4_af59_4b09_b999_b44d73f09b24);
@@ -124,6 +109,7 @@ pub struct ID3D12CommandAllocator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12CommandList(::windows_core::IUnknown);
 impl ID3D12CommandList {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -155,26 +141,10 @@ impl ID3D12CommandList {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12CommandList, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
-impl ::core::cmp::PartialEq for ID3D12CommandList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12CommandList {}
-impl ::core::fmt::Debug for ID3D12CommandList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12CommandList").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12CommandList {}
 unsafe impl ::core::marker::Sync for ID3D12CommandList {}
 unsafe impl ::windows_core::Interface for ID3D12CommandList {
     type Vtable = ID3D12CommandList_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12CommandList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12CommandList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7116d91c_e7e4_47ce_b8c6_ec8168f437e5);
@@ -187,6 +157,7 @@ pub struct ID3D12CommandList_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12CommandQueue(::windows_core::IUnknown);
 impl ID3D12CommandQueue {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -281,26 +252,10 @@ impl ID3D12CommandQueue {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12CommandQueue, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
-impl ::core::cmp::PartialEq for ID3D12CommandQueue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12CommandQueue {}
-impl ::core::fmt::Debug for ID3D12CommandQueue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12CommandQueue").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12CommandQueue {}
 unsafe impl ::core::marker::Sync for ID3D12CommandQueue {}
 unsafe impl ::windows_core::Interface for ID3D12CommandQueue {
     type Vtable = ID3D12CommandQueue_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12CommandQueue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12CommandQueue {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ec870a6_5d7e_4c22_8cfc_5baae07616ed);
@@ -329,6 +284,7 @@ pub struct ID3D12CommandQueue_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12CommandSignature(::windows_core::IUnknown);
 impl ID3D12CommandSignature {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -357,26 +313,10 @@ impl ID3D12CommandSignature {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12CommandSignature, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
-impl ::core::cmp::PartialEq for ID3D12CommandSignature {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12CommandSignature {}
-impl ::core::fmt::Debug for ID3D12CommandSignature {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12CommandSignature").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12CommandSignature {}
 unsafe impl ::core::marker::Sync for ID3D12CommandSignature {}
 unsafe impl ::windows_core::Interface for ID3D12CommandSignature {
     type Vtable = ID3D12CommandSignature_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12CommandSignature {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12CommandSignature {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc36a797c_ec80_4f0a_8985_a7b2475082d1);
@@ -388,6 +328,7 @@ pub struct ID3D12CommandSignature_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DSRDeviceFactory(::windows_core::IUnknown);
 impl ID3D12DSRDeviceFactory {
     pub unsafe fn CreateDSRDevice<P0, T>(&self, pd3d12device: P0, nodemask: u32) -> ::windows_core::Result<T>
@@ -400,26 +341,10 @@ impl ID3D12DSRDeviceFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DSRDeviceFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12DSRDeviceFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DSRDeviceFactory {}
-impl ::core::fmt::Debug for ID3D12DSRDeviceFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DSRDeviceFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DSRDeviceFactory {}
 unsafe impl ::core::marker::Sync for ID3D12DSRDeviceFactory {}
 unsafe impl ::windows_core::Interface for ID3D12DSRDeviceFactory {
     type Vtable = ID3D12DSRDeviceFactory_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DSRDeviceFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DSRDeviceFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51ee7783_6426_4428_b182_42f3541fca71);
@@ -432,6 +357,7 @@ pub struct ID3D12DSRDeviceFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Debug(::windows_core::IUnknown);
 impl ID3D12Debug {
     pub unsafe fn EnableDebugLayer(&self) {
@@ -439,26 +365,10 @@ impl ID3D12Debug {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Debug, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12Debug {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Debug {}
-impl ::core::fmt::Debug for ID3D12Debug {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Debug").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Debug {}
 unsafe impl ::core::marker::Sync for ID3D12Debug {}
 unsafe impl ::windows_core::Interface for ID3D12Debug {
     type Vtable = ID3D12Debug_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Debug {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Debug {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x344488b7_6846_474b_b989_f027448245e0);
@@ -471,6 +381,7 @@ pub struct ID3D12Debug_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Debug1(::windows_core::IUnknown);
 impl ID3D12Debug1 {
     pub unsafe fn EnableDebugLayer(&self) {
@@ -494,26 +405,10 @@ impl ID3D12Debug1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Debug1, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12Debug1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Debug1 {}
-impl ::core::fmt::Debug for ID3D12Debug1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Debug1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Debug1 {}
 unsafe impl ::core::marker::Sync for ID3D12Debug1 {}
 unsafe impl ::windows_core::Interface for ID3D12Debug1 {
     type Vtable = ID3D12Debug1_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Debug1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Debug1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaffaa4ca_63fe_4d8e_b8ad_159000af4304);
@@ -534,6 +429,7 @@ pub struct ID3D12Debug1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Debug2(::windows_core::IUnknown);
 impl ID3D12Debug2 {
     pub unsafe fn SetGPUBasedValidationFlags(&self, flags: D3D12_GPU_BASED_VALIDATION_FLAGS) {
@@ -541,26 +437,10 @@ impl ID3D12Debug2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Debug2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12Debug2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Debug2 {}
-impl ::core::fmt::Debug for ID3D12Debug2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Debug2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Debug2 {}
 unsafe impl ::core::marker::Sync for ID3D12Debug2 {}
 unsafe impl ::windows_core::Interface for ID3D12Debug2 {
     type Vtable = ID3D12Debug2_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Debug2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Debug2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93a665c4_a3b2_4e5d_b692_a26ae14e3374);
@@ -573,6 +453,7 @@ pub struct ID3D12Debug2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Debug3(::windows_core::IUnknown);
 impl ID3D12Debug3 {
     pub unsafe fn EnableDebugLayer(&self) {
@@ -599,26 +480,10 @@ impl ID3D12Debug3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Debug3, ::windows_core::IUnknown, ID3D12Debug);
-impl ::core::cmp::PartialEq for ID3D12Debug3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Debug3 {}
-impl ::core::fmt::Debug for ID3D12Debug3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Debug3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Debug3 {}
 unsafe impl ::core::marker::Sync for ID3D12Debug3 {}
 unsafe impl ::windows_core::Interface for ID3D12Debug3 {
     type Vtable = ID3D12Debug3_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Debug3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Debug3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5cf4e58f_f671_4ff1_a542_3686e3d153d1);
@@ -639,6 +504,7 @@ pub struct ID3D12Debug3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Debug4(::windows_core::IUnknown);
 impl ID3D12Debug4 {
     pub unsafe fn EnableDebugLayer(&self) {
@@ -668,26 +534,10 @@ impl ID3D12Debug4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Debug4, ::windows_core::IUnknown, ID3D12Debug, ID3D12Debug3);
-impl ::core::cmp::PartialEq for ID3D12Debug4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Debug4 {}
-impl ::core::fmt::Debug for ID3D12Debug4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Debug4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Debug4 {}
 unsafe impl ::core::marker::Sync for ID3D12Debug4 {}
 unsafe impl ::windows_core::Interface for ID3D12Debug4 {
     type Vtable = ID3D12Debug4_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Debug4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Debug4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x014b816e_9ec5_4a2f_a845_ffbe441ce13a);
@@ -700,6 +550,7 @@ pub struct ID3D12Debug4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Debug5(::windows_core::IUnknown);
 impl ID3D12Debug5 {
     pub unsafe fn EnableDebugLayer(&self) {
@@ -737,26 +588,10 @@ impl ID3D12Debug5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Debug5, ::windows_core::IUnknown, ID3D12Debug, ID3D12Debug3, ID3D12Debug4);
-impl ::core::cmp::PartialEq for ID3D12Debug5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Debug5 {}
-impl ::core::fmt::Debug for ID3D12Debug5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Debug5").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Debug5 {}
 unsafe impl ::core::marker::Sync for ID3D12Debug5 {}
 unsafe impl ::windows_core::Interface for ID3D12Debug5 {
     type Vtable = ID3D12Debug5_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Debug5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Debug5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x548d6b12_09fa_40e0_9069_5dcd589a52c9);
@@ -772,6 +607,7 @@ pub struct ID3D12Debug5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Debug6(::windows_core::IUnknown);
 impl ID3D12Debug6 {
     pub unsafe fn EnableDebugLayer(&self) {
@@ -817,26 +653,10 @@ impl ID3D12Debug6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Debug6, ::windows_core::IUnknown, ID3D12Debug, ID3D12Debug3, ID3D12Debug4, ID3D12Debug5);
-impl ::core::cmp::PartialEq for ID3D12Debug6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Debug6 {}
-impl ::core::fmt::Debug for ID3D12Debug6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Debug6").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Debug6 {}
 unsafe impl ::core::marker::Sync for ID3D12Debug6 {}
 unsafe impl ::windows_core::Interface for ID3D12Debug6 {
     type Vtable = ID3D12Debug6_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Debug6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Debug6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x82a816d6_5d01_4157_97d0_4975463fd1ed);
@@ -852,6 +672,7 @@ pub struct ID3D12Debug6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DebugCommandList(::windows_core::IUnknown);
 impl ID3D12DebugCommandList {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -870,26 +691,10 @@ impl ID3D12DebugCommandList {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12DebugCommandList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DebugCommandList {}
-impl ::core::fmt::Debug for ID3D12DebugCommandList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DebugCommandList").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DebugCommandList {}
 unsafe impl ::core::marker::Sync for ID3D12DebugCommandList {}
 unsafe impl ::windows_core::Interface for ID3D12DebugCommandList {
     type Vtable = ID3D12DebugCommandList_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DebugCommandList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DebugCommandList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09e0bf36_54ac_484f_8847_4baeeab6053f);
@@ -907,6 +712,7 @@ pub struct ID3D12DebugCommandList_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DebugCommandList1(::windows_core::IUnknown);
 impl ID3D12DebugCommandList1 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -925,26 +731,10 @@ impl ID3D12DebugCommandList1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList1, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12DebugCommandList1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DebugCommandList1 {}
-impl ::core::fmt::Debug for ID3D12DebugCommandList1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DebugCommandList1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DebugCommandList1 {}
 unsafe impl ::core::marker::Sync for ID3D12DebugCommandList1 {}
 unsafe impl ::windows_core::Interface for ID3D12DebugCommandList1 {
     type Vtable = ID3D12DebugCommandList1_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DebugCommandList1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DebugCommandList1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x102ca951_311b_4b01_b11f_ecb83e061b37);
@@ -962,6 +752,7 @@ pub struct ID3D12DebugCommandList1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DebugCommandList2(::windows_core::IUnknown);
 impl ID3D12DebugCommandList2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -986,26 +777,10 @@ impl ID3D12DebugCommandList2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList2, ::windows_core::IUnknown, ID3D12DebugCommandList);
-impl ::core::cmp::PartialEq for ID3D12DebugCommandList2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DebugCommandList2 {}
-impl ::core::fmt::Debug for ID3D12DebugCommandList2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DebugCommandList2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DebugCommandList2 {}
 unsafe impl ::core::marker::Sync for ID3D12DebugCommandList2 {}
 unsafe impl ::windows_core::Interface for ID3D12DebugCommandList2 {
     type Vtable = ID3D12DebugCommandList2_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DebugCommandList2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DebugCommandList2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaeb575cf_4e06_48be_ba3b_c450fc96652e);
@@ -1019,6 +794,7 @@ pub struct ID3D12DebugCommandList2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DebugCommandList3(::windows_core::IUnknown);
 impl ID3D12DebugCommandList3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1055,26 +831,10 @@ impl ID3D12DebugCommandList3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList3, ::windows_core::IUnknown, ID3D12DebugCommandList, ID3D12DebugCommandList2);
-impl ::core::cmp::PartialEq for ID3D12DebugCommandList3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DebugCommandList3 {}
-impl ::core::fmt::Debug for ID3D12DebugCommandList3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DebugCommandList3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DebugCommandList3 {}
 unsafe impl ::core::marker::Sync for ID3D12DebugCommandList3 {}
 unsafe impl ::windows_core::Interface for ID3D12DebugCommandList3 {
     type Vtable = ID3D12DebugCommandList3_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DebugCommandList3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DebugCommandList3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x197d5e15_4d37_4d34_af78_724cd70fdb1f);
@@ -1088,6 +848,7 @@ pub struct ID3D12DebugCommandList3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DebugCommandQueue(::windows_core::IUnknown);
 impl ID3D12DebugCommandQueue {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1100,26 +861,10 @@ impl ID3D12DebugCommandQueue {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DebugCommandQueue, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12DebugCommandQueue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DebugCommandQueue {}
-impl ::core::fmt::Debug for ID3D12DebugCommandQueue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DebugCommandQueue").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DebugCommandQueue {}
 unsafe impl ::core::marker::Sync for ID3D12DebugCommandQueue {}
 unsafe impl ::windows_core::Interface for ID3D12DebugCommandQueue {
     type Vtable = ID3D12DebugCommandQueue_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DebugCommandQueue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DebugCommandQueue {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09e0bf36_54ac_484f_8847_4baeeab6053a);
@@ -1135,6 +880,7 @@ pub struct ID3D12DebugCommandQueue_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DebugCommandQueue1(::windows_core::IUnknown);
 impl ID3D12DebugCommandQueue1 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1159,26 +905,10 @@ impl ID3D12DebugCommandQueue1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DebugCommandQueue1, ::windows_core::IUnknown, ID3D12DebugCommandQueue);
-impl ::core::cmp::PartialEq for ID3D12DebugCommandQueue1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DebugCommandQueue1 {}
-impl ::core::fmt::Debug for ID3D12DebugCommandQueue1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DebugCommandQueue1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DebugCommandQueue1 {}
 unsafe impl ::core::marker::Sync for ID3D12DebugCommandQueue1 {}
 unsafe impl ::windows_core::Interface for ID3D12DebugCommandQueue1 {
     type Vtable = ID3D12DebugCommandQueue1_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DebugCommandQueue1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DebugCommandQueue1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16be35a2_bfd6_49f2_bcae_eaae4aff862d);
@@ -1192,6 +922,7 @@ pub struct ID3D12DebugCommandQueue1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DebugDevice(::windows_core::IUnknown);
 impl ID3D12DebugDevice {
     pub unsafe fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> ::windows_core::Result<()> {
@@ -1205,26 +936,10 @@ impl ID3D12DebugDevice {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DebugDevice, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12DebugDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DebugDevice {}
-impl ::core::fmt::Debug for ID3D12DebugDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DebugDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DebugDevice {}
 unsafe impl ::core::marker::Sync for ID3D12DebugDevice {}
 unsafe impl ::windows_core::Interface for ID3D12DebugDevice {
     type Vtable = ID3D12DebugDevice_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DebugDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DebugDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3febd6dd_4973_4787_8194_e45f9e28923e);
@@ -1239,6 +954,7 @@ pub struct ID3D12DebugDevice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DebugDevice1(::windows_core::IUnknown);
 impl ID3D12DebugDevice1 {
     pub unsafe fn SetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows_core::Result<()> {
@@ -1252,26 +968,10 @@ impl ID3D12DebugDevice1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DebugDevice1, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12DebugDevice1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DebugDevice1 {}
-impl ::core::fmt::Debug for ID3D12DebugDevice1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DebugDevice1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DebugDevice1 {}
 unsafe impl ::core::marker::Sync for ID3D12DebugDevice1 {}
 unsafe impl ::windows_core::Interface for ID3D12DebugDevice1 {
     type Vtable = ID3D12DebugDevice1_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DebugDevice1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DebugDevice1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9b71770_d099_4a65_a698_3dee10020f88);
@@ -1286,6 +986,7 @@ pub struct ID3D12DebugDevice1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DebugDevice2(::windows_core::IUnknown);
 impl ID3D12DebugDevice2 {
     pub unsafe fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> ::windows_core::Result<()> {
@@ -1305,26 +1006,10 @@ impl ID3D12DebugDevice2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DebugDevice2, ::windows_core::IUnknown, ID3D12DebugDevice);
-impl ::core::cmp::PartialEq for ID3D12DebugDevice2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DebugDevice2 {}
-impl ::core::fmt::Debug for ID3D12DebugDevice2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DebugDevice2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DebugDevice2 {}
 unsafe impl ::core::marker::Sync for ID3D12DebugDevice2 {}
 unsafe impl ::windows_core::Interface for ID3D12DebugDevice2 {
     type Vtable = ID3D12DebugDevice2_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DebugDevice2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DebugDevice2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x60eccbc1_378d_4df1_894c_f8ac5ce4d7dd);
@@ -1338,6 +1023,7 @@ pub struct ID3D12DebugDevice2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DescriptorHeap(::windows_core::IUnknown);
 impl ID3D12DescriptorHeap {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -1381,26 +1067,10 @@ impl ID3D12DescriptorHeap {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DescriptorHeap, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
-impl ::core::cmp::PartialEq for ID3D12DescriptorHeap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DescriptorHeap {}
-impl ::core::fmt::Debug for ID3D12DescriptorHeap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DescriptorHeap").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DescriptorHeap {}
 unsafe impl ::core::marker::Sync for ID3D12DescriptorHeap {}
 unsafe impl ::windows_core::Interface for ID3D12DescriptorHeap {
     type Vtable = ID3D12DescriptorHeap_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DescriptorHeap {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DescriptorHeap {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8efb471d_616c_4f49_90f7_127bb763fa51);
@@ -1415,6 +1085,7 @@ pub struct ID3D12DescriptorHeap_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Device(::windows_core::IUnknown);
 impl ID3D12Device {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -1670,26 +1341,10 @@ impl ID3D12Device {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Device, ::windows_core::IUnknown, ID3D12Object);
-impl ::core::cmp::PartialEq for ID3D12Device {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Device {}
-impl ::core::fmt::Debug for ID3D12Device {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Device").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Device {}
 unsafe impl ::core::marker::Sync for ID3D12Device {}
 unsafe impl ::windows_core::Interface for ID3D12Device {
     type Vtable = ID3D12Device_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Device {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Device {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x189819f1_1db6_4b57_be54_1821339b85f7);
@@ -1783,6 +1438,7 @@ pub struct ID3D12Device_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Device1(::windows_core::IUnknown);
 impl ID3D12Device1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -2056,26 +1712,10 @@ impl ID3D12Device1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Device1, ::windows_core::IUnknown, ID3D12Object, ID3D12Device);
-impl ::core::cmp::PartialEq for ID3D12Device1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Device1 {}
-impl ::core::fmt::Debug for ID3D12Device1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Device1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Device1 {}
 unsafe impl ::core::marker::Sync for ID3D12Device1 {}
 unsafe impl ::windows_core::Interface for ID3D12Device1 {
     type Vtable = ID3D12Device1_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Device1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Device1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x77acce80_638e_4e65_8895_c1f23386863e);
@@ -2093,6 +1733,7 @@ pub struct ID3D12Device1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Device10(::windows_core::IUnknown);
 impl ID3D12Device10 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -2584,26 +2225,10 @@ impl ID3D12Device10 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Device10, ::windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9);
-impl ::core::cmp::PartialEq for ID3D12Device10 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Device10 {}
-impl ::core::fmt::Debug for ID3D12Device10 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Device10").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Device10 {}
 unsafe impl ::core::marker::Sync for ID3D12Device10 {}
 unsafe impl ::windows_core::Interface for ID3D12Device10 {
     type Vtable = ID3D12Device10_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Device10 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Device10 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x517f8718_aa66_49f9_b02b_a7ab89c06031);
@@ -2627,6 +2252,7 @@ pub struct ID3D12Device10_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Device11(::windows_core::IUnknown);
 impl ID3D12Device11 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -3121,26 +2747,10 @@ impl ID3D12Device11 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Device11, ::windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9, ID3D12Device10);
-impl ::core::cmp::PartialEq for ID3D12Device11 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Device11 {}
-impl ::core::fmt::Debug for ID3D12Device11 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Device11").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Device11 {}
 unsafe impl ::core::marker::Sync for ID3D12Device11 {}
 unsafe impl ::windows_core::Interface for ID3D12Device11 {
     type Vtable = ID3D12Device11_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Device11 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Device11 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5405c344_d457_444e_b4dd_2366e45aee39);
@@ -3153,6 +2763,7 @@ pub struct ID3D12Device11_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Device12(::windows_core::IUnknown);
 impl ID3D12Device12 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -3654,26 +3265,10 @@ impl ID3D12Device12 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Device12, ::windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9, ID3D12Device10, ID3D12Device11);
-impl ::core::cmp::PartialEq for ID3D12Device12 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Device12 {}
-impl ::core::fmt::Debug for ID3D12Device12 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Device12").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Device12 {}
 unsafe impl ::core::marker::Sync for ID3D12Device12 {}
 unsafe impl ::windows_core::Interface for ID3D12Device12 {
     type Vtable = ID3D12Device12_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Device12 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Device12 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5af5c532_4c91_4cd0_b541_15a405395fc5);
@@ -3689,6 +3284,7 @@ pub struct ID3D12Device12_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Device2(::windows_core::IUnknown);
 impl ID3D12Device2 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -3969,26 +3565,10 @@ impl ID3D12Device2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Device2, ::windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1);
-impl ::core::cmp::PartialEq for ID3D12Device2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Device2 {}
-impl ::core::fmt::Debug for ID3D12Device2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Device2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Device2 {}
 unsafe impl ::core::marker::Sync for ID3D12Device2 {}
 unsafe impl ::windows_core::Interface for ID3D12Device2 {
     type Vtable = ID3D12Device2_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Device2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Device2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30baa41e_b15b_475c_a0bb_1af5c5b64328);
@@ -4001,6 +3581,7 @@ pub struct ID3D12Device2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Device3(::windows_core::IUnknown);
 impl ID3D12Device3 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -4304,26 +3885,10 @@ impl ID3D12Device3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Device3, ::windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2);
-impl ::core::cmp::PartialEq for ID3D12Device3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Device3 {}
-impl ::core::fmt::Debug for ID3D12Device3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Device3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Device3 {}
 unsafe impl ::core::marker::Sync for ID3D12Device3 {}
 unsafe impl ::windows_core::Interface for ID3D12Device3 {
     type Vtable = ID3D12Device3_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Device3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Device3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x81dadc15_2bad_4392_93c5_101345c4aa98);
@@ -4341,6 +3906,7 @@ pub struct ID3D12Device3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Device4(::windows_core::IUnknown);
 impl ID3D12Device4 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -4690,26 +4256,10 @@ impl ID3D12Device4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Device4, ::windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3);
-impl ::core::cmp::PartialEq for ID3D12Device4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Device4 {}
-impl ::core::fmt::Debug for ID3D12Device4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Device4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Device4 {}
 unsafe impl ::core::marker::Sync for ID3D12Device4 {}
 unsafe impl ::windows_core::Interface for ID3D12Device4 {
     type Vtable = ID3D12Device4_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Device4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Device4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe865df17_a9ee_46f9_a463_3098315aa2e5);
@@ -4736,6 +4286,7 @@ pub struct ID3D12Device4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Device5(::windows_core::IUnknown);
 impl ID3D12Device5 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -5124,26 +4675,10 @@ impl ID3D12Device5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Device5, ::windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4);
-impl ::core::cmp::PartialEq for ID3D12Device5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Device5 {}
-impl ::core::fmt::Debug for ID3D12Device5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Device5").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Device5 {}
 unsafe impl ::core::marker::Sync for ID3D12Device5 {}
 unsafe impl ::windows_core::Interface for ID3D12Device5 {
     type Vtable = ID3D12Device5_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Device5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Device5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b4f173b_2fea_4b80_8f58_4307191ab95d);
@@ -5166,6 +4701,7 @@ pub struct ID3D12Device5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Device6(::windows_core::IUnknown);
 impl ID3D12Device6 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -5562,26 +5098,10 @@ impl ID3D12Device6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Device6, ::windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5);
-impl ::core::cmp::PartialEq for ID3D12Device6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Device6 {}
-impl ::core::fmt::Debug for ID3D12Device6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Device6").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Device6 {}
 unsafe impl ::core::marker::Sync for ID3D12Device6 {}
 unsafe impl ::windows_core::Interface for ID3D12Device6 {
     type Vtable = ID3D12Device6_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Device6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Device6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc70b221b_40e4_4a17_89af_025a0727a6dc);
@@ -5597,6 +5117,7 @@ pub struct ID3D12Device6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Device7(::windows_core::IUnknown);
 impl ID3D12Device7 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -6008,26 +5529,10 @@ impl ID3D12Device7 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Device7, ::windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6);
-impl ::core::cmp::PartialEq for ID3D12Device7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Device7 {}
-impl ::core::fmt::Debug for ID3D12Device7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Device7").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Device7 {}
 unsafe impl ::core::marker::Sync for ID3D12Device7 {}
 unsafe impl ::windows_core::Interface for ID3D12Device7 {
     type Vtable = ID3D12Device7_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Device7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Device7 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c014b53_68a1_4b9b_8bd1_dd6046b9358b);
@@ -6041,6 +5546,7 @@ pub struct ID3D12Device7_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Device8(::windows_core::IUnknown);
 impl ID3D12Device8 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -6489,26 +5995,10 @@ impl ID3D12Device8 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Device8, ::windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7);
-impl ::core::cmp::PartialEq for ID3D12Device8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Device8 {}
-impl ::core::fmt::Debug for ID3D12Device8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Device8").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Device8 {}
 unsafe impl ::core::marker::Sync for ID3D12Device8 {}
 unsafe impl ::windows_core::Interface for ID3D12Device8 {
     type Vtable = ID3D12Device8_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Device8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Device8 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9218e6bb_f944_4f7e_a75c_b1b2c7b701f3);
@@ -6537,6 +6027,7 @@ pub struct ID3D12Device8_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Device9(::windows_core::IUnknown);
 impl ID3D12Device9 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -7001,26 +6492,10 @@ impl ID3D12Device9 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Device9, ::windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8);
-impl ::core::cmp::PartialEq for ID3D12Device9 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Device9 {}
-impl ::core::fmt::Debug for ID3D12Device9 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Device9").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Device9 {}
 unsafe impl ::core::marker::Sync for ID3D12Device9 {}
 unsafe impl ::windows_core::Interface for ID3D12Device9 {
     type Vtable = ID3D12Device9_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Device9 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Device9 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c80e962_f032_4f60_bc9e_ebc2cfa1d83c);
@@ -7035,6 +6510,7 @@ pub struct ID3D12Device9_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DeviceChild(::windows_core::IUnknown);
 impl ID3D12DeviceChild {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -7063,26 +6539,10 @@ impl ID3D12DeviceChild {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DeviceChild, ::windows_core::IUnknown, ID3D12Object);
-impl ::core::cmp::PartialEq for ID3D12DeviceChild {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DeviceChild {}
-impl ::core::fmt::Debug for ID3D12DeviceChild {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DeviceChild").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DeviceChild {}
 unsafe impl ::core::marker::Sync for ID3D12DeviceChild {}
 unsafe impl ::windows_core::Interface for ID3D12DeviceChild {
     type Vtable = ID3D12DeviceChild_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DeviceChild {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DeviceChild {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x905db94b_a00c_4140_9df5_2b64ca9ea357);
@@ -7095,6 +6555,7 @@ pub struct ID3D12DeviceChild_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DeviceConfiguration(::windows_core::IUnknown);
 impl ID3D12DeviceConfiguration {
     pub unsafe fn GetDesc(&self) -> D3D12_DEVICE_CONFIGURATION_DESC {
@@ -7119,26 +6580,10 @@ impl ID3D12DeviceConfiguration {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DeviceConfiguration, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12DeviceConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DeviceConfiguration {}
-impl ::core::fmt::Debug for ID3D12DeviceConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DeviceConfiguration").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DeviceConfiguration {}
 unsafe impl ::core::marker::Sync for ID3D12DeviceConfiguration {}
 unsafe impl ::windows_core::Interface for ID3D12DeviceConfiguration {
     type Vtable = ID3D12DeviceConfiguration_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DeviceConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DeviceConfiguration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x78dbf87b_f766_422b_a61c_c8c446bdb9ad);
@@ -7157,6 +6602,7 @@ pub struct ID3D12DeviceConfiguration_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DeviceFactory(::windows_core::IUnknown);
 impl ID3D12DeviceFactory {
     pub unsafe fn InitializeFromGlobalState(&self) -> ::windows_core::Result<()> {
@@ -7192,26 +6638,10 @@ impl ID3D12DeviceFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DeviceFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12DeviceFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DeviceFactory {}
-impl ::core::fmt::Debug for ID3D12DeviceFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DeviceFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DeviceFactory {}
 unsafe impl ::core::marker::Sync for ID3D12DeviceFactory {}
 unsafe impl ::windows_core::Interface for ID3D12DeviceFactory {
     type Vtable = ID3D12DeviceFactory_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DeviceFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DeviceFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61f307d3_d34e_4e7c_8374_3ba4de23cccb);
@@ -7233,6 +6663,7 @@ pub struct ID3D12DeviceFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DeviceRemovedExtendedData(::windows_core::IUnknown);
 impl ID3D12DeviceRemovedExtendedData {
     pub unsafe fn GetAutoBreadcrumbsOutput(&self) -> ::windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT> {
@@ -7245,26 +6676,10 @@ impl ID3D12DeviceRemovedExtendedData {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedData, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DeviceRemovedExtendedData {}
-impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DeviceRemovedExtendedData").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DeviceRemovedExtendedData {}
 unsafe impl ::core::marker::Sync for ID3D12DeviceRemovedExtendedData {}
 unsafe impl ::windows_core::Interface for ID3D12DeviceRemovedExtendedData {
     type Vtable = ID3D12DeviceRemovedExtendedData_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DeviceRemovedExtendedData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DeviceRemovedExtendedData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98931d33_5ae8_4791_aa3c_1a73a2934e71);
@@ -7278,6 +6693,7 @@ pub struct ID3D12DeviceRemovedExtendedData_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DeviceRemovedExtendedData1(::windows_core::IUnknown);
 impl ID3D12DeviceRemovedExtendedData1 {
     pub unsafe fn GetAutoBreadcrumbsOutput(&self) -> ::windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT> {
@@ -7298,26 +6714,10 @@ impl ID3D12DeviceRemovedExtendedData1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedData1, ::windows_core::IUnknown, ID3D12DeviceRemovedExtendedData);
-impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedData1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DeviceRemovedExtendedData1 {}
-impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedData1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DeviceRemovedExtendedData1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DeviceRemovedExtendedData1 {}
 unsafe impl ::core::marker::Sync for ID3D12DeviceRemovedExtendedData1 {}
 unsafe impl ::windows_core::Interface for ID3D12DeviceRemovedExtendedData1 {
     type Vtable = ID3D12DeviceRemovedExtendedData1_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DeviceRemovedExtendedData1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DeviceRemovedExtendedData1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9727a022_cf1d_4dda_9eba_effa653fc506);
@@ -7331,6 +6731,7 @@ pub struct ID3D12DeviceRemovedExtendedData1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DeviceRemovedExtendedData2(::windows_core::IUnknown);
 impl ID3D12DeviceRemovedExtendedData2 {
     pub unsafe fn GetAutoBreadcrumbsOutput(&self) -> ::windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT> {
@@ -7357,26 +6758,10 @@ impl ID3D12DeviceRemovedExtendedData2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedData2, ::windows_core::IUnknown, ID3D12DeviceRemovedExtendedData, ID3D12DeviceRemovedExtendedData1);
-impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedData2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DeviceRemovedExtendedData2 {}
-impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedData2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DeviceRemovedExtendedData2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DeviceRemovedExtendedData2 {}
 unsafe impl ::core::marker::Sync for ID3D12DeviceRemovedExtendedData2 {}
 unsafe impl ::windows_core::Interface for ID3D12DeviceRemovedExtendedData2 {
     type Vtable = ID3D12DeviceRemovedExtendedData2_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DeviceRemovedExtendedData2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DeviceRemovedExtendedData2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x67fc5816_e4ca_4915_bf18_42541272da54);
@@ -7390,6 +6775,7 @@ pub struct ID3D12DeviceRemovedExtendedData2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DeviceRemovedExtendedDataSettings(::windows_core::IUnknown);
 impl ID3D12DeviceRemovedExtendedDataSettings {
     pub unsafe fn SetAutoBreadcrumbsEnablement(&self, enablement: D3D12_DRED_ENABLEMENT) {
@@ -7403,26 +6789,10 @@ impl ID3D12DeviceRemovedExtendedDataSettings {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedDataSettings, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedDataSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DeviceRemovedExtendedDataSettings {}
-impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedDataSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DeviceRemovedExtendedDataSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DeviceRemovedExtendedDataSettings {}
 unsafe impl ::core::marker::Sync for ID3D12DeviceRemovedExtendedDataSettings {}
 unsafe impl ::windows_core::Interface for ID3D12DeviceRemovedExtendedDataSettings {
     type Vtable = ID3D12DeviceRemovedExtendedDataSettings_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DeviceRemovedExtendedDataSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DeviceRemovedExtendedDataSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x82bc481c_6b9b_4030_aedb_7ee3d1df1e63);
@@ -7437,6 +6807,7 @@ pub struct ID3D12DeviceRemovedExtendedDataSettings_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DeviceRemovedExtendedDataSettings1(::windows_core::IUnknown);
 impl ID3D12DeviceRemovedExtendedDataSettings1 {
     pub unsafe fn SetAutoBreadcrumbsEnablement(&self, enablement: D3D12_DRED_ENABLEMENT) {
@@ -7453,26 +6824,10 @@ impl ID3D12DeviceRemovedExtendedDataSettings1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedDataSettings1, ::windows_core::IUnknown, ID3D12DeviceRemovedExtendedDataSettings);
-impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedDataSettings1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DeviceRemovedExtendedDataSettings1 {}
-impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedDataSettings1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DeviceRemovedExtendedDataSettings1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DeviceRemovedExtendedDataSettings1 {}
 unsafe impl ::core::marker::Sync for ID3D12DeviceRemovedExtendedDataSettings1 {}
 unsafe impl ::windows_core::Interface for ID3D12DeviceRemovedExtendedDataSettings1 {
     type Vtable = ID3D12DeviceRemovedExtendedDataSettings1_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DeviceRemovedExtendedDataSettings1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DeviceRemovedExtendedDataSettings1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdbd5ae51_3317_4f0a_adf9_1d7cedcaae0b);
@@ -7485,6 +6840,7 @@ pub struct ID3D12DeviceRemovedExtendedDataSettings1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12DeviceRemovedExtendedDataSettings2(::windows_core::IUnknown);
 impl ID3D12DeviceRemovedExtendedDataSettings2 {
     pub unsafe fn SetAutoBreadcrumbsEnablement(&self, enablement: D3D12_DRED_ENABLEMENT) {
@@ -7509,26 +6865,10 @@ impl ID3D12DeviceRemovedExtendedDataSettings2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedDataSettings2, ::windows_core::IUnknown, ID3D12DeviceRemovedExtendedDataSettings, ID3D12DeviceRemovedExtendedDataSettings1);
-impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedDataSettings2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12DeviceRemovedExtendedDataSettings2 {}
-impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedDataSettings2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12DeviceRemovedExtendedDataSettings2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12DeviceRemovedExtendedDataSettings2 {}
 unsafe impl ::core::marker::Sync for ID3D12DeviceRemovedExtendedDataSettings2 {}
 unsafe impl ::windows_core::Interface for ID3D12DeviceRemovedExtendedDataSettings2 {
     type Vtable = ID3D12DeviceRemovedExtendedDataSettings2_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12DeviceRemovedExtendedDataSettings2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12DeviceRemovedExtendedDataSettings2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61552388_01ab_4008_a436_83db189566ea);
@@ -7544,6 +6884,7 @@ pub struct ID3D12DeviceRemovedExtendedDataSettings2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Fence(::windows_core::IUnknown);
 impl ID3D12Fence {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -7586,26 +6927,10 @@ impl ID3D12Fence {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Fence, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
-impl ::core::cmp::PartialEq for ID3D12Fence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Fence {}
-impl ::core::fmt::Debug for ID3D12Fence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Fence").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Fence {}
 unsafe impl ::core::marker::Sync for ID3D12Fence {}
 unsafe impl ::windows_core::Interface for ID3D12Fence {
     type Vtable = ID3D12Fence_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Fence {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Fence {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a753dcf_c4d8_4b91_adf6_be5a60d95a76);
@@ -7623,6 +6948,7 @@ pub struct ID3D12Fence_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Fence1(::windows_core::IUnknown);
 impl ID3D12Fence1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -7668,26 +6994,10 @@ impl ID3D12Fence1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Fence1, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Fence);
-impl ::core::cmp::PartialEq for ID3D12Fence1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Fence1 {}
-impl ::core::fmt::Debug for ID3D12Fence1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Fence1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Fence1 {}
 unsafe impl ::core::marker::Sync for ID3D12Fence1 {}
 unsafe impl ::windows_core::Interface for ID3D12Fence1 {
     type Vtable = ID3D12Fence1_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Fence1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Fence1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x433685fe_e22b_4ca0_a8db_b5b4f4dd0e4a);
@@ -7700,6 +7010,7 @@ pub struct ID3D12Fence1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12FunctionParameterReflection(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D12FunctionParameterReflection {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
@@ -7708,26 +7019,10 @@ impl ID3D12FunctionParameterReflection {
         (::windows_core::Interface::vtable(self).GetDesc)(::windows_core::Interface::as_raw(self), pdesc).ok()
     }
 }
-impl ::core::cmp::PartialEq for ID3D12FunctionParameterReflection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12FunctionParameterReflection {}
-impl ::core::fmt::Debug for ID3D12FunctionParameterReflection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12FunctionParameterReflection").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12FunctionParameterReflection {}
 unsafe impl ::core::marker::Sync for ID3D12FunctionParameterReflection {}
 unsafe impl ::windows_core::Interface for ID3D12FunctionParameterReflection {
     type Vtable = ID3D12FunctionParameterReflection_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12FunctionParameterReflection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7739,6 +7034,7 @@ pub struct ID3D12FunctionParameterReflection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12FunctionReflection(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D12FunctionReflection {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`*"]
@@ -7778,26 +7074,10 @@ impl ID3D12FunctionReflection {
         (::windows_core::Interface::vtable(self).GetFunctionParameter)(::windows_core::Interface::as_raw(self), parameterindex)
     }
 }
-impl ::core::cmp::PartialEq for ID3D12FunctionReflection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12FunctionReflection {}
-impl ::core::fmt::Debug for ID3D12FunctionReflection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12FunctionReflection").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12FunctionReflection {}
 unsafe impl ::core::marker::Sync for ID3D12FunctionReflection {}
 unsafe impl ::windows_core::Interface for ID3D12FunctionReflection {
     type Vtable = ID3D12FunctionReflection_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12FunctionReflection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7821,6 +7101,7 @@ pub struct ID3D12FunctionReflection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12GraphicsCommandList(::windows_core::IUnknown);
 impl ID3D12GraphicsCommandList {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -8094,26 +7375,10 @@ impl ID3D12GraphicsCommandList {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList);
-impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12GraphicsCommandList {}
-impl ::core::fmt::Debug for ID3D12GraphicsCommandList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12GraphicsCommandList").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12GraphicsCommandList {}
 unsafe impl ::core::marker::Sync for ID3D12GraphicsCommandList {}
 unsafe impl ::windows_core::Interface for ID3D12GraphicsCommandList {
     type Vtable = ID3D12GraphicsCommandList_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12GraphicsCommandList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b160d0f_ac1b_4185_8ba8_b3ae42a5a455);
@@ -8212,6 +7477,7 @@ pub struct ID3D12GraphicsCommandList_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12GraphicsCommandList1(::windows_core::IUnknown);
 impl ID3D12GraphicsCommandList1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -8517,26 +7783,10 @@ impl ID3D12GraphicsCommandList1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList1, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList);
-impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12GraphicsCommandList1 {}
-impl ::core::fmt::Debug for ID3D12GraphicsCommandList1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12GraphicsCommandList1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12GraphicsCommandList1 {}
 unsafe impl ::core::marker::Sync for ID3D12GraphicsCommandList1 {}
 unsafe impl ::windows_core::Interface for ID3D12GraphicsCommandList1 {
     type Vtable = ID3D12GraphicsCommandList1_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12GraphicsCommandList1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x553103fb_1fe7_4557_bb38_946d7d0e7ca7);
@@ -8557,6 +7807,7 @@ pub struct ID3D12GraphicsCommandList1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12GraphicsCommandList2(::windows_core::IUnknown);
 impl ID3D12GraphicsCommandList2 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -8865,26 +8116,10 @@ impl ID3D12GraphicsCommandList2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList2, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1);
-impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12GraphicsCommandList2 {}
-impl ::core::fmt::Debug for ID3D12GraphicsCommandList2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12GraphicsCommandList2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12GraphicsCommandList2 {}
 unsafe impl ::core::marker::Sync for ID3D12GraphicsCommandList2 {}
 unsafe impl ::windows_core::Interface for ID3D12GraphicsCommandList2 {
     type Vtable = ID3D12GraphicsCommandList2_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12GraphicsCommandList2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38c3e585_ff17_412c_9150_4fc6f9d72a28);
@@ -8897,6 +8132,7 @@ pub struct ID3D12GraphicsCommandList2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12GraphicsCommandList3(::windows_core::IUnknown);
 impl ID3D12GraphicsCommandList3 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -9211,26 +8447,10 @@ impl ID3D12GraphicsCommandList3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList3, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2);
-impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12GraphicsCommandList3 {}
-impl ::core::fmt::Debug for ID3D12GraphicsCommandList3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12GraphicsCommandList3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12GraphicsCommandList3 {}
 unsafe impl ::core::marker::Sync for ID3D12GraphicsCommandList3 {}
 unsafe impl ::windows_core::Interface for ID3D12GraphicsCommandList3 {
     type Vtable = ID3D12GraphicsCommandList3_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12GraphicsCommandList3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fda83a7_b84c_4e38_9ac8_c7bd22016b3d);
@@ -9243,6 +8463,7 @@ pub struct ID3D12GraphicsCommandList3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12GraphicsCommandList4(::windows_core::IUnknown);
 impl ID3D12GraphicsCommandList4 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -9597,26 +8818,10 @@ impl ID3D12GraphicsCommandList4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList4, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3);
-impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12GraphicsCommandList4 {}
-impl ::core::fmt::Debug for ID3D12GraphicsCommandList4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12GraphicsCommandList4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12GraphicsCommandList4 {}
 unsafe impl ::core::marker::Sync for ID3D12GraphicsCommandList4 {}
 unsafe impl ::windows_core::Interface for ID3D12GraphicsCommandList4 {
     type Vtable = ID3D12GraphicsCommandList4_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12GraphicsCommandList4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8754318e_d3a9_4541_98cf_645b50dc4874);
@@ -9643,6 +8848,7 @@ pub struct ID3D12GraphicsCommandList4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12GraphicsCommandList5(::windows_core::IUnknown);
 impl ID3D12GraphicsCommandList5 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -10006,26 +9212,10 @@ impl ID3D12GraphicsCommandList5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList5, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4);
-impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12GraphicsCommandList5 {}
-impl ::core::fmt::Debug for ID3D12GraphicsCommandList5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12GraphicsCommandList5").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12GraphicsCommandList5 {}
 unsafe impl ::core::marker::Sync for ID3D12GraphicsCommandList5 {}
 unsafe impl ::windows_core::Interface for ID3D12GraphicsCommandList5 {
     type Vtable = ID3D12GraphicsCommandList5_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12GraphicsCommandList5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55050859_4024_474c_87f5_6472eaee44ea);
@@ -10039,6 +9229,7 @@ pub struct ID3D12GraphicsCommandList5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12GraphicsCommandList6(::windows_core::IUnknown);
 impl ID3D12GraphicsCommandList6 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -10405,26 +9596,10 @@ impl ID3D12GraphicsCommandList6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList6, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5);
-impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12GraphicsCommandList6 {}
-impl ::core::fmt::Debug for ID3D12GraphicsCommandList6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12GraphicsCommandList6").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12GraphicsCommandList6 {}
 unsafe impl ::core::marker::Sync for ID3D12GraphicsCommandList6 {}
 unsafe impl ::windows_core::Interface for ID3D12GraphicsCommandList6 {
     type Vtable = ID3D12GraphicsCommandList6_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12GraphicsCommandList6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc3827890_e548_4cfa_96cf_5689a9370f80);
@@ -10437,6 +9612,7 @@ pub struct ID3D12GraphicsCommandList6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12GraphicsCommandList7(::windows_core::IUnknown);
 impl ID3D12GraphicsCommandList7 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -10806,26 +9982,10 @@ impl ID3D12GraphicsCommandList7 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList7, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList6);
-impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12GraphicsCommandList7 {}
-impl ::core::fmt::Debug for ID3D12GraphicsCommandList7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12GraphicsCommandList7").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12GraphicsCommandList7 {}
 unsafe impl ::core::marker::Sync for ID3D12GraphicsCommandList7 {}
 unsafe impl ::windows_core::Interface for ID3D12GraphicsCommandList7 {
     type Vtable = ID3D12GraphicsCommandList7_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12GraphicsCommandList7 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd171223_8b61_4769_90e3_160ccde4e2c1);
@@ -10838,6 +9998,7 @@ pub struct ID3D12GraphicsCommandList7_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12GraphicsCommandList8(::windows_core::IUnknown);
 impl ID3D12GraphicsCommandList8 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -11210,26 +10371,10 @@ impl ID3D12GraphicsCommandList8 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList8, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList6, ID3D12GraphicsCommandList7);
-impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12GraphicsCommandList8 {}
-impl ::core::fmt::Debug for ID3D12GraphicsCommandList8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12GraphicsCommandList8").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12GraphicsCommandList8 {}
 unsafe impl ::core::marker::Sync for ID3D12GraphicsCommandList8 {}
 unsafe impl ::windows_core::Interface for ID3D12GraphicsCommandList8 {
     type Vtable = ID3D12GraphicsCommandList8_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12GraphicsCommandList8 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xee936ef9_599d_4d28_938e_23c4ad05ce51);
@@ -11242,6 +10387,7 @@ pub struct ID3D12GraphicsCommandList8_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12GraphicsCommandList9(::windows_core::IUnknown);
 impl ID3D12GraphicsCommandList9 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -11620,26 +10766,10 @@ impl ID3D12GraphicsCommandList9 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList9, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList6, ID3D12GraphicsCommandList7, ID3D12GraphicsCommandList8);
-impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList9 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12GraphicsCommandList9 {}
-impl ::core::fmt::Debug for ID3D12GraphicsCommandList9 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12GraphicsCommandList9").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12GraphicsCommandList9 {}
 unsafe impl ::core::marker::Sync for ID3D12GraphicsCommandList9 {}
 unsafe impl ::windows_core::Interface for ID3D12GraphicsCommandList9 {
     type Vtable = ID3D12GraphicsCommandList9_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList9 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12GraphicsCommandList9 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x34ed2808_ffe6_4c2b_b11a_cabd2b0c59e1);
@@ -11653,6 +10783,7 @@ pub struct ID3D12GraphicsCommandList9_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Heap(::windows_core::IUnknown);
 impl ID3D12Heap {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -11686,26 +10817,10 @@ impl ID3D12Heap {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Heap, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
-impl ::core::cmp::PartialEq for ID3D12Heap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Heap {}
-impl ::core::fmt::Debug for ID3D12Heap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Heap").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Heap {}
 unsafe impl ::core::marker::Sync for ID3D12Heap {}
 unsafe impl ::windows_core::Interface for ID3D12Heap {
     type Vtable = ID3D12Heap_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Heap {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Heap {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b3b2502_6e51_45b3_90ee_9884265e8df3);
@@ -11718,6 +10833,7 @@ pub struct ID3D12Heap_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Heap1(::windows_core::IUnknown);
 impl ID3D12Heap1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -11757,26 +10873,10 @@ impl ID3D12Heap1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Heap1, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Heap);
-impl ::core::cmp::PartialEq for ID3D12Heap1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Heap1 {}
-impl ::core::fmt::Debug for ID3D12Heap1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Heap1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Heap1 {}
 unsafe impl ::core::marker::Sync for ID3D12Heap1 {}
 unsafe impl ::windows_core::Interface for ID3D12Heap1 {
     type Vtable = ID3D12Heap1_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Heap1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Heap1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x572f7389_2168_49e3_9693_d6df5871bf6d);
@@ -11789,6 +10889,7 @@ pub struct ID3D12Heap1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12InfoQueue(::windows_core::IUnknown);
 impl ID3D12InfoQueue {
     pub unsafe fn SetMessageCountLimit(&self, messagecountlimit: u64) -> ::windows_core::Result<()> {
@@ -11932,26 +11033,10 @@ impl ID3D12InfoQueue {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12InfoQueue, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12InfoQueue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12InfoQueue {}
-impl ::core::fmt::Debug for ID3D12InfoQueue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12InfoQueue").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12InfoQueue {}
 unsafe impl ::core::marker::Sync for ID3D12InfoQueue {}
 unsafe impl ::windows_core::Interface for ID3D12InfoQueue {
     type Vtable = ID3D12InfoQueue_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12InfoQueue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12InfoQueue {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0742a90b_c387_483f_b946_30a7e4e61458);
@@ -12022,6 +11107,7 @@ pub struct ID3D12InfoQueue_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12InfoQueue1(::windows_core::IUnknown);
 impl ID3D12InfoQueue1 {
     pub unsafe fn SetMessageCountLimit(&self, messagecountlimit: u64) -> ::windows_core::Result<()> {
@@ -12171,26 +11257,10 @@ impl ID3D12InfoQueue1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12InfoQueue1, ::windows_core::IUnknown, ID3D12InfoQueue);
-impl ::core::cmp::PartialEq for ID3D12InfoQueue1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12InfoQueue1 {}
-impl ::core::fmt::Debug for ID3D12InfoQueue1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12InfoQueue1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12InfoQueue1 {}
 unsafe impl ::core::marker::Sync for ID3D12InfoQueue1 {}
 unsafe impl ::windows_core::Interface for ID3D12InfoQueue1 {
     type Vtable = ID3D12InfoQueue1_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12InfoQueue1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12InfoQueue1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2852dd88_b484_4c0c_b6b1_67168500e600);
@@ -12204,6 +11274,7 @@ pub struct ID3D12InfoQueue1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12LibraryReflection(::windows_core::IUnknown);
 impl ID3D12LibraryReflection {
     pub unsafe fn GetDesc(&self) -> ::windows_core::Result<D3D12_LIBRARY_DESC> {
@@ -12215,26 +11286,10 @@ impl ID3D12LibraryReflection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12LibraryReflection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12LibraryReflection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12LibraryReflection {}
-impl ::core::fmt::Debug for ID3D12LibraryReflection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12LibraryReflection").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12LibraryReflection {}
 unsafe impl ::core::marker::Sync for ID3D12LibraryReflection {}
 unsafe impl ::windows_core::Interface for ID3D12LibraryReflection {
     type Vtable = ID3D12LibraryReflection_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12LibraryReflection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12LibraryReflection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8e349d19_54db_4a56_9dc9_119d87bdb804);
@@ -12248,6 +11303,7 @@ pub struct ID3D12LibraryReflection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12LifetimeOwner(::windows_core::IUnknown);
 impl ID3D12LifetimeOwner {
     pub unsafe fn LifetimeStateUpdated(&self, newstate: D3D12_LIFETIME_STATE) {
@@ -12255,26 +11311,10 @@ impl ID3D12LifetimeOwner {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12LifetimeOwner, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12LifetimeOwner {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12LifetimeOwner {}
-impl ::core::fmt::Debug for ID3D12LifetimeOwner {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12LifetimeOwner").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12LifetimeOwner {}
 unsafe impl ::core::marker::Sync for ID3D12LifetimeOwner {}
 unsafe impl ::windows_core::Interface for ID3D12LifetimeOwner {
     type Vtable = ID3D12LifetimeOwner_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12LifetimeOwner {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12LifetimeOwner {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe667af9f_cd56_4f46_83ce_032e595d70a8);
@@ -12287,6 +11327,7 @@ pub struct ID3D12LifetimeOwner_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12LifetimeTracker(::windows_core::IUnknown);
 impl ID3D12LifetimeTracker {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -12321,26 +11362,10 @@ impl ID3D12LifetimeTracker {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12LifetimeTracker, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
-impl ::core::cmp::PartialEq for ID3D12LifetimeTracker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12LifetimeTracker {}
-impl ::core::fmt::Debug for ID3D12LifetimeTracker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12LifetimeTracker").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12LifetimeTracker {}
 unsafe impl ::core::marker::Sync for ID3D12LifetimeTracker {}
 unsafe impl ::windows_core::Interface for ID3D12LifetimeTracker {
     type Vtable = ID3D12LifetimeTracker_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12LifetimeTracker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12LifetimeTracker {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3fd03d36_4eb1_424a_a582_494ecb8ba813);
@@ -12353,6 +11378,7 @@ pub struct ID3D12LifetimeTracker_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12ManualWriteTrackingResource(::windows_core::IUnknown);
 impl ID3D12ManualWriteTrackingResource {
     pub unsafe fn TrackWrite(&self, subresource: u32, pwrittenrange: ::core::option::Option<*const D3D12_RANGE>) {
@@ -12360,26 +11386,10 @@ impl ID3D12ManualWriteTrackingResource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12ManualWriteTrackingResource, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12ManualWriteTrackingResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12ManualWriteTrackingResource {}
-impl ::core::fmt::Debug for ID3D12ManualWriteTrackingResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12ManualWriteTrackingResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12ManualWriteTrackingResource {}
 unsafe impl ::core::marker::Sync for ID3D12ManualWriteTrackingResource {}
 unsafe impl ::windows_core::Interface for ID3D12ManualWriteTrackingResource {
     type Vtable = ID3D12ManualWriteTrackingResource_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12ManualWriteTrackingResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12ManualWriteTrackingResource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86ca3b85_49ad_4b6e_aed5_eddb18540f41);
@@ -12392,6 +11402,7 @@ pub struct ID3D12ManualWriteTrackingResource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12MetaCommand(::windows_core::IUnknown);
 impl ID3D12MetaCommand {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -12423,26 +11434,10 @@ impl ID3D12MetaCommand {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12MetaCommand, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
-impl ::core::cmp::PartialEq for ID3D12MetaCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12MetaCommand {}
-impl ::core::fmt::Debug for ID3D12MetaCommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12MetaCommand").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12MetaCommand {}
 unsafe impl ::core::marker::Sync for ID3D12MetaCommand {}
 unsafe impl ::windows_core::Interface for ID3D12MetaCommand {
     type Vtable = ID3D12MetaCommand_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12MetaCommand {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12MetaCommand {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdbb84c27_36ce_4fc9_b801_f048c46ac570);
@@ -12455,6 +11450,7 @@ pub struct ID3D12MetaCommand_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Object(::windows_core::IUnknown);
 impl ID3D12Object {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -12477,26 +11473,10 @@ impl ID3D12Object {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Object, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12Object {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Object {}
-impl ::core::fmt::Debug for ID3D12Object {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Object").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Object {}
 unsafe impl ::core::marker::Sync for ID3D12Object {}
 unsafe impl ::windows_core::Interface for ID3D12Object {
     type Vtable = ID3D12Object_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Object {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Object {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4fec28f_7966_4e95_9f94_f431cb56c3b8);
@@ -12512,6 +11492,7 @@ pub struct ID3D12Object_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Pageable(::windows_core::IUnknown);
 impl ID3D12Pageable {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -12540,26 +11521,10 @@ impl ID3D12Pageable {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Pageable, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
-impl ::core::cmp::PartialEq for ID3D12Pageable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Pageable {}
-impl ::core::fmt::Debug for ID3D12Pageable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Pageable").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Pageable {}
 unsafe impl ::core::marker::Sync for ID3D12Pageable {}
 unsafe impl ::windows_core::Interface for ID3D12Pageable {
     type Vtable = ID3D12Pageable_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Pageable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Pageable {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63ee58fb_1268_4835_86da_f008ce62f0d6);
@@ -12571,6 +11536,7 @@ pub struct ID3D12Pageable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12PipelineLibrary(::windows_core::IUnknown);
 impl ID3D12PipelineLibrary {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -12630,26 +11596,10 @@ impl ID3D12PipelineLibrary {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12PipelineLibrary, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
-impl ::core::cmp::PartialEq for ID3D12PipelineLibrary {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12PipelineLibrary {}
-impl ::core::fmt::Debug for ID3D12PipelineLibrary {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12PipelineLibrary").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12PipelineLibrary {}
 unsafe impl ::core::marker::Sync for ID3D12PipelineLibrary {}
 unsafe impl ::windows_core::Interface for ID3D12PipelineLibrary {
     type Vtable = ID3D12PipelineLibrary_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12PipelineLibrary {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12PipelineLibrary {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc64226a8_9201_46af_b4cc_53fb9ff7414f);
@@ -12669,6 +11619,7 @@ pub struct ID3D12PipelineLibrary_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12PipelineLibrary1(::windows_core::IUnknown);
 impl ID3D12PipelineLibrary1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -12736,26 +11687,10 @@ impl ID3D12PipelineLibrary1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12PipelineLibrary1, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12PipelineLibrary);
-impl ::core::cmp::PartialEq for ID3D12PipelineLibrary1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12PipelineLibrary1 {}
-impl ::core::fmt::Debug for ID3D12PipelineLibrary1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12PipelineLibrary1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12PipelineLibrary1 {}
 unsafe impl ::core::marker::Sync for ID3D12PipelineLibrary1 {}
 unsafe impl ::windows_core::Interface for ID3D12PipelineLibrary1 {
     type Vtable = ID3D12PipelineLibrary1_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12PipelineLibrary1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12PipelineLibrary1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80eabf42_2568_4e5e_bd82_c37f86961dc3);
@@ -12768,6 +11703,7 @@ pub struct ID3D12PipelineLibrary1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12PipelineState(::windows_core::IUnknown);
 impl ID3D12PipelineState {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -12802,26 +11738,10 @@ impl ID3D12PipelineState {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12PipelineState, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
-impl ::core::cmp::PartialEq for ID3D12PipelineState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12PipelineState {}
-impl ::core::fmt::Debug for ID3D12PipelineState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12PipelineState").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12PipelineState {}
 unsafe impl ::core::marker::Sync for ID3D12PipelineState {}
 unsafe impl ::windows_core::Interface for ID3D12PipelineState {
     type Vtable = ID3D12PipelineState_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12PipelineState {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12PipelineState {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x765a30f3_f624_4c6f_a828_ace948622445);
@@ -12837,6 +11757,7 @@ pub struct ID3D12PipelineState_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12ProtectedResourceSession(::windows_core::IUnknown);
 impl ID3D12ProtectedResourceSession {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -12879,26 +11800,10 @@ impl ID3D12ProtectedResourceSession {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12ProtectedResourceSession, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12ProtectedSession);
-impl ::core::cmp::PartialEq for ID3D12ProtectedResourceSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12ProtectedResourceSession {}
-impl ::core::fmt::Debug for ID3D12ProtectedResourceSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12ProtectedResourceSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12ProtectedResourceSession {}
 unsafe impl ::core::marker::Sync for ID3D12ProtectedResourceSession {}
 unsafe impl ::windows_core::Interface for ID3D12ProtectedResourceSession {
     type Vtable = ID3D12ProtectedResourceSession_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12ProtectedResourceSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12ProtectedResourceSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6cd696f4_f289_40cc_8091_5a6c0a099c3d);
@@ -12911,6 +11816,7 @@ pub struct ID3D12ProtectedResourceSession_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12ProtectedResourceSession1(::windows_core::IUnknown);
 impl ID3D12ProtectedResourceSession1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -12958,26 +11864,10 @@ impl ID3D12ProtectedResourceSession1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12ProtectedResourceSession1, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12ProtectedSession, ID3D12ProtectedResourceSession);
-impl ::core::cmp::PartialEq for ID3D12ProtectedResourceSession1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12ProtectedResourceSession1 {}
-impl ::core::fmt::Debug for ID3D12ProtectedResourceSession1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12ProtectedResourceSession1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12ProtectedResourceSession1 {}
 unsafe impl ::core::marker::Sync for ID3D12ProtectedResourceSession1 {}
 unsafe impl ::windows_core::Interface for ID3D12ProtectedResourceSession1 {
     type Vtable = ID3D12ProtectedResourceSession1_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12ProtectedResourceSession1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12ProtectedResourceSession1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd6f12dd6_76fb_406e_8961_4296eefc0409);
@@ -12990,6 +11880,7 @@ pub struct ID3D12ProtectedResourceSession1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12ProtectedSession(::windows_core::IUnknown);
 impl ID3D12ProtectedSession {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -13027,26 +11918,10 @@ impl ID3D12ProtectedSession {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12ProtectedSession, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
-impl ::core::cmp::PartialEq for ID3D12ProtectedSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12ProtectedSession {}
-impl ::core::fmt::Debug for ID3D12ProtectedSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12ProtectedSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12ProtectedSession {}
 unsafe impl ::core::marker::Sync for ID3D12ProtectedSession {}
 unsafe impl ::windows_core::Interface for ID3D12ProtectedSession {
     type Vtable = ID3D12ProtectedSession_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12ProtectedSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12ProtectedSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1533d18_0ac1_4084_85b9_89a96116806b);
@@ -13060,6 +11935,7 @@ pub struct ID3D12ProtectedSession_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12QueryHeap(::windows_core::IUnknown);
 impl ID3D12QueryHeap {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -13088,26 +11964,10 @@ impl ID3D12QueryHeap {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12QueryHeap, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
-impl ::core::cmp::PartialEq for ID3D12QueryHeap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12QueryHeap {}
-impl ::core::fmt::Debug for ID3D12QueryHeap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12QueryHeap").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12QueryHeap {}
 unsafe impl ::core::marker::Sync for ID3D12QueryHeap {}
 unsafe impl ::windows_core::Interface for ID3D12QueryHeap {
     type Vtable = ID3D12QueryHeap_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12QueryHeap {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12QueryHeap {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d9658ae_ed45_469e_a61d_970ec583cab4);
@@ -13119,6 +11979,7 @@ pub struct ID3D12QueryHeap_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Resource(::windows_core::IUnknown);
 impl ID3D12Resource {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -13172,26 +12033,10 @@ impl ID3D12Resource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Resource, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
-impl ::core::cmp::PartialEq for ID3D12Resource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Resource {}
-impl ::core::fmt::Debug for ID3D12Resource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Resource").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Resource {}
 unsafe impl ::core::marker::Sync for ID3D12Resource {}
 unsafe impl ::windows_core::Interface for ID3D12Resource {
     type Vtable = ID3D12Resource_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Resource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Resource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x696442be_a72e_4059_bc79_5b5c98040fad);
@@ -13213,6 +12058,7 @@ pub struct ID3D12Resource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Resource1(::windows_core::IUnknown);
 impl ID3D12Resource1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -13272,26 +12118,10 @@ impl ID3D12Resource1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Resource1, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Resource);
-impl ::core::cmp::PartialEq for ID3D12Resource1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Resource1 {}
-impl ::core::fmt::Debug for ID3D12Resource1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Resource1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Resource1 {}
 unsafe impl ::core::marker::Sync for ID3D12Resource1 {}
 unsafe impl ::windows_core::Interface for ID3D12Resource1 {
     type Vtable = ID3D12Resource1_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Resource1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Resource1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d5e227a_4430_4161_88b3_3eca6bb16e19);
@@ -13304,6 +12134,7 @@ pub struct ID3D12Resource1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Resource2(::windows_core::IUnknown);
 impl ID3D12Resource2 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -13370,26 +12201,10 @@ impl ID3D12Resource2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Resource2, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Resource, ID3D12Resource1);
-impl ::core::cmp::PartialEq for ID3D12Resource2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Resource2 {}
-impl ::core::fmt::Debug for ID3D12Resource2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Resource2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Resource2 {}
 unsafe impl ::core::marker::Sync for ID3D12Resource2 {}
 unsafe impl ::windows_core::Interface for ID3D12Resource2 {
     type Vtable = ID3D12Resource2_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Resource2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Resource2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe36ec3b_ea85_4aeb_a45a_e9d76404a495);
@@ -13405,6 +12220,7 @@ pub struct ID3D12Resource2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12RootSignature(::windows_core::IUnknown);
 impl ID3D12RootSignature {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -13433,26 +12249,10 @@ impl ID3D12RootSignature {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12RootSignature, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
-impl ::core::cmp::PartialEq for ID3D12RootSignature {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12RootSignature {}
-impl ::core::fmt::Debug for ID3D12RootSignature {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12RootSignature").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12RootSignature {}
 unsafe impl ::core::marker::Sync for ID3D12RootSignature {}
 unsafe impl ::windows_core::Interface for ID3D12RootSignature {
     type Vtable = ID3D12RootSignature_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12RootSignature {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12RootSignature {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc54a6b66_72df_4ee8_8be5_a946a1429214);
@@ -13464,6 +12264,7 @@ pub struct ID3D12RootSignature_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12RootSignatureDeserializer(::windows_core::IUnknown);
 impl ID3D12RootSignatureDeserializer {
     pub unsafe fn GetRootSignatureDesc(&self) -> *mut D3D12_ROOT_SIGNATURE_DESC {
@@ -13471,26 +12272,10 @@ impl ID3D12RootSignatureDeserializer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12RootSignatureDeserializer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12RootSignatureDeserializer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12RootSignatureDeserializer {}
-impl ::core::fmt::Debug for ID3D12RootSignatureDeserializer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12RootSignatureDeserializer").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12RootSignatureDeserializer {}
 unsafe impl ::core::marker::Sync for ID3D12RootSignatureDeserializer {}
 unsafe impl ::windows_core::Interface for ID3D12RootSignatureDeserializer {
     type Vtable = ID3D12RootSignatureDeserializer_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12RootSignatureDeserializer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12RootSignatureDeserializer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x34ab647b_3cc8_46ac_841b_c0965645c046);
@@ -13503,6 +12288,7 @@ pub struct ID3D12RootSignatureDeserializer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12SDKConfiguration(::windows_core::IUnknown);
 impl ID3D12SDKConfiguration {
     pub unsafe fn SetSDKVersion<P0>(&self, sdkversion: u32, sdkpath: P0) -> ::windows_core::Result<()>
@@ -13513,26 +12299,10 @@ impl ID3D12SDKConfiguration {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12SDKConfiguration, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12SDKConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12SDKConfiguration {}
-impl ::core::fmt::Debug for ID3D12SDKConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12SDKConfiguration").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12SDKConfiguration {}
 unsafe impl ::core::marker::Sync for ID3D12SDKConfiguration {}
 unsafe impl ::windows_core::Interface for ID3D12SDKConfiguration {
     type Vtable = ID3D12SDKConfiguration_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12SDKConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12SDKConfiguration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9eb5314_33aa_42b2_a718_d77f58b1f1c7);
@@ -13545,6 +12315,7 @@ pub struct ID3D12SDKConfiguration_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12SDKConfiguration1(::windows_core::IUnknown);
 impl ID3D12SDKConfiguration1 {
     pub unsafe fn SetSDKVersion<P0>(&self, sdkversion: u32, sdkpath: P0) -> ::windows_core::Result<()>
@@ -13566,26 +12337,10 @@ impl ID3D12SDKConfiguration1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12SDKConfiguration1, ::windows_core::IUnknown, ID3D12SDKConfiguration);
-impl ::core::cmp::PartialEq for ID3D12SDKConfiguration1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12SDKConfiguration1 {}
-impl ::core::fmt::Debug for ID3D12SDKConfiguration1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12SDKConfiguration1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12SDKConfiguration1 {}
 unsafe impl ::core::marker::Sync for ID3D12SDKConfiguration1 {}
 unsafe impl ::windows_core::Interface for ID3D12SDKConfiguration1 {
     type Vtable = ID3D12SDKConfiguration1_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12SDKConfiguration1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12SDKConfiguration1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8aaf9303_ad25_48b9_9a57_d9c37e009d9f);
@@ -13599,6 +12354,7 @@ pub struct ID3D12SDKConfiguration1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12ShaderCacheSession(::windows_core::IUnknown);
 impl ID3D12ShaderCacheSession {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -13641,26 +12397,10 @@ impl ID3D12ShaderCacheSession {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12ShaderCacheSession, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
-impl ::core::cmp::PartialEq for ID3D12ShaderCacheSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12ShaderCacheSession {}
-impl ::core::fmt::Debug for ID3D12ShaderCacheSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12ShaderCacheSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12ShaderCacheSession {}
 unsafe impl ::core::marker::Sync for ID3D12ShaderCacheSession {}
 unsafe impl ::windows_core::Interface for ID3D12ShaderCacheSession {
     type Vtable = ID3D12ShaderCacheSession_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12ShaderCacheSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12ShaderCacheSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28e2495d_0f64_4ae4_a6ec_129255dc49a8);
@@ -13676,6 +12416,7 @@ pub struct ID3D12ShaderCacheSession_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12ShaderReflection(::windows_core::IUnknown);
 impl ID3D12ShaderReflection {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
@@ -13765,26 +12506,10 @@ impl ID3D12ShaderReflection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12ShaderReflection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12ShaderReflection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12ShaderReflection {}
-impl ::core::fmt::Debug for ID3D12ShaderReflection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12ShaderReflection").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12ShaderReflection {}
 unsafe impl ::core::marker::Sync for ID3D12ShaderReflection {}
 unsafe impl ::windows_core::Interface for ID3D12ShaderReflection {
     type Vtable = ID3D12ShaderReflection_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12ShaderReflection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12ShaderReflection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a58797d_a72c_478d_8ba2_efc6b0efe88e);
@@ -13842,6 +12567,7 @@ pub struct ID3D12ShaderReflection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12ShaderReflectionConstantBuffer(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D12ShaderReflectionConstantBuffer {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
@@ -13859,26 +12585,10 @@ impl ID3D12ShaderReflectionConstantBuffer {
         (::windows_core::Interface::vtable(self).GetVariableByName)(::windows_core::Interface::as_raw(self), name.into_param().abi())
     }
 }
-impl ::core::cmp::PartialEq for ID3D12ShaderReflectionConstantBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12ShaderReflectionConstantBuffer {}
-impl ::core::fmt::Debug for ID3D12ShaderReflectionConstantBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12ShaderReflectionConstantBuffer").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12ShaderReflectionConstantBuffer {}
 unsafe impl ::core::marker::Sync for ID3D12ShaderReflectionConstantBuffer {}
 unsafe impl ::windows_core::Interface for ID3D12ShaderReflectionConstantBuffer {
     type Vtable = ID3D12ShaderReflectionConstantBuffer_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12ShaderReflectionConstantBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13892,6 +12602,7 @@ pub struct ID3D12ShaderReflectionConstantBuffer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12ShaderReflectionType(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D12ShaderReflectionType {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
@@ -13942,26 +12653,10 @@ impl ID3D12ShaderReflectionType {
         (::windows_core::Interface::vtable(self).ImplementsInterface)(::windows_core::Interface::as_raw(self), pbase.into_param().abi()).ok()
     }
 }
-impl ::core::cmp::PartialEq for ID3D12ShaderReflectionType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12ShaderReflectionType {}
-impl ::core::fmt::Debug for ID3D12ShaderReflectionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12ShaderReflectionType").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12ShaderReflectionType {}
 unsafe impl ::core::marker::Sync for ID3D12ShaderReflectionType {}
 unsafe impl ::windows_core::Interface for ID3D12ShaderReflectionType {
     type Vtable = ID3D12ShaderReflectionType_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12ShaderReflectionType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13983,6 +12678,7 @@ pub struct ID3D12ShaderReflectionType_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12ShaderReflectionVariable(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3D12ShaderReflectionVariable {
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_VARIABLE_DESC) -> ::windows_core::Result<()> {
@@ -13998,26 +12694,10 @@ impl ID3D12ShaderReflectionVariable {
         (::windows_core::Interface::vtable(self).GetInterfaceSlot)(::windows_core::Interface::as_raw(self), uarrayindex)
     }
 }
-impl ::core::cmp::PartialEq for ID3D12ShaderReflectionVariable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12ShaderReflectionVariable {}
-impl ::core::fmt::Debug for ID3D12ShaderReflectionVariable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12ShaderReflectionVariable").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12ShaderReflectionVariable {}
 unsafe impl ::core::marker::Sync for ID3D12ShaderReflectionVariable {}
 unsafe impl ::windows_core::Interface for ID3D12ShaderReflectionVariable {
     type Vtable = ID3D12ShaderReflectionVariable_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12ShaderReflectionVariable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14029,6 +12709,7 @@ pub struct ID3D12ShaderReflectionVariable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12SharingContract(::windows_core::IUnknown);
 impl ID3D12SharingContract {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -14054,26 +12735,10 @@ impl ID3D12SharingContract {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12SharingContract, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12SharingContract {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12SharingContract {}
-impl ::core::fmt::Debug for ID3D12SharingContract {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12SharingContract").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12SharingContract {}
 unsafe impl ::core::marker::Sync for ID3D12SharingContract {}
 unsafe impl ::windows_core::Interface for ID3D12SharingContract {
     type Vtable = ID3D12SharingContract_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12SharingContract {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12SharingContract {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0adf7d52_929c_4e61_addb_ffed30de66ef);
@@ -14092,6 +12757,7 @@ pub struct ID3D12SharingContract_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12StateObject(::windows_core::IUnknown);
 impl ID3D12StateObject {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -14120,26 +12786,10 @@ impl ID3D12StateObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12StateObject, ::windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
-impl ::core::cmp::PartialEq for ID3D12StateObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12StateObject {}
-impl ::core::fmt::Debug for ID3D12StateObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12StateObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12StateObject {}
 unsafe impl ::core::marker::Sync for ID3D12StateObject {}
 unsafe impl ::windows_core::Interface for ID3D12StateObject {
     type Vtable = ID3D12StateObject_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12StateObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12StateObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47016943_fca8_4594_93ea_af258b55346d);
@@ -14151,6 +12801,7 @@ pub struct ID3D12StateObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12StateObjectProperties(::windows_core::IUnknown);
 impl ID3D12StateObjectProperties {
     pub unsafe fn GetShaderIdentifier<P0>(&self, pexportname: P0) -> *mut ::core::ffi::c_void
@@ -14173,26 +12824,10 @@ impl ID3D12StateObjectProperties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12StateObjectProperties, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12StateObjectProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12StateObjectProperties {}
-impl ::core::fmt::Debug for ID3D12StateObjectProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12StateObjectProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12StateObjectProperties {}
 unsafe impl ::core::marker::Sync for ID3D12StateObjectProperties {}
 unsafe impl ::windows_core::Interface for ID3D12StateObjectProperties {
     type Vtable = ID3D12StateObjectProperties_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12StateObjectProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12StateObjectProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde5fa827_9bf9_4f26_89ff_d7f56fde3860);
@@ -14208,6 +12843,7 @@ pub struct ID3D12StateObjectProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12SwapChainAssistant(::windows_core::IUnknown);
 impl ID3D12SwapChainAssistant {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -14236,26 +12872,10 @@ impl ID3D12SwapChainAssistant {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12SwapChainAssistant, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12SwapChainAssistant {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12SwapChainAssistant {}
-impl ::core::fmt::Debug for ID3D12SwapChainAssistant {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12SwapChainAssistant").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12SwapChainAssistant {}
 unsafe impl ::core::marker::Sync for ID3D12SwapChainAssistant {}
 unsafe impl ::windows_core::Interface for ID3D12SwapChainAssistant {
     type Vtable = ID3D12SwapChainAssistant_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12SwapChainAssistant {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12SwapChainAssistant {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf1df64b6_57fd_49cd_8807_c0eb88b45c8f);
@@ -14274,6 +12894,7 @@ pub struct ID3D12SwapChainAssistant_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12Tools(::windows_core::IUnknown);
 impl ID3D12Tools {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -14291,26 +12912,10 @@ impl ID3D12Tools {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12Tools, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12Tools {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12Tools {}
-impl ::core::fmt::Debug for ID3D12Tools {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12Tools").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12Tools {}
 unsafe impl ::core::marker::Sync for ID3D12Tools {}
 unsafe impl ::windows_core::Interface for ID3D12Tools {
     type Vtable = ID3D12Tools_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12Tools {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12Tools {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7071e1f0_e84b_4b33_974f_12fa49de65c5);
@@ -14330,6 +12935,7 @@ pub struct ID3D12Tools_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VersionedRootSignatureDeserializer(::windows_core::IUnknown);
 impl ID3D12VersionedRootSignatureDeserializer {
     pub unsafe fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION) -> ::windows_core::Result<*mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC> {
@@ -14341,26 +12947,10 @@ impl ID3D12VersionedRootSignatureDeserializer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12VersionedRootSignatureDeserializer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12VersionedRootSignatureDeserializer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12VersionedRootSignatureDeserializer {}
-impl ::core::fmt::Debug for ID3D12VersionedRootSignatureDeserializer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12VersionedRootSignatureDeserializer").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12VersionedRootSignatureDeserializer {}
 unsafe impl ::core::marker::Sync for ID3D12VersionedRootSignatureDeserializer {}
 unsafe impl ::windows_core::Interface for ID3D12VersionedRootSignatureDeserializer {
     type Vtable = ID3D12VersionedRootSignatureDeserializer_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12VersionedRootSignatureDeserializer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12VersionedRootSignatureDeserializer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f91ce67_090c_4bb7_b78e_ed8ff2e31da0);
@@ -14374,6 +12964,7 @@ pub struct ID3D12VersionedRootSignatureDeserializer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VirtualizationGuestDevice(::windows_core::IUnknown);
 impl ID3D12VirtualizationGuestDevice {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -14394,26 +12985,10 @@ impl ID3D12VirtualizationGuestDevice {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3D12VirtualizationGuestDevice, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3D12VirtualizationGuestDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3D12VirtualizationGuestDevice {}
-impl ::core::fmt::Debug for ID3D12VirtualizationGuestDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3D12VirtualizationGuestDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3D12VirtualizationGuestDevice {}
 unsafe impl ::core::marker::Sync for ID3D12VirtualizationGuestDevice {}
 unsafe impl ::windows_core::Interface for ID3D12VirtualizationGuestDevice {
     type Vtable = ID3D12VirtualizationGuestDevice_Vtbl;
-}
-impl ::core::clone::Clone for ID3D12VirtualizationGuestDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3D12VirtualizationGuestDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc66d368_7373_4943_8757_fc87dc79e476);

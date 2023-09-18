@@ -229,6 +229,7 @@ pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGameExplorer(::windows_core::IUnknown);
 impl IGameExplorer {
     pub unsafe fn AddGame<P0, P1>(&self, bstrgdfbinarypath: P0, bstrgameinstalldirectory: P1, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows_core::GUID) -> ::windows_core::Result<()>
@@ -255,24 +256,8 @@ impl IGameExplorer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGameExplorer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGameExplorer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGameExplorer {}
-impl ::core::fmt::Debug for IGameExplorer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGameExplorer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGameExplorer {
     type Vtable = IGameExplorer_Vtbl;
-}
-impl ::core::clone::Clone for IGameExplorer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGameExplorer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7b2fb72_d728_49b3_a5f2_18ebf5f1349e);
@@ -291,6 +276,7 @@ pub struct IGameExplorer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGameExplorer2(::windows_core::IUnknown);
 impl IGameExplorer2 {
     pub unsafe fn InstallGame<P0, P1>(&self, binarygdfpath: P0, installdirectory: P1, installscope: GAME_INSTALL_SCOPE) -> ::windows_core::Result<()>
@@ -317,24 +303,8 @@ impl IGameExplorer2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGameExplorer2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGameExplorer2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGameExplorer2 {}
-impl ::core::fmt::Debug for IGameExplorer2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGameExplorer2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGameExplorer2 {
     type Vtable = IGameExplorer2_Vtbl;
-}
-impl ::core::clone::Clone for IGameExplorer2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGameExplorer2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86874aa7_a1ed_450d_a7eb_b89e20b2fff3);
@@ -352,6 +322,7 @@ pub struct IGameExplorer2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGameStatistics(::windows_core::IUnknown);
 impl IGameStatistics {
     pub unsafe fn GetMaxCategoryLength(&self) -> ::windows_core::Result<u32> {
@@ -411,24 +382,8 @@ impl IGameStatistics {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGameStatistics, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGameStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGameStatistics {}
-impl ::core::fmt::Debug for IGameStatistics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGameStatistics").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGameStatistics {
     type Vtable = IGameStatistics_Vtbl;
-}
-impl ::core::clone::Clone for IGameStatistics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGameStatistics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3887c9ca_04a0_42ae_bc4c_5fa6c7721145);
@@ -455,6 +410,7 @@ pub struct IGameStatistics_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGameStatisticsMgr(::windows_core::IUnknown);
 impl IGameStatisticsMgr {
     pub unsafe fn GetGameStatistics<P0>(&self, gdfbinarypath: P0, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::core::option::Option<IGameStatistics>) -> ::windows_core::Result<()>
@@ -471,24 +427,8 @@ impl IGameStatisticsMgr {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGameStatisticsMgr, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGameStatisticsMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGameStatisticsMgr {}
-impl ::core::fmt::Debug for IGameStatisticsMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGameStatisticsMgr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGameStatisticsMgr {
     type Vtable = IGameStatisticsMgr_Vtbl;
-}
-impl ::core::clone::Clone for IGameStatisticsMgr {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGameStatisticsMgr {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaff3ea11_e70e_407d_95dd_35e612c41ce2);
@@ -502,6 +442,7 @@ pub struct IGameStatisticsMgr_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXblIdpAuthManager(::windows_core::IUnknown);
 impl IXblIdpAuthManager {
     pub unsafe fn SetGamerAccount<P0, P1>(&self, msaaccountid: P0, xuid: P1) -> ::windows_core::Result<()>
@@ -547,24 +488,8 @@ impl IXblIdpAuthManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXblIdpAuthManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXblIdpAuthManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXblIdpAuthManager {}
-impl ::core::fmt::Debug for IXblIdpAuthManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXblIdpAuthManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXblIdpAuthManager {
     type Vtable = IXblIdpAuthManager_Vtbl;
-}
-impl ::core::clone::Clone for IXblIdpAuthManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXblIdpAuthManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb5ddb08_8bbf_449b_ac21_b02ddeb3b136);
@@ -585,6 +510,7 @@ pub struct IXblIdpAuthManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXblIdpAuthManager2(::windows_core::IUnknown);
 impl IXblIdpAuthManager2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -604,24 +530,8 @@ impl IXblIdpAuthManager2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXblIdpAuthManager2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXblIdpAuthManager2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXblIdpAuthManager2 {}
-impl ::core::fmt::Debug for IXblIdpAuthManager2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXblIdpAuthManager2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXblIdpAuthManager2 {
     type Vtable = IXblIdpAuthManager2_Vtbl;
-}
-impl ::core::clone::Clone for IXblIdpAuthManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXblIdpAuthManager2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf8c0950_8389_43dd_9a76_a19728ec5dc5);
@@ -637,6 +547,7 @@ pub struct IXblIdpAuthManager2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXblIdpAuthTokenResult(::windows_core::IUnknown);
 impl IXblIdpAuthTokenResult {
     pub unsafe fn GetStatus(&self) -> ::windows_core::Result<XBL_IDP_AUTH_TOKEN_STATUS> {
@@ -721,24 +632,8 @@ impl IXblIdpAuthTokenResult {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXblIdpAuthTokenResult, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXblIdpAuthTokenResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXblIdpAuthTokenResult {}
-impl ::core::fmt::Debug for IXblIdpAuthTokenResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXblIdpAuthTokenResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXblIdpAuthTokenResult {
     type Vtable = IXblIdpAuthTokenResult_Vtbl;
-}
-impl ::core::clone::Clone for IXblIdpAuthTokenResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXblIdpAuthTokenResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x46ce0225_f267_4d68_b299_b2762552dec1);
@@ -770,6 +665,7 @@ pub struct IXblIdpAuthTokenResult_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXblIdpAuthTokenResult2(::windows_core::IUnknown);
 impl IXblIdpAuthTokenResult2 {
     pub unsafe fn GetModernGamertag(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -786,24 +682,8 @@ impl IXblIdpAuthTokenResult2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXblIdpAuthTokenResult2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXblIdpAuthTokenResult2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXblIdpAuthTokenResult2 {}
-impl ::core::fmt::Debug for IXblIdpAuthTokenResult2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXblIdpAuthTokenResult2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXblIdpAuthTokenResult2 {
     type Vtable = IXblIdpAuthTokenResult2_Vtbl;
-}
-impl ::core::clone::Clone for IXblIdpAuthTokenResult2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXblIdpAuthTokenResult2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75d760b0_60b9_412d_994f_26b2cd5f7812);

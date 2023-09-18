@@ -22,6 +22,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcAssembler(::windows_core::IUnknown);
 impl IDxcAssembler {
     pub unsafe fn AssembleToContainer<P0>(&self, pshader: P0) -> ::windows_core::Result<IDxcOperationResult>
@@ -33,24 +34,8 @@ impl IDxcAssembler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcAssembler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcAssembler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcAssembler {}
-impl ::core::fmt::Debug for IDxcAssembler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcAssembler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcAssembler {
     type Vtable = IDxcAssembler_Vtbl;
-}
-impl ::core::clone::Clone for IDxcAssembler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcAssembler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x091f7a26_1c1f_4948_904b_e6e3a8a771d5);
@@ -63,6 +48,7 @@ pub struct IDxcAssembler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcBlob(::windows_core::IUnknown);
 impl IDxcBlob {
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
@@ -73,24 +59,8 @@ impl IDxcBlob {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcBlob, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcBlob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcBlob {}
-impl ::core::fmt::Debug for IDxcBlob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcBlob").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcBlob {
     type Vtable = IDxcBlob_Vtbl;
-}
-impl ::core::clone::Clone for IDxcBlob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcBlob {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
@@ -104,6 +74,7 @@ pub struct IDxcBlob_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcBlobEncoding(::windows_core::IUnknown);
 impl IDxcBlobEncoding {
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
@@ -119,24 +90,8 @@ impl IDxcBlobEncoding {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcBlobEncoding, ::windows_core::IUnknown, IDxcBlob);
-impl ::core::cmp::PartialEq for IDxcBlobEncoding {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcBlobEncoding {}
-impl ::core::fmt::Debug for IDxcBlobEncoding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcBlobEncoding").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcBlobEncoding {
     type Vtable = IDxcBlobEncoding_Vtbl;
-}
-impl ::core::clone::Clone for IDxcBlobEncoding {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcBlobEncoding {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7241d424_2646_4191_97c0_98e96e42fc68);
@@ -152,6 +107,7 @@ pub struct IDxcBlobEncoding_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcBlobUtf16(::windows_core::IUnknown);
 impl IDxcBlobUtf16 {
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
@@ -173,24 +129,8 @@ impl IDxcBlobUtf16 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcBlobUtf16, ::windows_core::IUnknown, IDxcBlob, IDxcBlobEncoding);
-impl ::core::cmp::PartialEq for IDxcBlobUtf16 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcBlobUtf16 {}
-impl ::core::fmt::Debug for IDxcBlobUtf16 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcBlobUtf16").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcBlobUtf16 {
     type Vtable = IDxcBlobUtf16_Vtbl;
-}
-impl ::core::clone::Clone for IDxcBlobUtf16 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcBlobUtf16 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa3f84eab_0faa_497e_a39c_ee6ed60b2d84);
@@ -204,6 +144,7 @@ pub struct IDxcBlobUtf16_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcBlobUtf8(::windows_core::IUnknown);
 impl IDxcBlobUtf8 {
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
@@ -225,24 +166,8 @@ impl IDxcBlobUtf8 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcBlobUtf8, ::windows_core::IUnknown, IDxcBlob, IDxcBlobEncoding);
-impl ::core::cmp::PartialEq for IDxcBlobUtf8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcBlobUtf8 {}
-impl ::core::fmt::Debug for IDxcBlobUtf8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcBlobUtf8").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcBlobUtf8 {
     type Vtable = IDxcBlobUtf8_Vtbl;
-}
-impl ::core::clone::Clone for IDxcBlobUtf8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcBlobUtf8 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3da636c9_ba71_4024_a301_30cbf125305b);
@@ -256,6 +181,7 @@ pub struct IDxcBlobUtf8_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcCompiler(::windows_core::IUnknown);
 impl IDxcCompiler {
     pub unsafe fn Compile<P0, P1, P2, P3, P4>(&self, psource: P0, psourcename: P1, pentrypoint: P2, ptargetprofile: P3, parguments: ::core::option::Option<&[::windows_core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P4) -> ::windows_core::Result<IDxcOperationResult>
@@ -287,24 +213,8 @@ impl IDxcCompiler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcCompiler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcCompiler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcCompiler {}
-impl ::core::fmt::Debug for IDxcCompiler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcCompiler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcCompiler {
     type Vtable = IDxcCompiler_Vtbl;
-}
-impl ::core::clone::Clone for IDxcCompiler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcCompiler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c210bf3_011f_4422_8d70_6f9acb8db617);
@@ -319,6 +229,7 @@ pub struct IDxcCompiler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcCompiler2(::windows_core::IUnknown);
 impl IDxcCompiler2 {
     pub unsafe fn Compile<P0, P1, P2, P3, P4>(&self, psource: P0, psourcename: P1, pentrypoint: P2, ptargetprofile: P3, parguments: ::core::option::Option<&[::windows_core::PCWSTR]>, pdefines: &[DxcDefine], pincludehandler: P4) -> ::windows_core::Result<IDxcOperationResult>
@@ -375,24 +286,8 @@ impl IDxcCompiler2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcCompiler2, ::windows_core::IUnknown, IDxcCompiler);
-impl ::core::cmp::PartialEq for IDxcCompiler2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcCompiler2 {}
-impl ::core::fmt::Debug for IDxcCompiler2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcCompiler2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcCompiler2 {
     type Vtable = IDxcCompiler2_Vtbl;
-}
-impl ::core::clone::Clone for IDxcCompiler2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcCompiler2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa005a9d9_b8bb_4594_b5c9_0e633bec4d37);
@@ -405,6 +300,7 @@ pub struct IDxcCompiler2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcCompiler3(::windows_core::IUnknown);
 impl IDxcCompiler3 {
     pub unsafe fn Compile<P0, T>(&self, psource: *const DxcBuffer, parguments: ::core::option::Option<&[::windows_core::PCWSTR]>, pincludehandler: P0) -> ::windows_core::Result<T>
@@ -424,24 +320,8 @@ impl IDxcCompiler3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcCompiler3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcCompiler3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcCompiler3 {}
-impl ::core::fmt::Debug for IDxcCompiler3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcCompiler3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcCompiler3 {
     type Vtable = IDxcCompiler3_Vtbl;
-}
-impl ::core::clone::Clone for IDxcCompiler3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcCompiler3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x228b4687_5a6a_4730_900c_9702b2203f54);
@@ -455,6 +335,7 @@ pub struct IDxcCompiler3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcCompilerArgs(::windows_core::IUnknown);
 impl IDxcCompilerArgs {
     pub unsafe fn GetArguments(&self) -> *mut ::windows_core::PCWSTR {
@@ -474,24 +355,8 @@ impl IDxcCompilerArgs {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcCompilerArgs, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcCompilerArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcCompilerArgs {}
-impl ::core::fmt::Debug for IDxcCompilerArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcCompilerArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcCompilerArgs {
     type Vtable = IDxcCompilerArgs_Vtbl;
-}
-impl ::core::clone::Clone for IDxcCompilerArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcCompilerArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73effe2a_70dc_45f8_9690_eff64c02429d);
@@ -508,6 +373,7 @@ pub struct IDxcCompilerArgs_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcContainerBuilder(::windows_core::IUnknown);
 impl IDxcContainerBuilder {
     pub unsafe fn Load<P0>(&self, pdxilcontainerheader: P0) -> ::windows_core::Result<()>
@@ -531,24 +397,8 @@ impl IDxcContainerBuilder {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcContainerBuilder, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcContainerBuilder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcContainerBuilder {}
-impl ::core::fmt::Debug for IDxcContainerBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcContainerBuilder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcContainerBuilder {
     type Vtable = IDxcContainerBuilder_Vtbl;
-}
-impl ::core::clone::Clone for IDxcContainerBuilder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcContainerBuilder {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x334b1f50_2292_4b35_99a1_25588d8c17fe);
@@ -564,6 +414,7 @@ pub struct IDxcContainerBuilder_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcContainerReflection(::windows_core::IUnknown);
 impl IDxcContainerReflection {
     pub unsafe fn Load<P0>(&self, pcontainer: P0) -> ::windows_core::Result<()>
@@ -593,24 +444,8 @@ impl IDxcContainerReflection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcContainerReflection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcContainerReflection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcContainerReflection {}
-impl ::core::fmt::Debug for IDxcContainerReflection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcContainerReflection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcContainerReflection {
     type Vtable = IDxcContainerReflection_Vtbl;
-}
-impl ::core::clone::Clone for IDxcContainerReflection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcContainerReflection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2c21b26_8350_4bdc_976a_331ce6f4c54c);
@@ -628,6 +463,7 @@ pub struct IDxcContainerReflection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcExtraOutputs(::windows_core::IUnknown);
 impl IDxcExtraOutputs {
     pub unsafe fn GetOutputCount(&self) -> u32 {
@@ -641,24 +477,8 @@ impl IDxcExtraOutputs {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcExtraOutputs, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcExtraOutputs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcExtraOutputs {}
-impl ::core::fmt::Debug for IDxcExtraOutputs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcExtraOutputs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcExtraOutputs {
     type Vtable = IDxcExtraOutputs_Vtbl;
-}
-impl ::core::clone::Clone for IDxcExtraOutputs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcExtraOutputs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x319b37a2_a5c2_494a_a5de_4801b2faf989);
@@ -672,6 +492,7 @@ pub struct IDxcExtraOutputs_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcIncludeHandler(::windows_core::IUnknown);
 impl IDxcIncludeHandler {
     pub unsafe fn LoadSource<P0>(&self, pfilename: P0) -> ::windows_core::Result<IDxcBlob>
@@ -683,24 +504,8 @@ impl IDxcIncludeHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcIncludeHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcIncludeHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcIncludeHandler {}
-impl ::core::fmt::Debug for IDxcIncludeHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcIncludeHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcIncludeHandler {
     type Vtable = IDxcIncludeHandler_Vtbl;
-}
-impl ::core::clone::Clone for IDxcIncludeHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcIncludeHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f61fc7d_950d_467f_b3e3_3c02fb49187c);
@@ -713,6 +518,7 @@ pub struct IDxcIncludeHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcLibrary(::windows_core::IUnknown);
 impl IDxcLibrary {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -783,24 +589,8 @@ impl IDxcLibrary {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcLibrary, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcLibrary {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcLibrary {}
-impl ::core::fmt::Debug for IDxcLibrary {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcLibrary").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcLibrary {
     type Vtable = IDxcLibrary_Vtbl;
-}
-impl ::core::clone::Clone for IDxcLibrary {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcLibrary {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5204dc7_d18c_4c3c_bdfb_851673980fe7);
@@ -831,6 +621,7 @@ pub struct IDxcLibrary_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcLinker(::windows_core::IUnknown);
 impl IDxcLinker {
     pub unsafe fn RegisterLibrary<P0, P1>(&self, plibname: P0, plib: P1) -> ::windows_core::Result<()>
@@ -850,24 +641,8 @@ impl IDxcLinker {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcLinker, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcLinker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcLinker {}
-impl ::core::fmt::Debug for IDxcLinker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcLinker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcLinker {
     type Vtable = IDxcLinker_Vtbl;
-}
-impl ::core::clone::Clone for IDxcLinker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcLinker {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf1b5be2a_62dd_4327_a1c2_42ac1e1e78e6);
@@ -881,6 +656,7 @@ pub struct IDxcLinker_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcOperationResult(::windows_core::IUnknown);
 impl IDxcOperationResult {
     pub unsafe fn GetStatus(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
@@ -897,24 +673,8 @@ impl IDxcOperationResult {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcOperationResult, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcOperationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcOperationResult {}
-impl ::core::fmt::Debug for IDxcOperationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcOperationResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcOperationResult {
     type Vtable = IDxcOperationResult_Vtbl;
-}
-impl ::core::clone::Clone for IDxcOperationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcOperationResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcedb484a_d4e9_445a_b991_ca21ca157dc2);
@@ -929,6 +689,7 @@ pub struct IDxcOperationResult_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcOptimizer(::windows_core::IUnknown);
 impl IDxcOptimizer {
     pub unsafe fn GetAvailablePassCount(&self) -> ::windows_core::Result<u32> {
@@ -947,24 +708,8 @@ impl IDxcOptimizer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcOptimizer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcOptimizer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcOptimizer {}
-impl ::core::fmt::Debug for IDxcOptimizer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcOptimizer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcOptimizer {
     type Vtable = IDxcOptimizer_Vtbl;
-}
-impl ::core::clone::Clone for IDxcOptimizer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcOptimizer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x25740e2e_9cba_401b_9119_4fb42f39f270);
@@ -979,6 +724,7 @@ pub struct IDxcOptimizer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcOptimizerPass(::windows_core::IUnknown);
 impl IDxcOptimizerPass {
     pub unsafe fn GetOptionName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -1003,24 +749,8 @@ impl IDxcOptimizerPass {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcOptimizerPass, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcOptimizerPass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcOptimizerPass {}
-impl ::core::fmt::Debug for IDxcOptimizerPass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcOptimizerPass").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcOptimizerPass {
     type Vtable = IDxcOptimizerPass_Vtbl;
-}
-impl ::core::clone::Clone for IDxcOptimizerPass {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcOptimizerPass {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae2cd79f_cc22_453f_9b6b_b124e7a5204c);
@@ -1037,6 +767,7 @@ pub struct IDxcOptimizerPass_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcPdbUtils(::windows_core::IUnknown);
 impl IDxcPdbUtils {
     pub unsafe fn Load<P0>(&self, ppdbordxil: P0) -> ::windows_core::Result<()>
@@ -1142,24 +873,8 @@ impl IDxcPdbUtils {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcPdbUtils, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcPdbUtils {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcPdbUtils {}
-impl ::core::fmt::Debug for IDxcPdbUtils {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcPdbUtils").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcPdbUtils {
     type Vtable = IDxcPdbUtils_Vtbl;
-}
-impl ::core::clone::Clone for IDxcPdbUtils {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcPdbUtils {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe6c9647e_9d6a_4c3b_b94c_524b5a6c343d);
@@ -1198,6 +913,7 @@ pub struct IDxcPdbUtils_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcResult(::windows_core::IUnknown);
 impl IDxcResult {
     pub unsafe fn GetStatus(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
@@ -1234,24 +950,8 @@ impl IDxcResult {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcResult, ::windows_core::IUnknown, IDxcOperationResult);
-impl ::core::cmp::PartialEq for IDxcResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcResult {}
-impl ::core::fmt::Debug for IDxcResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcResult {
     type Vtable = IDxcResult_Vtbl;
-}
-impl ::core::clone::Clone for IDxcResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x58346cda_dde7_4497_9461_6f87af5e0659);
@@ -1271,6 +971,7 @@ pub struct IDxcResult_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcUtils(::windows_core::IUnknown);
 impl IDxcUtils {
     pub unsafe fn CreateBlobFromBlob<P0>(&self, pblob: P0, offset: u32, length: u32) -> ::windows_core::Result<IDxcBlob>
@@ -1354,24 +1055,8 @@ impl IDxcUtils {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcUtils, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcUtils {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcUtils {}
-impl ::core::fmt::Debug for IDxcUtils {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcUtils").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcUtils {
     type Vtable = IDxcUtils_Vtbl;
-}
-impl ::core::clone::Clone for IDxcUtils {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcUtils {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4605c4cb_2019_492a_ada4_65f20bb7d67f);
@@ -1402,6 +1087,7 @@ pub struct IDxcUtils_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcValidator(::windows_core::IUnknown);
 impl IDxcValidator {
     pub unsafe fn Validate<P0>(&self, pshader: P0, flags: u32) -> ::windows_core::Result<IDxcOperationResult>
@@ -1413,24 +1099,8 @@ impl IDxcValidator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcValidator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcValidator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcValidator {}
-impl ::core::fmt::Debug for IDxcValidator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcValidator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcValidator {
     type Vtable = IDxcValidator_Vtbl;
-}
-impl ::core::clone::Clone for IDxcValidator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcValidator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa6e82bd2_1fd7_4826_9811_2857e797f49a);
@@ -1443,6 +1113,7 @@ pub struct IDxcValidator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcValidator2(::windows_core::IUnknown);
 impl IDxcValidator2 {
     pub unsafe fn Validate<P0>(&self, pshader: P0, flags: u32) -> ::windows_core::Result<IDxcOperationResult>
@@ -1461,24 +1132,8 @@ impl IDxcValidator2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcValidator2, ::windows_core::IUnknown, IDxcValidator);
-impl ::core::cmp::PartialEq for IDxcValidator2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcValidator2 {}
-impl ::core::fmt::Debug for IDxcValidator2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcValidator2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcValidator2 {
     type Vtable = IDxcValidator2_Vtbl;
-}
-impl ::core::clone::Clone for IDxcValidator2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcValidator2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x458e1fd1_b1b2_4750_a6e1_9c10f03bed92);
@@ -1491,6 +1146,7 @@ pub struct IDxcValidator2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcVersionInfo(::windows_core::IUnknown);
 impl IDxcVersionInfo {
     pub unsafe fn GetVersion(&self, pmajor: *mut u32, pminor: *mut u32) -> ::windows_core::Result<()> {
@@ -1502,24 +1158,8 @@ impl IDxcVersionInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcVersionInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcVersionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcVersionInfo {}
-impl ::core::fmt::Debug for IDxcVersionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcVersionInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcVersionInfo {
     type Vtable = IDxcVersionInfo_Vtbl;
-}
-impl ::core::clone::Clone for IDxcVersionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcVersionInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb04f5b50_2059_4f12_a8ff_a1e0cde1cc7e);
@@ -1533,6 +1173,7 @@ pub struct IDxcVersionInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcVersionInfo2(::windows_core::IUnknown);
 impl IDxcVersionInfo2 {
     pub unsafe fn GetVersion(&self, pmajor: *mut u32, pminor: *mut u32) -> ::windows_core::Result<()> {
@@ -1547,24 +1188,8 @@ impl IDxcVersionInfo2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcVersionInfo2, ::windows_core::IUnknown, IDxcVersionInfo);
-impl ::core::cmp::PartialEq for IDxcVersionInfo2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcVersionInfo2 {}
-impl ::core::fmt::Debug for IDxcVersionInfo2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcVersionInfo2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcVersionInfo2 {
     type Vtable = IDxcVersionInfo2_Vtbl;
-}
-impl ::core::clone::Clone for IDxcVersionInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcVersionInfo2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb6904c4_42f0_4b62_9c46_983af7da7c83);
@@ -1577,6 +1202,7 @@ pub struct IDxcVersionInfo2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcVersionInfo3(::windows_core::IUnknown);
 impl IDxcVersionInfo3 {
     pub unsafe fn GetCustomVersionString(&self) -> ::windows_core::Result<*mut i8> {
@@ -1585,24 +1211,8 @@ impl IDxcVersionInfo3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDxcVersionInfo3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDxcVersionInfo3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDxcVersionInfo3 {}
-impl ::core::fmt::Debug for IDxcVersionInfo3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDxcVersionInfo3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDxcVersionInfo3 {
     type Vtable = IDxcVersionInfo3_Vtbl;
-}
-impl ::core::clone::Clone for IDxcVersionInfo3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDxcVersionInfo3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e13e843_9d25_473c_9ad2_03b2d0b44b1e);
