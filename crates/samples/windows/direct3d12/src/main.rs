@@ -183,7 +183,9 @@ fn get_hardware_adapter(factory: &IDXGIFactory4) -> Result<IDXGIAdapter1> {
         let mut desc = Default::default();
         unsafe { adapter.GetDesc1(&mut desc)? };
 
-        if (DXGI_ADAPTER_FLAG(desc.Flags as i32) & DXGI_ADAPTER_FLAG_SOFTWARE) != DXGI_ADAPTER_FLAG_NONE {
+        if (DXGI_ADAPTER_FLAG(desc.Flags as i32) & DXGI_ADAPTER_FLAG_SOFTWARE)
+            != DXGI_ADAPTER_FLAG_NONE
+        {
             // Don't select the Basic Render Driver adapter. If you want a
             // software adapter, pass in "/warp" on the command line.
             continue;
