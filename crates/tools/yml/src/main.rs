@@ -8,7 +8,7 @@ fn main() {
 }
 
 fn test_yml() {
-    let mut yml = r#"name: test
+    let mut yml = r"name: test
 
 on:
   pull_request:
@@ -50,7 +50,7 @@ jobs:
       - name: Fix environment
         uses: ./.github/actions/fix-environment
       - name: Test
-        run: >"#
+        run: >"
         .to_string();
 
     let crates = crates(true);
