@@ -143,10 +143,12 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
 
     for (name, tree) in &tree.nested {
         let name = to_ident(name);
-        let namespace_feature = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");
+        let feature = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");
+        let doc = format!("Required features: `{feature}`");
         if writer.package {
             tokens.combine(&quote! {
-                #[cfg(feature = #namespace_feature)]
+                #[cfg(feature = #feature)]
+                #[doc = #doc]
                 pub mod #name;
             });
         } else {
@@ -234,7 +236,7 @@ fn namespace_impl(writer: &Writer, tree: &Tree) -> String {
     writer.namespace = tree.namespace;
     let mut types = BTreeMap::<&str, TokenStream>::new();
 
-    for item in writer.reader.namespace_items(writer.namespace, writer.filter) {
+    for item in writer.reader.namespace_items(tree.namespace, writer.filter) {
         if let Item::Type(def) = item {
             let type_name = writer.reader.type_def_type_name(def);
             if CORE_TYPES.iter().any(|(x, _)| x == &type_name) {

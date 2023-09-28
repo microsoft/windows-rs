@@ -325,18 +325,18 @@ impl<'a> Writer<'a> {
         if !self.package {
             quote! {}
         } else {
-            let mut tokens = format!(r#"`\"{}\"`"#, to_feature(self.namespace));
-            let features = self.cfg_features_imp(cfg, self.namespace);
+            let mut tokens = String::new();
 
-            for features in features {
-                write!(tokens, r#", `\"{}\"`"#, to_feature(features)).unwrap();
+            for features in self.cfg_features_imp(cfg, self.namespace) {
+                write!(tokens, r#"`{}`, "#, to_feature(features)).unwrap();
             }
 
-            if cfg.implement {
-                tokens.push_str(r#", `\"implement\"`"#)
+            if tokens.is_empty() {
+                TokenStream::new()
+            } else {
+                tokens.truncate(tokens.len() - 2);
+                format!(r#" #[doc = "Required features: {tokens}"]"#).into()
             }
-
-            format!(r#" #[doc = "*Required features: {tokens}*"]"#).into()
         }
     }
 
@@ -347,15 +347,18 @@ impl<'a> Writer<'a> {
             quote! {}
         } else {
             let features = self.cfg_features_imp(cfg, self.namespace);
+
             if features.is_empty() {
                 quote! {}
             } else {
                 let mut tokens = String::new();
+
                 for features in features {
-                    write!(tokens, r#"`\"{}\"`, "#, to_feature(features)).unwrap();
+                    write!(tokens, r#"`{}`, "#, to_feature(features)).unwrap();
                 }
+
                 tokens.truncate(tokens.len() - 2);
-                format!(r#"#[doc = "*Required features: {tokens}*"]"#).into()
+                format!(r#"#[doc = "Required features: {tokens}"]"#).into()
             }
         }
     }
