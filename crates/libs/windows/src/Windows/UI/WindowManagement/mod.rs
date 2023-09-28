@@ -1,4 +1,5 @@
 #[cfg(feature = "UI_WindowManagement_Preview")]
+#[doc = "Required features: `UI_WindowManagement_Preview`"]
 pub mod Preview;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -630,7 +631,6 @@ pub struct IWindowingEnvironmentStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     FindAllWithKind: usize,
 }
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindow(::windows_core::IUnknown);
@@ -642,7 +642,7 @@ impl AppWindow {
             (::windows_core::Interface::vtable(this).Content)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"System\"`*"]
+    #[doc = "Required features: `System`"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows_core::Result<super::super::System::DispatcherQueue> {
         let this = self;
@@ -715,7 +715,7 @@ impl AppWindow {
             (::windows_core::Interface::vtable(this).WindowingEnvironment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CloseAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -731,7 +731,7 @@ impl AppWindow {
             (::windows_core::Interface::vtable(this).GetPlacement)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetDisplayRegions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>> {
         let this = self;
@@ -758,7 +758,7 @@ impl AppWindow {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RequestMoveAdjacentToWindow)(::windows_core::Interface::as_raw(this), anchorwindow.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestMoveRelativeToWindowContent<P0>(&self, anchorwindow: P0, contentoffset: super::super::Foundation::Point) -> ::windows_core::Result<()>
     where
@@ -767,13 +767,13 @@ impl AppWindow {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RequestMoveRelativeToWindowContent)(::windows_core::Interface::as_raw(this), anchorwindow.into_param().abi(), contentoffset).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestMoveRelativeToCurrentViewContent(&self, contentoffset: super::super::Foundation::Point) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RequestMoveRelativeToCurrentViewContent)(::windows_core::Interface::as_raw(this), contentoffset).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestMoveRelativeToDisplayRegion<P0>(&self, displayregion: P0, displayregionoffset: super::super::Foundation::Point) -> ::windows_core::Result<()>
     where
@@ -782,13 +782,13 @@ impl AppWindow {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RequestMoveRelativeToDisplayRegion)(::windows_core::Interface::as_raw(this), displayregion.into_param().abi(), displayregionoffset).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestSize(&self, framesize: super::super::Foundation::Size) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RequestSize)(::windows_core::Interface::as_raw(this), framesize).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TryShowAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -797,7 +797,7 @@ impl AppWindow {
             (::windows_core::Interface::vtable(this).TryShowAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Changed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -809,13 +809,13 @@ impl AppWindow {
             (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -827,13 +827,13 @@ impl AppWindow {
             (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveClosed)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CloseRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -845,13 +845,13 @@ impl AppWindow {
             (::windows_core::Interface::vtable(this).CloseRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCloseRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCloseRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TryCreateAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppWindow>> {
         Self::IAppWindowStatics(|this| unsafe {
@@ -886,7 +886,6 @@ impl ::windows_core::RuntimeName for AppWindow {
 ::windows_core::imp::interface_hierarchy!(AppWindow, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindow {}
 unsafe impl ::core::marker::Sync for AppWindow {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowChangedEventArgs(::windows_core::IUnknown);
@@ -963,7 +962,6 @@ impl ::windows_core::RuntimeName for AppWindowChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(AppWindowChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowChangedEventArgs {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowCloseRequestedEventArgs(::windows_core::IUnknown);
@@ -979,7 +977,7 @@ impl AppWindowCloseRequestedEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCancel)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -1004,7 +1002,6 @@ impl ::windows_core::RuntimeName for AppWindowCloseRequestedEventArgs {
 ::windows_core::imp::interface_hierarchy!(AppWindowCloseRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowCloseRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowCloseRequestedEventArgs {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowClosedEventArgs(::windows_core::IUnknown);
@@ -1032,12 +1029,11 @@ impl ::windows_core::RuntimeName for AppWindowClosedEventArgs {
 ::windows_core::imp::interface_hierarchy!(AppWindowClosedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowClosedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowClosedEventArgs {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowFrame(::windows_core::IUnknown);
 impl AppWindowFrame {
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"UI_Composition\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `UI_Composition`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition"))]
     pub fn DragRegionVisuals(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::Composition::IVisualElement>> {
         let this = self;
@@ -1073,7 +1069,6 @@ impl ::windows_core::RuntimeName for AppWindowFrame {
 ::windows_core::imp::interface_hierarchy!(AppWindowFrame, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowFrame {}
 unsafe impl ::core::marker::Sync for AppWindowFrame {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowPlacement(::windows_core::IUnknown);
@@ -1085,7 +1080,7 @@ impl AppWindowPlacement {
             (::windows_core::Interface::vtable(this).DisplayRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Offset(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -1094,7 +1089,7 @@ impl AppWindowPlacement {
             (::windows_core::Interface::vtable(this).Offset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Size(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -1119,7 +1114,6 @@ impl ::windows_core::RuntimeName for AppWindowPlacement {
 ::windows_core::imp::interface_hierarchy!(AppWindowPlacement, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowPlacement {}
 unsafe impl ::core::marker::Sync for AppWindowPlacement {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowPresentationConfiguration(::windows_core::IUnknown);
@@ -1147,7 +1141,6 @@ impl ::windows_core::RuntimeName for AppWindowPresentationConfiguration {
 ::windows_core::imp::interface_hierarchy!(AppWindowPresentationConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for AppWindowPresentationConfiguration {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowPresenter(::windows_core::IUnknown);
@@ -1199,12 +1192,11 @@ impl ::windows_core::RuntimeName for AppWindowPresenter {
 ::windows_core::imp::interface_hierarchy!(AppWindowPresenter, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowPresenter {}
 unsafe impl ::core::marker::Sync for AppWindowPresenter {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowTitleBar(::windows_core::IUnknown);
 impl AppWindowTitleBar {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn BackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1213,7 +1205,7 @@ impl AppWindowTitleBar {
             (::windows_core::Interface::vtable(this).BackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1222,7 +1214,7 @@ impl AppWindowTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1231,7 +1223,7 @@ impl AppWindowTitleBar {
             (::windows_core::Interface::vtable(this).ButtonBackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1240,7 +1232,7 @@ impl AppWindowTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetButtonBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1249,7 +1241,7 @@ impl AppWindowTitleBar {
             (::windows_core::Interface::vtable(this).ButtonForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1258,7 +1250,7 @@ impl AppWindowTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetButtonForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonHoverBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1267,7 +1259,7 @@ impl AppWindowTitleBar {
             (::windows_core::Interface::vtable(this).ButtonHoverBackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonHoverBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1276,7 +1268,7 @@ impl AppWindowTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetButtonHoverBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonHoverForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1285,7 +1277,7 @@ impl AppWindowTitleBar {
             (::windows_core::Interface::vtable(this).ButtonHoverForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonHoverForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1294,7 +1286,7 @@ impl AppWindowTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetButtonHoverForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonInactiveBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1303,7 +1295,7 @@ impl AppWindowTitleBar {
             (::windows_core::Interface::vtable(this).ButtonInactiveBackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonInactiveBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1312,7 +1304,7 @@ impl AppWindowTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetButtonInactiveBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonInactiveForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1321,7 +1313,7 @@ impl AppWindowTitleBar {
             (::windows_core::Interface::vtable(this).ButtonInactiveForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonInactiveForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1330,7 +1322,7 @@ impl AppWindowTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetButtonInactiveForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonPressedBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1339,7 +1331,7 @@ impl AppWindowTitleBar {
             (::windows_core::Interface::vtable(this).ButtonPressedBackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonPressedBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1348,7 +1340,7 @@ impl AppWindowTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetButtonPressedBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonPressedForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1357,7 +1349,7 @@ impl AppWindowTitleBar {
             (::windows_core::Interface::vtable(this).ButtonPressedForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonPressedForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1377,7 +1369,7 @@ impl AppWindowTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetExtendsContentIntoTitleBar)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1386,7 +1378,7 @@ impl AppWindowTitleBar {
             (::windows_core::Interface::vtable(this).ForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1395,7 +1387,7 @@ impl AppWindowTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn InactiveBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1404,7 +1396,7 @@ impl AppWindowTitleBar {
             (::windows_core::Interface::vtable(this).InactiveBackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetInactiveBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1413,7 +1405,7 @@ impl AppWindowTitleBar {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetInactiveBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn InactiveForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1422,7 +1414,7 @@ impl AppWindowTitleBar {
             (::windows_core::Interface::vtable(this).InactiveForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetInactiveForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1438,7 +1430,7 @@ impl AppWindowTitleBar {
             (::windows_core::Interface::vtable(this).IsVisible)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetTitleBarOcclusions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<AppWindowTitleBarOcclusion>> {
         let this = self;
@@ -1474,12 +1466,11 @@ impl ::windows_core::RuntimeName for AppWindowTitleBar {
 ::windows_core::imp::interface_hierarchy!(AppWindowTitleBar, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowTitleBar {}
 unsafe impl ::core::marker::Sync for AppWindowTitleBar {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowTitleBarOcclusion(::windows_core::IUnknown);
 impl AppWindowTitleBarOcclusion {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn OccludingRect(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -1504,7 +1495,6 @@ impl ::windows_core::RuntimeName for AppWindowTitleBarOcclusion {
 ::windows_core::imp::interface_hierarchy!(AppWindowTitleBarOcclusion, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowTitleBarOcclusion {}
 unsafe impl ::core::marker::Sync for AppWindowTitleBarOcclusion {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompactOverlayPresentationConfiguration(::windows_core::IUnknown);
@@ -1540,7 +1530,6 @@ impl ::windows_core::RuntimeName for CompactOverlayPresentationConfiguration {
 impl ::windows_core::CanTryInto<AppWindowPresentationConfiguration> for CompactOverlayPresentationConfiguration {}
 unsafe impl ::core::marker::Send for CompactOverlayPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for CompactOverlayPresentationConfiguration {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DefaultPresentationConfiguration(::windows_core::IUnknown);
@@ -1576,7 +1565,6 @@ impl ::windows_core::RuntimeName for DefaultPresentationConfiguration {
 impl ::windows_core::CanTryInto<AppWindowPresentationConfiguration> for DefaultPresentationConfiguration {}
 unsafe impl ::core::marker::Send for DefaultPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for DefaultPresentationConfiguration {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DisplayRegion(::windows_core::IUnknown);
@@ -1595,7 +1583,7 @@ impl DisplayRegion {
             (::windows_core::Interface::vtable(this).IsVisible)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn WorkAreaOffset(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -1604,7 +1592,7 @@ impl DisplayRegion {
             (::windows_core::Interface::vtable(this).WorkAreaOffset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn WorkAreaSize(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -1620,7 +1608,7 @@ impl DisplayRegion {
             (::windows_core::Interface::vtable(this).WindowingEnvironment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Changed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1632,7 +1620,7 @@ impl DisplayRegion {
             (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1654,7 +1642,6 @@ impl ::windows_core::RuntimeName for DisplayRegion {
 ::windows_core::imp::interface_hierarchy!(DisplayRegion, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayRegion {}
 unsafe impl ::core::marker::Sync for DisplayRegion {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FullScreenPresentationConfiguration(::windows_core::IUnknown);
@@ -1701,10 +1688,9 @@ impl ::windows_core::RuntimeName for FullScreenPresentationConfiguration {
 impl ::windows_core::CanTryInto<AppWindowPresentationConfiguration> for FullScreenPresentationConfiguration {}
 unsafe impl ::core::marker::Send for FullScreenPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for FullScreenPresentationConfiguration {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 pub struct WindowServices;
 impl WindowServices {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllTopLevelWindowIds() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::WindowId>> {
         Self::IWindowServicesStatics(|this| unsafe {
@@ -1721,7 +1707,6 @@ impl WindowServices {
 impl ::windows_core::RuntimeName for WindowServices {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowServices";
 }
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WindowingEnvironment(::windows_core::IUnknown);
@@ -1740,7 +1725,7 @@ impl WindowingEnvironment {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetDisplayRegions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>> {
         let this = self;
@@ -1749,7 +1734,7 @@ impl WindowingEnvironment {
             (::windows_core::Interface::vtable(this).GetDisplayRegions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Changed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1761,13 +1746,13 @@ impl WindowingEnvironment {
             (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAll() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
@@ -1775,7 +1760,7 @@ impl WindowingEnvironment {
             (::windows_core::Interface::vtable(this).FindAll)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllWithKind(kind: WindowingEnvironmentKind) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
@@ -1804,7 +1789,6 @@ impl ::windows_core::RuntimeName for WindowingEnvironment {
 ::windows_core::imp::interface_hierarchy!(WindowingEnvironment, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironment {}
 unsafe impl ::core::marker::Sync for WindowingEnvironment {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WindowingEnvironmentAddedEventArgs(::windows_core::IUnknown);
@@ -1832,7 +1816,6 @@ impl ::windows_core::RuntimeName for WindowingEnvironmentAddedEventArgs {
 ::windows_core::imp::interface_hierarchy!(WindowingEnvironmentAddedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironmentAddedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentAddedEventArgs {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WindowingEnvironmentChangedEventArgs(::windows_core::IUnknown);
@@ -1852,7 +1835,6 @@ impl ::windows_core::RuntimeName for WindowingEnvironmentChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(WindowingEnvironmentChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironmentChangedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentChangedEventArgs {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WindowingEnvironmentRemovedEventArgs(::windows_core::IUnknown);
@@ -1880,7 +1862,6 @@ impl ::windows_core::RuntimeName for WindowingEnvironmentRemovedEventArgs {
 ::windows_core::imp::interface_hierarchy!(WindowingEnvironmentRemovedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironmentRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentRemovedEventArgs {}
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppWindowClosedReason(pub i32);
@@ -1911,7 +1892,6 @@ impl ::core::fmt::Debug for AppWindowClosedReason {
 impl ::windows_core::RuntimeType for AppWindowClosedReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowClosedReason;i4)");
 }
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppWindowFrameStyle(pub i32);
@@ -1941,7 +1921,6 @@ impl ::core::fmt::Debug for AppWindowFrameStyle {
 impl ::windows_core::RuntimeType for AppWindowFrameStyle {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowFrameStyle;i4)");
 }
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppWindowPresentationKind(pub i32);
@@ -1972,7 +1951,6 @@ impl ::core::fmt::Debug for AppWindowPresentationKind {
 impl ::windows_core::RuntimeType for AppWindowPresentationKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowPresentationKind;i4)");
 }
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppWindowTitleBarVisibility(pub i32);
@@ -2002,7 +1980,6 @@ impl ::core::fmt::Debug for AppWindowTitleBarVisibility {
 impl ::windows_core::RuntimeType for AppWindowTitleBarVisibility {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowTitleBarVisibility;i4)");
 }
-#[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WindowingEnvironmentKind(pub i32);

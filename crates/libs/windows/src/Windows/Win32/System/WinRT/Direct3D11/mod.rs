@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`, `\"Win32_Graphics_Dxgi\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi`"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<P0>(dxgidevice: P0) -> ::windows_core::Result<::windows_core::IInspectable>
@@ -9,7 +9,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     CreateDirect3D11DeviceFromDXGIDevice(dxgidevice.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`, `\"Win32_Graphics_Dxgi\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi`"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<P0>(dgxisurface: P0) -> ::windows_core::Result<::windows_core::IInspectable>
@@ -20,7 +20,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     CreateDirect3D11SurfaceFromDXGISurface(dgxisurface.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DDxgiInterfaceAccess(::windows_core::IUnknown);

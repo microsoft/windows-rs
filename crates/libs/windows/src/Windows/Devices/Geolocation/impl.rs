@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Devices_Geolocation\"`, `\"implement\"`*"]
 pub trait IGeoshape_Impl: Sized {
     fn GeoshapeType(&self) -> ::windows_core::Result<GeoshapeType>;
     fn SpatialReferenceId(&self) -> ::windows_core::Result<u32>;

@@ -111,7 +111,6 @@ pub struct IJsonObjectWithDefaultValues_Vtbl {
     pub GetNamedNumberOrDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, defaultvalue: f64, result__: *mut f64) -> ::windows_core::HRESULT,
     pub GetNamedBooleanOrDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, defaultvalue: bool, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Data_Json\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IJsonValue(::windows_core::IUnknown);
@@ -224,7 +223,6 @@ pub struct IJsonValueStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateNullValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Data_Json\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct JsonArray(::windows_core::IUnknown);
@@ -236,7 +234,7 @@ impl JsonArray {
         static SHARED: ::windows_core::imp::FactoryCache<JsonArray, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IIterator<IJsonValue>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IIterable<IJsonValue>>(self)?;
@@ -341,7 +339,7 @@ impl JsonArray {
             (::windows_core::Interface::vtable(this).GetObject)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IStringable>(self)?;
@@ -350,7 +348,7 @@ impl JsonArray {
             (::windows_core::Interface::vtable(this).ToString)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<IJsonValue> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
@@ -359,7 +357,7 @@ impl JsonArray {
             (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
@@ -368,7 +366,7 @@ impl JsonArray {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<IJsonValue>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
@@ -377,7 +375,7 @@ impl JsonArray {
             (::windows_core::Interface::vtable(this).GetView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
     where
@@ -389,7 +387,7 @@ impl JsonArray {
             (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<P0>(&self, index: u32, value: P0) -> ::windows_core::Result<()>
     where
@@ -398,7 +396,7 @@ impl JsonArray {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetAt)(::windows_core::Interface::as_raw(this), index, value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<P0>(&self, index: u32, value: P0) -> ::windows_core::Result<()>
     where
@@ -407,13 +405,13 @@ impl JsonArray {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).InsertAt)(::windows_core::Interface::as_raw(this), index, value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAt)(::windows_core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -422,19 +420,19 @@ impl JsonArray {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Append)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAtEnd)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Clear)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<IJsonValue>]) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
@@ -443,7 +441,7 @@ impl JsonArray {
             (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<IJsonValue>]) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
@@ -493,7 +491,6 @@ impl ::windows_core::CanTryInto<super::super::Foundation::IStringable> for JsonA
 impl ::windows_core::CanTryInto<super::super::Foundation::Collections::IVector<IJsonValue>> for JsonArray {}
 unsafe impl ::core::marker::Send for JsonArray {}
 unsafe impl ::core::marker::Sync for JsonArray {}
-#[doc = "*Required features: `\"Data_Json\"`*"]
 pub struct JsonError;
 impl JsonError {
     pub fn GetJsonStatus(hresult: i32) -> ::windows_core::Result<JsonErrorStatus> {
@@ -511,7 +508,6 @@ impl JsonError {
 impl ::windows_core::RuntimeName for JsonError {
     const NAME: &'static str = "Windows.Data.Json.JsonError";
 }
-#[doc = "*Required features: `\"Data_Json\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct JsonObject(::windows_core::IUnknown);
@@ -523,7 +519,7 @@ impl JsonObject {
         static SHARED: ::windows_core::imp::FactoryCache<JsonObject, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, IJsonValue>>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, IJsonValue>>>(self)?;
@@ -693,7 +689,7 @@ impl JsonObject {
             (::windows_core::Interface::vtable(this).GetObject)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup(&self, key: &::windows_core::HSTRING) -> ::windows_core::Result<IJsonValue> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, IJsonValue>>(self)?;
@@ -702,7 +698,7 @@ impl JsonObject {
             (::windows_core::Interface::vtable(this).Lookup)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, IJsonValue>>(self)?;
@@ -711,7 +707,7 @@ impl JsonObject {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasKey(&self, key: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, IJsonValue>>(self)?;
@@ -720,7 +716,7 @@ impl JsonObject {
             (::windows_core::Interface::vtable(this).HasKey)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, IJsonValue>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, IJsonValue>>(self)?;
@@ -729,7 +725,7 @@ impl JsonObject {
             (::windows_core::Interface::vtable(this).GetView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Insert<P0>(&self, key: &::windows_core::HSTRING, value: P0) -> ::windows_core::Result<bool>
     where
@@ -741,19 +737,19 @@ impl JsonObject {
             (::windows_core::Interface::vtable(this).Insert)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Remove(&self, key: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, IJsonValue>>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Remove)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, IJsonValue>>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Clear)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IStringable>(self)?;
@@ -806,7 +802,6 @@ impl ::windows_core::CanTryInto<super::super::Foundation::Collections::IMap<::wi
 impl ::windows_core::CanTryInto<super::super::Foundation::IStringable> for JsonObject {}
 unsafe impl ::core::marker::Send for JsonObject {}
 unsafe impl ::core::marker::Sync for JsonObject {}
-#[doc = "*Required features: `\"Data_Json\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct JsonValue(::windows_core::IUnknown);
@@ -896,7 +891,7 @@ impl JsonValue {
             (::windows_core::Interface::vtable(this).CreateNullValue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IStringable>(self)?;
@@ -934,7 +929,6 @@ impl ::windows_core::CanTryInto<IJsonValue> for JsonValue {}
 impl ::windows_core::CanTryInto<super::super::Foundation::IStringable> for JsonValue {}
 unsafe impl ::core::marker::Send for JsonValue {}
 unsafe impl ::core::marker::Sync for JsonValue {}
-#[doc = "*Required features: `\"Data_Json\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JsonErrorStatus(pub i32);
@@ -967,7 +961,6 @@ impl ::core::fmt::Debug for JsonErrorStatus {
 impl ::windows_core::RuntimeType for JsonErrorStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonErrorStatus;i4)");
 }
-#[doc = "*Required features: `\"Data_Json\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JsonValueType(pub i32);

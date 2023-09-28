@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`, `\"implement\"`*"]
 pub trait IDXCoreAdapter_Impl: Sized {
     fn IsValid(&self) -> bool;
     fn IsAttributeSupported(&self, attributeguid: *const ::windows_core::GUID) -> bool;
@@ -88,7 +87,7 @@ impl IDXCoreAdapter_Vtbl {
         *iid == <IDXCoreAdapter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXCoreAdapterFactory_Impl: Sized {
     fn CreateAdapterList(&self, numattributes: u32, filterattributes: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppvadapterlist: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -146,7 +145,6 @@ impl IDXCoreAdapterFactory_Vtbl {
         *iid == <IDXCoreAdapterFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DXCore\"`, `\"implement\"`*"]
 pub trait IDXCoreAdapterList_Impl: Sized {
     fn GetAdapter(&self, index: u32, riid: *const ::windows_core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetAdapterCount(&self) -> u32;

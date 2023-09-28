@@ -105,7 +105,6 @@ pub struct IReplaceAppointmentOperation_Vtbl {
     pub ReportError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub DismissUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AddAppointmentOperation(::windows_core::IUnknown);
@@ -156,7 +155,6 @@ impl ::windows_core::RuntimeName for AddAppointmentOperation {
 ::windows_core::imp::interface_hierarchy!(AddAppointmentOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AddAppointmentOperation {}
 unsafe impl ::core::marker::Sync for AddAppointmentOperation {}
-#[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
 pub struct AppointmentsProviderLaunchActionVerbs;
 impl AppointmentsProviderLaunchActionVerbs {
     pub fn AddAppointment() -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -203,7 +201,6 @@ impl AppointmentsProviderLaunchActionVerbs {
 impl ::windows_core::RuntimeName for AppointmentsProviderLaunchActionVerbs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.AppointmentsProviderLaunchActionVerbs";
 }
-#[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoveAppointmentOperation(::windows_core::IUnknown);
@@ -215,7 +212,7 @@ impl RemoveAppointmentOperation {
             (::windows_core::Interface::vtable(this).AppointmentId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn InstanceStartDate(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -263,7 +260,6 @@ impl ::windows_core::RuntimeName for RemoveAppointmentOperation {
 ::windows_core::imp::interface_hierarchy!(RemoveAppointmentOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RemoveAppointmentOperation {}
 unsafe impl ::core::marker::Sync for RemoveAppointmentOperation {}
-#[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ReplaceAppointmentOperation(::windows_core::IUnknown);
@@ -282,7 +278,7 @@ impl ReplaceAppointmentOperation {
             (::windows_core::Interface::vtable(this).AppointmentInformation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn InstanceStartDate(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;

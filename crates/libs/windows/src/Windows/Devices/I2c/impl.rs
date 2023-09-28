@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Devices_I2c\"`, `\"Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`"]
 #[cfg(feature = "Foundation")]
 pub trait II2cDeviceStatics_Impl: Sized {
     fn GetDeviceSelector(&self) -> ::windows_core::Result<::windows_core::HSTRING>;

@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`, `\"implement\"`*"]
 pub trait IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Impl: Sized {
     fn CreateFromWin32Handle(&self, win32handle: u64, enableaboutdata: u8, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
@@ -19,7 +18,6 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
         *iid == <IWindowsDevicesAllJoynBusAttachmentFactoryInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`, `\"implement\"`*"]
 pub trait IWindowsDevicesAllJoynBusAttachmentInterop_Impl: Sized {
     fn Win32Handle(&self) -> ::windows_core::Result<u64>;
 }
@@ -46,7 +44,6 @@ impl IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
         *iid == <IWindowsDevicesAllJoynBusAttachmentInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`, `\"implement\"`*"]
 pub trait IWindowsDevicesAllJoynBusObjectFactoryInterop_Impl: Sized {
     fn CreateFromWin32Handle(&self, win32handle: u64, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
@@ -67,7 +64,6 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
         *iid == <IWindowsDevicesAllJoynBusObjectFactoryInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`, `\"implement\"`*"]
 pub trait IWindowsDevicesAllJoynBusObjectInterop_Impl: Sized {
     fn AddPropertyGetHandler(&self, context: *const ::core::ffi::c_void, interfacename: &::windows_core::HSTRING, callback: isize) -> ::windows_core::Result<()>;
     fn AddPropertySetHandler(&self, context: *const ::core::ffi::c_void, interfacename: &::windows_core::HSTRING, callback: isize) -> ::windows_core::Result<()>;

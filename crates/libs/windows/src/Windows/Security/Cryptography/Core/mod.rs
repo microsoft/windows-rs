@@ -734,7 +734,6 @@ pub struct ISymmetricKeyAlgorithmProviderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, algorithm: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 pub struct AsymmetricAlgorithmNames;
 impl AsymmetricAlgorithmNames {
     pub fn RsaPkcs1() -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -877,7 +876,6 @@ impl AsymmetricAlgorithmNames {
 impl ::windows_core::RuntimeName for AsymmetricAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames";
 }
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsymmetricKeyAlgorithmProvider(::windows_core::IUnknown);
@@ -896,7 +894,7 @@ impl AsymmetricKeyAlgorithmProvider {
             (::windows_core::Interface::vtable(this).CreateKeyPair)(::windows_core::Interface::as_raw(this), keysize, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ImportDefaultPrivateKeyBlob<P0>(&self, keyblob: P0) -> ::windows_core::Result<CryptographicKey>
     where
@@ -908,7 +906,7 @@ impl AsymmetricKeyAlgorithmProvider {
             (::windows_core::Interface::vtable(this).ImportDefaultPrivateKeyBlob)(::windows_core::Interface::as_raw(this), keyblob.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ImportKeyPairWithBlobType<P0>(&self, keyblob: P0, blobtype: CryptographicPrivateKeyBlobType) -> ::windows_core::Result<CryptographicKey>
     where
@@ -920,7 +918,7 @@ impl AsymmetricKeyAlgorithmProvider {
             (::windows_core::Interface::vtable(this).ImportKeyPairWithBlobType)(::windows_core::Interface::as_raw(this), keyblob.try_into_param()?.abi(), blobtype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ImportDefaultPublicKeyBlob<P0>(&self, keyblob: P0) -> ::windows_core::Result<CryptographicKey>
     where
@@ -932,7 +930,7 @@ impl AsymmetricKeyAlgorithmProvider {
             (::windows_core::Interface::vtable(this).ImportDefaultPublicKeyBlob)(::windows_core::Interface::as_raw(this), keyblob.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ImportPublicKeyWithBlobType<P0>(&self, keyblob: P0, blobtype: CryptographicPublicKeyBlobType) -> ::windows_core::Result<CryptographicKey>
     where
@@ -985,10 +983,9 @@ impl ::windows_core::RuntimeName for AsymmetricKeyAlgorithmProvider {
 ::windows_core::imp::interface_hierarchy!(AsymmetricKeyAlgorithmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AsymmetricKeyAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for AsymmetricKeyAlgorithmProvider {}
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 pub struct CryptographicEngine;
 impl CryptographicEngine {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Encrypt<P0, P1, P2>(key: P0, data: P1, iv: P2) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
@@ -1001,7 +998,7 @@ impl CryptographicEngine {
             (::windows_core::Interface::vtable(this).Encrypt)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), iv.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Decrypt<P0, P1, P2>(key: P0, data: P1, iv: P2) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
@@ -1014,7 +1011,7 @@ impl CryptographicEngine {
             (::windows_core::Interface::vtable(this).Decrypt)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), iv.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn EncryptAndAuthenticate<P0, P1, P2, P3>(key: P0, data: P1, nonce: P2, authenticateddata: P3) -> ::windows_core::Result<EncryptedAndAuthenticatedData>
     where
@@ -1028,7 +1025,7 @@ impl CryptographicEngine {
             (::windows_core::Interface::vtable(this).EncryptAndAuthenticate)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), nonce.try_into_param()?.abi(), authenticateddata.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn DecryptAndAuthenticate<P0, P1, P2, P3, P4>(key: P0, data: P1, nonce: P2, authenticationtag: P3, authenticateddata: P4) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
@@ -1043,7 +1040,7 @@ impl CryptographicEngine {
             (::windows_core::Interface::vtable(this).DecryptAndAuthenticate)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), nonce.try_into_param()?.abi(), authenticationtag.try_into_param()?.abi(), authenticateddata.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Sign<P0, P1>(key: P0, data: P1) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
@@ -1055,7 +1052,7 @@ impl CryptographicEngine {
             (::windows_core::Interface::vtable(this).Sign)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn VerifySignature<P0, P1, P2>(key: P0, data: P1, signature: P2) -> ::windows_core::Result<bool>
     where
@@ -1068,7 +1065,7 @@ impl CryptographicEngine {
             (::windows_core::Interface::vtable(this).VerifySignature)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), signature.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn DeriveKeyMaterial<P0, P1>(key: P0, parameters: P1, desiredkeysize: u32) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
@@ -1080,7 +1077,7 @@ impl CryptographicEngine {
             (::windows_core::Interface::vtable(this).DeriveKeyMaterial)(::windows_core::Interface::as_raw(this), key.into_param().abi(), parameters.into_param().abi(), desiredkeysize, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SignHashedData<P0, P1>(key: P0, data: P1) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
@@ -1092,7 +1089,7 @@ impl CryptographicEngine {
             (::windows_core::Interface::vtable(this).SignHashedData)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn VerifySignatureWithHashInput<P0, P1, P2>(key: P0, data: P1, signature: P2) -> ::windows_core::Result<bool>
     where
@@ -1105,7 +1102,7 @@ impl CryptographicEngine {
             (::windows_core::Interface::vtable(this).VerifySignatureWithHashInput)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), signature.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn DecryptAsync<P0, P1, P2>(key: P0, data: P1, iv: P2) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
@@ -1118,7 +1115,7 @@ impl CryptographicEngine {
             (::windows_core::Interface::vtable(this).DecryptAsync)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), iv.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SignAsync<P0, P1>(key: P0, data: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
@@ -1130,7 +1127,7 @@ impl CryptographicEngine {
             (::windows_core::Interface::vtable(this).SignAsync)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SignHashedDataAsync<P0, P1>(key: P0, data: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
@@ -1156,12 +1153,11 @@ impl CryptographicEngine {
 impl ::windows_core::RuntimeName for CryptographicEngine {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicEngine";
 }
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CryptographicHash(::windows_core::IUnknown);
 impl CryptographicHash {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Append<P0>(&self, data: P0) -> ::windows_core::Result<()>
     where
@@ -1170,7 +1166,7 @@ impl CryptographicHash {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Append)(::windows_core::Interface::as_raw(this), data.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetValueAndReset(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1195,7 +1191,6 @@ impl ::windows_core::RuntimeName for CryptographicHash {
 ::windows_core::imp::interface_hierarchy!(CryptographicHash, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CryptographicHash {}
 unsafe impl ::core::marker::Sync for CryptographicHash {}
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CryptographicKey(::windows_core::IUnknown);
@@ -1207,7 +1202,7 @@ impl CryptographicKey {
             (::windows_core::Interface::vtable(this).KeySize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ExportDefaultPrivateKeyBlobType(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1216,7 +1211,7 @@ impl CryptographicKey {
             (::windows_core::Interface::vtable(this).ExportDefaultPrivateKeyBlobType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ExportPrivateKeyWithBlobType(&self, blobtype: CryptographicPrivateKeyBlobType) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1225,7 +1220,7 @@ impl CryptographicKey {
             (::windows_core::Interface::vtable(this).ExportPrivateKeyWithBlobType)(::windows_core::Interface::as_raw(this), blobtype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ExportDefaultPublicKeyBlobType(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1234,7 +1229,7 @@ impl CryptographicKey {
             (::windows_core::Interface::vtable(this).ExportDefaultPublicKeyBlobType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ExportPublicKeyWithBlobType(&self, blobtype: CryptographicPublicKeyBlobType) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1259,7 +1254,6 @@ impl ::windows_core::RuntimeName for CryptographicKey {
 ::windows_core::imp::interface_hierarchy!(CryptographicKey, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CryptographicKey {}
 unsafe impl ::core::marker::Sync for CryptographicKey {}
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 pub struct EccCurveNames;
 impl EccCurveNames {
     pub fn BrainpoolP160r1() -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1532,7 +1526,7 @@ impl EccCurveNames {
             (::windows_core::Interface::vtable(this).X962P256v1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllEccCurveNames() -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         Self::IEccCurveNamesStatics(|this| unsafe {
@@ -1549,12 +1543,11 @@ impl EccCurveNames {
 impl ::windows_core::RuntimeName for EccCurveNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.EccCurveNames";
 }
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EncryptedAndAuthenticatedData(::windows_core::IUnknown);
 impl EncryptedAndAuthenticatedData {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn EncryptedData(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1563,7 +1556,7 @@ impl EncryptedAndAuthenticatedData {
             (::windows_core::Interface::vtable(this).EncryptedData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn AuthenticationTag(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1588,7 +1581,6 @@ impl ::windows_core::RuntimeName for EncryptedAndAuthenticatedData {
 ::windows_core::imp::interface_hierarchy!(EncryptedAndAuthenticatedData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for EncryptedAndAuthenticatedData {}
 unsafe impl ::core::marker::Sync for EncryptedAndAuthenticatedData {}
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 pub struct HashAlgorithmNames;
 impl HashAlgorithmNames {
     pub fn Md5() -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1630,7 +1622,6 @@ impl HashAlgorithmNames {
 impl ::windows_core::RuntimeName for HashAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.HashAlgorithmNames";
 }
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HashAlgorithmProvider(::windows_core::IUnknown);
@@ -1649,7 +1640,7 @@ impl HashAlgorithmProvider {
             (::windows_core::Interface::vtable(this).HashLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn HashData<P0>(&self, data: P0) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
@@ -1695,7 +1686,6 @@ impl ::windows_core::RuntimeName for HashAlgorithmProvider {
 ::windows_core::imp::interface_hierarchy!(HashAlgorithmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HashAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for HashAlgorithmProvider {}
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 pub struct KeyDerivationAlgorithmNames;
 impl KeyDerivationAlgorithmNames {
     pub fn Pbkdf2Md5() -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1832,7 +1822,6 @@ impl KeyDerivationAlgorithmNames {
 impl ::windows_core::RuntimeName for KeyDerivationAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames";
 }
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct KeyDerivationAlgorithmProvider(::windows_core::IUnknown);
@@ -1844,7 +1833,7 @@ impl KeyDerivationAlgorithmProvider {
             (::windows_core::Interface::vtable(this).AlgorithmName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateKey<P0>(&self, keymaterial: P0) -> ::windows_core::Result<CryptographicKey>
     where
@@ -1883,12 +1872,11 @@ impl ::windows_core::RuntimeName for KeyDerivationAlgorithmProvider {
 ::windows_core::imp::interface_hierarchy!(KeyDerivationAlgorithmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for KeyDerivationAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for KeyDerivationAlgorithmProvider {}
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct KeyDerivationParameters(::windows_core::IUnknown);
 impl KeyDerivationParameters {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn KdfGenericBinary(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1897,7 +1885,7 @@ impl KeyDerivationParameters {
             (::windows_core::Interface::vtable(this).KdfGenericBinary)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetKdfGenericBinary<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1924,7 +1912,7 @@ impl KeyDerivationParameters {
         let this = &::windows_core::ComInterface::cast::<IKeyDerivationParameters2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetCapi1KdfTargetAlgorithm)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn BuildForPbkdf2<P0>(pbkdf2salt: P0, iterationcount: u32) -> ::windows_core::Result<KeyDerivationParameters>
     where
@@ -1935,7 +1923,7 @@ impl KeyDerivationParameters {
             (::windows_core::Interface::vtable(this).BuildForPbkdf2)(::windows_core::Interface::as_raw(this), pbkdf2salt.try_into_param()?.abi(), iterationcount, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn BuildForSP800108<P0, P1>(label: P0, context: P1) -> ::windows_core::Result<KeyDerivationParameters>
     where
@@ -1947,7 +1935,7 @@ impl KeyDerivationParameters {
             (::windows_core::Interface::vtable(this).BuildForSP800108)(::windows_core::Interface::as_raw(this), label.try_into_param()?.abi(), context.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn BuildForSP80056a<P0, P1, P2, P3, P4>(algorithmid: P0, partyuinfo: P1, partyvinfo: P2, supppubinfo: P3, suppprivinfo: P4) -> ::windows_core::Result<KeyDerivationParameters>
     where
@@ -1994,7 +1982,6 @@ impl ::windows_core::RuntimeName for KeyDerivationParameters {
 ::windows_core::imp::interface_hierarchy!(KeyDerivationParameters, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for KeyDerivationParameters {}
 unsafe impl ::core::marker::Sync for KeyDerivationParameters {}
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 pub struct MacAlgorithmNames;
 impl MacAlgorithmNames {
     pub fn HmacMd5() -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2042,7 +2029,6 @@ impl MacAlgorithmNames {
 impl ::windows_core::RuntimeName for MacAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.MacAlgorithmNames";
 }
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MacAlgorithmProvider(::windows_core::IUnknown);
@@ -2061,7 +2047,7 @@ impl MacAlgorithmProvider {
             (::windows_core::Interface::vtable(this).MacLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateKey<P0>(&self, keymaterial: P0) -> ::windows_core::Result<CryptographicKey>
     where
@@ -2073,7 +2059,7 @@ impl MacAlgorithmProvider {
             (::windows_core::Interface::vtable(this).CreateKey)(::windows_core::Interface::as_raw(this), keymaterial.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateHash<P0>(&self, keymaterial: P0) -> ::windows_core::Result<CryptographicHash>
     where
@@ -2112,10 +2098,9 @@ impl ::windows_core::RuntimeName for MacAlgorithmProvider {
 ::windows_core::imp::interface_hierarchy!(MacAlgorithmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MacAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for MacAlgorithmProvider {}
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 pub struct PersistedKeyProvider;
 impl PersistedKeyProvider {
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Cryptography_Certificates\"`*"]
+    #[doc = "Required features: `Foundation`, `Security_Cryptography_Certificates`"]
     #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates"))]
     pub fn OpenKeyPairFromCertificateAsync<P0>(certificate: P0, hashalgorithmname: &::windows_core::HSTRING, padding: CryptographicPadding) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>
     where
@@ -2126,7 +2111,7 @@ impl PersistedKeyProvider {
             (::windows_core::Interface::vtable(this).OpenKeyPairFromCertificateAsync)(::windows_core::Interface::as_raw(this), certificate.into_param().abi(), ::core::mem::transmute_copy(hashalgorithmname), padding, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
+    #[doc = "Required features: `Security_Cryptography_Certificates`"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn OpenPublicKeyFromCertificate<P0>(certificate: P0, hashalgorithmname: &::windows_core::HSTRING, padding: CryptographicPadding) -> ::windows_core::Result<CryptographicKey>
     where
@@ -2146,7 +2131,6 @@ impl PersistedKeyProvider {
 impl ::windows_core::RuntimeName for PersistedKeyProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.PersistedKeyProvider";
 }
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 pub struct SymmetricAlgorithmNames;
 impl SymmetricAlgorithmNames {
     pub fn DesCbc() -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2272,7 +2256,6 @@ impl SymmetricAlgorithmNames {
 impl ::windows_core::RuntimeName for SymmetricAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.SymmetricAlgorithmNames";
 }
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SymmetricKeyAlgorithmProvider(::windows_core::IUnknown);
@@ -2291,7 +2274,7 @@ impl SymmetricKeyAlgorithmProvider {
             (::windows_core::Interface::vtable(this).BlockLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateSymmetricKey<P0>(&self, keymaterial: P0) -> ::windows_core::Result<CryptographicKey>
     where
@@ -2330,7 +2313,6 @@ impl ::windows_core::RuntimeName for SymmetricKeyAlgorithmProvider {
 ::windows_core::imp::interface_hierarchy!(SymmetricKeyAlgorithmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SymmetricKeyAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for SymmetricKeyAlgorithmProvider {}
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Capi1KdfTargetAlgorithm(pub i32);
@@ -2360,7 +2342,6 @@ impl ::core::fmt::Debug for Capi1KdfTargetAlgorithm {
 impl ::windows_core::RuntimeType for Capi1KdfTargetAlgorithm {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm;i4)");
 }
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CryptographicPadding(pub i32);
@@ -2392,7 +2373,6 @@ impl ::core::fmt::Debug for CryptographicPadding {
 impl ::windows_core::RuntimeType for CryptographicPadding {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPadding;i4)");
 }
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CryptographicPrivateKeyBlobType(pub i32);
@@ -2425,7 +2405,6 @@ impl ::core::fmt::Debug for CryptographicPrivateKeyBlobType {
 impl ::windows_core::RuntimeType for CryptographicPrivateKeyBlobType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPrivateKeyBlobType;i4)");
 }
-#[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CryptographicPublicKeyBlobType(pub i32);

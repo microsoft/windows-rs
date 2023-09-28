@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXmlReader_Impl: Sized {
     fn SetInput(&self, pinput: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -212,7 +212,6 @@ impl IXmlReader_Vtbl {
         *iid == <IXmlReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"implement\"`*"]
 pub trait IXmlResolver_Impl: Sized {
     fn ResolveUri(&self, pwszbaseuri: &::windows_core::PCWSTR, pwszpublicidentifier: &::windows_core::PCWSTR, pwszsystemidentifier: &::windows_core::PCWSTR) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
@@ -236,7 +235,7 @@ impl IXmlResolver_Vtbl {
         *iid == <IXmlResolver as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXmlWriter_Impl: Sized {
     fn SetOutput(&self, poutput: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -462,7 +461,7 @@ impl IXmlWriter_Vtbl {
         *iid == <IXmlWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXmlWriterLite_Impl: Sized {
     fn SetOutput(&self, poutput: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;

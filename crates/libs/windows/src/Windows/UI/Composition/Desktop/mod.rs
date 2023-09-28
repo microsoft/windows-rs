@@ -14,7 +14,6 @@ pub struct IDesktopWindowTarget_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsTopmost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Composition_Desktop\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DesktopWindowTarget(::windows_core::IUnknown);
@@ -26,7 +25,7 @@ impl DesktopWindowTarget {
         let this = &::windows_core::ComInterface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).PopulatePropertyInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -39,7 +38,7 @@ impl DesktopWindowTarget {
             (::windows_core::Interface::vtable(this).Compositor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
+    #[doc = "Required features: `UI_Core`"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows_core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows_core::ComInterface::cast::<super::ICompositionObject>(self)?;
@@ -105,7 +104,7 @@ impl DesktopWindowTarget {
         let this = &::windows_core::ComInterface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).StopAnimationGroup)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
+    #[doc = "Required features: `System`"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows_core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows_core::ComInterface::cast::<super::ICompositionObject3>(self)?;

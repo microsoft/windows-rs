@@ -1,24 +1,35 @@
 #[cfg(feature = "System_Diagnostics")]
+#[doc = "Required features: `System_Diagnostics`"]
 pub mod Diagnostics;
 #[cfg(feature = "System_Display")]
+#[doc = "Required features: `System_Display`"]
 pub mod Display;
 #[cfg(feature = "System_Implementation")]
+#[doc = "Required features: `System_Implementation`"]
 pub mod Implementation;
 #[cfg(feature = "System_Inventory")]
+#[doc = "Required features: `System_Inventory`"]
 pub mod Inventory;
 #[cfg(feature = "System_Power")]
+#[doc = "Required features: `System_Power`"]
 pub mod Power;
 #[cfg(feature = "System_Profile")]
+#[doc = "Required features: `System_Profile`"]
 pub mod Profile;
 #[cfg(feature = "System_RemoteDesktop")]
+#[doc = "Required features: `System_RemoteDesktop`"]
 pub mod RemoteDesktop;
 #[cfg(feature = "System_RemoteSystems")]
+#[doc = "Required features: `System_RemoteSystems`"]
 pub mod RemoteSystems;
 #[cfg(feature = "System_Threading")]
+#[doc = "Required features: `System_Threading`"]
 pub mod Threading;
 #[cfg(feature = "System_Update")]
+#[doc = "Required features: `System_Update`"]
 pub mod Update;
 #[cfg(feature = "System_UserProfile")]
+#[doc = "Required features: `System_UserProfile`"]
 pub mod UserProfile;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1227,12 +1238,11 @@ pub struct ILauncherUIOptions_Vtbl {
     #[cfg(not(feature = "UI_Popups"))]
     SetPreferredPlacement: usize,
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILauncherViewOptions(::windows_core::IUnknown);
 impl ILauncherViewOptions {
-    #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+    #[doc = "Required features: `UI_ViewManagement`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn DesiredRemainingView(&self) -> ::windows_core::Result<super::UI::ViewManagement::ViewSizePreference> {
         let this = self;
@@ -1241,7 +1251,7 @@ impl ILauncherViewOptions {
             (::windows_core::Interface::vtable(this).DesiredRemainingView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+    #[doc = "Required features: `UI_ViewManagement`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn SetDesiredRemainingView(&self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows_core::Result<()> {
         let this = self;
@@ -1933,7 +1943,6 @@ pub struct IUserWatcher_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveStopped: usize,
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppActivationResult(::windows_core::IUnknown);
@@ -1968,12 +1977,11 @@ impl ::windows_core::RuntimeName for AppActivationResult {
 ::windows_core::imp::interface_hierarchy!(AppActivationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppActivationResult {}
 unsafe impl ::core::marker::Sync for AppActivationResult {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppDiagnosticInfo(::windows_core::IUnknown);
 impl AppDiagnosticInfo {
-    #[doc = "*Required features: `\"ApplicationModel\"`*"]
+    #[doc = "Required features: `ApplicationModel`"]
     #[cfg(feature = "ApplicationModel")]
     pub fn AppInfo(&self) -> ::windows_core::Result<super::ApplicationModel::AppInfo> {
         let this = self;
@@ -1982,7 +1990,7 @@ impl AppDiagnosticInfo {
             (::windows_core::Interface::vtable(this).AppInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetResourceGroups(&self) -> ::windows_core::Result<super::Foundation::Collections::IVector<AppResourceGroupInfo>> {
         let this = &::windows_core::ComInterface::cast::<IAppDiagnosticInfo2>(self)?;
@@ -1998,7 +2006,7 @@ impl AppDiagnosticInfo {
             (::windows_core::Interface::vtable(this).CreateResourceGroupWatcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchAsync(&self) -> ::windows_core::Result<super::Foundation::IAsyncOperation<AppActivationResult>> {
         let this = &::windows_core::ComInterface::cast::<IAppDiagnosticInfo3>(self)?;
@@ -2007,7 +2015,7 @@ impl AppDiagnosticInfo {
             (::windows_core::Interface::vtable(this).LaunchAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestInfoAsync() -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics(|this| unsafe {
@@ -2021,7 +2029,7 @@ impl AppDiagnosticInfo {
             (::windows_core::Interface::vtable(this).CreateWatcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows_core::Result<super::Foundation::IAsyncOperation<DiagnosticAccessStatus>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
@@ -2029,7 +2037,7 @@ impl AppDiagnosticInfo {
             (::windows_core::Interface::vtable(this).RequestAccessAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestInfoForPackageAsync(packagefamilyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
@@ -2037,7 +2045,7 @@ impl AppDiagnosticInfo {
             (::windows_core::Interface::vtable(this).RequestInfoForPackageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestInfoForAppAsync() -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
@@ -2045,7 +2053,7 @@ impl AppDiagnosticInfo {
             (::windows_core::Interface::vtable(this).RequestInfoForAppAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestInfoForAppUserModelId(appusermodelid: &::windows_core::HSTRING) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
@@ -2079,12 +2087,11 @@ impl ::windows_core::RuntimeName for AppDiagnosticInfo {
 ::windows_core::imp::interface_hierarchy!(AppDiagnosticInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for AppDiagnosticInfo {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppDiagnosticInfoWatcher(::windows_core::IUnknown);
 impl AppDiagnosticInfoWatcher {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Added<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -2096,13 +2103,13 @@ impl AppDiagnosticInfoWatcher {
             (::windows_core::Interface::vtable(this).Added)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAdded)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Removed<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -2114,13 +2121,13 @@ impl AppDiagnosticInfoWatcher {
             (::windows_core::Interface::vtable(this).Removed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRemoved)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -2132,13 +2139,13 @@ impl AppDiagnosticInfoWatcher {
             (::windows_core::Interface::vtable(this).EnumerationCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Stopped<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -2150,7 +2157,7 @@ impl AppDiagnosticInfoWatcher {
             (::windows_core::Interface::vtable(this).Stopped)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -2187,7 +2194,6 @@ impl ::windows_core::RuntimeName for AppDiagnosticInfoWatcher {
 ::windows_core::imp::interface_hierarchy!(AppDiagnosticInfoWatcher, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppDiagnosticInfoWatcher {}
 unsafe impl ::core::marker::Sync for AppDiagnosticInfoWatcher {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppDiagnosticInfoWatcherEventArgs(::windows_core::IUnknown);
@@ -2215,7 +2221,6 @@ impl ::windows_core::RuntimeName for AppDiagnosticInfoWatcherEventArgs {
 ::windows_core::imp::interface_hierarchy!(AppDiagnosticInfoWatcherEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppDiagnosticInfoWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for AppDiagnosticInfoWatcherEventArgs {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppExecutionStateChangeResult(::windows_core::IUnknown);
@@ -2243,7 +2248,6 @@ impl ::windows_core::RuntimeName for AppExecutionStateChangeResult {
 ::windows_core::imp::interface_hierarchy!(AppExecutionStateChangeResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppExecutionStateChangeResult {}
 unsafe impl ::core::marker::Sync for AppExecutionStateChangeResult {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppMemoryReport(::windows_core::IUnknown);
@@ -2299,7 +2303,6 @@ impl ::windows_core::RuntimeName for AppMemoryReport {
 ::windows_core::imp::interface_hierarchy!(AppMemoryReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppMemoryReport {}
 unsafe impl ::core::marker::Sync for AppMemoryReport {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppMemoryUsageLimitChangingEventArgs(::windows_core::IUnknown);
@@ -2334,7 +2337,6 @@ impl ::windows_core::RuntimeName for AppMemoryUsageLimitChangingEventArgs {
 ::windows_core::imp::interface_hierarchy!(AppMemoryUsageLimitChangingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppMemoryUsageLimitChangingEventArgs {}
 unsafe impl ::core::marker::Sync for AppMemoryUsageLimitChangingEventArgs {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppResourceGroupBackgroundTaskReport(::windows_core::IUnknown);
@@ -2383,7 +2385,6 @@ impl ::windows_core::RuntimeName for AppResourceGroupBackgroundTaskReport {
 ::windows_core::imp::interface_hierarchy!(AppResourceGroupBackgroundTaskReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppResourceGroupBackgroundTaskReport {}
 unsafe impl ::core::marker::Sync for AppResourceGroupBackgroundTaskReport {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppResourceGroupInfo(::windows_core::IUnknown);
@@ -2402,7 +2403,7 @@ impl AppResourceGroupInfo {
             (::windows_core::Interface::vtable(this).IsShared)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetBackgroundTaskReports(&self) -> ::windows_core::Result<super::Foundation::Collections::IVector<AppResourceGroupBackgroundTaskReport>> {
         let this = self;
@@ -2418,7 +2419,7 @@ impl AppResourceGroupInfo {
             (::windows_core::Interface::vtable(this).GetMemoryReport)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"System_Diagnostics\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `System_Diagnostics`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System_Diagnostics"))]
     pub fn GetProcessDiagnosticInfos(&self) -> ::windows_core::Result<super::Foundation::Collections::IVector<Diagnostics::ProcessDiagnosticInfo>> {
         let this = self;
@@ -2434,7 +2435,7 @@ impl AppResourceGroupInfo {
             (::windows_core::Interface::vtable(this).GetStateReport)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn StartSuspendAsync(&self) -> ::windows_core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>> {
         let this = &::windows_core::ComInterface::cast::<IAppResourceGroupInfo2>(self)?;
@@ -2443,7 +2444,7 @@ impl AppResourceGroupInfo {
             (::windows_core::Interface::vtable(this).StartSuspendAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn StartResumeAsync(&self) -> ::windows_core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>> {
         let this = &::windows_core::ComInterface::cast::<IAppResourceGroupInfo2>(self)?;
@@ -2452,7 +2453,7 @@ impl AppResourceGroupInfo {
             (::windows_core::Interface::vtable(this).StartResumeAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn StartTerminateAsync(&self) -> ::windows_core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>> {
         let this = &::windows_core::ComInterface::cast::<IAppResourceGroupInfo2>(self)?;
@@ -2477,12 +2478,11 @@ impl ::windows_core::RuntimeName for AppResourceGroupInfo {
 ::windows_core::imp::interface_hierarchy!(AppResourceGroupInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppResourceGroupInfo {}
 unsafe impl ::core::marker::Sync for AppResourceGroupInfo {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppResourceGroupInfoWatcher(::windows_core::IUnknown);
 impl AppResourceGroupInfoWatcher {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Added<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -2494,13 +2494,13 @@ impl AppResourceGroupInfoWatcher {
             (::windows_core::Interface::vtable(this).Added)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAdded)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Removed<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -2512,13 +2512,13 @@ impl AppResourceGroupInfoWatcher {
             (::windows_core::Interface::vtable(this).Removed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRemoved)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -2530,13 +2530,13 @@ impl AppResourceGroupInfoWatcher {
             (::windows_core::Interface::vtable(this).EnumerationCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Stopped<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -2548,13 +2548,13 @@ impl AppResourceGroupInfoWatcher {
             (::windows_core::Interface::vtable(this).Stopped)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStopped)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ExecutionStateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -2566,7 +2566,7 @@ impl AppResourceGroupInfoWatcher {
             (::windows_core::Interface::vtable(this).ExecutionStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveExecutionStateChanged(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -2603,12 +2603,11 @@ impl ::windows_core::RuntimeName for AppResourceGroupInfoWatcher {
 ::windows_core::imp::interface_hierarchy!(AppResourceGroupInfoWatcher, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcher {}
 unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcher {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppResourceGroupInfoWatcherEventArgs(::windows_core::IUnknown);
 impl AppResourceGroupInfoWatcherEventArgs {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AppDiagnosticInfos(&self) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>> {
         let this = self;
@@ -2640,12 +2639,11 @@ impl ::windows_core::RuntimeName for AppResourceGroupInfoWatcherEventArgs {
 ::windows_core::imp::interface_hierarchy!(AppResourceGroupInfoWatcherEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcherEventArgs {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppResourceGroupInfoWatcherExecutionStateChangedEventArgs(::windows_core::IUnknown);
 impl AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AppDiagnosticInfos(&self) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>> {
         let this = self;
@@ -2677,7 +2675,6 @@ impl ::windows_core::RuntimeName for AppResourceGroupInfoWatcherExecutionStateCh
 ::windows_core::imp::interface_hierarchy!(AppResourceGroupInfoWatcherExecutionStateChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppResourceGroupMemoryReport(::windows_core::IUnknown);
@@ -2726,7 +2723,6 @@ impl ::windows_core::RuntimeName for AppResourceGroupMemoryReport {
 ::windows_core::imp::interface_hierarchy!(AppResourceGroupMemoryReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppResourceGroupMemoryReport {}
 unsafe impl ::core::marker::Sync for AppResourceGroupMemoryReport {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppResourceGroupStateReport(::windows_core::IUnknown);
@@ -2761,7 +2757,6 @@ impl ::windows_core::RuntimeName for AppResourceGroupStateReport {
 ::windows_core::imp::interface_hierarchy!(AppResourceGroupStateReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppResourceGroupStateReport {}
 unsafe impl ::core::marker::Sync for AppResourceGroupStateReport {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppUriHandlerHost(::windows_core::IUnknown);
@@ -2822,7 +2817,6 @@ impl ::windows_core::RuntimeName for AppUriHandlerHost {
 ::windows_core::imp::interface_hierarchy!(AppUriHandlerHost, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppUriHandlerHost {}
 unsafe impl ::core::marker::Sync for AppUriHandlerHost {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppUriHandlerRegistration(::windows_core::IUnknown);
@@ -2841,7 +2835,7 @@ impl AppUriHandlerRegistration {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAppAddedHostsAsync(&self) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppUriHandlerHost>>> {
         let this = self;
@@ -2850,7 +2844,7 @@ impl AppUriHandlerRegistration {
             (::windows_core::Interface::vtable(this).GetAppAddedHostsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAppAddedHostsAsync<P0>(&self, hosts: P0) -> ::windows_core::Result<super::Foundation::IAsyncAction>
     where
@@ -2862,7 +2856,7 @@ impl AppUriHandlerRegistration {
             (::windows_core::Interface::vtable(this).SetAppAddedHostsAsync)(::windows_core::Interface::as_raw(this), hosts.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAllHosts(&self) -> ::windows_core::Result<super::Foundation::Collections::IVector<AppUriHandlerHost>> {
         let this = &::windows_core::ComInterface::cast::<IAppUriHandlerRegistration2>(self)?;
@@ -2871,7 +2865,7 @@ impl AppUriHandlerRegistration {
             (::windows_core::Interface::vtable(this).GetAllHosts)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UpdateHosts<P0>(&self, hosts: P0) -> ::windows_core::Result<()>
     where
@@ -2903,7 +2897,6 @@ impl ::windows_core::RuntimeName for AppUriHandlerRegistration {
 ::windows_core::imp::interface_hierarchy!(AppUriHandlerRegistration, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppUriHandlerRegistration {}
 unsafe impl ::core::marker::Sync for AppUriHandlerRegistration {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppUriHandlerRegistrationManager(::windows_core::IUnknown);
@@ -2985,10 +2978,9 @@ impl ::windows_core::RuntimeName for AppUriHandlerRegistrationManager {
 ::windows_core::imp::interface_hierarchy!(AppUriHandlerRegistrationManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppUriHandlerRegistrationManager {}
 unsafe impl ::core::marker::Sync for AppUriHandlerRegistrationManager {}
-#[doc = "*Required features: `\"System\"`*"]
 pub struct DateTimeSettings;
 impl DateTimeSettings {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetSystemDateTime(utcdatetime: super::Foundation::DateTime) -> ::windows_core::Result<()> {
         Self::IDateTimeSettingsStatics(|this| unsafe { (::windows_core::Interface::vtable(this).SetSystemDateTime)(::windows_core::Interface::as_raw(this), utcdatetime).ok() })
@@ -3002,7 +2994,6 @@ impl DateTimeSettings {
 impl ::windows_core::RuntimeName for DateTimeSettings {
     const NAME: &'static str = "Windows.System.DateTimeSettings";
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DispatcherQueue(::windows_core::IUnknown);
@@ -3034,7 +3025,7 @@ impl DispatcherQueue {
             (::windows_core::Interface::vtable(this).TryEnqueueWithPriority)(::windows_core::Interface::as_raw(this), priority, callback.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ShutdownStarting<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -3046,13 +3037,13 @@ impl DispatcherQueue {
             (::windows_core::Interface::vtable(this).ShutdownStarting)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveShutdownStarting(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveShutdownStarting)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ShutdownCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -3064,7 +3055,7 @@ impl DispatcherQueue {
             (::windows_core::Interface::vtable(this).ShutdownCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveShutdownCompleted(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -3104,7 +3095,6 @@ impl ::windows_core::RuntimeName for DispatcherQueue {
 ::windows_core::imp::interface_hierarchy!(DispatcherQueue, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DispatcherQueue {}
 unsafe impl ::core::marker::Sync for DispatcherQueue {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DispatcherQueueController(::windows_core::IUnknown);
@@ -3116,7 +3106,7 @@ impl DispatcherQueueController {
             (::windows_core::Interface::vtable(this).DispatcherQueue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ShutdownQueueAsync(&self) -> ::windows_core::Result<super::Foundation::IAsyncAction> {
         let this = self;
@@ -3152,12 +3142,11 @@ impl ::windows_core::RuntimeName for DispatcherQueueController {
 ::windows_core::imp::interface_hierarchy!(DispatcherQueueController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DispatcherQueueController {}
 unsafe impl ::core::marker::Sync for DispatcherQueueController {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DispatcherQueueShutdownStartingEventArgs(::windows_core::IUnknown);
 impl DispatcherQueueShutdownStartingEventArgs {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::Foundation::Deferral> {
         let this = self;
@@ -3182,12 +3171,11 @@ impl ::windows_core::RuntimeName for DispatcherQueueShutdownStartingEventArgs {
 ::windows_core::imp::interface_hierarchy!(DispatcherQueueShutdownStartingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DispatcherQueueShutdownStartingEventArgs {}
 unsafe impl ::core::marker::Sync for DispatcherQueueShutdownStartingEventArgs {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DispatcherQueueTimer(::windows_core::IUnknown);
 impl DispatcherQueueTimer {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Interval(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
@@ -3196,7 +3184,7 @@ impl DispatcherQueueTimer {
             (::windows_core::Interface::vtable(this).Interval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetInterval(&self, value: super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
@@ -3228,7 +3216,7 @@ impl DispatcherQueueTimer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Stop)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Tick<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -3240,7 +3228,7 @@ impl DispatcherQueueTimer {
             (::windows_core::Interface::vtable(this).Tick)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTick(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -3262,7 +3250,6 @@ impl ::windows_core::RuntimeName for DispatcherQueueTimer {
 ::windows_core::imp::interface_hierarchy!(DispatcherQueueTimer, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DispatcherQueueTimer {}
 unsafe impl ::core::marker::Sync for DispatcherQueueTimer {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FolderLauncherOptions(::windows_core::IUnknown);
@@ -3274,7 +3261,7 @@ impl FolderLauncherOptions {
         static SHARED: ::windows_core::imp::FactoryCache<FolderLauncherOptions, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `Storage`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn ItemsToSelect(&self) -> ::windows_core::Result<super::Foundation::Collections::IVector<super::Storage::IStorageItem>> {
         let this = self;
@@ -3283,7 +3270,7 @@ impl FolderLauncherOptions {
             (::windows_core::Interface::vtable(this).ItemsToSelect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+    #[doc = "Required features: `UI_ViewManagement`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn DesiredRemainingView(&self) -> ::windows_core::Result<super::UI::ViewManagement::ViewSizePreference> {
         let this = &::windows_core::ComInterface::cast::<ILauncherViewOptions>(self)?;
@@ -3292,7 +3279,7 @@ impl FolderLauncherOptions {
             (::windows_core::Interface::vtable(this).DesiredRemainingView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+    #[doc = "Required features: `UI_ViewManagement`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn SetDesiredRemainingView(&self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ILauncherViewOptions>(self)?;
@@ -3315,7 +3302,6 @@ impl ::windows_core::RuntimeName for FolderLauncherOptions {
 impl ::windows_core::CanTryInto<ILauncherViewOptions> for FolderLauncherOptions {}
 unsafe impl ::core::marker::Send for FolderLauncherOptions {}
 unsafe impl ::core::marker::Sync for FolderLauncherOptions {}
-#[doc = "*Required features: `\"System\"`*"]
 pub struct KnownUserProperties;
 impl KnownUserProperties {
     pub fn DisplayName() -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3392,7 +3378,6 @@ impl KnownUserProperties {
 impl ::windows_core::RuntimeName for KnownUserProperties {
     const NAME: &'static str = "Windows.System.KnownUserProperties";
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LaunchUriResult(::windows_core::IUnknown);
@@ -3404,7 +3389,7 @@ impl LaunchUriResult {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Result(&self) -> ::windows_core::Result<super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -3429,10 +3414,9 @@ impl ::windows_core::RuntimeName for LaunchUriResult {
 ::windows_core::imp::interface_hierarchy!(LaunchUriResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LaunchUriResult {}
 unsafe impl ::core::marker::Sync for LaunchUriResult {}
-#[doc = "*Required features: `\"System\"`*"]
 pub struct Launcher;
 impl Launcher {
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LaunchFileAsync<P0>(file: P0) -> ::windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
@@ -3443,7 +3427,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchFileAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LaunchFileWithOptionsAsync<P0, P1>(file: P0, options: P1) -> ::windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
@@ -3455,7 +3439,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchFileWithOptionsAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchUriAsync<P0>(uri: P0) -> ::windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
@@ -3466,7 +3450,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchUriAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchUriWithOptionsAsync<P0, P1>(uri: P0, options: P1) -> ::windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
@@ -3478,7 +3462,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchUriWithOptionsAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchUriForResultsAsync<P0, P1>(uri: P0, options: P1) -> ::windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
     where
@@ -3490,7 +3474,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchUriForResultsAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LaunchUriForResultsWithDataAsync<P0, P1, P2>(uri: P0, options: P1, inputdata: P2) -> ::windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
     where
@@ -3503,7 +3487,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchUriForResultsWithDataAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LaunchUriWithDataAsync<P0, P1, P2>(uri: P0, options: P1, inputdata: P2) -> ::windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
@@ -3516,7 +3500,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchUriWithDataAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn QueryUriSupportAsync<P0>(uri: P0, launchquerysupporttype: LaunchQuerySupportType) -> ::windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
     where
@@ -3527,7 +3511,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).QueryUriSupportAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), launchquerysupporttype, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn QueryUriSupportWithPackageFamilyNameAsync<P0>(uri: P0, launchquerysupporttype: LaunchQuerySupportType, packagefamilyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
     where
@@ -3538,7 +3522,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).QueryUriSupportWithPackageFamilyNameAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), launchquerysupporttype, ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn QueryFileSupportAsync<P0>(file: P0) -> ::windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
     where
@@ -3549,7 +3533,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).QueryFileSupportAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn QueryFileSupportWithPackageFamilyNameAsync<P0>(file: P0, packagefamilyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
     where
@@ -3560,7 +3544,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).QueryFileSupportWithPackageFamilyNameAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `ApplicationModel`, `Foundation_Collections`"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindUriSchemeHandlersAsync(scheme: &::windows_core::HSTRING) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
@@ -3568,7 +3552,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).FindUriSchemeHandlersAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(scheme), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `ApplicationModel`, `Foundation_Collections`"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindUriSchemeHandlersWithLaunchUriTypeAsync(scheme: &::windows_core::HSTRING, launchquerysupporttype: LaunchQuerySupportType) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
@@ -3576,7 +3560,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).FindUriSchemeHandlersWithLaunchUriTypeAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(scheme), launchquerysupporttype, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `ApplicationModel`, `Foundation_Collections`"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindFileHandlersAsync(extension: &::windows_core::HSTRING) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
@@ -3584,7 +3568,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).FindFileHandlersAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(extension), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LaunchFolderAsync<P0>(folder: P0) -> ::windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
@@ -3595,7 +3579,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchFolderAsync)(::windows_core::Interface::as_raw(this), folder.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LaunchFolderWithOptionsAsync<P0, P1>(folder: P0, options: P1) -> ::windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
@@ -3607,7 +3591,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchFolderWithOptionsAsync)(::windows_core::Interface::as_raw(this), folder.try_into_param()?.abi(), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn QueryAppUriSupportAsync<P0>(uri: P0) -> ::windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
     where
@@ -3618,7 +3602,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).QueryAppUriSupportAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn QueryAppUriSupportWithPackageFamilyNameAsync<P0>(uri: P0, packagefamilyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
     where
@@ -3629,7 +3613,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).QueryAppUriSupportWithPackageFamilyNameAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `ApplicationModel`, `Foundation_Collections`"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindAppUriHandlersAsync<P0>(uri: P0) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>
     where
@@ -3640,7 +3624,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).FindAppUriHandlersAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchUriForUserAsync<P0, P1>(user: P0, uri: P1) -> ::windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>
     where
@@ -3652,7 +3636,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchUriForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), uri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchUriWithOptionsForUserAsync<P0, P1, P2>(user: P0, uri: P1, options: P2) -> ::windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>
     where
@@ -3665,7 +3649,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchUriWithOptionsForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LaunchUriWithDataForUserAsync<P0, P1, P2, P3>(user: P0, uri: P1, options: P2, inputdata: P3) -> ::windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>
     where
@@ -3679,7 +3663,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchUriWithDataForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchUriForResultsForUserAsync<P0, P1, P2>(user: P0, uri: P1, options: P2) -> ::windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
     where
@@ -3692,7 +3676,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchUriForResultsForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LaunchUriForResultsWithDataForUserAsync<P0, P1, P2, P3>(user: P0, uri: P1, options: P2, inputdata: P3) -> ::windows_core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
     where
@@ -3706,7 +3690,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchUriForResultsWithDataForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchFolderPathAsync(path: &::windows_core::HSTRING) -> ::windows_core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics5(|this| unsafe {
@@ -3714,7 +3698,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchFolderPathAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchFolderPathWithOptionsAsync<P0>(path: &::windows_core::HSTRING, options: P0) -> ::windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
@@ -3725,7 +3709,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchFolderPathWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(path), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchFolderPathForUserAsync<P0>(user: P0, path: &::windows_core::HSTRING) -> ::windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
@@ -3736,7 +3720,7 @@ impl Launcher {
             (::windows_core::Interface::vtable(this).LaunchFolderPathForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchFolderPathWithOptionsForUserAsync<P0, P1>(user: P0, path: &::windows_core::HSTRING, options: P1) -> ::windows_core::Result<super::Foundation::IAsyncOperation<bool>>
     where
@@ -3777,7 +3761,6 @@ impl Launcher {
 impl ::windows_core::RuntimeName for Launcher {
     const NAME: &'static str = "Windows.System.Launcher";
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LauncherOptions(::windows_core::IUnknown);
@@ -3840,7 +3823,7 @@ impl LauncherOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPreferredApplicationDisplayName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn FallbackUri(&self) -> ::windows_core::Result<super::Foundation::Uri> {
         let this = self;
@@ -3849,7 +3832,7 @@ impl LauncherOptions {
             (::windows_core::Interface::vtable(this).FallbackUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetFallbackUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3880,7 +3863,7 @@ impl LauncherOptions {
         let this = &::windows_core::ComInterface::cast::<ILauncherOptions2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetTargetApplicationPackageFamilyName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Search\"`*"]
+    #[doc = "Required features: `Storage_Search`"]
     #[cfg(feature = "Storage_Search")]
     pub fn NeighboringFilesQuery(&self) -> ::windows_core::Result<super::Storage::Search::StorageFileQueryResult> {
         let this = &::windows_core::ComInterface::cast::<ILauncherOptions2>(self)?;
@@ -3889,7 +3872,7 @@ impl LauncherOptions {
             (::windows_core::Interface::vtable(this).NeighboringFilesQuery)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Search\"`*"]
+    #[doc = "Required features: `Storage_Search`"]
     #[cfg(feature = "Storage_Search")]
     pub fn SetNeighboringFilesQuery<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3920,7 +3903,7 @@ impl LauncherOptions {
         let this = &::windows_core::ComInterface::cast::<ILauncherOptions4>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetLimitPickerToCurrentAppAndAppUriHandlers)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+    #[doc = "Required features: `UI_ViewManagement`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn DesiredRemainingView(&self) -> ::windows_core::Result<super::UI::ViewManagement::ViewSizePreference> {
         let this = &::windows_core::ComInterface::cast::<ILauncherViewOptions>(self)?;
@@ -3929,7 +3912,7 @@ impl LauncherOptions {
             (::windows_core::Interface::vtable(this).DesiredRemainingView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+    #[doc = "Required features: `UI_ViewManagement`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn SetDesiredRemainingView(&self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ILauncherViewOptions>(self)?;
@@ -3952,12 +3935,11 @@ impl ::windows_core::RuntimeName for LauncherOptions {
 impl ::windows_core::CanTryInto<ILauncherViewOptions> for LauncherOptions {}
 unsafe impl ::core::marker::Send for LauncherOptions {}
 unsafe impl ::core::marker::Sync for LauncherOptions {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LauncherUIOptions(::windows_core::IUnknown);
 impl LauncherUIOptions {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn InvocationPoint(&self) -> ::windows_core::Result<super::Foundation::IReference<super::Foundation::Point>> {
         let this = self;
@@ -3966,7 +3948,7 @@ impl LauncherUIOptions {
             (::windows_core::Interface::vtable(this).InvocationPoint)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetInvocationPoint<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3975,7 +3957,7 @@ impl LauncherUIOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetInvocationPoint)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SelectionRect(&self) -> ::windows_core::Result<super::Foundation::IReference<super::Foundation::Rect>> {
         let this = self;
@@ -3984,7 +3966,7 @@ impl LauncherUIOptions {
             (::windows_core::Interface::vtable(this).SelectionRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetSelectionRect<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3993,7 +3975,7 @@ impl LauncherUIOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSelectionRect)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
+    #[doc = "Required features: `UI_Popups`"]
     #[cfg(feature = "UI_Popups")]
     pub fn PreferredPlacement(&self) -> ::windows_core::Result<super::UI::Popups::Placement> {
         let this = self;
@@ -4002,7 +3984,7 @@ impl LauncherUIOptions {
             (::windows_core::Interface::vtable(this).PreferredPlacement)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
+    #[doc = "Required features: `UI_Popups`"]
     #[cfg(feature = "UI_Popups")]
     pub fn SetPreferredPlacement(&self, value: super::UI::Popups::Placement) -> ::windows_core::Result<()> {
         let this = self;
@@ -4024,7 +4006,6 @@ impl ::windows_core::RuntimeName for LauncherUIOptions {
 ::windows_core::imp::interface_hierarchy!(LauncherUIOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LauncherUIOptions {}
 unsafe impl ::core::marker::Sync for LauncherUIOptions {}
-#[doc = "*Required features: `\"System\"`*"]
 pub struct MemoryManager;
 impl MemoryManager {
     pub fn AppMemoryUsage() -> ::windows_core::Result<u64> {
@@ -4045,7 +4026,7 @@ impl MemoryManager {
             (::windows_core::Interface::vtable(this).AppMemoryUsageLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AppMemoryUsageIncreased<P0>(handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -4056,12 +4037,12 @@ impl MemoryManager {
             (::windows_core::Interface::vtable(this).AppMemoryUsageIncreased)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAppMemoryUsageIncreased(token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IMemoryManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveAppMemoryUsageIncreased)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AppMemoryUsageDecreased<P0>(handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -4072,12 +4053,12 @@ impl MemoryManager {
             (::windows_core::Interface::vtable(this).AppMemoryUsageDecreased)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAppMemoryUsageDecreased(token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IMemoryManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveAppMemoryUsageDecreased)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AppMemoryUsageLimitChanging<P0>(handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -4088,7 +4069,7 @@ impl MemoryManager {
             (::windows_core::Interface::vtable(this).AppMemoryUsageLimitChanging)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAppMemoryUsageLimitChanging(token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IMemoryManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveAppMemoryUsageLimitChanging)(::windows_core::Interface::as_raw(this), token).ok() })
@@ -4141,10 +4122,9 @@ impl MemoryManager {
 impl ::windows_core::RuntimeName for MemoryManager {
     const NAME: &'static str = "Windows.System.MemoryManager";
 }
-#[doc = "*Required features: `\"System\"`*"]
 pub struct ProcessLauncher;
 impl ProcessLauncher {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RunToCompletionAsync(filename: &::windows_core::HSTRING, args: &::windows_core::HSTRING) -> ::windows_core::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>> {
         Self::IProcessLauncherStatics(|this| unsafe {
@@ -4152,7 +4132,7 @@ impl ProcessLauncher {
             (::windows_core::Interface::vtable(this).RunToCompletionAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filename), ::core::mem::transmute_copy(args), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RunToCompletionAsyncWithOptions<P0>(filename: &::windows_core::HSTRING, args: &::windows_core::HSTRING, options: P0) -> ::windows_core::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>>
     where
@@ -4172,7 +4152,6 @@ impl ProcessLauncher {
 impl ::windows_core::RuntimeName for ProcessLauncher {
     const NAME: &'static str = "Windows.System.ProcessLauncher";
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessLauncherOptions(::windows_core::IUnknown);
@@ -4184,7 +4163,7 @@ impl ProcessLauncherOptions {
         static SHARED: ::windows_core::imp::FactoryCache<ProcessLauncherOptions, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn StandardInput(&self) -> ::windows_core::Result<super::Storage::Streams::IInputStream> {
         let this = self;
@@ -4193,7 +4172,7 @@ impl ProcessLauncherOptions {
             (::windows_core::Interface::vtable(this).StandardInput)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStandardInput<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4202,7 +4181,7 @@ impl ProcessLauncherOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetStandardInput)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn StandardOutput(&self) -> ::windows_core::Result<super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -4211,7 +4190,7 @@ impl ProcessLauncherOptions {
             (::windows_core::Interface::vtable(this).StandardOutput)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStandardOutput<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4220,7 +4199,7 @@ impl ProcessLauncherOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetStandardOutput)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn StandardError(&self) -> ::windows_core::Result<super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -4229,7 +4208,7 @@ impl ProcessLauncherOptions {
             (::windows_core::Interface::vtable(this).StandardError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStandardError<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4265,7 +4244,6 @@ impl ::windows_core::RuntimeName for ProcessLauncherOptions {
 ::windows_core::imp::interface_hierarchy!(ProcessLauncherOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessLauncherOptions {}
 unsafe impl ::core::marker::Sync for ProcessLauncherOptions {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessLauncherResult(::windows_core::IUnknown);
@@ -4293,7 +4271,6 @@ impl ::windows_core::RuntimeName for ProcessLauncherResult {
 ::windows_core::imp::interface_hierarchy!(ProcessLauncherResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessLauncherResult {}
 unsafe impl ::core::marker::Sync for ProcessLauncherResult {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessMemoryReport(::windows_core::IUnknown);
@@ -4328,12 +4305,11 @@ impl ::windows_core::RuntimeName for ProcessMemoryReport {
 ::windows_core::imp::interface_hierarchy!(ProcessMemoryReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessMemoryReport {}
 unsafe impl ::core::marker::Sync for ProcessMemoryReport {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProtocolForResultsOperation(::windows_core::IUnknown);
 impl ProtocolForResultsOperation {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReportCompleted<P0>(&self, data: P0) -> ::windows_core::Result<()>
     where
@@ -4358,10 +4334,9 @@ impl ::windows_core::RuntimeName for ProtocolForResultsOperation {
 ::windows_core::imp::interface_hierarchy!(ProtocolForResultsOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProtocolForResultsOperation {}
 unsafe impl ::core::marker::Sync for ProtocolForResultsOperation {}
-#[doc = "*Required features: `\"System\"`*"]
 pub struct RemoteLauncher;
 impl RemoteLauncher {
-    #[doc = "*Required features: `\"Foundation\"`, `\"System_RemoteSystems\"`*"]
+    #[doc = "Required features: `Foundation`, `System_RemoteSystems`"]
     #[cfg(all(feature = "Foundation", feature = "System_RemoteSystems"))]
     pub fn LaunchUriAsync<P0, P1>(remotesystemconnectionrequest: P0, uri: P1) -> ::windows_core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>
     where
@@ -4373,7 +4348,7 @@ impl RemoteLauncher {
             (::windows_core::Interface::vtable(this).LaunchUriAsync)(::windows_core::Interface::as_raw(this), remotesystemconnectionrequest.into_param().abi(), uri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"System_RemoteSystems\"`*"]
+    #[doc = "Required features: `Foundation`, `System_RemoteSystems`"]
     #[cfg(all(feature = "Foundation", feature = "System_RemoteSystems"))]
     pub fn LaunchUriWithOptionsAsync<P0, P1, P2>(remotesystemconnectionrequest: P0, uri: P1, options: P2) -> ::windows_core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>
     where
@@ -4386,7 +4361,7 @@ impl RemoteLauncher {
             (::windows_core::Interface::vtable(this).LaunchUriWithOptionsAsync)(::windows_core::Interface::as_raw(this), remotesystemconnectionrequest.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"System_RemoteSystems\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `System_RemoteSystems`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
     pub fn LaunchUriWithDataAsync<P0, P1, P2, P3>(remotesystemconnectionrequest: P0, uri: P1, options: P2, inputdata: P3) -> ::windows_core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>
     where
@@ -4409,7 +4384,6 @@ impl RemoteLauncher {
 impl ::windows_core::RuntimeName for RemoteLauncher {
     const NAME: &'static str = "Windows.System.RemoteLauncher";
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteLauncherOptions(::windows_core::IUnknown);
@@ -4421,7 +4395,7 @@ impl RemoteLauncherOptions {
         static SHARED: ::windows_core::imp::FactoryCache<RemoteLauncherOptions, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn FallbackUri(&self) -> ::windows_core::Result<super::Foundation::Uri> {
         let this = self;
@@ -4430,7 +4404,7 @@ impl RemoteLauncherOptions {
             (::windows_core::Interface::vtable(this).FallbackUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetFallbackUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4439,7 +4413,7 @@ impl RemoteLauncherOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetFallbackUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PreferredAppIds(&self) -> ::windows_core::Result<super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -4464,10 +4438,9 @@ impl ::windows_core::RuntimeName for RemoteLauncherOptions {
 ::windows_core::imp::interface_hierarchy!(RemoteLauncherOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteLauncherOptions {}
 unsafe impl ::core::marker::Sync for RemoteLauncherOptions {}
-#[doc = "*Required features: `\"System\"`*"]
 pub struct ShutdownManager;
 impl ShutdownManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn BeginShutdown(shutdownkind: ShutdownKind, timeout: super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         Self::IShutdownManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).BeginShutdown)(::windows_core::Interface::as_raw(this), shutdownkind, timeout).ok() })
@@ -4484,7 +4457,7 @@ impl ShutdownManager {
     pub fn EnterPowerState(powerstate: PowerState) -> ::windows_core::Result<()> {
         Self::IShutdownManagerStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).EnterPowerState)(::windows_core::Interface::as_raw(this), powerstate).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn EnterPowerStateWithTimeSpan(powerstate: PowerState, wakeupafter: super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         Self::IShutdownManagerStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).EnterPowerStateWithTimeSpan)(::windows_core::Interface::as_raw(this), powerstate, wakeupafter).ok() })
@@ -4503,7 +4476,6 @@ impl ShutdownManager {
 impl ::windows_core::RuntimeName for ShutdownManager {
     const NAME: &'static str = "Windows.System.ShutdownManager";
 }
-#[doc = "*Required features: `\"System\"`*"]
 pub struct TimeZoneSettings;
 impl TimeZoneSettings {
     pub fn CurrentTimeZoneDisplayName() -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -4512,7 +4484,7 @@ impl TimeZoneSettings {
             (::windows_core::Interface::vtable(this).CurrentTimeZoneDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedTimeZoneDisplayNames() -> ::windows_core::Result<super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         Self::ITimeZoneSettingsStatics(|this| unsafe {
@@ -4529,7 +4501,7 @@ impl TimeZoneSettings {
     pub fn ChangeTimeZoneByDisplayName(timezonedisplayname: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         Self::ITimeZoneSettingsStatics(|this| unsafe { (::windows_core::Interface::vtable(this).ChangeTimeZoneByDisplayName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(timezonedisplayname)).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AutoUpdateTimeZoneAsync(timeout: super::Foundation::TimeSpan) -> ::windows_core::Result<super::Foundation::IAsyncOperation<AutoUpdateTimeZoneStatus>> {
         Self::ITimeZoneSettingsStatics2(|this| unsafe {
@@ -4551,7 +4523,6 @@ impl TimeZoneSettings {
 impl ::windows_core::RuntimeName for TimeZoneSettings {
     const NAME: &'static str = "Windows.System.TimeZoneSettings";
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct User(::windows_core::IUnknown);
@@ -4577,7 +4548,7 @@ impl User {
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetPropertyAsync(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<super::Foundation::IAsyncOperation<::windows_core::IInspectable>> {
         let this = self;
@@ -4586,7 +4557,7 @@ impl User {
             (::windows_core::Interface::vtable(this).GetPropertyAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPropertiesAsync<P0>(&self, values: P0) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IPropertySet>>
     where
@@ -4598,7 +4569,7 @@ impl User {
             (::windows_core::Interface::vtable(this).GetPropertiesAsync)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn GetPictureAsync(&self, desiredsize: UserPictureSize) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IRandomAccessStreamReference>> {
         let this = self;
@@ -4607,7 +4578,7 @@ impl User {
             (::windows_core::Interface::vtable(this).GetPictureAsync)(::windows_core::Interface::as_raw(this), desiredsize, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CheckUserAgeConsentGroupAsync(&self, consentgroup: UserAgeConsentGroup) -> ::windows_core::Result<super::Foundation::IAsyncOperation<UserAgeConsentResult>> {
         let this = &::windows_core::ComInterface::cast::<IUser2>(self)?;
@@ -4622,7 +4593,7 @@ impl User {
             (::windows_core::Interface::vtable(this).CreateWatcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsync() -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
@@ -4630,7 +4601,7 @@ impl User {
             (::windows_core::Interface::vtable(this).FindAllAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `deprecated`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn FindAllAsyncByType(r#type: UserType) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
@@ -4638,7 +4609,7 @@ impl User {
             (::windows_core::Interface::vtable(this).FindAllAsyncByType)(::windows_core::Interface::as_raw(this), r#type, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `deprecated`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn FindAllAsyncByTypeAndStatus(r#type: UserType, status: UserAuthenticationStatus) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
@@ -4684,7 +4655,6 @@ impl ::windows_core::RuntimeName for User {
 ::windows_core::imp::interface_hierarchy!(User, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for User {}
 unsafe impl ::core::marker::Sync for User {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserAuthenticationStatusChangeDeferral(::windows_core::IUnknown);
@@ -4709,7 +4679,6 @@ impl ::windows_core::RuntimeName for UserAuthenticationStatusChangeDeferral {
 ::windows_core::imp::interface_hierarchy!(UserAuthenticationStatusChangeDeferral, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserAuthenticationStatusChangeDeferral {}
 unsafe impl ::core::marker::Sync for UserAuthenticationStatusChangeDeferral {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserAuthenticationStatusChangingEventArgs(::windows_core::IUnknown);
@@ -4758,7 +4727,6 @@ impl ::windows_core::RuntimeName for UserAuthenticationStatusChangingEventArgs {
 ::windows_core::imp::interface_hierarchy!(UserAuthenticationStatusChangingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserAuthenticationStatusChangingEventArgs {}
 unsafe impl ::core::marker::Sync for UserAuthenticationStatusChangingEventArgs {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserChangedEventArgs(::windows_core::IUnknown);
@@ -4770,7 +4738,7 @@ impl UserChangedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ChangedPropertyKinds(&self) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<UserWatcherUpdateKind>> {
         let this = &::windows_core::ComInterface::cast::<IUserChangedEventArgs2>(self)?;
@@ -4795,7 +4763,6 @@ impl ::windows_core::RuntimeName for UserChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(UserChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserChangedEventArgs {}
-#[doc = "*Required features: `\"System\"`*"]
 pub struct UserDeviceAssociation;
 impl UserDeviceAssociation {
     pub fn FindUserFromDeviceId(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<User> {
@@ -4804,7 +4771,7 @@ impl UserDeviceAssociation {
             (::windows_core::Interface::vtable(this).FindUserFromDeviceId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn UserDeviceAssociationChanged<P0>(handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -4815,7 +4782,7 @@ impl UserDeviceAssociation {
             (::windows_core::Interface::vtable(this).UserDeviceAssociationChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUserDeviceAssociationChanged(token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IUserDeviceAssociationStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveUserDeviceAssociationChanged)(::windows_core::Interface::as_raw(this), token).ok() })
@@ -4829,7 +4796,6 @@ impl UserDeviceAssociation {
 impl ::windows_core::RuntimeName for UserDeviceAssociation {
     const NAME: &'static str = "Windows.System.UserDeviceAssociation";
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDeviceAssociationChangedEventArgs(::windows_core::IUnknown);
@@ -4871,7 +4837,6 @@ impl ::windows_core::RuntimeName for UserDeviceAssociationChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(UserDeviceAssociationChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDeviceAssociationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserDeviceAssociationChangedEventArgs {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserPicker(::windows_core::IUnknown);
@@ -4908,7 +4873,7 @@ impl UserPicker {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSuggestedSelectedUser)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PickSingleUserAsync(&self) -> ::windows_core::Result<super::Foundation::IAsyncOperation<User>> {
         let this = self;
@@ -4944,7 +4909,6 @@ impl ::windows_core::RuntimeName for UserPicker {
 ::windows_core::imp::interface_hierarchy!(UserPicker, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserPicker {}
 unsafe impl ::core::marker::Sync for UserPicker {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserWatcher(::windows_core::IUnknown);
@@ -4964,7 +4928,7 @@ impl UserWatcher {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Stop)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Added<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -4976,13 +4940,13 @@ impl UserWatcher {
             (::windows_core::Interface::vtable(this).Added)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAdded)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Removed<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -4994,13 +4958,13 @@ impl UserWatcher {
             (::windows_core::Interface::vtable(this).Removed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRemoved)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Updated<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -5012,13 +4976,13 @@ impl UserWatcher {
             (::windows_core::Interface::vtable(this).Updated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdated(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveUpdated)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticationStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -5030,13 +4994,13 @@ impl UserWatcher {
             (::windows_core::Interface::vtable(this).AuthenticationStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAuthenticationStatusChanged(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAuthenticationStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticationStatusChanging<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -5048,13 +5012,13 @@ impl UserWatcher {
             (::windows_core::Interface::vtable(this).AuthenticationStatusChanging)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAuthenticationStatusChanging(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAuthenticationStatusChanging)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -5066,13 +5030,13 @@ impl UserWatcher {
             (::windows_core::Interface::vtable(this).EnumerationCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Stopped<P0>(&self, handler: P0) -> ::windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -5084,7 +5048,7 @@ impl UserWatcher {
             (::windows_core::Interface::vtable(this).Stopped)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped(&self, token: super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -5106,7 +5070,6 @@ impl ::windows_core::RuntimeName for UserWatcher {
 ::windows_core::imp::interface_hierarchy!(UserWatcher, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserWatcher {}
 unsafe impl ::core::marker::Sync for UserWatcher {}
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppDiagnosticInfoWatcherStatus(pub i32);
@@ -5140,7 +5103,6 @@ impl ::core::fmt::Debug for AppDiagnosticInfoWatcherStatus {
 impl ::windows_core::RuntimeType for AppDiagnosticInfoWatcherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.AppDiagnosticInfoWatcherStatus;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppMemoryUsageLevel(pub i32);
@@ -5172,7 +5134,6 @@ impl ::core::fmt::Debug for AppMemoryUsageLevel {
 impl ::windows_core::RuntimeType for AppMemoryUsageLevel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.AppMemoryUsageLevel;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppResourceGroupEnergyQuotaState(pub i32);
@@ -5203,7 +5164,6 @@ impl ::core::fmt::Debug for AppResourceGroupEnergyQuotaState {
 impl ::windows_core::RuntimeType for AppResourceGroupEnergyQuotaState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.AppResourceGroupEnergyQuotaState;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppResourceGroupExecutionState(pub i32);
@@ -5236,7 +5196,6 @@ impl ::core::fmt::Debug for AppResourceGroupExecutionState {
 impl ::windows_core::RuntimeType for AppResourceGroupExecutionState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.AppResourceGroupExecutionState;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppResourceGroupInfoWatcherStatus(pub i32);
@@ -5270,7 +5229,6 @@ impl ::core::fmt::Debug for AppResourceGroupInfoWatcherStatus {
 impl ::windows_core::RuntimeType for AppResourceGroupInfoWatcherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.AppResourceGroupInfoWatcherStatus;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutoUpdateTimeZoneStatus(pub i32);
@@ -5301,7 +5259,6 @@ impl ::core::fmt::Debug for AutoUpdateTimeZoneStatus {
 impl ::windows_core::RuntimeType for AutoUpdateTimeZoneStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.AutoUpdateTimeZoneStatus;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DiagnosticAccessStatus(pub i32);
@@ -5333,7 +5290,6 @@ impl ::core::fmt::Debug for DiagnosticAccessStatus {
 impl ::windows_core::RuntimeType for DiagnosticAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.DiagnosticAccessStatus;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DispatcherQueuePriority(pub i32);
@@ -5364,7 +5320,6 @@ impl ::core::fmt::Debug for DispatcherQueuePriority {
 impl ::windows_core::RuntimeType for DispatcherQueuePriority {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.DispatcherQueuePriority;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LaunchFileStatus(pub i32);
@@ -5397,7 +5352,6 @@ impl ::core::fmt::Debug for LaunchFileStatus {
 impl ::windows_core::RuntimeType for LaunchFileStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.LaunchFileStatus;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LaunchQuerySupportStatus(pub i32);
@@ -5430,7 +5384,6 @@ impl ::core::fmt::Debug for LaunchQuerySupportStatus {
 impl ::windows_core::RuntimeType for LaunchQuerySupportStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.LaunchQuerySupportStatus;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LaunchQuerySupportType(pub i32);
@@ -5460,7 +5413,6 @@ impl ::core::fmt::Debug for LaunchQuerySupportType {
 impl ::windows_core::RuntimeType for LaunchQuerySupportType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.LaunchQuerySupportType;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LaunchUriStatus(pub i32);
@@ -5492,7 +5444,6 @@ impl ::core::fmt::Debug for LaunchUriStatus {
 impl ::windows_core::RuntimeType for LaunchUriStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.LaunchUriStatus;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PowerState(pub i32);
@@ -5522,7 +5473,6 @@ impl ::core::fmt::Debug for PowerState {
 impl ::windows_core::RuntimeType for PowerState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.PowerState;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProcessorArchitecture(pub i32);
@@ -5557,7 +5507,6 @@ impl ::core::fmt::Debug for ProcessorArchitecture {
 impl ::windows_core::RuntimeType for ProcessorArchitecture {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.ProcessorArchitecture;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RemoteLaunchUriStatus(pub i32);
@@ -5593,7 +5542,6 @@ impl ::core::fmt::Debug for RemoteLaunchUriStatus {
 impl ::windows_core::RuntimeType for RemoteLaunchUriStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteLaunchUriStatus;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ShutdownKind(pub i32);
@@ -5623,7 +5571,6 @@ impl ::core::fmt::Debug for ShutdownKind {
 impl ::windows_core::RuntimeType for ShutdownKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.ShutdownKind;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserAgeConsentGroup(pub i32);
@@ -5654,7 +5601,6 @@ impl ::core::fmt::Debug for UserAgeConsentGroup {
 impl ::windows_core::RuntimeType for UserAgeConsentGroup {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserAgeConsentGroup;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserAgeConsentResult(pub i32);
@@ -5687,7 +5633,6 @@ impl ::core::fmt::Debug for UserAgeConsentResult {
 impl ::windows_core::RuntimeType for UserAgeConsentResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserAgeConsentResult;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserAuthenticationStatus(pub i32);
@@ -5718,7 +5663,6 @@ impl ::core::fmt::Debug for UserAuthenticationStatus {
 impl ::windows_core::RuntimeType for UserAuthenticationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserAuthenticationStatus;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserPictureSize(pub i32);
@@ -5750,7 +5694,6 @@ impl ::core::fmt::Debug for UserPictureSize {
 impl ::windows_core::RuntimeType for UserPictureSize {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserPictureSize;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserType(pub i32);
@@ -5783,7 +5726,6 @@ impl ::core::fmt::Debug for UserType {
 impl ::windows_core::RuntimeType for UserType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserType;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserWatcherStatus(pub i32);
@@ -5817,7 +5759,6 @@ impl ::core::fmt::Debug for UserWatcherStatus {
 impl ::windows_core::RuntimeType for UserWatcherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserWatcherStatus;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserWatcherUpdateKind(pub i32);
@@ -5847,7 +5788,6 @@ impl ::core::fmt::Debug for UserWatcherUpdateKind {
 impl ::windows_core::RuntimeType for UserWatcherUpdateKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserWatcherUpdateKind;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VirtualKey(pub i32);
@@ -6047,7 +5987,6 @@ impl ::core::fmt::Debug for VirtualKey {
 impl ::windows_core::RuntimeType for VirtualKey {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.VirtualKey;i4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VirtualKeyModifiers(pub u32);
@@ -6113,7 +6052,6 @@ impl ::core::ops::Not for VirtualKeyModifiers {
 impl ::windows_core::RuntimeType for VirtualKeyModifiers {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.VirtualKeyModifiers;u4)");
 }
-#[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DispatcherQueueHandler(pub ::windows_core::IUnknown);

@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Graphics\"`, `\"implement\"`*"]
 pub trait IGeometrySource2D_Impl: Sized {}
 impl ::windows_core::RuntimeName for IGeometrySource2D {
     const NAME: &'static str = "Windows.Graphics.IGeometrySource2D";

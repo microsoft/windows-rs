@@ -1,20 +1,19 @@
 #[cfg(feature = "Win32_Media_DirectShow_Tv")]
+#[doc = "Required features: `Win32_Media_DirectShow_Tv`"]
 pub mod Tv;
 #[cfg(feature = "Win32_Media_DirectShow_Xml")]
+#[doc = "Required features: `Win32_Media_DirectShow_Xml`"]
 pub mod Xml;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[inline]
 pub unsafe fn AMGetErrorTextA(hr: ::windows_core::HRESULT, pbuffer: &mut [u8]) -> u32 {
     ::windows_targets::link!("quartz.dll" "system" fn AMGetErrorTextA(hr : ::windows_core::HRESULT, pbuffer : ::windows_core::PSTR, maxlen : u32) -> u32);
     AMGetErrorTextA(hr, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[inline]
 pub unsafe fn AMGetErrorTextW(hr: ::windows_core::HRESULT, pbuffer: &mut [u16]) -> u32 {
     ::windows_targets::link!("quartz.dll" "system" fn AMGetErrorTextW(hr : ::windows_core::HRESULT, pbuffer : ::windows_core::PWSTR, maxlen : u32) -> u32);
     AMGetErrorTextW(hr, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMAnalogVideoDecoder(::windows_core::IUnknown);
@@ -74,7 +73,6 @@ pub struct IAMAnalogVideoDecoder_Vtbl {
     pub SetOutputEnable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loutputenable: i32) -> ::windows_core::HRESULT,
     pub OutputEnable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ploutputenable: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMAnalogVideoEncoder(::windows_core::IUnknown);
@@ -124,18 +122,17 @@ pub struct IAMAnalogVideoEncoder_Vtbl {
     pub SetCCEnable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lccenable: i32) -> ::windows_core::HRESULT,
     pub CCEnable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lccenable: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMAsyncReaderTimestampScaling(::windows_core::IUnknown);
 impl IAMAsyncReaderTimestampScaling {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimestampMode(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTimestampMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTimestampMode<P0>(&self, fraw: P0) -> ::windows_core::Result<()>
     where
@@ -164,12 +161,11 @@ pub struct IAMAsyncReaderTimestampScaling_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetTimestampMode: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMAudioInputMixer(::windows_core::IUnknown);
 impl IAMAudioInputMixer {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnable<P0>(&self, fenable: P0) -> ::windows_core::Result<()>
     where
@@ -177,13 +173,13 @@ impl IAMAudioInputMixer {
     {
         (::windows_core::Interface::vtable(self).SetEnable)(::windows_core::Interface::as_raw(self), fenable.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Enable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMono<P0>(&self, fmono: P0) -> ::windows_core::Result<()>
     where
@@ -191,7 +187,7 @@ impl IAMAudioInputMixer {
     {
         (::windows_core::Interface::vtable(self).SetMono)(::windows_core::Interface::as_raw(self), fmono.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Mono(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -211,7 +207,7 @@ impl IAMAudioInputMixer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Pan)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLoudness<P0>(&self, floudness: P0) -> ::windows_core::Result<()>
     where
@@ -219,7 +215,7 @@ impl IAMAudioInputMixer {
     {
         (::windows_core::Interface::vtable(self).SetLoudness)(::windows_core::Interface::as_raw(self), floudness.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Loudness(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -294,7 +290,6 @@ pub struct IAMAudioInputMixer_Vtbl {
     pub Bass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbass: *mut f64) -> ::windows_core::HRESULT,
     pub BassRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prange: *mut f64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMAudioRendererStats(::windows_core::IUnknown);
@@ -316,7 +311,6 @@ pub struct IAMAudioRendererStats_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetStatParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwparam: u32, pdwparam1: *mut u32, pdwparam2: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMBufferNegotiation(::windows_core::IUnknown);
@@ -343,7 +337,6 @@ pub struct IAMBufferNegotiation_Vtbl {
     pub SuggestAllocatorProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprop: *const ALLOCATOR_PROPERTIES) -> ::windows_core::HRESULT,
     pub GetAllocatorProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprop: *mut ALLOCATOR_PROPERTIES) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMCameraControl(::windows_core::IUnknown);
@@ -373,7 +366,6 @@ pub struct IAMCameraControl_Vtbl {
     pub Set: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: i32, lvalue: i32, flags: i32) -> ::windows_core::HRESULT,
     pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: i32, lvalue: *mut i32, flags: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMCertifiedOutputProtection(::windows_core::IUnknown);
@@ -407,7 +399,7 @@ pub struct IAMCertifiedOutputProtection_Vtbl {
     pub ProtectionCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cmd: *const AMCOPPCommand) -> ::windows_core::HRESULT,
     pub ProtectionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatusinput: *const AMCOPPStatusInput, pstatusoutput: *mut AMCOPPStatusOutput) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -455,7 +447,6 @@ pub struct IAMChannelInfo_Vtbl {
     pub ContactPhone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcontactphone: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ContactEmail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcontactemail: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMClockAdjust(::windows_core::IUnknown);
@@ -477,7 +468,6 @@ pub struct IAMClockAdjust_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetClockDelta: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rtdelta: i64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMClockSlave(::windows_core::IUnknown);
@@ -504,7 +494,7 @@ pub struct IAMClockSlave_Vtbl {
     pub SetErrorTolerance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtolerance: u32) -> ::windows_core::HRESULT,
     pub GetErrorTolerance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwtolerance: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -543,7 +533,6 @@ pub struct IAMCollection_Vtbl {
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, litem: i32, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMCopyCaptureFileProgress(::windows_core::IUnknown);
@@ -565,7 +554,6 @@ pub struct IAMCopyCaptureFileProgress_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Progress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iprogress: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMCrossbar(::windows_core::IUnknown);
@@ -583,7 +571,7 @@ impl IAMCrossbar {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_IsRoutedTo)(::windows_core::Interface::as_raw(self), outputpinindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CrossbarPinInfo<P0>(&self, isinputpin: P0, pinindex: i32, pinindexrelated: *mut i32, physicaltype: *mut i32) -> ::windows_core::Result<()>
     where
@@ -612,7 +600,6 @@ pub struct IAMCrossbar_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     get_CrossbarPinInfo: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMDecoderCaps(::windows_core::IUnknown);
@@ -635,7 +622,6 @@ pub struct IAMDecoderCaps_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDecoderCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcapindex: u32, lpdwcap: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMDevMemoryAllocator(::windows_core::IUnknown);
@@ -676,7 +662,6 @@ pub struct IAMDevMemoryAllocator_Vtbl {
     pub Free: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *const u8) -> ::windows_core::HRESULT,
     pub GetDevMemoryObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkinnner: *mut *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMDevMemoryControl(::windows_core::IUnknown);
@@ -707,7 +692,6 @@ pub struct IAMDevMemoryControl_Vtbl {
     pub WriteSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDevId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwdevid: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMDeviceRemoval(::windows_core::IUnknown);
@@ -737,30 +721,29 @@ pub struct IAMDeviceRemoval_Vtbl {
     pub Reassociate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Disassociate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMDirectSound(::windows_core::IUnknown);
 impl IAMDirectSound {
-    #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+    #[doc = "Required features: `Win32_Media_Audio_DirectSound`"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
     pub unsafe fn GetDirectSoundInterface(&self) -> ::windows_core::Result<super::Audio::DirectSound::IDirectSound> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDirectSoundInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+    #[doc = "Required features: `Win32_Media_Audio_DirectSound`"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
     pub unsafe fn GetPrimaryBufferInterface(&self) -> ::windows_core::Result<super::Audio::DirectSound::IDirectSoundBuffer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPrimaryBufferInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+    #[doc = "Required features: `Win32_Media_Audio_DirectSound`"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
     pub unsafe fn GetSecondaryBufferInterface(&self) -> ::windows_core::Result<super::Audio::DirectSound::IDirectSoundBuffer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSecondaryBufferInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+    #[doc = "Required features: `Win32_Media_Audio_DirectSound`"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
     pub unsafe fn ReleaseDirectSoundInterface<P0>(&self, lpds: P0) -> ::windows_core::Result<()>
     where
@@ -768,7 +751,7 @@ impl IAMDirectSound {
     {
         (::windows_core::Interface::vtable(self).ReleaseDirectSoundInterface)(::windows_core::Interface::as_raw(self), lpds.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+    #[doc = "Required features: `Win32_Media_Audio_DirectSound`"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
     pub unsafe fn ReleasePrimaryBufferInterface<P0>(&self, lpdsb: P0) -> ::windows_core::Result<()>
     where
@@ -776,7 +759,7 @@ impl IAMDirectSound {
     {
         (::windows_core::Interface::vtable(self).ReleasePrimaryBufferInterface)(::windows_core::Interface::as_raw(self), lpdsb.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+    #[doc = "Required features: `Win32_Media_Audio_DirectSound`"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
     pub unsafe fn ReleaseSecondaryBufferInterface<P0>(&self, lpdsb: P0) -> ::windows_core::Result<()>
     where
@@ -784,7 +767,7 @@ impl IAMDirectSound {
     {
         (::windows_core::Interface::vtable(self).ReleaseSecondaryBufferInterface)(::windows_core::Interface::as_raw(self), lpdsb.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFocusWindow<P0, P1>(&self, param0: P0, param1: P1) -> ::windows_core::Result<()>
     where
@@ -793,7 +776,7 @@ impl IAMDirectSound {
     {
         (::windows_core::Interface::vtable(self).SetFocusWindow)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFocusWindow(&self, param0: *mut super::super::Foundation::HWND, param1: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFocusWindow)(::windows_core::Interface::as_raw(self), param0, param1).ok()
@@ -843,7 +826,6 @@ pub struct IAMDirectSound_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetFocusWindow: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMDroppedFrames(::windows_core::IUnknown);
@@ -880,7 +862,6 @@ pub struct IAMDroppedFrames_Vtbl {
     pub GetDroppedInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsize: i32, plarray: *mut i32, plnumcopied: *mut i32) -> ::windows_core::HRESULT,
     pub GetAverageFrameSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plaveragesize: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMExtDevice(::windows_core::IUnknown);
@@ -935,7 +916,6 @@ pub struct IAMExtDevice_Vtbl {
     pub SetDevicePort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceport: i32) -> ::windows_core::HRESULT,
     pub DevicePort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdeviceport: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMExtTransport(::windows_core::IUnknown);
@@ -1079,14 +1059,14 @@ pub struct IAMExtTransport_Vtbl {
     pub EditStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows_core::HRESULT,
     pub SetEditStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMExtendedErrorInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAMExtendedErrorInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasError(&self, phaserror: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).HasError)(::windows_core::Interface::as_raw(self), phaserror).ok()
@@ -1120,7 +1100,7 @@ pub struct IAMExtendedErrorInfo_Vtbl {
     pub ErrorDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrerrordescription: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorcode: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1172,7 +1152,6 @@ pub struct IAMExtendedSeeking_Vtbl {
     pub SetPlaybackSpeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, speed: f64) -> ::windows_core::HRESULT,
     pub PlaybackSpeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pspeed: *mut f64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMFilterGraphCallback(::windows_core::IUnknown);
@@ -1197,7 +1176,6 @@ pub struct IAMFilterGraphCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub UnableToRender: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMFilterMiscFlags(::windows_core::IUnknown);
@@ -1219,12 +1197,11 @@ pub struct IAMFilterMiscFlags_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetMiscFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMGraphBuilderCallback(::windows_core::IUnknown);
 impl IAMGraphBuilderCallback {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SelectedFilter<P0>(&self, pmon: P0) -> ::windows_core::Result<()>
     where
@@ -1232,7 +1209,7 @@ impl IAMGraphBuilderCallback {
     {
         (::windows_core::Interface::vtable(self).SelectedFilter)(::windows_core::Interface::as_raw(self), pmon.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatedFilter<P0>(&self, pfil: P0) -> ::windows_core::Result<()>
     where
@@ -1261,7 +1238,6 @@ pub struct IAMGraphBuilderCallback_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreatedFilter: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMGraphStreams(::windows_core::IUnknown);
@@ -1272,7 +1248,7 @@ impl IAMGraphStreams {
     {
         (::windows_core::Interface::vtable(self).FindUpstreamInterface)(::windows_core::Interface::as_raw(self), ppin.into_param().abi(), riid, ppvinterface, dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SyncUsingStreamOffset<P0>(&self, busestreamoffset: P0) -> ::windows_core::Result<()>
     where
@@ -1302,7 +1278,6 @@ pub struct IAMGraphStreams_Vtbl {
     SyncUsingStreamOffset: usize,
     pub SetMaxGraphLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rtmaxgraphlatency: i64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMLatency(::windows_core::IUnknown);
@@ -1325,7 +1300,6 @@ pub struct IAMLatency_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prtlatency: *mut i64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMLine21Decoder(::windows_core::IUnknown);
@@ -1345,12 +1319,12 @@ impl IAMLine21Decoder {
     pub unsafe fn SetServiceState(&self, state: AM_LINE21_CCSTATE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetServiceState)(::windows_core::Interface::as_raw(self), state).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetOutputFormat(&self, lpbmih: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetOutputFormat)(::windows_core::Interface::as_raw(self), lpbmih).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetOutputFormat(&self, lpbmi: *mut super::super::Graphics::Gdi::BITMAPINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOutputFormat)(::windows_core::Interface::as_raw(self), lpbmi).ok()
@@ -1364,7 +1338,7 @@ impl IAMLine21Decoder {
     pub unsafe fn GetRedrawAlways(&self, lpboption: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRedrawAlways)(::windows_core::Interface::as_raw(self), lpboption).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRedrawAlways<P0>(&self, boption: P0) -> ::windows_core::Result<()>
     where
@@ -1413,7 +1387,7 @@ pub struct IAMLine21Decoder_Vtbl {
     pub GetDrawBackgroundMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmode: *mut AM_LINE21_DRAWBGMODE) -> ::windows_core::HRESULT,
     pub SetDrawBackgroundMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: AM_LINE21_DRAWBGMODE) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1489,7 +1463,7 @@ pub struct IAMMediaContent_Vtbl {
     pub MoreInfoBannerURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmoreinfobannerurl: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub MoreInfoText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmoreinfotext: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1528,7 +1502,6 @@ pub struct IAMMediaContent2_Vtbl {
     pub get_MediaParameterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entrynum: i32, index: i32, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub PlaylistCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnumberentries: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMMediaStream(::windows_core::IUnknown);
@@ -1575,7 +1548,7 @@ impl IAMMediaStream {
     {
         (::windows_core::Interface::vtable(self).JoinAMMultiMediaStream)(::windows_core::Interface::as_raw(self), pammultimediastream.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn JoinFilter<P0>(&self, pmediastreamfilter: P0) -> ::windows_core::Result<()>
     where
@@ -1610,7 +1583,6 @@ pub struct IAMMediaStream_Vtbl {
     JoinFilter: usize,
     pub JoinFilterGraph: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfiltergraph: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMMediaTypeSample(::windows_core::IUnknown);
@@ -1624,7 +1596,7 @@ impl IAMMediaTypeSample {
     pub unsafe fn SetSampleTimes(&self, pstarttime: *const i64, pendtime: *const i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSampleTimes)(::windows_core::Interface::as_raw(self), pstarttime, pendtime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Update<P0>(&self, dwflags: u32, hevent: P0, pfnapc: super::super::Foundation::PAPCFUNC, dwapcdata: usize) -> ::windows_core::Result<()>
     where
@@ -1654,7 +1626,7 @@ impl IAMMediaTypeSample {
     pub unsafe fn IsSyncPoint(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsSyncPoint)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSyncPoint<P0>(&self, bissyncpoint: P0) -> ::windows_core::Result<()>
     where
@@ -1665,7 +1637,7 @@ impl IAMMediaTypeSample {
     pub unsafe fn IsPreroll(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsPreroll)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPreroll<P0>(&self, bispreroll: P0) -> ::windows_core::Result<()>
     where
@@ -1679,13 +1651,13 @@ impl IAMMediaTypeSample {
     pub unsafe fn SetActualDataLength(&self, __midl__iammediatypesample0000: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetActualDataLength)(::windows_core::Interface::as_raw(self), __midl__iammediatypesample0000).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetMediaType(&self) -> ::windows_core::Result<*mut super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetMediaType(&self, pmediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMediaType)(::windows_core::Interface::as_raw(self), pmediatype).ok()
@@ -1693,7 +1665,7 @@ impl IAMMediaTypeSample {
     pub unsafe fn IsDiscontinuity(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsDiscontinuity)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDiscontinuity<P0>(&self, bdiscontinuity: P0) -> ::windows_core::Result<()>
     where
@@ -1752,7 +1724,6 @@ pub struct IAMMediaTypeSample_Vtbl {
     pub GetMediaTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimestart: *mut i64, ptimeend: *mut i64) -> ::windows_core::HRESULT,
     pub SetMediaTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimestart: *const i64, ptimeend: *const i64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMMediaTypeStream(::windows_core::IUnknown);
@@ -1784,12 +1755,12 @@ impl IAMMediaTypeStream {
     pub unsafe fn SendEndOfStream(&self, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SendEndOfStream)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetFormat(&self, pmediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFormat)(::windows_core::Interface::as_raw(self), pmediatype, dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetFormat(&self, pmediatype: *const super::MediaFoundation::AM_MEDIA_TYPE, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFormat)(::windows_core::Interface::as_raw(self), pmediatype, dwflags).ok()
@@ -1832,7 +1803,6 @@ pub struct IAMMediaTypeStream_Vtbl {
     pub GetStreamAllocatorRequirements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprops: *mut ALLOCATOR_PROPERTIES) -> ::windows_core::HRESULT,
     pub SetStreamAllocatorRequirements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprops: *const ALLOCATOR_PROPERTIES) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMMultiMediaStream(::windows_core::IUnknown);
@@ -1866,7 +1836,7 @@ impl IAMMultiMediaStream {
     pub unsafe fn Seek(&self, seektime: i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Seek)(::windows_core::Interface::as_raw(self), seektime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEndOfStreamEventHandle(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -1882,7 +1852,7 @@ impl IAMMultiMediaStream {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFilterGraph)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFilter(&self) -> ::windows_core::Result<IMediaStreamFilter> {
         let mut result__ = ::std::mem::zeroed();
@@ -1901,7 +1871,7 @@ impl IAMMultiMediaStream {
     {
         (::windows_core::Interface::vtable(self).OpenFile)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi(), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenMoniker<P0, P1>(&self, pctx: P0, pmoniker: P1, dwflags: u32) -> ::windows_core::Result<()>
     where
@@ -1939,7 +1909,7 @@ pub struct IAMMultiMediaStream_Vtbl {
     OpenMoniker: usize,
     pub Render: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1952,12 +1922,12 @@ impl IAMNetShowConfig {
     pub unsafe fn SetBufferingTime(&self, bufferingtime: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBufferingTime)(::windows_core::Interface::as_raw(self), bufferingtime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseFixedUDPPort(&self, pusefixedudpport: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UseFixedUDPPort)(::windows_core::Interface::as_raw(self), pusefixedudpport).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseFixedUDPPort<P0>(&self, usefixedudpport: P0) -> ::windows_core::Result<()>
     where
@@ -1971,12 +1941,12 @@ impl IAMNetShowConfig {
     pub unsafe fn SetFixedUDPPort(&self, fixedudpport: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFixedUDPPort)(::windows_core::Interface::as_raw(self), fixedudpport).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseHTTPProxy(&self, pusehttpproxy: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UseHTTPProxy)(::windows_core::Interface::as_raw(self), pusehttpproxy).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseHTTPProxy<P0>(&self, usehttpproxy: P0) -> ::windows_core::Result<()>
     where
@@ -1984,12 +1954,12 @@ impl IAMNetShowConfig {
     {
         (::windows_core::Interface::vtable(self).SetUseHTTPProxy)(::windows_core::Interface::as_raw(self), usehttpproxy.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableAutoProxy(&self, penableautoproxy: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnableAutoProxy)(::windows_core::Interface::as_raw(self), penableautoproxy).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableAutoProxy<P0>(&self, enableautoproxy: P0) -> ::windows_core::Result<()>
     where
@@ -2012,12 +1982,12 @@ impl IAMNetShowConfig {
     pub unsafe fn SetHTTPProxyPort(&self, httpproxyport: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetHTTPProxyPort)(::windows_core::Interface::as_raw(self), httpproxyport).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableMulticast(&self, penablemulticast: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnableMulticast)(::windows_core::Interface::as_raw(self), penablemulticast).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableMulticast<P0>(&self, enablemulticast: P0) -> ::windows_core::Result<()>
     where
@@ -2025,12 +1995,12 @@ impl IAMNetShowConfig {
     {
         (::windows_core::Interface::vtable(self).SetEnableMulticast)(::windows_core::Interface::as_raw(self), enablemulticast.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableUDP(&self, penableudp: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnableUDP)(::windows_core::Interface::as_raw(self), penableudp).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableUDP<P0>(&self, enableudp: P0) -> ::windows_core::Result<()>
     where
@@ -2038,12 +2008,12 @@ impl IAMNetShowConfig {
     {
         (::windows_core::Interface::vtable(self).SetEnableUDP)(::windows_core::Interface::as_raw(self), enableudp.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableTCP(&self, penabletcp: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnableTCP)(::windows_core::Interface::as_raw(self), penabletcp).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableTCP<P0>(&self, enabletcp: P0) -> ::windows_core::Result<()>
     where
@@ -2051,12 +2021,12 @@ impl IAMNetShowConfig {
     {
         (::windows_core::Interface::vtable(self).SetEnableTCP)(::windows_core::Interface::as_raw(self), enabletcp.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableHTTP(&self, penablehttp: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnableHTTP)(::windows_core::Interface::as_raw(self), penablehttp).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableHTTP<P0>(&self, enablehttp: P0) -> ::windows_core::Result<()>
     where
@@ -2145,7 +2115,7 @@ pub struct IAMNetShowConfig_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetEnableHTTP: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2164,7 +2134,7 @@ impl IAMNetShowExProps {
     pub unsafe fn CodecCount(&self, pcodeccount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CodecCount)(::windows_core::Interface::as_raw(self), pcodeccount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCodecInstalled(&self, codecnum: i32, pcodecinstalled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCodecInstalled)(::windows_core::Interface::as_raw(self), codecnum, pcodecinstalled).ok()
@@ -2210,14 +2180,14 @@ pub struct IAMNetShowExProps_Vtbl {
     pub CreationDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcreationdate: *mut f64) -> ::windows_core::HRESULT,
     pub SourceLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsourcelink: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMNetShowPreroll(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAMNetShowPreroll {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPreroll<P0>(&self, fpreroll: P0) -> ::windows_core::Result<()>
     where
@@ -2225,7 +2195,7 @@ impl IAMNetShowPreroll {
     {
         (::windows_core::Interface::vtable(self).SetPreroll)(::windows_core::Interface::as_raw(self), fpreroll.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Preroll(&self, pfpreroll: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Preroll)(::windows_core::Interface::as_raw(self), pfpreroll).ok()
@@ -2255,7 +2225,7 @@ pub struct IAMNetShowPreroll_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Preroll: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2277,7 +2247,7 @@ impl IAMNetworkStatus {
     pub unsafe fn BufferingCount(&self, pbufferingcount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BufferingCount)(::windows_core::Interface::as_raw(self), pbufferingcount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsBroadcast(&self, pisbroadcast: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsBroadcast)(::windows_core::Interface::as_raw(self), pisbroadcast).ok()
@@ -2312,7 +2282,6 @@ pub struct IAMNetworkStatus_Vtbl {
     IsBroadcast: usize,
     pub BufferingProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbufferingprogress: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMOpenProgress(::windows_core::IUnknown);
@@ -2338,7 +2307,6 @@ pub struct IAMOpenProgress_Vtbl {
     pub QueryProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plltotal: *mut i64, pllcurrent: *mut i64) -> ::windows_core::HRESULT,
     pub AbortOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMOverlayFX(::windows_core::IUnknown);
@@ -2370,7 +2338,6 @@ pub struct IAMOverlayFX_Vtbl {
     pub SetOverlayFX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoverlayfx: u32) -> ::windows_core::HRESULT,
     pub GetOverlayFX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdwoverlayfx: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMParse(::windows_core::IUnknown);
@@ -2401,7 +2368,6 @@ pub struct IAMParse_Vtbl {
     pub SetParseTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rtcurrent: i64) -> ::windows_core::HRESULT,
     pub Flush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMPhysicalPinInfo(::windows_core::IUnknown);
@@ -2423,7 +2389,6 @@ pub struct IAMPhysicalPinInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPhysicalType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut i32, ppsztype: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMPlayList(::windows_core::IUnknown);
@@ -2467,7 +2432,6 @@ pub struct IAMPlayList_Vtbl {
     pub GetNamedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszeventname: ::windows_core::PCWSTR, dwitemindex: u32, ppitem: *mut *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows_core::HRESULT,
     pub GetRepeatInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwrepeatcount: *mut u32, pdwrepeatstart: *mut u32, pdwrepeatend: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMPlayListItem(::windows_core::IUnknown);
@@ -2540,7 +2504,6 @@ pub struct IAMPlayListItem_Vtbl {
     pub GetLinkURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrurl: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetScanDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourceindex: u32, prtscanduration: *mut i64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMPluginControl(::windows_core::IUnknown);
@@ -2562,7 +2525,7 @@ impl IAMPluginControl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDisabledByIndex)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDisabled<P0>(&self, clsid: *const ::windows_core::GUID, disabled: P0) -> ::windows_core::Result<()>
     where
@@ -2599,7 +2562,6 @@ pub struct IAMPluginControl_Vtbl {
     SetDisabled: usize,
     pub IsLegacyDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dllname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMPushSource(::windows_core::IUnknown);
@@ -2648,7 +2610,6 @@ pub struct IAMPushSource_Vtbl {
     pub GetMaxStreamOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prtmaxoffset: *mut i64) -> ::windows_core::HRESULT,
     pub SetMaxStreamOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rtmaxoffset: i64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMRebuild(::windows_core::IUnknown);
@@ -2670,7 +2631,6 @@ pub struct IAMRebuild_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RebuildNow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMResourceControl(::windows_core::IUnknown);
@@ -2692,7 +2652,7 @@ pub struct IAMResourceControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Reserve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2748,17 +2708,16 @@ pub struct IAMStats_Vtbl {
     pub GetIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: ::std::mem::MaybeUninit<::windows_core::BSTR>, lcreate: i32, plindex: *mut i32) -> ::windows_core::HRESULT,
     pub AddValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, dvalue: f64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMStreamConfig(::windows_core::IUnknown);
 impl IAMStreamConfig {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetFormat(&self, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFormat)(::windows_core::Interface::as_raw(self), pmt).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetFormat(&self) -> ::windows_core::Result<*mut super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
@@ -2767,7 +2726,7 @@ impl IAMStreamConfig {
     pub unsafe fn GetNumberOfCapabilities(&self, picount: *mut i32, pisize: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNumberOfCapabilities)(::windows_core::Interface::as_raw(self), picount, pisize).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetStreamCaps(&self, iindex: i32, ppmt: *mut *mut super::MediaFoundation::AM_MEDIA_TYPE, pscc: *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStreamCaps)(::windows_core::Interface::as_raw(self), iindex, ppmt, pscc).ok()
@@ -2798,7 +2757,6 @@ pub struct IAMStreamConfig_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
     GetStreamCaps: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMStreamControl(::windows_core::IUnknown);
@@ -2806,7 +2764,7 @@ impl IAMStreamControl {
     pub unsafe fn StartAt(&self, ptstart: ::core::option::Option<*const i64>, dwcookie: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).StartAt)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ptstart.unwrap_or(::std::ptr::null())), dwcookie).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StopAt<P0>(&self, ptstop: ::core::option::Option<*const i64>, bsendextra: P0, dwcookie: u32) -> ::windows_core::Result<()>
     where
@@ -2836,7 +2794,6 @@ pub struct IAMStreamControl_Vtbl {
     StopAt: usize,
     pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut AM_STREAM_INFO) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMStreamSelect(::windows_core::IUnknown);
@@ -2845,7 +2802,7 @@ impl IAMStreamSelect {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn Info(&self, lindex: i32, ppmt: ::core::option::Option<*mut *mut super::MediaFoundation::AM_MEDIA_TYPE>, pdwflags: ::core::option::Option<*mut u32>, plcid: ::core::option::Option<*mut u32>, pdwgroup: ::core::option::Option<*mut u32>, ppszname: ::core::option::Option<*mut ::windows_core::PWSTR>, ppobject: ::core::option::Option<*mut ::core::option::Option<::windows_core::IUnknown>>, ppunk: ::core::option::Option<*mut ::core::option::Option<::windows_core::IUnknown>>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Info)(
@@ -2883,7 +2840,6 @@ pub struct IAMStreamSelect_Vtbl {
     Info: usize,
     pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, dwflags: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMTVAudio(::windows_core::IUnknown);
@@ -2934,7 +2890,6 @@ pub struct IAMTVAudio_Vtbl {
     pub RegisterNotificationCallBack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotify: *mut ::core::ffi::c_void, levents: i32) -> ::windows_core::HRESULT,
     pub UnRegisterNotificationCallBack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotify: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMTVAudioNotification(::windows_core::IUnknown);
@@ -2956,7 +2911,6 @@ pub struct IAMTVAudioNotification_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: AMTVAudioEventType) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMTVTuner(::windows_core::IUnknown);
@@ -2984,7 +2938,7 @@ impl IAMTVTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Logon<P0>(&self, hcurrentuser: P0) -> ::windows_core::Result<()>
     where
@@ -3087,7 +3041,6 @@ pub struct IAMTVTuner_Vtbl {
     pub VideoFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lfreq: *mut i32) -> ::windows_core::HRESULT,
     pub AudioFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lfreq: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMTimecodeDisplay(::windows_core::IUnknown);
@@ -3123,7 +3076,6 @@ pub struct IAMTimecodeDisplay_Vtbl {
     pub GetTCDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param: i32, pvalue: *mut i32) -> ::windows_core::HRESULT,
     pub SetTCDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param: i32, value: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMTimecodeGenerator(::windows_core::IUnknown);
@@ -3167,7 +3119,6 @@ pub struct IAMTimecodeGenerator_Vtbl {
     pub SetTimecode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimecodesample: *const super::TIMECODE_SAMPLE) -> ::windows_core::HRESULT,
     pub GetTimecode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimecodesample: *mut super::TIMECODE_SAMPLE) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMTimecodeReader(::windows_core::IUnknown);
@@ -3207,7 +3158,6 @@ pub struct IAMTimecodeReader_Vtbl {
     pub VITCLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pline: *mut i32) -> ::windows_core::HRESULT,
     pub GetTimecode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimecodesample: *mut super::TIMECODE_SAMPLE) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMTuner(::windows_core::IUnknown);
@@ -3235,7 +3185,7 @@ impl IAMTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Logon<P0>(&self, hcurrentuser: P0) -> ::windows_core::Result<()>
     where
@@ -3304,7 +3254,6 @@ pub struct IAMTuner_Vtbl {
     pub RegisterNotificationCallBack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotify: *mut ::core::ffi::c_void, levents: i32) -> ::windows_core::HRESULT,
     pub UnRegisterNotificationCallBack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotify: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMTunerNotification(::windows_core::IUnknown);
@@ -3326,7 +3275,6 @@ pub struct IAMTunerNotification_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: AMTunerEventType) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMVfwCaptureDialogs(::windows_core::IUnknown);
@@ -3334,7 +3282,7 @@ impl IAMVfwCaptureDialogs {
     pub unsafe fn HasDialog(&self, idialog: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).HasDialog)(::windows_core::Interface::as_raw(self), idialog).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowDialog<P0>(&self, idialog: i32, hwnd: P0) -> ::windows_core::Result<()>
     where
@@ -3364,12 +3312,11 @@ pub struct IAMVfwCaptureDialogs_Vtbl {
     ShowDialog: usize,
     pub SendDriverMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idialog: i32, umsg: i32, dw1: i32, dw2: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMVfwCompressDialogs(::windows_core::IUnknown);
 impl IAMVfwCompressDialogs {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowDialog<P0>(&self, idialog: i32, hwnd: P0) -> ::windows_core::Result<()>
     where
@@ -3406,7 +3353,6 @@ pub struct IAMVfwCompressDialogs_Vtbl {
     pub SetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *const ::core::ffi::c_void, cbstate: i32) -> ::windows_core::HRESULT,
     pub SendDriverMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, umsg: i32, dw1: i32, dw2: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMVideoAccelerator(::windows_core::IUnknown);
@@ -3414,22 +3360,22 @@ impl IAMVideoAccelerator {
     pub unsafe fn GetVideoAcceleratorGUIDs(&self, pdwnumguidssupported: *mut u32, pguidssupported: ::core::option::Option<*mut ::windows_core::GUID>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoAcceleratorGUIDs)(::windows_core::Interface::as_raw(self), pdwnumguidssupported, ::core::mem::transmute(pguidssupported.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetUncompFormatsSupported(&self, pguid: *const ::windows_core::GUID, pdwnumformatssupported: *mut u32, pformatssupported: ::core::option::Option<*mut super::super::Graphics::DirectDraw::DDPIXELFORMAT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetUncompFormatsSupported)(::windows_core::Interface::as_raw(self), pguid, pdwnumformatssupported, ::core::mem::transmute(pformatssupported.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetInternalMemInfo(&self, pguid: *const ::windows_core::GUID, pamvauncompdatainfo: *const AMVAUncompDataInfo, pamvainternalmeminfo: *mut AMVAInternalMemInfo) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetInternalMemInfo)(::windows_core::Interface::as_raw(self), pguid, pamvauncompdatainfo, pamvainternalmeminfo).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetCompBufferInfo(&self, pguid: *const ::windows_core::GUID, pamvauncompdatainfo: *const AMVAUncompDataInfo, pdwnumtypescompbuffers: *mut u32, pamvacompbufferinfo: ::core::option::Option<*mut AMVACompBufferInfo>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCompBufferInfo)(::windows_core::Interface::as_raw(self), pguid, pamvauncompdatainfo, pdwnumtypescompbuffers, ::core::mem::transmute(pamvacompbufferinfo.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetInternalCompBufferInfo(&self, pdwnumtypescompbuffers: *mut u32, pamvacompbufferinfo: ::core::option::Option<*mut AMVACompBufferInfo>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetInternalCompBufferInfo)(::windows_core::Interface::as_raw(self), pdwnumtypescompbuffers, ::core::mem::transmute(pamvacompbufferinfo.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -3440,7 +3386,7 @@ impl IAMVideoAccelerator {
     pub unsafe fn EndFrame(&self, pendframeinfo: *const AMVAEndFrameInfo) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EndFrame)(::windows_core::Interface::as_raw(self), pendframeinfo).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBuffer<P0>(&self, dwtypeindex: u32, dwbufferindex: u32, breadonly: P0, ppbuffer: *mut *mut ::core::ffi::c_void, lpstride: *mut i32) -> ::windows_core::Result<()>
     where
@@ -3503,12 +3449,11 @@ pub struct IAMVideoAccelerator_Vtbl {
     pub QueryRenderStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtypeindex: u32, dwbufferindex: u32, dwflags: u32) -> ::windows_core::HRESULT,
     pub DisplayFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfliptoindex: u32, pmediasample: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMVideoAcceleratorNotify(::windows_core::IUnknown);
 impl IAMVideoAcceleratorNotify {
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetUncompSurfacesInfo(&self, pguid: *const ::windows_core::GUID, puncompbufferinfo: *mut AMVAUncompBufferInfo) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetUncompSurfacesInfo)(::windows_core::Interface::as_raw(self), pguid, puncompbufferinfo).ok()
@@ -3538,7 +3483,6 @@ pub struct IAMVideoAcceleratorNotify_Vtbl {
     pub SetUncompSurfacesInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwactualuncompsurfacesallocated: u32) -> ::windows_core::HRESULT,
     pub GetCreateVideoAcceleratorData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *const ::windows_core::GUID, pdwsizemiscdata: *mut u32, ppmiscdata: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMVideoCompression(::windows_core::IUnknown);
@@ -3615,7 +3559,6 @@ pub struct IAMVideoCompression_Vtbl {
     pub OverrideKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framenumber: i32) -> ::windows_core::HRESULT,
     pub OverrideFrameSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framenumber: i32, size: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMVideoControl(::windows_core::IUnknown);
@@ -3647,7 +3590,7 @@ impl IAMVideoControl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentActualFrameRate)(::windows_core::Interface::as_raw(self), ppin.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMaxAvailableFrameRate<P0>(&self, ppin: P0, iindex: i32, dimensions: super::super::Foundation::SIZE) -> ::windows_core::Result<i64>
     where
@@ -3656,7 +3599,7 @@ impl IAMVideoControl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMaxAvailableFrameRate)(::windows_core::Interface::as_raw(self), ppin.into_param().abi(), iindex, ::core::mem::transmute(dimensions), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFrameRateList<P0>(&self, ppin: P0, iindex: i32, dimensions: super::super::Foundation::SIZE, listsize: *mut i32, framerates: *mut *mut i64) -> ::windows_core::Result<()>
     where
@@ -3689,7 +3632,6 @@ pub struct IAMVideoControl_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetFrameRateList: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMVideoDecimationProperties(::windows_core::IUnknown);
@@ -3716,7 +3658,6 @@ pub struct IAMVideoDecimationProperties_Vtbl {
     pub QueryDecimationUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpusage: *mut DECIMATION_USAGE) -> ::windows_core::HRESULT,
     pub SetDecimationUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usage: DECIMATION_USAGE) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMVideoProcAmp(::windows_core::IUnknown);
@@ -3746,7 +3687,6 @@ pub struct IAMVideoProcAmp_Vtbl {
     pub Set: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: i32, lvalue: i32, flags: i32) -> ::windows_core::HRESULT,
     pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: i32, lvalue: *mut i32, flags: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMWMBufferPass(::windows_core::IUnknown);
@@ -3771,12 +3711,11 @@ pub struct IAMWMBufferPass_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMWMBufferPassCallback(::windows_core::IUnknown);
 impl IAMWMBufferPassCallback {
-    #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+    #[doc = "Required features: `Win32_Media_WindowsMediaFormat`"]
     #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
     pub unsafe fn Notify<P0, P1>(&self, pnssbuffer3: P0, ppin: P1, prtstart: *const i64, prtend: *const i64) -> ::windows_core::Result<()>
     where
@@ -3802,7 +3741,6 @@ pub struct IAMWMBufferPassCallback_Vtbl {
     #[cfg(not(feature = "Win32_Media_WindowsMediaFormat"))]
     Notify: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMWstDecoder(::windows_core::IUnknown);
@@ -3819,12 +3757,12 @@ impl IAMWstDecoder {
     pub unsafe fn SetServiceState(&self, state: AM_WST_STATE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetServiceState)(::windows_core::Interface::as_raw(self), state).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetOutputFormat(&self, lpbmih: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetOutputFormat)(::windows_core::Interface::as_raw(self), lpbmih).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetOutputFormat(&self, lpbmi: *mut super::super::Graphics::Gdi::BITMAPINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOutputFormat)(::windows_core::Interface::as_raw(self), lpbmi).ok()
@@ -3838,7 +3776,7 @@ impl IAMWstDecoder {
     pub unsafe fn GetRedrawAlways(&self, lpboption: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRedrawAlways)(::windows_core::Interface::as_raw(self), lpboption).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRedrawAlways<P0>(&self, boption: P0) -> ::windows_core::Result<()>
     where
@@ -3852,7 +3790,7 @@ impl IAMWstDecoder {
     pub unsafe fn SetDrawBackgroundMode(&self, mode: AM_WST_DRAWBGMODE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDrawBackgroundMode)(::windows_core::Interface::as_raw(self), mode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAnswerMode<P0>(&self, banswer: P0) -> ::windows_core::Result<()>
     where
@@ -3860,12 +3798,12 @@ impl IAMWstDecoder {
     {
         (::windows_core::Interface::vtable(self).SetAnswerMode)(::windows_core::Interface::as_raw(self), banswer.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAnswerMode(&self, pbanswer: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAnswerMode)(::windows_core::Interface::as_raw(self), pbanswer).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHoldPage<P0>(&self, bholdpage: P0) -> ::windows_core::Result<()>
     where
@@ -3873,7 +3811,7 @@ impl IAMWstDecoder {
     {
         (::windows_core::Interface::vtable(self).SetHoldPage)(::windows_core::Interface::as_raw(self), bholdpage.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHoldPage(&self, pbholdpage: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetHoldPage)(::windows_core::Interface::as_raw(self), pbholdpage).ok()
@@ -3936,7 +3874,6 @@ pub struct IAMWstDecoder_Vtbl {
     pub GetCurrentPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstpage: *mut AM_WST_PAGE) -> ::windows_core::HRESULT,
     pub SetCurrentPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstpage: AM_WST_PAGE) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAMovieSetup(::windows_core::IUnknown);
@@ -3962,7 +3899,6 @@ pub struct IAMovieSetup_Vtbl {
     pub Register: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Unregister: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAsyncReader(::windows_core::IUnknown);
@@ -4022,7 +3958,6 @@ pub struct IAsyncReader_Vtbl {
     pub BeginFlush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EndFlush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioData(::windows_core::IUnknown);
@@ -4036,12 +3971,12 @@ impl IAudioData {
     pub unsafe fn SetActual(&self, cbdatavalid: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetActual)(::windows_core::Interface::as_raw(self), cbdatavalid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+    #[doc = "Required features: `Win32_Media_Audio`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormat(&self, pwaveformatcurrent: *mut super::Audio::WAVEFORMATEX) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFormat)(::windows_core::Interface::as_raw(self), pwaveformatcurrent).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+    #[doc = "Required features: `Win32_Media_Audio`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetFormat(&self, lpwaveformat: *const super::Audio::WAVEFORMATEX) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFormat)(::windows_core::Interface::as_raw(self), lpwaveformat).ok()
@@ -4067,7 +4002,6 @@ pub struct IAudioData_Vtbl {
     #[cfg(not(feature = "Win32_Media_Audio"))]
     SetFormat: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioMediaStream(::windows_core::IUnknown);
@@ -4099,12 +4033,12 @@ impl IAudioMediaStream {
     pub unsafe fn SendEndOfStream(&self, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SendEndOfStream)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+    #[doc = "Required features: `Win32_Media_Audio`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormat(&self, pwaveformatcurrent: *mut super::Audio::WAVEFORMATEX) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFormat)(::windows_core::Interface::as_raw(self), pwaveformatcurrent).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+    #[doc = "Required features: `Win32_Media_Audio`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetFormat(&self, lpwaveformat: *const super::Audio::WAVEFORMATEX) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFormat)(::windows_core::Interface::as_raw(self), lpwaveformat).ok()
@@ -4138,7 +4072,6 @@ pub struct IAudioMediaStream_Vtbl {
     SetFormat: usize,
     pub CreateSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paudiodata: *mut ::core::ffi::c_void, dwflags: u32, ppsample: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioStreamSample(::windows_core::IUnknown);
@@ -4152,7 +4085,7 @@ impl IAudioStreamSample {
     pub unsafe fn SetSampleTimes(&self, pstarttime: *const i64, pendtime: *const i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSampleTimes)(::windows_core::Interface::as_raw(self), pstarttime, pendtime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Update<P0>(&self, dwflags: u32, hevent: P0, pfnapc: super::super::Foundation::PAPCFUNC, dwapcdata: usize) -> ::windows_core::Result<()>
     where
@@ -4181,7 +4114,6 @@ pub struct IAudioStreamSample_Vtbl {
     pub base__: IStreamSample_Vtbl,
     pub GetAudioData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaudio: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_AUX(::windows_core::IUnknown);
@@ -4208,7 +4140,6 @@ pub struct IBDA_AUX_Vtbl {
     pub QueryCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwnumauxinputsbstr: *mut u32) -> ::windows_core::HRESULT,
     pub EnumCapability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, dwinputid: *mut u32, pconnectortype: *mut ::windows_core::GUID, conntypenum: *mut u32, numvideostds: *mut u32, analogstds: *mut u64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_AutoDemodulate(::windows_core::IUnknown);
@@ -4230,7 +4161,6 @@ pub struct IBDA_AutoDemodulate_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub put_AutoDemodulate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_AutoDemodulateEx(::windows_core::IUnknown);
@@ -4263,17 +4193,16 @@ pub struct IBDA_AutoDemodulateEx_Vtbl {
     pub get_SupportedVideoFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulamtunermodetype: *mut u32, pulanalogvideostandard: *mut u32) -> ::windows_core::HRESULT,
     pub get_AuxInputCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcompositecount: *mut u32, pulsvideocount: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_ConditionalAccess(::windows_core::IUnknown);
 impl IBDA_ConditionalAccess {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SmartCardStatus(&self, pcardstatus: *mut SmartCardStatusType, pcardassociation: *mut SmartCardAssociationType, pbstrcarderror: *mut ::windows_core::BSTR, pfooblocked: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).get_SmartCardStatus)(::windows_core::Interface::as_raw(self), pcardstatus, pcardassociation, ::core::mem::transmute(pbstrcarderror), pfooblocked).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SmartCardInfo(&self, pbstrcardname: *mut ::windows_core::BSTR, pbstrcardmanufacturer: *mut ::windows_core::BSTR, pfdaylightsavings: *mut super::super::Foundation::VARIANT_BOOL, pbyratingregion: *mut u8, pltimezoneoffsetminutes: *mut i32, pbstrlanguage: *mut ::windows_core::BSTR, pealocationcode: *mut EALocationCodeType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).get_SmartCardInfo)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbstrcardname), ::core::mem::transmute(pbstrcardmanufacturer), pfdaylightsavings, pbyratingregion, pltimezoneoffsetminutes, ::core::mem::transmute(pbstrlanguage), pealocationcode).ok()
@@ -4333,7 +4262,6 @@ pub struct IBDA_ConditionalAccess_Vtbl {
     pub GetModuleUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bydialognumber: u8, pbstrurl: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub InformUIClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bydialognumber: u8, closereason: UICloseReasonType) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_ConditionalAccessEx(::windows_core::IUnknown);
@@ -4383,7 +4311,6 @@ pub struct IBDA_ConditionalAccessEx_Vtbl {
     pub CloseMmiDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uldialogrequest: u32, bstrlanguage: ::std::mem::MaybeUninit<::windows_core::BSTR>, uldialognumber: u32, reasoncode: BDA_CONDITIONALACCESS_MMICLOSEREASON, pulsessionresult: *mut u32) -> ::windows_core::HRESULT,
     pub CreateDialogRequestNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puldialogrequestnumber: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_DRIDRMService(::windows_core::IUnknown);
@@ -4416,7 +4343,6 @@ pub struct IBDA_DRIDRMService_Vtbl {
     pub GetDRMStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdrmuuidlist: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, drmuuid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub GetPairingStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penumpairingstatus: *mut BDA_DrmPairingError) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_DRIWMDRMSession(::windows_core::IUnknown);
@@ -4462,7 +4388,6 @@ pub struct IBDA_DRIWMDRMSession_Vtbl {
     pub GetHMSAssociationData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetLastCardeaError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwerror: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_DRM(::windows_core::IUnknown);
@@ -4470,7 +4395,7 @@ impl IBDA_DRM {
     pub unsafe fn GetDRMPairingStatus(&self, pdwstatus: *mut u32, pherror: *mut ::windows_core::HRESULT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDRMPairingStatus)(::windows_core::Interface::as_raw(self), pdwstatus, pherror).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PerformDRMPairing<P0>(&self, fsync: P0) -> ::windows_core::Result<()>
     where
@@ -4496,7 +4421,6 @@ pub struct IBDA_DRM_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     PerformDRMPairing: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_DRMService(::windows_core::IUnknown);
@@ -4522,7 +4446,6 @@ pub struct IBDA_DRMService_Vtbl {
     pub SetDRM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puuidnewdrm: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub GetDRMStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdrmuuidlist: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, drmuuid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_DeviceControl(::windows_core::IUnknown);
@@ -4556,14 +4479,14 @@ pub struct IBDA_DeviceControl_Vtbl {
     pub CommitChanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetChangeState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_DiagnosticProperties(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IBDA_DiagnosticProperties {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::super::System::Variant::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
     where
@@ -4572,7 +4495,7 @@ impl IBDA_DiagnosticProperties {
     {
         (::windows_core::Interface::vtable(self).base__.Read)(::windows_core::Interface::as_raw(self), pszpropname.into_param().abi(), pvar, perrorlog.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -4597,7 +4520,6 @@ unsafe impl ::windows_core::ComInterface for IBDA_DiagnosticProperties {
 pub struct IBDA_DiagnosticProperties_Vtbl {
     pub base__: super::super::System::Com::StructuredStorage::IPropertyBag_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_DigitalDemodulator(::windows_core::IUnknown);
@@ -4671,7 +4593,6 @@ pub struct IBDA_DigitalDemodulator_Vtbl {
     pub SetSpectralInversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pspectralinversion: *const SpectralInversion) -> ::windows_core::HRESULT,
     pub SpectralInversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pspectralinversion: *mut SpectralInversion) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_DigitalDemodulator2(::windows_core::IUnknown);
@@ -4763,7 +4684,6 @@ pub struct IBDA_DigitalDemodulator2_Vtbl {
     pub SetPilot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppilot: *const Pilot) -> ::windows_core::HRESULT,
     pub Pilot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppilot: *mut Pilot) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_DigitalDemodulator3(::windows_core::IUnknown);
@@ -4863,12 +4783,11 @@ pub struct IBDA_DigitalDemodulator3_Vtbl {
     pub SetPLPNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplpnumber: *const u32) -> ::windows_core::HRESULT,
     pub PLPNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplpnumber: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_DiseqCommand(::windows_core::IUnknown);
 impl IBDA_DiseqCommand {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableDiseqCommands<P0>(&self, benable: P0) -> ::windows_core::Result<()>
     where
@@ -4879,7 +4798,7 @@ impl IBDA_DiseqCommand {
     pub unsafe fn SetDiseqLNBSource(&self, ullnbsource: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDiseqLNBSource)(::windows_core::Interface::as_raw(self), ullnbsource).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDiseqUseToneBurst<P0>(&self, busetoneburst: P0) -> ::windows_core::Result<()>
     where
@@ -4921,7 +4840,6 @@ pub struct IBDA_DiseqCommand_Vtbl {
     pub put_DiseqSendCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulrequestid: u32, ulcbcommandlen: u32, pbcommand: *const u8) -> ::windows_core::HRESULT,
     pub get_DiseqResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulrequestid: u32, pulcbresponselen: *mut u32, pbresponse: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_EasMessage(::windows_core::IUnknown);
@@ -4943,7 +4861,6 @@ pub struct IBDA_EasMessage_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub get_EasMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uleventid: u32, ppeasobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_Encoder(::windows_core::IUnknown);
@@ -4960,7 +4877,7 @@ impl IBDA_Encoder {
     pub unsafe fn SetParameters(&self, audiobitratemode: u32, audiobitrate: u32, audiomethodid: u32, audioprogram: u32, videobitratemode: u32, videobitrate: u32, videomethodid: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetParameters)(::windows_core::Interface::as_raw(self), audiobitratemode, audiobitrate, audiomethodid, audioprogram, videobitratemode, videobitrate, videomethodid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetState(&self, audiobitratemax: *mut u32, audiobitratemin: *mut u32, audiobitratemode: *mut u32, audiobitratestepping: *mut u32, audiobitrate: *mut u32, audiomethodid: *mut u32, availableaudioprograms: *mut u32, audioprogram: *mut u32, videobitratemax: *mut u32, videobitratemin: *mut u32, videobitratemode: *mut u32, videobitrate: *mut u32, videobitratestepping: *mut u32, videomethodid: *mut u32, signalsourceid: *mut u32, signalformat: *mut u64, signallock: *mut super::super::Foundation::BOOL, signallevel: *mut i32, signaltonoiseratio: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetState)(::windows_core::Interface::as_raw(self), audiobitratemax, audiobitratemin, audiobitratemode, audiobitratestepping, audiobitrate, audiomethodid, availableaudioprograms, audioprogram, videobitratemax, videobitratemin, videobitratemode, videobitrate, videobitratestepping, videomethodid, signalsourceid, signalformat, signallock, signallevel, signaltonoiseratio).ok()
@@ -4986,7 +4903,6 @@ pub struct IBDA_Encoder_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetState: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_EthernetFilter(::windows_core::IUnknown);
@@ -5025,7 +4941,6 @@ pub struct IBDA_EthernetFilter_Vtbl {
     pub PutMulticastMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulmodemask: u32) -> ::windows_core::HRESULT,
     pub GetMulticastMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulmodemask: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_EventingService(::windows_core::IUnknown);
@@ -5047,12 +4962,11 @@ pub struct IBDA_EventingService_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CompleteEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uleventid: u32, uleventresult: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_FDC(::windows_core::IUnknown);
 impl IBDA_FDC {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStatus(&self, currentbitrate: *mut u32, carrierlock: *mut super::super::Foundation::BOOL, currentfrequency: *mut u32, currentspectruminversion: *mut super::super::Foundation::BOOL, currentpidlist: *mut ::windows_core::BSTR, currenttidlist: *mut ::windows_core::BSTR, overflow: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStatus)(::windows_core::Interface::as_raw(self), currentbitrate, carrierlock, currentfrequency, currentspectruminversion, ::core::mem::transmute(currentpidlist), ::core::mem::transmute(currenttidlist), overflow).ok()
@@ -5115,7 +5029,6 @@ pub struct IBDA_FDC_Vtbl {
     pub RemoveTid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tidstoremove: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetTableSection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut u32, maxbuffersize: u32, actualsize: *mut u32, secbuffer: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_FrequencyFilter(::windows_core::IUnknown);
@@ -5181,7 +5094,6 @@ pub struct IBDA_FrequencyFilter_Vtbl {
     pub SetFrequencyMultiplier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulmultiplier: u32) -> ::windows_core::HRESULT,
     pub FrequencyMultiplier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulmultiplier: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_GuideDataDeliveryService(::windows_core::IUnknown);
@@ -5229,7 +5141,6 @@ pub struct IBDA_GuideDataDeliveryService_Vtbl {
     pub GetServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcbbufferlen: *mut u32, pbbuffer: *mut u8) -> ::windows_core::HRESULT,
     pub GetServiceInfoFromTuneXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtunexml: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrservicedescription: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_IPSinkControl(::windows_core::IUnknown);
@@ -5255,7 +5166,6 @@ pub struct IBDA_IPSinkControl_Vtbl {
     pub GetMulticastList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcbsize: *mut u32, pbbuffer: *mut *mut u8) -> ::windows_core::HRESULT,
     pub GetAdapterIPAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcbsize: *mut u32, pbbuffer: *mut *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_IPSinkInfo(::windows_core::IUnknown);
@@ -5287,7 +5197,6 @@ pub struct IBDA_IPSinkInfo_Vtbl {
     pub AdapterIPAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbuffer: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub AdapterDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbuffer: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_IPV4Filter(::windows_core::IUnknown);
@@ -5326,7 +5235,6 @@ pub struct IBDA_IPV4Filter_Vtbl {
     pub PutMulticastMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulmodemask: u32) -> ::windows_core::HRESULT,
     pub GetMulticastMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulmodemask: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_IPV6Filter(::windows_core::IUnknown);
@@ -5365,7 +5273,6 @@ pub struct IBDA_IPV6Filter_Vtbl {
     pub PutMulticastMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulmodemask: u32) -> ::windows_core::HRESULT,
     pub GetMulticastMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulmodemask: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_ISDBConditionalAccess(::windows_core::IUnknown);
@@ -5387,7 +5294,6 @@ pub struct IBDA_ISDBConditionalAccess_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetIsdbCasRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulrequestid: u32, ulcbrequestbufferlen: u32, pbrequestbuffer: *const u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_LNBInfo(::windows_core::IUnknown);
@@ -5429,7 +5335,6 @@ pub struct IBDA_LNBInfo_Vtbl {
     pub SetHighLowSwitchFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulswitchfrequency: u32) -> ::windows_core::HRESULT,
     pub HighLowSwitchFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulswitchfrequency: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_MUX(::windows_core::IUnknown);
@@ -5455,7 +5360,6 @@ pub struct IBDA_MUX_Vtbl {
     pub SetPidList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulpidlistcount: u32, pbpidlistbuffer: *const BDA_MUX_PIDLISTITEM) -> ::windows_core::HRESULT,
     pub GetPidList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulpidlistcount: *mut u32, pbpidlistbuffer: *mut BDA_MUX_PIDLISTITEM) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_NameValueService(::windows_core::IUnknown);
@@ -5496,7 +5400,6 @@ pub struct IBDA_NameValueService_Vtbl {
     pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrlanguage: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uldialogrequest: u32, bstrlanguage: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrvalue: ::std::mem::MaybeUninit<::windows_core::BSTR>, ulreserved: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_NetworkProvider(::windows_core::IUnknown);
@@ -5545,7 +5448,6 @@ pub struct IBDA_NetworkProvider_Vtbl {
     pub RegisterDeviceFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkfiltercontrol: *mut ::core::ffi::c_void, ppvregisitrationcontext: *mut u32) -> ::windows_core::HRESULT,
     pub UnRegisterDeviceFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvregistrationcontext: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_NullTransform(::windows_core::IUnknown);
@@ -5571,7 +5473,6 @@ pub struct IBDA_NullTransform_Vtbl {
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_PinControl(::windows_core::IUnknown);
@@ -5601,7 +5502,6 @@ pub struct IBDA_PinControl_Vtbl {
     pub GetPinType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulpintype: *mut u32) -> ::windows_core::HRESULT,
     pub RegistrationContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulregistrationctx: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_SignalProperties(::windows_core::IUnknown);
@@ -5643,7 +5543,6 @@ pub struct IBDA_SignalProperties_Vtbl {
     pub PutTuningSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtuningspace: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub GetTuningSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtuingspace: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_SignalStatistics(::windows_core::IUnknown);
@@ -5660,7 +5559,7 @@ impl IBDA_SignalStatistics {
     pub unsafe fn SignalQuality(&self, plpercentquality: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SignalQuality)(::windows_core::Interface::as_raw(self), plpercentquality).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSignalPresent<P0>(&self, fpresent: P0) -> ::windows_core::Result<()>
     where
@@ -5671,7 +5570,7 @@ impl IBDA_SignalStatistics {
     pub unsafe fn SignalPresent(&self, pfpresent: *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SignalPresent)(::windows_core::Interface::as_raw(self), pfpresent).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSignalLocked<P0>(&self, flocked: P0) -> ::windows_core::Result<()>
     where
@@ -5717,7 +5616,6 @@ pub struct IBDA_SignalStatistics_Vtbl {
     pub SetSampleTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmssampletime: i32) -> ::windows_core::HRESULT,
     pub SampleTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmssampletime: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_Topology(::windows_core::IUnknown);
@@ -5743,7 +5641,7 @@ impl IBDA_Topology {
     pub unsafe fn DeletePin(&self, ulpinid: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeletePin)(::windows_core::Interface::as_raw(self), ulpinid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetMediaType(&self, ulpinid: u32, pmediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMediaType)(::windows_core::Interface::as_raw(self), ulpinid, pmediatype).ok()
@@ -5784,7 +5682,6 @@ pub struct IBDA_Topology_Vtbl {
     pub CreateTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulinputpinid: u32, uloutputpinid: u32) -> ::windows_core::HRESULT,
     pub GetControlNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulinputpinid: u32, uloutputpinid: u32, ulnodetype: u32, ppcontrolnode: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_TransportStreamInfo(::windows_core::IUnknown);
@@ -5807,7 +5704,6 @@ pub struct IBDA_TransportStreamInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub PatTableTickCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppattickcount: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_TransportStreamSelector(::windows_core::IUnknown);
@@ -5833,7 +5729,6 @@ pub struct IBDA_TransportStreamSelector_Vtbl {
     pub SetTSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ustsid: u16) -> ::windows_core::HRESULT,
     pub GetTSInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pultsinformationbufferlen: *mut u32, pbtsinformationbuffer: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_UserActivityService(::windows_core::IUnknown);
@@ -5864,7 +5759,6 @@ pub struct IBDA_UserActivityService_Vtbl {
     pub GetUserActivityInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwactivityinterval: *mut u32) -> ::windows_core::HRESULT,
     pub UserActivityDetected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_VoidTransform(::windows_core::IUnknown);
@@ -5890,7 +5784,6 @@ pub struct IBDA_VoidTransform_Vtbl {
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_WMDRMSession(::windows_core::IUnknown);
@@ -5940,7 +5833,6 @@ pub struct IBDA_WMDRMSession_Vtbl {
     pub RenewLicense: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulinxmrlicenselen: u32, pbinxmrlicense: *const u8, ulentitlementtokenlen: u32, pbentitlementtoken: *const u8, puldescramblestatus: *mut u32, puloutxmrlicenselen: *mut u32, pboutxmrlicense: *mut u8) -> ::windows_core::HRESULT,
     pub GetKeyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulkeyinfolen: *mut u32, pbkeyinfo: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_WMDRMTuner(::windows_core::IUnknown);
@@ -5986,7 +5878,6 @@ pub struct IBDA_WMDRMTuner_Vtbl {
     pub SetSyncValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulsyncvalue: u32) -> ::windows_core::HRESULT,
     pub GetStartCodeProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulstartcodeprofilelen: *mut u32, pbstartcodeprofile: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBPCSatelliteTuner(::windows_core::IUnknown);
@@ -6014,7 +5905,7 @@ impl IBPCSatelliteTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Logon<P0>(&self, hcurrentuser: P0) -> ::windows_core::Result<()>
     where
@@ -6077,14 +5968,14 @@ pub struct IBPCSatelliteTuner_Vtbl {
     pub put_DefaultSubChannelTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ldefaultvideotype: i32, ldefaultaudiotype: i32) -> ::windows_core::HRESULT,
     pub IsTapingPermitted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBaseFilter(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IBaseFilter {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -6160,7 +6051,6 @@ pub struct IBaseFilter_Vtbl {
     pub JoinFilterGraph: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgraph: *mut ::core::ffi::c_void, pname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub QueryVendorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvendorinfo: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBaseVideoMixer(::windows_core::IUnknown);
@@ -6210,7 +6100,7 @@ pub struct IBaseVideoMixer_Vtbl {
     pub GetClockPeriod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbvalue: *mut i32) -> ::windows_core::HRESULT,
     pub SetClockPeriod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bvalue: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6252,7 +6142,7 @@ pub struct IBasicAudio_Vtbl {
     pub SetBalance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbalance: i32) -> ::windows_core::HRESULT,
     pub Balance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plbalance: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6417,7 +6307,7 @@ pub struct IBasicVideo_Vtbl {
     pub IsUsingDefaultSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub IsUsingDefaultDestination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6554,7 +6444,6 @@ pub struct IBasicVideo2_Vtbl {
     pub base__: IBasicVideo_Vtbl,
     pub GetPreferredAspectRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plaspectx: *mut i32, plaspecty: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBroadcastEvent(::windows_core::IUnknown);
@@ -6576,7 +6465,6 @@ pub struct IBroadcastEvent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Fire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBroadcastEventEx(::windows_core::IUnknown);
@@ -6601,7 +6489,6 @@ pub struct IBroadcastEventEx_Vtbl {
     pub base__: IBroadcastEvent_Vtbl,
     pub FireEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: ::windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBufferingTime(::windows_core::IUnknown);
@@ -6627,7 +6514,6 @@ pub struct IBufferingTime_Vtbl {
     pub GetBufferingTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmilliseconds: *mut u32) -> ::windows_core::HRESULT,
     pub SetBufferingTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmilliseconds: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICCSubStreamFiltering(::windows_core::IUnknown);
@@ -6654,7 +6540,6 @@ pub struct ICCSubStreamFiltering_Vtbl {
     pub SubstreamTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptypes: *mut i32) -> ::windows_core::HRESULT,
     pub SetSubstreamTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, types: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICameraControl(::windows_core::IUnknown);
@@ -6876,7 +6761,6 @@ pub struct ICameraControl_Vtbl {
     pub get_PrivacyMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows_core::HRESULT,
     pub put_PrivacyMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICaptureGraphBuilder(::windows_core::IUnknown);
@@ -6891,7 +6775,7 @@ impl ICaptureGraphBuilder {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFiltergraph)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetOutputFileName<P0>(&self, ptype: *const ::windows_core::GUID, lpstrfile: P0, ppf: *mut ::core::option::Option<IBaseFilter>, ppsink: *mut ::core::option::Option<IFileSinkFilter>) -> ::windows_core::Result<()>
     where
@@ -6899,7 +6783,7 @@ impl ICaptureGraphBuilder {
     {
         (::windows_core::Interface::vtable(self).SetOutputFileName)(::windows_core::Interface::as_raw(self), ptype, lpstrfile.into_param().abi(), ::core::mem::transmute(ppf), ::core::mem::transmute(ppsink)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindInterface<P0>(&self, pcategory: ::core::option::Option<*const ::windows_core::GUID>, pf: P0, riid: *const ::windows_core::GUID, ppint: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
     where
@@ -6907,7 +6791,7 @@ impl ICaptureGraphBuilder {
     {
         (::windows_core::Interface::vtable(self).FindInterface)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pcategory.unwrap_or(::std::ptr::null())), pf.into_param().abi(), riid, ppint).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RenderStream<P0, P1, P2>(&self, pcategory: ::core::option::Option<*const ::windows_core::GUID>, psource: P0, pfcompressor: P1, pfrenderer: P2) -> ::windows_core::Result<()>
     where
@@ -6917,7 +6801,7 @@ impl ICaptureGraphBuilder {
     {
         (::windows_core::Interface::vtable(self).RenderStream)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pcategory.unwrap_or(::std::ptr::null())), psource.into_param().abi(), pfcompressor.into_param().abi(), pfrenderer.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ControlStream<P0>(&self, pcategory: ::core::option::Option<*const ::windows_core::GUID>, pfilter: P0, pstart: *const i64, pstop: *const i64, wstartcookie: u16, wstopcookie: u16) -> ::windows_core::Result<()>
     where
@@ -6972,7 +6856,6 @@ pub struct ICaptureGraphBuilder_Vtbl {
     pub AllocCapFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpstr: ::windows_core::PCWSTR, dwlsize: u64) -> ::windows_core::HRESULT,
     pub CopyCaptureFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpwstrold: ::windows_core::PCWSTR, lpwstrnew: ::windows_core::PCWSTR, fallowescabort: i32, pcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICaptureGraphBuilder2(::windows_core::IUnknown);
@@ -6987,7 +6870,7 @@ impl ICaptureGraphBuilder2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFiltergraph)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetOutputFileName<P0>(&self, ptype: *const ::windows_core::GUID, lpstrfile: P0, ppf: *mut ::core::option::Option<IBaseFilter>, ppsink: ::core::option::Option<*mut ::core::option::Option<IFileSinkFilter>>) -> ::windows_core::Result<()>
     where
@@ -6995,7 +6878,7 @@ impl ICaptureGraphBuilder2 {
     {
         (::windows_core::Interface::vtable(self).SetOutputFileName)(::windows_core::Interface::as_raw(self), ptype, lpstrfile.into_param().abi(), ::core::mem::transmute(ppf), ::core::mem::transmute(ppsink.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindInterface<P0>(&self, pcategory: ::core::option::Option<*const ::windows_core::GUID>, ptype: ::core::option::Option<*const ::windows_core::GUID>, pf: P0, riid: *const ::windows_core::GUID, ppint: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
     where
@@ -7003,7 +6886,7 @@ impl ICaptureGraphBuilder2 {
     {
         (::windows_core::Interface::vtable(self).FindInterface)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pcategory.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ptype.unwrap_or(::std::ptr::null())), pf.into_param().abi(), riid, ppint).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RenderStream<P0, P1, P2>(&self, pcategory: ::core::option::Option<*const ::windows_core::GUID>, ptype: *const ::windows_core::GUID, psource: P0, pfcompressor: P1, pfrenderer: P2) -> ::windows_core::Result<()>
     where
@@ -7013,7 +6896,7 @@ impl ICaptureGraphBuilder2 {
     {
         (::windows_core::Interface::vtable(self).RenderStream)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pcategory.unwrap_or(::std::ptr::null())), ptype, psource.into_param().abi(), pfcompressor.into_param().abi(), pfrenderer.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ControlStream<P0>(&self, pcategory: *const ::windows_core::GUID, ptype: *const ::windows_core::GUID, pfilter: P0, pstart: ::core::option::Option<*const i64>, pstop: ::core::option::Option<*const i64>, wstartcookie: u16, wstopcookie: u16) -> ::windows_core::Result<()>
     where
@@ -7035,7 +6918,7 @@ impl ICaptureGraphBuilder2 {
     {
         (::windows_core::Interface::vtable(self).CopyCaptureFile)(::windows_core::Interface::as_raw(self), lpwstrold.into_param().abi(), lpwstrnew.into_param().abi(), fallowescabort, pcallback.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindPin<P0, P1>(&self, psource: P0, pindir: PIN_DIRECTION, pcategory: ::core::option::Option<*const ::windows_core::GUID>, ptype: ::core::option::Option<*const ::windows_core::GUID>, funconnected: P1, num: i32) -> ::windows_core::Result<IPin>
     where
@@ -7082,7 +6965,6 @@ pub struct ICaptureGraphBuilder2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     FindPin: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConfigAsfWriter(::windows_core::IUnknown);
@@ -7101,7 +6983,7 @@ impl IConfigAsfWriter {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProfileGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+    #[doc = "Required features: `Win32_Media_WindowsMediaFormat`"]
     #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
     pub unsafe fn ConfigureFilterUsingProfile<P0>(&self, pprofile: P0) -> ::windows_core::Result<()>
     where
@@ -7109,13 +6991,13 @@ impl IConfigAsfWriter {
     {
         (::windows_core::Interface::vtable(self).ConfigureFilterUsingProfile)(::windows_core::Interface::as_raw(self), pprofile.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+    #[doc = "Required features: `Win32_Media_WindowsMediaFormat`"]
     #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
     pub unsafe fn GetCurrentProfile(&self) -> ::windows_core::Result<super::WindowsMediaFormat::IWMProfile> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProfile)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIndexMode<P0>(&self, bindexfile: P0) -> ::windows_core::Result<()>
     where
@@ -7123,7 +7005,7 @@ impl IConfigAsfWriter {
     {
         (::windows_core::Interface::vtable(self).SetIndexMode)(::windows_core::Interface::as_raw(self), bindexfile.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIndexMode(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7162,7 +7044,6 @@ pub struct IConfigAsfWriter_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetIndexMode: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConfigAsfWriter2(::windows_core::IUnknown);
@@ -7181,7 +7062,7 @@ impl IConfigAsfWriter2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCurrentProfileGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+    #[doc = "Required features: `Win32_Media_WindowsMediaFormat`"]
     #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
     pub unsafe fn ConfigureFilterUsingProfile<P0>(&self, pprofile: P0) -> ::windows_core::Result<()>
     where
@@ -7189,13 +7070,13 @@ impl IConfigAsfWriter2 {
     {
         (::windows_core::Interface::vtable(self).base__.ConfigureFilterUsingProfile)(::windows_core::Interface::as_raw(self), pprofile.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+    #[doc = "Required features: `Win32_Media_WindowsMediaFormat`"]
     #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
     pub unsafe fn GetCurrentProfile(&self) -> ::windows_core::Result<super::WindowsMediaFormat::IWMProfile> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCurrentProfile)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIndexMode<P0>(&self, bindexfile: P0) -> ::windows_core::Result<()>
     where
@@ -7203,7 +7084,7 @@ impl IConfigAsfWriter2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetIndexMode)(::windows_core::Interface::as_raw(self), bindexfile.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIndexMode(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7242,7 +7123,6 @@ pub struct IConfigAsfWriter2_Vtbl {
     pub GetParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwparam: u32, pdwparam1: *mut u32, pdwparam2: *mut u32) -> ::windows_core::HRESULT,
     pub ResetMultiPassState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConfigAviMux(::windows_core::IUnknown);
@@ -7254,7 +7134,7 @@ impl IConfigAviMux {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMasterStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOutputCompatibilityIndex<P0>(&self, foldindex: P0) -> ::windows_core::Result<()>
     where
@@ -7262,7 +7142,7 @@ impl IConfigAviMux {
     {
         (::windows_core::Interface::vtable(self).SetOutputCompatibilityIndex)(::windows_core::Interface::as_raw(self), foldindex.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOutputCompatibilityIndex(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7291,7 +7171,6 @@ pub struct IConfigAviMux_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetOutputCompatibilityIndex: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConfigInterleaving(::windows_core::IUnknown);
@@ -7326,12 +7205,11 @@ pub struct IConfigInterleaving_Vtbl {
     pub put_Interleaving: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prtinterleave: *const i64, prtpreroll: *const i64) -> ::windows_core::HRESULT,
     pub get_Interleaving: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prtinterleave: *mut i64, prtpreroll: *mut i64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICreateDevEnum(::windows_core::IUnknown);
 impl ICreateDevEnum {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateClassEnumerator(&self, clsiddeviceclass: *const ::windows_core::GUID, ppenummoniker: *mut ::core::option::Option<super::super::System::Com::IEnumMoniker>, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateClassEnumerator)(::windows_core::Interface::as_raw(self), clsiddeviceclass, ::core::mem::transmute(ppenummoniker), dwflags).ok()
@@ -7353,12 +7231,11 @@ pub struct ICreateDevEnum_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateClassEnumerator: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDDrawExclModeVideo(::windows_core::IUnknown);
 impl IDDrawExclModeVideo {
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn SetDDrawObject<P0>(&self, pddrawobject: P0) -> ::windows_core::Result<()>
     where
@@ -7366,12 +7243,12 @@ impl IDDrawExclModeVideo {
     {
         (::windows_core::Interface::vtable(self).SetDDrawObject)(::windows_core::Interface::as_raw(self), pddrawobject.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
     pub unsafe fn GetDDrawObject(&self, ppddrawobject: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw>, pbusingexternal: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDDrawObject)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppddrawobject), pbusingexternal).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn SetDDrawSurface<P0>(&self, pddrawsurface: P0) -> ::windows_core::Result<()>
     where
@@ -7379,12 +7256,12 @@ impl IDDrawExclModeVideo {
     {
         (::windows_core::Interface::vtable(self).SetDDrawSurface)(::windows_core::Interface::as_raw(self), pddrawsurface.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
     pub unsafe fn GetDDrawSurface(&self, ppddrawsurface: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface>, pbusingexternal: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDDrawSurface)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppddrawsurface), pbusingexternal).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDrawParameters(&self, prcsource: *const super::super::Foundation::RECT, prctarget: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDrawParameters)(::windows_core::Interface::as_raw(self), prcsource, prctarget).ok()
@@ -7433,12 +7310,11 @@ pub struct IDDrawExclModeVideo_Vtbl {
     pub GetNativeVideoProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwvideowidth: *mut u32, pdwvideoheight: *mut u32, pdwpictaspectratiox: *mut u32, pdwpictaspectratioy: *mut u32) -> ::windows_core::HRESULT,
     pub SetCallbackInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDDrawExclModeVideoCallback(::windows_core::IUnknown);
 impl IDDrawExclModeVideoCallback {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnUpdateOverlay<P0, P1, P2>(&self, bbefore: P0, dwflags: u32, boldvisible: P1, prcoldsrc: *const super::super::Foundation::RECT, prcolddest: *const super::super::Foundation::RECT, bnewvisible: P2, prcnewsrc: *const super::super::Foundation::RECT, prcnewdest: *const super::super::Foundation::RECT) -> ::windows_core::Result<()>
     where
@@ -7448,7 +7324,7 @@ impl IDDrawExclModeVideoCallback {
     {
         (::windows_core::Interface::vtable(self).OnUpdateOverlay)(::windows_core::Interface::as_raw(self), bbefore.into_param().abi(), dwflags, boldvisible.into_param().abi(), prcoldsrc, prcolddest, bnewvisible.into_param().abi(), prcnewsrc, prcnewdest).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnUpdateColorKey(&self, pkey: *const COLORKEY, dwcolor: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnUpdateColorKey)(::windows_core::Interface::as_raw(self), pkey, dwcolor).ok()
@@ -7478,7 +7354,6 @@ pub struct IDDrawExclModeVideoCallback_Vtbl {
     OnUpdateColorKey: usize,
     pub OnUpdateSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwwidth: u32, dwheight: u32, dwarwidth: u32, dwarheight: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMOWrapperFilter(::windows_core::IUnknown);
@@ -7500,7 +7375,6 @@ pub struct IDMOWrapperFilter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsiddmo: *const ::windows_core::GUID, catdmo: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDShowPlugin(::windows_core::IUnknown);
@@ -7526,7 +7400,6 @@ pub struct IDShowPlugin_Vtbl {
     pub URL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, purl: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub UserAgent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puseragent: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVEnc(::windows_core::IUnknown);
@@ -7552,12 +7425,11 @@ pub struct IDVEnc_Vtbl {
     pub get_IFormatResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoformat: *mut i32, dvformat: *mut i32, resolution: *mut i32, fdvinfo: u8, sdvinfo: *mut DVINFO) -> ::windows_core::HRESULT,
     pub put_IFormatResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoformat: i32, dvformat: i32, resolution: i32, fdvinfo: u8, sdvinfo: *const DVINFO) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVRGB219(::windows_core::IUnknown);
 impl IDVRGB219 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRGB219<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -7582,7 +7454,6 @@ pub struct IDVRGB219_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetRGB219: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVSplitter(::windows_core::IUnknown);
@@ -7604,7 +7475,6 @@ pub struct IDVSplitter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub DiscardAlternateVideoFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ndiscard: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDecimateVideoImage(::windows_core::IUnknown);
@@ -7630,7 +7500,6 @@ pub struct IDecimateVideoImage_Vtbl {
     pub SetDecimationImageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lwidth: i32, lheight: i32) -> ::windows_core::HRESULT,
     pub ResetDecimationImageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeferredCommand(::windows_core::IUnknown);
@@ -7666,12 +7535,11 @@ pub struct IDeferredCommand_Vtbl {
     pub Postpone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newtime: f64) -> ::windows_core::HRESULT,
     pub GetHResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawMediaSample(::windows_core::IUnknown);
 impl IDirectDrawMediaSample {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
     pub unsafe fn GetSurfaceAndReleaseLock(&self, ppdirectdrawsurface: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface>, prect: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSurfaceAndReleaseLock)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppdirectdrawsurface), prect).ok()
@@ -7697,12 +7565,11 @@ pub struct IDirectDrawMediaSample_Vtbl {
     GetSurfaceAndReleaseLock: usize,
     pub LockMediaSamplePointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawMediaSampleAllocator(::windows_core::IUnknown);
 impl IDirectDrawMediaSampleAllocator {
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetDirectDraw(&self) -> ::windows_core::Result<super::super::Graphics::DirectDraw::IDirectDraw> {
         let mut result__ = ::std::mem::zeroed();
@@ -7725,7 +7592,6 @@ pub struct IDirectDrawMediaSampleAllocator_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_DirectDraw"))]
     GetDirectDraw: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawMediaStream(::windows_core::IUnknown);
@@ -7757,12 +7623,12 @@ impl IDirectDrawMediaStream {
     pub unsafe fn SendEndOfStream(&self, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SendEndOfStream)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetFormat(&self, pddsdcurrent: *mut super::super::Graphics::DirectDraw::DDSURFACEDESC, ppdirectdrawpalette: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawPalette>, pddsddesired: *mut super::super::Graphics::DirectDraw::DDSURFACEDESC, pdwflags: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFormat)(::windows_core::Interface::as_raw(self), pddsdcurrent, ::core::mem::transmute(ppdirectdrawpalette), pddsddesired, pdwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn SetFormat<P0>(&self, pddsurfacedesc: *const super::super::Graphics::DirectDraw::DDSURFACEDESC, pdirectdrawpalette: P0) -> ::windows_core::Result<()>
     where
@@ -7770,13 +7636,13 @@ impl IDirectDrawMediaStream {
     {
         (::windows_core::Interface::vtable(self).SetFormat)(::windows_core::Interface::as_raw(self), pddsurfacedesc, pdirectdrawpalette.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetDirectDraw(&self) -> ::windows_core::Result<super::super::Graphics::DirectDraw::IDirectDraw> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDirectDraw)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn SetDirectDraw<P0>(&self, pdirectdraw: P0) -> ::windows_core::Result<()>
     where
@@ -7784,7 +7650,7 @@ impl IDirectDrawMediaStream {
     {
         (::windows_core::Interface::vtable(self).SetDirectDraw)(::windows_core::Interface::as_raw(self), pdirectdraw.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
     pub unsafe fn CreateSample<P0>(&self, psurface: P0, prect: *const super::super::Foundation::RECT, dwflags: u32) -> ::windows_core::Result<IDirectDrawStreamSample>
     where
@@ -7831,7 +7697,6 @@ pub struct IDirectDrawMediaStream_Vtbl {
     CreateSample: usize,
     pub GetTimePerFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pframetime: *mut i64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawStreamSample(::windows_core::IUnknown);
@@ -7845,7 +7710,7 @@ impl IDirectDrawStreamSample {
     pub unsafe fn SetSampleTimes(&self, pstarttime: *const i64, pendtime: *const i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSampleTimes)(::windows_core::Interface::as_raw(self), pstarttime, pendtime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Update<P0>(&self, dwflags: u32, hevent: P0, pfnapc: super::super::Foundation::PAPCFUNC, dwapcdata: usize) -> ::windows_core::Result<()>
     where
@@ -7856,12 +7721,12 @@ impl IDirectDrawStreamSample {
     pub unsafe fn CompletionStatus(&self, dwflags: u32, dwmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CompletionStatus)(::windows_core::Interface::as_raw(self), dwflags, dwmilliseconds).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
     pub unsafe fn GetSurface(&self, ppdirectdrawsurface: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface>, prect: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSurface)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppdirectdrawsurface), prect).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRect(&self, prect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRect)(::windows_core::Interface::as_raw(self), prect).ok()
@@ -7887,7 +7752,6 @@ pub struct IDirectDrawStreamSample_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetRect: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectDrawVideo(::windows_core::IUnknown);
@@ -7899,17 +7763,17 @@ impl IDirectDrawVideo {
     pub unsafe fn SetSwitches(&self, switches: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSwitches)(::windows_core::Interface::as_raw(self), switches).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetCaps(&self, pcaps: *mut super::super::Graphics::DirectDraw::DDCAPS_DX7) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), pcaps).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetEmulatedCaps(&self, pcaps: *mut super::super::Graphics::DirectDraw::DDCAPS_DX7) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetEmulatedCaps)(::windows_core::Interface::as_raw(self), pcaps).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetSurfaceDesc(&self, psurfacedesc: *mut super::super::Graphics::DirectDraw::DDSURFACEDESC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSurfaceDesc)(::windows_core::Interface::as_raw(self), psurfacedesc).ok()
@@ -7917,7 +7781,7 @@ impl IDirectDrawVideo {
     pub unsafe fn GetFourCCCodes(&self, pcount: *mut u32, pcodes: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFourCCCodes)(::windows_core::Interface::as_raw(self), pcount, pcodes).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn SetDirectDraw<P0>(&self, pdirectdraw: P0) -> ::windows_core::Result<()>
     where
@@ -7925,7 +7789,7 @@ impl IDirectDrawVideo {
     {
         (::windows_core::Interface::vtable(self).SetDirectDraw)(::windows_core::Interface::as_raw(self), pdirectdraw.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetDirectDraw(&self) -> ::windows_core::Result<super::super::Graphics::DirectDraw::IDirectDraw> {
         let mut result__ = ::std::mem::zeroed();
@@ -8003,7 +7867,6 @@ pub struct IDirectDrawVideo_Vtbl {
     pub UseWhenFullScreen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usewhenfullscreen: i32) -> ::windows_core::HRESULT,
     pub WillUseFullScreen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usewhenfullscreen: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDistributorNotify(::windows_core::IUnknown);
@@ -8044,7 +7907,6 @@ pub struct IDistributorNotify_Vtbl {
     pub SetSyncSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclock: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub NotifyGraphChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDrawVideoImage(::windows_core::IUnknown);
@@ -8055,7 +7917,7 @@ impl IDrawVideoImage {
     pub unsafe fn DrawVideoImageEnd(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DrawVideoImageEnd)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn DrawVideoImageDraw<P0>(&self, hdc: P0, lprcsrc: *const super::super::Foundation::RECT, lprcdst: *const super::super::Foundation::RECT) -> ::windows_core::Result<()>
     where
@@ -8082,7 +7944,6 @@ pub struct IDrawVideoImage_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     DrawVideoImageDraw: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvdCmd(::windows_core::IUnknown);
@@ -8108,7 +7969,6 @@ pub struct IDvdCmd_Vtbl {
     pub WaitForStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub WaitForEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvdControl(::windows_core::IUnknown);
@@ -8188,7 +8048,7 @@ impl IDvdControl {
     pub unsafe fn AudioStreamChange(&self, ulaudio: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AudioStreamChange)(::windows_core::Interface::as_raw(self), ulaudio).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubpictureStreamChange<P0>(&self, ulsubpicture: u32, bdisplay: P0) -> ::windows_core::Result<()>
     where
@@ -8217,12 +8077,12 @@ impl IDvdControl {
     {
         (::windows_core::Interface::vtable(self).SetRoot)(::windows_core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MouseActivate(&self, point: super::super::Foundation::POINT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).MouseActivate)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(point)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MouseSelect(&self, point: super::super::Foundation::POINT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).MouseSelect)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(point)).ok()
@@ -8287,7 +8147,6 @@ pub struct IDvdControl_Vtbl {
     MouseSelect: usize,
     pub ChapterPlayAutoStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ultitle: u32, ulchapter: u32, ulchapterstoplay: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvdControl2(::windows_core::IUnknown);
@@ -8362,7 +8221,7 @@ impl IDvdControl2 {
     pub unsafe fn StillOff(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).StillOff)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Pause<P0>(&self, bstate: P0) -> ::windows_core::Result<()>
     where
@@ -8378,7 +8237,7 @@ impl IDvdControl2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SelectSubpictureStream)(::windows_core::Interface::as_raw(self), ulsubpicture, dwflags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubpictureState<P0>(&self, bstate: P0, dwflags: u32) -> ::windows_core::Result<IDvdCmd>
     where
@@ -8409,12 +8268,12 @@ impl IDvdControl2 {
     {
         (::windows_core::Interface::vtable(self).SetDVDDirectory)(::windows_core::Interface::as_raw(self), pszwpath.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ActivateAtPosition(&self, point: super::super::Foundation::POINT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ActivateAtPosition)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(point)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectAtPosition(&self, point: super::super::Foundation::POINT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SelectAtPosition)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(point)).ok()
@@ -8423,7 +8282,7 @@ impl IDvdControl2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PlayChaptersAutoStop)(::windows_core::Interface::as_raw(self), ultitle, ulchapter, ulchapterstoplay, dwflags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AcceptParentalLevelChange<P0>(&self, baccept: P0) -> ::windows_core::Result<()>
     where
@@ -8431,7 +8290,7 @@ impl IDvdControl2 {
     {
         (::windows_core::Interface::vtable(self).AcceptParentalLevelChange)(::windows_core::Interface::as_raw(self), baccept.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOption<P0>(&self, flag: DVD_OPTION_FLAG, fstate: P0) -> ::windows_core::Result<()>
     where
@@ -8534,7 +8393,6 @@ pub struct IDvdControl2_Vtbl {
     pub SelectDefaultAudioLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, language: u32, audioextension: DVD_AUDIO_LANG_EXT) -> ::windows_core::HRESULT,
     pub SelectDefaultSubpictureLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, language: u32, subpictureextension: DVD_SUBPICTURE_LANG_EXT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvdGraphBuilder(::windows_core::IUnknown);
@@ -8546,7 +8404,7 @@ impl IDvdGraphBuilder {
     pub unsafe fn GetDvdInterface(&self, riid: *const ::windows_core::GUID, ppvif: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDvdInterface)(::windows_core::Interface::as_raw(self), riid, ppvif).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RenderDvdVideoVolume<P0>(&self, lpcwszpathname: P0, dwflags: u32, pstatus: *mut AM_DVD_RENDERSTATUS) -> ::windows_core::Result<()>
     where
@@ -8573,7 +8431,6 @@ pub struct IDvdGraphBuilder_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RenderDvdVideoVolume: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvdInfo(::windows_core::IUnknown);
@@ -8599,7 +8456,7 @@ impl IDvdInfo {
     pub unsafe fn GetCurrentAudio(&self, pulstreamsavailable: *mut u32, pulcurrentstream: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentAudio)(::windows_core::Interface::as_raw(self), pulstreamsavailable, pulcurrentstream).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCurrentSubpicture(&self, pulstreamsavailable: *mut u32, pulcurrentstream: *mut u32, pisdisabled: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentSubpicture)(::windows_core::Interface::as_raw(self), pulstreamsavailable, pulcurrentstream, pisdisabled).ok()
@@ -8701,7 +8558,6 @@ pub struct IDvdInfo_Vtbl {
     pub GetTitleParentalLevels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ultitle: u32, pulparentallevels: *mut u32) -> ::windows_core::HRESULT,
     pub GetRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, proot: ::windows_core::PSTR, ulbufsize: u32, pulactualsize: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvdInfo2(::windows_core::IUnknown);
@@ -8726,7 +8582,7 @@ impl IDvdInfo2 {
     pub unsafe fn GetCurrentAudio(&self, pulstreamsavailable: *mut u32, pulcurrentstream: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentAudio)(::windows_core::Interface::as_raw(self), pulstreamsavailable, pulcurrentstream).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCurrentSubpicture(&self, pulstreamsavailable: *mut u32, pulcurrentstream: *mut u32, pbisdisabled: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentSubpicture)(::windows_core::Interface::as_raw(self), pulstreamsavailable, pulcurrentstream, pbisdisabled).ok()
@@ -8751,27 +8607,27 @@ impl IDvdInfo2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSubpictureLanguage)(::windows_core::Interface::as_raw(self), ulstream, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTitleAttributes(&self, ultitle: u32, pmenu: *mut DVD_MenuAttributes, ptitle: *mut DVD_TitleAttributes) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetTitleAttributes)(::windows_core::Interface::as_raw(self), ultitle, pmenu, ptitle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVMGAttributes(&self, patr: *mut DVD_MenuAttributes) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVMGAttributes)(::windows_core::Interface::as_raw(self), patr).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCurrentVideoAttributes(&self, patr: *mut DVD_VideoAttributes) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentVideoAttributes)(::windows_core::Interface::as_raw(self), patr).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAudioAttributes(&self, ulstream: u32, patr: *mut DVD_AudioAttributes) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAudioAttributes)(::windows_core::Interface::as_raw(self), ulstream, patr).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetKaraokeAttributes(&self, ulstream: u32, pattributes: *mut DVD_KaraokeAttributes) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetKaraokeAttributes)(::windows_core::Interface::as_raw(self), ulstream, pattributes).ok()
@@ -8810,7 +8666,7 @@ impl IDvdInfo2 {
     pub unsafe fn GetDVDDirectory(&self, pszwpath: &mut [u16], pulactualsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDVDDirectory)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszwpath.as_ptr()), pszwpath.len() as _, pulactualsize).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsAudioStreamEnabled(&self, ulstreamnum: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8830,7 +8686,7 @@ impl IDvdInfo2 {
     pub unsafe fn GetMenuLanguages(&self, planguages: *mut u32, ulmaxlanguages: u32, pulactuallanguages: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetMenuLanguages)(::windows_core::Interface::as_raw(self), planguages, ulmaxlanguages, pulactuallanguages).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetButtonAtPosition(&self, point: super::super::Foundation::POINT) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -8853,13 +8709,13 @@ impl IDvdInfo2 {
     pub unsafe fn GetDecoderCaps(&self, pcaps: *mut DVD_DECODER_CAPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDecoderCaps)(::windows_core::Interface::as_raw(self), pcaps).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetButtonRect(&self, ulbutton: u32) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetButtonRect)(::windows_core::Interface::as_raw(self), ulbutton, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSubpictureStreamEnabled(&self, ulstreamnum: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8947,7 +8803,6 @@ pub struct IDvdInfo2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsSubpictureStreamEnabled: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvdState(::windows_core::IUnknown);
@@ -8975,7 +8830,6 @@ pub struct IDvdState_Vtbl {
     pub GetDiscID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulluniqueid: *mut u64) -> ::windows_core::HRESULT,
     pub GetParentalLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulparentallevel: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESEvent(::windows_core::IUnknown);
@@ -8991,7 +8845,7 @@ impl IESEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCompletionStatus)(::windows_core::Interface::as_raw(self), dwresult).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -9022,7 +8876,6 @@ pub struct IESEvent_Vtbl {
     GetData: usize,
     pub GetStringData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESEvents(::windows_core::IUnknown);
@@ -9047,7 +8900,6 @@ pub struct IESEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnESEventReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guideventtype: ::windows_core::GUID, pesevent: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEncoderAPI(::windows_core::IUnknown);
@@ -9058,29 +8910,29 @@ impl IEncoderAPI {
     pub unsafe fn IsAvailable(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsAvailable)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetParameterRange(&self, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Variant::VARIANT, valuemax: *mut super::super::System::Variant::VARIANT, steppingdelta: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetParameterRange)(::windows_core::Interface::as_raw(self), api, valuemin, valuemax, steppingdelta).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetParameterValues(&self, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Variant::VARIANT, valuescount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetParameterValues)(::windows_core::Interface::as_raw(self), api, values, valuescount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetDefaultValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultValue)(::windows_core::Interface::as_raw(self), api, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), api, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValue(&self, api: *const ::windows_core::GUID, value: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), api, value).ok()
@@ -9120,12 +8972,11 @@ pub struct IEncoderAPI_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetValue: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumFilters(::windows_core::IUnknown);
 impl IEnumFilters {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, ppfilter: &mut [::core::option::Option<IBaseFilter>], pcfetched: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppfilter.len() as _, ::core::mem::transmute(ppfilter.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut())))
@@ -9160,12 +9011,11 @@ pub struct IEnumFilters_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumMediaTypes(::windows_core::IUnknown);
 impl IEnumMediaTypes {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn Next(&self, ppmediatypes: &mut [*mut super::MediaFoundation::AM_MEDIA_TYPE], pcfetched: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppmediatypes.len() as _, ::core::mem::transmute(ppmediatypes.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut())))
@@ -9200,7 +9050,6 @@ pub struct IEnumMediaTypes_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumPIDMap(::windows_core::IUnknown);
@@ -9235,7 +9084,6 @@ pub struct IEnumPIDMap_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienumpidmap: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumPins(::windows_core::IUnknown);
@@ -9270,7 +9118,6 @@ pub struct IEnumPins_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumRegFilters(::windows_core::IUnknown);
@@ -9305,7 +9152,6 @@ pub struct IEnumRegFilters_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumStreamIdMap(::windows_core::IUnknown);
@@ -9340,12 +9186,11 @@ pub struct IEnumStreamIdMap_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienumstreamidmap: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileSinkFilter(::windows_core::IUnknown);
 impl IFileSinkFilter {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetFileName<P0>(&self, pszfilename: P0, pmt: ::core::option::Option<*const super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows_core::Result<()>
     where
@@ -9353,7 +9198,7 @@ impl IFileSinkFilter {
     {
         (::windows_core::Interface::vtable(self).SetFileName)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi(), ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetCurFile(&self, ppszfilename: *mut ::windows_core::PWSTR, pmt: *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurFile)(::windows_core::Interface::as_raw(self), ppszfilename, pmt).ok()
@@ -9379,12 +9224,11 @@ pub struct IFileSinkFilter_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
     GetCurFile: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileSinkFilter2(::windows_core::IUnknown);
 impl IFileSinkFilter2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetFileName<P0>(&self, pszfilename: P0, pmt: ::core::option::Option<*const super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows_core::Result<()>
     where
@@ -9392,7 +9236,7 @@ impl IFileSinkFilter2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetFileName)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi(), ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetCurFile(&self, ppszfilename: *mut ::windows_core::PWSTR, pmt: *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetCurFile)(::windows_core::Interface::as_raw(self), ppszfilename, pmt).ok()
@@ -9419,12 +9263,11 @@ pub struct IFileSinkFilter2_Vtbl {
     pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
     pub GetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileSourceFilter(::windows_core::IUnknown);
 impl IFileSourceFilter {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn Load<P0>(&self, pszfilename: P0, pmt: ::core::option::Option<*const super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows_core::Result<()>
     where
@@ -9432,7 +9275,7 @@ impl IFileSourceFilter {
     {
         (::windows_core::Interface::vtable(self).Load)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi(), ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetCurFile(&self, ppszfilename: *mut ::windows_core::PWSTR, pmt: ::core::option::Option<*mut super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurFile)(::windows_core::Interface::as_raw(self), ppszfilename, ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9458,12 +9301,11 @@ pub struct IFileSourceFilter_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
     GetCurFile: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFilterChain(::windows_core::IUnknown);
 impl IFilterChain {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StartChain<P0, P1>(&self, pstartfilter: P0, pendfilter: P1) -> ::windows_core::Result<()>
     where
@@ -9472,7 +9314,7 @@ impl IFilterChain {
     {
         (::windows_core::Interface::vtable(self).StartChain)(::windows_core::Interface::as_raw(self), pstartfilter.into_param().abi(), pendfilter.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PauseChain<P0, P1>(&self, pstartfilter: P0, pendfilter: P1) -> ::windows_core::Result<()>
     where
@@ -9481,7 +9323,7 @@ impl IFilterChain {
     {
         (::windows_core::Interface::vtable(self).PauseChain)(::windows_core::Interface::as_raw(self), pstartfilter.into_param().abi(), pendfilter.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StopChain<P0, P1>(&self, pstartfilter: P0, pendfilter: P1) -> ::windows_core::Result<()>
     where
@@ -9490,7 +9332,7 @@ impl IFilterChain {
     {
         (::windows_core::Interface::vtable(self).StopChain)(::windows_core::Interface::as_raw(self), pstartfilter.into_param().abi(), pendfilter.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveChain<P0, P1>(&self, pstartfilter: P0, pendfilter: P1) -> ::windows_core::Result<()>
     where
@@ -9528,12 +9370,11 @@ pub struct IFilterChain_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     RemoveChain: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFilterGraph(::windows_core::IUnknown);
 impl IFilterGraph {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddFilter<P0, P1>(&self, pfilter: P0, pname: P1) -> ::windows_core::Result<()>
     where
@@ -9542,7 +9383,7 @@ impl IFilterGraph {
     {
         (::windows_core::Interface::vtable(self).AddFilter)(::windows_core::Interface::as_raw(self), pfilter.into_param().abi(), pname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveFilter<P0>(&self, pfilter: P0) -> ::windows_core::Result<()>
     where
@@ -9554,7 +9395,7 @@ impl IFilterGraph {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumFilters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindFilterByName<P0>(&self, pname: P0) -> ::windows_core::Result<IBaseFilter>
     where
@@ -9563,7 +9404,7 @@ impl IFilterGraph {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindFilterByName)(::windows_core::Interface::as_raw(self), pname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn ConnectDirect<P0, P1>(&self, ppinout: P0, ppinin: P1, pmt: ::core::option::Option<*const super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows_core::Result<()>
     where
@@ -9620,12 +9461,11 @@ pub struct IFilterGraph_Vtbl {
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetDefaultSyncSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFilterGraph2(::windows_core::IUnknown);
 impl IFilterGraph2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddFilter<P0, P1>(&self, pfilter: P0, pname: P1) -> ::windows_core::Result<()>
     where
@@ -9634,7 +9474,7 @@ impl IFilterGraph2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.AddFilter)(::windows_core::Interface::as_raw(self), pfilter.into_param().abi(), pname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveFilter<P0>(&self, pfilter: P0) -> ::windows_core::Result<()>
     where
@@ -9646,7 +9486,7 @@ impl IFilterGraph2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumFilters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindFilterByName<P0>(&self, pname: P0) -> ::windows_core::Result<IBaseFilter>
     where
@@ -9655,7 +9495,7 @@ impl IFilterGraph2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.FindFilterByName)(::windows_core::Interface::as_raw(self), pname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn ConnectDirect<P0, P1>(&self, ppinout: P0, ppinin: P1, pmt: ::core::option::Option<*const super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows_core::Result<()>
     where
@@ -9699,7 +9539,7 @@ impl IFilterGraph2 {
     {
         (::windows_core::Interface::vtable(self).base__.RenderFile)(::windows_core::Interface::as_raw(self), lpcwstrfile.into_param().abi(), lpcwstrplaylist.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddSourceFilter<P0, P1>(&self, lpcwstrfilename: P0, lpcwstrfiltername: P1) -> ::windows_core::Result<IBaseFilter>
     where
@@ -9718,7 +9558,7 @@ impl IFilterGraph2 {
     pub unsafe fn ShouldOperationContinue(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ShouldOperationContinue)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddSourceFilterForMoniker<P0, P1, P2>(&self, pmoniker: P0, pctx: P1, lpcwstrfiltername: P2) -> ::windows_core::Result<IBaseFilter>
     where
@@ -9729,7 +9569,7 @@ impl IFilterGraph2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddSourceFilterForMoniker)(::windows_core::Interface::as_raw(self), pmoniker.into_param().abi(), pctx.into_param().abi(), lpcwstrfiltername.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn ReconnectEx<P0>(&self, ppin: P0, pmt: ::core::option::Option<*const super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows_core::Result<()>
     where
@@ -9765,12 +9605,11 @@ pub struct IFilterGraph2_Vtbl {
     ReconnectEx: usize,
     pub RenderEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinout: *mut ::core::ffi::c_void, dwflags: u32, pvcontext: *const u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFilterGraph3(::windows_core::IUnknown);
 impl IFilterGraph3 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddFilter<P0, P1>(&self, pfilter: P0, pname: P1) -> ::windows_core::Result<()>
     where
@@ -9779,7 +9618,7 @@ impl IFilterGraph3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.AddFilter)(::windows_core::Interface::as_raw(self), pfilter.into_param().abi(), pname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveFilter<P0>(&self, pfilter: P0) -> ::windows_core::Result<()>
     where
@@ -9791,7 +9630,7 @@ impl IFilterGraph3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnumFilters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindFilterByName<P0>(&self, pname: P0) -> ::windows_core::Result<IBaseFilter>
     where
@@ -9800,7 +9639,7 @@ impl IFilterGraph3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.FindFilterByName)(::windows_core::Interface::as_raw(self), pname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn ConnectDirect<P0, P1>(&self, ppinout: P0, ppinin: P1, pmt: ::core::option::Option<*const super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows_core::Result<()>
     where
@@ -9844,7 +9683,7 @@ impl IFilterGraph3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.RenderFile)(::windows_core::Interface::as_raw(self), lpcwstrfile.into_param().abi(), lpcwstrplaylist.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddSourceFilter<P0, P1>(&self, lpcwstrfilename: P0, lpcwstrfiltername: P1) -> ::windows_core::Result<IBaseFilter>
     where
@@ -9863,7 +9702,7 @@ impl IFilterGraph3 {
     pub unsafe fn ShouldOperationContinue(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ShouldOperationContinue)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddSourceFilterForMoniker<P0, P1, P2>(&self, pmoniker: P0, pctx: P1, lpcwstrfiltername: P2) -> ::windows_core::Result<IBaseFilter>
     where
@@ -9874,7 +9713,7 @@ impl IFilterGraph3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AddSourceFilterForMoniker)(::windows_core::Interface::as_raw(self), pmoniker.into_param().abi(), pctx.into_param().abi(), lpcwstrfiltername.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn ReconnectEx<P0>(&self, ppin: P0, pmt: ::core::option::Option<*const super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows_core::Result<()>
     where
@@ -9888,7 +9727,7 @@ impl IFilterGraph3 {
     {
         (::windows_core::Interface::vtable(self).base__.RenderEx)(::windows_core::Interface::as_raw(self), ppinout.into_param().abi(), dwflags, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSyncSourceEx<P0, P1, P2>(&self, pclockformostoffiltergraph: P0, pclockforfilter: P1, pfilter: P2) -> ::windows_core::Result<()>
     where
@@ -9915,14 +9754,14 @@ pub struct IFilterGraph3_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSyncSourceEx: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFilterInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFilterInfo {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindPin<P0>(&self, strpinid: P0) -> ::windows_core::Result<super::super::System::Com::IDispatch>
     where
@@ -9943,7 +9782,7 @@ impl IFilterInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Filter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Pins(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -9994,7 +9833,6 @@ pub struct IFilterInfo_Vtbl {
     pub Filename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrfilename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetFilename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strfilename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFilterMapper(::windows_core::IUnknown);
@@ -10012,7 +9850,7 @@ impl IFilterMapper {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RegisterFilterInstance)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(clsid), name.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterPin<P0, P1, P2, P3, P4, P5>(&self, filter: ::windows_core::GUID, name: P0, brendered: P1, boutput: P2, bzero: P3, bmany: P4, connectstofilter: ::windows_core::GUID, connectstopin: P5) -> ::windows_core::Result<()>
     where
@@ -10043,7 +9881,7 @@ impl IFilterMapper {
     {
         (::windows_core::Interface::vtable(self).UnregisterPin)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(filter), name.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumMatchingFilters<P0, P1, P2>(&self, ppenum: *mut ::core::option::Option<IEnumRegFilters>, dwmerit: u32, binputneeded: P0, clsinmaj: ::windows_core::GUID, clsinsub: ::windows_core::GUID, brender: P1, boututneeded: P2, clsoutmaj: ::windows_core::GUID, clsoutsub: ::windows_core::GUID) -> ::windows_core::Result<()>
     where
@@ -10080,7 +9918,6 @@ pub struct IFilterMapper_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     EnumMatchingFilters: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFilterMapper2(::windows_core::IUnknown);
@@ -10097,7 +9934,7 @@ impl IFilterMapper2 {
     {
         (::windows_core::Interface::vtable(self).UnregisterFilter)(::windows_core::Interface::as_raw(self), pclsidcategory, szinstance.into_param().abi(), filter).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RegisterFilter<P0, P1>(&self, clsidfilter: *const ::windows_core::GUID, name: P0, ppmoniker: ::core::option::Option<*mut ::core::option::Option<super::super::System::Com::IMoniker>>, pclsidcategory: *const ::windows_core::GUID, szinstance: P1, prf2: *const REGFILTER2) -> ::windows_core::Result<()>
     where
@@ -10106,7 +9943,7 @@ impl IFilterMapper2 {
     {
         (::windows_core::Interface::vtable(self).RegisterFilter)(::windows_core::Interface::as_raw(self), clsidfilter, name.into_param().abi(), ::core::mem::transmute(ppmoniker.unwrap_or(::std::ptr::null_mut())), pclsidcategory, szinstance.into_param().abi(), prf2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EnumMatchingFilters<P0, P1, P2, P3>(&self, ppenum: *mut ::core::option::Option<super::super::System::Com::IEnumMoniker>, dwflags: u32, bexactmatch: P0, dwmerit: u32, binputneeded: P1, cinputtypes: u32, pinputtypes: ::core::option::Option<*const ::windows_core::GUID>, pmedin: ::core::option::Option<*const REGPINMEDIUM>, ppincategoryin: ::core::option::Option<*const ::windows_core::GUID>, brender: P2, boutputneeded: P3, coutputtypes: u32, poutputtypes: ::core::option::Option<*const ::windows_core::GUID>, pmedout: ::core::option::Option<*const REGPINMEDIUM>, ppincategoryout: ::core::option::Option<*const ::windows_core::GUID>) -> ::windows_core::Result<()>
     where
@@ -10158,7 +9995,6 @@ pub struct IFilterMapper2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     EnumMatchingFilters: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFilterMapper3(::windows_core::IUnknown);
@@ -10175,7 +10011,7 @@ impl IFilterMapper3 {
     {
         (::windows_core::Interface::vtable(self).base__.UnregisterFilter)(::windows_core::Interface::as_raw(self), pclsidcategory, szinstance.into_param().abi(), filter).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RegisterFilter<P0, P1>(&self, clsidfilter: *const ::windows_core::GUID, name: P0, ppmoniker: ::core::option::Option<*mut ::core::option::Option<super::super::System::Com::IMoniker>>, pclsidcategory: *const ::windows_core::GUID, szinstance: P1, prf2: *const REGFILTER2) -> ::windows_core::Result<()>
     where
@@ -10184,7 +10020,7 @@ impl IFilterMapper3 {
     {
         (::windows_core::Interface::vtable(self).base__.RegisterFilter)(::windows_core::Interface::as_raw(self), clsidfilter, name.into_param().abi(), ::core::mem::transmute(ppmoniker.unwrap_or(::std::ptr::null_mut())), pclsidcategory, szinstance.into_param().abi(), prf2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EnumMatchingFilters<P0, P1, P2, P3>(&self, ppenum: *mut ::core::option::Option<super::super::System::Com::IEnumMoniker>, dwflags: u32, bexactmatch: P0, dwmerit: u32, binputneeded: P1, cinputtypes: u32, pinputtypes: ::core::option::Option<*const ::windows_core::GUID>, pmedin: ::core::option::Option<*const REGPINMEDIUM>, ppincategoryin: ::core::option::Option<*const ::windows_core::GUID>, brender: P2, boutputneeded: P3, coutputtypes: u32, poutputtypes: ::core::option::Option<*const ::windows_core::GUID>, pmedout: ::core::option::Option<*const REGPINMEDIUM>, ppincategoryout: ::core::option::Option<*const ::windows_core::GUID>) -> ::windows_core::Result<()>
     where
@@ -10231,7 +10067,6 @@ pub struct IFilterMapper3_Vtbl {
     pub base__: IFilterMapper2_Vtbl,
     pub GetICreateDevEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFrequencyMap(::windows_core::IUnknown);
@@ -10274,7 +10109,6 @@ pub struct IFrequencyMap_Vtbl {
     pub get_DefaultFrequencyMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcountrycode: u32, pulcount: *mut u32, ppullist: *mut *mut u32) -> ::windows_core::HRESULT,
     pub get_CountryCodeList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcount: *mut u32, ppullist: *mut *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFullScreenVideo(::windows_core::IUnknown);
@@ -10306,7 +10140,7 @@ impl IFullScreenVideo {
     pub unsafe fn SetClipFactor(&self, clipfactor: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetClipFactor)(::windows_core::Interface::as_raw(self), clipfactor).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMessageDrain<P0>(&self, hwnd: P0) -> ::windows_core::Result<()>
     where
@@ -10314,7 +10148,7 @@ impl IFullScreenVideo {
     {
         (::windows_core::Interface::vtable(self).SetMessageDrain)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMessageDrain(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -10382,7 +10216,6 @@ pub struct IFullScreenVideo_Vtbl {
     pub GetCaption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcaption: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFullScreenVideoEx(::windows_core::IUnknown);
@@ -10414,7 +10247,7 @@ impl IFullScreenVideoEx {
     pub unsafe fn SetClipFactor(&self, clipfactor: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetClipFactor)(::windows_core::Interface::as_raw(self), clipfactor).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMessageDrain<P0>(&self, hwnd: P0) -> ::windows_core::Result<()>
     where
@@ -10422,7 +10255,7 @@ impl IFullScreenVideoEx {
     {
         (::windows_core::Interface::vtable(self).base__.SetMessageDrain)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMessageDrain(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -10454,7 +10287,7 @@ impl IFullScreenVideoEx {
     pub unsafe fn SetDefault(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetDefault)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn SetAcceleratorTable<P0, P1>(&self, hwnd: P0, haccel: P1) -> ::windows_core::Result<()>
     where
@@ -10463,7 +10296,7 @@ impl IFullScreenVideoEx {
     {
         (::windows_core::Interface::vtable(self).SetAcceleratorTable)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), haccel.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetAcceleratorTable(&self, phwnd: *mut super::super::Foundation::HWND, phaccel: *mut super::super::UI::WindowsAndMessaging::HACCEL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAcceleratorTable)(::windows_core::Interface::as_raw(self), phwnd, phaccel).ok()
@@ -10498,12 +10331,11 @@ pub struct IFullScreenVideoEx_Vtbl {
     pub KeepPixelAspectRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keepaspect: i32) -> ::windows_core::HRESULT,
     pub IsKeepPixelAspectRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkeepaspect: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetCapabilitiesKey(::windows_core::IUnknown);
 impl IGetCapabilitiesKey {
-    #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+    #[doc = "Required features: `Win32_System_Registry`"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn GetCapabilitiesKey(&self) -> ::windows_core::Result<super::super::System::Registry::HKEY> {
         let mut result__ = ::std::mem::zeroed();
@@ -10526,12 +10358,11 @@ pub struct IGetCapabilitiesKey_Vtbl {
     #[cfg(not(feature = "Win32_System_Registry"))]
     GetCapabilitiesKey: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGraphBuilder(::windows_core::IUnknown);
 impl IGraphBuilder {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddFilter<P0, P1>(&self, pfilter: P0, pname: P1) -> ::windows_core::Result<()>
     where
@@ -10540,7 +10371,7 @@ impl IGraphBuilder {
     {
         (::windows_core::Interface::vtable(self).base__.AddFilter)(::windows_core::Interface::as_raw(self), pfilter.into_param().abi(), pname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveFilter<P0>(&self, pfilter: P0) -> ::windows_core::Result<()>
     where
@@ -10552,7 +10383,7 @@ impl IGraphBuilder {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumFilters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindFilterByName<P0>(&self, pname: P0) -> ::windows_core::Result<IBaseFilter>
     where
@@ -10561,7 +10392,7 @@ impl IGraphBuilder {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FindFilterByName)(::windows_core::Interface::as_raw(self), pname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn ConnectDirect<P0, P1>(&self, ppinout: P0, ppinin: P1, pmt: ::core::option::Option<*const super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows_core::Result<()>
     where
@@ -10605,7 +10436,7 @@ impl IGraphBuilder {
     {
         (::windows_core::Interface::vtable(self).RenderFile)(::windows_core::Interface::as_raw(self), lpcwstrfile.into_param().abi(), lpcwstrplaylist.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddSourceFilter<P0, P1>(&self, lpcwstrfilename: P0, lpcwstrfiltername: P1) -> ::windows_core::Result<IBaseFilter>
     where
@@ -10647,12 +10478,11 @@ pub struct IGraphBuilder_Vtbl {
     pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ShouldOperationContinue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGraphConfig(::windows_core::IUnknown);
 impl IGraphConfig {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
     pub unsafe fn Reconnect<P0, P1, P2, P3>(&self, poutputpin: P0, pinputpin: P1, pmtfirstconnection: *const super::MediaFoundation::AM_MEDIA_TYPE, pusingfilter: P2, habortevent: P3, dwflags: u32) -> ::windows_core::Result<()>
     where
@@ -10663,7 +10493,7 @@ impl IGraphConfig {
     {
         (::windows_core::Interface::vtable(self).Reconnect)(::windows_core::Interface::as_raw(self), poutputpin.into_param().abi(), pinputpin.into_param().abi(), pmtfirstconnection, pusingfilter.into_param().abi(), habortevent.into_param().abi(), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Reconfigure<P0, P1>(&self, pcallback: P0, pvcontext: *const ::core::ffi::c_void, dwflags: u32, habortevent: P1) -> ::windows_core::Result<()>
     where
@@ -10672,7 +10502,7 @@ impl IGraphConfig {
     {
         (::windows_core::Interface::vtable(self).Reconfigure)(::windows_core::Interface::as_raw(self), pcallback.into_param().abi(), pvcontext, dwflags, habortevent.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddFilterToCache<P0>(&self, pfilter: P0) -> ::windows_core::Result<()>
     where
@@ -10684,7 +10514,7 @@ impl IGraphConfig {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumCacheFilter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveFilterFromCache<P0>(&self, pfilter: P0) -> ::windows_core::Result<()>
     where
@@ -10696,7 +10526,7 @@ impl IGraphConfig {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStartTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PushThroughData<P0, P1, P2>(&self, poutputpin: P0, pconnection: P1, heventabort: P2) -> ::windows_core::Result<()>
     where
@@ -10706,7 +10536,7 @@ impl IGraphConfig {
     {
         (::windows_core::Interface::vtable(self).PushThroughData)(::windows_core::Interface::as_raw(self), poutputpin.into_param().abi(), pconnection.into_param().abi(), heventabort.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFilterFlags<P0>(&self, pfilter: P0, dwflags: u32) -> ::windows_core::Result<()>
     where
@@ -10714,7 +10544,7 @@ impl IGraphConfig {
     {
         (::windows_core::Interface::vtable(self).SetFilterFlags)(::windows_core::Interface::as_raw(self), pfilter.into_param().abi(), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFilterFlags<P0>(&self, pfilter: P0) -> ::windows_core::Result<u32>
     where
@@ -10723,7 +10553,7 @@ impl IGraphConfig {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFilterFlags)(::windows_core::Interface::as_raw(self), pfilter.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveFilterEx<P0>(&self, pfilter: P0, flags: u32) -> ::windows_core::Result<()>
     where
@@ -10778,7 +10608,6 @@ pub struct IGraphConfig_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     RemoveFilterEx: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGraphConfigCallback(::windows_core::IUnknown);
@@ -10800,7 +10629,6 @@ pub struct IGraphConfigCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Reconfigure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGraphVersion(::windows_core::IUnknown);
@@ -10823,7 +10651,6 @@ pub struct IGraphVersion_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pversion: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIPDVDec(::windows_core::IUnknown);
@@ -10850,7 +10677,6 @@ pub struct IIPDVDec_Vtbl {
     pub IPDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displaypix: *mut i32) -> ::windows_core::HRESULT,
     pub SetIPDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displaypix: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2PIDMap(::windows_core::IUnknown);
@@ -10881,7 +10707,6 @@ pub struct IMPEG2PIDMap_Vtbl {
     pub UnmapPID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, culpid: u32, pulpid: *const u32) -> ::windows_core::HRESULT,
     pub EnumPIDMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pienumpidmap: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2StreamIdMap(::windows_core::IUnknown);
@@ -10912,7 +10737,7 @@ pub struct IMPEG2StreamIdMap_Vtbl {
     pub UnmapStreamId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, culstreamid: u32, pulstreamid: *const u32) -> ::windows_core::HRESULT,
     pub EnumStreamIdMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienumstreamidmap: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -10938,7 +10763,7 @@ impl IMediaControl {
     {
         (::windows_core::Interface::vtable(self).RenderFile)(::windows_core::Interface::as_raw(self), strfilename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddSourceFilter<P0>(&self, strfilename: P0) -> ::windows_core::Result<super::super::System::Com::IDispatch>
     where
@@ -10947,13 +10772,13 @@ impl IMediaControl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddSourceFilter)(::windows_core::Interface::as_raw(self), strfilename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FilterCollection(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FilterCollection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RegFilterCollection(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -10997,7 +10822,7 @@ pub struct IMediaControl_Vtbl {
     RegFilterCollection: usize,
     pub StopWhenReady: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11047,7 +10872,7 @@ pub struct IMediaEvent_Vtbl {
     pub RestoreDefaultHandling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, levcode: i32) -> ::windows_core::HRESULT,
     pub FreeEventParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, levcode: i32, lparam1: isize, lparam2: isize) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11104,7 +10929,6 @@ pub struct IMediaEventEx_Vtbl {
     pub SetNotifyFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnonotifyflags: i32) -> ::windows_core::HRESULT,
     pub GetNotifyFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lplnonotifyflags: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaEventSink(::windows_core::IUnknown);
@@ -11126,14 +10950,14 @@ pub struct IMediaEventSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcode: i32, eventparam1: isize, eventparam2: isize) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaFilter(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMediaFilter {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -11185,7 +11009,6 @@ pub struct IMediaFilter_Vtbl {
     pub SetSyncSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclock: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetSyncSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclock: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaParamInfo(::windows_core::IUnknown);
@@ -11231,7 +11054,6 @@ pub struct IMediaParamInfo_Vtbl {
     pub GetSupportedTimeFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwformatindex: u32, pguidtimeformat: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub GetCurrentTimeFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtimeformat: *mut ::windows_core::GUID, ptimedata: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaParams(::windows_core::IUnknown);
@@ -11270,7 +11092,7 @@ pub struct IMediaParams_Vtbl {
     pub FlushEnvelope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwparamindex: u32, reftimestart: i64, reftimeend: i64) -> ::windows_core::HRESULT,
     pub SetTimeFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtimeformat: ::windows_core::GUID, mptimedata: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11345,14 +11167,14 @@ pub struct IMediaPosition_Vtbl {
     pub CanSeekForward: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcanseekforward: *mut i32) -> ::windows_core::HRESULT,
     pub CanSeekBackward: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcanseekbackward: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPropertyBag(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IMediaPropertyBag {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::super::System::Variant::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
     where
@@ -11361,7 +11183,7 @@ impl IMediaPropertyBag {
     {
         (::windows_core::Interface::vtable(self).base__.Read)(::windows_core::Interface::as_raw(self), pszpropname.into_param().abi(), pvar, perrorlog.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -11369,7 +11191,7 @@ impl IMediaPropertyBag {
     {
         (::windows_core::Interface::vtable(self).base__.Write)(::windows_core::Interface::as_raw(self), pszpropname.into_param().abi(), pvar).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn EnumProperty(&self, iproperty: u32, pvarpropertyname: *mut super::super::System::Variant::VARIANT, pvarpropertyvalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnumProperty)(::windows_core::Interface::as_raw(self), iproperty, pvarpropertyname, pvarpropertyvalue).ok()
@@ -11395,7 +11217,6 @@ pub struct IMediaPropertyBag_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     EnumProperty: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaSample(::windows_core::IUnknown);
@@ -11416,7 +11237,7 @@ impl IMediaSample {
     pub unsafe fn IsSyncPoint(&self) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).IsSyncPoint)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSyncPoint<P0>(&self, bissyncpoint: P0) -> ::windows_core::Result<()>
     where
@@ -11427,7 +11248,7 @@ impl IMediaSample {
     pub unsafe fn IsPreroll(&self) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).IsPreroll)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPreroll<P0>(&self, bispreroll: P0) -> ::windows_core::Result<()>
     where
@@ -11441,13 +11262,13 @@ impl IMediaSample {
     pub unsafe fn SetActualDataLength(&self, __midl__imediasample0000: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetActualDataLength)(::windows_core::Interface::as_raw(self), __midl__imediasample0000).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetMediaType(&self) -> ::windows_core::Result<*mut super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetMediaType(&self, pmediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMediaType)(::windows_core::Interface::as_raw(self), pmediatype).ok()
@@ -11455,7 +11276,7 @@ impl IMediaSample {
     pub unsafe fn IsDiscontinuity(&self) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).IsDiscontinuity)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDiscontinuity<P0>(&self, bdiscontinuity: P0) -> ::windows_core::Result<()>
     where
@@ -11513,7 +11334,6 @@ pub struct IMediaSample_Vtbl {
     pub GetMediaTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimestart: *mut i64, ptimeend: *mut i64) -> ::windows_core::HRESULT,
     pub SetMediaTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimestart: *const i64, ptimeend: *const i64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaSample2(::windows_core::IUnknown);
@@ -11534,7 +11354,7 @@ impl IMediaSample2 {
     pub unsafe fn IsSyncPoint(&self) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).base__.IsSyncPoint)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSyncPoint<P0>(&self, bissyncpoint: P0) -> ::windows_core::Result<()>
     where
@@ -11545,7 +11365,7 @@ impl IMediaSample2 {
     pub unsafe fn IsPreroll(&self) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).base__.IsPreroll)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPreroll<P0>(&self, bispreroll: P0) -> ::windows_core::Result<()>
     where
@@ -11559,13 +11379,13 @@ impl IMediaSample2 {
     pub unsafe fn SetActualDataLength(&self, __midl__imediasample0000: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetActualDataLength)(::windows_core::Interface::as_raw(self), __midl__imediasample0000).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetMediaType(&self) -> ::windows_core::Result<*mut super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetMediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetMediaType(&self, pmediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMediaType)(::windows_core::Interface::as_raw(self), pmediatype).ok()
@@ -11573,7 +11393,7 @@ impl IMediaSample2 {
     pub unsafe fn IsDiscontinuity(&self) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).base__.IsDiscontinuity)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDiscontinuity<P0>(&self, bdiscontinuity: P0) -> ::windows_core::Result<()>
     where
@@ -11608,7 +11428,6 @@ pub struct IMediaSample2_Vtbl {
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbproperties: u32, pbproperties: *mut u8) -> ::windows_core::HRESULT,
     pub SetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbproperties: u32, pbproperties: *const u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaSample2Config(::windows_core::IUnknown);
@@ -11631,7 +11450,6 @@ pub struct IMediaSample2Config_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdirect3dsurface9: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaSeeking(::windows_core::IUnknown);
@@ -11725,7 +11543,6 @@ pub struct IMediaSeeking_Vtbl {
     pub GetRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdrate: *mut f64) -> ::windows_core::HRESULT,
     pub GetPreroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pllpreroll: *mut i64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaStream(::windows_core::IUnknown);
@@ -11776,14 +11593,14 @@ pub struct IMediaStream_Vtbl {
     pub CreateSharedSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexistingsample: *mut ::core::ffi::c_void, dwflags: u32, ppnewsample: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SendEndOfStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaStreamFilter(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMediaStreamFilter {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -11851,7 +11668,7 @@ impl IMediaStreamFilter {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumMediaStreams)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SupportSeeking<P0>(&self, brenderer: P0) -> ::windows_core::Result<()>
     where
@@ -11869,7 +11686,7 @@ impl IMediaStreamFilter {
     pub unsafe fn WaitUntil(&self, waitstreamtime: i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).WaitUntil)(::windows_core::Interface::as_raw(self), waitstreamtime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Flush<P0>(&self, bcanceleos: P0) -> ::windows_core::Result<()>
     where
@@ -11912,7 +11729,7 @@ pub struct IMediaStreamFilter_Vtbl {
     Flush: usize,
     pub EndOfStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11946,7 +11763,6 @@ pub struct IMediaTypeInfo_Vtbl {
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strtype: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Subtype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strtype: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMemAllocator(::windows_core::IUnknown);
@@ -11993,7 +11809,6 @@ pub struct IMemAllocator_Vtbl {
     pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbuffer: *mut *mut ::core::ffi::c_void, pstarttime: *const i64, pendtime: *const i64, dwflags: u32) -> ::windows_core::HRESULT,
     pub ReleaseBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMemAllocatorCallbackTemp(::windows_core::IUnknown);
@@ -12046,7 +11861,6 @@ pub struct IMemAllocatorCallbackTemp_Vtbl {
     pub SetNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotify: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetFreeCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plbuffersfree: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMemAllocatorNotifyCallbackTemp(::windows_core::IUnknown);
@@ -12068,7 +11882,6 @@ pub struct IMemAllocatorNotifyCallbackTemp_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub NotifyRelease: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMemInputPin(::windows_core::IUnknown);
@@ -12077,7 +11890,7 @@ impl IMemInputPin {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAllocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NotifyAllocator<P0, P1>(&self, pallocator: P0, breadonly: P1) -> ::windows_core::Result<()>
     where
@@ -12125,7 +11938,6 @@ pub struct IMemInputPin_Vtbl {
     pub ReceiveMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psamples: *const *mut ::core::ffi::c_void, nsamples: i32, nsamplesprocessed: *mut i32) -> ::windows_core::HRESULT,
     pub ReceiveCanBlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMemoryData(::windows_core::IUnknown);
@@ -12155,7 +11967,6 @@ pub struct IMemoryData_Vtbl {
     pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlength: *mut u32, ppbdata: *mut *mut u8, pcbactualdata: *mut u32) -> ::windows_core::HRESULT,
     pub SetActual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbdatavalid: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMixerOCX(::windows_core::IUnknown);
@@ -12173,7 +11984,7 @@ impl IMixerOCX {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn OnDraw<P0>(&self, hdcdraw: P0, prcdraw: *const super::super::Foundation::RECT) -> ::windows_core::Result<()>
     where
@@ -12181,7 +11992,7 @@ impl IMixerOCX {
     {
         (::windows_core::Interface::vtable(self).OnDraw)(::windows_core::Interface::as_raw(self), hdcdraw.into_param().abi(), prcdraw).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDrawRegion(&self, lppttopleftsc: *const super::super::Foundation::POINT, prcdrawcc: *const super::super::Foundation::RECT, lprcclip: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDrawRegion)(::windows_core::Interface::as_raw(self), lppttopleftsc, prcdrawcc, lprcclip).ok()
@@ -12222,12 +12033,11 @@ pub struct IMixerOCX_Vtbl {
     pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmdns: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub UnAdvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMixerOCXNotify(::windows_core::IUnknown);
 impl IMixerOCXNotify {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnInvalidateRect(&self, lpcrect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnInvalidateRect)(::windows_core::Interface::as_raw(self), lpcrect).ok()
@@ -12257,7 +12067,6 @@ pub struct IMixerOCXNotify_Vtbl {
     pub OnStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulstatusflags: u32) -> ::windows_core::HRESULT,
     pub OnDataChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uldataflags: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMixerPinConfig(::windows_core::IUnknown);
@@ -12274,12 +12083,12 @@ impl IMixerPinConfig {
     pub unsafe fn GetZOrder(&self, pdwzorder: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetZOrder)(::windows_core::Interface::as_raw(self), pdwzorder).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetColorKey(&self, pcolorkey: *mut COLORKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetColorKey)(::windows_core::Interface::as_raw(self), pcolorkey).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetColorKey(&self, pcolorkey: *mut COLORKEY, pcolor: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetColorKey)(::windows_core::Interface::as_raw(self), pcolorkey, pcolor).ok()
@@ -12296,7 +12105,7 @@ impl IMixerPinConfig {
     pub unsafe fn GetAspectRatioMode(&self, pamaspectratiomode: *mut AM_ASPECT_RATIO_MODE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAspectRatioMode)(::windows_core::Interface::as_raw(self), pamaspectratiomode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStreamTransparent<P0>(&self, bstreamtransparent: P0) -> ::windows_core::Result<()>
     where
@@ -12304,7 +12113,7 @@ impl IMixerPinConfig {
     {
         (::windows_core::Interface::vtable(self).SetStreamTransparent)(::windows_core::Interface::as_raw(self), bstreamtransparent.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStreamTransparent(&self, pbstreamtransparent: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStreamTransparent)(::windows_core::Interface::as_raw(self), pbstreamtransparent).ok()
@@ -12346,7 +12155,6 @@ pub struct IMixerPinConfig_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetStreamTransparent: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMixerPinConfig2(::windows_core::IUnknown);
@@ -12363,12 +12171,12 @@ impl IMixerPinConfig2 {
     pub unsafe fn GetZOrder(&self, pdwzorder: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetZOrder)(::windows_core::Interface::as_raw(self), pdwzorder).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetColorKey(&self, pcolorkey: *mut COLORKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetColorKey)(::windows_core::Interface::as_raw(self), pcolorkey).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetColorKey(&self, pcolorkey: *mut COLORKEY, pcolor: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetColorKey)(::windows_core::Interface::as_raw(self), pcolorkey, pcolor).ok()
@@ -12385,7 +12193,7 @@ impl IMixerPinConfig2 {
     pub unsafe fn GetAspectRatioMode(&self, pamaspectratiomode: *mut AM_ASPECT_RATIO_MODE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetAspectRatioMode)(::windows_core::Interface::as_raw(self), pamaspectratiomode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStreamTransparent<P0>(&self, bstreamtransparent: P0) -> ::windows_core::Result<()>
     where
@@ -12393,17 +12201,17 @@ impl IMixerPinConfig2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetStreamTransparent)(::windows_core::Interface::as_raw(self), bstreamtransparent.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStreamTransparent(&self, pbstreamtransparent: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetStreamTransparent)(::windows_core::Interface::as_raw(self), pbstreamtransparent).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn SetOverlaySurfaceColorControls(&self, pcolorcontrol: *mut super::super::Graphics::DirectDraw::DDCOLORCONTROL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOverlaySurfaceColorControls)(::windows_core::Interface::as_raw(self), pcolorcontrol).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetOverlaySurfaceColorControls(&self, pcolorcontrol: *mut super::super::Graphics::DirectDraw::DDCOLORCONTROL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetOverlaySurfaceColorControls)(::windows_core::Interface::as_raw(self), pcolorcontrol).ok()
@@ -12429,12 +12237,11 @@ pub struct IMixerPinConfig2_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_DirectDraw"))]
     GetOverlaySurfaceColorControls: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMpeg2Demultiplexer(::windows_core::IUnknown);
 impl IMpeg2Demultiplexer {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn CreateOutputPin<P0>(&self, pmediatype: *const super::MediaFoundation::AM_MEDIA_TYPE, pszpinname: P0) -> ::windows_core::Result<IPin>
     where
@@ -12443,7 +12250,7 @@ impl IMpeg2Demultiplexer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateOutputPin)(::windows_core::Interface::as_raw(self), pmediatype, pszpinname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetOutputPinMediaType<P0>(&self, pszpinname: P0, pmediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>
     where
@@ -12479,7 +12286,6 @@ pub struct IMpeg2Demultiplexer_Vtbl {
     SetOutputPinMediaType: usize,
     pub DeleteOutputPin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpinname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMpegAudioDecoder(::windows_core::IUnknown);
@@ -12525,7 +12331,7 @@ impl IMpegAudioDecoder {
     pub unsafe fn SetDualMode(&self, intdecode: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDualMode)(::windows_core::Interface::as_raw(self), intdecode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+    #[doc = "Required features: `Win32_Media_Audio`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn AudioFormat(&self, lpfmt: *mut MPEG1WAVEFORMAT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AudioFormat)(::windows_core::Interface::as_raw(self), lpfmt).ok()
@@ -12559,7 +12365,6 @@ pub struct IMpegAudioDecoder_Vtbl {
     #[cfg(not(feature = "Win32_Media_Audio"))]
     AudioFormat: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMultiMediaStream(::windows_core::IUnknown);
@@ -12593,7 +12398,7 @@ impl IMultiMediaStream {
     pub unsafe fn Seek(&self, seektime: i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Seek)(::windows_core::Interface::as_raw(self), seektime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEndOfStreamEventHandle(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -12624,50 +12429,49 @@ pub struct IMultiMediaStream_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetEndOfStreamEventHandle: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOverlay(::windows_core::IUnknown);
 impl IOverlay {
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetPalette(&self, pdwcolors: *mut u32, pppalette: *mut *mut super::super::Graphics::Gdi::PALETTEENTRY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPalette)(::windows_core::Interface::as_raw(self), pdwcolors, pppalette).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetPalette(&self, ppalette: &[super::super::Graphics::Gdi::PALETTEENTRY]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPalette)(::windows_core::Interface::as_raw(self), ppalette.len() as _, ::core::mem::transmute(ppalette.as_ptr())).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDefaultColorKey(&self) -> ::windows_core::Result<COLORKEY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultColorKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetColorKey(&self) -> ::windows_core::Result<COLORKEY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetColorKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetColorKey(&self, pcolorkey: *mut COLORKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetColorKey)(::windows_core::Interface::as_raw(self), pcolorkey).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetWindowHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetClipList(&self, psourcerect: *mut super::super::Foundation::RECT, pdestinationrect: *mut super::super::Foundation::RECT, pprgndata: *mut *mut super::super::Graphics::Gdi::RGNDATA) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetClipList)(::windows_core::Interface::as_raw(self), psourcerect, pdestinationrect, pprgndata).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVideoPosition(&self, psourcerect: *mut super::super::Foundation::RECT, pdestinationrect: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoPosition)(::windows_core::Interface::as_raw(self), psourcerect, pdestinationrect).ok()
@@ -12728,27 +12532,26 @@ pub struct IOverlay_Vtbl {
     pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poverlaynotify: *mut ::core::ffi::c_void, dwinterests: u32) -> ::windows_core::HRESULT,
     pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOverlayNotify(::windows_core::IUnknown);
 impl IOverlayNotify {
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn OnPaletteChange(&self, dwcolors: u32, ppalette: *const super::super::Graphics::Gdi::PALETTEENTRY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnPaletteChange)(::windows_core::Interface::as_raw(self), dwcolors, ppalette).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn OnClipChange(&self, psourcerect: *const super::super::Foundation::RECT, pdestinationrect: *const super::super::Foundation::RECT, prgndata: *const super::super::Graphics::Gdi::RGNDATA) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnClipChange)(::windows_core::Interface::as_raw(self), psourcerect, pdestinationrect, prgndata).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnColorKeyChange(&self, pcolorkey: *const COLORKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnColorKeyChange)(::windows_core::Interface::as_raw(self), pcolorkey).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnPositionChange(&self, psourcerect: *const super::super::Foundation::RECT, pdestinationrect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnPositionChange)(::windows_core::Interface::as_raw(self), psourcerect, pdestinationrect).ok()
@@ -12782,32 +12585,31 @@ pub struct IOverlayNotify_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OnPositionChange: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOverlayNotify2(::windows_core::IUnknown);
 impl IOverlayNotify2 {
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn OnPaletteChange(&self, dwcolors: u32, ppalette: *const super::super::Graphics::Gdi::PALETTEENTRY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.OnPaletteChange)(::windows_core::Interface::as_raw(self), dwcolors, ppalette).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn OnClipChange(&self, psourcerect: *const super::super::Foundation::RECT, pdestinationrect: *const super::super::Foundation::RECT, prgndata: *const super::super::Graphics::Gdi::RGNDATA) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.OnClipChange)(::windows_core::Interface::as_raw(self), psourcerect, pdestinationrect, prgndata).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnColorKeyChange(&self, pcolorkey: *const COLORKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.OnColorKeyChange)(::windows_core::Interface::as_raw(self), pcolorkey).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnPositionChange(&self, psourcerect: *const super::super::Foundation::RECT, pdestinationrect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.OnPositionChange)(::windows_core::Interface::as_raw(self), psourcerect, pdestinationrect).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn OnDisplayChange<P0>(&self, hmonitor: P0) -> ::windows_core::Result<()>
     where
@@ -12832,14 +12634,14 @@ pub struct IOverlayNotify2_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     OnDisplayChange: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPersistMediaPropertyBag(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPersistMediaPropertyBag {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -12848,7 +12650,7 @@ impl IPersistMediaPropertyBag {
     pub unsafe fn InitNew(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitNew)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Load<P0, P1>(&self, ppropbag: P0, perrorlog: P1) -> ::windows_core::Result<()>
     where
@@ -12857,7 +12659,7 @@ impl IPersistMediaPropertyBag {
     {
         (::windows_core::Interface::vtable(self).Load)(::windows_core::Interface::as_raw(self), ppropbag.into_param().abi(), perrorlog.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Save<P0, P1, P2>(&self, ppropbag: P0, fcleardirty: P1, fsaveallproperties: P2) -> ::windows_core::Result<()>
     where
@@ -12893,12 +12695,11 @@ pub struct IPersistMediaPropertyBag_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     Save: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPin(::windows_core::IUnknown);
 impl IPin {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn Connect<P0>(&self, preceivepin: P0, pmt: ::core::option::Option<*const super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows_core::Result<()>
     where
@@ -12906,7 +12707,7 @@ impl IPin {
     {
         (::windows_core::Interface::vtable(self).Connect)(::windows_core::Interface::as_raw(self), preceivepin.into_param().abi(), ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn ReceiveConnection<P0>(&self, pconnector: P0, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>
     where
@@ -12921,12 +12722,12 @@ impl IPin {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectedTo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn ConnectionMediaType(&self, pmt: *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ConnectionMediaType)(::windows_core::Interface::as_raw(self), pmt).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryPinInfo(&self, pinfo: *mut PIN_INFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryPinInfo)(::windows_core::Interface::as_raw(self), pinfo).ok()
@@ -12939,7 +12740,7 @@ impl IPin {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn QueryAccept(&self, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryAccept)(::windows_core::Interface::as_raw(self), pmt).ok()
@@ -13006,17 +12807,16 @@ pub struct IPin_Vtbl {
     pub EndFlush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub NewSegment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tstart: i64, tstop: i64, drate: f64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPinConnection(::windows_core::IUnknown);
 impl IPinConnection {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn DynamicQueryAccept(&self, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DynamicQueryAccept)(::windows_core::Interface::as_raw(self), pmt).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NotifyEndOfStream<P0>(&self, hnotifyevent: P0) -> ::windows_core::Result<()>
     where
@@ -13053,12 +12853,11 @@ pub struct IPinConnection_Vtbl {
     pub IsEndPin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DynamicDisconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPinFlowControl(::windows_core::IUnknown);
 impl IPinFlowControl {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Block<P0>(&self, dwblockflags: u32, hevent: P0) -> ::windows_core::Result<()>
     where
@@ -13083,7 +12882,7 @@ pub struct IPinFlowControl_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Block: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13094,19 +12893,19 @@ impl IPinInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Pin)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConnectedTo(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectedTo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConnectionMediaType(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectionMediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FilterInfo(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -13124,7 +12923,7 @@ impl IPinInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PinID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaTypes(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -13142,7 +12941,7 @@ impl IPinInfo {
     {
         (::windows_core::Interface::vtable(self).ConnectDirect)(::windows_core::Interface::as_raw(self), ppin.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConnectWithType<P0, P1>(&self, ppin: P0, pmediatype: P1) -> ::windows_core::Result<()>
     where
@@ -13202,7 +13001,6 @@ pub struct IPinInfo_Vtbl {
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Render: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQualProp(::windows_core::IUnknown);
@@ -13250,12 +13048,11 @@ pub struct IQualProp_Vtbl {
     pub AvgSyncOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piavg: *mut i32) -> ::windows_core::HRESULT,
     pub DevSyncOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidev: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQualityControl(::windows_core::IUnknown);
 impl IQualityControl {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Notify<P0>(&self, pself: P0, q: Quality) -> ::windows_core::Result<()>
     where
@@ -13287,17 +13084,16 @@ pub struct IQualityControl_Vtbl {
     Notify: usize,
     pub SetSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piqc: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQueueCommand(::windows_core::IUnknown);
 impl IQueueCommand {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn InvokeAtStreamTime(&self, pcmd: *mut ::core::option::Option<IDeferredCommand>, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Variant::VARIANT, pvarresult: *mut super::super::System::Variant::VARIANT, puargerr: *mut i16) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InvokeAtStreamTime)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pcmd), time, iid, dispidmethod, wflags, cargs, pdispparams, pvarresult, puargerr).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn InvokeAtPresentationTime(&self, pcmd: *mut ::core::option::Option<IDeferredCommand>, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Variant::VARIANT, pvarresult: *mut super::super::System::Variant::VARIANT, puargerr: *mut i16) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InvokeAtPresentationTime)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pcmd), time, iid, dispidmethod, wflags, cargs, pdispparams, pvarresult, puargerr).ok()
@@ -13323,7 +13119,7 @@ pub struct IQueueCommand_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     InvokeAtPresentationTime: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13334,7 +13130,7 @@ impl IRegFilterInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Filter(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -13362,7 +13158,6 @@ pub struct IRegFilterInfo_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Filter: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRegisterServiceProvider(::windows_core::IUnknown);
@@ -13387,7 +13182,6 @@ pub struct IRegisterServiceProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RegisterService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidservice: *const ::windows_core::GUID, punkobject: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IResourceConsumer(::windows_core::IUnknown);
@@ -13413,7 +13207,6 @@ pub struct IResourceConsumer_Vtbl {
     pub AcquireResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idresource: i32) -> ::windows_core::HRESULT,
     pub ReleaseResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idresource: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IResourceManager(::windows_core::IUnknown);
@@ -13445,7 +13238,7 @@ impl IResourceManager {
     {
         (::windows_core::Interface::vtable(self).NotifyAcquire)(::windows_core::Interface::as_raw(self), idresource, pconsumer.into_param().abi(), hr).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NotifyRelease<P0, P1>(&self, idresource: i32, pconsumer: P0, bstillwant: P1) -> ::windows_core::Result<()>
     where
@@ -13496,12 +13289,11 @@ pub struct IResourceManager_Vtbl {
     pub SetFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfocusobject: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ReleaseFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfocusobject: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISeekingPassThru(::windows_core::IUnknown);
 impl ISeekingPassThru {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Init<P0, P1>(&self, bsupportrendering: P0, ppin: P1) -> ::windows_core::Result<()>
     where
@@ -13527,7 +13319,6 @@ pub struct ISeekingPassThru_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Init: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISelector(::windows_core::IUnknown);
@@ -13559,12 +13350,11 @@ pub struct ISelector_Vtbl {
     pub SourceNodeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwpinid: *mut u32) -> ::windows_core::HRESULT,
     pub SetSourceNodeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwpinid: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpecifyParticularPages(::windows_core::IUnknown);
 impl ISpecifyParticularPages {
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetPages(&self, guidwhatpages: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Ole::CAUUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -13587,7 +13377,6 @@ pub struct ISpecifyParticularPages_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     GetPages: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBuilder(::windows_core::IUnknown);
@@ -13621,7 +13410,6 @@ pub struct IStreamBuilder_Vtbl {
     pub Render: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinout: *mut ::core::ffi::c_void, pgraph: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Backout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinout: *mut ::core::ffi::c_void, pgraph: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamSample(::windows_core::IUnknown);
@@ -13635,7 +13423,7 @@ impl IStreamSample {
     pub unsafe fn SetSampleTimes(&self, pstarttime: *const i64, pendtime: *const i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSampleTimes)(::windows_core::Interface::as_raw(self), pstarttime, pendtime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Update<P0>(&self, dwflags: u32, hevent: P0, pfnapc: super::super::Foundation::PAPCFUNC, dwapcdata: usize) -> ::windows_core::Result<()>
     where
@@ -13667,7 +13455,6 @@ pub struct IStreamSample_Vtbl {
     Update: usize,
     pub CompletionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, dwmilliseconds: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRAspectRatioControl(::windows_core::IUnknown);
@@ -13694,7 +13481,6 @@ pub struct IVMRAspectRatioControl_Vtbl {
     pub GetAspectRatioMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdwarmode: *mut u32) -> ::windows_core::HRESULT,
     pub SetAspectRatioMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwarmode: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRAspectRatioControl9(::windows_core::IUnknown);
@@ -13721,17 +13507,16 @@ pub struct IVMRAspectRatioControl9_Vtbl {
     pub GetAspectRatioMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdwarmode: *mut u32) -> ::windows_core::HRESULT,
     pub SetAspectRatioMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwarmode: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRDeinterlaceControl(::windows_core::IUnknown);
 impl IVMRDeinterlaceControl {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNumberOfDeinterlaceModes(&self, lpvideodescription: *const VMRVideoDesc, lpdwnumdeinterlacemodes: *mut u32, lpdeinterlacemodes: *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNumberOfDeinterlaceModes)(::windows_core::Interface::as_raw(self), lpvideodescription, lpdwnumdeinterlacemodes, lpdeinterlacemodes).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeinterlaceModeCaps(&self, lpdeinterlacemode: *const ::windows_core::GUID, lpvideodescription: *const VMRVideoDesc, lpdeinterlacecaps: *mut VMRDeinterlaceCaps) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDeinterlaceModeCaps)(::windows_core::Interface::as_raw(self), lpdeinterlacemode, lpvideodescription, lpdeinterlacecaps).ok()
@@ -13780,7 +13565,6 @@ pub struct IVMRDeinterlaceControl_Vtbl {
     pub SetDeinterlacePrefs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdeinterlaceprefs: u32) -> ::windows_core::HRESULT,
     pub GetActualDeinterlaceMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, lpdeinterlacemode: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRDeinterlaceControl9(::windows_core::IUnknown);
@@ -13829,7 +13613,6 @@ pub struct IVMRDeinterlaceControl9_Vtbl {
     pub SetDeinterlacePrefs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdeinterlaceprefs: u32) -> ::windows_core::HRESULT,
     pub GetActualDeinterlaceMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, lpdeinterlacemode: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRFilterConfig(::windows_core::IUnknown);
@@ -13881,7 +13664,6 @@ pub struct IVMRFilterConfig_Vtbl {
     pub SetRenderingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: u32) -> ::windows_core::HRESULT,
     pub GetRenderingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmode: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRFilterConfig9(::windows_core::IUnknown);
@@ -13933,12 +13715,11 @@ pub struct IVMRFilterConfig9_Vtbl {
     pub SetRenderingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: u32) -> ::windows_core::HRESULT,
     pub GetRenderingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmode: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRImageCompositor(::windows_core::IUnknown);
 impl IVMRImageCompositor {
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn InitCompositionTarget<P0, P1>(&self, pd3ddevice: P0, pddsrendertarget: P1) -> ::windows_core::Result<()>
     where
@@ -13947,7 +13728,7 @@ impl IVMRImageCompositor {
     {
         (::windows_core::Interface::vtable(self).InitCompositionTarget)(::windows_core::Interface::as_raw(self), pd3ddevice.into_param().abi(), pddsrendertarget.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn TermCompositionTarget<P0, P1>(&self, pd3ddevice: P0, pddsrendertarget: P1) -> ::windows_core::Result<()>
     where
@@ -13956,7 +13737,7 @@ impl IVMRImageCompositor {
     {
         (::windows_core::Interface::vtable(self).TermCompositionTarget)(::windows_core::Interface::as_raw(self), pd3ddevice.into_param().abi(), pddsrendertarget.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetStreamMediaType<P0>(&self, dwstrmid: u32, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE, ftexture: P0) -> ::windows_core::Result<()>
     where
@@ -13964,7 +13745,7 @@ impl IVMRImageCompositor {
     {
         (::windows_core::Interface::vtable(self).SetStreamMediaType)(::windows_core::Interface::as_raw(self), dwstrmid, pmt, ftexture.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn CompositeImage<P0, P1>(&self, pd3ddevice: P0, pddsrendertarget: P1, pmtrendertarget: *const super::MediaFoundation::AM_MEDIA_TYPE, rtstart: i64, rtend: i64, dwclrbkgnd: u32, pvideostreaminfo: *const VMRVIDEOSTREAMINFO, cstreams: u32) -> ::windows_core::Result<()>
     where
@@ -14002,7 +13783,6 @@ pub struct IVMRImageCompositor_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Media_MediaFoundation")))]
     CompositeImage: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRImageCompositor9(::windows_core::IUnknown);
@@ -14019,7 +13799,7 @@ impl IVMRImageCompositor9 {
     {
         (::windows_core::Interface::vtable(self).TermCompositionDevice)(::windows_core::Interface::as_raw(self), pd3ddevice.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetStreamMediaType<P0>(&self, dwstrmid: u32, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE, ftexture: P0) -> ::windows_core::Result<()>
     where
@@ -14027,7 +13807,7 @@ impl IVMRImageCompositor9 {
     {
         (::windows_core::Interface::vtable(self).SetStreamMediaType)(::windows_core::Interface::as_raw(self), dwstrmid, pmt, ftexture.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn CompositeImage<P0, P1>(&self, pd3ddevice: P0, pddsrendertarget: P1, pmtrendertarget: *const super::MediaFoundation::AM_MEDIA_TYPE, rtstart: i64, rtend: i64, dwclrbkgnd: u32, pvideostreaminfo: *const VMR9VideoStreamInfo, cstreams: u32) -> ::windows_core::Result<()>
     where
@@ -14059,7 +13839,6 @@ pub struct IVMRImageCompositor9_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation")))]
     CompositeImage: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRImagePresenter(::windows_core::IUnknown);
@@ -14070,7 +13849,7 @@ impl IVMRImagePresenter {
     pub unsafe fn StopPresenting(&self, dwuserid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).StopPresenting)(::windows_core::Interface::as_raw(self), dwuserid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
     pub unsafe fn PresentImage(&self, dwuserid: usize, lppresinfo: *const VMRPRESENTATIONINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PresentImage)(::windows_core::Interface::as_raw(self), dwuserid, lppresinfo).ok()
@@ -14094,7 +13873,6 @@ pub struct IVMRImagePresenter_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw")))]
     PresentImage: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRImagePresenter9(::windows_core::IUnknown);
@@ -14105,7 +13883,7 @@ impl IVMRImagePresenter9 {
     pub unsafe fn StopPresenting(&self, dwuserid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).StopPresenting)(::windows_core::Interface::as_raw(self), dwuserid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn PresentImage(&self, dwuserid: usize, lppresinfo: *const VMR9PresentationInfo) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PresentImage)(::windows_core::Interface::as_raw(self), dwuserid, lppresinfo).ok()
@@ -14129,7 +13907,6 @@ pub struct IVMRImagePresenter9_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))]
     PresentImage: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRImagePresenterConfig(::windows_core::IUnknown);
@@ -14156,7 +13933,6 @@ pub struct IVMRImagePresenterConfig_Vtbl {
     pub SetRenderingPrefs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrenderflags: u32) -> ::windows_core::HRESULT,
     pub GetRenderingPrefs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrenderflags: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRImagePresenterConfig9(::windows_core::IUnknown);
@@ -14183,7 +13959,6 @@ pub struct IVMRImagePresenterConfig9_Vtbl {
     pub SetRenderingPrefs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrenderflags: u32) -> ::windows_core::HRESULT,
     pub GetRenderingPrefs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrenderflags: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRImagePresenterExclModeConfig(::windows_core::IUnknown);
@@ -14195,7 +13970,7 @@ impl IVMRImagePresenterExclModeConfig {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRenderingPrefs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn SetXlcModeDDObjAndPrimarySurface<P0, P1>(&self, lpddobj: P0, lpprimarysurf: P1) -> ::windows_core::Result<()>
     where
@@ -14204,7 +13979,7 @@ impl IVMRImagePresenterExclModeConfig {
     {
         (::windows_core::Interface::vtable(self).SetXlcModeDDObjAndPrimarySurface)(::windows_core::Interface::as_raw(self), lpddobj.into_param().abi(), lpprimarysurf.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetXlcModeDDObjAndPrimarySurface(&self, lpddobj: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw7>, lpprimarysurf: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetXlcModeDDObjAndPrimarySurface)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lpddobj), ::core::mem::transmute(lpprimarysurf)).ok()
@@ -14230,22 +14005,21 @@ pub struct IVMRImagePresenterExclModeConfig_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_DirectDraw"))]
     GetXlcModeDDObjAndPrimarySurface: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRMixerBitmap(::windows_core::IUnknown);
 impl IVMRMixerBitmap {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn SetAlphaBitmap(&self, pbmpparms: *const VMRALPHABITMAP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAlphaBitmap)(::windows_core::Interface::as_raw(self), pbmpparms).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn UpdateAlphaBitmapParameters(&self, pbmpparms: *const VMRALPHABITMAP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UpdateAlphaBitmapParameters)(::windows_core::Interface::as_raw(self), pbmpparms).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetAlphaBitmapParameters(&self, pbmpparms: *mut VMRALPHABITMAP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAlphaBitmapParameters)(::windows_core::Interface::as_raw(self), pbmpparms).ok()
@@ -14275,22 +14049,21 @@ pub struct IVMRMixerBitmap_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi")))]
     GetAlphaBitmapParameters: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRMixerBitmap9(::windows_core::IUnknown);
 impl IVMRMixerBitmap9 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn SetAlphaBitmap(&self, pbmpparms: *const VMR9AlphaBitmap) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAlphaBitmap)(::windows_core::Interface::as_raw(self), pbmpparms).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn UpdateAlphaBitmapParameters(&self, pbmpparms: *const VMR9AlphaBitmap) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UpdateAlphaBitmapParameters)(::windows_core::Interface::as_raw(self), pbmpparms).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetAlphaBitmapParameters(&self, pbmpparms: *mut VMR9AlphaBitmap) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAlphaBitmapParameters)(::windows_core::Interface::as_raw(self), pbmpparms).ok()
@@ -14320,7 +14093,6 @@ pub struct IVMRMixerBitmap9_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi")))]
     GetAlphaBitmapParameters: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRMixerControl(::windows_core::IUnknown);
@@ -14346,7 +14118,7 @@ impl IVMRMixerControl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputRect)(::windows_core::Interface::as_raw(self), dwstreamid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBackgroundClr<P0>(&self, clrbkg: P0) -> ::windows_core::Result<()>
     where
@@ -14354,7 +14126,7 @@ impl IVMRMixerControl {
     {
         (::windows_core::Interface::vtable(self).SetBackgroundClr)(::windows_core::Interface::as_raw(self), clrbkg.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBackgroundClr(&self, lpclrbkg: *const super::super::Foundation::COLORREF) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBackgroundClr)(::windows_core::Interface::as_raw(self), lpclrbkg).ok()
@@ -14395,7 +14167,6 @@ pub struct IVMRMixerControl_Vtbl {
     pub SetMixingPrefs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmixerprefs: u32) -> ::windows_core::HRESULT,
     pub GetMixingPrefs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmixerprefs: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRMixerControl9(::windows_core::IUnknown);
@@ -14421,7 +14192,7 @@ impl IVMRMixerControl9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputRect)(::windows_core::Interface::as_raw(self), dwstreamid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBackgroundClr<P0>(&self, clrbkg: P0) -> ::windows_core::Result<()>
     where
@@ -14429,7 +14200,7 @@ impl IVMRMixerControl9 {
     {
         (::windows_core::Interface::vtable(self).SetBackgroundClr)(::windows_core::Interface::as_raw(self), clrbkg.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBackgroundClr(&self, lpclrbkg: *const super::super::Foundation::COLORREF) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBackgroundClr)(::windows_core::Interface::as_raw(self), lpclrbkg).ok()
@@ -14482,7 +14253,6 @@ pub struct IVMRMixerControl9_Vtbl {
     pub GetProcAmpControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, lpclrcontrol: *mut VMR9ProcAmpControl) -> ::windows_core::HRESULT,
     pub GetProcAmpControlRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, lpclrcontrol: *mut VMR9ProcAmpControlRange) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRMonitorConfig(::windows_core::IUnknown);
@@ -14499,7 +14269,7 @@ impl IVMRMonitorConfig {
     pub unsafe fn GetDefaultMonitor(&self, pguid: *mut VMRGUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDefaultMonitor)(::windows_core::Interface::as_raw(self), pguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetAvailableMonitors(&self, pinfo: &mut [VMRMONITORINFO], pdwnumdevices: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAvailableMonitors)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pinfo.as_ptr()), pinfo.len() as _, pdwnumdevices).ok()
@@ -14525,7 +14295,6 @@ pub struct IVMRMonitorConfig_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     GetAvailableMonitors: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRMonitorConfig9(::windows_core::IUnknown);
@@ -14544,7 +14313,7 @@ impl IVMRMonitorConfig9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultMonitor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetAvailableMonitors(&self, pinfo: &mut [VMR9MonitorInfo], pdwnumdevices: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAvailableMonitors)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pinfo.as_ptr()), pinfo.len() as _, pdwnumdevices).ok()
@@ -14570,7 +14339,6 @@ pub struct IVMRMonitorConfig9_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     GetAvailableMonitors: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRSurface(::windows_core::IUnknown);
@@ -14585,7 +14353,7 @@ impl IVMRSurface {
     pub unsafe fn UnlockSurface(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnlockSurface)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetSurface(&self) -> ::windows_core::Result<super::super::Graphics::DirectDraw::IDirectDrawSurface7> {
         let mut result__ = ::std::mem::zeroed();
@@ -14611,7 +14379,6 @@ pub struct IVMRSurface_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_DirectDraw"))]
     GetSurface: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRSurface9(::windows_core::IUnknown);
@@ -14626,7 +14393,7 @@ impl IVMRSurface9 {
     pub unsafe fn UnlockSurface(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnlockSurface)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetSurface(&self) -> ::windows_core::Result<super::super::Graphics::Direct3D9::IDirect3DSurface9> {
         let mut result__ = ::std::mem::zeroed();
@@ -14652,12 +14419,11 @@ pub struct IVMRSurface9_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))]
     GetSurface: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRSurfaceAllocator(::windows_core::IUnknown);
 impl IVMRSurfaceAllocator {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn AllocateSurface(&self, dwuserid: usize, lpallocinfo: *const VMRALLOCATIONINFO, lpdwactualbuffers: *mut u32, lplpsurface: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AllocateSurface)(::windows_core::Interface::as_raw(self), dwuserid, lpallocinfo, lpdwactualbuffers, ::core::mem::transmute(lplpsurface)).ok()
@@ -14665,7 +14431,7 @@ impl IVMRSurfaceAllocator {
     pub unsafe fn FreeSurface(&self, dwid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).FreeSurface)(::windows_core::Interface::as_raw(self), dwid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn PrepareSurface<P0>(&self, dwuserid: usize, lpsurface: P0, dwsurfaceflags: u32) -> ::windows_core::Result<()>
     where
@@ -14702,12 +14468,11 @@ pub struct IVMRSurfaceAllocator_Vtbl {
     PrepareSurface: usize,
     pub AdviseNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpivmrsurfallocnotify: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRSurfaceAllocator9(::windows_core::IUnknown);
 impl IVMRSurfaceAllocator9 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn InitializeDevice(&self, dwuserid: usize, lpallocinfo: *const VMR9AllocationInfo, lpnumbuffers: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitializeDevice)(::windows_core::Interface::as_raw(self), dwuserid, lpallocinfo, lpnumbuffers).ok()
@@ -14715,7 +14480,7 @@ impl IVMRSurfaceAllocator9 {
     pub unsafe fn TerminateDevice(&self, dwid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).TerminateDevice)(::windows_core::Interface::as_raw(self), dwid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetSurface(&self, dwuserid: usize, surfaceindex: u32, surfaceflags: u32) -> ::windows_core::Result<super::super::Graphics::Direct3D9::IDirect3DSurface9> {
         let mut result__ = ::std::mem::zeroed();
@@ -14750,12 +14515,11 @@ pub struct IVMRSurfaceAllocator9_Vtbl {
     GetSurface: usize,
     pub AdviseNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpivmrsurfallocnotify: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRSurfaceAllocatorEx9(::windows_core::IUnknown);
 impl IVMRSurfaceAllocatorEx9 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn InitializeDevice(&self, dwuserid: usize, lpallocinfo: *const VMR9AllocationInfo, lpnumbuffers: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.InitializeDevice)(::windows_core::Interface::as_raw(self), dwuserid, lpallocinfo, lpnumbuffers).ok()
@@ -14763,7 +14527,7 @@ impl IVMRSurfaceAllocatorEx9 {
     pub unsafe fn TerminateDevice(&self, dwid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.TerminateDevice)(::windows_core::Interface::as_raw(self), dwid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetSurface(&self, dwuserid: usize, surfaceindex: u32, surfaceflags: u32) -> ::windows_core::Result<super::super::Graphics::Direct3D9::IDirect3DSurface9> {
         let mut result__ = ::std::mem::zeroed();
@@ -14775,7 +14539,7 @@ impl IVMRSurfaceAllocatorEx9 {
     {
         (::windows_core::Interface::vtable(self).base__.AdviseNotify)(::windows_core::Interface::as_raw(self), lpivmrsurfallocnotify.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn GetSurfaceEx(&self, dwuserid: usize, surfaceindex: u32, surfaceflags: u32, lplpsurface: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, lprcdst: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSurfaceEx)(::windows_core::Interface::as_raw(self), dwuserid, surfaceindex, surfaceflags, ::core::mem::transmute(lplpsurface), lprcdst).ok()
@@ -14797,7 +14561,6 @@ pub struct IVMRSurfaceAllocatorEx9_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))]
     GetSurfaceEx: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRSurfaceAllocatorNotify(::windows_core::IUnknown);
@@ -14808,7 +14571,7 @@ impl IVMRSurfaceAllocatorNotify {
     {
         (::windows_core::Interface::vtable(self).AdviseSurfaceAllocator)(::windows_core::Interface::as_raw(self), dwuserid, lpivrmsurfaceallocator.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn SetDDrawDevice<P0, P1>(&self, lpddrawdevice: P0, hmonitor: P1) -> ::windows_core::Result<()>
     where
@@ -14817,7 +14580,7 @@ impl IVMRSurfaceAllocatorNotify {
     {
         (::windows_core::Interface::vtable(self).SetDDrawDevice)(::windows_core::Interface::as_raw(self), lpddrawdevice.into_param().abi(), hmonitor.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn ChangeDDrawDevice<P0, P1>(&self, lpddrawdevice: P0, hmonitor: P1) -> ::windows_core::Result<()>
     where
@@ -14832,7 +14595,7 @@ impl IVMRSurfaceAllocatorNotify {
     pub unsafe fn NotifyEvent(&self, eventcode: i32, param1: isize, param2: isize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).NotifyEvent)(::windows_core::Interface::as_raw(self), eventcode, param1, param2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBorderColor<P0>(&self, clrborder: P0) -> ::windows_core::Result<()>
     where
@@ -14868,7 +14631,6 @@ pub struct IVMRSurfaceAllocatorNotify_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetBorderColor: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRSurfaceAllocatorNotify9(::windows_core::IUnknown);
@@ -14879,7 +14641,7 @@ impl IVMRSurfaceAllocatorNotify9 {
     {
         (::windows_core::Interface::vtable(self).AdviseSurfaceAllocator)(::windows_core::Interface::as_raw(self), dwuserid, lpivrmsurfaceallocator.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn SetD3DDevice<P0, P1>(&self, lpd3ddevice: P0, hmonitor: P1) -> ::windows_core::Result<()>
     where
@@ -14888,7 +14650,7 @@ impl IVMRSurfaceAllocatorNotify9 {
     {
         (::windows_core::Interface::vtable(self).SetD3DDevice)(::windows_core::Interface::as_raw(self), lpd3ddevice.into_param().abi(), hmonitor.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn ChangeD3DDevice<P0, P1>(&self, lpd3ddevice: P0, hmonitor: P1) -> ::windows_core::Result<()>
     where
@@ -14897,7 +14659,7 @@ impl IVMRSurfaceAllocatorNotify9 {
     {
         (::windows_core::Interface::vtable(self).ChangeD3DDevice)(::windows_core::Interface::as_raw(self), lpd3ddevice.into_param().abi(), hmonitor.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn AllocateSurfaceHelper(&self, lpallocinfo: *const VMR9AllocationInfo, lpnumbuffers: *mut u32, lplpsurface: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AllocateSurfaceHelper)(::windows_core::Interface::as_raw(self), lpallocinfo, lpnumbuffers, ::core::mem::transmute(lplpsurface)).ok()
@@ -14932,23 +14694,22 @@ pub struct IVMRSurfaceAllocatorNotify9_Vtbl {
     AllocateSurfaceHelper: usize,
     pub NotifyEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcode: i32, param1: isize, param2: isize) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRVideoStreamControl(::windows_core::IUnknown);
 impl IVMRVideoStreamControl {
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn SetColorKey(&self, lpclrkey: *const super::super::Graphics::DirectDraw::DDCOLORKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetColorKey)(::windows_core::Interface::as_raw(self), lpclrkey).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetColorKey(&self) -> ::windows_core::Result<super::super::Graphics::DirectDraw::DDCOLORKEY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetColorKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStreamActiveState<P0>(&self, factive: P0) -> ::windows_core::Result<()>
     where
@@ -14956,7 +14717,7 @@ impl IVMRVideoStreamControl {
     {
         (::windows_core::Interface::vtable(self).SetStreamActiveState)(::windows_core::Interface::as_raw(self), factive.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStreamActiveState(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14991,12 +14752,11 @@ pub struct IVMRVideoStreamControl_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetStreamActiveState: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRVideoStreamControl9(::windows_core::IUnknown);
 impl IVMRVideoStreamControl9 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStreamActiveState<P0>(&self, factive: P0) -> ::windows_core::Result<()>
     where
@@ -15004,7 +14764,7 @@ impl IVMRVideoStreamControl9 {
     {
         (::windows_core::Interface::vtable(self).SetStreamActiveState)(::windows_core::Interface::as_raw(self), factive.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStreamActiveState(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15031,7 +14791,6 @@ pub struct IVMRVideoStreamControl9_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetStreamActiveState: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRWindowlessControl(::windows_core::IUnknown);
@@ -15045,12 +14804,12 @@ impl IVMRWindowlessControl {
     pub unsafe fn GetMaxIdealVideoSize(&self, lpwidth: *mut i32, lpheight: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetMaxIdealVideoSize)(::windows_core::Interface::as_raw(self), lpwidth, lpheight).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVideoPosition(&self, lpsrcrect: *const super::super::Foundation::RECT, lpdstrect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetVideoPosition)(::windows_core::Interface::as_raw(self), lpsrcrect, lpdstrect).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVideoPosition(&self, lpsrcrect: *mut super::super::Foundation::RECT, lpdstrect: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoPosition)(::windows_core::Interface::as_raw(self), lpsrcrect, lpdstrect).ok()
@@ -15062,7 +14821,7 @@ impl IVMRWindowlessControl {
     pub unsafe fn SetAspectRatioMode(&self, aspectratiomode: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAspectRatioMode)(::windows_core::Interface::as_raw(self), aspectratiomode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVideoClippingWindow<P0>(&self, hwnd: P0) -> ::windows_core::Result<()>
     where
@@ -15070,7 +14829,7 @@ impl IVMRWindowlessControl {
     {
         (::windows_core::Interface::vtable(self).SetVideoClippingWindow)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn RepaintVideo<P0, P1>(&self, hwnd: P0, hdc: P1) -> ::windows_core::Result<()>
     where
@@ -15086,7 +14845,7 @@ impl IVMRWindowlessControl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentImage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBorderColor<P0>(&self, clr: P0) -> ::windows_core::Result<()>
     where
@@ -15094,13 +14853,13 @@ impl IVMRWindowlessControl {
     {
         (::windows_core::Interface::vtable(self).SetBorderColor)(::windows_core::Interface::as_raw(self), clr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBorderColor(&self) -> ::windows_core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBorderColor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetColorKey<P0>(&self, clr: P0) -> ::windows_core::Result<()>
     where
@@ -15108,7 +14867,7 @@ impl IVMRWindowlessControl {
     {
         (::windows_core::Interface::vtable(self).SetColorKey)(::windows_core::Interface::as_raw(self), clr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetColorKey(&self) -> ::windows_core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = ::std::mem::zeroed();
@@ -15166,7 +14925,6 @@ pub struct IVMRWindowlessControl_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetColorKey: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVMRWindowlessControl9(::windows_core::IUnknown);
@@ -15180,12 +14938,12 @@ impl IVMRWindowlessControl9 {
     pub unsafe fn GetMaxIdealVideoSize(&self, lpwidth: *mut i32, lpheight: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetMaxIdealVideoSize)(::windows_core::Interface::as_raw(self), lpwidth, lpheight).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVideoPosition(&self, lpsrcrect: *const super::super::Foundation::RECT, lpdstrect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetVideoPosition)(::windows_core::Interface::as_raw(self), lpsrcrect, lpdstrect).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVideoPosition(&self, lpsrcrect: *mut super::super::Foundation::RECT, lpdstrect: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoPosition)(::windows_core::Interface::as_raw(self), lpsrcrect, lpdstrect).ok()
@@ -15197,7 +14955,7 @@ impl IVMRWindowlessControl9 {
     pub unsafe fn SetAspectRatioMode(&self, aspectratiomode: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAspectRatioMode)(::windows_core::Interface::as_raw(self), aspectratiomode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVideoClippingWindow<P0>(&self, hwnd: P0) -> ::windows_core::Result<()>
     where
@@ -15205,7 +14963,7 @@ impl IVMRWindowlessControl9 {
     {
         (::windows_core::Interface::vtable(self).SetVideoClippingWindow)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn RepaintVideo<P0, P1>(&self, hwnd: P0, hdc: P1) -> ::windows_core::Result<()>
     where
@@ -15221,7 +14979,7 @@ impl IVMRWindowlessControl9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentImage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBorderColor<P0>(&self, clr: P0) -> ::windows_core::Result<()>
     where
@@ -15229,7 +14987,7 @@ impl IVMRWindowlessControl9 {
     {
         (::windows_core::Interface::vtable(self).SetBorderColor)(::windows_core::Interface::as_raw(self), clr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBorderColor(&self) -> ::windows_core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = ::std::mem::zeroed();
@@ -15279,12 +15037,11 @@ pub struct IVMRWindowlessControl9_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetBorderColor: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVPBaseConfig(::windows_core::IUnknown);
 impl IVPBaseConfig {
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetConnectInfo(&self, pdwnumconnectinfo: *mut u32, pddvpconnectinfo: ::core::option::Option<*mut super::super::Graphics::DirectDraw::DDVIDEOPORTCONNECT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetConnectInfo)(::windows_core::Interface::as_raw(self), pdwnumconnectinfo, ::core::mem::transmute(pddvpconnectinfo.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -15292,7 +15049,7 @@ impl IVPBaseConfig {
     pub unsafe fn SetConnectInfo(&self, dwchosenentry: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetConnectInfo)(::windows_core::Interface::as_raw(self), dwchosenentry).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVPDataInfo(&self, pamvpdatainfo: *mut AMVPDATAINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVPDataInfo)(::windows_core::Interface::as_raw(self), pamvpdatainfo).ok()
@@ -15300,12 +15057,12 @@ impl IVPBaseConfig {
     pub unsafe fn GetMaxPixelRate(&self, pamvpsize: *mut AMVPSIZE, pdwmaxpixelspersecond: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetMaxPixelRate)(::windows_core::Interface::as_raw(self), pamvpsize, pdwmaxpixelspersecond).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn InformVPInputFormats(&self, dwnumformats: u32, pddpixelformats: *mut super::super::Graphics::DirectDraw::DDPIXELFORMAT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InformVPInputFormats)(::windows_core::Interface::as_raw(self), dwnumformats, pddpixelformats).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetVideoFormats(&self, pdwnumformats: *mut u32, pddpixelformats: ::core::option::Option<*mut super::super::Graphics::DirectDraw::DDPIXELFORMAT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoFormats)(::windows_core::Interface::as_raw(self), pdwnumformats, ::core::mem::transmute(pddpixelformats.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -15316,7 +15073,7 @@ impl IVPBaseConfig {
     pub unsafe fn SetInvertPolarity(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetInvertPolarity)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetOverlaySurface(&self) -> ::windows_core::Result<super::super::Graphics::DirectDraw::IDirectDrawSurface> {
         let mut result__ = ::std::mem::zeroed();
@@ -15375,7 +15132,6 @@ pub struct IVPBaseConfig_Vtbl {
     pub SetDDSurfaceKernelHandles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, chandles: u32, rgddkernelhandles: *mut usize) -> ::windows_core::HRESULT,
     pub SetSurfaceParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwpitch: u32, dwxorigin: u32, dwyorigin: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVPBaseNotify(::windows_core::IUnknown);
@@ -15397,12 +15153,11 @@ pub struct IVPBaseNotify_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RenegotiateVPParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVPConfig(::windows_core::IUnknown);
 impl IVPConfig {
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetConnectInfo(&self, pdwnumconnectinfo: *mut u32, pddvpconnectinfo: ::core::option::Option<*mut super::super::Graphics::DirectDraw::DDVIDEOPORTCONNECT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetConnectInfo)(::windows_core::Interface::as_raw(self), pdwnumconnectinfo, ::core::mem::transmute(pddvpconnectinfo.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -15410,7 +15165,7 @@ impl IVPConfig {
     pub unsafe fn SetConnectInfo(&self, dwchosenentry: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetConnectInfo)(::windows_core::Interface::as_raw(self), dwchosenentry).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVPDataInfo(&self, pamvpdatainfo: *mut AMVPDATAINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetVPDataInfo)(::windows_core::Interface::as_raw(self), pamvpdatainfo).ok()
@@ -15418,12 +15173,12 @@ impl IVPConfig {
     pub unsafe fn GetMaxPixelRate(&self, pamvpsize: *mut AMVPSIZE, pdwmaxpixelspersecond: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetMaxPixelRate)(::windows_core::Interface::as_raw(self), pamvpsize, pdwmaxpixelspersecond).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn InformVPInputFormats(&self, dwnumformats: u32, pddpixelformats: *mut super::super::Graphics::DirectDraw::DDPIXELFORMAT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.InformVPInputFormats)(::windows_core::Interface::as_raw(self), dwnumformats, pddpixelformats).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetVideoFormats(&self, pdwnumformats: *mut u32, pddpixelformats: ::core::option::Option<*mut super::super::Graphics::DirectDraw::DDPIXELFORMAT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetVideoFormats)(::windows_core::Interface::as_raw(self), pdwnumformats, ::core::mem::transmute(pddpixelformats.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -15434,7 +15189,7 @@ impl IVPConfig {
     pub unsafe fn SetInvertPolarity(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInvertPolarity)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetOverlaySurface(&self) -> ::windows_core::Result<super::super::Graphics::DirectDraw::IDirectDrawSurface> {
         let mut result__ = ::std::mem::zeroed();
@@ -15473,7 +15228,6 @@ pub struct IVPConfig_Vtbl {
     pub IsVPDecimationAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbisdecimationallowed: *mut i32) -> ::windows_core::HRESULT,
     pub SetScalingFactors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pamvpsize: *mut AMVPSIZE) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVPManager(::windows_core::IUnknown);
@@ -15500,7 +15254,6 @@ pub struct IVPManager_Vtbl {
     pub SetVideoPortIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwvideoportindex: u32) -> ::windows_core::HRESULT,
     pub GetVideoPortIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwvideoportindex: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVPNotify(::windows_core::IUnknown);
@@ -15529,7 +15282,6 @@ pub struct IVPNotify_Vtbl {
     pub SetDeinterlaceMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: AMVP_MODE) -> ::windows_core::HRESULT,
     pub GetDeinterlaceMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmode: *mut AMVP_MODE) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVPNotify2(::windows_core::IUnknown);
@@ -15543,7 +15295,7 @@ impl IVPNotify2 {
     pub unsafe fn GetDeinterlaceMode(&self, pmode: *mut AMVP_MODE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetDeinterlaceMode)(::windows_core::Interface::as_raw(self), pmode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVPSyncMaster<P0>(&self, bvpsyncmaster: P0) -> ::windows_core::Result<()>
     where
@@ -15551,7 +15303,7 @@ impl IVPNotify2 {
     {
         (::windows_core::Interface::vtable(self).SetVPSyncMaster)(::windows_core::Interface::as_raw(self), bvpsyncmaster.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVPSyncMaster(&self, pbvpsyncmaster: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVPSyncMaster)(::windows_core::Interface::as_raw(self), pbvpsyncmaster).ok()
@@ -15577,12 +15329,11 @@ pub struct IVPNotify2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetVPSyncMaster: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVPVBIConfig(::windows_core::IUnknown);
 impl IVPVBIConfig {
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetConnectInfo(&self, pdwnumconnectinfo: *mut u32, pddvpconnectinfo: ::core::option::Option<*mut super::super::Graphics::DirectDraw::DDVIDEOPORTCONNECT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetConnectInfo)(::windows_core::Interface::as_raw(self), pdwnumconnectinfo, ::core::mem::transmute(pddvpconnectinfo.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -15590,7 +15341,7 @@ impl IVPVBIConfig {
     pub unsafe fn SetConnectInfo(&self, dwchosenentry: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetConnectInfo)(::windows_core::Interface::as_raw(self), dwchosenentry).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVPDataInfo(&self, pamvpdatainfo: *mut AMVPDATAINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetVPDataInfo)(::windows_core::Interface::as_raw(self), pamvpdatainfo).ok()
@@ -15598,12 +15349,12 @@ impl IVPVBIConfig {
     pub unsafe fn GetMaxPixelRate(&self, pamvpsize: *mut AMVPSIZE, pdwmaxpixelspersecond: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetMaxPixelRate)(::windows_core::Interface::as_raw(self), pamvpsize, pdwmaxpixelspersecond).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn InformVPInputFormats(&self, dwnumformats: u32, pddpixelformats: *mut super::super::Graphics::DirectDraw::DDPIXELFORMAT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.InformVPInputFormats)(::windows_core::Interface::as_raw(self), dwnumformats, pddpixelformats).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetVideoFormats(&self, pdwnumformats: *mut u32, pddpixelformats: ::core::option::Option<*mut super::super::Graphics::DirectDraw::DDPIXELFORMAT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetVideoFormats)(::windows_core::Interface::as_raw(self), pdwnumformats, ::core::mem::transmute(pddpixelformats.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -15614,7 +15365,7 @@ impl IVPVBIConfig {
     pub unsafe fn SetInvertPolarity(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetInvertPolarity)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
+    #[doc = "Required features: `Win32_Graphics_DirectDraw`"]
     #[cfg(feature = "Win32_Graphics_DirectDraw")]
     pub unsafe fn GetOverlaySurface(&self) -> ::windows_core::Result<super::super::Graphics::DirectDraw::IDirectDrawSurface> {
         let mut result__ = ::std::mem::zeroed();
@@ -15645,7 +15396,6 @@ unsafe impl ::windows_core::ComInterface for IVPVBIConfig {
 pub struct IVPVBIConfig_Vtbl {
     pub base__: IVPBaseConfig_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVPVBINotify(::windows_core::IUnknown);
@@ -15666,7 +15416,6 @@ unsafe impl ::windows_core::ComInterface for IVPVBINotify {
 pub struct IVPVBINotify_Vtbl {
     pub base__: IVPBaseNotify_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVideoEncoder(::windows_core::IUnknown);
@@ -15677,29 +15426,29 @@ impl IVideoEncoder {
     pub unsafe fn IsAvailable(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.IsAvailable)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetParameterRange(&self, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Variant::VARIANT, valuemax: *mut super::super::System::Variant::VARIANT, steppingdelta: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetParameterRange)(::windows_core::Interface::as_raw(self), api, valuemin, valuemax, steppingdelta).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetParameterValues(&self, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Variant::VARIANT, valuescount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetParameterValues)(::windows_core::Interface::as_raw(self), api, values, valuescount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetDefaultValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDefaultValue)(::windows_core::Interface::as_raw(self), api, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetValue)(::windows_core::Interface::as_raw(self), api, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValue(&self, api: *const ::windows_core::GUID, value: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetValue)(::windows_core::Interface::as_raw(self), api, value).ok()
@@ -15717,7 +15466,6 @@ unsafe impl ::windows_core::ComInterface for IVideoEncoder {
 pub struct IVideoEncoder_Vtbl {
     pub base__: IEncoderAPI_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVideoFrameStep(::windows_core::IUnknown);
@@ -15753,7 +15501,6 @@ pub struct IVideoFrameStep_Vtbl {
     pub CanStep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bmultiple: i32, pstepobject: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CancelStep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVideoProcAmp(::windows_core::IUnknown);
@@ -15927,7 +15674,7 @@ pub struct IVideoProcAmp_Vtbl {
     pub put_WhiteBalanceComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value1: i32, value2: i32, flags: i32) -> ::windows_core::HRESULT,
     pub getRange_WhiteBalanceComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15968,7 +15715,7 @@ impl IVideoWindow {
     pub unsafe fn SetWindowState(&self, windowstate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetWindowState)(::windows_core::Interface::as_raw(self), windowstate).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn WindowState(&self) -> ::windows_core::Result<super::super::UI::WindowsAndMessaging::SHOW_WINDOW_CMD> {
         let mut result__ = ::std::mem::zeroed();
@@ -16131,7 +15878,6 @@ pub struct IVideoWindow_Vtbl {
     pub HideCursor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hidecursor: OA_BOOL) -> ::windows_core::HRESULT,
     pub IsCursorHidden: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cursorhidden: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMCodecAMVideoAccelerator(::windows_core::IUnknown);
@@ -16142,12 +15888,12 @@ impl IWMCodecAMVideoAccelerator {
     {
         (::windows_core::Interface::vtable(self).SetAcceleratorInterface)(::windows_core::Interface::as_raw(self), piamva.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn NegotiateConnection(&self, pmediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).NegotiateConnection)(::windows_core::Interface::as_raw(self), pmediatype).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+    #[doc = "Required features: `Win32_Media_WindowsMediaFormat`"]
     #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
     pub unsafe fn SetPlayerNotify<P0>(&self, phook: P0) -> ::windows_core::Result<()>
     where
@@ -16177,12 +15923,11 @@ pub struct IWMCodecAMVideoAccelerator_Vtbl {
     #[cfg(not(feature = "Win32_Media_WindowsMediaFormat"))]
     SetPlayerNotify: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMCodecVideoAccelerator(::windows_core::IUnknown);
 impl IWMCodecVideoAccelerator {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn NegotiateConnection<P0>(&self, piamva: P0, pmediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>
     where
@@ -16190,7 +15935,7 @@ impl IWMCodecVideoAccelerator {
     {
         (::windows_core::Interface::vtable(self).NegotiateConnection)(::windows_core::Interface::as_raw(self), piamva.into_param().abi(), pmediatype).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
+    #[doc = "Required features: `Win32_Media_WindowsMediaFormat`"]
     #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
     pub unsafe fn SetPlayerNotify<P0>(&self, phook: P0) -> ::windows_core::Result<()>
     where
@@ -16219,4107 +15964,2056 @@ pub struct IWMCodecVideoAccelerator_Vtbl {
     #[cfg(not(feature = "Win32_Media_WindowsMediaFormat"))]
     SetPlayerNotify: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ADVISE_CLIPPING: ADVISE_TYPE = ADVISE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ADVISE_COLORKEY: ADVISE_TYPE = ADVISE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ADVISE_DISPLAY_CHANGE: ADVISE_TYPE = ADVISE_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ADVISE_NONE: ADVISE_TYPE = ADVISE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ADVISE_PALETTE: ADVISE_TYPE = ADVISE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ADVISE_POSITION: ADVISE_TYPE = ADVISE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMAP_3D_TARGET: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMAP_ALLOW_SYSMEM: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMAP_DIRECTED_FLIP: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMAP_DXVA_TARGET: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMAP_FORCE_SYSMEM: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMAP_PIXELFORMAT_VALID: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMCONTROL_COLORINFO_PRESENT: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMCONTROL_PAD_TO_16x9: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMCONTROL_PAD_TO_4x3: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMCONTROL_USED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMCOPYPROTECT_RestrictDuplication: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMDDS_ALL: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMDDS_DCIPS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMDDS_DEFAULT: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMDDS_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMDDS_PS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMDDS_RGBFLP: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMDDS_RGBOFF: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMDDS_RGBOVR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMDDS_YUVFLP: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMDDS_YUVOFF: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMDDS_YUVOVR: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMF_AUTOMATICGAIN: f64 = -1f64;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMINTERLACE_1FieldPerSample: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMINTERLACE_DisplayModeBobOnly: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMINTERLACE_DisplayModeBobOrWeave: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMINTERLACE_DisplayModeMask: u32 = 192u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMINTERLACE_DisplayModeWeaveOnly: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMINTERLACE_Field1First: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMINTERLACE_FieldPatBothIrregular: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMINTERLACE_FieldPatBothRegular: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMINTERLACE_FieldPatField1Only: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMINTERLACE_FieldPatField2Only: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMINTERLACE_FieldPatternMask: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMINTERLACE_IsInterlaced: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMINTERLACE_UNUSED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMMSF_ADDDEFAULTRENDERER: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMMSF_CREATEPEER: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMMSF_NOCLOCK: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMMSF_NOGRAPHTHREAD: AMMSF_MMS_INIT_FLAGS = AMMSF_MMS_INIT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMMSF_NORENDER: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMMSF_NOSTALL: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMMSF_RENDERALLSTREAMS: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMMSF_RENDERTOEXISTING: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMMSF_RENDERTYPEMASK: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMMSF_RUN: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMMSF_STOPIFNOSAMPLES: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMOVERFX_DEINTERLACE: AMOVERLAYFX = AMOVERLAYFX(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMOVERFX_MIRRORLEFTRIGHT: AMOVERLAYFX = AMOVERLAYFX(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMOVERFX_MIRRORUPDOWN: AMOVERLAYFX = AMOVERLAYFX(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMOVERFX_NOFX: AMOVERLAYFX = AMOVERLAYFX(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMPLAYLISTEVENT_BREAK: AMPlayListEventFlags = AMPlayListEventFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMPLAYLISTEVENT_MASK: AMPlayListEventFlags = AMPlayListEventFlags(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMPLAYLISTEVENT_NEXT: AMPlayListEventFlags = AMPlayListEventFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMPLAYLISTEVENT_REFRESH: AMPlayListEventFlags = AMPlayListEventFlags(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMPLAYLISTEVENT_RESUME: AMPlayListEventFlags = AMPlayListEventFlags(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMPLAYLISTITEM_CANBIND: AMPlayListItemFlags = AMPlayListItemFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMPLAYLISTITEM_CANSKIP: AMPlayListItemFlags = AMPlayListItemFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMPLAYLIST_FORCEBANNER: AMPlayListFlags = AMPlayListFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMPLAYLIST_STARTINSCANMODE: AMPlayListFlags = AMPlayListFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMPROPERTY_PIN_CATEGORY: AMPROPERTY_PIN = AMPROPERTY_PIN(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMPROPERTY_PIN_MEDIUM: AMPROPERTY_PIN = AMPROPERTY_PIN(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMRESCTL_RESERVEFLAGS_RESERVE: _AMRESCTL_RESERVEFLAGS = _AMRESCTL_RESERVEFLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMRESCTL_RESERVEFLAGS_UNRESERVE: _AMRESCTL_RESERVEFLAGS = _AMRESCTL_RESERVEFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMSTREAMSELECTENABLE_ENABLE: _AMSTREAMSELECTENABLEFLAGS = _AMSTREAMSELECTENABLEFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMSTREAMSELECTENABLE_ENABLEALL: _AMSTREAMSELECTENABLEFLAGS = _AMSTREAMSELECTENABLEFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMSTREAMSELECTINFO_ENABLED: _AMSTREAMSELECTINFOFLAGS = _AMSTREAMSELECTINFOFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMSTREAMSELECTINFO_EXCLUSIVE: _AMSTREAMSELECTINFOFLAGS = _AMSTREAMSELECTINFOFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTUNER_EVENT_CHANGED: AMTunerEventType = AMTunerEventType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTUNER_HASNOSIGNALSTRENGTH: AMTunerSignalStrength = AMTunerSignalStrength(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTUNER_MODE_AM_RADIO: AMTunerModeType = AMTunerModeType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTUNER_MODE_DEFAULT: AMTunerModeType = AMTunerModeType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTUNER_MODE_DSS: AMTunerModeType = AMTunerModeType(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTUNER_MODE_FM_RADIO: AMTunerModeType = AMTunerModeType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTUNER_MODE_TV: AMTunerModeType = AMTunerModeType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTUNER_NOSIGNAL: AMTunerSignalStrength = AMTunerSignalStrength(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTUNER_SIGNALPRESENT: AMTunerSignalStrength = AMTunerSignalStrength(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTUNER_SUBCHAN_DEFAULT: AMTunerSubChannel = AMTunerSubChannel(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTUNER_SUBCHAN_NO_TUNE: AMTunerSubChannel = AMTunerSubChannel(-2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTVAUDIO_EVENT_CHANGED: AMTVAudioEventType = AMTVAudioEventType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTVAUDIO_MODE_LANG_A: TVAudioMode = TVAudioMode(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTVAUDIO_MODE_LANG_B: TVAudioMode = TVAudioMode(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTVAUDIO_MODE_LANG_C: TVAudioMode = TVAudioMode(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTVAUDIO_MODE_MONO: TVAudioMode = TVAudioMode(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTVAUDIO_MODE_STEREO: TVAudioMode = TVAudioMode(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTVAUDIO_PRESET_LANG_A: TVAudioMode = TVAudioMode(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTVAUDIO_PRESET_LANG_B: TVAudioMode = TVAudioMode(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTVAUDIO_PRESET_LANG_C: TVAudioMode = TVAudioMode(16384i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMTVAUDIO_PRESET_STEREO: TVAudioMode = TVAudioMode(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMVA_QUERYRENDERSTATUSF_READ: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMVA_TYPEINDEX_OUTPUTFRAME: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMVP_BEST_BANDWIDTH: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMVP_DO_NOT_CARE: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMVP_INPUT_SAME_AS_OUTPUT: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMVP_MODE_BOBINTERLEAVED: AMVP_MODE = AMVP_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMVP_MODE_BOBNONINTERLEAVED: AMVP_MODE = AMVP_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMVP_MODE_SKIPEVEN: AMVP_MODE = AMVP_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMVP_MODE_SKIPODD: AMVP_MODE = AMVP_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMVP_MODE_WEAVE: AMVP_MODE = AMVP_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AC3_ALTERNATE_AUDIO_1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AC3_ALTERNATE_AUDIO_2: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AC3_ALTERNATE_AUDIO_BOTH: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AC3_SERVICE_COMMENTARY: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AC3_SERVICE_DIALOG_ONLY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AC3_SERVICE_EMERGENCY_FLASH: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AC3_SERVICE_HEARING_IMPAIRED: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AC3_SERVICE_MAIN_AUDIO: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AC3_SERVICE_NO_DIALOG: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AC3_SERVICE_VISUALLY_IMPAIRED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AC3_SERVICE_VOICE_OVER: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_ARMODE_CROP: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_ARMODE_LETTER_BOX: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_ARMODE_STRETCHED: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_ARMODE_STRETCHED_AS_PRIMARY: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AUDREND_STAT_PARAM_BREAK_COUNT: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AUDREND_STAT_PARAM_BUFFERFULLNESS: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AUDREND_STAT_PARAM_DISCONTINUITIES: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AUDREND_STAT_PARAM_JITTER: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AUDREND_STAT_PARAM_LAST_BUFFER_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AUDREND_STAT_PARAM_SILENCE_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AUDREND_STAT_PARAM_SLAVE_ACCUMERROR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AUDREND_STAT_PARAM_SLAVE_DROPWRITE_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AUDREND_STAT_PARAM_SLAVE_HIGHLOWERROR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AUDREND_STAT_PARAM_SLAVE_LASTHIGHLOWERROR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AUDREND_STAT_PARAM_SLAVE_MODE: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AUDREND_STAT_PARAM_SLAVE_RATE: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_CONTENTPROPERTY_AUTHOR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_CONTENTPROPERTY_COPYRIGHT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_CONTENTPROPERTY_DESCRIPTION: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_CONTENTPROPERTY_TITLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DIGITAL_CP_DVD_COMPLIANT: AM_DIGITAL_CP = AM_DIGITAL_CP(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DIGITAL_CP_OFF: AM_DIGITAL_CP = AM_DIGITAL_CP(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DIGITAL_CP_ON: AM_DIGITAL_CP = AM_DIGITAL_CP(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVDCOPYSTATE_AUTHENTICATION_NOT_REQUIRED: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVDCOPYSTATE_AUTHENTICATION_REQUIRED: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVDCOPYSTATE_DONE: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVDCOPYSTATE_INITIALIZE: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVDCOPYSTATE_INITIALIZE_TITLE: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_ADAPT_GRAPH: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(16384i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_CGMS_COPY_ONCE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_CGMS_COPY_PERMITTED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_CGMS_COPY_PROTECT_MASK: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_CGMS_NO_COPY: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_CGMS_RESERVED_MASK: u32 = 120u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_COPYRIGHTED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_COPYRIGHT_MASK: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_DO_NOT_CLEAR: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_EVR_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_EVR_QOS: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_HWDEC_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_HWDEC_PREFER: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_MASK: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(65535i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_NOT_COPYRIGHTED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_NOVPE: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_SECTOR_NOT_PROTECTED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_SECTOR_PROTECTED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_SECTOR_PROTECT_MASK: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_STREAM_AUDIO: AM_DVD_STREAM_FLAGS = AM_DVD_STREAM_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_STREAM_SUBPIC: AM_DVD_STREAM_FLAGS = AM_DVD_STREAM_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_STREAM_VIDEO: AM_DVD_STREAM_FLAGS = AM_DVD_STREAM_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_SWDEC_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_SWDEC_PREFER: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_VMR9_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_EXSEEK_BUFFERING: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_EXSEEK_CANSCAN: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_EXSEEK_CANSEEK: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_EXSEEK_MARKERSEEK: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_EXSEEK_NOSTANDARDREPAINT: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_EXSEEK_SCANWITHOUTCLOCK: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_EXSEEK_SENDS_VIDEOFRAMEREADY: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_FILE_OVERWRITE: AM_FILESINK_FLAGS = AM_FILESINK_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_FILTER_FLAGS_REMOVABLE: AM_FILTER_FLAGS = AM_FILTER_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_FILTER_MISC_FLAGS_IS_RENDERER: _AM_FILTER_MISC_FLAGS = _AM_FILTER_MISC_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_FILTER_MISC_FLAGS_IS_SOURCE: _AM_FILTER_MISC_FLAGS = _AM_FILTER_MISC_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_GBF_NODDSURFACELOCK: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_GBF_NOTASYNCPOINT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_GBF_NOWAIT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_GBF_PREVFRAMESKIPPED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_GETDECODERCAP_QUERY_EVR_SUPPORT: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_GETDECODERCAP_QUERY_VMR9_SUPPORT: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_GETDECODERCAP_QUERY_VMR_SUPPORT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_GRAPH_CONFIG_RECONNECT_CACHE_REMOVED_FILTERS: AM_GRAPH_CONFIG_RECONNECT_FLAGS = AM_GRAPH_CONFIG_RECONNECT_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_GRAPH_CONFIG_RECONNECT_DIRECTCONNECT: AM_GRAPH_CONFIG_RECONNECT_FLAGS = AM_GRAPH_CONFIG_RECONNECT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_GRAPH_CONFIG_RECONNECT_USE_ONLY_CACHED_FILTERS: AM_GRAPH_CONFIG_RECONNECT_FLAGS = AM_GRAPH_CONFIG_RECONNECT_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_INTERFACESETID_Standard: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a8766a0_62ce_11cf_a5d6_28db04c10000);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_INTF_SEARCH_FILTER: _AM_INTF_SEARCH_FLAGS = _AM_INTF_SEARCH_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_INTF_SEARCH_INPUT_PIN: _AM_INTF_SEARCH_FLAGS = _AM_INTF_SEARCH_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_INTF_SEARCH_OUTPUT_PIN: _AM_INTF_SEARCH_FLAGS = _AM_INTF_SEARCH_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSCATEGORY_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6994ad04_93ef_11d0_a3cc_00a0c9223196);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSCATEGORY_CAPTURE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65e8773d_8f56_11d0_a3b9_00a0c9223196);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSCATEGORY_CROSSBAR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa799a801_a46d_11d0_a18c_00a02401dcd4);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSCATEGORY_DATACOMPRESSOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e84c900_7e70_11d0_a5d6_28db04c10000);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSCATEGORY_RENDER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65e8773e_8f56_11d0_a3b9_00a0c9223196);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSCATEGORY_SPLITTER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a4252a0_7e70_11d0_a5d6_28db04c10000);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSCATEGORY_TVAUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa799a802_a46d_11d0_a18c_00a02401dcd4);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSCATEGORY_TVTUNER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa799a800_a46d_11d0_a18c_00a02401dcd4);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSCATEGORY_VBICODEC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x07dad660_22f1_11d1_a9f4_00c04fbbde8f);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSCATEGORY_VBICODEC_MI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c24a977_0951_451a_8006_0e49bd28cd5f);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSCATEGORY_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6994ad05_93ef_11d0_a3cc_00a0c9223196);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSPROPSETID_AC3: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfabe720_6e1f_11d0_bcf2_444553540000);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSPROPSETID_CopyProt: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0e8a0a40_6aef_11d0_9ed0_00a024ca19b3);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSPROPSETID_DVD_RateChange: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3577eb09_9582_477f_b29c_b0c452a4ff9a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSPROPSETID_DvdKaraoke: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae4720ae_aa71_42d8_b82a_fffdf58b76fd);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSPROPSETID_DvdSubPic: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac390460_43af_11d0_bd6a_003505c103a9);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSPROPSETID_FrameStep: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc830acbd_ab07_492f_8852_45b6987c2979);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSPROPSETID_MPEG4_MediaType_Attributes: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff6c4bfa_07a9_4c7b_a237_672f9d68065f);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSPROPSETID_TSRateChange: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa503c5c0_1d1d_11d1_ad80_444553540000);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_CCLEVEL_TC2: AM_LINE21_CCLEVEL = AM_LINE21_CCLEVEL(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_CCSERVICE_Caption1: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_CCSERVICE_Caption2: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_CCSERVICE_DefChannel: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_CCSERVICE_Invalid: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_CCSERVICE_None: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_CCSERVICE_Text1: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_CCSERVICE_Text2: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_CCSERVICE_XDS: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_CCSTATE_Off: AM_LINE21_CCSTATE = AM_LINE21_CCSTATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_CCSTATE_On: AM_LINE21_CCSTATE = AM_LINE21_CCSTATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_CCSTYLE_None: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_CCSTYLE_PaintOn: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_CCSTYLE_PopOn: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_CCSTYLE_RollUp: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_DRAWBGMODE_Opaque: AM_LINE21_DRAWBGMODE = AM_LINE21_DRAWBGMODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_L21_DRAWBGMODE_Transparent: AM_LINE21_DRAWBGMODE = AM_LINE21_DRAWBGMODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_LOADSTATUS_CLOSED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_LOADSTATUS_CONNECTING: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_LOADSTATUS_LOADINGDESCR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_LOADSTATUS_LOADINGMCAST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_LOADSTATUS_LOCATING: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_LOADSTATUS_OPEN: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_LOADSTATUS_OPENING: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MACROVISION_DISABLED: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MACROVISION_LEVEL1: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MACROVISION_LEVEL2: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MACROVISION_LEVEL3: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MEDIAEVENT_NONOTIFY: AM_MEDIAEVENT_FLAGS = AM_MEDIAEVENT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG2Level_High: AM_MPEG2Level = AM_MPEG2Level(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG2Level_High1440: AM_MPEG2Level = AM_MPEG2Level(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG2Level_Low: AM_MPEG2Level = AM_MPEG2Level(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG2Level_Main: AM_MPEG2Level = AM_MPEG2Level(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG2Profile_High: AM_MPEG2Profile = AM_MPEG2Profile(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG2Profile_Main: AM_MPEG2Profile = AM_MPEG2Profile(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG2Profile_SNRScalable: AM_MPEG2Profile = AM_MPEG2Profile(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG2Profile_Simple: AM_MPEG2Profile = AM_MPEG2Profile(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG2Profile_SpatiallyScalable: AM_MPEG2Profile = AM_MPEG2Profile(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG_AUDIO_DUAL_LEFT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG_AUDIO_DUAL_MERGE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG_AUDIO_DUAL_RIGHT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_OVERLAY_NOTIFY_DEST_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = _AM_OVERLAY_NOTIFY_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_OVERLAY_NOTIFY_SOURCE_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = _AM_OVERLAY_NOTIFY_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_OVERLAY_NOTIFY_VISIBLE_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = _AM_OVERLAY_NOTIFY_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PIN_FLOW_CONTROL_BLOCK: _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS = _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_AC3_ALTERNATE_AUDIO: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_AC3_BIT_STREAM_MODE: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_AC3_DIALOGUE_LEVEL: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_AC3_DOWNMIX: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_AC3_ERROR_CONCEALMENT: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_AC3_LANGUAGE_CODE: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_AC3_ROOM_TYPE: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_COPY_ANALOG_COMPONENT: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_COPY_DIGITAL_CP: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_COPY_DVD_SRM: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_COPY_MACROVISION: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_DVDCOPY_CHLG_KEY: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_DVDCOPY_DEC_KEY2: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_DVDCOPY_DISC_KEY: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_DVDCOPY_DVD_KEY1: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_DVDCOPY_REGION: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_DVDCOPY_SET_COPY_STATE: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_DVDCOPY_SUPPORTS_NEW_KEYCOUNT: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_DVDCOPY_TITLE_KEY: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_DVDKARAOKE_DATA: AM_PROPERTY_DVDKARAOKE = AM_PROPERTY_DVDKARAOKE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_DVDKARAOKE_ENABLE: AM_PROPERTY_DVDKARAOKE = AM_PROPERTY_DVDKARAOKE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_DVDSUBPIC_COMPOSIT_ON: AM_PROPERTY_DVDSUBPIC = AM_PROPERTY_DVDSUBPIC(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_DVDSUBPIC_HLI: AM_PROPERTY_DVDSUBPIC = AM_PROPERTY_DVDSUBPIC(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_DVDSUBPIC_PALETTE: AM_PROPERTY_DVDSUBPIC = AM_PROPERTY_DVDSUBPIC(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_FRAMESTEP_CANCEL: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_FRAMESTEP_CANSTEP: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_FRAMESTEP_CANSTEPMULTIPLE: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PROPERTY_FRAMESTEP_STEP: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PUSHSOURCECAPS_INTERNAL_RM: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PUSHSOURCECAPS_NOT_LIVE: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PUSHSOURCECAPS_PRIVATE_CLOCK: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PUSHSOURCEREQS_USE_CLOCK_CHAIN: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(131072i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_PUSHSOURCEREQS_USE_STREAM_CLOCK: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(65536i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_QUERY_DECODER_ATSC_HD_SUPPORT: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_QUERY_DECODER_ATSC_SD_SUPPORT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_QUERY_DECODER_DVD_SUPPORT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_QUERY_DECODER_DXVA_1_SUPPORT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_QUERY_DECODER_VMR_SUPPORT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_ChangeRate: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_CorrectTS: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_DecoderPosition: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_DecoderVersion: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_ExactRateChange: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_FullDataRateMax: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_MaxFullDataRate: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_QueryFullFrameRate: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_QueryLastRateSegPTS: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_QueryMapping: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_ResetOnTimeDisc: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_ReverseDecode: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_ReverseMaxFullDataRate: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_SimpleRateChange: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_Step: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RATE_UseRateVersion: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = _AM_RENSDEREXFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_ReverseBlockEnd: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_ReverseBlockStart: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SAMPLE_DATADISCONTINUITY: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SAMPLE_ENDOFSTREAM: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SAMPLE_FLUSH_ON_PAUSE: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SAMPLE_PREROLL: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SAMPLE_SPLICEPOINT: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SAMPLE_STOPVALID: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SAMPLE_TIMEDISCONTINUITY: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SAMPLE_TIMEVALID: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SAMPLE_TYPECHANGED: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_AbsolutePositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_CanDoSegments: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_CanGetCurrentPos: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_CanGetDuration: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_CanGetStopPos: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_CanPlayBackwards: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_CanSeekAbsolute: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_CanSeekBackwards: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_CanSeekForwards: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_IncrementalPositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_NoFlush: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_NoPositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_PositioningBitsMask: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_RelativePositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_ReturnTime: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_SeekToKeyFrame: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_Segment: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_SEEKING_Source: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_STREAM_CONTROL: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_STREAM_INFO_DISCARDING: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_STREAM_INFO_START_DEFINED: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_STREAM_INFO_STOP_DEFINED: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_STREAM_INFO_STOP_SEND_EXTRA: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_STREAM_MEDIA: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_UseNewCSSKey: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_VIDEO_FLAG_B_SAMPLE: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_VIDEO_FLAG_FIELD1: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_VIDEO_FLAG_FIELD1FIRST: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_VIDEO_FLAG_FIELD2: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_VIDEO_FLAG_FIELD_MASK: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_VIDEO_FLAG_INTERLEAVED_FRAME: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_VIDEO_FLAG_IPB_MASK: i32 = 48i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_VIDEO_FLAG_I_SAMPLE: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_VIDEO_FLAG_P_SAMPLE: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_VIDEO_FLAG_REPEAT_FIELD: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_VIDEO_FLAG_WEAVE: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_WST_DRAWBGMODE_Opaque: AM_WST_DRAWBGMODE = AM_WST_DRAWBGMODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_WST_DRAWBGMODE_Transparent: AM_WST_DRAWBGMODE = AM_WST_DRAWBGMODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_WST_LEVEL_1_5: AM_WST_LEVEL = AM_WST_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_WST_SERVICE_IDS: AM_WST_SERVICE = AM_WST_SERVICE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_WST_SERVICE_Invalid: AM_WST_SERVICE = AM_WST_SERVICE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_WST_SERVICE_None: AM_WST_SERVICE = AM_WST_SERVICE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_WST_SERVICE_Text: AM_WST_SERVICE = AM_WST_SERVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_WST_STATE_Off: AM_WST_STATE = AM_WST_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_WST_STATE_On: AM_WST_STATE = AM_WST_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_WST_STYLE_Invers: AM_WST_STYLE = AM_WST_STYLE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_WST_STYLE_None: AM_WST_STYLE = AM_WST_STYLE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ANNEX_A_DSM_CC: MPEG2StreamType = MPEG2StreamType(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ATSCCT_AC3: ATSCComponentTypeFlags = ATSCComponentTypeFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVIF_COPYRIGHTED: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVIF_HASINDEX: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVIF_ISINTERLEAVED: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVIF_MUSTUSEINDEX: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVIF_TRUSTCKTYPE: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVIF_WASCAPTUREFILE: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVIIF_COMPRESSOR: u32 = 268369920u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVIIF_COMPUSE: i32 = 268369920i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVIIF_FIRSTPART: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVIIF_KEYFRAME: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVIIF_LASTPART: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVIIF_LIST: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVIIF_NOTIME: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVIIF_NO_TIME: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVISF_DISABLED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVISF_VIDEO_PALCHANGES: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVISTDINDEX_DELTAFRAME: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVI_HEADERSIZE: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVI_INDEX_IS_DATA: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVI_INDEX_OF_CHUNKS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVI_INDEX_OF_INDEXES: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVI_INDEX_OF_SUB_2FIELD: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVI_INDEX_OF_TIMED_CHUNKS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVI_INDEX_SUB_2FIELD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVI_INDEX_SUB_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideoMask_MCE_NTSC: AnalogVideoStandard = AnalogVideoStandard(1052167i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideoMask_MCE_PAL: AnalogVideoStandard = AnalogVideoStandard(496i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideoMask_MCE_SECAM: AnalogVideoStandard = AnalogVideoStandard(1044480i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_NTSC_433: AnalogVideoStandard = AnalogVideoStandard(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_NTSC_M: AnalogVideoStandard = AnalogVideoStandard(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_NTSC_M_J: AnalogVideoStandard = AnalogVideoStandard(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_NTSC_Mask: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_None: AnalogVideoStandard = AnalogVideoStandard(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_PAL_60: AnalogVideoStandard = AnalogVideoStandard(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_PAL_B: AnalogVideoStandard = AnalogVideoStandard(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_PAL_D: AnalogVideoStandard = AnalogVideoStandard(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_PAL_G: AnalogVideoStandard = AnalogVideoStandard(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_PAL_H: AnalogVideoStandard = AnalogVideoStandard(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_PAL_I: AnalogVideoStandard = AnalogVideoStandard(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_PAL_M: AnalogVideoStandard = AnalogVideoStandard(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_PAL_Mask: u32 = 1052656u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_PAL_N: AnalogVideoStandard = AnalogVideoStandard(1024i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_PAL_N_COMBO: AnalogVideoStandard = AnalogVideoStandard(1048576i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_SECAM_B: AnalogVideoStandard = AnalogVideoStandard(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_SECAM_D: AnalogVideoStandard = AnalogVideoStandard(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_SECAM_G: AnalogVideoStandard = AnalogVideoStandard(16384i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_SECAM_H: AnalogVideoStandard = AnalogVideoStandard(32768i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_SECAM_K: AnalogVideoStandard = AnalogVideoStandard(65536i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_SECAM_K1: AnalogVideoStandard = AnalogVideoStandard(131072i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_SECAM_L: AnalogVideoStandard = AnalogVideoStandard(262144i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_SECAM_L1: AnalogVideoStandard = AnalogVideoStandard(524288i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_SECAM_Mask: u32 = 1044480u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const Associated: SmartCardAssociationType = SmartCardAssociationType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AssociationUnknown: SmartCardAssociationType = SmartCardAssociationType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDACOMP_EXCLUDE_TS_FROM_TR: BDA_Comp_Flags = BDA_Comp_Flags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDACOMP_INCLUDE_COMPONENTS_IN_TR: BDA_Comp_Flags = BDA_Comp_Flags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDACOMP_INCLUDE_LOCATOR_IN_TR: BDA_Comp_Flags = BDA_Comp_Flags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDACOMP_NOT_DEFINED: BDA_Comp_Flags = BDA_Comp_Flags(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_1_2: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_1_3: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_1_4: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_2_3: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_2_5: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_3_4: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_3_5: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_4_5: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_5_11: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_5_6: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_6_7: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_7_8: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_8_9: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_9_10: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_MAX: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_NOT_DEFINED: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_BCC_RATE_NOT_SET: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_CHANGES_COMPLETE: BDA_CHANGE_STATE = BDA_CHANGE_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_CHANGES_PENDING: BDA_CHANGE_STATE = BDA_CHANGE_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_CHAN_BANDWITH_NOT_DEFINED: BDA_Channel_Bandwidth = BDA_Channel_Bandwidth(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_CHAN_BANDWITH_NOT_SET: BDA_Channel_Bandwidth = BDA_Channel_Bandwidth(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_DISCOVERY_COMPLETE: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_DISCOVERY_REQUIRED: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_DISCOVERY_UNSPECIFIED: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_DrmPairing_Aborted: BDA_DrmPairingError = BDA_DrmPairingError(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_DrmPairing_DrmInitFailed: BDA_DrmPairingError = BDA_DrmPairingError(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_DrmPairing_DrmNotPaired: BDA_DrmPairingError = BDA_DrmPairingError(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_DrmPairing_DrmRePairSoon: BDA_DrmPairingError = BDA_DrmPairingError(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_DrmPairing_HardwareFailure: BDA_DrmPairingError = BDA_DrmPairingError(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_DrmPairing_NeedIndiv: BDA_DrmPairingError = BDA_DrmPairingError(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_DrmPairing_NeedRevocationData: BDA_DrmPairingError = BDA_DrmPairingError(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_DrmPairing_NeedSDKUpdate: BDA_DrmPairingError = BDA_DrmPairingError(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_DrmPairing_Other: BDA_DrmPairingError = BDA_DrmPairingError(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_DrmPairing_Succeeded: BDA_DrmPairingError = BDA_DrmPairingError(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_ACCESS_DENIED: BDA_EVENT_ID = BDA_EVENT_ID(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_ACCESS_GRANTED: BDA_EVENT_ID = BDA_EVENT_ID(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_CHANNEL_ACQUIRED: BDA_EVENT_ID = BDA_EVENT_ID(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_CHANNEL_ACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_CHANNEL_DEACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_CHANNEL_LOST: BDA_EVENT_ID = BDA_EVENT_ID(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_CHANNEL_SOURCE_CHANGED: BDA_EVENT_ID = BDA_EVENT_ID(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_DATA_START: BDA_EVENT_ID = BDA_EVENT_ID(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_DATA_STOP: BDA_EVENT_ID = BDA_EVENT_ID(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_OFFER_EXTENDED: BDA_EVENT_ID = BDA_EVENT_ID(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_PURCHASE_COMPLETED: BDA_EVENT_ID = BDA_EVENT_ID(17i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_SIGNAL_LOCK: BDA_EVENT_ID = BDA_EVENT_ID(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_SIGNAL_LOSS: BDA_EVENT_ID = BDA_EVENT_ID(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_SMART_CARD_INSERTED: BDA_EVENT_ID = BDA_EVENT_ID(18i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_SMART_CARD_REMOVED: BDA_EVENT_ID = BDA_EVENT_ID(19i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_SUBCHANNEL_ACQUIRED: BDA_EVENT_ID = BDA_EVENT_ID(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_SUBCHANNEL_ACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_SUBCHANNEL_DEACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_SUBCHANNEL_LOST: BDA_EVENT_ID = BDA_EVENT_ID(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_EVENT_SUBCHANNEL_SOURCE_CHANGED: BDA_EVENT_ID = BDA_EVENT_ID(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_ACCESS_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479671i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_BUFFER_TOO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479669i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479666i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479679i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_INVALID_CAPTURE_TOKEN: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073463294i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_INVALID_ENTITLEMENT_TOKEN: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073463295i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_INVALID_HANDLE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479674i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_INVALID_LANGUAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479664i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_INVALID_PURCHASE_TOKEN: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073463292i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_INVALID_SCHEMA: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479675i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_INVALID_TUNE_REQUEST: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073467388i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_INVALID_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479673i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_IPNETWORK_ADDRESS_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073459198i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_IPNETWORK_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073459199i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_IPNETWORK_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073459197i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_IPNETWORK_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073459196i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479670i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_NOT_IMPLEMENTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479678i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_NO_HANDLER: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479665i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_NO_MORE_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073475582i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_NO_MORE_EVENTS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073475583i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_NO_SUCH_COMMAND: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479677i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_OUT_OF_BOUNDS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479676i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_OUT_OF_MEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479667i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_OUT_OF_RESOURCES: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479668i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_READ_ONLY: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479672i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_TIMEOUT_ELAPSED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479663i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_TUNER_CONFLICT: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073467389i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_TUNER_INITIALIZING: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073467391i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_TUNER_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073467390i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_TUNE_FAILED_SDV01: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073455103i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_TUNE_FAILED_SDV02: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073455102i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_TUNE_FAILED_SDV03: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073455101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_TUNE_FAILED_SDV04: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073455100i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_TUNE_FAILED_SDV05: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073455099i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_TUNE_FAILED_SDV06: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073455098i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_TUNE_FAILED_SDV07: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073455097i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_TUNE_FAILED_SDV08: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073455096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_TUNE_FAILED_SDVFF: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073454849i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_WMDRM_INVALID_CERTIFICATE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073418238i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_WMDRM_INVALID_DATE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073418235i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_WMDRM_INVALID_PROXIMITY: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073418234i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_WMDRM_INVALID_SIGNATURE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073418239i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_WMDRM_INVALID_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073418236i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_WMDRM_KEY_ID_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073418232i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_WOULD_DISRUPT_STREAMING: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073463293i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_FEC_BCH: FECMethod = FECMethod(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_FEC_LDPC: FECMethod = FECMethod(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_FEC_MAX: FECMethod = FECMethod(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_FEC_METHOD_NOT_DEFINED: FECMethod = FECMethod(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_FEC_METHOD_NOT_SET: FECMethod = FECMethod(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_FEC_RS_147_130: FECMethod = FECMethod(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_FEC_RS_204_188: FECMethod = FECMethod(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_FEC_VITERBI: FECMethod = FECMethod(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_FILTERED_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_FREQUENCY_MULTIPLIER_NOT_DEFINED: BDA_Frequency_Multiplier = BDA_Frequency_Multiplier(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_FREQUENCY_MULTIPLIER_NOT_SET: BDA_Frequency_Multiplier = BDA_Frequency_Multiplier(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_FREQUENCY_NOT_DEFINED: BDA_Frequency = BDA_Frequency(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_FREQUENCY_NOT_SET: BDA_Frequency = BDA_Frequency(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_GUARD_19_128: GuardInterval = GuardInterval(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_GUARD_19_256: GuardInterval = GuardInterval(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_GUARD_1_128: GuardInterval = GuardInterval(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_GUARD_1_16: GuardInterval = GuardInterval(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_GUARD_1_32: GuardInterval = GuardInterval(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_GUARD_1_4: GuardInterval = GuardInterval(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_GUARD_1_8: GuardInterval = GuardInterval(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_GUARD_MAX: GuardInterval = GuardInterval(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_GUARD_NOT_DEFINED: GuardInterval = GuardInterval(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_GUARD_NOT_SET: GuardInterval = GuardInterval(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_HALPHA_1: HierarchyAlpha = HierarchyAlpha(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_HALPHA_2: HierarchyAlpha = HierarchyAlpha(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_HALPHA_4: HierarchyAlpha = HierarchyAlpha(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_HALPHA_MAX: HierarchyAlpha = HierarchyAlpha(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_HALPHA_NOT_DEFINED: HierarchyAlpha = HierarchyAlpha(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_HALPHA_NOT_SET: HierarchyAlpha = HierarchyAlpha(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_LNB_SOURCE_A: LNB_Source = LNB_Source(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_LNB_SOURCE_B: LNB_Source = LNB_Source(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_LNB_SOURCE_C: LNB_Source = LNB_Source(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_LNB_SOURCE_D: LNB_Source = LNB_Source(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_LNB_SOURCE_MAX: LNB_Source = LNB_Source(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_LNB_SOURCE_NOT_DEFINED: LNB_Source = LNB_Source(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_LNB_SOURCE_NOT_SET: LNB_Source = LNB_Source(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_1024QAM: ModulationType = ModulationType(19i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_112QAM: ModulationType = ModulationType(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_128QAM: ModulationType = ModulationType(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_160QAM: ModulationType = ModulationType(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_16APSK: ModulationType = ModulationType(29i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_16QAM: ModulationType = ModulationType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_16VSB: ModulationType = ModulationType(24i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_192QAM: ModulationType = ModulationType(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_224QAM: ModulationType = ModulationType(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_256QAM: ModulationType = ModulationType(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_320QAM: ModulationType = ModulationType(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_32APSK: ModulationType = ModulationType(30i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_32QAM: ModulationType = ModulationType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_384QAM: ModulationType = ModulationType(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_448QAM: ModulationType = ModulationType(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_512QAM: ModulationType = ModulationType(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_640QAM: ModulationType = ModulationType(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_64QAM: ModulationType = ModulationType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_768QAM: ModulationType = ModulationType(17i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_80QAM: ModulationType = ModulationType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_896QAM: ModulationType = ModulationType(18i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_8PSK: ModulationType = ModulationType(27i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_8VSB: ModulationType = ModulationType(23i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_96QAM: ModulationType = ModulationType(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_ANALOG_AMPLITUDE: ModulationType = ModulationType(25i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_ANALOG_FREQUENCY: ModulationType = ModulationType(26i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_BPSK: ModulationType = ModulationType(21i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_DIRECTV: ModulationType = ModulationType(33i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_ISDB_S_TMCC: ModulationType = ModulationType(35i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_ISDB_T_TMCC: ModulationType = ModulationType(34i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_MAX: ModulationType = ModulationType(36i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_NBC_8PSK: ModulationType = ModulationType(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_NBC_QPSK: ModulationType = ModulationType(31i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_NOT_DEFINED: ModulationType = ModulationType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_NOT_SET: ModulationType = ModulationType(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_OQPSK: ModulationType = ModulationType(22i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_QPSK: ModulationType = ModulationType(20i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_MOD_RF: ModulationType = ModulationType(28i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_NO_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_PILOT_MAX: Pilot = Pilot(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_PILOT_NOT_DEFINED: Pilot = Pilot(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_PILOT_NOT_SET: Pilot = Pilot(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_PILOT_OFF: Pilot = Pilot(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_PILOT_ON: Pilot = Pilot(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_PLP_ID_NOT_SET: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_POLARISATION_CIRCULAR_L: Polarisation = Polarisation(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_POLARISATION_CIRCULAR_R: Polarisation = Polarisation(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_POLARISATION_LINEAR_H: Polarisation = Polarisation(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_POLARISATION_LINEAR_V: Polarisation = Polarisation(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_POLARISATION_MAX: Polarisation = Polarisation(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_POLARISATION_NOT_DEFINED: Polarisation = Polarisation(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_POLARISATION_NOT_SET: Polarisation = Polarisation(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_PROMISCUOUS_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_RANGE_NOT_DEFINED: BDA_Range = BDA_Range(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_RANGE_NOT_SET: BDA_Range = BDA_Range(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_ROLL_OFF_20: RollOff = RollOff(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_ROLL_OFF_25: RollOff = RollOff(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_ROLL_OFF_35: RollOff = RollOff(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_ROLL_OFF_MAX: RollOff = RollOff(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_ROLL_OFF_NOT_DEFINED: RollOff = RollOff(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_ROLL_OFF_NOT_SET: RollOff = RollOff(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_1024QAM: ScanModulationTypes = ScanModulationTypes(262144i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_112QAM: ScanModulationTypes = ScanModulationTypes(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_128QAM: ScanModulationTypes = ScanModulationTypes(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_160QAM: ScanModulationTypes = ScanModulationTypes(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_16APSK: ScanModulationTypes = ScanModulationTypes(268435456i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_16QAM: ScanModulationTypes = ScanModulationTypes(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_16VSB: ScanModulationTypes = ScanModulationTypes(8388608i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_192QAM: ScanModulationTypes = ScanModulationTypes(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_224QAM: ScanModulationTypes = ScanModulationTypes(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_256QAM: ScanModulationTypes = ScanModulationTypes(1024i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_320QAM: ScanModulationTypes = ScanModulationTypes(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_32APSK: ScanModulationTypes = ScanModulationTypes(536870912i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_32QAM: ScanModulationTypes = ScanModulationTypes(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_384QAM: ScanModulationTypes = ScanModulationTypes(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_448QAM: ScanModulationTypes = ScanModulationTypes(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_512QAM: ScanModulationTypes = ScanModulationTypes(16384i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_640QAM: ScanModulationTypes = ScanModulationTypes(32768i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_64QAM: ScanModulationTypes = ScanModulationTypes(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_768QAM: ScanModulationTypes = ScanModulationTypes(65536i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_80QAM: ScanModulationTypes = ScanModulationTypes(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_896QAM: ScanModulationTypes = ScanModulationTypes(131072i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_8PSK: ScanModulationTypes = ScanModulationTypes(67108864i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_8VSB: ScanModulationTypes = ScanModulationTypes(4194304i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_96QAM: ScanModulationTypes = ScanModulationTypes(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_AM_RADIO: ScanModulationTypes = ScanModulationTypes(16777216i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_BPSK: ScanModulationTypes = ScanModulationTypes(1048576i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_FM_RADIO: ScanModulationTypes = ScanModulationTypes(33554432i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_OQPSK: ScanModulationTypes = ScanModulationTypes(2097152i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_QPSK: ScanModulationTypes = ScanModulationTypes(524288i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SCAN_MOD_RF: ScanModulationTypes = ScanModulationTypes(134217728i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SIGNAL_ACTIVE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SIGNAL_INACTIVE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SIGNAL_UNAVAILABLE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SPECTRAL_INVERSION_AUTOMATIC: SpectralInversion = SpectralInversion(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SPECTRAL_INVERSION_INVERTED: SpectralInversion = SpectralInversion(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SPECTRAL_INVERSION_MAX: SpectralInversion = SpectralInversion(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SPECTRAL_INVERSION_NORMAL: SpectralInversion = SpectralInversion(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SPECTRAL_INVERSION_NOT_DEFINED: SpectralInversion = SpectralInversion(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_SPECTRAL_INVERSION_NOT_SET: SpectralInversion = SpectralInversion(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_UNDEFINED_CHANNEL: BDA_Channel = BDA_Channel(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_UNITIALIZED_MPEG2STREAMTYPE: MPEG2StreamType = MPEG2StreamType(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_XMIT_MODE_16K: TransmissionMode = TransmissionMode(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_XMIT_MODE_1K: TransmissionMode = TransmissionMode(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_XMIT_MODE_2K: TransmissionMode = TransmissionMode(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_XMIT_MODE_2K_INTERLEAVED: TransmissionMode = TransmissionMode(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_XMIT_MODE_32K: TransmissionMode = TransmissionMode(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_XMIT_MODE_4K: TransmissionMode = TransmissionMode(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_XMIT_MODE_4K_INTERLEAVED: TransmissionMode = TransmissionMode(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_XMIT_MODE_8K: TransmissionMode = TransmissionMode(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_XMIT_MODE_MAX: TransmissionMode = TransmissionMode(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_XMIT_MODE_NOT_DEFINED: TransmissionMode = TransmissionMode(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_XMIT_MODE_NOT_SET: TransmissionMode = TransmissionMode(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CATEGORY_COUNT: ComponentCategory = ComponentCategory(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CDEF_BYPASS_CLASS_MANAGER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CDEF_CLASS_DEFAULT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CDEF_DEVMON_CMGR_DEVICE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CDEF_DEVMON_DMO: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CDEF_DEVMON_FILTER: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CDEF_DEVMON_PNP_DEVICE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CDEF_DEVMON_SELECTIVE_MASK: u32 = 240u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CDEF_MERIT_ABOVE_DO_NOT_USE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CFSTR_VFW_FILTERLIST: ::windows_core::PCSTR = ::windows_core::s!("Video for Windows 4 Filters");
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CHARS_IN_GUID: u32 = 39u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CK_INDEX: COLORKEY_TYPE = COLORKEY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CK_NOCOLORKEY: COLORKEY_TYPE = COLORKEY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CK_RGB: COLORKEY_TYPE = COLORKEY_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CLSID_AMAudioData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2468580_af8a_11d0_8212_00c04fc32c45);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CLSID_AMAudioStream: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8496e040_af4c_11d0_8212_00c04fc32c45);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CLSID_AMDirectDrawStream: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49c47ce4_9ba4_11d0_8212_00c04fc32c45);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CLSID_AMMediaTypeStream: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf0f2f7c_f7bf_11d0_900d_00c04fd9189d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CLSID_AMMultiMediaStream: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49c47ce5_9ba4_11d0_8212_00c04fc32c45);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CLSID_DMOFilterCategory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbcd5796c_bd52_4d30_ab76_70f975b89199);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CLSID_DMOWrapperFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94297043_bd82_4dfd_b0de_8177739c6d20);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CLSID_PBDA_AUX_DATA_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd456373_3323_4090_adca_8ed45f55cf10);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CLSID_PBDA_Encoder_DATA_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x728fd6bc_5546_4716_b103_f899f5a1fa68);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CLSID_PBDA_FDC_DATA_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7dbf9a0_22ab_4047_8e67_ef9ad504e729);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CLSID_PBDA_GDDS_DATA_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc80c0df3_6052_4c16_9f56_c44c21f73c45);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COMPSTAT_ABORT: COMPLETION_STATUS_FLAGS = COMPLETION_STATUS_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COMPSTAT_NOUPDATEOK: COMPLETION_STATUS_FLAGS = COMPLETION_STATUS_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COMPSTAT_WAIT: COMPLETION_STATUS_FLAGS = COMPLETION_STATUS_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CONDITIONALACCESS_ABORTED: BDA_CONDITIONALACCESS_SESSION_RESULT = BDA_CONDITIONALACCESS_SESSION_RESULT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CONDITIONALACCESS_ACCESS_NOT_POSSIBLE: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CONDITIONALACCESS_ACCESS_POSSIBLE: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CONDITIONALACCESS_ACCESS_POSSIBLE_NO_STREAMING_DISRUPTION: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CONDITIONALACCESS_ACCESS_UNSPECIFIED: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CONDITIONALACCESS_CLOSED_ITSELF: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CONDITIONALACCESS_DIALOG_FOCUS_CHANGE: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CONDITIONALACCESS_DIALOG_TIMEOUT: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CONDITIONALACCESS_DIALOG_USER_DISMISSED: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CONDITIONALACCESS_DIALOG_USER_NOT_AVAILABLE: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CONDITIONALACCESS_ENDED_NOCHANGE: BDA_CONDITIONALACCESS_SESSION_RESULT = BDA_CONDITIONALACCESS_SESSION_RESULT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CONDITIONALACCESS_SUCCESSFULL: BDA_CONDITIONALACCESS_SESSION_RESULT = BDA_CONDITIONALACCESS_SESSION_RESULT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CONDITIONALACCESS_TUNER_REQUESTED_CLOSE: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CONDITIONALACCESS_UNSPECIFIED: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ACP_ForceDWORD: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(2147483647i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ACP_Level0: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ACP_Level1: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ACP_Level2: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ACP_Level3: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ACP_LevelMax: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ACP_LevelMin: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_AspectRatio_EN300294_Box14by9Center: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_AspectRatio_EN300294_Box14by9Top: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_AspectRatio_EN300294_Box16by9Center: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_AspectRatio_EN300294_Box16by9Top: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_AspectRatio_EN300294_BoxGT16by9Center: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_AspectRatio_EN300294_FullFormat16by9Anamorphic: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_AspectRatio_EN300294_FullFormat4by3: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_AspectRatio_EN300294_FullFormat4by3ProtectedCenter: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_AspectRatio_ForceDWORD: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(2147483647i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_BusType_AGP: COPP_BusType = COPP_BusType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_BusType_ForceDWORD: COPP_BusType = COPP_BusType(2147483647i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_BusType_Integrated: COPP_BusType = COPP_BusType(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_BusType_PCI: COPP_BusType = COPP_BusType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_BusType_PCIExpress: COPP_BusType = COPP_BusType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_BusType_PCIX: COPP_BusType = COPP_BusType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_BusType_Unknown: COPP_BusType = COPP_BusType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_CGMSA_CopyFreely: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_CGMSA_CopyNever: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_CGMSA_CopyNoMore: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_CGMSA_CopyOneGeneration: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_CGMSA_Disabled: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_CGMSA_ForceDWORD: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(2147483647i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_CGMSA_LevelMax: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_CGMSA_LevelMin: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_CGMSA_RedistributionControlRequired: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ConnectorType_ComponentVideo: COPP_ConnectorType = COPP_ConnectorType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ConnectorType_CompositeVideo: COPP_ConnectorType = COPP_ConnectorType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ConnectorType_DVI: COPP_ConnectorType = COPP_ConnectorType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ConnectorType_D_JPN: COPP_ConnectorType = COPP_ConnectorType(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ConnectorType_ForceDWORD: COPP_ConnectorType = COPP_ConnectorType(2147483647i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ConnectorType_HDMI: COPP_ConnectorType = COPP_ConnectorType(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ConnectorType_Internal: COPP_ConnectorType = COPP_ConnectorType(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ConnectorType_LVDS: COPP_ConnectorType = COPP_ConnectorType(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ConnectorType_SVideo: COPP_ConnectorType = COPP_ConnectorType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ConnectorType_TMDS: COPP_ConnectorType = COPP_ConnectorType(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ConnectorType_Unknown: COPP_ConnectorType = COPP_ConnectorType(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ConnectorType_VGA: COPP_ConnectorType = COPP_ConnectorType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_DefaultProtectionLevel: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_HDCPFlagsReserved: COPP_StatusHDCPFlags = COPP_StatusHDCPFlags(-2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_HDCPRepeater: COPP_StatusHDCPFlags = COPP_StatusHDCPFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_HDCP_ForceDWORD: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(2147483647i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_HDCP_Level0: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_HDCP_Level1: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_HDCP_LevelMax: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_HDCP_LevelMin: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ImageAspectRatio_EN300294_Mask: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_LinkLost: COPP_StatusFlags = COPP_StatusFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_NoProtectionLevelAvailable: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_ARIBTRB15_1125i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(16384i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_ARIBTRB15_525i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_ARIBTRB15_525p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_ARIBTRB15_750p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_CEA805A_TypeA_1125i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_CEA805A_TypeA_525p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_CEA805A_TypeA_750p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_CEA805A_TypeB_1125i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(1024i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_CEA805A_TypeB_525p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_CEA805A_TypeB_750p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_EIA608B_525: COPP_TVProtectionStandard = COPP_TVProtectionStandard(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_EN300294_625i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_IEC61880_2_525i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_IEC61880_525i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_IEC62375_625p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_Mask: COPP_TVProtectionStandard = COPP_TVProtectionStandard(-2147450881i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_None: COPP_TVProtectionStandard = COPP_TVProtectionStandard(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_Reserved: COPP_TVProtectionStandard = COPP_TVProtectionStandard(2147450880i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ProtectionStandard_Unknown: COPP_TVProtectionStandard = COPP_TVProtectionStandard(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_RenegotiationRequired: COPP_StatusFlags = COPP_StatusFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_StatusFlagsReserved: COPP_StatusFlags = COPP_StatusFlags(-4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_StatusNormal: COPP_StatusFlags = COPP_StatusFlags(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CameraControl_Exposure: CameraControlProperty = CameraControlProperty(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CameraControl_Flags_Auto: CameraControlFlags = CameraControlFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CameraControl_Flags_Manual: CameraControlFlags = CameraControlFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CameraControl_Focus: CameraControlProperty = CameraControlProperty(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CameraControl_Iris: CameraControlProperty = CameraControlProperty(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CameraControl_Pan: CameraControlProperty = CameraControlProperty(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CameraControl_Roll: CameraControlProperty = CameraControlProperty(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CameraControl_Tilt: CameraControlProperty = CameraControlProperty(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CameraControl_Zoom: CameraControlProperty = CameraControlProperty(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CardDataChanged: SmartCardStatusType = SmartCardStatusType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CardError: SmartCardStatusType = SmartCardStatusType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CardFirmwareUpgrade: SmartCardStatusType = SmartCardStatusType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CardInserted: SmartCardStatusType = SmartCardStatusType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CardRemoved: SmartCardStatusType = SmartCardStatusType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CategoryAudio: ComponentCategory = ComponentCategory(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CategoryCaptions: ComponentCategory = ComponentCategory(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CategoryData: ComponentCategory = ComponentCategory(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CategoryNotSet: ComponentCategory = ComponentCategory(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CategoryOther: ComponentCategory = ComponentCategory(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CategorySubtitles: ComponentCategory = ComponentCategory(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CategorySuperimpose: ComponentCategory = ComponentCategory(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CategoryText: ComponentCategory = ComponentCategory(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CategoryVideo: ComponentCategory = ComponentCategory(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CompressionCaps_CanBFrame: CompressionCaps = CompressionCaps(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CompressionCaps_CanCrunch: CompressionCaps = CompressionCaps(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CompressionCaps_CanKeyFrame: CompressionCaps = CompressionCaps(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CompressionCaps_CanQuality: CompressionCaps = CompressionCaps(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CompressionCaps_CanWindow: CompressionCaps = CompressionCaps(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ConstantBitRate: VIDEOENCODER_BITRATE_MODE = VIDEOENCODER_BITRATE_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DDSFF_PROGRESSIVERENDER: DDSFF_FLAGS = DDSFF_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DECIMATION_DEFAULT: DECIMATION_USAGE = DECIMATION_USAGE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DECIMATION_LEGACY: DECIMATION_USAGE = DECIMATION_USAGE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DECIMATION_USE_DECODER_ONLY: DECIMATION_USAGE = DECIMATION_USAGE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DECIMATION_USE_OVERLAY_ONLY: DECIMATION_USAGE = DECIMATION_USAGE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DECIMATION_USE_VIDEOPORT_ONLY: DECIMATION_USAGE = DECIMATION_USAGE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DECODER_CAP_NOTSUPPORTED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DECODER_CAP_SUPPORTED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DISPLAY_16x9: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DISPLAY_4x3_LETTERBOX_PREFERRED: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DISPLAY_4x3_PANSCAN_PREFERRED: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DISPLAY_CONTENT_DEFAULT: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DOLBY_AC3_AUDIO: MPEG2StreamType = MPEG2StreamType(129i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DOLBY_DIGITAL_PLUS_AUDIO_ATSC: MPEG2StreamType = MPEG2StreamType(135i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVB_Cable: DVBSystemType = DVBSystemType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVB_Satellite: DVBSystemType = DVBSystemType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVB_Terrestrial: DVBSystemType = DVBSystemType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVDECODERRESOLUTION_180x120: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1002i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVDECODERRESOLUTION_360x240: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1001i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVDECODERRESOLUTION_720x480: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1000i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVDECODERRESOLUTION_88x60: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1003i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AUDIO_CAPS_AC3: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AUDIO_CAPS_DTS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AUDIO_CAPS_LPCM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AUDIO_CAPS_MPEG2: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AUDIO_CAPS_SDDS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AUD_EXT_Captions: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AUD_EXT_DirectorComments1: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AUD_EXT_DirectorComments2: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AUD_EXT_NotSpecified: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AUD_EXT_VisuallyImpaired: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AppMode_Karaoke: DVD_TITLE_APPMODE = DVD_TITLE_APPMODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AppMode_Not_Specified: DVD_TITLE_APPMODE = DVD_TITLE_APPMODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AppMode_Other: DVD_TITLE_APPMODE = DVD_TITLE_APPMODE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Assignment_LR: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Assignment_LR1: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Assignment_LR12: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Assignment_LRM: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Assignment_LRM1: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Assignment_LRM12: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Assignment_reserved0: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Assignment_reserved1: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AudioDuringFFwdRew: DVD_OPTION_FLAG = DVD_OPTION_FLAG(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AudioFormat_AC3: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AudioFormat_DTS: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AudioFormat_LPCM: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AudioFormat_MPEG1: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AudioFormat_MPEG1_DRC: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AudioFormat_MPEG2: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AudioFormat_MPEG2_DRC: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AudioFormat_Other: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AudioFormat_SDDS: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AudioMode_Karaoke: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AudioMode_None: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AudioMode_Other: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AudioMode_Surround: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_CMD_FLAG_Block: DVD_CMD_FLAGS = DVD_CMD_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_CMD_FLAG_EndAfterRendered: DVD_CMD_FLAGS = DVD_CMD_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_CMD_FLAG_Flush: DVD_CMD_FLAGS = DVD_CMD_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_CMD_FLAG_None: DVD_CMD_FLAGS = DVD_CMD_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_CMD_FLAG_SendEvents: DVD_CMD_FLAGS = DVD_CMD_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_CMD_FLAG_StartWhenRendered: DVD_CMD_FLAGS = DVD_CMD_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_CacheSizeInMB: DVD_OPTION_FLAG = DVD_OPTION_FLAG(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Channel_Audio: DVD_TextStringType = DVD_TextStringType(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_CharSet_ISO646: DVD_TextCharSet = DVD_TextCharSet(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_CharSet_ISO8859_1: DVD_TextCharSet = DVD_TextCharSet(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_CharSet_JIS_Roman_Kanji: DVD_TextCharSet = DVD_TextCharSet(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_CharSet_ShiftJIS_Kanji_Roman_Katakana: DVD_TextCharSet = DVD_TextCharSet(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_CharSet_Unicode: DVD_TextCharSet = DVD_TextCharSet(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_DEFAULT_AUDIO_STREAM: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_DIR_BACKWARD: DVD_PLAY_DIRECTION = DVD_PLAY_DIRECTION(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_DIR_FORWARD: DVD_PLAY_DIRECTION = DVD_PLAY_DIRECTION(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_DOMAIN_FirstPlay: DVD_DOMAIN = DVD_DOMAIN(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_DOMAIN_Stop: DVD_DOMAIN = DVD_DOMAIN(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_DOMAIN_Title: DVD_DOMAIN = DVD_DOMAIN(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_DOMAIN_VideoManagerMenu: DVD_DOMAIN = DVD_DOMAIN(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_DOMAIN_VideoTitleSetMenu: DVD_DOMAIN = DVD_DOMAIN(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_DisableStillThrottle: DVD_OPTION_FLAG = DVD_OPTION_FLAG(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_ERROR_CopyProtectFail: DVD_ERROR = DVD_ERROR(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_ERROR_CopyProtectOutputFail: DVD_ERROR = DVD_ERROR(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_ERROR_CopyProtectOutputNotSupported: DVD_ERROR = DVD_ERROR(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_ERROR_IncompatibleDiscAndDecoderRegions: DVD_ERROR = DVD_ERROR(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_ERROR_IncompatibleSystemAndDecoderRegions: DVD_ERROR = DVD_ERROR(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_ERROR_InvalidDVD1_0Disc: DVD_ERROR = DVD_ERROR(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_ERROR_InvalidDiscRegion: DVD_ERROR = DVD_ERROR(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_ERROR_LowParentalLevel: DVD_ERROR = DVD_ERROR(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_ERROR_MacrovisionFail: DVD_ERROR = DVD_ERROR(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_ERROR_Unexpected: DVD_ERROR = DVD_ERROR(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_EnableCC: DVD_OPTION_FLAG = DVD_OPTION_FLAG(19i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_EnableESOutput: DVD_OPTION_FLAG = DVD_OPTION_FLAG(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_EnableExtendedCopyProtectErrors: DVD_OPTION_FLAG = DVD_OPTION_FLAG(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_EnableLoggingEvents: DVD_OPTION_FLAG = DVD_OPTION_FLAG(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_EnableNonblockingAPIs: DVD_OPTION_FLAG = DVD_OPTION_FLAG(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_EnablePortableBookmarks: DVD_OPTION_FLAG = DVD_OPTION_FLAG(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_EnableStreaming: DVD_OPTION_FLAG = DVD_OPTION_FLAG(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_EnableTitleLength: DVD_OPTION_FLAG = DVD_OPTION_FLAG(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_FPS_25: DVD_FRAMERATE = DVD_FRAMERATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_FPS_30NonDrop: DVD_FRAMERATE = DVD_FRAMERATE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_General_Comments: DVD_TextStringType = DVD_TextStringType(49i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_General_Name: DVD_TextStringType = DVD_TextStringType(48i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_HMSF_TimeCodeEvents: DVD_OPTION_FLAG = DVD_OPTION_FLAG(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_IncreaseOutputControl: DVD_OPTION_FLAG = DVD_OPTION_FLAG(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Karaoke_GuideMelody1: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Karaoke_GuideMelody2: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Karaoke_GuideMelodyA: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Karaoke_GuideMelodyB: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Karaoke_GuideVocal1: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Karaoke_GuideVocal2: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Karaoke_SoundEffectA: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Karaoke_SoundEffectB: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_MENU_Angle: DVD_MENU_ID = DVD_MENU_ID(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_MENU_Audio: DVD_MENU_ID = DVD_MENU_ID(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_MENU_Chapter: DVD_MENU_ID = DVD_MENU_ID(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_MENU_Root: DVD_MENU_ID = DVD_MENU_ID(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_MENU_Subpicture: DVD_MENU_ID = DVD_MENU_ID(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_MENU_Title: DVD_MENU_ID = DVD_MENU_ID(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_MaxReadBurstInKB: DVD_OPTION_FLAG = DVD_OPTION_FLAG(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Mix_0to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Mix_0to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Mix_1to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Mix_1to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Mix_2to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Mix_2to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(1024i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Mix_3to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Mix_3to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Mix_4to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Mix_4to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Mix_Lto0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Mix_Lto1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Mix_Rto0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Mix_Rto1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(16384i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_NavCmdType_Button: DVD_NavCmdType = DVD_NavCmdType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_NavCmdType_Cell: DVD_NavCmdType = DVD_NavCmdType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_NavCmdType_Post: DVD_NavCmdType = DVD_NavCmdType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_NavCmdType_Pre: DVD_NavCmdType = DVD_NavCmdType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_NotifyParentalLevelChange: DVD_OPTION_FLAG = DVD_OPTION_FLAG(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_NotifyPositionChange: DVD_OPTION_FLAG = DVD_OPTION_FLAG(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Other_Cut: DVD_TextStringType = DVD_TextStringType(81i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Other_Scene: DVD_TextStringType = DVD_TextStringType(80i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Other_Take: DVD_TextStringType = DVD_TextStringType(82i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PARENTAL_LEVEL_1: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PARENTAL_LEVEL_2: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PARENTAL_LEVEL_3: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(1024i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PARENTAL_LEVEL_4: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PARENTAL_LEVEL_5: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PARENTAL_LEVEL_6: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PARENTAL_LEVEL_7: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(16384i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PARENTAL_LEVEL_8: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(32768i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_CopyProtectFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_CopyProtectOutputFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_CopyProtectOutputNotSupported: DVD_PB_STOPPED = DVD_PB_STOPPED(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_DiscEjected: DVD_PB_STOPPED = DVD_PB_STOPPED(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_DiscReadError: DVD_PB_STOPPED = DVD_PB_STOPPED(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_IllegalNavCommand: DVD_PB_STOPPED = DVD_PB_STOPPED(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_MacrovisionFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_NoBranch: DVD_PB_STOPPED = DVD_PB_STOPPED(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_NoFirstPlayDomain: DVD_PB_STOPPED = DVD_PB_STOPPED(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_Other: DVD_PB_STOPPED = DVD_PB_STOPPED(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_ParentalFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_PlayChapterAutoStop: DVD_PB_STOPPED = DVD_PB_STOPPED(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_PlayPeriodAutoStop: DVD_PB_STOPPED = DVD_PB_STOPPED(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_RegionFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_Reset: DVD_PB_STOPPED = DVD_PB_STOPPED(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_PB_STOPPED_StopCommand: DVD_PB_STOPPED = DVD_PB_STOPPED(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_ReadBurstPeriodInMS: DVD_OPTION_FLAG = DVD_OPTION_FLAG(17i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Relative_Left: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Relative_Lower: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Relative_Right: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Relative_Upper: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_ResetOnStop: DVD_OPTION_FLAG = DVD_OPTION_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_RestartDisc: DVD_OPTION_FLAG = DVD_OPTION_FLAG(18i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SIDE_A: DVD_DISC_SIDE = DVD_DISC_SIDE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SIDE_B: DVD_DISC_SIDE = DVD_DISC_SIDE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SPCoding_Extended: DVD_SUBPICTURE_CODING = DVD_SUBPICTURE_CODING(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SPCoding_Other: DVD_SUBPICTURE_CODING = DVD_SUBPICTURE_CODING(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SPCoding_RunLength: DVD_SUBPICTURE_CODING = DVD_SUBPICTURE_CODING(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SPType_Language: DVD_SUBPICTURE_TYPE = DVD_SUBPICTURE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SPType_NotSpecified: DVD_SUBPICTURE_TYPE = DVD_SUBPICTURE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SPType_Other: DVD_SUBPICTURE_TYPE = DVD_SUBPICTURE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SP_EXT_CC_Big: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SP_EXT_CC_Children: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SP_EXT_CC_Normal: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SP_EXT_Caption_Big: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SP_EXT_Caption_Children: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SP_EXT_Caption_Normal: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SP_EXT_DirectorComments_Big: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SP_EXT_DirectorComments_Children: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SP_EXT_DirectorComments_Normal: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SP_EXT_Forced: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_SP_EXT_NotSpecified: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_STREAM_DATA_CURRENT: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_STREAM_DATA_VMGM: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_STREAM_DATA_VTSM: u32 = 1025u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Stream_Angle: DVD_TextStringType = DVD_TextStringType(18i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Stream_Audio: DVD_TextStringType = DVD_TextStringType(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Stream_Subpicture: DVD_TextStringType = DVD_TextStringType(17i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Struct_Cell: DVD_TextStringType = DVD_TextStringType(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Struct_ParentalID: DVD_TextStringType = DVD_TextStringType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Struct_PartOfTitle: DVD_TextStringType = DVD_TextStringType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Struct_Title: DVD_TextStringType = DVD_TextStringType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Struct_Volume: DVD_TextStringType = DVD_TextStringType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_TC_FLAG_25fps: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_TC_FLAG_30fps: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_TC_FLAG_DropFrame: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_TC_FLAG_Interpolated: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_TITLE_MENU: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Album: DVD_TextStringType = DVD_TextStringType(59i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Movie: DVD_TextStringType = DVD_TextStringType(57i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Orig_Album: DVD_TextStringType = DVD_TextStringType(75i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Orig_Movie: DVD_TextStringType = DVD_TextStringType(73i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Orig_Other: DVD_TextStringType = DVD_TextStringType(79i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Orig_Series: DVD_TextStringType = DVD_TextStringType(72i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Orig_Song: DVD_TextStringType = DVD_TextStringType(76i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Orig_Video: DVD_TextStringType = DVD_TextStringType(74i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Other: DVD_TextStringType = DVD_TextStringType(63i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Series: DVD_TextStringType = DVD_TextStringType(56i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Song: DVD_TextStringType = DVD_TextStringType(60i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Sub_Album: DVD_TextStringType = DVD_TextStringType(67i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Sub_Movie: DVD_TextStringType = DVD_TextStringType(65i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Sub_Other: DVD_TextStringType = DVD_TextStringType(71i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Sub_Series: DVD_TextStringType = DVD_TextStringType(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Sub_Song: DVD_TextStringType = DVD_TextStringType(68i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Sub_Video: DVD_TextStringType = DVD_TextStringType(66i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_Title_Video: DVD_TextStringType = DVD_TextStringType(58i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_VideoCompression_MPEG1: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_VideoCompression_MPEG2: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_VideoCompression_Other: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_WARNING_FormatNotSupported: DVD_WARNING = DVD_WARNING(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_WARNING_IllegalNavCommand: DVD_WARNING = DVD_WARNING(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_WARNING_InvalidDVD1_0Disc: DVD_WARNING = DVD_WARNING(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_WARNING_Open: DVD_WARNING = DVD_WARNING(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_WARNING_Read: DVD_WARNING = DVD_WARNING(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_WARNING_Seek: DVD_WARNING = DVD_WARNING(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVENCODERFORMAT_DVHD: _DVENCODERFORMAT = _DVENCODERFORMAT(2008i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVENCODERFORMAT_DVSD: _DVENCODERFORMAT = _DVENCODERFORMAT(2007i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVENCODERFORMAT_DVSL: _DVENCODERFORMAT = _DVENCODERFORMAT(2009i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVENCODERRESOLUTION_180x120: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2014i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVENCODERRESOLUTION_360x240: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2013i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVENCODERRESOLUTION_720x480: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2012i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVENCODERRESOLUTION_88x60: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2015i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVENCODERVIDEOFORMAT_NTSC: _DVENCODERVIDEOFORMAT = _DVENCODERVIDEOFORMAT(2000i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVENCODERVIDEOFORMAT_PAL: _DVENCODERVIDEOFORMAT = _DVENCODERVIDEOFORMAT(2001i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVRESOLUTION_DC: _DVRESOLUTION = _DVRESOLUTION(1003i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVRESOLUTION_FULL: _DVRESOLUTION = _DVRESOLUTION(1000i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVRESOLUTION_HALF: _DVRESOLUTION = _DVRESOLUTION(1001i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVRESOLUTION_QUARTER: _DVRESOLUTION = _DVRESOLUTION(1002i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DWORD_ALLPARAMS: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2Trace_Control: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0386e75_f70c_464c_a9ce_33c44e091623);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2Trace_DecodeDevBeginFrame: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9fd1acf6_44cb_4637_bc62_2c11a9608f90);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2Trace_DecodeDevCreated: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb4de17a1_c5b2_44fe_86d5_d97a648114ff);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2Trace_DecodeDevDestroyed: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x853ebdf2_4160_421d_8893_63dcea4f18bb);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2Trace_DecodeDevEndFrame: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9fb3cb33_47dc_4899_98c8_c0c6cd7cd3cb);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2Trace_DecodeDevExecute: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x850aeb4c_d19a_4609_b3b4_bcbf0e22121e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2Trace_DecodeDevGetBuffer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57b128fb_72cb_4137_a575_d91fa3160897);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2Trace_VideoProcessBlt: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69089cc0_71ab_42d0_953a_2887bf05a8af);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2Trace_VideoProcessDevCreated: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x895508c6_540d_4c87_98f8_8dcbf2dabb2a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2Trace_VideoProcessDevDestroyed: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf97f30b1_fb49_42c7_8ee8_88bdfa92d4e2);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_DestinationFlagMask: DXVA2_DestinationFlags = DXVA2_DestinationFlags(-65521i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_DestinationFlag_Alpha_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_DestinationFlag_Background_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_DestinationFlag_ColorData_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_DestinationFlag_RFF: DXVA2_DestinationFlags = DXVA2_DestinationFlags(65536i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_DestinationFlag_RFF_TFF_Present: DXVA2_DestinationFlags = DXVA2_DestinationFlags(262144i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_DestinationFlag_TFF: DXVA2_DestinationFlags = DXVA2_DestinationFlags(131072i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_DestinationFlag_TargetRect_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_SampleFlag_ColorData_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_SampleFlag_DstRect_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_SampleFlag_Palette_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_SampleFlag_PlanarAlpha_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_SampleFlag_RFF: DXVA2_SampleFlags = DXVA2_SampleFlags(65536i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_SampleFlag_RFF_TFF_Present: DXVA2_SampleFlags = DXVA2_SampleFlags(262144i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_SampleFlag_SrcRect_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_SampleFlag_TFF: DXVA2_SampleFlags = DXVA2_SampleFlags(131072i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2_SampleFlagsMask: DXVA2_SampleFlags = DXVA2_SampleFlags(-65505i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ALPHA_BLEND_COMBINATION_BUFFER: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ALPHA_BLEND_COMBINATION_FUNCTION: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ALPHA_BLEND_DATA_LOAD_FUNCTION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_AYUV_BUFFER: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_BIDIRECTIONAL_AVERAGING_H263_TRUNC: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_BIDIRECTIONAL_AVERAGING_MPEG2_ROUND: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_BITSTREAM_CONCEALMENT_METHOD_BACKWARD: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_BITSTREAM_CONCEALMENT_METHOD_FORWARD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_BITSTREAM_CONCEALMENT_METHOD_INTRA: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_BITSTREAM_CONCEALMENT_METHOD_UNSPECIFIED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_BITSTREAM_CONCEALMENT_NEED_LIKELY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_BITSTREAM_CONCEALMENT_NEED_MILD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_BITSTREAM_CONCEALMENT_NEED_SEVERE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_BITSTREAM_CONCEALMENT_NEED_UNLIKELY: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_BITSTREAM_DATA_BUFFER: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_CHROMA_FORMAT_420: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_CHROMA_FORMAT_422: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_CHROMA_FORMAT_444: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COMPBUFFER_TYPE_THAT_IS_NOT_USED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_CONFIG_BLEND_TYPE_BACK_HARDWARE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_CONFIG_BLEND_TYPE_FRONT_BUFFER: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_CONFIG_DATA_TYPE_AI44: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_CONFIG_DATA_TYPE_AYUV: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_CONFIG_DATA_TYPE_DPXD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_CONFIG_DATA_TYPE_IA44: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPCommandFnCode: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2457add_8999_45ed_8a8a_d1aa047ba4d5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPGetCertificateLengthFnCode: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPKeyExchangeFnCode: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPQueryBusData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6f4d673_6174_4184_8e35_f6db5200bcba);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPQueryConnectorType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x81d0bfd5_6afe_48c2_99c0_95a08f97c5da);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPQueryDisplayData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7bf1ba3_ad13_4f8e_af98_0dcb3ca204cc);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPQueryGlobalProtectionLevel: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1957210a_7766_452a_b99a_d27aed54f03a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPQueryHDCPKeyData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0db59d74_a992_492e_a0bd_c23fda564e00);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPQueryLocalProtectionLevel: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2075857_3eda_4d5d_88db_748f8c1a0549);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPQueryProtectionType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38f2a801_9a6c_48bb_9107_b6696e6f1797);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPQuerySignaling: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6629a591_3b79_4cf3_924a_11e8e7811671);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPQueryStatusFnCode: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPSequenceStartFnCode: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPSetProtectionLevel: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9bb9327c_4eb5_4727_9f00_b42b0919c0da);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_COPPSetSignaling: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09a631a5_d684_4c60_8e4d_d3bb0f0be3ee);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_DCCMD_SURFACE_BUFFER: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_DEBLOCKING_CONTROL_BUFFER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_DEBLOCKING_FILTER_FUNCTION: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_DPXD_SURFACE_BUFFER: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_DeinterlaceBltExFnCode: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_DeinterlaceBltFnCode: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_DeinterlaceBobDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x335aa36e_7884_43a4_9c91_7f87faf3e37e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_DeinterlaceContainerDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0e85cb93_3046_4ff0_aecc_d58cb5f035fd);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_DeinterlaceQueryAvailableModesFnCode: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_DeinterlaceQueryModeCapsFnCode: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ENCRYPTPROTOCOLFUNCFLAG_ACCEL: u32 = 16776968u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ENCRYPTPROTOCOLFUNCFLAG_HOST: u32 = 16776960u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_EXECUTE_RETURN_DATA_ERROR_MINOR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_EXECUTE_RETURN_DATA_ERROR_SEVERE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_EXECUTE_RETURN_DATA_ERROR_SIGNIF: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_EXECUTE_RETURN_OK: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_EXECUTE_RETURN_OTHER_ERROR_SEVERE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ExtColorData_ShiftBase: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_FILM_GRAIN_BUFFER: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_FILM_GRAIN_SYNTHESIS_FUNCTION: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_HIGHLIGHT_BUFFER: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_IA44_SURFACE_BUFFER: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_INVERSE_QUANTIZATION_MATRIX_BUFFER: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_MACROBLOCK_CONTROL_BUFFER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_MOTION_VECTOR_BUFFER: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_MV_PRECISION_AND_CHROMA_RELATION_H261: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_MV_PRECISION_AND_CHROMA_RELATION_H263: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_MV_PRECISION_AND_CHROMA_RELATION_MPEG2: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeAV1_VLD_12bit_Profile2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17127009_a00f_4ce1_994e_bf4081f6f3f0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeAV1_VLD_12bit_Profile2_420: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d80bed6_9cac_4835_9e91_327bbc4f9ee8);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeAV1_VLD_Profile0: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb8be4ccb_cf53_46ba_8d59_d6b8a6da5d2a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeAV1_VLD_Profile1: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6936ff0f_45b1_4163_9cc1_646ef6946108);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeAV1_VLD_Profile2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c5f2aa1_e541_4089_bb7b_98110a19d7c8);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH261_A: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be01_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH261_B: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be02_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH263_A: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be03_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH263_B: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be04_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH263_C: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be05_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH263_D: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be06_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH263_E: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be07_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH263_F: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be08_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH264_A: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be64_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH264_B: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be65_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH264_C: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be66_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH264_D: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be67_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH264_E: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be68_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH264_F: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be69_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH264_VLD_Multiview_NoFGT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x705b9d82_76cf_49d6_b7e6_ac8872db013c);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH264_VLD_Stereo_NoFGT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9aaccbb_c2b6_4cfc_8779_5707b1760552);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH264_VLD_Stereo_Progressive_NoFGT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd79be8da_0cf1_4c81_b82a_69a4e236f43d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeH264_VLD_WithFMOASO_NoFGT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5f04ff9_3418_45d8_9561_32a76aae2ddd);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeHEVC_VLD_Main: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b11d51b_2f4c_4452_bcc3_09f2a1160cc0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeHEVC_VLD_Main10: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x107af0e0_ef1a_4d19_aba8_67a163073d13);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeMPEG1_A: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be09_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeMPEG1_VLD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f3ec719_3735_42cc_8063_65cc3cb36616);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeMPEG2_A: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be0a_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeMPEG2_B: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be0b_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeMPEG2_C: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be0c_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeMPEG2_D: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be0d_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeMPEG2and1_VLD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86695f12_340e_4f04_9fd3_9253dd327460);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeMPEG4pt2_VLD_AdvSimple_GMC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab998b5b_4258_44a9_9feb_94e597a6baae);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeMPEG4pt2_VLD_AdvSimple_NoGMC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed418a9f_010d_4eda_9ae3_9a65358d8d2e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeMPEG4pt2_VLD_Simple: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefd64d74_c9e8_41d7_a5e9_e9b0e39fa319);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeNone: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be00_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeVC1_A: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81bea0_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeVC1_B: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81bea1_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeVC1_C: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81bea2_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeVC1_D: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81bea3_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeVC1_D2010: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81bea4_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeVP8_VLD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x90b899ea_3a62_4705_88b3_8df04b2744e7);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeVP9_VLD_10bit_Profile2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa4c749ef_6ecf_48aa_8448_50a7a1165ff7);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeVP9_VLD_Profile0: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x463707f8_a1d0_4585_876d_83aa6d60b89e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeWMV8_A: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be80_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeWMV8_B: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be81_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeWMV9_A: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be90_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeWMV9_B: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be91_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ModeWMV9_C: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81be94_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_NUM_TYPES_COMP_BUFFERS: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_NoEncrypt: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b81bed0_a0c7_11d3_b984_00c04f2e73c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_NumMV_OBMC_off_BinPBwith4MV_off: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_NumMV_OBMC_off_BinPBwith4MV_on: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_NumMV_OBMC_on__BinPB_off: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_NumMV_OBMC_on__BinPB_on: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_PICTURE_DECODE_BUFFER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_PICTURE_DECODING_FUNCTION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_PICTURE_RESAMPLE_BUFFER: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_PICTURE_RESAMPLE_FUNCTION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_PICTURE_STRUCTURE_BOTTOM_FIELD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_PICTURE_STRUCTURE_FRAME: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_PICTURE_STRUCTURE_TOP_FIELD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ProcAmpControlBltFnCode: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ProcAmpControlDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f200913_2ffd_4056_9f1e_e1b508f22dcf);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ProcAmpControlQueryCapsFnCode: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ProcAmpControlQueryRangeFnCode: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_LOCK_FALSE_PLUS: u32 = 16777215u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_LOCK_OK_COPY: u32 = 16777212u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_PROBE_FALSE_PLUS: u32 = 16777211u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_PROBE_OK_COPY: u32 = 16777208u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_PROBE_OK_PLUS: u32 = 16777209u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_QUERYORREPLYFUNCFLAG_DECODER_LOCK_QUERY: u32 = 16777205u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_QUERYORREPLYFUNCFLAG_DECODER_PROBE_QUERY: u32 = 16777201u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_READ_BACK_BUFFER: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESIDUAL_DIFFERENCE_BUFFER: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H261_A: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H261_B: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H263_A: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H263_B: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H263_C: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H263_D: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H263_E: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H263_F: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_A: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_B: u32 = 101u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_C: u32 = 102u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_D: u32 = 103u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_E: u32 = 104u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_F: u32 = 105u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_IDCT_FGT: u32 = 103u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_IDCT_NOFGT: u32 = 102u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_MOCOMP_FGT: u32 = 101u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_MOCOMP_NOFGT: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_VLD_FGT: u32 = 105u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_VLD_MULTIVIEW_NOFGT: u32 = 115u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_VLD_NOFGT: u32 = 104u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_VLD_STEREO_NOFGT: u32 = 114u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_VLD_STEREO_PROGRESSIVE_NOFGT: u32 = 113u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_H264_VLD_WITHFMOASO_NOFGT: u32 = 112u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_MPEG1_A: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_MPEG1_VLD: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_MPEG2_A: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_MPEG2_B: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_MPEG2_C: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_MPEG2_D: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_MPEG2and1_VLD: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_MPEG4PT2_VLD_ADV_SIMPLE_GMC: u32 = 178u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_MPEG4PT2_VLD_ADV_SIMPLE_NOGMC: u32 = 177u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_MPEG4PT2_VLD_SIMPLE: u32 = 176u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_UNRESTRICTED: u32 = 65535u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_VC1_A: u32 = 160u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_VC1_B: u32 = 161u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_VC1_C: u32 = 162u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_VC1_D: u32 = 163u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_VC1_D2010: u32 = 164u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_VC1_IDCT: u32 = 162u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_VC1_MOCOMP: u32 = 161u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_VC1_POSTPROC: u32 = 160u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_VC1_VLD: u32 = 163u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_WMV8_A: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_WMV8_B: u32 = 129u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_WMV8_MOCOMP: u32 = 129u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_WMV8_POSTPROC: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_WMV9_A: u32 = 144u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_WMV9_B: u32 = 145u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_WMV9_C: u32 = 148u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_WMV9_IDCT: u32 = 148u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_WMV9_MOCOMP: u32 = 145u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_RESTRICTED_MODE_WMV9_POSTPROC: u32 = 144u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_SCAN_METHOD_ALTERNATE_HORIZONTAL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_SCAN_METHOD_ALTERNATE_VERTICAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_SCAN_METHOD_ARBITRARY: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_SCAN_METHOD_ZIG_ZAG: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_SLICE_CONTROL_BUFFER: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_STATUS_REPORTING_FUNCTION: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_USUAL_BLOCK_HEIGHT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_USUAL_BLOCK_WIDTH: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlacePref9_BOB: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlacePref9_Mask: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlacePref9_NextBest: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlacePref9_Weave: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlacePref_BOB: VMRDeinterlacePrefs = VMRDeinterlacePrefs(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlacePref_Mask: VMRDeinterlacePrefs = VMRDeinterlacePrefs(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlacePref_NextBest: VMRDeinterlacePrefs = VMRDeinterlacePrefs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlacePref_Weave: VMRDeinterlacePrefs = VMRDeinterlacePrefs(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech9_BOBLineReplicate: VMR9DeinterlaceTech = VMR9DeinterlaceTech(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech9_BOBVerticalStretch: VMR9DeinterlaceTech = VMR9DeinterlaceTech(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech9_EdgeFiltering: VMR9DeinterlaceTech = VMR9DeinterlaceTech(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech9_FieldAdaptive: VMR9DeinterlaceTech = VMR9DeinterlaceTech(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech9_MedianFiltering: VMR9DeinterlaceTech = VMR9DeinterlaceTech(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech9_MotionVectorSteered: VMR9DeinterlaceTech = VMR9DeinterlaceTech(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech9_PixelAdaptive: VMR9DeinterlaceTech = VMR9DeinterlaceTech(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech9_Unknown: VMR9DeinterlaceTech = VMR9DeinterlaceTech(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech_BOBLineReplicate: VMRDeinterlaceTech = VMRDeinterlaceTech(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech_BOBVerticalStretch: VMRDeinterlaceTech = VMRDeinterlaceTech(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech_EdgeFiltering: VMRDeinterlaceTech = VMRDeinterlaceTech(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech_FieldAdaptive: VMRDeinterlaceTech = VMRDeinterlaceTech(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech_MedianFiltering: VMRDeinterlaceTech = VMRDeinterlaceTech(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech_MotionVectorSteered: VMRDeinterlaceTech = VMRDeinterlaceTech(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech_PixelAdaptive: VMRDeinterlaceTech = VMRDeinterlaceTech(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeinterlaceTech_Unknown: VMRDeinterlaceTech = VMRDeinterlaceTech(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DeviceClosed: UICloseReasonType = UICloseReasonType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const Disabled: OUTPUT_STATE = OUTPUT_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_ACTIVATE: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_BANDWIDTHCHANGE: u32 = 72u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_BUFFERING_DATA: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_BUILT: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_CLOCK_CHANGED: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_CLOCK_UNSET: u32 = 81u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_CODECAPI_EVENT: u32 = 87u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_COMPLETE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_CONTENTPROPERTY_CHANGED: u32 = 71u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DEVICE_LOST: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DISPLAY_CHANGED: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVDBASE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_ANGLES_AVAILABLE: u32 = 275u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_ANGLE_CHANGE: u32 = 262u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_AUDIO_STREAM_CHANGE: u32 = 260u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_BUTTON_AUTO_ACTIVATED: u32 = 277u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_BUTTON_CHANGE: u32 = 263u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_BeginNavigationCommands: u32 = 291u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_CHAPTER_AUTOSTOP: u32 = 270u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_CHAPTER_START: u32 = 259u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_CMD_END: u32 = 279u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_CMD_START: u32 = 278u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_CURRENT_HMSF_TIME: u32 = 282u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_CURRENT_TIME: u32 = 267u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_DISC_EJECTED: u32 = 280u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_DISC_INSERTED: u32 = 281u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_DOMAIN_CHANGE: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_ERROR: u32 = 268u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_GPRM_Change: u32 = 289u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_KARAOKE_MODE: u32 = 283u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_NO_FP_PGC: u32 = 271u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_NavigationCommand: u32 = 292u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_PARENTAL_LEVEL_CHANGE: u32 = 273u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_PLAYBACK_RATE_CHANGE: u32 = 272u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_PLAYBACK_STOPPED: u32 = 274u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_PLAYPERIOD_AUTOSTOP: u32 = 276u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_PROGRAM_CELL_CHANGE: u32 = 284u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_PROGRAM_CHAIN_CHANGE: u32 = 286u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_SPRM_Change: u32 = 290u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_STILL_OFF: u32 = 266u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_STILL_ON: u32 = 265u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_SUBPICTURE_STREAM_CHANGE: u32 = 261u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_TITLE_CHANGE: u32 = 258u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_TITLE_SET_CHANGE: u32 = 285u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_VALID_UOPS_CHANGE: u32 = 264u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_VOBU_Offset: u32 = 287u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_VOBU_Timestamp: u32 = 288u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_DVD_WARNING: u32 = 269u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_END_OF_SEGMENT: u32 = 28u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_EOS_SOON: u32 = 70u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_ERRORABORT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_ERRORABORTEX: u32 = 69u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_ERROR_STILLPLAYING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_EXTDEVICE_MODE_CHANGE: u32 = 49u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_FILE_CLOSED: u32 = 68u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_FULLSCREEN_LOST: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_GRAPH_CHANGED: u32 = 80u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_LENGTH_CHANGED: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_LOADSTATUS: u32 = 67u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_MARKER_HIT: u32 = 66u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_NEED_RESTART: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_NEW_PIN: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_NOTIFY_WINDOW: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_OLE_EVENT: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_OPENING_FILE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_PALETTE_CHANGED: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_PAUSED: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_PLEASE_REOPEN: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_PREPROCESS_COMPLETE: u32 = 86u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_PROCESSING_LATENCY: u32 = 33u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_QUALITY_CHANGE: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_RENDER_FINISHED: u32 = 33u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_REPAINT: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_SAMPLE_LATENCY: u32 = 34u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_SAMPLE_NEEDED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_SCRUB_TIME: u32 = 35u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_SEGMENT_STARTED: u32 = 29u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_SHUTTING_DOWN: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_SKIP_FRAMES: u32 = 37u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_SNDDEV_IN_ERROR: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_SNDDEV_OUT_ERROR: u32 = 513u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_SND_DEVICE_ERROR_BASE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_STARVATION: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_STATE_CHANGE: u32 = 50u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_STATUS: u32 = 65u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_STEP_COMPLETE: u32 = 36u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_STREAM_CONTROL_STARTED: u32 = 27u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_STREAM_CONTROL_STOPPED: u32 = 26u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_STREAM_ERROR_STILLPLAYING: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_STREAM_ERROR_STOPPED: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_SYSTEMBASE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_TIME: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_TIMECODE_AVAILABLE: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_UNBUILT: u32 = 769u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_USER: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_USERABORT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_VIDEOFRAMEREADY: u32 = 73u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_VIDEO_SIZE_CHANGED: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_VMR_RECONNECTION_FAILED: u32 = 85u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_VMR_RENDERDEVICE_SET: u32 = 83u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_VMR_SURFACE_FLIPPED: u32 = 84u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_WINDOW_DESTROYED: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_WMT_EVENT: u32 = 594u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_WMT_EVENT_BASE: u32 = 593u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_WMT_INDEX_EVENT: u32 = 593u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const E_PROP_ID_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147023728i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const E_PROP_SET_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147023726i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const Entitled: EntitlementType = EntitlementType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ErrorClosed: UICloseReasonType = UICloseReasonType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const FORMAT_DVD_LPCMAudio: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d80e6_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const FORMAT_DolbyAC3: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d80e4_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const FORMAT_Image: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const FORMAT_JPEGImage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const FORMAT_MPEG2Audio: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d80e5_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const FORMAT_MPEG2Video: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const FORMAT_MPEG2_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const FORMAT_UVCH264Video: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2017be05_6629_4248_aaed_7e1a47bc9b9c);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const Famine: QualityMessageType = QualityMessageType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const FilgraphManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe436ebb3_524f_11ce_9f53_0020af0ba770);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const Flood: QualityMessageType = QualityMessageType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const GUID_TIME_MUSIC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0574c49d_5b04_4b15_a542_ae282030117b);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const GUID_TIME_REFERENCE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93ad712b_daa0_4ffe_bc81_b0ce500fcdd9);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const GUID_TIME_SAMPLES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8593d05_0c43_4984_9a63_97af9e02c4c0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const HEVC_TEMPORAL_VIDEO_SUBSET: MPEG2StreamType = MPEG2StreamType(37i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const HEVC_VIDEO_OR_TEMPORAL_VIDEO: MPEG2StreamType = MPEG2StreamType(36i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const INTERLEAVE_CAPTURE: InterleavingMode = InterleavingMode(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const INTERLEAVE_FULL: InterleavingMode = InterleavingMode(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const INTERLEAVE_NONE: InterleavingMode = InterleavingMode(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const INTERLEAVE_NONE_BUFFERED: InterleavingMode = InterleavingMode(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const IRPM_STREAMM: MPEG2StreamType = MPEG2StreamType(26i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISDBCAS_REQUEST_ID_EMD: ISDBCAS_REQUEST_ID = ISDBCAS_REQUEST_ID(58i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISDBCAS_REQUEST_ID_EMG: ISDBCAS_REQUEST_ID = ISDBCAS_REQUEST_ID(56i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISDB_Satellite: DVBSystemType = DVBSystemType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISDB_Terrestrial: DVBSystemType = DVBSystemType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_11172_2_VIDEO: MPEG2StreamType = MPEG2StreamType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_11172_3_AUDIO: MPEG2StreamType = MPEG2StreamType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_13522_MHEG: MPEG2StreamType = MPEG2StreamType(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_13818_1_AUXILIARY: MPEG2StreamType = MPEG2StreamType(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_13818_1_PES: MPEG2StreamType = MPEG2StreamType(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_13818_1_PRIVATE_SECTION: MPEG2StreamType = MPEG2StreamType(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_13818_1_RESERVED: MPEG2StreamType = MPEG2StreamType(28i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_13818_2_VIDEO: MPEG2StreamType = MPEG2StreamType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_13818_3_AUDIO: MPEG2StreamType = MPEG2StreamType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_13818_6_DOWNLOAD: MPEG2StreamType = MPEG2StreamType(20i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_13818_6_TYPE_A: MPEG2StreamType = MPEG2StreamType(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_13818_6_TYPE_B: MPEG2StreamType = MPEG2StreamType(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_13818_6_TYPE_C: MPEG2StreamType = MPEG2StreamType(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_13818_6_TYPE_D: MPEG2StreamType = MPEG2StreamType(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_13818_7_AUDIO: MPEG2StreamType = MPEG2StreamType(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_14496_1_IN_PES: MPEG2StreamType = MPEG2StreamType(18i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_14496_1_IN_SECTION: MPEG2StreamType = MPEG2StreamType(19i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_14496_2_VISUAL: MPEG2StreamType = MPEG2StreamType(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_14496_3_AUDIO: MPEG2StreamType = MPEG2StreamType(17i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ISO_IEC_USER_PRIVATE: MPEG2StreamType = MPEG2StreamType(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ITU_T_H264: MPEG2StreamType = MPEG2StreamType(27i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ITU_T_REC_H_222_1: MPEG2StreamType = MPEG2StreamType(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const KSPROPERTY_IPSINK_ADAPTER_ADDRESS: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const KSPROPERTY_IPSINK_ADAPTER_DESCRIPTION: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const KSPROPERTY_IPSINK_MULTICASTLIST: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const LIBID_QuartzNetTypeLib: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56a868b1_0ad4_11ce_b03a_0020af0ba770);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const LIBID_QuartzTypeLib: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56a868b0_0ad4_11ce_b03a_0020af0ba770);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MAX_DEINTERLACE_DEVICE_GUIDS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MAX_DEINTERLACE_SURFACES: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MAX_ERROR_TEXT_LEN: u32 = 160u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MAX_FILTER_NAME: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MAX_NUMBER_OF_STREAMS: STREAMIF_CONSTANTS = STREAMIF_CONSTANTS(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MAX_PIN_NAME: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_ATSC_SI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3c7397c_d303_414d_b33c_4ed2c9d29733);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_DOLBY_AC3: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d802c_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_DTS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8033_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_DVB_SI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9dd31a3_221d_4adb_8532_9af309c1a408);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_DVD_LPCM_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8032_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_DVD_NAVIGATION_DSI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8030_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_DVD_NAVIGATION_PCI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d802f_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_DVD_NAVIGATION_PROVIDER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8031_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_DVD_SUBPICTURE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d802d_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_ISDB_SI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe89ad298_3601_4b06_aaec_9ddeedcc5bd0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_MPEG2DATA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc892e55b_252d_42b5_a316_d997e7a5d995);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_MPEG2_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d802b_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_PROCESSED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf748dd4_0d80_11db_9705_005056c00008);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_MPEG2_PBDA_TRANSPORT_RAW: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d7aed42_cb9a_11db_9705_005056c00008);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_MPEG2_PROGRAM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8022_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_MPEG2_TRANSPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8023_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_MPEG2_TRANSPORT_STRIDE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x138aa9a4_1ee2_4c5b_988e_19abfdbc8a11);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_MPEG2_UDCR_TRANSPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18bec4ea_4676_450e_b478_0cd84c54b327);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_MPEG2_VERSIONED_TABLES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ed988b0_3ffc_4523_8725_347beec1a8a0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_MPEG2_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8026_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_MPEG2_WMDRM_TRANSPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18bec4ea_4676_450e_b478_0cd84c54b327);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_SDDS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8034_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIASUBTYPE_TIF_SI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec232eb2_cb96_4191_b226_0ea129f38250);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIATYPE_CONTROL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8021_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIATYPE_DVD_ENCRYPTED_PACK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed0b916a_044d_11d1_aa78_00c04fc31d60);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIATYPE_DVD_NAVIGATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d802e_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIATYPE_MPEG2_PACK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36523b13_8ee5_11d1_8ca3_0060b057664a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIATYPE_MPEG2_PES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d8020_db46_11cf_b4d1_00805f6cbbea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIATYPE_MPEG2_SECTIONS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x455f176c_4b06_47ce_9aef_8caef73df7b5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIA_ELEMENTARY_STREAM: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIA_MPEG2_PSI: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIA_TRANSPORT_PACKET: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIA_TRANSPORT_PAYLOAD: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MERIT_DO_NOT_USE: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(2097152i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MERIT_HW_COMPRESSOR: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(1048656i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MERIT_NORMAL: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(6291456i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MERIT_PREFERRED: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(8388608i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MERIT_SW_COMPRESSOR: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(1048576i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MERIT_UNLIKELY: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(4194304i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const METADATA_IN_DATA_CAROUSEL: MPEG2StreamType = MPEG2StreamType(23i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const METADATA_IN_DOWNLOAD_PROTOCOL: MPEG2StreamType = MPEG2StreamType(25i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const METADATA_IN_OBJECT_CAROUSEL: MPEG2StreamType = MPEG2StreamType(24i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const METADATA_IN_PES: MPEG2StreamType = MPEG2StreamType(21i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const METADATA_IN_SECTION: MPEG2StreamType = MPEG2StreamType(22i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MIN_DIMENSION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MMSSF_ASYNCHRONOUS: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MMSSF_HASCLOCK: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MMSSF_SUPPORTSEEK: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPBOOL_FALSE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPBOOL_TRUE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_BASE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_ALREADY_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220991i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_BUFFER_TOO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220967i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_DATA_SOURCE_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220970i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_DII_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220969i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_DSHOW_PIN_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220968i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_DSI_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220982i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_FILE_OFFSET_TOO_BIG: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220974i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_INCORRECT_DESCRIPTOR_TAG: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220963i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_INVALID_CAROUSEL_ID: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220980i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_INVALID_SG_OBJECT_KIND: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220978i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_INVALID_UDP_PORT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220971i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_MALFORMED_DSMCC_MESSAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220979i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_MALFORMED_TABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220989i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_MISSING_SECTIONS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220966i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_NEXT_TABLE_OPS_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220964i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_NOT_PRESENT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220987i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_OBJECT_KIND_NOT_A_DIRECTORY: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220976i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_OBJECT_KIND_NOT_A_FILE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220975i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_OBJECT_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220977i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_OUT_OF_BOUNDS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220990i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_REGISTRY_ACCESS_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220972i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_SECTION_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220986i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_SERVER_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220981i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_SERVICE_ID_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220984i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_SERVICE_PMT_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220983i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_STREAM_STOPPED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220973i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_TOO_MANY_SECTIONS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220965i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_TX_STREAM_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220985i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_UNDEFINED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220988i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_E_UNINITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220992i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_PROGRAM_DIRECTORY_PES_PACKET: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_PROGRAM_ELEMENTARY_STREAM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_PROGRAM_PACK_HEADER: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_PROGRAM_PES_STREAM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_PROGRAM_STREAM_MAP: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_PROGRAM_SYSTEM_HEADER: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_S_MORE_DATA_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(262656i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_S_MPE_INFO_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(262660i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_S_MPE_INFO_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(262661i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_S_NEW_MODULE_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(262662i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_S_NO_MORE_DATA_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(262657i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_S_SG_INFO_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(262658i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_S_SG_INFO_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(262659i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEGLAYER3_FLAG_PADDING_ISO: MPEGLAYER3WAVEFORMAT_FLAGS = MPEGLAYER3WAVEFORMAT_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEGLAYER3_FLAG_PADDING_OFF: MPEGLAYER3WAVEFORMAT_FLAGS = MPEGLAYER3WAVEFORMAT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEGLAYER3_FLAG_PADDING_ON: MPEGLAYER3WAVEFORMAT_FLAGS = MPEGLAYER3WAVEFORMAT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPF_ENVLP_BEGIN_CURRENTVAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPF_ENVLP_BEGIN_NEUTRALVAL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPF_ENVLP_STANDARD: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPF_PUNCHIN_NOW: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPF_PUNCHIN_REFTIME: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPF_PUNCHIN_STOPPED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPT_BOOL: MP_TYPE = MP_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPT_ENUM: MP_TYPE = MP_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPT_FLOAT: MP_TYPE = MP_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPT_INT: MP_TYPE = MP_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPT_MAX: MP_TYPE = MP_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MP_CURVE_INVSQUARE: MP_CURVE_TYPE = MP_CURVE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MP_CURVE_JUMP: MP_CURVE_TYPE = MP_CURVE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MP_CURVE_LINEAR: MP_CURVE_TYPE = MP_CURVE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MP_CURVE_SINE: MP_CURVE_TYPE = MP_CURVE_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MP_CURVE_SQUARE: MP_CURVE_TYPE = MP_CURVE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MSDRI_S_MMI_PENDING: ::windows_core::HRESULT = ::windows_core::HRESULT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MSDRI_S_PENDING: ::windows_core::HRESULT = ::windows_core::HRESULT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MSPID_PrimaryAudio: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa35ff56b_9fda_11d0_8fdf_00c04fd9189d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MSPID_PrimaryVideo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa35ff56a_9fda_11d0_8fdf_00c04fd9189d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MSTapeDeviceGUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c0f6af2_0edb_44c1_8aeb_59040bd830ed);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_ARAdjustXorY: VMR9MixerPrefs = VMR9MixerPrefs(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_AnisotropicFiltering: VMR9MixerPrefs = VMR9MixerPrefs(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_BiLinearFiltering: VMR9MixerPrefs = VMR9MixerPrefs(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_DecimateMask: VMR9MixerPrefs = VMR9MixerPrefs(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_DecimateOutput: VMR9MixerPrefs = VMR9MixerPrefs(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_DynamicDecimateBy2: VMR9MixerPrefs = VMR9MixerPrefs(2097152i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_DynamicMask: VMR9MixerPrefs = VMR9MixerPrefs(15728640i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_DynamicReserved: VMR9MixerPrefs = VMR9MixerPrefs(12582912i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_DynamicSwitchToBOB: VMR9MixerPrefs = VMR9MixerPrefs(1048576i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_FilteringMask: VMR9MixerPrefs = VMR9MixerPrefs(4080i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_FilteringReserved: VMR9MixerPrefs = VMR9MixerPrefs(3584i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_GaussianQuadFiltering: VMR9MixerPrefs = VMR9MixerPrefs(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_NoDecimation: VMR9MixerPrefs = VMR9MixerPrefs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_NonSquareMixing: VMR9MixerPrefs = VMR9MixerPrefs(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_PointFiltering: VMR9MixerPrefs = VMR9MixerPrefs(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_PyramidalQuadFiltering: VMR9MixerPrefs = VMR9MixerPrefs(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_RenderTargetMask: VMR9MixerPrefs = VMR9MixerPrefs(1044480i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_RenderTargetRGB: VMR9MixerPrefs = VMR9MixerPrefs(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_RenderTargetReserved: VMR9MixerPrefs = VMR9MixerPrefs(1032192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref9_RenderTargetYUV: VMR9MixerPrefs = VMR9MixerPrefs(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_ARAdjustXorY: VMRMixerPrefs = VMRMixerPrefs(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_BiLinearFiltering: VMRMixerPrefs = VMRMixerPrefs(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_DecimateMask: VMRMixerPrefs = VMRMixerPrefs(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_DecimateOutput: VMRMixerPrefs = VMRMixerPrefs(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_DecimationReserved: VMRMixerPrefs = VMRMixerPrefs(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_DynamicDecimateBy2: VMRMixerPrefs = VMRMixerPrefs(131072i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_DynamicMask: VMRMixerPrefs = VMRMixerPrefs(983040i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_DynamicReserved: VMRMixerPrefs = VMRMixerPrefs(786432i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_DynamicSwitchToBOB: VMRMixerPrefs = VMRMixerPrefs(65536i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_FilteringMask: VMRMixerPrefs = VMRMixerPrefs(240i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_NoDecimation: VMRMixerPrefs = VMRMixerPrefs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_PointFiltering: VMRMixerPrefs = VMRMixerPrefs(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_RenderTargetMask: VMRMixerPrefs = VMRMixerPrefs(65280i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_RenderTargetRGB: VMRMixerPrefs = VMRMixerPrefs(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_RenderTargetReserved: VMRMixerPrefs = VMRMixerPrefs(57344i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_RenderTargetYUV: VMRMixerPrefs = VMRMixerPrefs(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_RenderTargetYUV420: VMRMixerPrefs = VMRMixerPrefs(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_RenderTargetYUV422: VMRMixerPrefs = VMRMixerPrefs(1024i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MixerPref_RenderTargetYUV444: VMRMixerPrefs = VMRMixerPrefs(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const NotAssociated: SmartCardAssociationType = SmartCardAssociationType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const NotEntitled: EntitlementType = EntitlementType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const NotReady: UICloseReasonType = UICloseReasonType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const OAFALSE: OA_BOOL = OA_BOOL(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const OATRUE: OA_BOOL = OA_BOOL(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PBDA_AUX_CONNECTOR_TYPE_Composite: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6298b4c_c725_4d42_849b_410bbb14ea62);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PBDA_AUX_CONNECTOR_TYPE_SVideo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0e905f4_24c9_4a54_b761_213355efc13a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PBDA_Encoder_Audio_AlgorithmType_AC3: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PBDA_Encoder_Audio_AlgorithmType_MPEG1LayerII: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PBDA_Encoder_BitrateMode_Average: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PBDA_Encoder_BitrateMode_Constant: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PBDA_Encoder_BitrateMode_Variable: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PBDA_Encoder_Video_AVC: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PBDA_Encoder_Video_H264: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PBDA_Encoder_Video_MPEG2PartII: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PBDA_Encoder_Video_MPEG4Part10: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PID_ELEMENTARY_STREAM: MUX_PID_TYPE = MUX_PID_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PID_MPEG2_SECTION_PSI_SI: MUX_PID_TYPE = MUX_PID_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PID_OTHER: MUX_PID_TYPE = MUX_PID_TYPE(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PINDIR_INPUT: PIN_DIRECTION = PIN_DIRECTION(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PINDIR_OUTPUT: PIN_DIRECTION = PIN_DIRECTION(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Audio_1394: PhysicalConnectorType = PhysicalConnectorType(4103i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Audio_AESDigital: PhysicalConnectorType = PhysicalConnectorType(4099i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Audio_AUX: PhysicalConnectorType = PhysicalConnectorType(4102i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Audio_AudioDecoder: PhysicalConnectorType = PhysicalConnectorType(4105i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Audio_Line: PhysicalConnectorType = PhysicalConnectorType(4097i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Audio_Mic: PhysicalConnectorType = PhysicalConnectorType(4098i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Audio_SCSI: PhysicalConnectorType = PhysicalConnectorType(4101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Audio_SPDIFDigital: PhysicalConnectorType = PhysicalConnectorType(4100i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Audio_Tuner: PhysicalConnectorType = PhysicalConnectorType(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Audio_USB: PhysicalConnectorType = PhysicalConnectorType(4104i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Video_1394: PhysicalConnectorType = PhysicalConnectorType(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Video_AUX: PhysicalConnectorType = PhysicalConnectorType(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Video_Black: PhysicalConnectorType = PhysicalConnectorType(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Video_Composite: PhysicalConnectorType = PhysicalConnectorType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Video_ParallelDigital: PhysicalConnectorType = PhysicalConnectorType(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Video_RGB: PhysicalConnectorType = PhysicalConnectorType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Video_SCART: PhysicalConnectorType = PhysicalConnectorType(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Video_SCSI: PhysicalConnectorType = PhysicalConnectorType(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Video_SVideo: PhysicalConnectorType = PhysicalConnectorType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Video_SerialDigital: PhysicalConnectorType = PhysicalConnectorType(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Video_Tuner: PhysicalConnectorType = PhysicalConnectorType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Video_USB: PhysicalConnectorType = PhysicalConnectorType(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Video_VideoDecoder: PhysicalConnectorType = PhysicalConnectorType(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Video_VideoEncoder: PhysicalConnectorType = PhysicalConnectorType(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PhysConn_Video_YRYBY: PhysicalConnectorType = PhysicalConnectorType(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ProcAmpControl9_Brightness: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ProcAmpControl9_Contrast: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ProcAmpControl9_Hue: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ProcAmpControl9_Mask: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ProcAmpControl9_Saturation: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const REG_PINFLAG_B_MANY: REG_PINFLAG = REG_PINFLAG(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const REG_PINFLAG_B_OUTPUT: REG_PINFLAG = REG_PINFLAG(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const REG_PINFLAG_B_RENDERER: REG_PINFLAG = REG_PINFLAG(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const REG_PINFLAG_B_ZERO: REG_PINFLAG = REG_PINFLAG(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const REMFILTERF_LEAVECONNECTED: _REM_FILTER_FLAGS = _REM_FILTER_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ReadData: OUTPUT_STATE = OUTPUT_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const RenderData: OUTPUT_STATE = OUTPUT_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const RenderPrefs9_DoNotRenderBorder: VMR9RenderPrefs = VMR9RenderPrefs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const RenderPrefs9_Mask: VMR9RenderPrefs = VMR9RenderPrefs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const RenderPrefs_AllowOffscreen: VMRRenderPrefs = VMRRenderPrefs(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const RenderPrefs_AllowOverlays: VMRRenderPrefs = VMRRenderPrefs(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const RenderPrefs_DoNotRenderColorKeyAndBorder: VMRRenderPrefs = VMRRenderPrefs(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const RenderPrefs_ForceOffscreen: VMRRenderPrefs = VMRRenderPrefs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const RenderPrefs_ForceOverlays: VMRRenderPrefs = VMRRenderPrefs(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const RenderPrefs_Mask: VMRRenderPrefs = VMRRenderPrefs(63i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const RenderPrefs_PreferAGPMemWhenMixing: VMRRenderPrefs = VMRRenderPrefs(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const RenderPrefs_Reserved: VMRRenderPrefs = VMRRenderPrefs(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const RenderPrefs_RestrictToInitialMonitor: VMRRenderPrefs = VMRRenderPrefs(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const Reserved1: MPEG2StreamType = MPEG2StreamType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SCTE28_ConditionalAccess: ApplicationTypeType = ApplicationTypeType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SCTE28_CopyProtection: ApplicationTypeType = ApplicationTypeType(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SCTE28_Diagnostic: ApplicationTypeType = ApplicationTypeType(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SCTE28_IPService: ApplicationTypeType = ApplicationTypeType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SCTE28_NetworkInterface_SCTE55_1: ApplicationTypeType = ApplicationTypeType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SCTE28_NetworkInterface_SCTE55_2: ApplicationTypeType = ApplicationTypeType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SCTE28_POD_Host_Binding_Information: ApplicationTypeType = ApplicationTypeType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SCTE28_Reserved: ApplicationTypeType = ApplicationTypeType(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SCTE28_Undesignated: ApplicationTypeType = ApplicationTypeType(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SCTE_18: LocationCodeSchemeType = LocationCodeSchemeType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SNDDEV_ERROR_AddBuffer: SNDDEV_ERR = SNDDEV_ERR(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SNDDEV_ERROR_Close: SNDDEV_ERR = SNDDEV_ERR(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SNDDEV_ERROR_GetCaps: SNDDEV_ERR = SNDDEV_ERR(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SNDDEV_ERROR_GetPosition: SNDDEV_ERR = SNDDEV_ERR(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SNDDEV_ERROR_Open: SNDDEV_ERR = SNDDEV_ERR(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SNDDEV_ERROR_Pause: SNDDEV_ERR = SNDDEV_ERR(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SNDDEV_ERROR_PrepareHeader: SNDDEV_ERR = SNDDEV_ERR(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SNDDEV_ERROR_Query: SNDDEV_ERR = SNDDEV_ERR(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SNDDEV_ERROR_Reset: SNDDEV_ERR = SNDDEV_ERR(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SNDDEV_ERROR_Restart: SNDDEV_ERR = SNDDEV_ERR(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SNDDEV_ERROR_Start: SNDDEV_ERR = SNDDEV_ERR(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SNDDEV_ERROR_Stop: SNDDEV_ERR = SNDDEV_ERR(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SNDDEV_ERROR_UnprepareHeader: SNDDEV_ERR = SNDDEV_ERR(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SNDDEV_ERROR_Write: SNDDEV_ERR = SNDDEV_ERR(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SPECIFYPAGES_STATISTICS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c437b92_6e9e_11d1_a704_006097c4e476);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SSUPDATE_ASYNC: SSUPDATE_TYPE = SSUPDATE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SSUPDATE_CONTINUOUS: SSUPDATE_TYPE = SSUPDATE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const STDINDEXSIZE: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const STREAMSTATE_RUN: STREAM_STATE = STREAM_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const STREAMSTATE_STOP: STREAM_STATE = STREAM_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const STREAMTYPE_READ: STREAM_TYPE = STREAM_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const STREAMTYPE_TRANSFORM: STREAM_TYPE = STREAM_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const STREAMTYPE_WRITE: STREAM_TYPE = STREAM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SUBSTREAM_FILTER_VAL_NONE: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ScanModulationTypesMask_DVBC: ScanModulationTypes = ScanModulationTypes(75i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ScanModulationTypesMask_MCE_All_TV: ScanModulationTypes = ScanModulationTypes(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ScanModulationTypesMask_MCE_AnalogTv: ScanModulationTypes = ScanModulationTypes(28i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ScanModulationTypesMask_MCE_DigitalCable: ScanModulationTypes = ScanModulationTypes(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const ScanModulationTypesMask_MCE_TerrestrialATSC: ScanModulationTypes = ScanModulationTypes(23i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const State_Paused: FILTER_STATE = FILTER_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const State_Running: FILTER_STATE = FILTER_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const State_Stopped: FILTER_STATE = FILTER_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const StatusActive: ComponentStatus = ComponentStatus(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const StatusInactive: ComponentStatus = ComponentStatus(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const StatusUnavailable: ComponentStatus = ComponentStatus(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SystemClosed: UICloseReasonType = UICloseReasonType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const TIMECODE_RATE_30DROP: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const TIMECODE_SMPTE_BINARY_GROUP: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const TIMECODE_SMPTE_COLOR_FRAME: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const TechnicalFailure: EntitlementType = EntitlementType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const TunerInputAntenna: TunerInputType = TunerInputType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const TunerInputCable: TunerInputType = TunerInputType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Pause_On: VALID_UOP_FLAG = VALID_UOP_FLAG(524288i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_PlayNext_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_PlayPrev_Or_Replay_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Play_Backwards: VALID_UOP_FLAG = VALID_UOP_FLAG(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Play_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Play_Chapter_Or_AtTime: VALID_UOP_FLAG = VALID_UOP_FLAG(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Play_Forwards: VALID_UOP_FLAG = VALID_UOP_FLAG(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Play_Title: VALID_UOP_FLAG = VALID_UOP_FLAG(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Play_Title_Or_AtTime: VALID_UOP_FLAG = VALID_UOP_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Resume: VALID_UOP_FLAG = VALID_UOP_FLAG(65536i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_ReturnFromSubMenu: VALID_UOP_FLAG = VALID_UOP_FLAG(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Select_Angle: VALID_UOP_FLAG = VALID_UOP_FLAG(4194304i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Select_Audio_Stream: VALID_UOP_FLAG = VALID_UOP_FLAG(1048576i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Select_Karaoke_Audio_Presentation_Mode: VALID_UOP_FLAG = VALID_UOP_FLAG(8388608i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Select_Or_Activate_Button: VALID_UOP_FLAG = VALID_UOP_FLAG(131072i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Select_SubPic_Stream: VALID_UOP_FLAG = VALID_UOP_FLAG(2097152i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Select_Video_Mode_Preference: VALID_UOP_FLAG = VALID_UOP_FLAG(16777216i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_ShowMenu_Angle: VALID_UOP_FLAG = VALID_UOP_FLAG(16384i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_ShowMenu_Audio: VALID_UOP_FLAG = VALID_UOP_FLAG(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_ShowMenu_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(32768i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_ShowMenu_Root: VALID_UOP_FLAG = VALID_UOP_FLAG(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_ShowMenu_SubPic: VALID_UOP_FLAG = VALID_UOP_FLAG(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_ShowMenu_Title: VALID_UOP_FLAG = VALID_UOP_FLAG(1024i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Still_Off: VALID_UOP_FLAG = VALID_UOP_FLAG(262144i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UOP_FLAG_Stop: VALID_UOP_FLAG = VALID_UOP_FLAG(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const USER_PRIVATE: MPEG2StreamType = MPEG2StreamType(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const UserClosed: UICloseReasonType = UICloseReasonType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_ADVISE_ALREADY_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220938i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_ALREADY_CANCELLED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220940i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_ALREADY_COMMITTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220977i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_ALREADY_CONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220988i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_BADALIGN: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220978i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_BAD_KEY: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220494i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_BAD_VIDEOCD: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220887i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_BUFFERS_OUTSTANDING: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220976i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_BUFFER_NOTSET: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220980i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_BUFFER_OVERFLOW: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220979i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_BUFFER_UNDERFLOW: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220892i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_CANNOT_CONNECT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220969i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_CANNOT_LOAD_SOURCE_FILTER: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220927i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_CANNOT_RENDER: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220968i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_CERTIFICATION_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220843i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_CHANGING_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220967i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_CIRCULAR_GRAPH: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220943i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_CODECAPI_ENUMERATED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220719i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_CODECAPI_LINEAR_RANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220720i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_CODECAPI_NO_CURRENT_VALUE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220716i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_CODECAPI_NO_DEFAULT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220717i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_COLOR_KEY_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220962i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_COPYPROT_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220867i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_CORRUPT_GRAPH_FILE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220939i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DDRAW_CAPS_NOT_SUITABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220877i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DDRAW_VERSION_NOT_SUITABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220868i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DUPLICATE_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220947i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_CHAPTER_DOES_NOT_EXIST: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220715i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_CMD_CANCELLED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220861i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_DECNOTENOUGH: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220869i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_GRAPHNOTREADY: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220871i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_INCOMPATIBLE_REGION: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220857i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_INVALIDDOMAIN: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220873i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_INVALID_DISC: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220847i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_LOW_PARENTAL_LEVEL: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220854i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_MENU_DOES_NOT_EXIST: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220862i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_NONBLOCKING: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220836i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_NON_EVR_RENDERER_IN_FILTER_GRAPH: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220834i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_NOT_IN_KARAOKE_MODE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220853i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_NO_ATTRIBUTES: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220856i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_NO_BUTTON: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220872i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_NO_GOUP_PGC: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220855i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_NO_RESUME_INFORMATION: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220846i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_OPERATION_INHIBITED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220874i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_RENDERFAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220870i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_RESOLUTION_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220833i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_STATE_CORRUPT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220859i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_STATE_WRONG_DISC: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220858i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_STATE_WRONG_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220860i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_STREAM_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220849i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_TITLE_UNKNOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220848i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_TOO_MANY_RENDERERS_IN_FILTER_GRAPH: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220835i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_VMR9_INCOMPATIBLEDEC: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220838i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_DVD_WRONG_SPEED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220863i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_ENUM_OUT_OF_RANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220944i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_ENUM_OUT_OF_SYNC: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220989i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_FILE_TOO_SHORT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220925i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_FILTER_ACTIVE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220987i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_FRAME_STEP_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220850i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_INVALIDMEDIATYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220992i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_INVALIDSUBTYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220991i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_INVALID_CLSID: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220921i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_INVALID_DIRECTION: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220984i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_INVALID_FILE_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220945i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_INVALID_FILE_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220924i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_INVALID_MEDIA_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220920i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_INVALID_RECT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220951i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_IN_FULLSCREEN_MODE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220933i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_MEDIA_TIME_NOT_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220911i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_MONO_AUDIO_HW: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220909i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_MPEG_NOT_CONSTRAINED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220898i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NEED_OWNER: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220990i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NOT_ALLOWED_TO_SAVE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220942i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NOT_COMMITTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220975i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NOT_CONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220983i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220970i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NOT_IN_GRAPH: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220897i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NOT_OVERLAY_CONNECTION: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220965i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NOT_PAUSED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220955i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NOT_RUNNING: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220954i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NOT_SAMPLE_CONNECTION: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220964i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NOT_STOPPED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220956i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_ACCEPTABLE_TYPES: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220985i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_ADVISE_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220935i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_ALLOCATOR: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220982i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_AUDIO_HARDWARE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220906i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_CAPTURE_HARDWARE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220875i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_CLOCK: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220973i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_COLOR_KEY_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220961i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_COLOR_KEY_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220966i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_COPP_HW: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220837i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_DECOMPRESSOR: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220907i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_DISPLAY_PALETTE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220959i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_FULLSCREEN: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220934i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_INTERFACE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220971i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_MODEX_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220936i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_PALETTE_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220960i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_SINK: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220972i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_TIME_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220895i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_TIME_FORMAT_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220910i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_TRANSPORT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220890i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_TYPES: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220986i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_NO_VP_HARDWARE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220876i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_OUT_OF_VIDEO_MEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220879i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_PALETTE_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220963i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_PIN_ALREADY_BLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220844i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_PIN_ALREADY_BLOCKED_ON_THIS_THREAD: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220845i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_PROCESSOR_NOT_SUITABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220901i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_READ_ONLY: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220894i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_RPZA: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220903i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_RUNTIME_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220981i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_SAMPLE_REJECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220949i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_SAMPLE_REJECTED_EOS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220948i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_SAMPLE_TIME_NOT_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220919i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_SIZENOTSET: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220974i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_START_TIME_AFTER_END: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220952i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_STATE_CHANGED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220957i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_TIMEOUT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220946i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_TIME_ALREADY_PASSED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220941i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_TIME_EXPIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220865i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_TOO_MANY_COLORS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220958i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_TYPE_NOT_ACCEPTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220950i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_UNKNOWN_FILE_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220928i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_UNSUPPORTED_AUDIO: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220900i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_UNSUPPORTED_STREAM: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220891i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_UNSUPPORTED_VIDEO: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220899i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_VMR_NOT_IN_MIXER_MODE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220842i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_VMR_NO_AP_SUPPLIED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220841i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_VMR_NO_DEINTERLACE_HW: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220840i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_VMR_NO_PROCAMP_HW: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220839i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_VP_NEGOTIATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220878i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_WRONG_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220953i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_FIRST_CODE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_AUDIO_NOT_RENDERED: ::windows_core::HRESULT = ::windows_core::HRESULT(262744i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_CANT_CUE: ::windows_core::HRESULT = ::windows_core::HRESULT(262760i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_CONNECTIONS_DEFERRED: ::windows_core::HRESULT = ::windows_core::HRESULT(262726i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_DUPLICATE_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(262701i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_DVD_CHANNEL_CONTENTS_NOT_AVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(262796i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_DVD_NON_ONE_SEQUENTIAL: ::windows_core::HRESULT = ::windows_core::HRESULT(262784i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_DVD_NOT_ACCURATE: ::windows_core::HRESULT = ::windows_core::HRESULT(262797i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_DVD_RENDER_STATUS: ::windows_core::HRESULT = ::windows_core::HRESULT(262944i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_ESTIMATED: ::windows_core::HRESULT = ::windows_core::HRESULT(262752i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_MEDIA_TYPE_IGNORED: ::windows_core::HRESULT = ::windows_core::HRESULT(262740i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_NOPREVIEWPIN: ::windows_core::HRESULT = ::windows_core::HRESULT(262782i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_NO_MORE_ITEMS: ::windows_core::HRESULT = ::windows_core::HRESULT(262403i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_NO_STOP_TIME: ::windows_core::HRESULT = ::windows_core::HRESULT(262768i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_PARTIAL_RENDER: ::windows_core::HRESULT = ::windows_core::HRESULT(262722i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_RESERVED: ::windows_core::HRESULT = ::windows_core::HRESULT(262755i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_RESOURCE_NOT_NEEDED: ::windows_core::HRESULT = ::windows_core::HRESULT(262736i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_RPZA: ::windows_core::HRESULT = ::windows_core::HRESULT(262746i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_SOME_DATA_IGNORED: ::windows_core::HRESULT = ::windows_core::HRESULT(262725i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_STATE_INTERMEDIATE: ::windows_core::HRESULT = ::windows_core::HRESULT(262711i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_STREAM_OFF: ::windows_core::HRESULT = ::windows_core::HRESULT(262759i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_VIDEO_NOT_RENDERED: ::windows_core::HRESULT = ::windows_core::HRESULT(262743i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9ARMode_LetterBox: VMR9AspectRatioMode = VMR9AspectRatioMode(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9ARMode_None: VMR9AspectRatioMode = VMR9AspectRatioMode(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9AllocFlag_3DRenderTarget: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9AllocFlag_DXVATarget: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9AllocFlag_OffscreenSurface: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9AllocFlag_RGBDynamicSwitch: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9AllocFlag_TextureSurface: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9AllocFlag_UsageMask: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(255i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9AllocFlag_UsageReserved: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(224i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9AlphaBitmap_Disable: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9AlphaBitmap_EntireDDS: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9AlphaBitmap_FilterMode: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9AlphaBitmap_SrcColorKey: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9AlphaBitmap_SrcRect: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9AlphaBitmap_hDC: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9Mode_Mask: VMR9Mode = VMR9Mode(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9Mode_Renderless: VMR9Mode = VMR9Mode(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9Mode_Windowed: VMR9Mode = VMR9Mode(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9Mode_Windowless: VMR9Mode = VMR9Mode(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9Sample_Discontinuity: VMR9PresentationFlags = VMR9PresentationFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9Sample_Preroll: VMR9PresentationFlags = VMR9PresentationFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9Sample_SrcDstRectsValid: VMR9PresentationFlags = VMR9PresentationFlags(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9Sample_SyncPoint: VMR9PresentationFlags = VMR9PresentationFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9Sample_TimeValid: VMR9PresentationFlags = VMR9PresentationFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9_SampleFieldInterleavedEvenFirst: VMR9_SampleFormat = VMR9_SampleFormat(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9_SampleFieldInterleavedOddFirst: VMR9_SampleFormat = VMR9_SampleFormat(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9_SampleFieldSingleEven: VMR9_SampleFormat = VMR9_SampleFormat(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9_SampleFieldSingleOdd: VMR9_SampleFormat = VMR9_SampleFormat(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9_SampleProgressiveFrame: VMR9_SampleFormat = VMR9_SampleFormat(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR9_SampleReserved: VMR9_SampleFormat = VMR9_SampleFormat(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRBITMAP_DISABLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRBITMAP_ENTIREDDS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRBITMAP_HDC: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRBITMAP_SRCCOLORKEY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRBITMAP_SRCRECT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRMode_Mask: VMRMode = VMRMode(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRMode_Renderless: VMRMode = VMRMode(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRMode_Windowed: VMRMode = VMRMode(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRMode_Windowless: VMRMode = VMRMode(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRSample_Discontinuity: VMRPresentationFlags = VMRPresentationFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRSample_Preroll: VMRPresentationFlags = VMRPresentationFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRSample_SrcDstRectsValid: VMRPresentationFlags = VMRPresentationFlags(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRSample_SyncPoint: VMRPresentationFlags = VMRPresentationFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRSample_TimeValid: VMRPresentationFlags = VMRPresentationFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR_ARMODE_LETTER_BOX: VMR_ASPECT_RATIO_MODE = VMR_ASPECT_RATIO_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR_ARMODE_NONE: VMR_ASPECT_RATIO_MODE = VMR_ASPECT_RATIO_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR_NOTSUPPORTED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR_RENDER_DEVICE_OVERLAY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR_RENDER_DEVICE_SYSMEM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR_RENDER_DEVICE_VIDMEM: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR_SUPPORTED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VariableBitRateAverage: VIDEOENCODER_BITRATE_MODE = VIDEOENCODER_BITRATE_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VariableBitRatePeak: VIDEOENCODER_BITRATE_MODE = VIDEOENCODER_BITRATE_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VfwCaptureDialog_Display: VfwCaptureDialogs = VfwCaptureDialogs(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VfwCaptureDialog_Format: VfwCaptureDialogs = VfwCaptureDialogs(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VfwCaptureDialog_Source: VfwCaptureDialogs = VfwCaptureDialogs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VfwCompressDialog_About: VfwCompressDialogs = VfwCompressDialogs(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VfwCompressDialog_Config: VfwCompressDialogs = VfwCompressDialogs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VfwCompressDialog_QueryAbout: VfwCompressDialogs = VfwCompressDialogs(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VfwCompressDialog_QueryConfig: VfwCompressDialogs = VfwCompressDialogs(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoControlFlag_ExternalTriggerEnable: VideoControlFlags = VideoControlFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoControlFlag_FlipHorizontal: VideoControlFlags = VideoControlFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoControlFlag_FlipVertical: VideoControlFlags = VideoControlFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoControlFlag_Trigger: VideoControlFlags = VideoControlFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoCopyProtectionMacrovisionBasic: VideoCopyProtectionType = VideoCopyProtectionType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoCopyProtectionMacrovisionCBI: VideoCopyProtectionType = VideoCopyProtectionType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoProcAmp_BacklightCompensation: VideoProcAmpProperty = VideoProcAmpProperty(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoProcAmp_Brightness: VideoProcAmpProperty = VideoProcAmpProperty(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoProcAmp_ColorEnable: VideoProcAmpProperty = VideoProcAmpProperty(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoProcAmp_Contrast: VideoProcAmpProperty = VideoProcAmpProperty(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoProcAmp_Flags_Auto: VideoProcAmpFlags = VideoProcAmpFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoProcAmp_Flags_Manual: VideoProcAmpFlags = VideoProcAmpFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoProcAmp_Gain: VideoProcAmpProperty = VideoProcAmpProperty(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoProcAmp_Gamma: VideoProcAmpProperty = VideoProcAmpProperty(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoProcAmp_Hue: VideoProcAmpProperty = VideoProcAmpProperty(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoProcAmp_Saturation: VideoProcAmpProperty = VideoProcAmpProperty(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoProcAmp_Sharpness: VideoProcAmpProperty = VideoProcAmpProperty(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VideoProcAmp_WhiteBalance: VideoProcAmpProperty = VideoProcAmpProperty(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const g_wszExcludeScriptStreamDeliverySynchronization: ::windows_core::PCWSTR = ::windows_core::w!("ExcludeScriptStreamDeliverySynchronization");
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const iBLUE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const iEGA_COLORS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const iGREEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const iMASK_COLORS: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const iMAXBITS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const iPALETTE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const iPALETTE_COLORS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const iRED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const iTRUECOLOR: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADVISE_TYPE(pub i32);
@@ -20375,7 +18069,6 @@ impl ::core::ops::Not for ADVISE_TYPE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMExtendedSeekingCapabilities(pub i32);
@@ -20398,7 +18091,6 @@ impl ::core::fmt::Debug for AMExtendedSeekingCapabilities {
         f.debug_tuple("AMExtendedSeekingCapabilities").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMMSF_MMS_INIT_FLAGS(pub i32);
@@ -20454,7 +18146,6 @@ impl ::core::ops::Not for AMMSF_MMS_INIT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMMSF_MS_FLAGS(pub i32);
@@ -20510,7 +18201,6 @@ impl ::core::ops::Not for AMMSF_MS_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMMSF_RENDER_FLAGS(pub i32);
@@ -20566,7 +18256,6 @@ impl ::core::ops::Not for AMMSF_RENDER_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMOVERLAYFX(pub i32);
@@ -20589,7 +18278,6 @@ impl ::core::fmt::Debug for AMOVERLAYFX {
         f.debug_tuple("AMOVERLAYFX").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMPROPERTY_PIN(pub i32);
@@ -20612,7 +18300,6 @@ impl ::core::fmt::Debug for AMPROPERTY_PIN {
         f.debug_tuple("AMPROPERTY_PIN").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMPlayListEventFlags(pub i32);
@@ -20635,7 +18322,6 @@ impl ::core::fmt::Debug for AMPlayListEventFlags {
         f.debug_tuple("AMPlayListEventFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMPlayListFlags(pub i32);
@@ -20658,7 +18344,6 @@ impl ::core::fmt::Debug for AMPlayListFlags {
         f.debug_tuple("AMPlayListFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMPlayListItemFlags(pub i32);
@@ -20681,7 +18366,6 @@ impl ::core::fmt::Debug for AMPlayListItemFlags {
         f.debug_tuple("AMPlayListItemFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMTVAudioEventType(pub i32);
@@ -20704,7 +18388,6 @@ impl ::core::fmt::Debug for AMTVAudioEventType {
         f.debug_tuple("AMTVAudioEventType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMTunerEventType(pub i32);
@@ -20727,7 +18410,6 @@ impl ::core::fmt::Debug for AMTunerEventType {
         f.debug_tuple("AMTunerEventType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMTunerModeType(pub i32);
@@ -20750,7 +18432,6 @@ impl ::core::fmt::Debug for AMTunerModeType {
         f.debug_tuple("AMTunerModeType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMTunerSignalStrength(pub i32);
@@ -20773,7 +18454,6 @@ impl ::core::fmt::Debug for AMTunerSignalStrength {
         f.debug_tuple("AMTunerSignalStrength").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMTunerSubChannel(pub i32);
@@ -20796,7 +18476,6 @@ impl ::core::fmt::Debug for AMTunerSubChannel {
         f.debug_tuple("AMTunerSubChannel").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMVP_MODE(pub i32);
@@ -20819,7 +18498,6 @@ impl ::core::fmt::Debug for AMVP_MODE {
         f.debug_tuple("AMVP_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMVP_SELECT_FORMAT_BY(pub i32);
@@ -20842,7 +18520,6 @@ impl ::core::fmt::Debug for AMVP_SELECT_FORMAT_BY {
         f.debug_tuple("AMVP_SELECT_FORMAT_BY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_ASPECT_RATIO_MODE(pub i32);
@@ -20865,7 +18542,6 @@ impl ::core::fmt::Debug for AM_ASPECT_RATIO_MODE {
         f.debug_tuple("AM_ASPECT_RATIO_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_COPY_MACROVISION_LEVEL(pub i32);
@@ -20888,7 +18564,6 @@ impl ::core::fmt::Debug for AM_COPY_MACROVISION_LEVEL {
         f.debug_tuple("AM_COPY_MACROVISION_LEVEL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_DIGITAL_CP(pub i32);
@@ -20911,7 +18586,6 @@ impl ::core::fmt::Debug for AM_DIGITAL_CP {
         f.debug_tuple("AM_DIGITAL_CP").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_DVDCOPYSTATE(pub i32);
@@ -20934,7 +18608,6 @@ impl ::core::fmt::Debug for AM_DVDCOPYSTATE {
         f.debug_tuple("AM_DVDCOPYSTATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_DVD_GRAPH_FLAGS(pub i32);
@@ -20957,7 +18630,6 @@ impl ::core::fmt::Debug for AM_DVD_GRAPH_FLAGS {
         f.debug_tuple("AM_DVD_GRAPH_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_DVD_STREAM_FLAGS(pub i32);
@@ -20980,7 +18652,6 @@ impl ::core::fmt::Debug for AM_DVD_STREAM_FLAGS {
         f.debug_tuple("AM_DVD_STREAM_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_FILESINK_FLAGS(pub i32);
@@ -21003,7 +18674,6 @@ impl ::core::fmt::Debug for AM_FILESINK_FLAGS {
         f.debug_tuple("AM_FILESINK_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_FILTER_FLAGS(pub i32);
@@ -21026,7 +18696,6 @@ impl ::core::fmt::Debug for AM_FILTER_FLAGS {
         f.debug_tuple("AM_FILTER_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_GRAPH_CONFIG_RECONNECT_FLAGS(pub i32);
@@ -21049,7 +18718,6 @@ impl ::core::fmt::Debug for AM_GRAPH_CONFIG_RECONNECT_FLAGS {
         f.debug_tuple("AM_GRAPH_CONFIG_RECONNECT_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_LINE21_CCLEVEL(pub i32);
@@ -21072,7 +18740,6 @@ impl ::core::fmt::Debug for AM_LINE21_CCLEVEL {
         f.debug_tuple("AM_LINE21_CCLEVEL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_LINE21_CCSERVICE(pub i32);
@@ -21095,7 +18762,6 @@ impl ::core::fmt::Debug for AM_LINE21_CCSERVICE {
         f.debug_tuple("AM_LINE21_CCSERVICE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_LINE21_CCSTATE(pub i32);
@@ -21118,7 +18784,6 @@ impl ::core::fmt::Debug for AM_LINE21_CCSTATE {
         f.debug_tuple("AM_LINE21_CCSTATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_LINE21_CCSTYLE(pub i32);
@@ -21141,7 +18806,6 @@ impl ::core::fmt::Debug for AM_LINE21_CCSTYLE {
         f.debug_tuple("AM_LINE21_CCSTYLE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_LINE21_DRAWBGMODE(pub i32);
@@ -21164,7 +18828,6 @@ impl ::core::fmt::Debug for AM_LINE21_DRAWBGMODE {
         f.debug_tuple("AM_LINE21_DRAWBGMODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_MEDIAEVENT_FLAGS(pub i32);
@@ -21187,7 +18850,6 @@ impl ::core::fmt::Debug for AM_MEDIAEVENT_FLAGS {
         f.debug_tuple("AM_MEDIAEVENT_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_MPEG2Level(pub i32);
@@ -21210,7 +18872,6 @@ impl ::core::fmt::Debug for AM_MPEG2Level {
         f.debug_tuple("AM_MPEG2Level").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_MPEG2Profile(pub i32);
@@ -21233,7 +18894,6 @@ impl ::core::fmt::Debug for AM_MPEG2Profile {
         f.debug_tuple("AM_MPEG2Profile").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_PROPERTY_AC3(pub i32);
@@ -21256,7 +18916,6 @@ impl ::core::fmt::Debug for AM_PROPERTY_AC3 {
         f.debug_tuple("AM_PROPERTY_AC3").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_PROPERTY_DVDCOPYPROT(pub i32);
@@ -21279,7 +18938,6 @@ impl ::core::fmt::Debug for AM_PROPERTY_DVDCOPYPROT {
         f.debug_tuple("AM_PROPERTY_DVDCOPYPROT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_PROPERTY_DVDKARAOKE(pub i32);
@@ -21302,7 +18960,6 @@ impl ::core::fmt::Debug for AM_PROPERTY_DVDKARAOKE {
         f.debug_tuple("AM_PROPERTY_DVDKARAOKE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_PROPERTY_DVDSUBPIC(pub i32);
@@ -21325,7 +18982,6 @@ impl ::core::fmt::Debug for AM_PROPERTY_DVDSUBPIC {
         f.debug_tuple("AM_PROPERTY_DVDSUBPIC").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_PROPERTY_DVD_RATE_CHANGE(pub i32);
@@ -21348,7 +19004,6 @@ impl ::core::fmt::Debug for AM_PROPERTY_DVD_RATE_CHANGE {
         f.debug_tuple("AM_PROPERTY_DVD_RATE_CHANGE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_PROPERTY_FRAMESTEP(pub i32);
@@ -21371,7 +19026,6 @@ impl ::core::fmt::Debug for AM_PROPERTY_FRAMESTEP {
         f.debug_tuple("AM_PROPERTY_FRAMESTEP").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_PROPERTY_TS_RATE_CHANGE(pub i32);
@@ -21394,7 +19048,6 @@ impl ::core::fmt::Debug for AM_PROPERTY_TS_RATE_CHANGE {
         f.debug_tuple("AM_PROPERTY_TS_RATE_CHANGE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_SAMPLE_PROPERTY_FLAGS(pub i32);
@@ -21417,7 +19070,6 @@ impl ::core::fmt::Debug for AM_SAMPLE_PROPERTY_FLAGS {
         f.debug_tuple("AM_SAMPLE_PROPERTY_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_SEEKING_SEEKING_CAPABILITIES(pub i32);
@@ -21440,7 +19092,6 @@ impl ::core::fmt::Debug for AM_SEEKING_SEEKING_CAPABILITIES {
         f.debug_tuple("AM_SEEKING_SEEKING_CAPABILITIES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_SEEKING_SEEKING_FLAGS(pub i32);
@@ -21463,7 +19114,6 @@ impl ::core::fmt::Debug for AM_SEEKING_SEEKING_FLAGS {
         f.debug_tuple("AM_SEEKING_SEEKING_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_STREAM_INFO_FLAGS(pub i32);
@@ -21486,7 +19136,6 @@ impl ::core::fmt::Debug for AM_STREAM_INFO_FLAGS {
         f.debug_tuple("AM_STREAM_INFO_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_WST_DRAWBGMODE(pub i32);
@@ -21509,7 +19158,6 @@ impl ::core::fmt::Debug for AM_WST_DRAWBGMODE {
         f.debug_tuple("AM_WST_DRAWBGMODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_WST_LEVEL(pub i32);
@@ -21532,7 +19180,6 @@ impl ::core::fmt::Debug for AM_WST_LEVEL {
         f.debug_tuple("AM_WST_LEVEL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_WST_SERVICE(pub i32);
@@ -21555,7 +19202,6 @@ impl ::core::fmt::Debug for AM_WST_SERVICE {
         f.debug_tuple("AM_WST_SERVICE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_WST_STATE(pub i32);
@@ -21578,7 +19224,6 @@ impl ::core::fmt::Debug for AM_WST_STATE {
         f.debug_tuple("AM_WST_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_WST_STYLE(pub i32);
@@ -21601,7 +19246,6 @@ impl ::core::fmt::Debug for AM_WST_STYLE {
         f.debug_tuple("AM_WST_STYLE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ATSCComponentTypeFlags(pub i32);
@@ -21624,7 +19268,6 @@ impl ::core::fmt::Debug for ATSCComponentTypeFlags {
         f.debug_tuple("ATSCComponentTypeFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnalogVideoStandard(pub i32);
@@ -21647,7 +19290,6 @@ impl ::core::fmt::Debug for AnalogVideoStandard {
         f.debug_tuple("AnalogVideoStandard").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationTypeType(pub i32);
@@ -21670,7 +19312,6 @@ impl ::core::fmt::Debug for ApplicationTypeType {
         f.debug_tuple("ApplicationTypeType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_CHANGE_STATE(pub i32);
@@ -21693,7 +19334,6 @@ impl ::core::fmt::Debug for BDA_CHANGE_STATE {
         f.debug_tuple("BDA_CHANGE_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_CONDITIONALACCESS_MMICLOSEREASON(pub i32);
@@ -21716,7 +19356,6 @@ impl ::core::fmt::Debug for BDA_CONDITIONALACCESS_MMICLOSEREASON {
         f.debug_tuple("BDA_CONDITIONALACCESS_MMICLOSEREASON").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_CONDITIONALACCESS_REQUESTTYPE(pub i32);
@@ -21739,7 +19378,6 @@ impl ::core::fmt::Debug for BDA_CONDITIONALACCESS_REQUESTTYPE {
         f.debug_tuple("BDA_CONDITIONALACCESS_REQUESTTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_CONDITIONALACCESS_SESSION_RESULT(pub i32);
@@ -21762,7 +19400,6 @@ impl ::core::fmt::Debug for BDA_CONDITIONALACCESS_SESSION_RESULT {
         f.debug_tuple("BDA_CONDITIONALACCESS_SESSION_RESULT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_Channel(pub i32);
@@ -21785,7 +19422,6 @@ impl ::core::fmt::Debug for BDA_Channel {
         f.debug_tuple("BDA_Channel").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_Channel_Bandwidth(pub i32);
@@ -21808,7 +19444,6 @@ impl ::core::fmt::Debug for BDA_Channel_Bandwidth {
         f.debug_tuple("BDA_Channel_Bandwidth").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_Comp_Flags(pub i32);
@@ -21831,7 +19466,6 @@ impl ::core::fmt::Debug for BDA_Comp_Flags {
         f.debug_tuple("BDA_Comp_Flags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_DISCOVERY_STATE(pub i32);
@@ -21854,7 +19488,6 @@ impl ::core::fmt::Debug for BDA_DISCOVERY_STATE {
         f.debug_tuple("BDA_DISCOVERY_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_DrmPairingError(pub i32);
@@ -21877,7 +19510,6 @@ impl ::core::fmt::Debug for BDA_DrmPairingError {
         f.debug_tuple("BDA_DrmPairingError").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_EVENT_ID(pub i32);
@@ -21900,7 +19532,6 @@ impl ::core::fmt::Debug for BDA_EVENT_ID {
         f.debug_tuple("BDA_EVENT_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_Frequency(pub i32);
@@ -21923,7 +19554,6 @@ impl ::core::fmt::Debug for BDA_Frequency {
         f.debug_tuple("BDA_Frequency").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_Frequency_Multiplier(pub i32);
@@ -21946,7 +19576,6 @@ impl ::core::fmt::Debug for BDA_Frequency_Multiplier {
         f.debug_tuple("BDA_Frequency_Multiplier").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_MULTICAST_MODE(pub i32);
@@ -21969,7 +19598,6 @@ impl ::core::fmt::Debug for BDA_MULTICAST_MODE {
         f.debug_tuple("BDA_MULTICAST_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_Range(pub i32);
@@ -21992,7 +19620,6 @@ impl ::core::fmt::Debug for BDA_Range {
         f.debug_tuple("BDA_Range").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_SIGNAL_STATE(pub i32);
@@ -22015,7 +19642,6 @@ impl ::core::fmt::Debug for BDA_SIGNAL_STATE {
         f.debug_tuple("BDA_SIGNAL_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BinaryConvolutionCodeRate(pub i32);
@@ -22038,7 +19664,6 @@ impl ::core::fmt::Debug for BinaryConvolutionCodeRate {
         f.debug_tuple("BinaryConvolutionCodeRate").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORKEY_TYPE(pub i32);
@@ -22061,7 +19686,6 @@ impl ::core::fmt::Debug for COLORKEY_TYPE {
         f.debug_tuple("COLORKEY_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPLETION_STATUS_FLAGS(pub i32);
@@ -22084,7 +19708,6 @@ impl ::core::fmt::Debug for COMPLETION_STATUS_FLAGS {
         f.debug_tuple("COMPLETION_STATUS_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_ACP_Protection_Level(pub i32);
@@ -22107,7 +19730,6 @@ impl ::core::fmt::Debug for COPP_ACP_Protection_Level {
         f.debug_tuple("COPP_ACP_Protection_Level").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_BusType(pub i32);
@@ -22130,7 +19752,6 @@ impl ::core::fmt::Debug for COPP_BusType {
         f.debug_tuple("COPP_BusType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_CGMSA_Protection_Level(pub i32);
@@ -22153,7 +19774,6 @@ impl ::core::fmt::Debug for COPP_CGMSA_Protection_Level {
         f.debug_tuple("COPP_CGMSA_Protection_Level").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_ConnectorType(pub i32);
@@ -22176,7 +19796,6 @@ impl ::core::fmt::Debug for COPP_ConnectorType {
         f.debug_tuple("COPP_ConnectorType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_HDCP_Protection_Level(pub i32);
@@ -22199,7 +19818,6 @@ impl ::core::fmt::Debug for COPP_HDCP_Protection_Level {
         f.debug_tuple("COPP_HDCP_Protection_Level").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_ImageAspectRatio_EN300294(pub i32);
@@ -22222,7 +19840,6 @@ impl ::core::fmt::Debug for COPP_ImageAspectRatio_EN300294 {
         f.debug_tuple("COPP_ImageAspectRatio_EN300294").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_StatusFlags(pub i32);
@@ -22245,7 +19862,6 @@ impl ::core::fmt::Debug for COPP_StatusFlags {
         f.debug_tuple("COPP_StatusFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_StatusHDCPFlags(pub i32);
@@ -22268,7 +19884,6 @@ impl ::core::fmt::Debug for COPP_StatusHDCPFlags {
         f.debug_tuple("COPP_StatusHDCPFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_TVProtectionStandard(pub i32);
@@ -22291,7 +19906,6 @@ impl ::core::fmt::Debug for COPP_TVProtectionStandard {
         f.debug_tuple("COPP_TVProtectionStandard").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraControlFlags(pub i32);
@@ -22314,7 +19928,6 @@ impl ::core::fmt::Debug for CameraControlFlags {
         f.debug_tuple("CameraControlFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraControlProperty(pub i32);
@@ -22337,7 +19950,6 @@ impl ::core::fmt::Debug for CameraControlProperty {
         f.debug_tuple("CameraControlProperty").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ComponentCategory(pub i32);
@@ -22360,7 +19972,6 @@ impl ::core::fmt::Debug for ComponentCategory {
         f.debug_tuple("ComponentCategory").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ComponentStatus(pub i32);
@@ -22383,7 +19994,6 @@ impl ::core::fmt::Debug for ComponentStatus {
         f.debug_tuple("ComponentStatus").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompressionCaps(pub i32);
@@ -22406,7 +20016,6 @@ impl ::core::fmt::Debug for CompressionCaps {
         f.debug_tuple("CompressionCaps").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DDSFF_FLAGS(pub i32);
@@ -22462,7 +20071,6 @@ impl ::core::ops::Not for DDSFF_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DECIMATION_USAGE(pub i32);
@@ -22485,7 +20093,6 @@ impl ::core::fmt::Debug for DECIMATION_USAGE {
         f.debug_tuple("DECIMATION_USAGE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVBSystemType(pub i32);
@@ -22508,7 +20115,6 @@ impl ::core::fmt::Debug for DVBSystemType {
         f.debug_tuple("DVBSystemType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_AUDIO_APPMODE(pub i32);
@@ -22531,7 +20137,6 @@ impl ::core::fmt::Debug for DVD_AUDIO_APPMODE {
         f.debug_tuple("DVD_AUDIO_APPMODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_AUDIO_FORMAT(pub i32);
@@ -22554,7 +20159,6 @@ impl ::core::fmt::Debug for DVD_AUDIO_FORMAT {
         f.debug_tuple("DVD_AUDIO_FORMAT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_AUDIO_LANG_EXT(pub i32);
@@ -22577,7 +20181,6 @@ impl ::core::fmt::Debug for DVD_AUDIO_LANG_EXT {
         f.debug_tuple("DVD_AUDIO_LANG_EXT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_CMD_FLAGS(pub i32);
@@ -22600,7 +20203,6 @@ impl ::core::fmt::Debug for DVD_CMD_FLAGS {
         f.debug_tuple("DVD_CMD_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_DISC_SIDE(pub i32);
@@ -22623,7 +20225,6 @@ impl ::core::fmt::Debug for DVD_DISC_SIDE {
         f.debug_tuple("DVD_DISC_SIDE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_DOMAIN(pub i32);
@@ -22646,7 +20247,6 @@ impl ::core::fmt::Debug for DVD_DOMAIN {
         f.debug_tuple("DVD_DOMAIN").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_ERROR(pub i32);
@@ -22669,7 +20269,6 @@ impl ::core::fmt::Debug for DVD_ERROR {
         f.debug_tuple("DVD_ERROR").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_FRAMERATE(pub i32);
@@ -22692,7 +20291,6 @@ impl ::core::fmt::Debug for DVD_FRAMERATE {
         f.debug_tuple("DVD_FRAMERATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_KARAOKE_ASSIGNMENT(pub i32);
@@ -22715,7 +20313,6 @@ impl ::core::fmt::Debug for DVD_KARAOKE_ASSIGNMENT {
         f.debug_tuple("DVD_KARAOKE_ASSIGNMENT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_KARAOKE_CONTENTS(pub i32);
@@ -22738,7 +20335,6 @@ impl ::core::fmt::Debug for DVD_KARAOKE_CONTENTS {
         f.debug_tuple("DVD_KARAOKE_CONTENTS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_KARAOKE_DOWNMIX(pub i32);
@@ -22761,7 +20357,6 @@ impl ::core::fmt::Debug for DVD_KARAOKE_DOWNMIX {
         f.debug_tuple("DVD_KARAOKE_DOWNMIX").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_MENU_ID(pub i32);
@@ -22784,7 +20379,6 @@ impl ::core::fmt::Debug for DVD_MENU_ID {
         f.debug_tuple("DVD_MENU_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_NavCmdType(pub i32);
@@ -22807,7 +20401,6 @@ impl ::core::fmt::Debug for DVD_NavCmdType {
         f.debug_tuple("DVD_NavCmdType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_OPTION_FLAG(pub i32);
@@ -22830,7 +20423,6 @@ impl ::core::fmt::Debug for DVD_OPTION_FLAG {
         f.debug_tuple("DVD_OPTION_FLAG").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_PARENTAL_LEVEL(pub i32);
@@ -22853,7 +20445,6 @@ impl ::core::fmt::Debug for DVD_PARENTAL_LEVEL {
         f.debug_tuple("DVD_PARENTAL_LEVEL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_PB_STOPPED(pub i32);
@@ -22876,7 +20467,6 @@ impl ::core::fmt::Debug for DVD_PB_STOPPED {
         f.debug_tuple("DVD_PB_STOPPED").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_PLAY_DIRECTION(pub i32);
@@ -22899,7 +20489,6 @@ impl ::core::fmt::Debug for DVD_PLAY_DIRECTION {
         f.debug_tuple("DVD_PLAY_DIRECTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_PREFERRED_DISPLAY_MODE(pub i32);
@@ -22922,7 +20511,6 @@ impl ::core::fmt::Debug for DVD_PREFERRED_DISPLAY_MODE {
         f.debug_tuple("DVD_PREFERRED_DISPLAY_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_RELATIVE_BUTTON(pub i32);
@@ -22945,7 +20533,6 @@ impl ::core::fmt::Debug for DVD_RELATIVE_BUTTON {
         f.debug_tuple("DVD_RELATIVE_BUTTON").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_SUBPICTURE_CODING(pub i32);
@@ -22968,7 +20555,6 @@ impl ::core::fmt::Debug for DVD_SUBPICTURE_CODING {
         f.debug_tuple("DVD_SUBPICTURE_CODING").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_SUBPICTURE_LANG_EXT(pub i32);
@@ -22991,7 +20577,6 @@ impl ::core::fmt::Debug for DVD_SUBPICTURE_LANG_EXT {
         f.debug_tuple("DVD_SUBPICTURE_LANG_EXT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_SUBPICTURE_TYPE(pub i32);
@@ -23014,7 +20599,6 @@ impl ::core::fmt::Debug for DVD_SUBPICTURE_TYPE {
         f.debug_tuple("DVD_SUBPICTURE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_TIMECODE_FLAGS(pub i32);
@@ -23037,7 +20621,6 @@ impl ::core::fmt::Debug for DVD_TIMECODE_FLAGS {
         f.debug_tuple("DVD_TIMECODE_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_TITLE_APPMODE(pub i32);
@@ -23060,7 +20643,6 @@ impl ::core::fmt::Debug for DVD_TITLE_APPMODE {
         f.debug_tuple("DVD_TITLE_APPMODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_TextCharSet(pub i32);
@@ -23083,7 +20665,6 @@ impl ::core::fmt::Debug for DVD_TextCharSet {
         f.debug_tuple("DVD_TextCharSet").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_TextStringType(pub i32);
@@ -23106,7 +20687,6 @@ impl ::core::fmt::Debug for DVD_TextStringType {
         f.debug_tuple("DVD_TextStringType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_VIDEO_COMPRESSION(pub i32);
@@ -23129,7 +20709,6 @@ impl ::core::fmt::Debug for DVD_VIDEO_COMPRESSION {
         f.debug_tuple("DVD_VIDEO_COMPRESSION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_WARNING(pub i32);
@@ -23152,7 +20731,6 @@ impl ::core::fmt::Debug for DVD_WARNING {
         f.debug_tuple("DVD_WARNING").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_DestinationFlags(pub i32);
@@ -23175,7 +20753,6 @@ impl ::core::fmt::Debug for DXVA2_DestinationFlags {
         f.debug_tuple("DXVA2_DestinationFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_SampleFlags(pub i32);
@@ -23198,7 +20775,6 @@ impl ::core::fmt::Debug for DXVA2_SampleFlags {
         f.debug_tuple("DXVA2_SampleFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EntitlementType(pub i32);
@@ -23221,7 +20797,6 @@ impl ::core::fmt::Debug for EntitlementType {
         f.debug_tuple("EntitlementType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FECMethod(pub i32);
@@ -23244,7 +20819,6 @@ impl ::core::fmt::Debug for FECMethod {
         f.debug_tuple("FECMethod").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILTER_STATE(pub i32);
@@ -23267,7 +20841,6 @@ impl ::core::fmt::Debug for FILTER_STATE {
         f.debug_tuple("FILTER_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GuardInterval(pub i32);
@@ -23290,7 +20863,6 @@ impl ::core::fmt::Debug for GuardInterval {
         f.debug_tuple("GuardInterval").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HierarchyAlpha(pub i32);
@@ -23313,7 +20885,6 @@ impl ::core::fmt::Debug for HierarchyAlpha {
         f.debug_tuple("HierarchyAlpha").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IFILTERMAPPER_MERIT(pub i32);
@@ -23336,7 +20907,6 @@ impl ::core::fmt::Debug for IFILTERMAPPER_MERIT {
         f.debug_tuple("IFILTERMAPPER_MERIT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ISDBCAS_REQUEST_ID(pub i32);
@@ -23359,7 +20929,6 @@ impl ::core::fmt::Debug for ISDBCAS_REQUEST_ID {
         f.debug_tuple("ISDBCAS_REQUEST_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InterleavingMode(pub i32);
@@ -23382,7 +20951,6 @@ impl ::core::fmt::Debug for InterleavingMode {
         f.debug_tuple("InterleavingMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_IPSINK(pub i32);
@@ -23438,7 +21006,6 @@ impl ::core::ops::Not for KSPROPERTY_IPSINK {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LNB_Source(pub i32);
@@ -23461,7 +21028,6 @@ impl ::core::fmt::Debug for LNB_Source {
         f.debug_tuple("LNB_Source").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LocationCodeSchemeType(pub i32);
@@ -23484,7 +21050,6 @@ impl ::core::fmt::Debug for LocationCodeSchemeType {
         f.debug_tuple("LocationCodeSchemeType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEDIA_SAMPLE_CONTENT(pub i32);
@@ -23507,7 +21072,6 @@ impl ::core::fmt::Debug for MEDIA_SAMPLE_CONTENT {
         f.debug_tuple("MEDIA_SAMPLE_CONTENT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MMSSF_GET_INFORMATION_FLAGS(pub i32);
@@ -23563,7 +21127,6 @@ impl ::core::ops::Not for MMSSF_GET_INFORMATION_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MPEG2StreamType(pub i32);
@@ -23586,7 +21149,6 @@ impl ::core::fmt::Debug for MPEG2StreamType {
         f.debug_tuple("MPEG2StreamType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MPEGLAYER3WAVEFORMAT_FLAGS(pub u32);
@@ -23609,7 +21171,6 @@ impl ::core::fmt::Debug for MPEGLAYER3WAVEFORMAT_FLAGS {
         f.debug_tuple("MPEGLAYER3WAVEFORMAT_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MP_CURVE_TYPE(pub i32);
@@ -23632,7 +21193,6 @@ impl ::core::fmt::Debug for MP_CURVE_TYPE {
         f.debug_tuple("MP_CURVE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MP_TYPE(pub i32);
@@ -23655,7 +21215,6 @@ impl ::core::fmt::Debug for MP_TYPE {
         f.debug_tuple("MP_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MUX_PID_TYPE(pub i32);
@@ -23678,7 +21237,6 @@ impl ::core::fmt::Debug for MUX_PID_TYPE {
         f.debug_tuple("MUX_PID_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ModulationType(pub i32);
@@ -23701,7 +21259,6 @@ impl ::core::fmt::Debug for ModulationType {
         f.debug_tuple("ModulationType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OA_BOOL(pub i32);
@@ -23724,7 +21281,6 @@ impl ::core::fmt::Debug for OA_BOOL {
         f.debug_tuple("OA_BOOL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OUTPUT_STATE(pub i32);
@@ -23780,7 +21336,6 @@ impl ::core::ops::Not for OUTPUT_STATE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PIN_DIRECTION(pub i32);
@@ -23803,7 +21358,6 @@ impl ::core::fmt::Debug for PIN_DIRECTION {
         f.debug_tuple("PIN_DIRECTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhysicalConnectorType(pub i32);
@@ -23826,7 +21380,6 @@ impl ::core::fmt::Debug for PhysicalConnectorType {
         f.debug_tuple("PhysicalConnectorType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Pilot(pub i32);
@@ -23849,7 +21402,6 @@ impl ::core::fmt::Debug for Pilot {
         f.debug_tuple("Pilot").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Polarisation(pub i32);
@@ -23872,7 +21424,6 @@ impl ::core::fmt::Debug for Polarisation {
         f.debug_tuple("Polarisation").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QualityMessageType(pub i32);
@@ -23895,7 +21446,6 @@ impl ::core::fmt::Debug for QualityMessageType {
         f.debug_tuple("QualityMessageType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REG_PINFLAG(pub i32);
@@ -23951,7 +21501,6 @@ impl ::core::ops::Not for REG_PINFLAG {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RollOff(pub i32);
@@ -23974,7 +21523,6 @@ impl ::core::fmt::Debug for RollOff {
         f.debug_tuple("RollOff").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNDDEV_ERR(pub i32);
@@ -23997,7 +21545,6 @@ impl ::core::fmt::Debug for SNDDEV_ERR {
         f.debug_tuple("SNDDEV_ERR").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SSUPDATE_TYPE(pub i32);
@@ -24020,7 +21567,6 @@ impl ::core::fmt::Debug for SSUPDATE_TYPE {
         f.debug_tuple("SSUPDATE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STREAMIF_CONSTANTS(pub i32);
@@ -24043,7 +21589,6 @@ impl ::core::fmt::Debug for STREAMIF_CONSTANTS {
         f.debug_tuple("STREAMIF_CONSTANTS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STREAM_STATE(pub i32);
@@ -24066,7 +21611,6 @@ impl ::core::fmt::Debug for STREAM_STATE {
         f.debug_tuple("STREAM_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STREAM_TYPE(pub i32);
@@ -24089,7 +21633,6 @@ impl ::core::fmt::Debug for STREAM_TYPE {
         f.debug_tuple("STREAM_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ScanModulationTypes(pub i32);
@@ -24112,7 +21655,6 @@ impl ::core::fmt::Debug for ScanModulationTypes {
         f.debug_tuple("ScanModulationTypes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardAssociationType(pub i32);
@@ -24135,7 +21677,6 @@ impl ::core::fmt::Debug for SmartCardAssociationType {
         f.debug_tuple("SmartCardAssociationType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardStatusType(pub i32);
@@ -24158,7 +21699,6 @@ impl ::core::fmt::Debug for SmartCardStatusType {
         f.debug_tuple("SmartCardStatusType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpectralInversion(pub i32);
@@ -24181,7 +21721,6 @@ impl ::core::fmt::Debug for SpectralInversion {
         f.debug_tuple("SpectralInversion").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TVAudioMode(pub i32);
@@ -24204,7 +21743,6 @@ impl ::core::fmt::Debug for TVAudioMode {
         f.debug_tuple("TVAudioMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TransmissionMode(pub i32);
@@ -24227,7 +21765,6 @@ impl ::core::fmt::Debug for TransmissionMode {
         f.debug_tuple("TransmissionMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TunerInputType(pub i32);
@@ -24250,7 +21787,6 @@ impl ::core::fmt::Debug for TunerInputType {
         f.debug_tuple("TunerInputType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UICloseReasonType(pub i32);
@@ -24273,7 +21809,6 @@ impl ::core::fmt::Debug for UICloseReasonType {
         f.debug_tuple("UICloseReasonType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VALID_UOP_FLAG(pub i32);
@@ -24296,7 +21831,6 @@ impl ::core::fmt::Debug for VALID_UOP_FLAG {
         f.debug_tuple("VALID_UOP_FLAG").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIDEOENCODER_BITRATE_MODE(pub i32);
@@ -24319,7 +21853,6 @@ impl ::core::fmt::Debug for VIDEOENCODER_BITRATE_MODE {
         f.debug_tuple("VIDEOENCODER_BITRATE_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9AlphaBitmapFlags(pub i32);
@@ -24342,7 +21875,6 @@ impl ::core::fmt::Debug for VMR9AlphaBitmapFlags {
         f.debug_tuple("VMR9AlphaBitmapFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9AspectRatioMode(pub i32);
@@ -24365,7 +21897,6 @@ impl ::core::fmt::Debug for VMR9AspectRatioMode {
         f.debug_tuple("VMR9AspectRatioMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9DeinterlacePrefs(pub i32);
@@ -24388,7 +21919,6 @@ impl ::core::fmt::Debug for VMR9DeinterlacePrefs {
         f.debug_tuple("VMR9DeinterlacePrefs").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9DeinterlaceTech(pub i32);
@@ -24411,7 +21941,6 @@ impl ::core::fmt::Debug for VMR9DeinterlaceTech {
         f.debug_tuple("VMR9DeinterlaceTech").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9MixerPrefs(pub i32);
@@ -24434,7 +21963,6 @@ impl ::core::fmt::Debug for VMR9MixerPrefs {
         f.debug_tuple("VMR9MixerPrefs").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9Mode(pub i32);
@@ -24457,7 +21985,6 @@ impl ::core::fmt::Debug for VMR9Mode {
         f.debug_tuple("VMR9Mode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9PresentationFlags(pub i32);
@@ -24480,7 +22007,6 @@ impl ::core::fmt::Debug for VMR9PresentationFlags {
         f.debug_tuple("VMR9PresentationFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9ProcAmpControlFlags(pub i32);
@@ -24503,7 +22029,6 @@ impl ::core::fmt::Debug for VMR9ProcAmpControlFlags {
         f.debug_tuple("VMR9ProcAmpControlFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9RenderPrefs(pub i32);
@@ -24526,7 +22051,6 @@ impl ::core::fmt::Debug for VMR9RenderPrefs {
         f.debug_tuple("VMR9RenderPrefs").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9SurfaceAllocationFlags(pub i32);
@@ -24549,7 +22073,6 @@ impl ::core::fmt::Debug for VMR9SurfaceAllocationFlags {
         f.debug_tuple("VMR9SurfaceAllocationFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9_SampleFormat(pub i32);
@@ -24572,7 +22095,6 @@ impl ::core::fmt::Debug for VMR9_SampleFormat {
         f.debug_tuple("VMR9_SampleFormat").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMRDeinterlacePrefs(pub i32);
@@ -24595,7 +22117,6 @@ impl ::core::fmt::Debug for VMRDeinterlacePrefs {
         f.debug_tuple("VMRDeinterlacePrefs").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMRDeinterlaceTech(pub i32);
@@ -24618,7 +22139,6 @@ impl ::core::fmt::Debug for VMRDeinterlaceTech {
         f.debug_tuple("VMRDeinterlaceTech").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMRMixerPrefs(pub i32);
@@ -24641,7 +22161,6 @@ impl ::core::fmt::Debug for VMRMixerPrefs {
         f.debug_tuple("VMRMixerPrefs").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMRMode(pub i32);
@@ -24664,7 +22183,6 @@ impl ::core::fmt::Debug for VMRMode {
         f.debug_tuple("VMRMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMRPresentationFlags(pub i32);
@@ -24687,7 +22205,6 @@ impl ::core::fmt::Debug for VMRPresentationFlags {
         f.debug_tuple("VMRPresentationFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMRRenderPrefs(pub i32);
@@ -24710,7 +22227,6 @@ impl ::core::fmt::Debug for VMRRenderPrefs {
         f.debug_tuple("VMRRenderPrefs").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMRSurfaceAllocationFlags(pub i32);
@@ -24733,7 +22249,6 @@ impl ::core::fmt::Debug for VMRSurfaceAllocationFlags {
         f.debug_tuple("VMRSurfaceAllocationFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR_ASPECT_RATIO_MODE(pub i32);
@@ -24756,7 +22271,6 @@ impl ::core::fmt::Debug for VMR_ASPECT_RATIO_MODE {
         f.debug_tuple("VMR_ASPECT_RATIO_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VfwCaptureDialogs(pub i32);
@@ -24779,7 +22293,6 @@ impl ::core::fmt::Debug for VfwCaptureDialogs {
         f.debug_tuple("VfwCaptureDialogs").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VfwCompressDialogs(pub i32);
@@ -24802,7 +22315,6 @@ impl ::core::fmt::Debug for VfwCompressDialogs {
         f.debug_tuple("VfwCompressDialogs").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoControlFlags(pub i32);
@@ -24825,7 +22337,6 @@ impl ::core::fmt::Debug for VideoControlFlags {
         f.debug_tuple("VideoControlFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoCopyProtectionType(pub i32);
@@ -24848,7 +22359,6 @@ impl ::core::fmt::Debug for VideoCopyProtectionType {
         f.debug_tuple("VideoCopyProtectionType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoProcAmpFlags(pub i32);
@@ -24871,7 +22381,6 @@ impl ::core::fmt::Debug for VideoProcAmpFlags {
         f.debug_tuple("VideoProcAmpFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoProcAmpProperty(pub i32);
@@ -24894,7 +22403,6 @@ impl ::core::fmt::Debug for VideoProcAmpProperty {
         f.debug_tuple("VideoProcAmpProperty").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AMRESCTL_RESERVEFLAGS(pub i32);
@@ -24917,7 +22425,6 @@ impl ::core::fmt::Debug for _AMRESCTL_RESERVEFLAGS {
         f.debug_tuple("_AMRESCTL_RESERVEFLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AMSTREAMSELECTENABLEFLAGS(pub i32);
@@ -24940,7 +22447,6 @@ impl ::core::fmt::Debug for _AMSTREAMSELECTENABLEFLAGS {
         f.debug_tuple("_AMSTREAMSELECTENABLEFLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AMSTREAMSELECTINFOFLAGS(pub i32);
@@ -24963,7 +22469,6 @@ impl ::core::fmt::Debug for _AMSTREAMSELECTINFOFLAGS {
         f.debug_tuple("_AMSTREAMSELECTINFOFLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AM_AUDIO_RENDERER_STAT_PARAM(pub i32);
@@ -24986,7 +22491,6 @@ impl ::core::fmt::Debug for _AM_AUDIO_RENDERER_STAT_PARAM {
         f.debug_tuple("_AM_AUDIO_RENDERER_STAT_PARAM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AM_FILTER_MISC_FLAGS(pub i32);
@@ -25009,7 +22513,6 @@ impl ::core::fmt::Debug for _AM_FILTER_MISC_FLAGS {
         f.debug_tuple("_AM_FILTER_MISC_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AM_INTF_SEARCH_FLAGS(pub i32);
@@ -25032,7 +22535,6 @@ impl ::core::fmt::Debug for _AM_INTF_SEARCH_FLAGS {
         f.debug_tuple("_AM_INTF_SEARCH_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AM_OVERLAY_NOTIFY_FLAGS(pub i32);
@@ -25055,7 +22557,6 @@ impl ::core::fmt::Debug for _AM_OVERLAY_NOTIFY_FLAGS {
         f.debug_tuple("_AM_OVERLAY_NOTIFY_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS(pub i32);
@@ -25078,7 +22579,6 @@ impl ::core::fmt::Debug for _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS {
         f.debug_tuple("_AM_PIN_FLOW_CONTROL_BLOCK_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AM_PUSHSOURCE_FLAGS(pub i32);
@@ -25101,7 +22601,6 @@ impl ::core::fmt::Debug for _AM_PUSHSOURCE_FLAGS {
         f.debug_tuple("_AM_PUSHSOURCE_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AM_RENSDEREXFLAGS(pub i32);
@@ -25124,7 +22623,6 @@ impl ::core::fmt::Debug for _AM_RENSDEREXFLAGS {
         f.debug_tuple("_AM_RENSDEREXFLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DVDECODERRESOLUTION(pub i32);
@@ -25147,7 +22645,6 @@ impl ::core::fmt::Debug for _DVDECODERRESOLUTION {
         f.debug_tuple("_DVDECODERRESOLUTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DVENCODERFORMAT(pub i32);
@@ -25170,7 +22667,6 @@ impl ::core::fmt::Debug for _DVENCODERFORMAT {
         f.debug_tuple("_DVENCODERFORMAT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DVENCODERRESOLUTION(pub i32);
@@ -25193,7 +22689,6 @@ impl ::core::fmt::Debug for _DVENCODERRESOLUTION {
         f.debug_tuple("_DVENCODERRESOLUTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DVENCODERVIDEOFORMAT(pub i32);
@@ -25216,7 +22711,6 @@ impl ::core::fmt::Debug for _DVENCODERVIDEOFORMAT {
         f.debug_tuple("_DVENCODERVIDEOFORMAT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DVRESOLUTION(pub i32);
@@ -25239,7 +22733,6 @@ impl ::core::fmt::Debug for _DVRESOLUTION {
         f.debug_tuple("_DVRESOLUTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _REM_FILTER_FLAGS(pub i32);
@@ -25263,7 +22756,6 @@ impl ::core::fmt::Debug for _REM_FILTER_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct ALLOCATOR_PROPERTIES {
     pub cBuffers: i32,
     pub cbBuffer: i32,
@@ -25296,7 +22788,6 @@ impl ::core::default::Default for ALLOCATOR_PROPERTIES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AMCOPPCommand {
     pub macKDI: ::windows_core::GUID,
     pub guidCommandID: ::windows_core::GUID,
@@ -25330,7 +22821,6 @@ impl ::core::default::Default for AMCOPPCommand {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AMCOPPSignature {
     pub Signature: [u8; 256],
 }
@@ -25360,7 +22850,6 @@ impl ::core::default::Default for AMCOPPSignature {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AMCOPPStatusInput {
     pub rApp: ::windows_core::GUID,
     pub guidStatusRequestID: ::windows_core::GUID,
@@ -25394,7 +22883,6 @@ impl ::core::default::Default for AMCOPPStatusInput {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AMCOPPStatusOutput {
     pub macKDI: ::windows_core::GUID,
     pub cbSizeData: u32,
@@ -25426,7 +22914,6 @@ impl ::core::default::Default for AMCOPPStatusOutput {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AMVABUFFERINFO {
     pub dwTypeIndex: u32,
     pub dwBufferIndex: u32,
@@ -25459,7 +22946,6 @@ impl ::core::default::Default for AMVABUFFERINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AMVABeginFrameInfo {
     pub dwDestSurfaceIndex: u32,
     pub pInputData: *mut ::core::ffi::c_void,
@@ -25493,7 +22979,7 @@ impl ::core::default::Default for AMVABeginFrameInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[doc = "Required features: `Win32_Graphics_DirectDraw`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct AMVACompBufferInfo {
     pub dwNumCompBuffers: u32,
@@ -25522,7 +23008,6 @@ impl ::core::default::Default for AMVACompBufferInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AMVAEndFrameInfo {
     pub dwSizeMiscData: u32,
     pub pMiscData: *mut ::core::ffi::c_void,
@@ -25553,7 +23038,6 @@ impl ::core::default::Default for AMVAEndFrameInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AMVAInternalMemInfo {
     pub dwScratchMemAlloc: u32,
 }
@@ -25583,7 +23067,7 @@ impl ::core::default::Default for AMVAInternalMemInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[doc = "Required features: `Win32_Graphics_DirectDraw`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct AMVAUncompBufferInfo {
     pub dwMinNumSurfaces: u32,
@@ -25609,7 +23093,7 @@ impl ::core::default::Default for AMVAUncompBufferInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[doc = "Required features: `Win32_Graphics_DirectDraw`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct AMVAUncompDataInfo {
     pub dwUncompWidth: u32,
@@ -25635,7 +23119,7 @@ impl ::core::default::Default for AMVAUncompDataInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AMVPDATAINFO {
     pub dwSize: u32,
@@ -25699,7 +23183,7 @@ impl ::core::default::Default for AMVPDATAINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AMVPDIMINFO {
     pub dwFieldWidth: u32,
@@ -25741,7 +23225,6 @@ impl ::core::default::Default for AMVPDIMINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AMVPSIZE {
     pub dwWidth: u32,
     pub dwHeight: u32,
@@ -25772,7 +23255,7 @@ impl ::core::default::Default for AMVPSIZE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AM_AC3_ALTERNATE_AUDIO {
     pub fStereo: super::super::Foundation::BOOL,
@@ -25811,7 +23294,6 @@ impl ::core::default::Default for AM_AC3_ALTERNATE_AUDIO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_AC3_BIT_STREAM_MODE {
     pub BitStreamMode: i32,
 }
@@ -25841,7 +23323,6 @@ impl ::core::default::Default for AM_AC3_BIT_STREAM_MODE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_AC3_DIALOGUE_LEVEL {
     pub DialogueLevel: u32,
 }
@@ -25871,7 +23352,7 @@ impl ::core::default::Default for AM_AC3_DIALOGUE_LEVEL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AM_AC3_DOWNMIX {
     pub fDownMix: super::super::Foundation::BOOL,
@@ -25910,7 +23391,7 @@ impl ::core::default::Default for AM_AC3_DOWNMIX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AM_AC3_ERROR_CONCEALMENT {
     pub fRepeatPreviousBlock: super::super::Foundation::BOOL,
@@ -25949,7 +23430,7 @@ impl ::core::default::Default for AM_AC3_ERROR_CONCEALMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AM_AC3_ROOM_TYPE {
     pub fLargeRoom: super::super::Foundation::BOOL,
@@ -25987,7 +23468,6 @@ impl ::core::default::Default for AM_AC3_ROOM_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_COLCON {
     pub _bitfield1: u8,
     pub _bitfield2: u8,
@@ -26020,7 +23500,6 @@ impl ::core::default::Default for AM_COLCON {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_COPY_MACROVISION {
     pub MACROVISIONLevel: u32,
 }
@@ -26050,7 +23529,6 @@ impl ::core::default::Default for AM_COPY_MACROVISION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_DVDCOPY_BUSKEY {
     pub BusKey: [u8; 5],
     pub Reserved: [u8; 1],
@@ -26081,7 +23559,6 @@ impl ::core::default::Default for AM_DVDCOPY_BUSKEY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_DVDCOPY_CHLGKEY {
     pub ChlgKey: [u8; 10],
     pub Reserved: [u8; 2],
@@ -26112,7 +23589,6 @@ impl ::core::default::Default for AM_DVDCOPY_CHLGKEY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_DVDCOPY_DISCKEY {
     pub DiscKey: [u8; 2048],
 }
@@ -26142,7 +23618,6 @@ impl ::core::default::Default for AM_DVDCOPY_DISCKEY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_DVDCOPY_SET_COPY_STATE {
     pub DVDCopyState: u32,
 }
@@ -26172,7 +23647,6 @@ impl ::core::default::Default for AM_DVDCOPY_SET_COPY_STATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_DVDCOPY_TITLEKEY {
     pub KeyFlags: u32,
     pub Reserved1: [u32; 2],
@@ -26205,7 +23679,6 @@ impl ::core::default::Default for AM_DVDCOPY_TITLEKEY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_DVD_ChangeRate {
     pub StartInTime: i64,
     pub StartOutTime: i64,
@@ -26237,7 +23710,7 @@ impl ::core::default::Default for AM_DVD_ChangeRate {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AM_DVD_RENDERSTATUS {
     pub hrVPEStatus: ::windows_core::HRESULT,
@@ -26282,7 +23755,6 @@ impl ::core::default::Default for AM_DVD_RENDERSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_DVD_YUV {
     pub Reserved: u8,
     pub Y: u8,
@@ -26315,7 +23787,6 @@ impl ::core::default::Default for AM_DVD_YUV {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_DvdKaraokeData {
     pub dwDownmix: u32,
     pub dwSpeakerAssignment: u32,
@@ -26346,7 +23817,6 @@ impl ::core::default::Default for AM_DvdKaraokeData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_ExactRateChange {
     pub OutputZeroTime: i64,
     pub Rate: i32,
@@ -26377,7 +23847,6 @@ impl ::core::default::Default for AM_ExactRateChange {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_FRAMESTEP_STEP {
     pub dwFramesToStep: u32,
 }
@@ -26407,7 +23876,7 @@ impl ::core::default::Default for AM_FRAMESTEP_STEP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub struct AM_MPEGSTREAMTYPE {
     pub dwStreamId: u32,
@@ -26446,7 +23915,7 @@ impl ::core::default::Default for AM_MPEGSTREAMTYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub struct AM_MPEGSYSTEMTYPE {
     pub dwBitRate: u32,
@@ -26484,7 +23953,6 @@ impl ::core::default::Default for AM_MPEGSYSTEMTYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_PROPERTY_SPHLI {
     pub HLISS: u16,
     pub Reserved: u16,
@@ -26522,7 +23990,6 @@ impl ::core::default::Default for AM_PROPERTY_SPHLI {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_PROPERTY_SPPAL {
     pub sppal: [AM_DVD_YUV; 16],
 }
@@ -26552,7 +24019,6 @@ impl ::core::default::Default for AM_PROPERTY_SPPAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_QueryRate {
     pub lMaxForwardFullFrame: i32,
     pub lMaxReverseFullFrame: i32,
@@ -26583,7 +24049,7 @@ impl ::core::default::Default for AM_QueryRate {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub struct AM_SAMPLE2_PROPERTIES {
     pub cbData: u32,
@@ -26630,7 +24096,6 @@ impl ::core::default::Default for AM_SAMPLE2_PROPERTIES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_STREAM_INFO {
     pub tStart: i64,
     pub tStop: i64,
@@ -26664,7 +24129,6 @@ impl ::core::default::Default for AM_STREAM_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_SimpleRateChange {
     pub StartTime: i64,
     pub Rate: i32,
@@ -26695,7 +24159,6 @@ impl ::core::default::Default for AM_SimpleRateChange {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AM_WST_PAGE {
     pub dwPageNr: u32,
     pub dwSubPageNr: u32,
@@ -26727,7 +24190,7 @@ impl ::core::default::Default for AM_WST_PAGE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ANALOGVIDEOINFO {
     pub rcSource: super::super::Foundation::RECT,
@@ -26769,7 +24232,6 @@ impl ::core::default::Default for ANALOGVIDEOINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AUDIO_STREAM_CONFIG_CAPS {
     pub guid: ::windows_core::GUID,
     pub MinimumChannels: u32,
@@ -26819,7 +24281,6 @@ impl ::core::default::Default for AUDIO_STREAM_CONFIG_CAPS {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVIEXTHEADER {
     pub fcc: u32,
     pub cb: u32,
@@ -26841,7 +24302,6 @@ impl ::core::default::Default for AVIEXTHEADER {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVIFIELDINDEX {
     pub fcc: u32,
     pub cb: u32,
@@ -26869,7 +24329,6 @@ impl ::core::default::Default for AVIFIELDINDEX {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVIFIELDINDEX_0 {
     pub dwOffset: u32,
     pub dwSize: u32,
@@ -26890,7 +24349,6 @@ impl ::core::default::Default for AVIFIELDINDEX_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVIINDEXENTRY {
     pub ckid: u32,
     pub dwFlags: u32,
@@ -26923,7 +24381,6 @@ impl ::core::default::Default for AVIINDEXENTRY {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVIMAINHEADER {
     pub fcc: u32,
     pub cb: u32,
@@ -26954,7 +24411,6 @@ impl ::core::default::Default for AVIMAINHEADER {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVIMETAINDEX {
     pub fcc: u32,
     pub cb: u32,
@@ -26981,7 +24437,6 @@ impl ::core::default::Default for AVIMETAINDEX {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVIOLDINDEX {
     pub fcc: u32,
     pub cb: u32,
@@ -27002,7 +24457,6 @@ impl ::core::default::Default for AVIOLDINDEX {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVIOLDINDEX_0 {
     pub dwChunkId: u32,
     pub dwFlags: u32,
@@ -27024,7 +24478,7 @@ impl ::core::default::Default for AVIOLDINDEX_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "Required features: `Win32_Graphics_Gdi`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct AVIPALCHANGE {
     pub bFirstEntry: u8,
@@ -27065,7 +24519,6 @@ impl ::core::default::Default for AVIPALCHANGE {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVISTDINDEX {
     pub fcc: u32,
     pub cb: u32,
@@ -27093,7 +24546,6 @@ impl ::core::default::Default for AVISTDINDEX {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVISTDINDEX_ENTRY {
     pub dwOffset: u32,
     pub dwSize: u32,
@@ -27113,7 +24565,6 @@ impl ::core::default::Default for AVISTDINDEX_ENTRY {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVISTREAMHEADER {
     pub fcc: u32,
     pub cb: u32,
@@ -27147,7 +24598,6 @@ impl ::core::default::Default for AVISTREAMHEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVISTREAMHEADER_0 {
     pub left: i16,
     pub top: i16,
@@ -27180,7 +24630,6 @@ impl ::core::default::Default for AVISTREAMHEADER_0 {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVISUPERINDEX {
     pub fcc: u32,
     pub cb: u32,
@@ -27207,7 +24656,6 @@ impl ::core::default::Default for AVISUPERINDEX {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVISUPERINDEX_0 {
     pub qwOffset: u64,
     pub dwSize: u32,
@@ -27228,7 +24676,7 @@ impl ::core::default::Default for AVISUPERINDEX_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AVIStreamHeader {
     pub fccType: u32,
@@ -27294,7 +24742,6 @@ impl ::core::default::Default for AVIStreamHeader {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVITCDLINDEX {
     pub fcc: u32,
     pub cb: u32,
@@ -27322,7 +24769,6 @@ impl ::core::default::Default for AVITCDLINDEX {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVITCDLINDEX_ENTRY {
     pub dwTick: u32,
     pub time: super::TIMECODE,
@@ -27345,7 +24791,6 @@ impl ::core::default::Default for AVITCDLINDEX_ENTRY {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVITIMECODEINDEX {
     pub fcc: u32,
     pub cb: u32,
@@ -27372,7 +24817,6 @@ impl ::core::default::Default for AVITIMECODEINDEX {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVITIMEDINDEX {
     pub fcc: u32,
     pub cb: u32,
@@ -27401,7 +24845,6 @@ impl ::core::default::Default for AVITIMEDINDEX {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct AVITIMEDINDEX_ENTRY {
     pub dwOffset: u32,
     pub dwSize: u32,
@@ -27422,7 +24865,6 @@ impl ::core::default::Default for AVITIMEDINDEX_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDANODE_DESCRIPTOR {
     pub ulBdaNodeType: u32,
     pub guidFunction: ::windows_core::GUID,
@@ -27454,7 +24896,6 @@ impl ::core::default::Default for BDANODE_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_BUFFER {
     pub lResult: i32,
     pub ulBufferSize: u32,
@@ -27486,7 +24927,6 @@ impl ::core::default::Default for BDA_BUFFER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_CAS_CHECK_ENTITLEMENTTOKEN {
     pub lResult: i32,
     pub ulDescrambleStatus: u32,
@@ -27517,7 +24957,6 @@ impl ::core::default::Default for BDA_CAS_CHECK_ENTITLEMENTTOKEN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_CAS_CLOSEMMIDATA {
     pub ulDialogNumber: u32,
 }
@@ -27547,7 +24986,6 @@ impl ::core::default::Default for BDA_CAS_CLOSEMMIDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_CAS_CLOSE_MMIDIALOG {
     pub lResult: i32,
     pub SessionResult: u32,
@@ -27578,7 +25016,6 @@ impl ::core::default::Default for BDA_CAS_CLOSE_MMIDIALOG {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_CAS_OPENMMIDATA {
     pub ulDialogNumber: u32,
     pub ulDialogRequest: u32,
@@ -27612,7 +25049,6 @@ impl ::core::default::Default for BDA_CAS_OPENMMIDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_CAS_REQUESTTUNERDATA {
     pub ucRequestPriority: u8,
     pub ucRequestReason: u8,
@@ -27645,7 +25081,6 @@ impl ::core::default::Default for BDA_CAS_REQUESTTUNERDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_CA_MODULE_UI {
     pub ulFormat: u32,
     pub ulbcDesc: u32,
@@ -27677,7 +25112,6 @@ impl ::core::default::Default for BDA_CA_MODULE_UI {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_DISEQC_RESPONSE {
     pub ulRequestId: u32,
     pub ulPacketLength: u32,
@@ -27709,7 +25143,6 @@ impl ::core::default::Default for BDA_DISEQC_RESPONSE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_DISEQC_SEND {
     pub ulRequestId: u32,
     pub ulPacketLength: u32,
@@ -27741,7 +25174,6 @@ impl ::core::default::Default for BDA_DISEQC_SEND {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_DRM_DRMSTATUS {
     pub lResult: i32,
     pub DRMuuid: ::windows_core::GUID,
@@ -27774,7 +25206,6 @@ impl ::core::default::Default for BDA_DRM_DRMSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_DVBT2_L1_SIGNALLING_DATA {
     pub L1Pre_TYPE: u8,
     pub L1Pre_BWT_S1_S2: u8,
@@ -27832,7 +25263,6 @@ impl ::core::default::Default for BDA_DVBT2_L1_SIGNALLING_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_ETHERNET_ADDRESS {
     pub rgbAddress: [u8; 6],
 }
@@ -27862,7 +25292,6 @@ impl ::core::default::Default for BDA_ETHERNET_ADDRESS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_ETHERNET_ADDRESS_LIST {
     pub ulcAddresses: u32,
     pub rgAddressl: [BDA_ETHERNET_ADDRESS; 1],
@@ -27893,7 +25322,6 @@ impl ::core::default::Default for BDA_ETHERNET_ADDRESS_LIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_GDDS_DATA {
     pub lResult: i32,
     pub ulDataLength: u32,
@@ -27926,7 +25354,6 @@ impl ::core::default::Default for BDA_GDDS_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_GDDS_DATATYPE {
     pub lResult: i32,
     pub uuidDataType: ::windows_core::GUID,
@@ -27957,7 +25384,6 @@ impl ::core::default::Default for BDA_GDDS_DATATYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_IPv4_ADDRESS {
     pub rgbAddress: [u8; 4],
 }
@@ -27987,7 +25413,6 @@ impl ::core::default::Default for BDA_IPv4_ADDRESS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_IPv4_ADDRESS_LIST {
     pub ulcAddresses: u32,
     pub rgAddressl: [BDA_IPv4_ADDRESS; 1],
@@ -28018,7 +25443,6 @@ impl ::core::default::Default for BDA_IPv4_ADDRESS_LIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_IPv6_ADDRESS {
     pub rgbAddress: [u8; 6],
 }
@@ -28048,7 +25472,6 @@ impl ::core::default::Default for BDA_IPv6_ADDRESS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_IPv6_ADDRESS_LIST {
     pub ulcAddresses: u32,
     pub rgAddressl: [BDA_IPv6_ADDRESS; 1],
@@ -28079,7 +25502,6 @@ impl ::core::default::Default for BDA_IPv6_ADDRESS_LIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_ISDBCAS_EMG_REQ {
     pub bCLA: u8,
     pub bINS: u8,
@@ -28118,7 +25540,6 @@ impl ::core::default::Default for BDA_ISDBCAS_EMG_REQ {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_ISDBCAS_REQUESTHEADER {
     pub bInstruction: u8,
     pub bReserved: [u8; 3],
@@ -28140,7 +25561,6 @@ impl ::core::default::Default for BDA_ISDBCAS_REQUESTHEADER {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_ISDBCAS_RESPONSEDATA {
     pub lResult: i32,
     pub ulRequestID: u32,
@@ -28163,7 +25583,6 @@ impl ::core::default::Default for BDA_ISDBCAS_RESPONSEDATA {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_MUX_PIDLISTITEM {
     pub usPIDNumber: u16,
     pub usProgramNumber: u16,
@@ -28184,7 +25603,6 @@ impl ::core::default::Default for BDA_MUX_PIDLISTITEM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_PID_MAP {
     pub MediaSampleContent: MEDIA_SAMPLE_CONTENT,
     pub ulcPIDs: u32,
@@ -28216,7 +25634,6 @@ impl ::core::default::Default for BDA_PID_MAP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_PID_UNMAP {
     pub ulcPIDs: u32,
     pub aulPIDs: [u32; 1],
@@ -28247,7 +25664,6 @@ impl ::core::default::Default for BDA_PID_UNMAP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_PROGRAM_PID_LIST {
     pub ulProgramNumber: u32,
     pub ulcPIDs: u32,
@@ -28279,7 +25695,6 @@ impl ::core::default::Default for BDA_PROGRAM_PID_LIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_RATING_PINRESET {
     pub bPinLength: u8,
     pub argbNewPin: [u8; 1],
@@ -28310,7 +25725,6 @@ impl ::core::default::Default for BDA_RATING_PINRESET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_SCAN_CAPABILTIES {
     pub lResult: i32,
     pub ul64AnalogStandardsSupported: u64,
@@ -28341,7 +25755,6 @@ impl ::core::default::Default for BDA_SCAN_CAPABILTIES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_SCAN_START {
     pub lResult: i32,
     pub LowerFrequency: u32,
@@ -28373,7 +25786,6 @@ impl ::core::default::Default for BDA_SCAN_START {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_SCAN_STATE {
     pub lResult: i32,
     pub ulSignalLock: u32,
@@ -28406,7 +25818,6 @@ impl ::core::default::Default for BDA_SCAN_STATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_SIGNAL_TIMEOUTS {
     pub ulCarrierTimeoutMs: u32,
     pub ulScanningTimeoutMs: u32,
@@ -28438,7 +25849,6 @@ impl ::core::default::Default for BDA_SIGNAL_TIMEOUTS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_STRING {
     pub lResult: i32,
     pub ulStringSize: u32,
@@ -28470,7 +25880,6 @@ impl ::core::default::Default for BDA_STRING {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_TABLE_SECTION {
     pub ulPrimarySectionId: u32,
     pub ulSecondarySectionId: u32,
@@ -28503,7 +25912,6 @@ impl ::core::default::Default for BDA_TABLE_SECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_TEMPLATE_CONNECTION {
     pub FromNodeType: u32,
     pub FromNodePinType: u32,
@@ -28536,7 +25944,6 @@ impl ::core::default::Default for BDA_TEMPLATE_CONNECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_TEMPLATE_PIN_JOINT {
     pub uliTemplateConnection: u32,
     pub ulcInstancesMax: u32,
@@ -28567,7 +25974,6 @@ impl ::core::default::Default for BDA_TEMPLATE_PIN_JOINT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_TS_SELECTORINFO {
     pub bTSInfolength: u8,
     pub bReserved: [u8; 2],
@@ -28590,7 +25996,6 @@ impl ::core::default::Default for BDA_TS_SELECTORINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_TS_SELECTORINFO_ISDBS_EXT {
     pub bTMCC: [u8; 48],
 }
@@ -28620,7 +26025,6 @@ impl ::core::default::Default for BDA_TS_SELECTORINFO_ISDBS_EXT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_TUNER_DIAGNOSTICS {
     pub lResult: i32,
     pub ulSignalLevel: u32,
@@ -28653,7 +26057,6 @@ impl ::core::default::Default for BDA_TUNER_DIAGNOSTICS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_TUNER_TUNERSTATE {
     pub lResult: i32,
     pub ulTuneLength: u32,
@@ -28685,7 +26088,6 @@ impl ::core::default::Default for BDA_TUNER_TUNERSTATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_USERACTIVITY_INTERVAL {
     pub lResult: i32,
     pub ulActivityInterval: u32,
@@ -28716,7 +26118,6 @@ impl ::core::default::Default for BDA_USERACTIVITY_INTERVAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_WMDRMTUNER_PIDPROTECTION {
     pub lResult: i32,
     pub uuidKeyID: ::windows_core::GUID,
@@ -28747,7 +26148,6 @@ impl ::core::default::Default for BDA_WMDRMTUNER_PIDPROTECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     pub lResult: i32,
     pub ulDescrambleStatus: u32,
@@ -28780,7 +26180,6 @@ impl ::core::default::Default for BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_WMDRM_KEYINFOLIST {
     pub lResult: i32,
     pub ulKeyuuidBufferLen: u32,
@@ -28812,7 +26211,6 @@ impl ::core::default::Default for BDA_WMDRM_KEYINFOLIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_WMDRM_RENEWLICENSE {
     pub lResult: i32,
     pub ulDescrambleStatus: u32,
@@ -28845,7 +26243,6 @@ impl ::core::default::Default for BDA_WMDRM_RENEWLICENSE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct BDA_WMDRM_STATUS {
     pub lResult: i32,
     pub ulMaxCaptureTokenSize: u32,
@@ -28895,7 +26292,7 @@ impl ::core::default::Default for BDA_WMDRM_STATUS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COLORKEY {
     pub KeyType: u32,
@@ -28936,7 +26333,6 @@ impl ::core::default::Default for COLORKEY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DVD_ATR {
     pub ulCAT: u32,
     pub pbATRI: [u8; 768],
@@ -28967,7 +26363,7 @@ impl ::core::default::Default for DVD_ATR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DVD_AudioAttributes {
     pub AppMode: DVD_AUDIO_APPMODE,
@@ -29014,7 +26410,6 @@ impl ::core::default::Default for DVD_AudioAttributes {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DVD_DECODER_CAPS {
     pub dwSize: u32,
     pub dwAudioCaps: u32,
@@ -29068,7 +26463,6 @@ impl ::core::default::Default for DVD_DECODER_CAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DVD_HMSF_TIMECODE {
     pub bHours: u8,
     pub bMinutes: u8,
@@ -29101,7 +26495,7 @@ impl ::core::default::Default for DVD_HMSF_TIMECODE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DVD_KaraokeAttributes {
     pub bVersion: u8,
@@ -29143,7 +26537,6 @@ impl ::core::default::Default for DVD_KaraokeAttributes {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DVD_MUA_Coeff {
     pub log2_alpha: f64,
     pub log2_beta: f64,
@@ -29174,7 +26567,7 @@ impl ::core::default::Default for DVD_MUA_Coeff {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DVD_MUA_MixingInfo {
     pub fMixTo0: super::super::Foundation::BOOL,
@@ -29216,7 +26609,7 @@ impl ::core::default::Default for DVD_MUA_MixingInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DVD_MenuAttributes {
     pub fCompatibleRegion: [super::super::Foundation::BOOL; 8],
@@ -29259,7 +26652,7 @@ impl ::core::default::Default for DVD_MenuAttributes {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DVD_MultichannelAudioAttributes {
     pub Info: [DVD_MUA_MixingInfo; 8],
@@ -29298,7 +26691,6 @@ impl ::core::default::Default for DVD_MultichannelAudioAttributes {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DVD_PLAYBACK_LOCATION {
     pub TitleNum: u32,
     pub ChapterNum: u32,
@@ -29330,7 +26722,6 @@ impl ::core::default::Default for DVD_PLAYBACK_LOCATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DVD_PLAYBACK_LOCATION2 {
     pub TitleNum: u32,
     pub ChapterNum: u32,
@@ -29363,7 +26754,6 @@ impl ::core::default::Default for DVD_PLAYBACK_LOCATION2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DVD_REGION {
     pub CopySystem: u8,
     pub RegionData: u8,
@@ -29396,7 +26786,6 @@ impl ::core::default::Default for DVD_REGION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DVD_SubpictureAttributes {
     pub Type: DVD_SUBPICTURE_TYPE,
     pub CodingMode: DVD_SUBPICTURE_CODING,
@@ -29429,7 +26818,6 @@ impl ::core::default::Default for DVD_SubpictureAttributes {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DVD_TIMECODE {
     pub _bitfield: u32,
 }
@@ -29459,7 +26847,7 @@ impl ::core::default::Default for DVD_TIMECODE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DVD_TitleAttributes {
     pub Anonymous: DVD_TitleAttributes_0,
@@ -29489,7 +26877,7 @@ impl ::core::default::Default for DVD_TitleAttributes {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DVD_TitleAttributes_0 {
     pub AppMode: DVD_TITLE_APPMODE,
@@ -29514,7 +26902,7 @@ impl ::core::default::Default for DVD_TitleAttributes_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DVD_VideoAttributes {
     pub fPanscanPermitted: super::super::Foundation::BOOL,
@@ -29578,7 +26966,6 @@ impl ::core::default::Default for DVD_VideoAttributes {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DVINFO {
     pub dwDVAAuxSrc: u32,
     pub dwDVAAuxCtl: u32,
@@ -29614,7 +27001,7 @@ impl ::core::default::Default for DVINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub struct DXVA2SW_CALLBACKS {
     pub Size: u32,
@@ -29657,7 +27044,7 @@ impl ::core::default::Default for DXVA2SW_CALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Etw\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Diagnostics_Etw`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2TraceVideoProcessBltData {
     pub wmiHeader: super::super::System::Diagnostics::Etw::EVENT_TRACE_HEADER,
@@ -29686,7 +27073,7 @@ impl ::core::default::Default for DXVA2TraceVideoProcessBltData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Etw\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Diagnostics_Etw`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2Trace_DecodeDevBeginFrameData {
     pub wmiHeader: super::super::System::Diagnostics::Etw::EVENT_TRACE_HEADER,
@@ -29713,7 +27100,7 @@ impl ::core::default::Default for DXVA2Trace_DecodeDevBeginFrameData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Etw\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Diagnostics_Etw`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2Trace_DecodeDevCreatedData {
     pub wmiHeader: super::super::System::Diagnostics::Etw::EVENT_TRACE_HEADER,
@@ -29743,7 +27130,7 @@ impl ::core::default::Default for DXVA2Trace_DecodeDevCreatedData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Etw\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Diagnostics_Etw`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2Trace_DecodeDevGetBufferData {
     pub wmiHeader: super::super::System::Diagnostics::Etw::EVENT_TRACE_HEADER,
@@ -29770,7 +27157,7 @@ impl ::core::default::Default for DXVA2Trace_DecodeDevGetBufferData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Etw\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Diagnostics_Etw`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2Trace_DecodeDeviceData {
     pub wmiHeader: super::super::System::Diagnostics::Etw::EVENT_TRACE_HEADER,
@@ -29796,7 +27183,7 @@ impl ::core::default::Default for DXVA2Trace_DecodeDeviceData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Etw\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Diagnostics_Etw`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2Trace_VideoProcessDevCreatedData {
     pub wmiHeader: super::super::System::Diagnostics::Etw::EVENT_TRACE_HEADER,
@@ -29827,7 +27214,7 @@ impl ::core::default::Default for DXVA2Trace_VideoProcessDevCreatedData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Etw\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Diagnostics_Etw`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2Trace_VideoProcessDeviceData {
     pub wmiHeader: super::super::System::Diagnostics::Etw::EVENT_TRACE_HEADER,
@@ -29853,7 +27240,7 @@ impl ::core::default::Default for DXVA2Trace_VideoProcessDeviceData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub struct DXVA2_VIDEOPROCESSBLT {
     pub TargetFrame: i64,
@@ -29891,7 +27278,7 @@ impl ::core::default::Default for DXVA2_VIDEOPROCESSBLT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub struct DXVA2_VIDEOSAMPLE {
     pub Start: i64,
@@ -29923,7 +27310,6 @@ impl ::core::default::Default for DXVA2_VIDEOSAMPLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DXVA_COPPSetProtectionLevelCmdData {
     pub ProtType: u32,
     pub ProtLevel: u32,
@@ -29956,7 +27342,6 @@ impl ::core::default::Default for DXVA_COPPSetProtectionLevelCmdData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DXVA_COPPSetSignalingCmdData {
     pub ActiveTVProtectionStandard: u32,
     pub AspectRatioChangeMask1: u32,
@@ -30006,7 +27391,6 @@ impl ::core::default::Default for DXVA_COPPSetSignalingCmdData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DXVA_COPPStatusData {
     pub rApp: ::windows_core::GUID,
     pub dwFlags: u32,
@@ -30040,7 +27424,6 @@ impl ::core::default::Default for DXVA_COPPStatusData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DXVA_COPPStatusDisplayData {
     pub rApp: ::windows_core::GUID,
     pub dwFlags: u32,
@@ -30077,7 +27460,6 @@ impl ::core::default::Default for DXVA_COPPStatusDisplayData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DXVA_COPPStatusHDCPKeyData {
     pub rApp: ::windows_core::GUID,
     pub dwFlags: u32,
@@ -30112,7 +27494,6 @@ impl ::core::default::Default for DXVA_COPPStatusHDCPKeyData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DXVA_COPPStatusSignalingCmdData {
     pub rApp: ::windows_core::GUID,
     pub dwFlags: u32,
@@ -30168,7 +27549,6 @@ impl ::core::default::Default for DXVA_COPPStatusSignalingCmdData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct EALocationCodeType {
     pub LocationCodeScheme: LocationCodeSchemeType,
     pub state_code: u8,
@@ -30201,7 +27581,6 @@ impl ::core::default::Default for EALocationCodeType {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct FILTER_INFO {
     pub achName: [u16; 128],
     pub pGraph: ::std::mem::ManuallyDrop<::core::option::Option<IFilterGraph>>,
@@ -30231,7 +27610,7 @@ impl ::core::default::Default for FILTER_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_Audio\"`*"]
+#[doc = "Required features: `Win32_Media_Audio`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct HEAACWAVEFORMAT {
     pub wfInfo: HEAACWAVEINFO,
@@ -30256,7 +27635,7 @@ impl ::core::default::Default for HEAACWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_Audio\"`*"]
+#[doc = "Required features: `Win32_Media_Audio`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct HEAACWAVEINFO {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -30285,7 +27664,6 @@ impl ::core::default::Default for HEAACWAVEINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct KS_BDA_FRAME_INFO {
     pub ExtendedHeaderSize: u32,
     pub dwFrameFlags: u32,
@@ -30320,7 +27698,7 @@ impl ::core::default::Default for KS_BDA_FRAME_INFO {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_Audio\"`*"]
+#[doc = "Required features: `Win32_Media_Audio`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct MPEG1WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -30352,7 +27730,6 @@ impl ::core::default::Default for MPEG1WAVEFORMAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct MPEG2_TRANSPORT_STRIDE {
     pub dwOffset: u32,
     pub dwPacketLength: u32,
@@ -30384,7 +27761,7 @@ impl ::core::default::Default for MPEG2_TRANSPORT_STRIDE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_Audio\"`*"]
+#[doc = "Required features: `Win32_Media_Audio`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct MPEGLAYER3WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -30413,7 +27790,6 @@ impl ::core::default::Default for MPEGLAYER3WAVEFORMAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct MP_ENVELOPE_SEGMENT {
     pub rtStart: i64,
     pub rtEnd: i64,
@@ -30448,7 +27824,6 @@ impl ::core::default::Default for MP_ENVELOPE_SEGMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct MP_PARAMINFO {
     pub mpType: MP_TYPE,
     pub mopCaps: u32,
@@ -30484,7 +27859,6 @@ impl ::core::default::Default for MP_PARAMINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct MainAVIHeader {
     pub dwMicroSecPerFrame: u32,
     pub dwMaxBytesPerSec: u32,
@@ -30536,7 +27910,6 @@ impl ::core::default::Default for MainAVIHeader {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct NORMALIZEDRECT {
     pub left: f32,
     pub top: f32,
@@ -30569,7 +27942,6 @@ impl ::core::default::Default for NORMALIZEDRECT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct PID_MAP {
     pub ulPID: u32,
     pub MediaSampleContent: MEDIA_SAMPLE_CONTENT,
@@ -30600,7 +27972,7 @@ impl ::core::default::Default for PID_MAP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct PIN_INFO {
     pub pFilter: ::std::mem::ManuallyDrop<::core::option::Option<IBaseFilter>>,
@@ -30638,7 +28010,6 @@ impl ::core::default::Default for PIN_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct Quality {
     pub Type: QualityMessageType,
     pub Proportion: i32,
@@ -30671,7 +28042,6 @@ impl ::core::default::Default for Quality {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct REGFILTER {
     pub Clsid: ::windows_core::GUID,
     pub Name: ::windows_core::PWSTR,
@@ -30702,7 +28072,7 @@ impl ::core::default::Default for REGFILTER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REGFILTER2 {
     pub dwVersion: u32,
@@ -30728,7 +28098,7 @@ impl ::core::default::Default for REGFILTER2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union REGFILTER2_0 {
     pub Anonymous1: REGFILTER2_0_0,
@@ -30753,7 +28123,7 @@ impl ::core::default::Default for REGFILTER2_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REGFILTER2_0_0 {
     pub cPins: u32,
@@ -30792,7 +28162,7 @@ impl ::core::default::Default for REGFILTER2_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REGFILTER2_0_1 {
     pub cPins2: u32,
@@ -30831,7 +28201,7 @@ impl ::core::default::Default for REGFILTER2_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REGFILTERPINS {
     pub strName: ::windows_core::PWSTR,
@@ -30877,7 +28247,6 @@ impl ::core::default::Default for REGFILTERPINS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct REGFILTERPINS2 {
     pub dwFlags: u32,
     pub cInstances: u32,
@@ -30913,7 +28282,6 @@ impl ::core::default::Default for REGFILTERPINS2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct REGPINMEDIUM {
     pub clsMedium: ::windows_core::GUID,
     pub dw1: u32,
@@ -30945,7 +28313,6 @@ impl ::core::default::Default for REGPINMEDIUM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct REGPINTYPES {
     pub clsMajorType: *const ::windows_core::GUID,
     pub clsMinorType: *const ::windows_core::GUID,
@@ -30976,7 +28343,6 @@ impl ::core::default::Default for REGPINTYPES {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct RIFFCHUNK {
     pub fcc: u32,
     pub cb: u32,
@@ -30996,7 +28362,6 @@ impl ::core::default::Default for RIFFCHUNK {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct RIFFLIST {
     pub fcc: u32,
     pub cb: u32,
@@ -31017,7 +28382,6 @@ impl ::core::default::Default for RIFFLIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct STREAM_ID_MAP {
     pub stream_id: u32,
     pub dwMediaSampleContent: u32,
@@ -31050,7 +28414,6 @@ impl ::core::default::Default for STREAM_ID_MAP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct SmartCardApplication {
     pub ApplicationType: ApplicationTypeType,
     pub ApplicationVersion: u16,
@@ -31082,7 +28445,6 @@ impl ::core::default::Default for SmartCardApplication {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct TIMECODEDATA {
     pub time: super::TIMECODE,
     pub dwSMPTEflags: u32,
@@ -31103,7 +28465,7 @@ impl ::core::default::Default for TIMECODEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "Required features: `Win32_Graphics_Gdi`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct TRUECOLORINFO {
     pub dwBitMasks: [u32; 3],
@@ -31142,7 +28504,6 @@ impl ::core::default::Default for TRUECOLORINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct VFW_FILTERLIST {
     pub cFilters: u32,
     pub aClsId: [::windows_core::GUID; 1],
@@ -31173,7 +28534,7 @@ impl ::core::default::Default for VFW_FILTERLIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct VIDEOINFO {
     pub rcSource: super::super::Foundation::RECT,
@@ -31203,7 +28564,7 @@ impl ::core::default::Default for VIDEOINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union VIDEOINFO_0 {
     pub bmiColors: [super::super::Graphics::Gdi::RGBQUAD; 256],
@@ -31229,7 +28590,7 @@ impl ::core::default::Default for VIDEOINFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VIDEO_STREAM_CONFIG_CAPS {
     pub guid: ::windows_core::GUID,
@@ -31329,7 +28690,7 @@ impl ::core::default::Default for VIDEO_STREAM_CONFIG_CAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct VMR9AllocationInfo {
     pub dwFlags: u32,
@@ -31374,7 +28735,7 @@ impl ::core::default::Default for VMR9AllocationInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 pub struct VMR9AlphaBitmap {
     pub dwFlags: u32,
@@ -31417,7 +28778,6 @@ impl ::core::default::Default for VMR9AlphaBitmap {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct VMR9DeinterlaceCaps {
     pub dwSize: u32,
     pub dwNumPreviousOutputFrames: u32,
@@ -31451,7 +28811,6 @@ impl ::core::default::Default for VMR9DeinterlaceCaps {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct VMR9Frequency {
     pub dwNumerator: u32,
     pub dwDenominator: u32,
@@ -31482,7 +28841,7 @@ impl ::core::default::Default for VMR9Frequency {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct VMR9MonitorInfo {
     pub uDevID: u32,
@@ -31530,7 +28889,6 @@ impl ::core::default::Default for VMR9MonitorInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct VMR9NormalizedRect {
     pub left: f32,
     pub top: f32,
@@ -31563,7 +28921,7 @@ impl ::core::default::Default for VMR9NormalizedRect {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct VMR9PresentationInfo {
     pub dwFlags: u32,
@@ -31607,7 +28965,6 @@ impl ::core::default::Default for VMR9PresentationInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct VMR9ProcAmpControl {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -31642,7 +28999,6 @@ impl ::core::default::Default for VMR9ProcAmpControl {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct VMR9ProcAmpControlRange {
     pub dwSize: u32,
     pub dwProperty: VMR9ProcAmpControlFlags,
@@ -31677,7 +29033,6 @@ impl ::core::default::Default for VMR9ProcAmpControlRange {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct VMR9VideoDesc {
     pub dwSize: u32,
     pub dwSampleWidth: u32,
@@ -31713,7 +29068,7 @@ impl ::core::default::Default for VMR9VideoDesc {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct VMR9VideoStreamInfo {
     pub pddsVideoSurface: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
@@ -31757,7 +29112,7 @@ impl ::core::default::Default for VMR9VideoStreamInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct VMRALLOCATIONINFO {
     pub dwFlags: u32,
@@ -31802,7 +29157,7 @@ impl ::core::default::Default for VMRALLOCATIONINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct VMRALPHABITMAP {
     pub dwFlags: u32,
@@ -31844,7 +29199,6 @@ impl ::core::default::Default for VMRALPHABITMAP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct VMRDeinterlaceCaps {
     pub dwSize: u32,
     pub dwNumPreviousOutputFrames: u32,
@@ -31878,7 +29232,6 @@ impl ::core::default::Default for VMRDeinterlaceCaps {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct VMRFrequency {
     pub dwNumerator: u32,
     pub dwDenominator: u32,
@@ -31909,7 +29262,6 @@ impl ::core::default::Default for VMRFrequency {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct VMRGUID {
     pub pGUID: *mut ::windows_core::GUID,
     pub GUID: ::windows_core::GUID,
@@ -31940,7 +29292,7 @@ impl ::core::default::Default for VMRGUID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct VMRMONITORINFO {
     pub guid: VMRGUID,
@@ -31988,7 +29340,7 @@ impl ::core::default::Default for VMRMONITORINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct VMRPRESENTATIONINFO {
     pub dwFlags: u32,
@@ -32032,7 +29384,7 @@ impl ::core::default::Default for VMRPRESENTATIONINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[doc = "Required features: `Win32_Graphics_DirectDraw`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct VMRVIDEOSTREAMINFO {
     pub pddsVideoSurface: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>>,
@@ -32074,7 +29426,7 @@ impl ::core::default::Default for VMRVIDEOSTREAMINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VMRVideoDesc {
     pub dwSize: u32,
@@ -32117,49 +29469,49 @@ impl ::core::default::Default for VMRVideoDesc {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type AMGETERRORTEXTPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::HRESULT, param1: ::windows_core::PCSTR, param2: u32) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type AMGETERRORTEXTPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::HRESULT, param1: ::windows_core::PCWSTR, param2: u32) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub type PDXVA2SW_CREATEVIDEOPROCESSDEVICE = ::core::option::Option<unsafe extern "system" fn(pd3dd9: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9>, pvideodesc: *const super::MediaFoundation::DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, maxsubstreams: u32, phdevice: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVA2SW_DESTROYVIDEOPROCESSDEVICE = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D9`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub type PDXVA2SW_GETFILTERPROPERTYRANGE = ::core::option::Option<unsafe extern "system" fn(pvideodesc: *const super::MediaFoundation::DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, filtersetting: u32, prange: *mut super::MediaFoundation::DXVA2_ValueRange) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D9`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub type PDXVA2SW_GETPROCAMPRANGE = ::core::option::Option<unsafe extern "system" fn(pvideodesc: *const super::MediaFoundation::DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, procampcap: u32, prange: *mut super::MediaFoundation::DXVA2_ValueRange) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D9`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub type PDXVA2SW_GETVIDEOPROCESSORCAPS = ::core::option::Option<unsafe extern "system" fn(pvideodesc: *const super::MediaFoundation::DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, pcaps: *mut super::MediaFoundation::DXVA2_VideoProcessorCaps) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D9`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub type PDXVA2SW_GETVIDEOPROCESSORRENDERTARGETCOUNT = ::core::option::Option<unsafe extern "system" fn(pvideodesc: *const super::MediaFoundation::DXVA2_VideoDesc, pcount: *mut u32) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D9`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub type PDXVA2SW_GETVIDEOPROCESSORRENDERTARGETS = ::core::option::Option<unsafe extern "system" fn(pvideodesc: *const super::MediaFoundation::DXVA2_VideoDesc, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D9`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub type PDXVA2SW_GETVIDEOPROCESSORSUBSTREAMFORMATCOUNT = ::core::option::Option<unsafe extern "system" fn(pvideodesc: *const super::MediaFoundation::DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, pcount: *mut u32) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D9`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub type PDXVA2SW_GETVIDEOPROCESSORSUBSTREAMFORMATS = ::core::option::Option<unsafe extern "system" fn(pvideodesc: *const super::MediaFoundation::DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVA2SW_VIDEOPROCESSBEGINFRAME = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub type PDXVA2SW_VIDEOPROCESSBLT = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pblt: *const DXVA2_VIDEOPROCESSBLT) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVA2SW_VIDEOPROCESSENDFRAME = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, phandlecomplete: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVA2SW_VIDEOPROCESSSETRENDERTARGET = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, prendertarget: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>) -> ::windows_core::HRESULT>;
 #[cfg(feature = "implement")]

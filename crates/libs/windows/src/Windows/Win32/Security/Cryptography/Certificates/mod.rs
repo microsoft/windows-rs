@@ -1,40 +1,33 @@
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupClose(hbc: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupClose(hbc : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CertSrvBackupClose(hbc).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupEnd(hbc: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupEnd(hbc : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CertSrvBackupEnd(hbc).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void) {
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupFree(pv : *mut ::core::ffi::c_void) -> ());
     CertSrvBackupFree(pv)
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwszzbackuplogfiles: *mut ::windows_core::PWSTR, pcbsize: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupGetBackupLogsW(hbc : *const ::core::ffi::c_void, ppwszzbackuplogfiles : *mut ::windows_core::PWSTR, pcbsize : *mut u32) -> ::windows_core::HRESULT);
     CertSrvBackupGetBackupLogsW(hbc, ppwszzbackuplogfiles, pcbsize).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, ppwszzattachmentinformation: *mut ::windows_core::PWSTR, pcbsize: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupGetDatabaseNamesW(hbc : *const ::core::ffi::c_void, ppwszzattachmentinformation : *mut ::windows_core::PWSTR, pcbsize : *mut u32) -> ::windows_core::HRESULT);
     CertSrvBackupGetDatabaseNamesW(hbc, ppwszzattachmentinformation, pcbsize).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut ::windows_core::PWSTR, pcbsize: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupGetDynamicFileListW(hbc : *const ::core::ffi::c_void, ppwszzfilelist : *mut ::windows_core::PWSTR, pcbsize : *mut u32) -> ::windows_core::HRESULT);
     CertSrvBackupGetDynamicFileListW(hbc, ppwszzfilelist, pcbsize).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupOpenFileW<P0>(hbc: *mut ::core::ffi::c_void, pwszattachmentname: P0, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows_core::Result<()>
 where
@@ -43,7 +36,6 @@ where
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupOpenFileW(hbc : *mut ::core::ffi::c_void, pwszattachmentname : ::windows_core::PCWSTR, cbreadhintsize : u32, plifilesize : *mut i64) -> ::windows_core::HRESULT);
     CertSrvBackupOpenFileW(hbc, pwszattachmentname.into_param().abi(), cbreadhintsize, plifilesize).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupPrepareW<P0>(pwszservername: P0, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -52,19 +44,17 @@ where
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupPrepareW(pwszservername : ::windows_core::PCWSTR, grbitjet : u32, dwbackupflags : CSBACKUP_TYPE, phbc : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CertSrvBackupPrepareW(pwszservername.into_param().abi(), grbitjet, dwbackupflags, phbc).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupRead(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupRead(hbc : *mut ::core::ffi::c_void, pvbuffer : *mut ::core::ffi::c_void, cbbuffer : u32, pcbread : *mut u32) -> ::windows_core::HRESULT);
     CertSrvBackupRead(hbc, pvbuffer, cbbuffer, pcbread).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvBackupTruncateLogs(hbc : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CertSrvBackupTruncateLogs(hbc).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CertSrvIsServerOnlineW<P0>(pwszservername: P0, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>
@@ -74,19 +64,16 @@ where
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvIsServerOnlineW(pwszservername : ::windows_core::PCWSTR, pfserveronline : *mut super::super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     CertSrvIsServerOnlineW(pwszservername.into_param().abi(), pfserveronline).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestoreEnd(hbc: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvRestoreEnd(hbc : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CertSrvRestoreEnd(hbc).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut ::windows_core::PWSTR, pcbsize: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvRestoreGetDatabaseLocationsW(hbc : *const ::core::ffi::c_void, ppwszzdatabaselocationlist : *mut ::windows_core::PWSTR, pcbsize : *mut u32) -> ::windows_core::HRESULT);
     CertSrvRestoreGetDatabaseLocationsW(hbc, ppwszzdatabaselocationlist, pcbsize).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestorePrepareW<P0>(pwszservername: P0, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -95,13 +82,11 @@ where
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvRestorePrepareW(pwszservername : ::windows_core::PCWSTR, dwrestoreflags : u32, phbc : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CertSrvRestorePrepareW(pwszservername.into_param().abi(), dwrestoreflags, phbc).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrrestorestate: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvRestoreRegisterComplete(hbc : *mut ::core::ffi::c_void, hrrestorestate : ::windows_core::HRESULT) -> ::windows_core::HRESULT);
     CertSrvRestoreRegisterComplete(hbc, hrrestorestate).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestoreRegisterThroughFile<P0, P1, P2>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: P0, pwszlogpath: P1, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: P2, genlow: u32, genhigh: u32) -> ::windows_core::Result<()>
 where
@@ -112,7 +97,6 @@ where
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvRestoreRegisterThroughFile(hbc : *mut ::core::ffi::c_void, pwszcheckpointfilepath : ::windows_core::PCWSTR, pwszlogpath : ::windows_core::PCWSTR, rgrstmap : *mut CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : ::windows_core::PCWSTR, genlow : u32, genhigh : u32) -> ::windows_core::HRESULT);
     CertSrvRestoreRegisterThroughFile(hbc, pwszcheckpointfilepath.into_param().abi(), pwszlogpath.into_param().abi(), rgrstmap, crstmap, pwszbackuplogpath.into_param().abi(), genlow, genhigh).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestoreRegisterW<P0, P1, P2>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: P0, pwszlogpath: P1, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: P2, genlow: u32, genhigh: u32) -> ::windows_core::Result<()>
 where
@@ -123,7 +107,6 @@ where
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvRestoreRegisterW(hbc : *mut ::core::ffi::c_void, pwszcheckpointfilepath : ::windows_core::PCWSTR, pwszlogpath : ::windows_core::PCWSTR, rgrstmap : *mut CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : ::windows_core::PCWSTR, genlow : u32, genhigh : u32) -> ::windows_core::HRESULT);
     CertSrvRestoreRegisterW(hbc, pwszcheckpointfilepath.into_param().abi(), pwszlogpath.into_param().abi(), rgrstmap, crstmap, pwszbackuplogpath.into_param().abi(), genlow, genhigh).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvServerControlW<P0>(pwszservername: P0, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows_core::Result<()>
 where
@@ -132,21 +115,21 @@ where
     ::windows_targets::link!("certadm.dll" "system" fn CertSrvServerControlW(pwszservername : ::windows_core::PCWSTR, dwcontrolflags : u32, pcbout : *mut u32, ppbout : *mut *mut u8) -> ::windows_core::HRESULT);
     CertSrvServerControlW(pwszservername.into_param().abi(), dwcontrolflags, pcbout, ppbout).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> super::super::super::Foundation::NTSTATUS {
     ::windows_targets::link!("certpoleng.dll" "system" fn PstAcquirePrivateKey(pcert : *const super:: CERT_CONTEXT) -> super::super::super::Foundation:: NTSTATUS);
     PstAcquirePrivateKey(pcert)
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Authentication_Identity`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrustedissuers: *const super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertchaincontext: *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS {
     ::windows_targets::link!("certpoleng.dll" "system" fn PstGetCertificateChain(pcert : *const super:: CERT_CONTEXT, ptrustedissuers : *const super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx, ppcertchaincontext : *mut *mut super:: CERT_CHAIN_CONTEXT) -> super::super::super::Foundation:: NTSTATUS);
     PstGetCertificateChain(pcert, ptrustedissuers, ppcertchaincontext)
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PstGetCertificates<P0>(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: ::core::option::Option<&[super::CERT_SELECT_CRITERIA]>, bisclient: P0, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS
@@ -156,35 +139,35 @@ where
     ::windows_targets::link!("certpoleng.dll" "system" fn PstGetCertificates(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, bisclient : super::super::super::Foundation:: BOOL, pdwcertchaincontextcount : *mut u32, ppcertchaincontexts : *mut *mut *mut super:: CERT_CHAIN_CONTEXT) -> super::super::super::Foundation:: NTSTATUS);
     PstGetCertificates(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpcriteria.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bisclient.into_param().abi(), pdwcertchaincontextcount, ppcertchaincontexts)
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Authentication_Identity`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn PstGetTrustAnchors(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: ::core::option::Option<&[super::CERT_SELECT_CRITERIA]>, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS {
     ::windows_targets::link!("certpoleng.dll" "system" fn PstGetTrustAnchors(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, pptrustedissuers : *mut *mut super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation:: NTSTATUS);
     PstGetTrustAnchors(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpcriteria.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pptrustedissuers)
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Authentication_Identity`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: ::core::option::Option<&[super::CERT_SELECT_CRITERIA]>, pcertcontext: ::core::option::Option<*const super::CERT_CONTEXT>, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS {
     ::windows_targets::link!("certpoleng.dll" "system" fn PstGetTrustAnchorsEx(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, pcertcontext : *const super:: CERT_CONTEXT, pptrustedissuers : *mut *mut super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation:: NTSTATUS);
     PstGetTrustAnchorsEx(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpcriteria.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcertcontext.unwrap_or(::std::ptr::null())), pptrustedissuers)
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PstGetUserNameForCertificate(pcertcontext: *const super::CERT_CONTEXT, username: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS {
     ::windows_targets::link!("certpoleng.dll" "system" fn PstGetUserNameForCertificate(pcertcontext : *const super:: CERT_CONTEXT, username : *mut super::super::super::Foundation:: UNICODE_STRING) -> super::super::super::Foundation:: NTSTATUS);
     PstGetUserNameForCertificate(pcertcontext, username)
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Authentication_Identity`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninformationtype: *mut super::super::Authentication::Identity::LSA_TOKEN_INFORMATION_TYPE, pptokeninformation: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS {
     ::windows_targets::link!("certpoleng.dll" "system" fn PstMapCertificate(pcert : *const super:: CERT_CONTEXT, ptokeninformationtype : *mut super::super::Authentication::Identity:: LSA_TOKEN_INFORMATION_TYPE, pptokeninformation : *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation:: NTSTATUS);
     PstMapCertificate(pcert, ptokeninformationtype, pptokeninformation)
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PstValidate<P0>(ptargetname: ::core::option::Option<*const super::super::super::Foundation::UNICODE_STRING>, bisclient: P0, prequestedissuancepolicy: ::core::option::Option<*const super::CERT_USAGE_MATCH>, phadditionalcertstore: ::core::option::Option<*const super::HCERTSTORE>, pcert: *const super::CERT_CONTEXT, pprovguid: ::core::option::Option<*mut ::windows_core::GUID>) -> super::super::super::Foundation::NTSTATUS
@@ -194,7 +177,7 @@ where
     ::windows_targets::link!("certpoleng.dll" "system" fn PstValidate(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, bisclient : super::super::super::Foundation:: BOOL, prequestedissuancepolicy : *const super:: CERT_USAGE_MATCH, phadditionalcertstore : *const super:: HCERTSTORE, pcert : *const super:: CERT_CONTEXT, pprovguid : *mut ::windows_core::GUID) -> super::super::super::Foundation:: NTSTATUS);
     PstValidate(::core::mem::transmute(ptargetname.unwrap_or(::std::ptr::null())), bisclient.into_param().abi(), ::core::mem::transmute(prequestedissuancepolicy.unwrap_or(::std::ptr::null())), ::core::mem::transmute(phadditionalcertstore.unwrap_or(::std::ptr::null())), pcert, ::core::mem::transmute(pprovguid.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -213,7 +196,7 @@ impl IAlternativeName {
     {
         (::windows_core::Interface::vtable(self).InitializeFromRawData)(::windows_core::Interface::as_raw(self), r#type, encoding, strrawdata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn InitializeFromOtherName<P0, P1, P2>(&self, pobjectid: P0, encoding: EncodingType, strrawdata: P1, tobewrapped: P2) -> ::windows_core::Result<()>
     where
@@ -231,7 +214,7 @@ impl IAlternativeName {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StrValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -271,14 +254,14 @@ pub struct IAlternativeName_Vtbl {
     ObjectId: usize,
     pub get_RawData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAlternativeNames(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAlternativeNames {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<IAlternativeName> {
         let mut result__ = ::std::mem::zeroed();
@@ -292,7 +275,7 @@ impl IAlternativeNames {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -335,7 +318,7 @@ pub struct IAlternativeNames_Vtbl {
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32) -> ::windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -349,13 +332,13 @@ impl IBinaryConverter {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StringToString)(::windows_core::Interface::as_raw(self), strencodedin.into_param().abi(), encodingin, encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn VariantByteArrayToString(&self, pvarbytearray: *const super::super::super::System::Variant::VARIANT, encoding: EncodingType) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VariantByteArrayToString)(::windows_core::Interface::as_raw(self), pvarbytearray, encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn StringToVariantByteArray<P0>(&self, strencoded: P0, encoding: EncodingType) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -390,7 +373,7 @@ pub struct IBinaryConverter_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     StringToVariantByteArray: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -404,13 +387,13 @@ impl IBinaryConverter2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.StringToString)(::windows_core::Interface::as_raw(self), strencodedin.into_param().abi(), encodingin, encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn VariantByteArrayToString(&self, pvarbytearray: *const super::super::super::System::Variant::VARIANT, encoding: EncodingType) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.VariantByteArrayToString)(::windows_core::Interface::as_raw(self), pvarbytearray, encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn StringToVariantByteArray<P0>(&self, strencoded: P0, encoding: EncodingType) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -419,13 +402,13 @@ impl IBinaryConverter2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.StringToVariantByteArray)(::windows_core::Interface::as_raw(self), strencoded.into_param().abi(), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn StringArrayToVariantArray(&self, pvarstringarray: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StringArrayToVariantArray)(::windows_core::Interface::as_raw(self), pvarstringarray, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn VariantArrayToStringArray(&self, pvarvariantarray: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -456,7 +439,7 @@ pub struct IBinaryConverter2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     VariantArrayToStringArray: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -661,13 +644,13 @@ impl ICEnroll {
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetProviderFlags)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseExistingKeySet(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UseExistingKeySet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseExistingKeySet<P0>(&self, fuseexistingkeys: P0) -> ::windows_core::Result<()>
     where
@@ -682,13 +665,13 @@ impl ICEnroll {
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetGenKeyFlags)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteRequestCert(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DeleteRequestCert)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDeleteRequestCert<P0>(&self, fdelete: P0) -> ::windows_core::Result<()>
     where
@@ -696,13 +679,13 @@ impl ICEnroll {
     {
         (::windows_core::Interface::vtable(self).SetDeleteRequestCert)(::windows_core::Interface::as_raw(self), fdelete.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToCSP(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).WriteCertToCSP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteCertToCSP<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -831,7 +814,7 @@ pub struct ICEnroll_Vtbl {
     pub HashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetHashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1036,13 +1019,13 @@ impl ICEnroll2 {
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetProviderFlags)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseExistingKeySet(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.UseExistingKeySet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseExistingKeySet<P0>(&self, fuseexistingkeys: P0) -> ::windows_core::Result<()>
     where
@@ -1057,13 +1040,13 @@ impl ICEnroll2 {
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetGenKeyFlags)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteRequestCert(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DeleteRequestCert)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDeleteRequestCert<P0>(&self, fdelete: P0) -> ::windows_core::Result<()>
     where
@@ -1071,13 +1054,13 @@ impl ICEnroll2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetDeleteRequestCert)(::windows_core::Interface::as_raw(self), fdelete.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToCSP(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.WriteCertToCSP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteCertToCSP<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -1128,13 +1111,13 @@ impl ICEnroll2 {
     {
         (::windows_core::Interface::vtable(self).addNameValuePairToSignature)(::windows_core::Interface::as_raw(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToUserDS(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).WriteCertToUserDS)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteCertToUserDS<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -1142,13 +1125,13 @@ impl ICEnroll2 {
     {
         (::windows_core::Interface::vtable(self).SetWriteCertToUserDS)(::windows_core::Interface::as_raw(self), fbool.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableT61DNEncoding(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnableT61DNEncoding)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableT61DNEncoding<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -1191,7 +1174,7 @@ pub struct ICEnroll2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetEnableT61DNEncoding: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1396,13 +1379,13 @@ impl ICEnroll3 {
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetProviderFlags)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseExistingKeySet(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.UseExistingKeySet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseExistingKeySet<P0>(&self, fuseexistingkeys: P0) -> ::windows_core::Result<()>
     where
@@ -1417,13 +1400,13 @@ impl ICEnroll3 {
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetGenKeyFlags)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteRequestCert(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DeleteRequestCert)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDeleteRequestCert<P0>(&self, fdelete: P0) -> ::windows_core::Result<()>
     where
@@ -1431,13 +1414,13 @@ impl ICEnroll3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetDeleteRequestCert)(::windows_core::Interface::as_raw(self), fdelete.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToCSP(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.WriteCertToCSP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteCertToCSP<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -1488,13 +1471,13 @@ impl ICEnroll3 {
     {
         (::windows_core::Interface::vtable(self).base__.addNameValuePairToSignature)(::windows_core::Interface::as_raw(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToUserDS(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.WriteCertToUserDS)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteCertToUserDS<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -1502,13 +1485,13 @@ impl ICEnroll3 {
     {
         (::windows_core::Interface::vtable(self).base__.SetWriteCertToUserDS)(::windows_core::Interface::as_raw(self), fbool.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableT61DNEncoding(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnableT61DNEncoding)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableT61DNEncoding<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -1529,7 +1512,7 @@ impl ICEnroll3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSupportedKeySpec)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetKeyLen<P0, P1>(&self, fmin: P0, fexchange: P1) -> ::windows_core::Result<i32>
     where
@@ -1547,7 +1530,7 @@ impl ICEnroll3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAlgName)(::windows_core::Interface::as_raw(self), algid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReuseHardwareKeyIfUnableToGenNew<P0>(&self, freusehardwarekeyifunabletogennew: P0) -> ::windows_core::Result<()>
     where
@@ -1555,7 +1538,7 @@ impl ICEnroll3 {
     {
         (::windows_core::Interface::vtable(self).SetReuseHardwareKeyIfUnableToGenNew)(::windows_core::Interface::as_raw(self), freusehardwarekeyifunabletogennew.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReuseHardwareKeyIfUnableToGenNew(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1568,7 +1551,7 @@ impl ICEnroll3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HashAlgID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLimitExchangeKeyToEncipherment<P0>(&self, flimitexchangekeytoencipherment: P0) -> ::windows_core::Result<()>
     where
@@ -1576,13 +1559,13 @@ impl ICEnroll3 {
     {
         (::windows_core::Interface::vtable(self).SetLimitExchangeKeyToEncipherment)(::windows_core::Interface::as_raw(self), flimitexchangekeytoencipherment.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LimitExchangeKeyToEncipherment(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LimitExchangeKeyToEncipherment)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableSMIMECapabilities<P0>(&self, fenablesmimecapabilities: P0) -> ::windows_core::Result<()>
     where
@@ -1590,7 +1573,7 @@ impl ICEnroll3 {
     {
         (::windows_core::Interface::vtable(self).SetEnableSMIMECapabilities)(::windows_core::Interface::as_raw(self), fenablesmimecapabilities.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableSMIMECapabilities(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1648,7 +1631,7 @@ pub struct ICEnroll3_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     EnableSMIMECapabilities: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1853,13 +1836,13 @@ impl ICEnroll4 {
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetProviderFlags)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseExistingKeySet(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.UseExistingKeySet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseExistingKeySet<P0>(&self, fuseexistingkeys: P0) -> ::windows_core::Result<()>
     where
@@ -1874,13 +1857,13 @@ impl ICEnroll4 {
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetGenKeyFlags)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteRequestCert(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.DeleteRequestCert)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDeleteRequestCert<P0>(&self, fdelete: P0) -> ::windows_core::Result<()>
     where
@@ -1888,13 +1871,13 @@ impl ICEnroll4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetDeleteRequestCert)(::windows_core::Interface::as_raw(self), fdelete.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToCSP(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.WriteCertToCSP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteCertToCSP<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -1945,13 +1928,13 @@ impl ICEnroll4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.addNameValuePairToSignature)(::windows_core::Interface::as_raw(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToUserDS(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.WriteCertToUserDS)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteCertToUserDS<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -1959,13 +1942,13 @@ impl ICEnroll4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetWriteCertToUserDS)(::windows_core::Interface::as_raw(self), fbool.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableT61DNEncoding(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnableT61DNEncoding)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableT61DNEncoding<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -1986,7 +1969,7 @@ impl ICEnroll4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSupportedKeySpec)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetKeyLen<P0, P1>(&self, fmin: P0, fexchange: P1) -> ::windows_core::Result<i32>
     where
@@ -2004,7 +1987,7 @@ impl ICEnroll4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetAlgName)(::windows_core::Interface::as_raw(self), algid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReuseHardwareKeyIfUnableToGenNew<P0>(&self, freusehardwarekeyifunabletogennew: P0) -> ::windows_core::Result<()>
     where
@@ -2012,7 +1995,7 @@ impl ICEnroll4 {
     {
         (::windows_core::Interface::vtable(self).base__.SetReuseHardwareKeyIfUnableToGenNew)(::windows_core::Interface::as_raw(self), freusehardwarekeyifunabletogennew.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReuseHardwareKeyIfUnableToGenNew(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2025,7 +2008,7 @@ impl ICEnroll4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.HashAlgID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLimitExchangeKeyToEncipherment<P0>(&self, flimitexchangekeytoencipherment: P0) -> ::windows_core::Result<()>
     where
@@ -2033,13 +2016,13 @@ impl ICEnroll4 {
     {
         (::windows_core::Interface::vtable(self).base__.SetLimitExchangeKeyToEncipherment)(::windows_core::Interface::as_raw(self), flimitexchangekeytoencipherment.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LimitExchangeKeyToEncipherment(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LimitExchangeKeyToEncipherment)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableSMIMECapabilities<P0>(&self, fenablesmimecapabilities: P0) -> ::windows_core::Result<()>
     where
@@ -2047,7 +2030,7 @@ impl ICEnroll4 {
     {
         (::windows_core::Interface::vtable(self).base__.SetEnableSMIMECapabilities)(::windows_core::Interface::as_raw(self), fenablesmimecapabilities.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableSMIMECapabilities(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2178,7 +2161,7 @@ impl ICEnroll4 {
     {
         (::windows_core::Interface::vtable(self).setPendingRequestInfo)(::windows_core::Interface::as_raw(self), lrequestid, strcadns.into_param().abi(), strcaname.into_param().abi(), strfriendlyname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn enumPendingRequest(&self, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -2201,7 +2184,7 @@ impl ICEnroll4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InstallPKCS7Ex)(::windows_core::Interface::as_raw(self), pkcs7.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn addCertTypeToRequestEx<P0, P1>(&self, ltype: ADDED_CERT_TYPE, bstroidorname: P0, lmajorversion: i32, fminorversion: P1, lminorversion: i32) -> ::windows_core::Result<()>
     where
@@ -2239,7 +2222,7 @@ impl ICEnroll4 {
     pub unsafe fn resetBlobProperties(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).resetBlobProperties)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIncludeSubjectKeyID<P0>(&self, finclude: P0) -> ::windows_core::Result<()>
     where
@@ -2247,7 +2230,7 @@ impl ICEnroll4 {
     {
         (::windows_core::Interface::vtable(self).SetIncludeSubjectKeyID)(::windows_core::Interface::as_raw(self), finclude.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IncludeSubjectKeyID(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2315,7 +2298,7 @@ pub struct ICEnroll4_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IncludeSubjectKeyID: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2348,7 +2331,7 @@ impl ICertAdmin {
     {
         (::windows_core::Interface::vtable(self).SetRequestAttributes)(::windows_core::Interface::as_raw(self), strconfig.into_param().abi(), requestid, strattributes.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetCertificateExtension<P0, P1>(&self, strconfig: P0, requestid: i32, strextensionname: P1, r#type: CERT_PROPERTY_TYPE, flags: i32, pvarvalue: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -2421,7 +2404,7 @@ pub struct ICertAdmin_Vtbl {
     pub GetCRL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: i32, pstrcrl: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ImportCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::std::mem::MaybeUninit<::windows_core::BSTR>, strcertificate: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: CERT_IMPORT_FLAGS, prequestid: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2454,7 +2437,7 @@ impl ICertAdmin2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetRequestAttributes)(::windows_core::Interface::as_raw(self), strconfig.into_param().abi(), requestid, strattributes.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetCertificateExtension<P0, P1>(&self, strconfig: P0, requestid: i32, strextensionname: P1, r#type: CERT_PROPERTY_TYPE, flags: i32, pvarvalue: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -2503,7 +2486,7 @@ impl ICertAdmin2 {
     {
         (::windows_core::Interface::vtable(self).PublishCRLs)(::windows_core::Interface::as_raw(self), strconfig.into_param().abi(), date, crlflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCAProperty<P0>(&self, strconfig: P0, propid: i32, propindex: i32, proptype: i32, flags: i32) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -2512,7 +2495,7 @@ impl ICertAdmin2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCAProperty)(::windows_core::Interface::as_raw(self), strconfig.into_param().abi(), propid, propindex, proptype, flags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetCAProperty<P0>(&self, strconfig: P0, propid: i32, propindex: i32, proptype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -2541,7 +2524,7 @@ impl ICertAdmin2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetArchivedKey)(::windows_core::Interface::as_raw(self), strconfig.into_param().abi(), requestid, flags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetConfigEntry<P0, P1, P2>(&self, strconfig: P0, strnodepath: P1, strentryname: P2) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -2552,7 +2535,7 @@ impl ICertAdmin2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetConfigEntry)(::windows_core::Interface::as_raw(self), strconfig.into_param().abi(), strnodepath.into_param().abi(), strentryname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetConfigEntry<P0, P1, P2>(&self, strconfig: P0, strnodepath: P1, strentryname: P2, pvarentry: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -2624,7 +2607,7 @@ pub struct ICertAdmin2_Vtbl {
     pub GetMyRoles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::std::mem::MaybeUninit<::windows_core::BSTR>, proles: *mut CERTADMIN_GET_ROLES_FLAGS) -> ::windows_core::HRESULT,
     pub DeleteRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: CERT_DELETE_ROW_FLAGS, date: f64, table: CVRC_TABLE, rowid: i32, pcdeleted: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2671,7 +2654,7 @@ pub struct ICertConfig_Vtbl {
     pub GetField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strfieldname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pstrout: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, pstrout: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2721,7 +2704,7 @@ pub struct ICertConfig2_Vtbl {
     pub base__: ICertConfig_Vtbl,
     pub SetSharedFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsharedfolder: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2783,7 +2766,7 @@ pub struct ICertEncodeAltName_Vtbl {
     pub SetNameEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nameindex: i32, namechoice: CERT_ALT_NAME, strname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Encode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrbinary: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2862,7 +2845,7 @@ pub struct ICertEncodeAltName2_Vtbl {
     pub GetNameBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nameindex: i32, encoding: EncodingType, pstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetNameEntryBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nameindex: i32, namechoice: i32, strname: ::std::mem::MaybeUninit<::windows_core::BSTR>, encoding: EncodingType) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2911,7 +2894,7 @@ pub struct ICertEncodeBitString_Vtbl {
     pub GetBitString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrbitstring: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Encode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitcount: i32, strbitstring: ::std::mem::MaybeUninit<::windows_core::BSTR>, pstrbinary: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2976,7 +2959,7 @@ pub struct ICertEncodeBitString2_Vtbl {
     pub EncodeBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitcount: i32, strbitstring: ::std::mem::MaybeUninit<::windows_core::BSTR>, encodingin: EncodingType, encoding: EncodingType, pstrencodeddata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetBitStringBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pstrbitstring: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3047,7 +3030,7 @@ pub struct ICertEncodeCRLDistInfo_Vtbl {
     pub SetNameEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, distpointindex: i32, nameindex: i32, namechoice: CERT_ALT_NAME, strname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Encode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrbinary: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3121,7 +3104,7 @@ pub struct ICertEncodeCRLDistInfo2_Vtbl {
     pub DecodeBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencodeddata: ::std::mem::MaybeUninit<::windows_core::BSTR>, encoding: EncodingType) -> ::windows_core::HRESULT,
     pub EncodeBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pstrencodeddata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3175,7 +3158,7 @@ pub struct ICertEncodeDateArray_Vtbl {
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, value: f64) -> ::windows_core::HRESULT,
     pub Encode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrbinary: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3235,7 +3218,7 @@ pub struct ICertEncodeDateArray2_Vtbl {
     pub DecodeBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencodeddata: ::std::mem::MaybeUninit<::windows_core::BSTR>, encoding: EncodingType) -> ::windows_core::HRESULT,
     pub EncodeBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pstrencodeddata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3289,7 +3272,7 @@ pub struct ICertEncodeLongArray_Vtbl {
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, value: i32) -> ::windows_core::HRESULT,
     pub Encode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrbinary: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3349,7 +3332,7 @@ pub struct ICertEncodeLongArray2_Vtbl {
     pub DecodeBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencodeddata: ::std::mem::MaybeUninit<::windows_core::BSTR>, encoding: EncodingType) -> ::windows_core::HRESULT,
     pub EncodeBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pstrencodeddata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3411,7 +3394,7 @@ pub struct ICertEncodeStringArray_Vtbl {
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, str: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Encode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrbinary: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3478,7 +3461,7 @@ pub struct ICertEncodeStringArray2_Vtbl {
     pub DecodeBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencodeddata: ::std::mem::MaybeUninit<::windows_core::BSTR>, encoding: EncodingType) -> ::windows_core::HRESULT,
     pub EncodeBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pstrencodeddata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3519,7 +3502,7 @@ pub struct ICertExit_Vtbl {
     pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, exitevent: i32, context: i32) -> ::windows_core::HRESULT,
     pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdescription: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3540,7 +3523,7 @@ impl ICertExit2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetManageModule(&self) -> ::windows_core::Result<ICertManageModule> {
         let mut result__ = ::std::mem::zeroed();
@@ -3567,7 +3550,7 @@ pub struct ICertExit2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetManageModule: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3596,14 +3579,14 @@ pub struct ICertGetConfig_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub GetConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: CERT_GET_CONFIG_FLAGS, pstrout: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertManageModule(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertManageModule {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperty<P0, P1, P2>(&self, strconfig: P0, strstoragelocation: P1, strpropertyname: P2, flags: i32) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -3614,7 +3597,7 @@ impl ICertManageModule {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), strconfig.into_param().abi(), strstoragelocation.into_param().abi(), strpropertyname.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProperty<P0, P1, P2>(&self, strconfig: P0, strstoragelocation: P1, strpropertyname: P2, flags: i32, pvarproperty: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -3657,7 +3640,7 @@ pub struct ICertManageModule_Vtbl {
     SetProperty: usize,
     pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::std::mem::MaybeUninit<::windows_core::BSTR>, strstoragelocation: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3705,7 +3688,7 @@ pub struct ICertPolicy_Vtbl {
     pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdescription: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ShutDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3732,7 +3715,7 @@ impl ICertPolicy2 {
     pub unsafe fn ShutDown(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ShutDown)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetManageModule(&self) -> ::windows_core::Result<ICertManageModule> {
         let mut result__ = ::std::mem::zeroed();
@@ -3759,14 +3742,14 @@ pub struct ICertPolicy2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetManageModule: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertProperties(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertProperties {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<ICertProperty> {
         let mut result__ = ::std::mem::zeroed();
@@ -3780,7 +3763,7 @@ impl ICertProperties {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -3794,7 +3777,7 @@ impl ICertProperties {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -3836,14 +3819,14 @@ pub struct ICertProperties_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     InitializeFromCertificate: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertProperty(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertProperty {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -3869,7 +3852,7 @@ impl ICertProperty {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -3878,7 +3861,7 @@ impl ICertProperty {
     {
         (::windows_core::Interface::vtable(self).RemoveFromCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValueOnCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -3920,14 +3903,14 @@ pub struct ICertProperty_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetValueOnCertificate: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyArchived(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyArchived {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -3953,7 +3936,7 @@ impl ICertPropertyArchived {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -3962,7 +3945,7 @@ impl ICertPropertyArchived {
     {
         (::windows_core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValueOnCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -3971,7 +3954,7 @@ impl ICertPropertyArchived {
     {
         (::windows_core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, archivedvalue: P0) -> ::windows_core::Result<()>
     where
@@ -3979,7 +3962,7 @@ impl ICertPropertyArchived {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), archivedvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Archived(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4010,14 +3993,14 @@ pub struct ICertPropertyArchived_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Archived: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyArchivedKeyHash(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyArchivedKeyHash {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4043,7 +4026,7 @@ impl ICertPropertyArchivedKeyHash {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4052,7 +4035,7 @@ impl ICertPropertyArchivedKeyHash {
     {
         (::windows_core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValueOnCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4090,14 +4073,14 @@ pub struct ICertPropertyArchivedKeyHash_Vtbl {
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, strarchivedkeyhashvalue: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub get_ArchivedKeyHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyAutoEnroll(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyAutoEnroll {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4123,7 +4106,7 @@ impl ICertPropertyAutoEnroll {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4132,7 +4115,7 @@ impl ICertPropertyAutoEnroll {
     {
         (::windows_core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValueOnCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4170,14 +4153,14 @@ pub struct ICertPropertyAutoEnroll_Vtbl {
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strtemplatename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub TemplateName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyBackedUp(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyBackedUp {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4203,7 +4186,7 @@ impl ICertPropertyBackedUp {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4212,7 +4195,7 @@ impl ICertPropertyBackedUp {
     {
         (::windows_core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValueOnCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4221,7 +4204,7 @@ impl ICertPropertyBackedUp {
     {
         (::windows_core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCurrentTime<P0>(&self, backedupvalue: P0) -> ::windows_core::Result<()>
     where
@@ -4229,7 +4212,7 @@ impl ICertPropertyBackedUp {
     {
         (::windows_core::Interface::vtable(self).InitializeFromCurrentTime)(::windows_core::Interface::as_raw(self), backedupvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, backedupvalue: P0, date: f64) -> ::windows_core::Result<()>
     where
@@ -4237,7 +4220,7 @@ impl ICertPropertyBackedUp {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), backedupvalue.into_param().abi(), date).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BackedUpValue(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4277,14 +4260,14 @@ pub struct ICertPropertyBackedUp_Vtbl {
     BackedUpValue: usize,
     pub BackedUpTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdate: *mut f64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyDescription(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyDescription {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4310,7 +4293,7 @@ impl ICertPropertyDescription {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4319,7 +4302,7 @@ impl ICertPropertyDescription {
     {
         (::windows_core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValueOnCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4357,14 +4340,14 @@ pub struct ICertPropertyDescription_Vtbl {
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyEnrollment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyEnrollment {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4390,7 +4373,7 @@ impl ICertPropertyEnrollment {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4399,7 +4382,7 @@ impl ICertPropertyEnrollment {
     {
         (::windows_core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValueOnCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4454,14 +4437,14 @@ pub struct ICertPropertyEnrollment_Vtbl {
     pub CAName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyEnrollmentPolicyServer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyEnrollmentPolicyServer {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4487,7 +4470,7 @@ impl ICertPropertyEnrollmentPolicyServer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4496,7 +4479,7 @@ impl ICertPropertyEnrollmentPolicyServer {
     {
         (::windows_core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValueOnCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4572,14 +4555,14 @@ pub struct ICertPropertyEnrollmentPolicyServer_Vtbl {
     pub GetAuthentication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut X509EnrollmentAuthFlags) -> ::windows_core::HRESULT,
     pub GetEnrollmentServerAuthentication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut X509EnrollmentAuthFlags) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyFriendlyName(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyFriendlyName {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4605,7 +4588,7 @@ impl ICertPropertyFriendlyName {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4614,7 +4597,7 @@ impl ICertPropertyFriendlyName {
     {
         (::windows_core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValueOnCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4652,14 +4635,14 @@ pub struct ICertPropertyFriendlyName_Vtbl {
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strfriendlyname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyKeyProvInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyKeyProvInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4685,7 +4668,7 @@ impl ICertPropertyKeyProvInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4694,7 +4677,7 @@ impl ICertPropertyKeyProvInfo {
     {
         (::windows_core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValueOnCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4703,7 +4686,7 @@ impl ICertPropertyKeyProvInfo {
     {
         (::windows_core::Interface::vtable(self).base__.SetValueOnCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -4711,7 +4694,7 @@ impl ICertPropertyKeyProvInfo {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows_core::Result<IX509PrivateKey> {
         let mut result__ = ::std::mem::zeroed();
@@ -4742,14 +4725,14 @@ pub struct ICertPropertyKeyProvInfo_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     PrivateKey: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyRenewal(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyRenewal {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4775,7 +4758,7 @@ impl ICertPropertyRenewal {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4784,7 +4767,7 @@ impl ICertPropertyRenewal {
     {
         (::windows_core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValueOnCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4799,7 +4782,7 @@ impl ICertPropertyRenewal {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), encoding, strrenewalvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificateHash<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4835,14 +4818,14 @@ pub struct ICertPropertyRenewal_Vtbl {
     InitializeFromCertificateHash: usize,
     pub get_Renewal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyRequestOriginator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyRequestOriginator {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4868,7 +4851,7 @@ impl ICertPropertyRequestOriginator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4877,7 +4860,7 @@ impl ICertPropertyRequestOriginator {
     {
         (::windows_core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValueOnCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4919,14 +4902,14 @@ pub struct ICertPropertyRequestOriginator_Vtbl {
     pub InitializeFromLocalRequestOriginator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RequestOriginator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertySHA1Hash(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertySHA1Hash {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4952,7 +4935,7 @@ impl ICertPropertySHA1Hash {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveFromCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4961,7 +4944,7 @@ impl ICertPropertySHA1Hash {
     {
         (::windows_core::Interface::vtable(self).base__.RemoveFromCertificate)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValueOnCertificate<P0, P1>(&self, machinecontext: P0, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -4999,7 +4982,7 @@ pub struct ICertPropertySHA1Hash_Vtbl {
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, strrenewalvalue: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub get_SHA1Hash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5069,7 +5052,7 @@ pub struct ICertRequest_Vtbl {
     pub GetCACertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fexchangecertificate: i32, strconfig: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: i32, pstrcertificate: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, pstrcertificate: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5127,7 +5110,7 @@ impl ICertRequest2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetErrorMessageText)(::windows_core::Interface::as_raw(self), hrmessage, flags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCAProperty<P0>(&self, strconfig: P0, propid: i32, propindex: i32, proptype: i32, flags: i32) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -5150,7 +5133,7 @@ impl ICertRequest2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCAPropertyDisplayName)(::windows_core::Interface::as_raw(self), strconfig.into_param().abi(), propid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetFullResponseProperty(&self, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -5185,7 +5168,7 @@ pub struct ICertRequest2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetFullResponseProperty: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5243,7 +5226,7 @@ impl ICertRequest3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetErrorMessageText)(::windows_core::Interface::as_raw(self), hrmessage, flags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCAProperty<P0>(&self, strconfig: P0, propid: i32, propindex: i32, proptype: i32, flags: i32) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -5266,7 +5249,7 @@ impl ICertRequest3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCAPropertyDisplayName)(::windows_core::Interface::as_raw(self), strconfig.into_param().abi(), propid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetFullResponseProperty(&self, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -5292,7 +5275,7 @@ impl ICertRequest3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIssuedCertificate2)(::windows_core::Interface::as_raw(self), strconfig.into_param().abi(), strrequestid.into_param().abi(), strserialnumber.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRefreshPolicy(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5322,7 +5305,6 @@ pub struct ICertRequest3_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetRefreshPolicy: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertRequestD(::windows_core::IUnknown);
@@ -5363,7 +5345,6 @@ pub struct ICertRequestD_Vtbl {
     pub GetCACert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fchain: u32, pwszauthority: ::windows_core::PCWSTR, pctbout: *mut CERTTRANSBLOB) -> ::windows_core::HRESULT,
     pub Ping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszauthority: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertRequestD2(::windows_core::IUnknown);
@@ -5432,7 +5413,7 @@ pub struct ICertRequestD2_Vtbl {
     pub GetCAPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszauthority: ::windows_core::PCWSTR, pcproperty: *mut i32, pctbpropinfo: *mut CERTTRANSBLOB) -> ::windows_core::HRESULT,
     pub Ping2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszauthority: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5442,7 +5423,7 @@ impl ICertServerExit {
     pub unsafe fn SetContext(&self, context: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetContext)(::windows_core::Interface::as_raw(self), context).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetRequestProperty<P0>(&self, strpropertyname: P0, propertytype: i32) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -5458,7 +5439,7 @@ impl ICertServerExit {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRequestAttribute)(::windows_core::Interface::as_raw(self), strattributename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCertificateProperty<P0>(&self, strpropertyname: P0, propertytype: i32) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -5467,7 +5448,7 @@ impl ICertServerExit {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCertificateProperty)(::windows_core::Interface::as_raw(self), strpropertyname.into_param().abi(), propertytype, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCertificateExtension<P0>(&self, strextensionname: P0, r#type: i32) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -5538,7 +5519,7 @@ pub struct ICertServerExit_Vtbl {
     pub EnumerateAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrattributename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub EnumerateAttributesClose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5548,7 +5529,7 @@ impl ICertServerPolicy {
     pub unsafe fn SetContext(&self, context: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetContext)(::windows_core::Interface::as_raw(self), context).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetRequestProperty<P0>(&self, strpropertyname: P0, propertytype: i32) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -5564,7 +5545,7 @@ impl ICertServerPolicy {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRequestAttribute)(::windows_core::Interface::as_raw(self), strattributename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCertificateProperty<P0>(&self, strpropertyname: P0, propertytype: CERT_PROPERTY_TYPE) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -5573,7 +5554,7 @@ impl ICertServerPolicy {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCertificateProperty)(::windows_core::Interface::as_raw(self), strpropertyname.into_param().abi(), propertytype, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetCertificateProperty<P0>(&self, strpropertyname: P0, propertytype: i32, pvarpropertyvalue: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -5581,7 +5562,7 @@ impl ICertServerPolicy {
     {
         (::windows_core::Interface::vtable(self).SetCertificateProperty)(::windows_core::Interface::as_raw(self), strpropertyname.into_param().abi(), propertytype, pvarpropertyvalue).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCertificateExtension<P0>(&self, strextensionname: P0, r#type: CERT_PROPERTY_TYPE) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -5594,7 +5575,7 @@ impl ICertServerPolicy {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCertificateExtensionFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetCertificateExtension<P0>(&self, strextensionname: P0, r#type: i32, extflags: i32, pvarvalue: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -5668,7 +5649,7 @@ pub struct ICertServerPolicy_Vtbl {
     pub EnumerateAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrattributename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub EnumerateAttributesClose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5681,7 +5662,7 @@ impl ICertView {
     {
         (::windows_core::Interface::vtable(self).OpenConnection)(::windows_core::Interface::as_raw(self), strconfig.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCertViewColumn(&self, fresultcolumn: CVRC_COLUMN) -> ::windows_core::Result<IEnumCERTVIEWCOLUMN> {
         let mut result__ = ::std::mem::zeroed();
@@ -5702,12 +5683,12 @@ impl ICertView {
     pub unsafe fn SetResultColumn(&self, columnindex: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetResultColumn)(::windows_core::Interface::as_raw(self), columnindex).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetRestriction(&self, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRestriction)(::windows_core::Interface::as_raw(self), columnindex, seekoperator, sortorder, pvarvalue).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenView(&self) -> ::windows_core::Result<IEnumCERTVIEWROW> {
         let mut result__ = ::std::mem::zeroed();
@@ -5747,7 +5728,7 @@ pub struct ICertView_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     OpenView: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5760,7 +5741,7 @@ impl ICertView2 {
     {
         (::windows_core::Interface::vtable(self).base__.OpenConnection)(::windows_core::Interface::as_raw(self), strconfig.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCertViewColumn(&self, fresultcolumn: CVRC_COLUMN) -> ::windows_core::Result<IEnumCERTVIEWCOLUMN> {
         let mut result__ = ::std::mem::zeroed();
@@ -5781,12 +5762,12 @@ impl ICertView2 {
     pub unsafe fn SetResultColumn(&self, columnindex: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetResultColumn)(::windows_core::Interface::as_raw(self), columnindex).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetRestriction(&self, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetRestriction)(::windows_core::Interface::as_raw(self), columnindex, seekoperator, sortorder, pvarvalue).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenView(&self) -> ::windows_core::Result<IEnumCERTVIEWROW> {
         let mut result__ = ::std::mem::zeroed();
@@ -5813,7 +5794,7 @@ pub struct ICertView2_Vtbl {
     pub base__: ICertView_Vtbl,
     pub SetTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, table: CVRC_TABLE) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5854,7 +5835,7 @@ pub struct ICertificateAttestationChallenge_Vtbl {
     pub DecryptChallenge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pstrenvelopedpkcs7reencryptedtoca: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub RequestID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrrequestid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5906,14 +5887,14 @@ pub struct ICertificateAttestationChallenge2_Vtbl {
     pub SetKeyContainerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub put_KeyBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertificatePolicies(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificatePolicies {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<ICertificatePolicy> {
         let mut result__ = ::std::mem::zeroed();
@@ -5927,7 +5908,7 @@ impl ICertificatePolicies {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -5970,14 +5951,14 @@ pub struct ICertificatePolicies_Vtbl {
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32) -> ::windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertificatePolicy(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificatePolicy {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -5985,13 +5966,13 @@ impl ICertificatePolicy {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ObjectId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyQualifiers(&self) -> ::windows_core::Result<IPolicyQualifiers> {
         let mut result__ = ::std::mem::zeroed();
@@ -6026,14 +6007,14 @@ pub struct ICertificatePolicy_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     PolicyQualifiers: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertificationAuthorities(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificationAuthorities {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<ICertificationAuthority> {
         let mut result__ = ::std::mem::zeroed();
@@ -6047,7 +6028,7 @@ impl ICertificationAuthorities {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -6064,7 +6045,7 @@ impl ICertificationAuthorities {
     pub unsafe fn ComputeSiteCosts(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ComputeSiteCosts)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByName<P0>(&self, strname: P0) -> ::windows_core::Result<ICertificationAuthority>
     where
@@ -6107,14 +6088,14 @@ pub struct ICertificationAuthorities_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     get_ItemByName: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertificationAuthority(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificationAuthority {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Property(&self, property: EnrollmentCAProperty) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -6141,14 +6122,14 @@ pub struct ICertificationAuthority_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Property: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICryptAttribute(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICryptAttribute {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromObjectId<P0>(&self, pobjectid: P0) -> ::windows_core::Result<()>
     where
@@ -6156,7 +6137,7 @@ impl ICryptAttribute {
     {
         (::windows_core::Interface::vtable(self).InitializeFromObjectId)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromValues<P0>(&self, pattributes: P0) -> ::windows_core::Result<()>
     where
@@ -6164,13 +6145,13 @@ impl ICryptAttribute {
     {
         (::windows_core::Interface::vtable(self).InitializeFromValues)(::windows_core::Interface::as_raw(self), pattributes.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ObjectId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Values(&self) -> ::windows_core::Result<IX509Attributes> {
         let mut result__ = ::std::mem::zeroed();
@@ -6209,14 +6190,14 @@ pub struct ICryptAttribute_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Values: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICryptAttributes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICryptAttributes {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<ICryptAttribute> {
         let mut result__ = ::std::mem::zeroed();
@@ -6230,7 +6211,7 @@ impl ICryptAttributes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -6244,7 +6225,7 @@ impl ICryptAttributes {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_IndexByObjectId<P0>(&self, pobjectid: P0) -> ::windows_core::Result<i32>
     where
@@ -6253,7 +6234,7 @@ impl ICryptAttributes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_IndexByObjectId)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -6298,14 +6279,14 @@ pub struct ICryptAttributes_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     AddRange: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICspAlgorithm(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICspAlgorithm {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAlgorithmOid(&self, length: i32, algflags: AlgorithmFlags) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -6323,7 +6304,7 @@ impl ICspAlgorithm {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LongName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Valid(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6382,14 +6363,14 @@ pub struct ICspAlgorithm_Vtbl {
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut AlgorithmType) -> ::windows_core::HRESULT,
     pub Operations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut AlgorithmOperationFlags) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICspAlgorithms(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICspAlgorithms {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<ICspAlgorithm> {
         let mut result__ = ::std::mem::zeroed();
@@ -6403,7 +6384,7 @@ impl ICspAlgorithms {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -6417,7 +6398,7 @@ impl ICspAlgorithms {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByName<P0>(&self, strname: P0) -> ::windows_core::Result<ICspAlgorithm>
     where
@@ -6426,7 +6407,7 @@ impl ICspAlgorithms {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_ItemByName)(::windows_core::Interface::as_raw(self), strname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_IndexByObjectId<P0>(&self, pobjectid: P0) -> ::windows_core::Result<i32>
     where
@@ -6472,7 +6453,7 @@ pub struct ICspAlgorithms_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     get_IndexByObjectId: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6485,7 +6466,7 @@ impl ICspInformation {
     {
         (::windows_core::Interface::vtable(self).InitializeFromName)(::windows_core::Interface::as_raw(self), strname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn InitializeFromType<P0, P1>(&self, r#type: X509ProviderType, palgorithm: P0, machinecontext: P1) -> ::windows_core::Result<()>
     where
@@ -6494,37 +6475,37 @@ impl ICspInformation {
     {
         (::windows_core::Interface::vtable(self).InitializeFromType)(::windows_core::Interface::as_raw(self), r#type, palgorithm.into_param().abi(), machinecontext.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspAlgorithms(&self) -> ::windows_core::Result<ICspAlgorithms> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CspAlgorithms)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasHardwareRandomNumberGenerator(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HasHardwareRandomNumberGenerator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsHardwareDevice(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsHardwareDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRemovable(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsRemovable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSoftwareDevice(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsSoftwareDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Valid(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6550,13 +6531,13 @@ impl ICspInformation {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).KeySpec)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSmartCard(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsSmartCard)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDefaultSecurityDescriptor<P0>(&self, machinecontext: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -6565,13 +6546,13 @@ impl ICspInformation {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultSecurityDescriptor)(::windows_core::Interface::as_raw(self), machinecontext.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LegacyCsp(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LegacyCsp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatusFromOperations<P0>(&self, palgorithm: P0, operations: AlgorithmOperationFlags) -> ::windows_core::Result<ICspStatus>
     where
@@ -6647,14 +6628,14 @@ pub struct ICspInformation_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetCspStatusFromOperations: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICspInformations(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICspInformations {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<ICspInformation> {
         let mut result__ = ::std::mem::zeroed();
@@ -6668,7 +6649,7 @@ impl ICspInformations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -6685,7 +6666,7 @@ impl ICspInformations {
     pub unsafe fn AddAvailableCsps(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddAvailableCsps)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByName<P0>(&self, strname: P0) -> ::windows_core::Result<ICspInformation>
     where
@@ -6694,7 +6675,7 @@ impl ICspInformations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_ItemByName)(::windows_core::Interface::as_raw(self), strname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatusFromProviderName<P0>(&self, strprovidername: P0, legacykeyspec: X509KeySpec) -> ::windows_core::Result<ICspStatus>
     where
@@ -6703,7 +6684,7 @@ impl ICspInformations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCspStatusFromProviderName)(::windows_core::Interface::as_raw(self), strprovidername.into_param().abi(), legacykeyspec, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatusesFromOperations<P0>(&self, operations: AlgorithmOperationFlags, pcspinformation: P0) -> ::windows_core::Result<ICspStatuses>
     where
@@ -6712,7 +6693,7 @@ impl ICspInformations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCspStatusesFromOperations)(::windows_core::Interface::as_raw(self), operations, pcspinformation.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEncryptionCspAlgorithms<P0>(&self, pcspinformation: P0) -> ::windows_core::Result<ICspAlgorithms>
     where
@@ -6721,7 +6702,7 @@ impl ICspInformations {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEncryptionCspAlgorithms)(::windows_core::Interface::as_raw(self), pcspinformation.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHashAlgorithms<P0>(&self, pcspinformation: P0) -> ::windows_core::Result<IObjectIds>
     where
@@ -6780,14 +6761,14 @@ pub struct ICspInformations_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetHashAlgorithms: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICspStatus(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICspStatus {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pcsp: P0, palgorithm: P1) -> ::windows_core::Result<()>
     where
@@ -6803,19 +6784,19 @@ impl ICspStatus {
     pub unsafe fn SetOrdinal(&self, value: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOrdinal)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspAlgorithm(&self) -> ::windows_core::Result<ICspAlgorithm> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CspAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformation(&self) -> ::windows_core::Result<ICspInformation> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CspInformation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnrollmentStatus(&self) -> ::windows_core::Result<IX509EnrollmentStatus> {
         let mut result__ = ::std::mem::zeroed();
@@ -6861,14 +6842,14 @@ pub struct ICspStatus_Vtbl {
     EnrollmentStatus: usize,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICspStatuses(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICspStatuses {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<ICspStatus> {
         let mut result__ = ::std::mem::zeroed();
@@ -6882,7 +6863,7 @@ impl ICspStatuses {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -6896,7 +6877,7 @@ impl ICspStatuses {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByName<P0, P1>(&self, strcspname: P0, stralgorithmname: P1) -> ::windows_core::Result<ICspStatus>
     where
@@ -6906,13 +6887,13 @@ impl ICspStatuses {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_ItemByName)(::windows_core::Interface::as_raw(self), strcspname.into_param().abi(), stralgorithmname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByOrdinal(&self, ordinal: i32) -> ::windows_core::Result<ICspStatus> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_ItemByOrdinal)(::windows_core::Interface::as_raw(self), ordinal, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByOperations<P0, P1>(&self, strcspname: P0, stralgorithmname: P1, operations: AlgorithmOperationFlags) -> ::windows_core::Result<ICspStatus>
     where
@@ -6922,7 +6903,7 @@ impl ICspStatuses {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_ItemByOperations)(::windows_core::Interface::as_raw(self), strcspname.into_param().abi(), stralgorithmname.into_param().abi(), operations, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByProvider<P0>(&self, pcspstatus: P0) -> ::windows_core::Result<ICspStatus>
     where
@@ -6976,7 +6957,6 @@ pub struct ICspStatuses_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     get_ItemByProvider: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnroll(::windows_core::IUnknown);
@@ -7005,7 +6985,7 @@ impl IEnroll {
     pub unsafe fn acceptPKCS7Blob(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).acceptPKCS7Blob)(::windows_core::Interface::as_raw(self), pblobpkcs7).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getCertContextFromPKCS7(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB) -> *mut super::CERT_CONTEXT {
         (::windows_core::Interface::vtable(self).getCertContextFromPKCS7)(::windows_core::Interface::as_raw(self), pblobpkcs7)
@@ -7160,12 +7140,12 @@ impl IEnroll {
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetProviderFlags)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseExistingKeySet(&self, fuseexistingkeys: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UseExistingKeySet)(::windows_core::Interface::as_raw(self), fuseexistingkeys).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseExistingKeySet<P0>(&self, fuseexistingkeys: P0) -> ::windows_core::Result<()>
     where
@@ -7179,12 +7159,12 @@ impl IEnroll {
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetGenKeyFlags)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteRequestCert(&self, fdelete: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeleteRequestCert)(::windows_core::Interface::as_raw(self), fdelete).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDeleteRequestCert<P0>(&self, fdelete: P0) -> ::windows_core::Result<()>
     where
@@ -7192,12 +7172,12 @@ impl IEnroll {
     {
         (::windows_core::Interface::vtable(self).SetDeleteRequestCert)(::windows_core::Interface::as_raw(self), fdelete.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToUserDS(&self, fbool: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).WriteCertToUserDS)(::windows_core::Interface::as_raw(self), fbool).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteCertToUserDS<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -7205,12 +7185,12 @@ impl IEnroll {
     {
         (::windows_core::Interface::vtable(self).SetWriteCertToUserDS)(::windows_core::Interface::as_raw(self), fbool.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableT61DNEncoding(&self, fbool: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnableT61DNEncoding)(::windows_core::Interface::as_raw(self), fbool).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableT61DNEncoding<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -7218,12 +7198,12 @@ impl IEnroll {
     {
         (::windows_core::Interface::vtable(self).SetEnableT61DNEncoding)(::windows_core::Interface::as_raw(self), fbool.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToCSP(&self, fbool: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).WriteCertToCSP)(::windows_core::Interface::as_raw(self), fbool).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteCertToCSP<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -7258,12 +7238,12 @@ impl IEnroll {
     {
         (::windows_core::Interface::vtable(self).SetHashAlgorithmWStr)(::windows_core::Interface::as_raw(self), szw.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RenewalCertificate(&self, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RenewalCertificate)(::windows_core::Interface::as_raw(self), ppcertcontext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRenewalCertificate(&self, pcertcontext: *const super::CERT_CONTEXT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRenewalCertificate)(::windows_core::Interface::as_raw(self), pcertcontext).ok()
@@ -7281,7 +7261,7 @@ impl IEnroll {
     {
         (::windows_core::Interface::vtable(self).AddNameValuePairToSignatureWStr)(::windows_core::Interface::as_raw(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddExtensionsToRequest(&self, pcertextensions: *mut super::CERT_EXTENSIONS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddExtensionsToRequest)(::windows_core::Interface::as_raw(self), pcertextensions).ok()
@@ -7289,7 +7269,7 @@ impl IEnroll {
     pub unsafe fn AddAuthenticatedAttributesToPKCS7Request(&self, pattributes: *mut super::CRYPT_ATTRIBUTES) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddAuthenticatedAttributesToPKCS7Request)(::windows_core::Interface::as_raw(self), pattributes).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreatePKCS7RequestFromRequest(&self, prequest: *mut super::CRYPT_INTEGER_BLOB, psigningcertcontext: *const super::CERT_CONTEXT, ppkcs7blob: *mut super::CRYPT_INTEGER_BLOB) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreatePKCS7RequestFromRequest)(::windows_core::Interface::as_raw(self), prequest, psigningcertcontext, ppkcs7blob).ok()
@@ -7422,7 +7402,6 @@ pub struct IEnroll_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CreatePKCS7RequestFromRequest: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnroll2(::windows_core::IUnknown);
@@ -7451,7 +7430,7 @@ impl IEnroll2 {
     pub unsafe fn acceptPKCS7Blob(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.acceptPKCS7Blob)(::windows_core::Interface::as_raw(self), pblobpkcs7).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getCertContextFromPKCS7(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB) -> *mut super::CERT_CONTEXT {
         (::windows_core::Interface::vtable(self).base__.getCertContextFromPKCS7)(::windows_core::Interface::as_raw(self), pblobpkcs7)
@@ -7606,12 +7585,12 @@ impl IEnroll2 {
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetProviderFlags)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseExistingKeySet(&self, fuseexistingkeys: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.UseExistingKeySet)(::windows_core::Interface::as_raw(self), fuseexistingkeys).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseExistingKeySet<P0>(&self, fuseexistingkeys: P0) -> ::windows_core::Result<()>
     where
@@ -7625,12 +7604,12 @@ impl IEnroll2 {
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetGenKeyFlags)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteRequestCert(&self, fdelete: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.DeleteRequestCert)(::windows_core::Interface::as_raw(self), fdelete).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDeleteRequestCert<P0>(&self, fdelete: P0) -> ::windows_core::Result<()>
     where
@@ -7638,12 +7617,12 @@ impl IEnroll2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetDeleteRequestCert)(::windows_core::Interface::as_raw(self), fdelete.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToUserDS(&self, fbool: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.WriteCertToUserDS)(::windows_core::Interface::as_raw(self), fbool).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteCertToUserDS<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -7651,12 +7630,12 @@ impl IEnroll2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetWriteCertToUserDS)(::windows_core::Interface::as_raw(self), fbool.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableT61DNEncoding(&self, fbool: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.EnableT61DNEncoding)(::windows_core::Interface::as_raw(self), fbool).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableT61DNEncoding<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -7664,12 +7643,12 @@ impl IEnroll2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetEnableT61DNEncoding)(::windows_core::Interface::as_raw(self), fbool.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToCSP(&self, fbool: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.WriteCertToCSP)(::windows_core::Interface::as_raw(self), fbool).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteCertToCSP<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -7704,12 +7683,12 @@ impl IEnroll2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetHashAlgorithmWStr)(::windows_core::Interface::as_raw(self), szw.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RenewalCertificate(&self, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RenewalCertificate)(::windows_core::Interface::as_raw(self), ppcertcontext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRenewalCertificate(&self, pcertcontext: *const super::CERT_CONTEXT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetRenewalCertificate)(::windows_core::Interface::as_raw(self), pcertcontext).ok()
@@ -7727,7 +7706,7 @@ impl IEnroll2 {
     {
         (::windows_core::Interface::vtable(self).base__.AddNameValuePairToSignatureWStr)(::windows_core::Interface::as_raw(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddExtensionsToRequest(&self, pcertextensions: *mut super::CERT_EXTENSIONS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.AddExtensionsToRequest)(::windows_core::Interface::as_raw(self), pcertextensions).ok()
@@ -7735,7 +7714,7 @@ impl IEnroll2 {
     pub unsafe fn AddAuthenticatedAttributesToPKCS7Request(&self, pattributes: *mut super::CRYPT_ATTRIBUTES) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.AddAuthenticatedAttributesToPKCS7Request)(::windows_core::Interface::as_raw(self), pattributes).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreatePKCS7RequestFromRequest(&self, prequest: *mut super::CRYPT_INTEGER_BLOB, psigningcertcontext: *const super::CERT_CONTEXT, ppkcs7blob: *mut super::CRYPT_INTEGER_BLOB) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreatePKCS7RequestFromRequest)(::windows_core::Interface::as_raw(self), prequest, psigningcertcontext, ppkcs7blob).ok()
@@ -7749,7 +7728,7 @@ impl IEnroll2 {
     pub unsafe fn GetSupportedKeySpec(&self, pdwkeyspec: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSupportedKeySpec)(::windows_core::Interface::as_raw(self), pdwkeyspec).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetKeyLen<P0, P1>(&self, fmin: P0, fexchange: P1, pdwkeysize: *mut i32) -> ::windows_core::Result<()>
     where
@@ -7764,7 +7743,7 @@ impl IEnroll2 {
     pub unsafe fn GetAlgNameWStr(&self, algid: i32, ppwsz: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAlgNameWStr)(::windows_core::Interface::as_raw(self), algid, ppwsz).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReuseHardwareKeyIfUnableToGenNew<P0>(&self, freusehardwarekeyifunabletogennew: P0) -> ::windows_core::Result<()>
     where
@@ -7772,7 +7751,7 @@ impl IEnroll2 {
     {
         (::windows_core::Interface::vtable(self).SetReuseHardwareKeyIfUnableToGenNew)(::windows_core::Interface::as_raw(self), freusehardwarekeyifunabletogennew.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReuseHardwareKeyIfUnableToGenNew(&self, freusehardwarekeyifunabletogennew: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReuseHardwareKeyIfUnableToGenNew)(::windows_core::Interface::as_raw(self), freusehardwarekeyifunabletogennew).ok()
@@ -7807,7 +7786,7 @@ impl IEnroll2 {
     {
         (::windows_core::Interface::vtable(self).SetHStoreRequest)(::windows_core::Interface::as_raw(self), hstore.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLimitExchangeKeyToEncipherment<P0>(&self, flimitexchangekeytoencipherment: P0) -> ::windows_core::Result<()>
     where
@@ -7815,12 +7794,12 @@ impl IEnroll2 {
     {
         (::windows_core::Interface::vtable(self).SetLimitExchangeKeyToEncipherment)(::windows_core::Interface::as_raw(self), flimitexchangekeytoencipherment.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LimitExchangeKeyToEncipherment(&self, flimitexchangekeytoencipherment: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LimitExchangeKeyToEncipherment)(::windows_core::Interface::as_raw(self), flimitexchangekeytoencipherment).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableSMIMECapabilities<P0>(&self, fenablesmimecapabilities: P0) -> ::windows_core::Result<()>
     where
@@ -7828,7 +7807,7 @@ impl IEnroll2 {
     {
         (::windows_core::Interface::vtable(self).SetEnableSMIMECapabilities)(::windows_core::Interface::as_raw(self), fenablesmimecapabilities.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableSMIMECapabilities(&self, fenablesmimecapabilities: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnableSMIMECapabilities)(::windows_core::Interface::as_raw(self), fenablesmimecapabilities).ok()
@@ -7885,7 +7864,6 @@ pub struct IEnroll2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     EnableSMIMECapabilities: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnroll4(::windows_core::IUnknown);
@@ -7914,7 +7892,7 @@ impl IEnroll4 {
     pub unsafe fn acceptPKCS7Blob(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.acceptPKCS7Blob)(::windows_core::Interface::as_raw(self), pblobpkcs7).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getCertContextFromPKCS7(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB) -> *mut super::CERT_CONTEXT {
         (::windows_core::Interface::vtable(self).base__.base__.getCertContextFromPKCS7)(::windows_core::Interface::as_raw(self), pblobpkcs7)
@@ -8069,12 +8047,12 @@ impl IEnroll4 {
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetProviderFlags)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseExistingKeySet(&self, fuseexistingkeys: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.UseExistingKeySet)(::windows_core::Interface::as_raw(self), fuseexistingkeys).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseExistingKeySet<P0>(&self, fuseexistingkeys: P0) -> ::windows_core::Result<()>
     where
@@ -8088,12 +8066,12 @@ impl IEnroll4 {
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetGenKeyFlags)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteRequestCert(&self, fdelete: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.DeleteRequestCert)(::windows_core::Interface::as_raw(self), fdelete).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDeleteRequestCert<P0>(&self, fdelete: P0) -> ::windows_core::Result<()>
     where
@@ -8101,12 +8079,12 @@ impl IEnroll4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetDeleteRequestCert)(::windows_core::Interface::as_raw(self), fdelete.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToUserDS(&self, fbool: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.WriteCertToUserDS)(::windows_core::Interface::as_raw(self), fbool).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteCertToUserDS<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -8114,12 +8092,12 @@ impl IEnroll4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetWriteCertToUserDS)(::windows_core::Interface::as_raw(self), fbool.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableT61DNEncoding(&self, fbool: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.EnableT61DNEncoding)(::windows_core::Interface::as_raw(self), fbool).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableT61DNEncoding<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -8127,12 +8105,12 @@ impl IEnroll4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetEnableT61DNEncoding)(::windows_core::Interface::as_raw(self), fbool.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToCSP(&self, fbool: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.WriteCertToCSP)(::windows_core::Interface::as_raw(self), fbool).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteCertToCSP<P0>(&self, fbool: P0) -> ::windows_core::Result<()>
     where
@@ -8167,12 +8145,12 @@ impl IEnroll4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetHashAlgorithmWStr)(::windows_core::Interface::as_raw(self), szw.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RenewalCertificate(&self, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.RenewalCertificate)(::windows_core::Interface::as_raw(self), ppcertcontext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRenewalCertificate(&self, pcertcontext: *const super::CERT_CONTEXT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetRenewalCertificate)(::windows_core::Interface::as_raw(self), pcertcontext).ok()
@@ -8190,7 +8168,7 @@ impl IEnroll4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.AddNameValuePairToSignatureWStr)(::windows_core::Interface::as_raw(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddExtensionsToRequest(&self, pcertextensions: *mut super::CERT_EXTENSIONS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.AddExtensionsToRequest)(::windows_core::Interface::as_raw(self), pcertextensions).ok()
@@ -8198,7 +8176,7 @@ impl IEnroll4 {
     pub unsafe fn AddAuthenticatedAttributesToPKCS7Request(&self, pattributes: *mut super::CRYPT_ATTRIBUTES) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.AddAuthenticatedAttributesToPKCS7Request)(::windows_core::Interface::as_raw(self), pattributes).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreatePKCS7RequestFromRequest(&self, prequest: *mut super::CRYPT_INTEGER_BLOB, psigningcertcontext: *const super::CERT_CONTEXT, ppkcs7blob: *mut super::CRYPT_INTEGER_BLOB) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.CreatePKCS7RequestFromRequest)(::windows_core::Interface::as_raw(self), prequest, psigningcertcontext, ppkcs7blob).ok()
@@ -8212,7 +8190,7 @@ impl IEnroll4 {
     pub unsafe fn GetSupportedKeySpec(&self, pdwkeyspec: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetSupportedKeySpec)(::windows_core::Interface::as_raw(self), pdwkeyspec).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetKeyLen<P0, P1>(&self, fmin: P0, fexchange: P1, pdwkeysize: *mut i32) -> ::windows_core::Result<()>
     where
@@ -8227,7 +8205,7 @@ impl IEnroll4 {
     pub unsafe fn GetAlgNameWStr(&self, algid: i32, ppwsz: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetAlgNameWStr)(::windows_core::Interface::as_raw(self), algid, ppwsz).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReuseHardwareKeyIfUnableToGenNew<P0>(&self, freusehardwarekeyifunabletogennew: P0) -> ::windows_core::Result<()>
     where
@@ -8235,7 +8213,7 @@ impl IEnroll4 {
     {
         (::windows_core::Interface::vtable(self).base__.SetReuseHardwareKeyIfUnableToGenNew)(::windows_core::Interface::as_raw(self), freusehardwarekeyifunabletogennew.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReuseHardwareKeyIfUnableToGenNew(&self, freusehardwarekeyifunabletogennew: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ReuseHardwareKeyIfUnableToGenNew)(::windows_core::Interface::as_raw(self), freusehardwarekeyifunabletogennew).ok()
@@ -8270,7 +8248,7 @@ impl IEnroll4 {
     {
         (::windows_core::Interface::vtable(self).base__.SetHStoreRequest)(::windows_core::Interface::as_raw(self), hstore.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLimitExchangeKeyToEncipherment<P0>(&self, flimitexchangekeytoencipherment: P0) -> ::windows_core::Result<()>
     where
@@ -8278,12 +8256,12 @@ impl IEnroll4 {
     {
         (::windows_core::Interface::vtable(self).base__.SetLimitExchangeKeyToEncipherment)(::windows_core::Interface::as_raw(self), flimitexchangekeytoencipherment.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LimitExchangeKeyToEncipherment(&self, flimitexchangekeytoencipherment: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.LimitExchangeKeyToEncipherment)(::windows_core::Interface::as_raw(self), flimitexchangekeytoencipherment).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableSMIMECapabilities<P0>(&self, fenablesmimecapabilities: P0) -> ::windows_core::Result<()>
     where
@@ -8291,7 +8269,7 @@ impl IEnroll4 {
     {
         (::windows_core::Interface::vtable(self).base__.SetEnableSMIMECapabilities)(::windows_core::Interface::as_raw(self), fenablesmimecapabilities.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableSMIMECapabilities(&self, fenablesmimecapabilities: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.EnableSMIMECapabilities)(::windows_core::Interface::as_raw(self), fenablesmimecapabilities).ok()
@@ -8302,12 +8280,12 @@ impl IEnroll4 {
     pub unsafe fn ThumbPrintWStr(&self, thumbprintblob: *mut super::CRYPT_INTEGER_BLOB) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ThumbPrintWStr)(::windows_core::Interface::as_raw(self), thumbprintblob).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPrivateKeyArchiveCertificate(&self, pprivatekeyarchivecert: *const super::CERT_CONTEXT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPrivateKeyArchiveCertificate)(::windows_core::Interface::as_raw(self), pprivatekeyarchivecert).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPrivateKeyArchiveCertificate(&self) -> *mut super::CERT_CONTEXT {
         (::windows_core::Interface::vtable(self).GetPrivateKeyArchiveCertificate)(::windows_core::Interface::as_raw(self))
@@ -8370,12 +8348,12 @@ impl IEnroll4 {
     {
         (::windows_core::Interface::vtable(self).acceptFileResponseWStr)(::windows_core::Interface::as_raw(self), pwszresponsefilename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getCertContextFromResponseBlob(&self, pblobresponse: *mut super::CRYPT_INTEGER_BLOB, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).getCertContextFromResponseBlob)(::windows_core::Interface::as_raw(self), pblobresponse, ppcertcontext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getCertContextFromFileResponseWStr<P0>(&self, pwszresponsefilename: P0, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows_core::Result<()>
     where
@@ -8416,7 +8394,7 @@ impl IEnroll4 {
     pub unsafe fn InstallPKCS7BlobEx(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB, plcertinstalled: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InstallPKCS7BlobEx)(::windows_core::Interface::as_raw(self), pblobpkcs7, plcertinstalled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddCertTypeToRequestWStrEx<P0, P1>(&self, ltype: ADDED_CERT_TYPE, pwszoidorname: P0, lmajorversion: i32, fminorversion: P1, lminorversion: i32) -> ::windows_core::Result<()>
     where
@@ -8434,7 +8412,7 @@ impl IEnroll4 {
     pub unsafe fn addBlobPropertyToCertificateWStr(&self, lpropertyid: i32, lreserved: i32, pblobproperty: *mut super::CRYPT_INTEGER_BLOB) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).addBlobPropertyToCertificateWStr)(::windows_core::Interface::as_raw(self), lpropertyid, lreserved, pblobproperty).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSignerCertificate(&self, psignercert: *const super::CERT_CONTEXT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSignerCertificate)(::windows_core::Interface::as_raw(self), psignercert).ok()
@@ -8445,7 +8423,7 @@ impl IEnroll4 {
     pub unsafe fn ClientId(&self, plclientid: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ClientId)(::windows_core::Interface::as_raw(self), plclientid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIncludeSubjectKeyID<P0>(&self, finclude: P0) -> ::windows_core::Result<()>
     where
@@ -8453,7 +8431,7 @@ impl IEnroll4 {
     {
         (::windows_core::Interface::vtable(self).SetIncludeSubjectKeyID)(::windows_core::Interface::as_raw(self), finclude.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IncludeSubjectKeyID(&self, pfinclude: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IncludeSubjectKeyID)(::windows_core::Interface::as_raw(self), pfinclude).ok()
@@ -8527,7 +8505,7 @@ pub struct IEnroll4_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IncludeSubjectKeyID: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -8549,7 +8527,7 @@ impl IEnumCERTVIEWATTRIBUTE {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumCERTVIEWATTRIBUTE> {
         let mut result__ = ::std::mem::zeroed();
@@ -8581,7 +8559,7 @@ pub struct IEnumCERTVIEWATTRIBUTE_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -8606,7 +8584,7 @@ impl IEnumCERTVIEWCOLUMN {
     pub unsafe fn GetMaxLength(&self, pmaxlength: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetMaxLength)(::windows_core::Interface::as_raw(self), pmaxlength).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), flags, pvarvalue).ok()
@@ -8617,7 +8595,7 @@ impl IEnumCERTVIEWCOLUMN {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumCERTVIEWCOLUMN> {
         let mut result__ = ::std::mem::zeroed();
@@ -8656,7 +8634,7 @@ pub struct IEnumCERTVIEWCOLUMN_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -8672,7 +8650,7 @@ impl IEnumCERTVIEWEXTENSION {
     pub unsafe fn GetFlags(&self, pflags: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFlags)(::windows_core::Interface::as_raw(self), pflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self, r#type: CERT_PROPERTY_TYPE, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), r#type, flags, pvarvalue).ok()
@@ -8683,7 +8661,7 @@ impl IEnumCERTVIEWEXTENSION {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumCERTVIEWEXTENSION> {
         let mut result__ = ::std::mem::zeroed();
@@ -8719,7 +8697,7 @@ pub struct IEnumCERTVIEWEXTENSION_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -8729,19 +8707,19 @@ impl IEnumCERTVIEWROW {
     pub unsafe fn Next(&self, pindex: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pindex).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCertViewColumn(&self) -> ::windows_core::Result<IEnumCERTVIEWCOLUMN> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumCertViewColumn)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCertViewAttribute(&self, flags: i32) -> ::windows_core::Result<IEnumCERTVIEWATTRIBUTE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumCertViewAttribute)(::windows_core::Interface::as_raw(self), flags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCertViewExtension(&self, flags: i32) -> ::windows_core::Result<IEnumCERTVIEWEXTENSION> {
         let mut result__ = ::std::mem::zeroed();
@@ -8753,7 +8731,7 @@ impl IEnumCERTVIEWROW {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumCERTVIEWROW> {
         let mut result__ = ::std::mem::zeroed();
@@ -8799,7 +8777,6 @@ pub struct IEnumCERTVIEWROW_Vtbl {
     Clone: usize,
     pub GetMaxIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pindex: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INDESPolicy(::windows_core::IUnknown);
@@ -8818,7 +8795,7 @@ impl INDESPolicy {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GenerateChallenge)(::windows_core::Interface::as_raw(self), pwsztemplate.into_param().abi(), pwszparams.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn VerifyRequest<P0, P1>(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: P0, pwsztransactionid: P1, pfverified: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
@@ -8855,26 +8832,26 @@ pub struct INDESPolicy_Vtbl {
     VerifyRequest: usize,
     pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszchallenge: ::windows_core::PCWSTR, pwsztransactionid: ::windows_core::PCWSTR, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOCSPAdmin(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IOCSPAdmin {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OCSPServiceProperties(&self) -> ::windows_core::Result<IOCSPPropertyCollection> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OCSPServiceProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OCSPCAConfigurationCollection(&self) -> ::windows_core::Result<IOCSPCAConfigurationCollection> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OCSPCAConfigurationCollection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetConfiguration<P0, P1>(&self, bstrservername: P0, bforce: P1) -> ::windows_core::Result<()>
     where
@@ -8883,7 +8860,7 @@ impl IOCSPAdmin {
     {
         (::windows_core::Interface::vtable(self).GetConfiguration)(::windows_core::Interface::as_raw(self), bstrservername.into_param().abi(), bforce.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetConfiguration<P0, P1>(&self, bstrservername: P0, bforce: P1) -> ::windows_core::Result<()>
     where
@@ -8919,7 +8896,7 @@ impl IOCSPAdmin {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSecurity)(::windows_core::Interface::as_raw(self), bstrservername.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetSigningCertificates<P0>(&self, bstrservername: P0, pcacertvar: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -8928,7 +8905,7 @@ impl IOCSPAdmin {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSigningCertificates)(::windows_core::Interface::as_raw(self), bstrservername.into_param().abi(), pcacertvar, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetHashAlgorithms<P0, P1>(&self, bstrservername: P0, bstrcaid: P1) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -8983,7 +8960,7 @@ pub struct IOCSPAdmin_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetHashAlgorithms: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -8994,7 +8971,7 @@ impl IOCSPCAConfiguration {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Identifier)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CACertificate(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -9017,13 +8994,13 @@ impl IOCSPCAConfiguration {
     pub unsafe fn SetSigningFlags(&self, newval: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSigningFlags)(::windows_core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SigningCertificate(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SigningCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetSigningCertificate(&self, newval: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSigningCertificate)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
@@ -9057,30 +9034,30 @@ impl IOCSPCAConfiguration {
     {
         (::windows_core::Interface::vtable(self).SetProviderCLSID)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ProviderProperties(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ProviderProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProviderProperties(&self, newval: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetProviderProperties)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Modified(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Modified)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn LocalRevocationInformation(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LocalRevocationInformation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetLocalRevocationInformation(&self, newval: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetLocalRevocationInformation)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
@@ -9170,7 +9147,7 @@ pub struct IOCSPCAConfiguration_Vtbl {
     pub CAConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetCAConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -9181,7 +9158,7 @@ impl IOCSPCAConfigurationCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -9191,7 +9168,7 @@ impl IOCSPCAConfigurationCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_ItemByName<P0>(&self, bstridentifier: P0) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -9200,7 +9177,7 @@ impl IOCSPCAConfigurationCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_ItemByName)(::windows_core::Interface::as_raw(self), bstridentifier.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateCAConfiguration<P0>(&self, bstridentifier: P0, varcacert: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IOCSPCAConfiguration>
     where
@@ -9247,7 +9224,7 @@ pub struct IOCSPCAConfigurationCollection_Vtbl {
     CreateCAConfiguration: usize,
     pub DeleteCAConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstridentifier: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -9258,18 +9235,18 @@ impl IOCSPProperty {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Value(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValue(&self, newval: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Modified(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9305,7 +9282,7 @@ pub struct IOCSPProperty_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Modified: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -9316,7 +9293,7 @@ impl IOCSPPropertyCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -9326,7 +9303,7 @@ impl IOCSPPropertyCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_ItemByName<P0>(&self, bstrpropname: P0) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -9335,7 +9312,7 @@ impl IOCSPPropertyCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_ItemByName)(::windows_core::Interface::as_raw(self), bstrpropname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateProperty<P0>(&self, bstrpropname: P0, pvarpropvalue: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IOCSPProperty>
     where
@@ -9350,12 +9327,12 @@ impl IOCSPPropertyCollection {
     {
         (::windows_core::Interface::vtable(self).DeleteProperty)(::windows_core::Interface::as_raw(self), bstrpropname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn InitializeFromProperties(&self, pvarproperties: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitializeFromProperties)(::windows_core::Interface::as_raw(self), pvarproperties).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllProperties(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -9401,7 +9378,7 @@ pub struct IOCSPPropertyCollection_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetAllProperties: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -9470,14 +9447,14 @@ pub struct IObjectId_Vtbl {
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetAlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, groupid: ObjectIdGroupId, keyflags: ObjectIdPublicKeyFlags, pstralgorithmname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IObjectIds(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IObjectIds {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -9491,7 +9468,7 @@ impl IObjectIds {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -9505,7 +9482,7 @@ impl IObjectIds {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -9546,7 +9523,7 @@ pub struct IObjectIds_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     AddRange: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -9559,7 +9536,7 @@ impl IPolicyQualifier {
     {
         (::windows_core::Interface::vtable(self).InitializeEncode)(::windows_core::Interface::as_raw(self), strqualifier.into_param().abi(), r#type).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -9602,14 +9579,14 @@ pub struct IPolicyQualifier_Vtbl {
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut PolicyQualifierType) -> ::windows_core::HRESULT,
     pub get_RawData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPolicyQualifiers(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPolicyQualifiers {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<IPolicyQualifier> {
         let mut result__ = ::std::mem::zeroed();
@@ -9623,7 +9600,7 @@ impl IPolicyQualifiers {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -9666,14 +9643,14 @@ pub struct IPolicyQualifiers_Vtbl {
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32) -> ::windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISignerCertificate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISignerCertificate {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0, P1>(&self, machinecontext: P0, verifytype: X509PrivateKeyVerify, encoding: EncodingType, strcertificate: P1) -> ::windows_core::Result<()>
     where
@@ -9686,19 +9663,19 @@ impl ISignerCertificate {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Certificate)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows_core::Result<IX509PrivateKey> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -9729,7 +9706,7 @@ impl ISignerCertificate {
     {
         (::windows_core::Interface::vtable(self).SetPin)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows_core::Result<IX509SignatureInformation> {
         let mut result__ = ::std::mem::zeroed();
@@ -9778,14 +9755,14 @@ pub struct ISignerCertificate_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SignatureInformation: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISignerCertificates(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISignerCertificates {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<ISignerCertificate> {
         let mut result__ = ::std::mem::zeroed();
@@ -9799,7 +9776,7 @@ impl ISignerCertificates {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -9813,7 +9790,7 @@ impl ISignerCertificates {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Find<P0>(&self, psignercert: P0) -> ::windows_core::Result<i32>
     where
@@ -9855,14 +9832,14 @@ pub struct ISignerCertificates_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Find: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISmimeCapabilities(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISmimeCapabilities {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<ISmimeCapability> {
         let mut result__ = ::std::mem::zeroed();
@@ -9876,7 +9853,7 @@ impl ISmimeCapabilities {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -9890,7 +9867,7 @@ impl ISmimeCapabilities {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddFromCsp<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -9898,7 +9875,7 @@ impl ISmimeCapabilities {
     {
         (::windows_core::Interface::vtable(self).AddFromCsp)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddAvailableSmimeCapabilities<P0>(&self, machinecontext: P0) -> ::windows_core::Result<()>
     where
@@ -9943,14 +9920,14 @@ pub struct ISmimeCapabilities_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddAvailableSmimeCapabilities: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISmimeCapability(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISmimeCapability {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0>(&self, pobjectid: P0, bitcount: i32) -> ::windows_core::Result<()>
     where
@@ -9958,7 +9935,7 @@ impl ISmimeCapability {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), bitcount).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -9994,7 +9971,7 @@ pub struct ISmimeCapability_Vtbl {
     ObjectId: usize,
     pub BitCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -10042,14 +10019,14 @@ pub struct IX500DistinguishedName_Vtbl {
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub get_EncodedName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509Attribute(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509Attribute {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -10058,7 +10035,7 @@ impl IX509Attribute {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -10094,14 +10071,14 @@ pub struct IX509Attribute_Vtbl {
     ObjectId: usize,
     pub get_RawData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509AttributeArchiveKey(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509AttributeArchiveKey {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -10110,7 +10087,7 @@ impl IX509AttributeArchiveKey {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -10120,7 +10097,7 @@ impl IX509AttributeArchiveKey {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeEncode<P0, P1, P2>(&self, pkey: P0, encoding: EncodingType, strcaxcert: P1, palgorithm: P2, encryptionstrength: i32) -> ::windows_core::Result<()>
     where
@@ -10140,7 +10117,7 @@ impl IX509AttributeArchiveKey {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_EncryptedKeyBlob)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EncryptionAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -10178,14 +10155,14 @@ pub struct IX509AttributeArchiveKey_Vtbl {
     EncryptionAlgorithm: usize,
     pub EncryptionStrength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509AttributeArchiveKeyHash(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509AttributeArchiveKeyHash {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -10194,7 +10171,7 @@ impl IX509AttributeArchiveKeyHash {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -10240,14 +10217,14 @@ pub struct IX509AttributeArchiveKeyHash_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, strencodeddata: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub get_EncryptedKeyHashBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509AttributeClientId(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509AttributeClientId {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -10256,7 +10233,7 @@ impl IX509AttributeClientId {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -10319,14 +10296,14 @@ pub struct IX509AttributeClientId_Vtbl {
     pub UserSamName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ProcessName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509AttributeCspProvider(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509AttributeCspProvider {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -10335,7 +10312,7 @@ impl IX509AttributeCspProvider {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -10392,14 +10369,14 @@ pub struct IX509AttributeCspProvider_Vtbl {
     pub ProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub get_Signature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509AttributeExtensions(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509AttributeExtensions {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -10408,7 +10385,7 @@ impl IX509AttributeExtensions {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -10418,7 +10395,7 @@ impl IX509AttributeExtensions {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeEncode<P0>(&self, pextensions: P0) -> ::windows_core::Result<()>
     where
@@ -10432,7 +10409,7 @@ impl IX509AttributeExtensions {
     {
         (::windows_core::Interface::vtable(self).InitializeDecode)(::windows_core::Interface::as_raw(self), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows_core::Result<IX509Extensions> {
         let mut result__ = ::std::mem::zeroed();
@@ -10464,14 +10441,14 @@ pub struct IX509AttributeExtensions_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     X509Extensions: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509AttributeOSVersion(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509AttributeOSVersion {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -10480,7 +10457,7 @@ impl IX509AttributeOSVersion {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -10526,14 +10503,14 @@ pub struct IX509AttributeOSVersion_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, strencodeddata: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub OSVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509AttributeRenewalCertificate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509AttributeRenewalCertificate {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -10542,7 +10519,7 @@ impl IX509AttributeRenewalCertificate {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -10588,14 +10565,14 @@ pub struct IX509AttributeRenewalCertificate_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, strencodeddata: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub get_RenewalCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509Attributes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509Attributes {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<IX509Attribute> {
         let mut result__ = ::std::mem::zeroed();
@@ -10609,7 +10586,7 @@ impl IX509Attributes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -10652,7 +10629,7 @@ pub struct IX509Attributes_Vtbl {
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32) -> ::windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -10668,7 +10645,7 @@ impl IX509CertificateRequest {
     pub unsafe fn ResetForEncode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ResetForEncode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows_core::Result<IX509CertificateRequest> {
         let mut result__ = ::std::mem::zeroed();
@@ -10682,13 +10659,13 @@ impl IX509CertificateRequest {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnrollmentContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -10713,13 +10690,13 @@ impl IX509CertificateRequest {
     {
         (::windows_core::Interface::vtable(self).SetUIContextMessage)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressDefaults(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SuppressDefaults)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressDefaults<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -10744,13 +10721,13 @@ impl IX509CertificateRequest {
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetClientId)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows_core::Result<ICspInformations> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CspInformations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -10758,13 +10735,13 @@ impl IX509CertificateRequest {
     {
         (::windows_core::Interface::vtable(self).SetCspInformations)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -10772,13 +10749,13 @@ impl IX509CertificateRequest {
     {
         (::windows_core::Interface::vtable(self).SetHashAlgorithm)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AlternateSignatureAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlternateSignatureAlgorithm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -10865,7 +10842,7 @@ pub struct IX509CertificateRequest_Vtbl {
     SetAlternateSignatureAlgorithm: usize,
     pub get_RawData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -10881,7 +10858,7 @@ impl IX509CertificateRequestCertificate {
     pub unsafe fn ResetForEncode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ResetForEncode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows_core::Result<IX509CertificateRequest> {
         let mut result__ = ::std::mem::zeroed();
@@ -10895,13 +10872,13 @@ impl IX509CertificateRequestCertificate {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnrollmentContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -10926,13 +10903,13 @@ impl IX509CertificateRequestCertificate {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetUIContextMessage)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressDefaults(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.SuppressDefaults)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressDefaults<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -10957,13 +10934,13 @@ impl IX509CertificateRequestCertificate {
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetClientId)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows_core::Result<ICspInformations> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CspInformations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -10971,13 +10948,13 @@ impl IX509CertificateRequestCertificate {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetCspInformations)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -10985,13 +10962,13 @@ impl IX509CertificateRequestCertificate {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetHashAlgorithm)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.AlternateSignatureAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlternateSignatureAlgorithm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -11009,7 +10986,7 @@ impl IX509CertificateRequestCertificate {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeFromTemplateName)(::windows_core::Interface::as_raw(self), context, strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPrivateKey<P0, P1>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: P1) -> ::windows_core::Result<()>
     where
@@ -11018,7 +10995,7 @@ impl IX509CertificateRequestCertificate {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeFromPrivateKey)(::windows_core::Interface::as_raw(self), context, pprivatekey.into_param().abi(), strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPublicKey<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: P1) -> ::windows_core::Result<()>
     where
@@ -11042,37 +11019,37 @@ impl IX509CertificateRequestCertificate {
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CheckSignature)(::windows_core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSmartCard(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsSmartCard)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TemplateObjectId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PublicKey(&self) -> ::windows_core::Result<IX509PublicKey> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PublicKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows_core::Result<IX509PrivateKey> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PrivateKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NullSigned(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.NullSigned)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReuseKey(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11082,13 +11059,13 @@ impl IX509CertificateRequestCertificate {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_OldCertificate)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Subject(&self) -> ::windows_core::Result<IX500DistinguishedName> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Subject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSubject<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -11096,19 +11073,19 @@ impl IX509CertificateRequestCertificate {
     {
         (::windows_core::Interface::vtable(self).base__.SetSubject)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatuses(&self) -> ::windows_core::Result<ICspStatuses> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CspStatuses)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SmimeCapabilities(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SmimeCapabilities)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSmimeCapabilities<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -11116,7 +11093,7 @@ impl IX509CertificateRequestCertificate {
     {
         (::windows_core::Interface::vtable(self).base__.SetSmimeCapabilities)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows_core::Result<IX509SignatureInformation> {
         let mut result__ = ::std::mem::zeroed();
@@ -11132,25 +11109,25 @@ impl IX509CertificateRequestCertificate {
     {
         (::windows_core::Interface::vtable(self).base__.SetKeyContainerNamePrefix)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows_core::Result<ICryptAttributes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CryptAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows_core::Result<IX509Extensions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.X509Extensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CriticalExtensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
@@ -11164,13 +11141,13 @@ impl IX509CertificateRequestCertificate {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_Signature)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows_core::Result<ICspStatuses> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCspStatuses)(::windows_core::Interface::as_raw(self), keyspec, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CheckPublicKeySignature<P0>(&self, ppublickey: P0) -> ::windows_core::Result<()>
     where
@@ -11178,13 +11155,13 @@ impl IX509CertificateRequestCertificate {
     {
         (::windows_core::Interface::vtable(self).CheckPublicKeySignature)(::windows_core::Interface::as_raw(self), ppublickey.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Issuer(&self) -> ::windows_core::Result<IX500DistinguishedName> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Issuer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetIssuer<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -11216,13 +11193,13 @@ impl IX509CertificateRequestCertificate {
     {
         (::windows_core::Interface::vtable(self).put_SerialNumber)(::windows_core::Interface::as_raw(self), encoding, value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows_core::Result<ISignerCertificate> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SignerCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -11273,7 +11250,7 @@ pub struct IX509CertificateRequestCertificate_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSignerCertificate: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11289,7 +11266,7 @@ impl IX509CertificateRequestCertificate2 {
     pub unsafe fn ResetForEncode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ResetForEncode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows_core::Result<IX509CertificateRequest> {
         let mut result__ = ::std::mem::zeroed();
@@ -11303,13 +11280,13 @@ impl IX509CertificateRequestCertificate2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnrollmentContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -11334,13 +11311,13 @@ impl IX509CertificateRequestCertificate2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetUIContextMessage)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressDefaults(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.SuppressDefaults)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressDefaults<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -11365,13 +11342,13 @@ impl IX509CertificateRequestCertificate2 {
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetClientId)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows_core::Result<ICspInformations> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CspInformations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -11379,13 +11356,13 @@ impl IX509CertificateRequestCertificate2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetCspInformations)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -11393,13 +11370,13 @@ impl IX509CertificateRequestCertificate2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetHashAlgorithm)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.AlternateSignatureAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlternateSignatureAlgorithm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -11417,7 +11394,7 @@ impl IX509CertificateRequestCertificate2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.InitializeFromTemplateName)(::windows_core::Interface::as_raw(self), context, strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPrivateKey<P0, P1>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: P1) -> ::windows_core::Result<()>
     where
@@ -11426,7 +11403,7 @@ impl IX509CertificateRequestCertificate2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.InitializeFromPrivateKey)(::windows_core::Interface::as_raw(self), context, pprivatekey.into_param().abi(), strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPublicKey<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: P1) -> ::windows_core::Result<()>
     where
@@ -11450,37 +11427,37 @@ impl IX509CertificateRequestCertificate2 {
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.CheckSignature)(::windows_core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSmartCard(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsSmartCard)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.TemplateObjectId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PublicKey(&self) -> ::windows_core::Result<IX509PublicKey> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.PublicKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows_core::Result<IX509PrivateKey> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.PrivateKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NullSigned(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.NullSigned)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReuseKey(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11490,13 +11467,13 @@ impl IX509CertificateRequestCertificate2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.get_OldCertificate)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Subject(&self) -> ::windows_core::Result<IX500DistinguishedName> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Subject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSubject<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -11504,19 +11481,19 @@ impl IX509CertificateRequestCertificate2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetSubject)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatuses(&self) -> ::windows_core::Result<ICspStatuses> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CspStatuses)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SmimeCapabilities(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.SmimeCapabilities)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSmimeCapabilities<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -11524,7 +11501,7 @@ impl IX509CertificateRequestCertificate2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetSmimeCapabilities)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows_core::Result<IX509SignatureInformation> {
         let mut result__ = ::std::mem::zeroed();
@@ -11540,25 +11517,25 @@ impl IX509CertificateRequestCertificate2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetKeyContainerNamePrefix)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows_core::Result<ICryptAttributes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CryptAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows_core::Result<IX509Extensions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.X509Extensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CriticalExtensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
@@ -11572,13 +11549,13 @@ impl IX509CertificateRequestCertificate2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.get_Signature)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows_core::Result<ICspStatuses> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetCspStatuses)(::windows_core::Interface::as_raw(self), keyspec, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CheckPublicKeySignature<P0>(&self, ppublickey: P0) -> ::windows_core::Result<()>
     where
@@ -11586,13 +11563,13 @@ impl IX509CertificateRequestCertificate2 {
     {
         (::windows_core::Interface::vtable(self).base__.CheckPublicKeySignature)(::windows_core::Interface::as_raw(self), ppublickey.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Issuer(&self) -> ::windows_core::Result<IX500DistinguishedName> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Issuer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetIssuer<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -11624,13 +11601,13 @@ impl IX509CertificateRequestCertificate2 {
     {
         (::windows_core::Interface::vtable(self).base__.put_SerialNumber)(::windows_core::Interface::as_raw(self), encoding, value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows_core::Result<ISignerCertificate> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SignerCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -11638,7 +11615,7 @@ impl IX509CertificateRequestCertificate2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetSignerCertificate)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromTemplate<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows_core::Result<()>
     where
@@ -11647,7 +11624,7 @@ impl IX509CertificateRequestCertificate2 {
     {
         (::windows_core::Interface::vtable(self).InitializeFromTemplate)(::windows_core::Interface::as_raw(self), context, ppolicyserver.into_param().abi(), ptemplate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPrivateKeyTemplate<P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows_core::Result<()>
     where
@@ -11657,13 +11634,13 @@ impl IX509CertificateRequestCertificate2 {
     {
         (::windows_core::Interface::vtable(self).InitializeFromPrivateKeyTemplate)(::windows_core::Interface::as_raw(self), context, pprivatekey.into_param().abi(), ppolicyserver.into_param().abi(), ptemplate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyServer(&self) -> ::windows_core::Result<IX509EnrollmentPolicyServer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyServer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows_core::Result<IX509CertificateTemplate> {
         let mut result__ = ::std::mem::zeroed();
@@ -11702,7 +11679,7 @@ pub struct IX509CertificateRequestCertificate2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Template: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11718,7 +11695,7 @@ impl IX509CertificateRequestCmc {
     pub unsafe fn ResetForEncode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ResetForEncode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows_core::Result<IX509CertificateRequest> {
         let mut result__ = ::std::mem::zeroed();
@@ -11732,13 +11709,13 @@ impl IX509CertificateRequestCmc {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnrollmentContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -11763,13 +11740,13 @@ impl IX509CertificateRequestCmc {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetUIContextMessage)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressDefaults(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.SuppressDefaults)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressDefaults<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -11794,13 +11771,13 @@ impl IX509CertificateRequestCmc {
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetClientId)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows_core::Result<ICspInformations> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CspInformations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -11808,13 +11785,13 @@ impl IX509CertificateRequestCmc {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetCspInformations)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -11822,13 +11799,13 @@ impl IX509CertificateRequestCmc {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetHashAlgorithm)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.AlternateSignatureAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlternateSignatureAlgorithm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -11846,7 +11823,7 @@ impl IX509CertificateRequestCmc {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeFromTemplateName)(::windows_core::Interface::as_raw(self), context, strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, context: X509CertificateEnrollmentContext, renewalrequest: P0, strcertificate: P1, encoding: EncodingType, inheritoptions: X509RequestInheritOptions) -> ::windows_core::Result<()>
     where
@@ -11855,7 +11832,7 @@ impl IX509CertificateRequestCmc {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows_core::Interface::as_raw(self), context, renewalrequest.into_param().abi(), strcertificate.into_param().abi(), encoding, inheritoptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromInnerRequest<P0>(&self, pinnerrequest: P0) -> ::windows_core::Result<()>
     where
@@ -11879,13 +11856,13 @@ impl IX509CertificateRequestCmc {
     {
         (::windows_core::Interface::vtable(self).base__.SetRequesterName)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows_core::Result<ISignerCertificate> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SignerCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -11893,7 +11870,7 @@ impl IX509CertificateRequestCmc {
     {
         (::windows_core::Interface::vtable(self).base__.SetSignerCertificate)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromInnerRequestTemplateName<P0, P1>(&self, pinnerrequest: P0, strtemplatename: P1) -> ::windows_core::Result<()>
     where
@@ -11902,43 +11879,43 @@ impl IX509CertificateRequestCmc {
     {
         (::windows_core::Interface::vtable(self).InitializeFromInnerRequestTemplateName)(::windows_core::Interface::as_raw(self), pinnerrequest.into_param().abi(), strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TemplateObjectId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NullSigned(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NullSigned)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows_core::Result<ICryptAttributes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CryptAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NameValuePairs(&self) -> ::windows_core::Result<IX509NameValuePairs> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NameValuePairs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows_core::Result<IX509Extensions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).X509Extensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CriticalExtensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
@@ -11961,19 +11938,19 @@ impl IX509CertificateRequestCmc {
     {
         (::windows_core::Interface::vtable(self).put_SenderNonce)(::windows_core::Interface::as_raw(self), encoding, value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows_core::Result<IX509SignatureInformation> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SignatureInformation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ArchivePrivateKey(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ArchivePrivateKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetArchivePrivateKey<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -11991,13 +11968,13 @@ impl IX509CertificateRequestCmc {
     {
         (::windows_core::Interface::vtable(self).put_KeyArchivalCertificate)(::windows_core::Interface::as_raw(self), encoding, value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EncryptionAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EncryptionAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetEncryptionAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -12016,7 +11993,7 @@ impl IX509CertificateRequestCmc {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_EncryptedKeyHash)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificates(&self) -> ::windows_core::Result<ISignerCertificates> {
         let mut result__ = ::std::mem::zeroed();
@@ -12104,7 +12081,7 @@ pub struct IX509CertificateRequestCmc_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SignerCertificates: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -12120,7 +12097,7 @@ impl IX509CertificateRequestCmc2 {
     pub unsafe fn ResetForEncode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ResetForEncode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows_core::Result<IX509CertificateRequest> {
         let mut result__ = ::std::mem::zeroed();
@@ -12134,13 +12111,13 @@ impl IX509CertificateRequestCmc2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnrollmentContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -12165,13 +12142,13 @@ impl IX509CertificateRequestCmc2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetUIContextMessage)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressDefaults(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.SuppressDefaults)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressDefaults<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -12196,13 +12173,13 @@ impl IX509CertificateRequestCmc2 {
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetClientId)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows_core::Result<ICspInformations> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CspInformations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -12210,13 +12187,13 @@ impl IX509CertificateRequestCmc2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetCspInformations)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -12224,13 +12201,13 @@ impl IX509CertificateRequestCmc2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetHashAlgorithm)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.AlternateSignatureAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlternateSignatureAlgorithm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -12248,7 +12225,7 @@ impl IX509CertificateRequestCmc2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.InitializeFromTemplateName)(::windows_core::Interface::as_raw(self), context, strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, context: X509CertificateEnrollmentContext, renewalrequest: P0, strcertificate: P1, encoding: EncodingType, inheritoptions: X509RequestInheritOptions) -> ::windows_core::Result<()>
     where
@@ -12257,7 +12234,7 @@ impl IX509CertificateRequestCmc2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.InitializeFromCertificate)(::windows_core::Interface::as_raw(self), context, renewalrequest.into_param().abi(), strcertificate.into_param().abi(), encoding, inheritoptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromInnerRequest<P0>(&self, pinnerrequest: P0) -> ::windows_core::Result<()>
     where
@@ -12281,13 +12258,13 @@ impl IX509CertificateRequestCmc2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetRequesterName)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows_core::Result<ISignerCertificate> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.SignerCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -12295,7 +12272,7 @@ impl IX509CertificateRequestCmc2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetSignerCertificate)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromInnerRequestTemplateName<P0, P1>(&self, pinnerrequest: P0, strtemplatename: P1) -> ::windows_core::Result<()>
     where
@@ -12304,43 +12281,43 @@ impl IX509CertificateRequestCmc2 {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeFromInnerRequestTemplateName)(::windows_core::Interface::as_raw(self), pinnerrequest.into_param().abi(), strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TemplateObjectId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NullSigned(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.NullSigned)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows_core::Result<ICryptAttributes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CryptAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NameValuePairs(&self) -> ::windows_core::Result<IX509NameValuePairs> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.NameValuePairs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows_core::Result<IX509Extensions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.X509Extensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CriticalExtensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
@@ -12363,19 +12340,19 @@ impl IX509CertificateRequestCmc2 {
     {
         (::windows_core::Interface::vtable(self).base__.put_SenderNonce)(::windows_core::Interface::as_raw(self), encoding, value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows_core::Result<IX509SignatureInformation> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SignatureInformation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ArchivePrivateKey(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ArchivePrivateKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetArchivePrivateKey<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -12393,13 +12370,13 @@ impl IX509CertificateRequestCmc2 {
     {
         (::windows_core::Interface::vtable(self).base__.put_KeyArchivalCertificate)(::windows_core::Interface::as_raw(self), encoding, value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EncryptionAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EncryptionAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetEncryptionAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -12418,13 +12395,13 @@ impl IX509CertificateRequestCmc2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_EncryptedKeyHash)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificates(&self) -> ::windows_core::Result<ISignerCertificates> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SignerCertificates)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromTemplate<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows_core::Result<()>
     where
@@ -12433,7 +12410,7 @@ impl IX509CertificateRequestCmc2 {
     {
         (::windows_core::Interface::vtable(self).InitializeFromTemplate)(::windows_core::Interface::as_raw(self), context, ppolicyserver.into_param().abi(), ptemplate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromInnerRequestTemplate<P0, P1, P2>(&self, pinnerrequest: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows_core::Result<()>
     where
@@ -12443,13 +12420,13 @@ impl IX509CertificateRequestCmc2 {
     {
         (::windows_core::Interface::vtable(self).InitializeFromInnerRequestTemplate)(::windows_core::Interface::as_raw(self), pinnerrequest.into_param().abi(), ppolicyserver.into_param().abi(), ptemplate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyServer(&self) -> ::windows_core::Result<IX509EnrollmentPolicyServer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyServer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows_core::Result<IX509CertificateTemplate> {
         let mut result__ = ::std::mem::zeroed();
@@ -12458,7 +12435,7 @@ impl IX509CertificateRequestCmc2 {
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CheckSignature)(::windows_core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CheckCertificateSignature<P0, P1>(&self, psignercertificate: P0, validatecertificatechain: P1) -> ::windows_core::Result<()>
     where
@@ -12505,7 +12482,7 @@ pub struct IX509CertificateRequestCmc2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     CheckCertificateSignature: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -12521,7 +12498,7 @@ impl IX509CertificateRequestPkcs10 {
     pub unsafe fn ResetForEncode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ResetForEncode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows_core::Result<IX509CertificateRequest> {
         let mut result__ = ::std::mem::zeroed();
@@ -12535,13 +12512,13 @@ impl IX509CertificateRequestPkcs10 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnrollmentContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -12566,13 +12543,13 @@ impl IX509CertificateRequestPkcs10 {
     {
         (::windows_core::Interface::vtable(self).base__.SetUIContextMessage)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressDefaults(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SuppressDefaults)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressDefaults<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -12597,13 +12574,13 @@ impl IX509CertificateRequestPkcs10 {
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetClientId)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows_core::Result<ICspInformations> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CspInformations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -12611,13 +12588,13 @@ impl IX509CertificateRequestPkcs10 {
     {
         (::windows_core::Interface::vtable(self).base__.SetCspInformations)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -12625,13 +12602,13 @@ impl IX509CertificateRequestPkcs10 {
     {
         (::windows_core::Interface::vtable(self).base__.SetHashAlgorithm)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AlternateSignatureAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlternateSignatureAlgorithm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -12649,7 +12626,7 @@ impl IX509CertificateRequestPkcs10 {
     {
         (::windows_core::Interface::vtable(self).InitializeFromTemplateName)(::windows_core::Interface::as_raw(self), context, strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPrivateKey<P0, P1>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: P1) -> ::windows_core::Result<()>
     where
@@ -12658,7 +12635,7 @@ impl IX509CertificateRequestPkcs10 {
     {
         (::windows_core::Interface::vtable(self).InitializeFromPrivateKey)(::windows_core::Interface::as_raw(self), context, pprivatekey.into_param().abi(), strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPublicKey<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: P1) -> ::windows_core::Result<()>
     where
@@ -12682,37 +12659,37 @@ impl IX509CertificateRequestPkcs10 {
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CheckSignature)(::windows_core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSmartCard(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsSmartCard)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TemplateObjectId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PublicKey(&self) -> ::windows_core::Result<IX509PublicKey> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PublicKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows_core::Result<IX509PrivateKey> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NullSigned(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NullSigned)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReuseKey(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -12722,13 +12699,13 @@ impl IX509CertificateRequestPkcs10 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_OldCertificate)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Subject(&self) -> ::windows_core::Result<IX500DistinguishedName> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Subject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSubject<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -12736,19 +12713,19 @@ impl IX509CertificateRequestPkcs10 {
     {
         (::windows_core::Interface::vtable(self).SetSubject)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatuses(&self) -> ::windows_core::Result<ICspStatuses> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CspStatuses)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SmimeCapabilities(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SmimeCapabilities)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSmimeCapabilities<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -12756,7 +12733,7 @@ impl IX509CertificateRequestPkcs10 {
     {
         (::windows_core::Interface::vtable(self).SetSmimeCapabilities)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows_core::Result<IX509SignatureInformation> {
         let mut result__ = ::std::mem::zeroed();
@@ -12772,25 +12749,25 @@ impl IX509CertificateRequestPkcs10 {
     {
         (::windows_core::Interface::vtable(self).SetKeyContainerNamePrefix)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows_core::Result<ICryptAttributes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CryptAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows_core::Result<IX509Extensions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).X509Extensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CriticalExtensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
@@ -12804,7 +12781,7 @@ impl IX509CertificateRequestPkcs10 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Signature)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows_core::Result<ICspStatuses> {
         let mut result__ = ::std::mem::zeroed();
@@ -12912,7 +12889,7 @@ pub struct IX509CertificateRequestPkcs10_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetCspStatuses: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -12928,7 +12905,7 @@ impl IX509CertificateRequestPkcs10V2 {
     pub unsafe fn ResetForEncode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ResetForEncode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows_core::Result<IX509CertificateRequest> {
         let mut result__ = ::std::mem::zeroed();
@@ -12942,13 +12919,13 @@ impl IX509CertificateRequestPkcs10V2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnrollmentContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -12973,13 +12950,13 @@ impl IX509CertificateRequestPkcs10V2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetUIContextMessage)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressDefaults(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.SuppressDefaults)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressDefaults<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -13004,13 +12981,13 @@ impl IX509CertificateRequestPkcs10V2 {
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetClientId)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows_core::Result<ICspInformations> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CspInformations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -13018,13 +12995,13 @@ impl IX509CertificateRequestPkcs10V2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetCspInformations)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -13032,13 +13009,13 @@ impl IX509CertificateRequestPkcs10V2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetHashAlgorithm)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.AlternateSignatureAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlternateSignatureAlgorithm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -13056,7 +13033,7 @@ impl IX509CertificateRequestPkcs10V2 {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeFromTemplateName)(::windows_core::Interface::as_raw(self), context, strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPrivateKey<P0, P1>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: P1) -> ::windows_core::Result<()>
     where
@@ -13065,7 +13042,7 @@ impl IX509CertificateRequestPkcs10V2 {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeFromPrivateKey)(::windows_core::Interface::as_raw(self), context, pprivatekey.into_param().abi(), strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPublicKey<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: P1) -> ::windows_core::Result<()>
     where
@@ -13089,37 +13066,37 @@ impl IX509CertificateRequestPkcs10V2 {
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CheckSignature)(::windows_core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSmartCard(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsSmartCard)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TemplateObjectId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PublicKey(&self) -> ::windows_core::Result<IX509PublicKey> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PublicKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows_core::Result<IX509PrivateKey> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PrivateKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NullSigned(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.NullSigned)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReuseKey(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13129,13 +13106,13 @@ impl IX509CertificateRequestPkcs10V2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_OldCertificate)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Subject(&self) -> ::windows_core::Result<IX500DistinguishedName> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Subject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSubject<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -13143,19 +13120,19 @@ impl IX509CertificateRequestPkcs10V2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetSubject)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatuses(&self) -> ::windows_core::Result<ICspStatuses> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CspStatuses)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SmimeCapabilities(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SmimeCapabilities)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSmimeCapabilities<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -13163,7 +13140,7 @@ impl IX509CertificateRequestPkcs10V2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetSmimeCapabilities)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows_core::Result<IX509SignatureInformation> {
         let mut result__ = ::std::mem::zeroed();
@@ -13179,25 +13156,25 @@ impl IX509CertificateRequestPkcs10V2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetKeyContainerNamePrefix)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows_core::Result<ICryptAttributes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CryptAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows_core::Result<IX509Extensions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.X509Extensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CriticalExtensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
@@ -13211,13 +13188,13 @@ impl IX509CertificateRequestPkcs10V2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_Signature)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows_core::Result<ICspStatuses> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCspStatuses)(::windows_core::Interface::as_raw(self), keyspec, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromTemplate<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows_core::Result<()>
     where
@@ -13226,7 +13203,7 @@ impl IX509CertificateRequestPkcs10V2 {
     {
         (::windows_core::Interface::vtable(self).InitializeFromTemplate)(::windows_core::Interface::as_raw(self), context, ppolicyserver.into_param().abi(), ptemplate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPrivateKeyTemplate<P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows_core::Result<()>
     where
@@ -13236,7 +13213,7 @@ impl IX509CertificateRequestPkcs10V2 {
     {
         (::windows_core::Interface::vtable(self).InitializeFromPrivateKeyTemplate)(::windows_core::Interface::as_raw(self), context, pprivatekey.into_param().abi(), ppolicyserver.into_param().abi(), ptemplate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPublicKeyTemplate<P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows_core::Result<()>
     where
@@ -13246,13 +13223,13 @@ impl IX509CertificateRequestPkcs10V2 {
     {
         (::windows_core::Interface::vtable(self).InitializeFromPublicKeyTemplate)(::windows_core::Interface::as_raw(self), context, ppublickey.into_param().abi(), ppolicyserver.into_param().abi(), ptemplate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyServer(&self) -> ::windows_core::Result<IX509EnrollmentPolicyServer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyServer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows_core::Result<IX509CertificateTemplate> {
         let mut result__ = ::std::mem::zeroed();
@@ -13295,7 +13272,7 @@ pub struct IX509CertificateRequestPkcs10V2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Template: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13311,7 +13288,7 @@ impl IX509CertificateRequestPkcs10V3 {
     pub unsafe fn ResetForEncode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ResetForEncode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows_core::Result<IX509CertificateRequest> {
         let mut result__ = ::std::mem::zeroed();
@@ -13325,13 +13302,13 @@ impl IX509CertificateRequestPkcs10V3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnrollmentContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -13356,13 +13333,13 @@ impl IX509CertificateRequestPkcs10V3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetUIContextMessage)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressDefaults(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.SuppressDefaults)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressDefaults<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -13387,13 +13364,13 @@ impl IX509CertificateRequestPkcs10V3 {
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetClientId)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows_core::Result<ICspInformations> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CspInformations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -13401,13 +13378,13 @@ impl IX509CertificateRequestPkcs10V3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetCspInformations)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -13415,13 +13392,13 @@ impl IX509CertificateRequestPkcs10V3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetHashAlgorithm)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.AlternateSignatureAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlternateSignatureAlgorithm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -13439,7 +13416,7 @@ impl IX509CertificateRequestPkcs10V3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.InitializeFromTemplateName)(::windows_core::Interface::as_raw(self), context, strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPrivateKey<P0, P1>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: P1) -> ::windows_core::Result<()>
     where
@@ -13448,7 +13425,7 @@ impl IX509CertificateRequestPkcs10V3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.InitializeFromPrivateKey)(::windows_core::Interface::as_raw(self), context, pprivatekey.into_param().abi(), strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPublicKey<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: P1) -> ::windows_core::Result<()>
     where
@@ -13472,37 +13449,37 @@ impl IX509CertificateRequestPkcs10V3 {
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.CheckSignature)(::windows_core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSmartCard(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsSmartCard)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.TemplateObjectId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PublicKey(&self) -> ::windows_core::Result<IX509PublicKey> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.PublicKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows_core::Result<IX509PrivateKey> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.PrivateKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NullSigned(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.NullSigned)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReuseKey(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13512,13 +13489,13 @@ impl IX509CertificateRequestPkcs10V3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.get_OldCertificate)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Subject(&self) -> ::windows_core::Result<IX500DistinguishedName> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Subject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSubject<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -13526,19 +13503,19 @@ impl IX509CertificateRequestPkcs10V3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetSubject)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatuses(&self) -> ::windows_core::Result<ICspStatuses> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CspStatuses)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SmimeCapabilities(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.SmimeCapabilities)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSmimeCapabilities<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -13546,7 +13523,7 @@ impl IX509CertificateRequestPkcs10V3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetSmimeCapabilities)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows_core::Result<IX509SignatureInformation> {
         let mut result__ = ::std::mem::zeroed();
@@ -13562,25 +13539,25 @@ impl IX509CertificateRequestPkcs10V3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetKeyContainerNamePrefix)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows_core::Result<ICryptAttributes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CryptAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows_core::Result<IX509Extensions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.X509Extensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CriticalExtensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
@@ -13594,13 +13571,13 @@ impl IX509CertificateRequestPkcs10V3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.get_Signature)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows_core::Result<ICspStatuses> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetCspStatuses)(::windows_core::Interface::as_raw(self), keyspec, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromTemplate<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows_core::Result<()>
     where
@@ -13609,7 +13586,7 @@ impl IX509CertificateRequestPkcs10V3 {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeFromTemplate)(::windows_core::Interface::as_raw(self), context, ppolicyserver.into_param().abi(), ptemplate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPrivateKeyTemplate<P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows_core::Result<()>
     where
@@ -13619,7 +13596,7 @@ impl IX509CertificateRequestPkcs10V3 {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeFromPrivateKeyTemplate)(::windows_core::Interface::as_raw(self), context, pprivatekey.into_param().abi(), ppolicyserver.into_param().abi(), ptemplate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPublicKeyTemplate<P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows_core::Result<()>
     where
@@ -13629,25 +13606,25 @@ impl IX509CertificateRequestPkcs10V3 {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeFromPublicKeyTemplate)(::windows_core::Interface::as_raw(self), context, ppublickey.into_param().abi(), ppolicyserver.into_param().abi(), ptemplate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyServer(&self) -> ::windows_core::Result<IX509EnrollmentPolicyServer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PolicyServer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows_core::Result<IX509CertificateTemplate> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Template)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AttestPrivateKey(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AttestPrivateKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAttestPrivateKey<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -13665,13 +13642,13 @@ impl IX509CertificateRequestPkcs10V3 {
     {
         (::windows_core::Interface::vtable(self).put_AttestationEncryptionCertificate)(::windows_core::Interface::as_raw(self), encoding, value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EncryptionAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EncryptionAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetEncryptionAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -13696,7 +13673,7 @@ impl IX509CertificateRequestPkcs10V3 {
     {
         (::windows_core::Interface::vtable(self).SetChallengePassword)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NameValuePairs(&self) -> ::windows_core::Result<IX509NameValuePairs> {
         let mut result__ = ::std::mem::zeroed();
@@ -13745,7 +13722,7 @@ pub struct IX509CertificateRequestPkcs10V3_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     NameValuePairs: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13761,7 +13738,7 @@ impl IX509CertificateRequestPkcs10V4 {
     pub unsafe fn ResetForEncode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ResetForEncode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows_core::Result<IX509CertificateRequest> {
         let mut result__ = ::std::mem::zeroed();
@@ -13775,13 +13752,13 @@ impl IX509CertificateRequestPkcs10V4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnrollmentContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -13806,13 +13783,13 @@ impl IX509CertificateRequestPkcs10V4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetUIContextMessage)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressDefaults(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SuppressDefaults)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressDefaults<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -13837,13 +13814,13 @@ impl IX509CertificateRequestPkcs10V4 {
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetClientId)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows_core::Result<ICspInformations> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CspInformations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -13851,13 +13828,13 @@ impl IX509CertificateRequestPkcs10V4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetCspInformations)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -13865,13 +13842,13 @@ impl IX509CertificateRequestPkcs10V4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetHashAlgorithm)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.AlternateSignatureAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlternateSignatureAlgorithm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -13889,7 +13866,7 @@ impl IX509CertificateRequestPkcs10V4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.InitializeFromTemplateName)(::windows_core::Interface::as_raw(self), context, strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPrivateKey<P0, P1>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, strtemplatename: P1) -> ::windows_core::Result<()>
     where
@@ -13898,7 +13875,7 @@ impl IX509CertificateRequestPkcs10V4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.InitializeFromPrivateKey)(::windows_core::Interface::as_raw(self), context, pprivatekey.into_param().abi(), strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPublicKey<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, strtemplatename: P1) -> ::windows_core::Result<()>
     where
@@ -13922,37 +13899,37 @@ impl IX509CertificateRequestPkcs10V4 {
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.CheckSignature)(::windows_core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSmartCard(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsSmartCard)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.TemplateObjectId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PublicKey(&self) -> ::windows_core::Result<IX509PublicKey> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.PublicKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows_core::Result<IX509PrivateKey> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.PrivateKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NullSigned(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.NullSigned)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReuseKey(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13962,13 +13939,13 @@ impl IX509CertificateRequestPkcs10V4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.get_OldCertificate)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Subject(&self) -> ::windows_core::Result<IX500DistinguishedName> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Subject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSubject<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -13976,19 +13953,19 @@ impl IX509CertificateRequestPkcs10V4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetSubject)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatuses(&self) -> ::windows_core::Result<ICspStatuses> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CspStatuses)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SmimeCapabilities(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.SmimeCapabilities)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSmimeCapabilities<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -13996,7 +13973,7 @@ impl IX509CertificateRequestPkcs10V4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetSmimeCapabilities)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows_core::Result<IX509SignatureInformation> {
         let mut result__ = ::std::mem::zeroed();
@@ -14012,25 +13989,25 @@ impl IX509CertificateRequestPkcs10V4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetKeyContainerNamePrefix)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows_core::Result<ICryptAttributes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CryptAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows_core::Result<IX509Extensions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.X509Extensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CriticalExtensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
@@ -14044,13 +14021,13 @@ impl IX509CertificateRequestPkcs10V4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.get_Signature)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows_core::Result<ICspStatuses> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetCspStatuses)(::windows_core::Interface::as_raw(self), keyspec, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromTemplate<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows_core::Result<()>
     where
@@ -14059,7 +14036,7 @@ impl IX509CertificateRequestPkcs10V4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.InitializeFromTemplate)(::windows_core::Interface::as_raw(self), context, ppolicyserver.into_param().abi(), ptemplate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPrivateKeyTemplate<P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, pprivatekey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows_core::Result<()>
     where
@@ -14069,7 +14046,7 @@ impl IX509CertificateRequestPkcs10V4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.InitializeFromPrivateKeyTemplate)(::windows_core::Interface::as_raw(self), context, pprivatekey.into_param().abi(), ppolicyserver.into_param().abi(), ptemplate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromPublicKeyTemplate<P0, P1, P2>(&self, context: X509CertificateEnrollmentContext, ppublickey: P0, ppolicyserver: P1, ptemplate: P2) -> ::windows_core::Result<()>
     where
@@ -14079,25 +14056,25 @@ impl IX509CertificateRequestPkcs10V4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.InitializeFromPublicKeyTemplate)(::windows_core::Interface::as_raw(self), context, ppublickey.into_param().abi(), ppolicyserver.into_param().abi(), ptemplate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyServer(&self) -> ::windows_core::Result<IX509EnrollmentPolicyServer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.PolicyServer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows_core::Result<IX509CertificateTemplate> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Template)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AttestPrivateKey(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AttestPrivateKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAttestPrivateKey<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -14115,13 +14092,13 @@ impl IX509CertificateRequestPkcs10V4 {
     {
         (::windows_core::Interface::vtable(self).base__.put_AttestationEncryptionCertificate)(::windows_core::Interface::as_raw(self), encoding, value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EncryptionAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EncryptionAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetEncryptionAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -14146,7 +14123,7 @@ impl IX509CertificateRequestPkcs10V4 {
     {
         (::windows_core::Interface::vtable(self).base__.SetChallengePassword)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NameValuePairs(&self) -> ::windows_core::Result<IX509NameValuePairs> {
         let mut result__ = ::std::mem::zeroed();
@@ -14159,13 +14136,13 @@ impl IX509CertificateRequestPkcs10V4 {
     pub unsafe fn SetClaimType(&self, value: KeyAttestationClaimType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetClaimType)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AttestPrivateKeyPreferred(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AttestPrivateKeyPreferred)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAttestPrivateKeyPreferred<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -14200,7 +14177,7 @@ pub struct IX509CertificateRequestPkcs10V4_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetAttestPrivateKeyPreferred: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14216,7 +14193,7 @@ impl IX509CertificateRequestPkcs7 {
     pub unsafe fn ResetForEncode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ResetForEncode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows_core::Result<IX509CertificateRequest> {
         let mut result__ = ::std::mem::zeroed();
@@ -14230,13 +14207,13 @@ impl IX509CertificateRequestPkcs7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnrollmentContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -14261,13 +14238,13 @@ impl IX509CertificateRequestPkcs7 {
     {
         (::windows_core::Interface::vtable(self).base__.SetUIContextMessage)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressDefaults(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SuppressDefaults)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressDefaults<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -14292,13 +14269,13 @@ impl IX509CertificateRequestPkcs7 {
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetClientId)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows_core::Result<ICspInformations> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CspInformations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -14306,13 +14283,13 @@ impl IX509CertificateRequestPkcs7 {
     {
         (::windows_core::Interface::vtable(self).base__.SetCspInformations)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -14320,13 +14297,13 @@ impl IX509CertificateRequestPkcs7 {
     {
         (::windows_core::Interface::vtable(self).base__.SetHashAlgorithm)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AlternateSignatureAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlternateSignatureAlgorithm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -14344,7 +14321,7 @@ impl IX509CertificateRequestPkcs7 {
     {
         (::windows_core::Interface::vtable(self).InitializeFromTemplateName)(::windows_core::Interface::as_raw(self), context, strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, context: X509CertificateEnrollmentContext, renewalrequest: P0, strcertificate: P1, encoding: EncodingType, inheritoptions: X509RequestInheritOptions) -> ::windows_core::Result<()>
     where
@@ -14353,7 +14330,7 @@ impl IX509CertificateRequestPkcs7 {
     {
         (::windows_core::Interface::vtable(self).InitializeFromCertificate)(::windows_core::Interface::as_raw(self), context, renewalrequest.into_param().abi(), strcertificate.into_param().abi(), encoding, inheritoptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromInnerRequest<P0>(&self, pinnerrequest: P0) -> ::windows_core::Result<()>
     where
@@ -14377,13 +14354,13 @@ impl IX509CertificateRequestPkcs7 {
     {
         (::windows_core::Interface::vtable(self).SetRequesterName)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows_core::Result<ISignerCertificate> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SignerCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -14428,7 +14405,7 @@ pub struct IX509CertificateRequestPkcs7_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSignerCertificate: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14444,7 +14421,7 @@ impl IX509CertificateRequestPkcs7V2 {
     pub unsafe fn ResetForEncode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ResetForEncode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows_core::Result<IX509CertificateRequest> {
         let mut result__ = ::std::mem::zeroed();
@@ -14458,13 +14435,13 @@ impl IX509CertificateRequestPkcs7V2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnrollmentContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -14489,13 +14466,13 @@ impl IX509CertificateRequestPkcs7V2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetUIContextMessage)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressDefaults(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.SuppressDefaults)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressDefaults<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -14520,13 +14497,13 @@ impl IX509CertificateRequestPkcs7V2 {
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetClientId)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows_core::Result<ICspInformations> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CspInformations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -14534,13 +14511,13 @@ impl IX509CertificateRequestPkcs7V2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetCspInformations)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -14548,13 +14525,13 @@ impl IX509CertificateRequestPkcs7V2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetHashAlgorithm)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.AlternateSignatureAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlternateSignatureAlgorithm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -14572,7 +14549,7 @@ impl IX509CertificateRequestPkcs7V2 {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeFromTemplateName)(::windows_core::Interface::as_raw(self), context, strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromCertificate<P0, P1>(&self, context: X509CertificateEnrollmentContext, renewalrequest: P0, strcertificate: P1, encoding: EncodingType, inheritoptions: X509RequestInheritOptions) -> ::windows_core::Result<()>
     where
@@ -14581,7 +14558,7 @@ impl IX509CertificateRequestPkcs7V2 {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeFromCertificate)(::windows_core::Interface::as_raw(self), context, renewalrequest.into_param().abi(), strcertificate.into_param().abi(), encoding, inheritoptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromInnerRequest<P0>(&self, pinnerrequest: P0) -> ::windows_core::Result<()>
     where
@@ -14605,13 +14582,13 @@ impl IX509CertificateRequestPkcs7V2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetRequesterName)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows_core::Result<ISignerCertificate> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SignerCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -14619,7 +14596,7 @@ impl IX509CertificateRequestPkcs7V2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetSignerCertificate)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromTemplate<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows_core::Result<()>
     where
@@ -14628,19 +14605,19 @@ impl IX509CertificateRequestPkcs7V2 {
     {
         (::windows_core::Interface::vtable(self).InitializeFromTemplate)(::windows_core::Interface::as_raw(self), context, ppolicyserver.into_param().abi(), ptemplate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyServer(&self) -> ::windows_core::Result<IX509EnrollmentPolicyServer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyServer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows_core::Result<IX509CertificateTemplate> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Template)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckCertificateSignature<P0>(&self, validatecertificatechain: P0) -> ::windows_core::Result<()>
     where
@@ -14681,7 +14658,7 @@ pub struct IX509CertificateRequestPkcs7V2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CheckCertificateSignature: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14703,7 +14680,7 @@ impl IX509CertificateRevocationList {
     pub unsafe fn ResetForEncode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ResetForEncode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CheckPublicKeySignature<P0>(&self, ppublickey: P0) -> ::windows_core::Result<()>
     where
@@ -14714,13 +14691,13 @@ impl IX509CertificateRevocationList {
     pub unsafe fn CheckSignature(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CheckSignature)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Issuer(&self) -> ::windows_core::Result<IX500DistinguishedName> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Issuer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetIssuer<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -14742,31 +14719,31 @@ impl IX509CertificateRevocationList {
     pub unsafe fn SetNextUpdate(&self, value: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetNextUpdate)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509CRLEntries(&self) -> ::windows_core::Result<IX509CertificateRevocationListEntries> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).X509CRLEntries)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows_core::Result<IX509Extensions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).X509Extensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CriticalExtensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows_core::Result<ISignerCertificate> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SignerCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -14791,25 +14768,25 @@ impl IX509CertificateRevocationList {
     pub unsafe fn SetCAVersion(&self, pvalue: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCAVersion)(::windows_core::Interface::as_raw(self), pvalue).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BaseCRL(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BaseCRL)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NullSigned(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NullSigned)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -14817,13 +14794,13 @@ impl IX509CertificateRevocationList {
     {
         (::windows_core::Interface::vtable(self).SetHashAlgorithm)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AlternateSignatureAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlternateSignatureAlgorithm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -14831,7 +14808,7 @@ impl IX509CertificateRevocationList {
     {
         (::windows_core::Interface::vtable(self).SetAlternateSignatureAlgorithm)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows_core::Result<IX509SignatureInformation> {
         let mut result__ = ::std::mem::zeroed();
@@ -14942,14 +14919,14 @@ pub struct IX509CertificateRevocationList_Vtbl {
     pub get_RawDataToBeSigned: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub get_Signature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateRevocationListEntries(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateRevocationListEntries {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<IX509CertificateRevocationListEntry> {
         let mut result__ = ::std::mem::zeroed();
@@ -14963,7 +14940,7 @@ impl IX509CertificateRevocationListEntries {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -14984,7 +14961,7 @@ impl IX509CertificateRevocationListEntries {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_IndexBySerialNumber)(::windows_core::Interface::as_raw(self), encoding, serialnumber.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -15026,7 +15003,7 @@ pub struct IX509CertificateRevocationListEntries_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     AddRange: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15054,13 +15031,13 @@ impl IX509CertificateRevocationListEntry {
     pub unsafe fn SetRevocationReason(&self, value: CRLRevocationReason) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRevocationReason)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows_core::Result<IX509Extensions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).X509Extensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
@@ -15096,14 +15073,14 @@ pub struct IX509CertificateRevocationListEntry_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CriticalExtensions: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateTemplate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateTemplate {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Property(&self, property: EnrollmentTemplateProperty) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -15130,14 +15107,14 @@ pub struct IX509CertificateTemplate_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Property: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateTemplateWritable(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateTemplateWritable {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -15151,18 +15128,18 @@ impl IX509CertificateTemplateWritable {
     {
         (::windows_core::Interface::vtable(self).Commit)(::windows_core::Interface::as_raw(self), commitflags, strservercontext.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Property(&self, property: EnrollmentTemplateProperty) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Property)(::windows_core::Interface::as_raw(self), property, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn put_Property(&self, property: EnrollmentTemplateProperty, value: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).put_Property)(::windows_core::Interface::as_raw(self), property, ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows_core::Result<IX509CertificateTemplate> {
         let mut result__ = ::std::mem::zeroed();
@@ -15202,14 +15179,14 @@ pub struct IX509CertificateTemplateWritable_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Template: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateTemplates(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateTemplates {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<IX509CertificateTemplate> {
         let mut result__ = ::std::mem::zeroed();
@@ -15223,7 +15200,7 @@ impl IX509CertificateTemplates {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -15237,7 +15214,7 @@ impl IX509CertificateTemplates {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByName<P0>(&self, bstrname: P0) -> ::windows_core::Result<IX509CertificateTemplate>
     where
@@ -15246,7 +15223,7 @@ impl IX509CertificateTemplates {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_ItemByName)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByOid<P0>(&self, poid: P0) -> ::windows_core::Result<IX509CertificateTemplate>
     where
@@ -15292,7 +15269,7 @@ pub struct IX509CertificateTemplates_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     get_ItemByOid: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15313,7 +15290,7 @@ impl IX509EndorsementKey {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Opened(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15331,7 +15308,7 @@ impl IX509EndorsementKey {
     {
         (::windows_core::Interface::vtable(self).RemoveCertificate)(::windows_core::Interface::as_raw(self), encoding, strcertificate.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCertificateByIndex<P0>(&self, manufactureronly: P0, dwindex: i32, encoding: EncodingType) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -15340,7 +15317,7 @@ impl IX509EndorsementKey {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCertificateByIndex)(::windows_core::Interface::as_raw(self), manufactureronly.into_param().abi(), dwindex, encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCertificateCount<P0>(&self, manufactureronly: P0) -> ::windows_core::Result<i32>
     where
@@ -15349,7 +15326,7 @@ impl IX509EndorsementKey {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCertificateCount)(::windows_core::Interface::as_raw(self), manufactureronly.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExportPublicKey(&self) -> ::windows_core::Result<IX509PublicKey> {
         let mut result__ = ::std::mem::zeroed();
@@ -15401,7 +15378,7 @@ pub struct IX509EndorsementKey_Vtbl {
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15417,7 +15394,7 @@ impl IX509Enrollment {
     {
         (::windows_core::Interface::vtable(self).InitializeFromTemplateName)(::windows_core::Interface::as_raw(self), context, strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromRequest<P0>(&self, prequest: P0) -> ::windows_core::Result<()>
     where
@@ -15446,19 +15423,19 @@ impl IX509Enrollment {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePFX)(::windows_core::Interface::as_raw(self), strpassword.into_param().abi(), exportoptions, encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Request(&self) -> ::windows_core::Result<IX509CertificateRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Request)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -15473,7 +15450,7 @@ impl IX509Enrollment {
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetParentWindow)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NameValuePairs(&self) -> ::windows_core::Result<IX509NameValuePairs> {
         let mut result__ = ::std::mem::zeroed();
@@ -15483,7 +15460,7 @@ impl IX509Enrollment {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnrollmentContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows_core::Result<IX509EnrollmentStatus> {
         let mut result__ = ::std::mem::zeroed();
@@ -15583,7 +15560,7 @@ pub struct IX509Enrollment_Vtbl {
     pub RequestId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows_core::HRESULT,
     pub CAConfigString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15599,7 +15576,7 @@ impl IX509Enrollment2 {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeFromTemplateName)(::windows_core::Interface::as_raw(self), context, strtemplatename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromRequest<P0>(&self, prequest: P0) -> ::windows_core::Result<()>
     where
@@ -15628,19 +15605,19 @@ impl IX509Enrollment2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreatePFX)(::windows_core::Interface::as_raw(self), strpassword.into_param().abi(), exportoptions, encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Request(&self) -> ::windows_core::Result<IX509CertificateRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Request)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -15655,7 +15632,7 @@ impl IX509Enrollment2 {
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetParentWindow)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NameValuePairs(&self) -> ::windows_core::Result<IX509NameValuePairs> {
         let mut result__ = ::std::mem::zeroed();
@@ -15665,7 +15642,7 @@ impl IX509Enrollment2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnrollmentContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows_core::Result<IX509EnrollmentStatus> {
         let mut result__ = ::std::mem::zeroed();
@@ -15707,7 +15684,7 @@ impl IX509Enrollment2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CAConfigString)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromTemplate<P0, P1>(&self, context: X509CertificateEnrollmentContext, ppolicyserver: P0, ptemplate: P1) -> ::windows_core::Result<()>
     where
@@ -15725,13 +15702,13 @@ impl IX509Enrollment2 {
     {
         (::windows_core::Interface::vtable(self).InstallResponse2)(::windows_core::Interface::as_raw(self), restrictions, strresponse.into_param().abi(), encoding, strpassword.into_param().abi(), strenrollmentpolicyserverurl.into_param().abi(), strenrollmentpolicyserverid.into_param().abi(), enrollmentpolicyserverflags, authflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyServer(&self) -> ::windows_core::Result<IX509EnrollmentPolicyServer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyServer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows_core::Result<IX509CertificateTemplate> {
         let mut result__ = ::std::mem::zeroed();
@@ -15772,7 +15749,7 @@ pub struct IX509Enrollment2_Vtbl {
     Template: usize,
     pub RequestIdString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15828,14 +15805,14 @@ pub struct IX509EnrollmentHelper_Vtbl {
     pub Enroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strenrollmentpolicyserveruri: ::std::mem::MaybeUninit<::windows_core::BSTR>, strtemplatename: ::std::mem::MaybeUninit<::windows_core::BSTR>, encoding: EncodingType, enrollflags: WebEnrollmentFlags, pstrcertificate: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509EnrollmentPolicyServer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509EnrollmentPolicyServer {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0, P1, P2>(&self, bstrpolicyserverurl: P0, bstrpolicyserverid: P1, authflags: X509EnrollmentAuthFlags, fisuntrusted: P2, context: X509CertificateEnrollmentContext) -> ::windows_core::Result<()>
     where
@@ -15848,13 +15825,13 @@ impl IX509EnrollmentPolicyServer {
     pub unsafe fn LoadPolicy(&self, option: X509EnrollmentPolicyLoadOption) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LoadPolicy)(::windows_core::Interface::as_raw(self), option).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTemplates(&self) -> ::windows_core::Result<IX509CertificateTemplates> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTemplates)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCAsForTemplate<P0>(&self, ptemplate: P0) -> ::windows_core::Result<ICertificationAuthorities>
     where
@@ -15863,7 +15840,7 @@ impl IX509EnrollmentPolicyServer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCAsForTemplate)(::windows_core::Interface::as_raw(self), ptemplate.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCAs(&self) -> ::windows_core::Result<ICertificationAuthorities> {
         let mut result__ = ::std::mem::zeroed();
@@ -15872,7 +15849,7 @@ impl IX509EnrollmentPolicyServer {
     pub unsafe fn Validate(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Validate)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCustomOids(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
@@ -15898,19 +15875,19 @@ impl IX509EnrollmentPolicyServer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFriendlyName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsDefaultCEP(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIsDefaultCEP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUseClientId(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetUseClientId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllowUnTrustedCA(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15935,18 +15912,18 @@ impl IX509EnrollmentPolicyServer {
     {
         (::windows_core::Interface::vtable(self).SetCredential)(::windows_core::Interface::as_raw(self), hwndparent, flag, strcredential.into_param().abi(), strpassword.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryChanges(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryChanges)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn InitializeImport(&self, val: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitializeImport)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Export(&self, exportflags: X509EnrollmentPolicyExportFlags) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -16033,7 +16010,7 @@ pub struct IX509EnrollmentPolicyServer_Vtbl {
     pub Cost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut u32) -> ::windows_core::HRESULT,
     pub SetCost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -16117,7 +16094,7 @@ pub struct IX509EnrollmentStatus_Vtbl {
     pub SetError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
     pub ErrorText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -16149,14 +16126,14 @@ pub struct IX509EnrollmentWebClassFactory_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub CreateObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strprogid: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppiunknown: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509Extension(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509Extension {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -16165,7 +16142,7 @@ impl IX509Extension {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -16175,13 +16152,13 @@ impl IX509Extension {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Critical(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Critical)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCritical<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -16223,14 +16200,14 @@ pub struct IX509Extension_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetCritical: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionAlternativeNames(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionAlternativeNames {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -16239,7 +16216,7 @@ impl IX509ExtensionAlternativeNames {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -16249,13 +16226,13 @@ impl IX509ExtensionAlternativeNames {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Critical(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Critical)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCritical<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -16263,7 +16240,7 @@ impl IX509ExtensionAlternativeNames {
     {
         (::windows_core::Interface::vtable(self).base__.SetCritical)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeEncode<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -16277,7 +16254,7 @@ impl IX509ExtensionAlternativeNames {
     {
         (::windows_core::Interface::vtable(self).InitializeDecode)(::windows_core::Interface::as_raw(self), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AlternativeNames(&self) -> ::windows_core::Result<IAlternativeNames> {
         let mut result__ = ::std::mem::zeroed();
@@ -16309,14 +16286,14 @@ pub struct IX509ExtensionAlternativeNames_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     AlternativeNames: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionAuthorityKeyIdentifier(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionAuthorityKeyIdentifier {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -16325,7 +16302,7 @@ impl IX509ExtensionAuthorityKeyIdentifier {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -16335,13 +16312,13 @@ impl IX509ExtensionAuthorityKeyIdentifier {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Critical(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Critical)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCritical<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -16385,14 +16362,14 @@ pub struct IX509ExtensionAuthorityKeyIdentifier_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, strencodeddata: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub get_AuthorityKeyIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionBasicConstraints(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionBasicConstraints {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -16401,7 +16378,7 @@ impl IX509ExtensionBasicConstraints {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -16411,13 +16388,13 @@ impl IX509ExtensionBasicConstraints {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Critical(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Critical)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCritical<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -16425,7 +16402,7 @@ impl IX509ExtensionBasicConstraints {
     {
         (::windows_core::Interface::vtable(self).base__.SetCritical)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeEncode<P0>(&self, isca: P0, pathlenconstraint: i32) -> ::windows_core::Result<()>
     where
@@ -16439,7 +16416,7 @@ impl IX509ExtensionBasicConstraints {
     {
         (::windows_core::Interface::vtable(self).InitializeDecode)(::windows_core::Interface::as_raw(self), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCA(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -16476,14 +16453,14 @@ pub struct IX509ExtensionBasicConstraints_Vtbl {
     IsCA: usize,
     pub PathLenConstraint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionCertificatePolicies(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionCertificatePolicies {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -16492,7 +16469,7 @@ impl IX509ExtensionCertificatePolicies {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -16502,13 +16479,13 @@ impl IX509ExtensionCertificatePolicies {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Critical(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Critical)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCritical<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -16516,7 +16493,7 @@ impl IX509ExtensionCertificatePolicies {
     {
         (::windows_core::Interface::vtable(self).base__.SetCritical)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeEncode<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -16530,7 +16507,7 @@ impl IX509ExtensionCertificatePolicies {
     {
         (::windows_core::Interface::vtable(self).InitializeDecode)(::windows_core::Interface::as_raw(self), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Policies(&self) -> ::windows_core::Result<ICertificatePolicies> {
         let mut result__ = ::std::mem::zeroed();
@@ -16562,14 +16539,14 @@ pub struct IX509ExtensionCertificatePolicies_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Policies: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionEnhancedKeyUsage(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionEnhancedKeyUsage {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -16578,7 +16555,7 @@ impl IX509ExtensionEnhancedKeyUsage {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -16588,13 +16565,13 @@ impl IX509ExtensionEnhancedKeyUsage {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Critical(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Critical)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCritical<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -16602,7 +16579,7 @@ impl IX509ExtensionEnhancedKeyUsage {
     {
         (::windows_core::Interface::vtable(self).base__.SetCritical)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeEncode<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -16616,7 +16593,7 @@ impl IX509ExtensionEnhancedKeyUsage {
     {
         (::windows_core::Interface::vtable(self).InitializeDecode)(::windows_core::Interface::as_raw(self), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnhancedKeyUsage(&self) -> ::windows_core::Result<IObjectIds> {
         let mut result__ = ::std::mem::zeroed();
@@ -16648,14 +16625,14 @@ pub struct IX509ExtensionEnhancedKeyUsage_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     EnhancedKeyUsage: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionKeyUsage(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionKeyUsage {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -16664,7 +16641,7 @@ impl IX509ExtensionKeyUsage {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -16674,13 +16651,13 @@ impl IX509ExtensionKeyUsage {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Critical(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Critical)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCritical<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -16721,14 +16698,14 @@ pub struct IX509ExtensionKeyUsage_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, strencodeddata: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub KeyUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut X509KeyUsageFlags) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionMSApplicationPolicies(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionMSApplicationPolicies {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -16737,7 +16714,7 @@ impl IX509ExtensionMSApplicationPolicies {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -16747,13 +16724,13 @@ impl IX509ExtensionMSApplicationPolicies {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Critical(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Critical)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCritical<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -16761,7 +16738,7 @@ impl IX509ExtensionMSApplicationPolicies {
     {
         (::windows_core::Interface::vtable(self).base__.SetCritical)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeEncode<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -16775,7 +16752,7 @@ impl IX509ExtensionMSApplicationPolicies {
     {
         (::windows_core::Interface::vtable(self).InitializeDecode)(::windows_core::Interface::as_raw(self), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Policies(&self) -> ::windows_core::Result<ICertificatePolicies> {
         let mut result__ = ::std::mem::zeroed();
@@ -16807,14 +16784,14 @@ pub struct IX509ExtensionMSApplicationPolicies_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Policies: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionSmimeCapabilities(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionSmimeCapabilities {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -16823,7 +16800,7 @@ impl IX509ExtensionSmimeCapabilities {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -16833,13 +16810,13 @@ impl IX509ExtensionSmimeCapabilities {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Critical(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Critical)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCritical<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -16847,7 +16824,7 @@ impl IX509ExtensionSmimeCapabilities {
     {
         (::windows_core::Interface::vtable(self).base__.SetCritical)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeEncode<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -16861,7 +16838,7 @@ impl IX509ExtensionSmimeCapabilities {
     {
         (::windows_core::Interface::vtable(self).InitializeDecode)(::windows_core::Interface::as_raw(self), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SmimeCapabilities(&self) -> ::windows_core::Result<ISmimeCapabilities> {
         let mut result__ = ::std::mem::zeroed();
@@ -16893,14 +16870,14 @@ pub struct IX509ExtensionSmimeCapabilities_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SmimeCapabilities: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionSubjectKeyIdentifier(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionSubjectKeyIdentifier {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -16909,7 +16886,7 @@ impl IX509ExtensionSubjectKeyIdentifier {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -16919,13 +16896,13 @@ impl IX509ExtensionSubjectKeyIdentifier {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Critical(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Critical)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCritical<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -16969,14 +16946,14 @@ pub struct IX509ExtensionSubjectKeyIdentifier_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, strencodeddata: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub get_SubjectKeyIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionTemplate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionTemplate {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -16985,7 +16962,7 @@ impl IX509ExtensionTemplate {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -16995,13 +16972,13 @@ impl IX509ExtensionTemplate {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Critical(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Critical)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCritical<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -17009,7 +16986,7 @@ impl IX509ExtensionTemplate {
     {
         (::windows_core::Interface::vtable(self).base__.SetCritical)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeEncode<P0>(&self, ptemplateoid: P0, majorversion: i32, minorversion: i32) -> ::windows_core::Result<()>
     where
@@ -17023,7 +17000,7 @@ impl IX509ExtensionTemplate {
     {
         (::windows_core::Interface::vtable(self).InitializeDecode)(::windows_core::Interface::as_raw(self), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateOid(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -17065,14 +17042,14 @@ pub struct IX509ExtensionTemplate_Vtbl {
     pub MajorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows_core::HRESULT,
     pub MinorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionTemplateName(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionTemplateName {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pobjectid: P0, encoding: EncodingType, strencodeddata: P1) -> ::windows_core::Result<()>
     where
@@ -17081,7 +17058,7 @@ impl IX509ExtensionTemplateName {
     {
         (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), encoding, strencodeddata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -17091,13 +17068,13 @@ impl IX509ExtensionTemplateName {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_RawData)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Critical(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Critical)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCritical<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -17141,14 +17118,14 @@ pub struct IX509ExtensionTemplateName_Vtbl {
     pub InitializeDecode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, strencodeddata: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub TemplateName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509Extensions(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509Extensions {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<IX509Extension> {
         let mut result__ = ::std::mem::zeroed();
@@ -17162,7 +17139,7 @@ impl IX509Extensions {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -17176,7 +17153,7 @@ impl IX509Extensions {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_IndexByObjectId<P0>(&self, pobjectid: P0) -> ::windows_core::Result<i32>
     where
@@ -17185,7 +17162,7 @@ impl IX509Extensions {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_IndexByObjectId)(::windows_core::Interface::as_raw(self), pobjectid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -17230,14 +17207,14 @@ pub struct IX509Extensions_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     AddRange: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509MachineEnrollmentFactory(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509MachineEnrollmentFactory {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateObject<P0>(&self, strprogid: P0) -> ::windows_core::Result<IX509EnrollmentHelper>
     where
@@ -17267,7 +17244,7 @@ pub struct IX509MachineEnrollmentFactory_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateObject: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -17309,14 +17286,14 @@ pub struct IX509NameValuePair_Vtbl {
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509NameValuePairs(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509NameValuePairs {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<IX509NameValuePair> {
         let mut result__ = ::std::mem::zeroed();
@@ -17330,7 +17307,7 @@ impl IX509NameValuePairs {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -17373,14 +17350,14 @@ pub struct IX509NameValuePairs_Vtbl {
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32) -> ::windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509PolicyServerListManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509PolicyServerListManager {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows_core::Result<IX509PolicyServerUrl> {
         let mut result__ = ::std::mem::zeroed();
@@ -17394,7 +17371,7 @@ impl IX509PolicyServerListManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -17441,7 +17418,7 @@ pub struct IX509PolicyServerListManager_Vtbl {
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, flags: PolicyServerUrlFlags) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -17461,13 +17438,13 @@ impl IX509PolicyServerUrl {
     {
         (::windows_core::Interface::vtable(self).SetUrl)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Default(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Default)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDefault<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -17550,7 +17527,7 @@ pub struct IX509PolicyServerUrl_Vtbl {
     pub UpdateRegistry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext) -> ::windows_core::HRESULT,
     pub RemoveFromRegistry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -17586,7 +17563,7 @@ impl IX509PrivateKey {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Export)(::windows_core::Interface::as_raw(self), strexporttype.into_param().abi(), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExportPublicKey(&self) -> ::windows_core::Result<IX509PublicKey> {
         let mut result__ = ::std::mem::zeroed();
@@ -17622,13 +17599,13 @@ impl IX509PrivateKey {
     {
         (::windows_core::Interface::vtable(self).SetReaderName)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows_core::Result<ICspInformations> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CspInformations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -17636,13 +17613,13 @@ impl IX509PrivateKey {
     {
         (::windows_core::Interface::vtable(self).SetCspInformations)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatus(&self) -> ::windows_core::Result<ICspStatus> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CspStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCspStatus<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -17667,13 +17644,13 @@ impl IX509PrivateKey {
     pub unsafe fn SetProviderType(&self, value: X509ProviderType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetProviderType)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LegacyCsp(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LegacyCsp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLegacyCsp<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -17681,13 +17658,13 @@ impl IX509PrivateKey {
     {
         (::windows_core::Interface::vtable(self).SetLegacyCsp)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Algorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Algorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -17730,13 +17707,13 @@ impl IX509PrivateKey {
     pub unsafe fn SetKeyProtection(&self, value: X509PrivateKeyProtection) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetKeyProtection)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MachineContext(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MachineContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMachineContext<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -17768,25 +17745,25 @@ impl IX509PrivateKey {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UniqueContainerName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Opened(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Opened)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DefaultContainer(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DefaultContainer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Existing(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Existing)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExisting<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -17794,13 +17771,13 @@ impl IX509PrivateKey {
     {
         (::windows_core::Interface::vtable(self).SetExisting)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -17977,7 +17954,7 @@ pub struct IX509PrivateKey_Vtbl {
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -18013,7 +17990,7 @@ impl IX509PrivateKey2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Export)(::windows_core::Interface::as_raw(self), strexporttype.into_param().abi(), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExportPublicKey(&self) -> ::windows_core::Result<IX509PublicKey> {
         let mut result__ = ::std::mem::zeroed();
@@ -18049,13 +18026,13 @@ impl IX509PrivateKey2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetReaderName)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows_core::Result<ICspInformations> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CspInformations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCspInformations<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -18063,13 +18040,13 @@ impl IX509PrivateKey2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetCspInformations)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatus(&self) -> ::windows_core::Result<ICspStatus> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CspStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCspStatus<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -18094,13 +18071,13 @@ impl IX509PrivateKey2 {
     pub unsafe fn SetProviderType(&self, value: X509ProviderType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetProviderType)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LegacyCsp(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.LegacyCsp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLegacyCsp<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -18108,13 +18085,13 @@ impl IX509PrivateKey2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetLegacyCsp)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Algorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Algorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -18157,13 +18134,13 @@ impl IX509PrivateKey2 {
     pub unsafe fn SetKeyProtection(&self, value: X509PrivateKeyProtection) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetKeyProtection)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MachineContext(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MachineContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMachineContext<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -18195,25 +18172,25 @@ impl IX509PrivateKey2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.UniqueContainerName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Opened(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Opened)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DefaultContainer(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultContainer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Existing(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Existing)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExisting<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -18221,13 +18198,13 @@ impl IX509PrivateKey2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetExisting)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -18349,14 +18326,14 @@ pub struct IX509PrivateKey2_Vtbl {
     pub ParametersExportType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut X509KeyParametersExportType) -> ::windows_core::HRESULT,
     pub SetParametersExportType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: X509KeyParametersExportType) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509PublicKey(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509PublicKey {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1, P2>(&self, pobjectid: P0, strencodedkey: P1, strencodedparameters: P2, encoding: EncodingType) -> ::windows_core::Result<()>
     where
@@ -18372,7 +18349,7 @@ impl IX509PublicKey {
     {
         (::windows_core::Interface::vtable(self).InitializeFromEncodedPublicKeyInfo)(::windows_core::Interface::as_raw(self), strencodedpublickeyinfo.into_param().abi(), encoding).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Algorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
@@ -18424,14 +18401,14 @@ pub struct IX509PublicKey_Vtbl {
     pub get_EncodedParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ComputeKeyIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, algorithm: KeyIdentifierHashAlgorithm, encoding: EncodingType, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509SCEPEnrollment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509SCEPEnrollment {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1, P2>(&self, prequest: P0, strthumbprint: P1, thumprintencoding: EncodingType, strservercertificates: P2, encoding: EncodingType) -> ::windows_core::Result<()>
     where
@@ -18477,13 +18454,13 @@ impl IX509SCEPEnrollment {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FailInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows_core::Result<ISignerCertificate> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SignerCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -18491,13 +18468,13 @@ impl IX509SCEPEnrollment {
     {
         (::windows_core::Interface::vtable(self).SetSignerCertificate)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OldCertificate(&self) -> ::windows_core::Result<ISignerCertificate> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OldCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetOldCertificate<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -18515,7 +18492,7 @@ impl IX509SCEPEnrollment {
     {
         (::windows_core::Interface::vtable(self).put_TransactionId)(::windows_core::Interface::as_raw(self), encoding, value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Request(&self) -> ::windows_core::Result<IX509CertificateRequestPkcs10> {
         let mut result__ = ::std::mem::zeroed();
@@ -18531,7 +18508,7 @@ impl IX509SCEPEnrollment {
     {
         (::windows_core::Interface::vtable(self).SetCertificateFriendlyName)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows_core::Result<IX509EnrollmentStatus> {
         let mut result__ = ::std::mem::zeroed();
@@ -18541,13 +18518,13 @@ impl IX509SCEPEnrollment {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Certificate)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -18624,14 +18601,14 @@ pub struct IX509SCEPEnrollment_Vtbl {
     SetSilent: usize,
     pub DeleteRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509SCEPEnrollment2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509SCEPEnrollment2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1, P2>(&self, prequest: P0, strthumbprint: P1, thumprintencoding: EncodingType, strservercertificates: P2, encoding: EncodingType) -> ::windows_core::Result<()>
     where
@@ -18677,13 +18654,13 @@ impl IX509SCEPEnrollment2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FailInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows_core::Result<ISignerCertificate> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SignerCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignerCertificate<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -18691,13 +18668,13 @@ impl IX509SCEPEnrollment2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetSignerCertificate)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OldCertificate(&self) -> ::windows_core::Result<ISignerCertificate> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.OldCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetOldCertificate<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -18715,7 +18692,7 @@ impl IX509SCEPEnrollment2 {
     {
         (::windows_core::Interface::vtable(self).base__.put_TransactionId)(::windows_core::Interface::as_raw(self), encoding, value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Request(&self) -> ::windows_core::Result<IX509CertificateRequestPkcs10> {
         let mut result__ = ::std::mem::zeroed();
@@ -18731,7 +18708,7 @@ impl IX509SCEPEnrollment2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetCertificateFriendlyName)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows_core::Result<IX509EnrollmentStatus> {
         let mut result__ = ::std::mem::zeroed();
@@ -18741,13 +18718,13 @@ impl IX509SCEPEnrollment2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_Certificate)(::windows_core::Interface::as_raw(self), encoding, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Silent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Silent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSilent<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -18810,14 +18787,14 @@ pub struct IX509SCEPEnrollment2_Vtbl {
     pub ActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509SCEPEnrollmentHelper(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509SCEPEnrollmentHelper {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1, P2, P3>(&self, strserverurl: P0, strrequestheaders: P1, prequest: P2, strcacertificatethumbprint: P3) -> ::windows_core::Result<()>
     where
@@ -18844,7 +18821,7 @@ impl IX509SCEPEnrollmentHelper {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FetchPending)(::windows_core::Interface::as_raw(self), processflags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509SCEPEnrollment(&self) -> ::windows_core::Result<IX509SCEPEnrollment> {
         let mut result__ = ::std::mem::zeroed();
@@ -18883,20 +18860,20 @@ pub struct IX509SCEPEnrollmentHelper_Vtbl {
     X509SCEPEnrollment: usize,
     pub ResultMessageText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509SignatureInformation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509SignatureInformation {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHashAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -18904,13 +18881,13 @@ impl IX509SignatureInformation {
     {
         (::windows_core::Interface::vtable(self).SetHashAlgorithm)(::windows_core::Interface::as_raw(self), pvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PublicKeyAlgorithm(&self) -> ::windows_core::Result<IObjectId> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PublicKeyAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPublicKeyAlgorithm<P0>(&self, pvalue: P0) -> ::windows_core::Result<()>
     where
@@ -18928,13 +18905,13 @@ impl IX509SignatureInformation {
     {
         (::windows_core::Interface::vtable(self).put_Parameters)(::windows_core::Interface::as_raw(self), encoding, value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AlternateSignatureAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAlternateSignatureAlgorithm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -18942,19 +18919,19 @@ impl IX509SignatureInformation {
     {
         (::windows_core::Interface::vtable(self).SetAlternateSignatureAlgorithm)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlternateSignatureAlgorithmSet(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AlternateSignatureAlgorithmSet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NullSigned(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NullSigned)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNullSigned<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -18962,7 +18939,7 @@ impl IX509SignatureInformation {
     {
         (::windows_core::Interface::vtable(self).SetNullSigned)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetSignatureAlgorithm<P0, P1>(&self, pkcs7signature: P0, signaturekey: P1) -> ::windows_core::Result<IObjectId>
     where
@@ -19035,4311 +19012,2158 @@ pub struct IX509SignatureInformation_Vtbl {
     GetSignatureAlgorithm: usize,
     pub SetDefaultValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const AlgorithmFlagsNone: AlgorithmFlags = AlgorithmFlags(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const AlgorithmFlagsWrap: AlgorithmFlags = AlgorithmFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const AllowNoOutstandingRequest: InstallResponseRestrictionFlags = InstallResponseRestrictionFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const AllowNone: InstallResponseRestrictionFlags = InstallResponseRestrictionFlags(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const AllowUntrustedCertificate: InstallResponseRestrictionFlags = InstallResponseRestrictionFlags(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const AllowUntrustedRoot: InstallResponseRestrictionFlags = InstallResponseRestrictionFlags(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const AllowedKeySignature: Pkcs10AllowedSignatureTypes = Pkcs10AllowedSignatureTypes(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const AllowedNullSignature: Pkcs10AllowedSignatureTypes = Pkcs10AllowedSignatureTypes(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAIF_DSENTRY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAIF_LOCAL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAIF_REGISTRY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAIF_REGISTRYPARENT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAIF_SHAREDFOLDERENTRY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAPATHLENGTH_INFINITE: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAPropCertificate: EnrollmentCAProperty = EnrollmentCAProperty(7i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAPropCertificateTypes: EnrollmentCAProperty = EnrollmentCAProperty(6i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAPropCommonName: EnrollmentCAProperty = EnrollmentCAProperty(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAPropDNSName: EnrollmentCAProperty = EnrollmentCAProperty(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAPropDescription: EnrollmentCAProperty = EnrollmentCAProperty(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAPropDistinguishedName: EnrollmentCAProperty = EnrollmentCAProperty(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAPropRenewalOnly: EnrollmentCAProperty = EnrollmentCAProperty(12i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAPropSanitizedName: EnrollmentCAProperty = EnrollmentCAProperty(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAPropSanitizedShortName: EnrollmentCAProperty = EnrollmentCAProperty(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAPropSecurity: EnrollmentCAProperty = EnrollmentCAProperty(11i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAPropSiteName: EnrollmentCAProperty = EnrollmentCAProperty(10i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAPropWebServers: EnrollmentCAProperty = EnrollmentCAProperty(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_ACCESS_ADMIN: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_ACCESS_AUDITOR: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_ACCESS_ENROLL: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_ACCESS_MASKROLES: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_ACCESS_OFFICER: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_ACCESS_OPERATOR: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_ACCESS_READ: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_CRL_BASE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_CRL_DELTA: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_CRL_REPUBLISH: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_DISP_ERROR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_DISP_INCOMPLETE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_DISP_INVALID: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_DISP_REVOKED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_DISP_UNDER_SUBMISSION: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_DISP_VALID: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAlternativeName: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2013_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAlternativeNames: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2014_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CBinaryConverter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2002_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCLOCKSKEWMINUTESDEFAULT: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CC_DEFAULTCONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CC_FIRSTCONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CC_LOCALACTIVECONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CC_LOCALCONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CC_UIPICKCONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CC_UIPICKCONFIGSKIPLOCALCA: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertAdmin: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37eabaf0_7fb6_11d0_8817_00a0c903b83c);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertConfig: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x372fce38_4324_11d0_8810_00a0c903b83c);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertEncodeAltName: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1cfc4cda_1271_11d1_9bd4_00c04fb683fa);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertEncodeBitString: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d6b3cd8_1278_11d1_9bd4_00c04fb683fa);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertEncodeCRLDistInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01fa60a0_bbff_11d0_8825_00a0c903b83c);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertEncodeDateArray: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x301f77b0_a470_11d0_8821_00a0c903b83c);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertEncodeLongArray: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e0680a0_a0a2_11d0_8821_00a0c903b83c);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertEncodeStringArray: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x19a76fe0_7494_11d0_8816_00a0c903b83c);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertGetConfig: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6cc49b0_ce17_11d0_8833_00a0c903b83c);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertProperties: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e202f_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertProperty: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e202e_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertPropertyArchived: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2037_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertPropertyArchivedKeyHash: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e203b_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertPropertyAutoEnroll: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2032_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertPropertyBackedUp: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2038_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertPropertyDescription: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2031_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertPropertyEnrollment: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2039_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertPropertyEnrollmentPolicyServer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e204c_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertPropertyFriendlyName: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2030_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertPropertyKeyProvInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2036_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertPropertyRenewal: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e203a_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertPropertyRequestOriginator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2033_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertPropertySHA1Hash: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2034_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98aff3f0_5524_11d0_8812_00a0c903b83c);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertServerExit: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c4a5e40_732c_11d0_8816_00a0c903b83c);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertServerPolicy: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa000926_ffbe_11cf_8800_00a0c903b83c);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertView: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa12d0f7a_1e84_11d1_9bd6_00c04fb683fa);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertificateAttestationChallenge: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1362ada1_eb60_456a_b6e1_118050db741b);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertificatePolicies: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e201f_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCertificatePolicy: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e201e_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCryptAttribute: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e202c_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCryptAttributes: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e202d_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCspInformation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2007_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCspInformations: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2008_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CCspStatus: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2009_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CDR_EXPIRED: CERT_DELETE_ROW_FLAGS = CERT_DELETE_ROW_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CDR_REQUEST_LAST_CHANGED: CERT_DELETE_ROW_FLAGS = CERT_DELETE_ROW_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CERTENROLL_INDEX_BASE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CERT_ALT_NAME_DIRECTORY_NAME: CERT_ALT_NAME = CERT_ALT_NAME(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CERT_ALT_NAME_DNS_NAME: CERT_ALT_NAME = CERT_ALT_NAME(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CERT_ALT_NAME_IP_ADDRESS: CERT_ALT_NAME = CERT_ALT_NAME(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CERT_ALT_NAME_OTHER_NAME: CERT_ALT_NAME = CERT_ALT_NAME(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CERT_ALT_NAME_REGISTERED_ID: CERT_ALT_NAME = CERT_ALT_NAME(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CERT_ALT_NAME_RFC822_NAME: CERT_ALT_NAME = CERT_ALT_NAME(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CERT_ALT_NAME_URL: CERT_ALT_NAME = CERT_ALT_NAME(7i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CEnroll: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43f8f289_7a20_11d0_8f06_00c04fc295e1);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CEnroll2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x127698e4_e730_4e5c_a2b1_21490a70c8a1);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CMM_READONLY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CMM_REFRESHONLY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CObjectId: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2000_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CObjectIds: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2001_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPF_BADURL_ERROR: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPF_BASE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPF_CASTORE_ERROR: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPF_COMPLETE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPF_DELTA: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPF_FILE_ERROR: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPF_FTP_ERROR: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPF_HTTP_ERROR: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPF_LDAP_ERROR: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPF_MANUAL: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPF_POSTPONED_BASE_FILE_ERROR: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPF_POSTPONED_BASE_LDAP_ERROR: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPF_SHADOW: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPF_SIGNATURE_ERROR: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPolicyQualifier: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e201c_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CPolicyQualifiers: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e201d_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_ALLOW_REQUEST_ATTRIBUTE_SUBJECT: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_BUILD_ROOTCA_CRLENTRIES_BASEDONKEY: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_CRLNUMBER_CRITICAL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_DELETE_EXPIRED_CRLS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_DELTA_USE_OLDEST_UNEXPIRED_BASE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_DISABLE_CHAIN_VERIFICATION: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_DISABLE_RDN_REORDER: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_DISABLE_ROOT_CROSS_CERTS: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_ENFORCE_ENROLLMENT_AGENT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_IGNORE_CROSS_CERT_TRUST_ERROR: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_IGNORE_INVALID_POLICIES: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_IGNORE_UNKNOWN_CMC_ATTRIBUTES: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_LOG_FULL_RESPONSE: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_PRESERVE_EXPIRED_CA_CERTS: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_PRESERVE_REVOKED_CA_CERTS: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_PUBLISH_EXPIRED_CERT_CRLS: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_REBUILD_MODIFIED_SUBJECT_ONLY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_REVCHECK_IGNORE_NOREVCHECK: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_REVCHECK_IGNORE_OFFLINE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_SAVE_FAILED_CERTS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_USE_CROSS_CERT_TEMPLATE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRLF_USE_XCHG_CERT_TEMPLATE: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CRYPT_ENUM_ALL_PROVIDERS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_DISP_DENIED: CR_DISP = CR_DISP(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_DISP_ERROR: CR_DISP = CR_DISP(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_DISP_INCOMPLETE: CR_DISP = CR_DISP(0u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_DISP_ISSUED: CR_DISP = CR_DISP(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_DISP_ISSUED_OUT_OF_BAND: CR_DISP = CR_DISP(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_DISP_REVOKED: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_DISP_UNDER_SUBMISSION: CR_DISP = CR_DISP(5u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_CACROSSCERT: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_CAXCHGCERT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_CHALLENGEPENDING: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_CHALLENGESATISFIED: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_DEFINEDCACERT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_ENFORCEUTF8: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_ENROLLONBEHALFOF: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_FORCETELETEX: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_FORCEUTF8: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_PUBLISHERROR: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_RENEWAL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_SUBJECTUNMODIFIED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_TRUSTEKCERT: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_TRUSTEKKEY: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_TRUSTONUSE: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_FLG_VALIDENCRYPTEDKEYHASH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_GEMT_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_GEMT_HRESULT_STRING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_GEMT_HTTP_ERROR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_BASE64: CERT_IMPORT_FLAGS = CERT_IMPORT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_BASE64HEADER: CERT_IMPORT_FLAGS = CERT_IMPORT_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_BINARY: CERT_IMPORT_FLAGS = CERT_IMPORT_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_CERTIFICATETRANSPARENCY: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_CHALLENGERESPONSE: u32 = 1280u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_CLIENTIDNONE: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_CMC: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_CONNECTONLY: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_CRLS: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_ENCODEANY: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_ENCODEMASK: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_FORMATANY: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_FORMATMASK: u32 = 65280u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_FULLRESPONSE: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_HTTP: u32 = 196608u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_KEYGEN: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_MACHINE: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_PKCS10: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_PKCS7: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_RETURNCHALLENGE: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_ROBO: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_RPC: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_SCEP: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_SCEPPOST: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_SIGNEDCERTIFICATETIMESTAMPLIST: u32 = 1536u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_BASE64: CERT_REQUEST_OUT_TYPE = CERT_REQUEST_OUT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_BASE64HEADER: CERT_REQUEST_OUT_TYPE = CERT_REQUEST_OUT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_BASE64REQUESTHEADER: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_BASE64X509CRLHEADER: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_BINARY: CERT_REQUEST_OUT_TYPE = CERT_REQUEST_OUT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_CHAIN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_CRLS: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_ENCODEMASK: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_HEX: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_HEXADDR: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_HEXASCII: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_HEXASCIIADDR: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_HEXRAW: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_NOCR: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_NOCRLF: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_ADVANCEDSERVER: u32 = 28u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_BASECRL: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_BASECRLPUBLISHSTATUS: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CABACKWARDCROSSCERT: u32 = 36u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CABACKWARDCROSSCERTSTATE: u32 = 38u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CACERTSTATE: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CACERTSTATUSCODE: u32 = 34u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CACERTVERSION: u32 = 39u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CAFORWARDCROSSCERT: u32 = 35u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CAFORWARDCROSSCERTSTATE: u32 = 37u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CANAME: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CAPROPIDMAX: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CASIGCERT: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CASIGCERTCHAIN: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CASIGCERTCOUNT: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CASIGCERTCRLCHAIN: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CATYPE: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CAXCHGCERT: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CAXCHGCERTCHAIN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CAXCHGCERTCOUNT: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CAXCHGCERTCRLCHAIN: u32 = 33u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CERTAIAOCSPURLS: u32 = 43u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CERTAIAURLS: u32 = 42u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CERTCDPURLS: u32 = 41u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_CRLSTATE: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_DELTACRL: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_DELTACRLPUBLISHSTATUS: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_DNSNAME: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_EXITCOUNT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_EXITDESCRIPTION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_FILEVERSION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_KRACERT: u32 = 26u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_KRACERTCOUNT: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_KRACERTSTATE: u32 = 27u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_KRACERTUSEDCOUNT: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_LOCALENAME: u32 = 44u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_PARENTCA: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_POLICYDESCRIPTION: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_PRODUCTVERSION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_ROLESEPARATIONENABLED: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_SANITIZEDCANAME: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_SANITIZEDCASHORTNAME: u32 = 40u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_SCEPMAX: u32 = 1002u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_SCEPMIN: u32 = 1000u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_SCEPSERVERCAPABILITIES: u32 = 1001u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_SCEPSERVERCERTS: u32 = 1000u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_SCEPSERVERCERTSCHAIN: u32 = 1002u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_SHAREDFOLDER: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_SUBJECTTEMPLATE_OIDS: u32 = 45u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_PROP_TEMPLATES: u32 = 29u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSBACKUP_DISABLE_INCREMENTAL: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSBACKUP_TYPE_FULL: CSBACKUP_TYPE = CSBACKUP_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSBACKUP_TYPE_LOGS_ONLY: CSBACKUP_TYPE = CSBACKUP_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSBACKUP_TYPE_MASK: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSBFT_DATABASE_DIRECTORY: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSBFT_DIRECTORY: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSBFT_LOG_DIRECTORY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSCONTROL_RESTART: u64 = 3u64;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSCONTROL_SHUTDOWN: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSCONTROL_SUSPEND: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSRESTORE_TYPE_CATCHUP: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSRESTORE_TYPE_FULL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSRESTORE_TYPE_MASK: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSRESTORE_TYPE_ONLINE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSURL_ADDTOCERTCDP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSURL_ADDTOCERTOCSP: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSURL_ADDTOCRLCDP: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSURL_ADDTOFRESHESTCRL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSURL_ADDTOIDP: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSURL_PUBLISHRETRY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSURL_SERVERPUBLISH: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSURL_SERVERPUBLISHDELTA: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MAJOR: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MAJOR_LONGHORN: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MAJOR_THRESHOLD: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MAJOR_WHISTLER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MAJOR_WIN2K: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MAJOR_WIN7: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MAJOR_WIN8: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MAJOR_WINBLUE: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MINOR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MINOR_LONGHORN_BETA1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MINOR_THRESHOLD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MINOR_WHISTLER_BETA2: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MINOR_WHISTLER_BETA3: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MINOR_WIN2K: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MINOR_WIN7: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MINOR_WIN8: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSVER_MINOR_WINBLUE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSignerCertificate: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e203d_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSmimeCapabilities: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e201a_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSmimeCapability: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2019_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVIEWAGEMINUTESDEFAULT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVRC_COLUMN_MASK: CVRC_COLUMN = CVRC_COLUMN(4095i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVRC_COLUMN_RESULT: CVRC_COLUMN = CVRC_COLUMN(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVRC_COLUMN_SCHEMA: CVRC_COLUMN = CVRC_COLUMN(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVRC_COLUMN_VALUE: CVRC_COLUMN = CVRC_COLUMN(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVRC_TABLE_ATTRIBUTES: CVRC_TABLE = CVRC_TABLE(16384i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVRC_TABLE_CRL: CVRC_TABLE = CVRC_TABLE(20480i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVRC_TABLE_EXTENSIONS: CVRC_TABLE = CVRC_TABLE(12288i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVRC_TABLE_MASK: u32 = 61440u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVRC_TABLE_REQCERT: CVRC_TABLE = CVRC_TABLE(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVRC_TABLE_SHIFT: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVR_SEEK_EQ: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVR_SEEK_GE: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVR_SEEK_GT: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVR_SEEK_LE: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVR_SEEK_LT: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVR_SEEK_MASK: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVR_SEEK_NODELTA: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVR_SEEK_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVR_SORT_ASCEND: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVR_SORT_DESCEND: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVR_SORT_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_COLUMN_ATTRIBUTE_DEFAULT: i32 = -5i32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_COLUMN_CRL_DEFAULT: i32 = -6i32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_COLUMN_EXTENSION_DEFAULT: i32 = -4i32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_COLUMN_LOG_DEFAULT: CERT_VIEW_COLUMN_INDEX = CERT_VIEW_COLUMN_INDEX(-2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_COLUMN_LOG_FAILED_DEFAULT: CERT_VIEW_COLUMN_INDEX = CERT_VIEW_COLUMN_INDEX(-3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_COLUMN_LOG_REVOKED_DEFAULT: i32 = -7i32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_COLUMN_QUEUE_DEFAULT: CERT_VIEW_COLUMN_INDEX = CERT_VIEW_COLUMN_INDEX(-1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_OUT_BASE64: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_OUT_BASE64HEADER: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_OUT_BASE64REQUESTHEADER: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_OUT_BASE64X509CRLHEADER: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_OUT_BINARY: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_OUT_ENCODEMASK: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_OUT_HEX: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_OUT_HEXADDR: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(10i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_OUT_HEXASCII: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_OUT_HEXASCIIADDR: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(11i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_OUT_HEXRAW: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_OUT_NOCR: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_OUT_NOCRLF: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX500DistinguishedName: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2003_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509Attribute: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2022_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509AttributeArchiveKey: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2027_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509AttributeArchiveKeyHash: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2028_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509AttributeClientId: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2025_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509AttributeCspProvider: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e202b_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509AttributeExtensions: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2024_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509AttributeOSVersion: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e202a_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509AttributeRenewalCertificate: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2026_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509Attributes: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2023_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509CertificateRequestCertificate: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2043_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509CertificateRequestCmc: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2045_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509CertificateRequestPkcs10: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2042_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509CertificateRequestPkcs7: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2044_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509CertificateRevocationList: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2060_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509CertificateRevocationListEntries: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e205f_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509CertificateRevocationListEntry: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e205e_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509CertificateTemplateADWritable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8336e323_2e6a_4a04_937c_548f681839b3);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509EndorsementKey: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11a25a1d_b9a3_4edd_af83_3b59adbed361);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509Enrollment: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2046_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509EnrollmentHelper: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2050_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509EnrollmentPolicyActiveDirectory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91f39027_217f_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509EnrollmentPolicyWebService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91f39028_217f_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509EnrollmentWebClassFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2049_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509Extension: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e200d_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509ExtensionAlternativeNames: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2015_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509ExtensionAuthorityKeyIdentifier: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2018_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509ExtensionBasicConstraints: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2016_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509ExtensionCertificatePolicies: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2020_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509ExtensionEnhancedKeyUsage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2010_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509ExtensionKeyUsage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e200f_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509ExtensionMSApplicationPolicies: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2021_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509ExtensionSmimeCapabilities: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e201b_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509ExtensionSubjectKeyIdentifier: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2017_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509ExtensionTemplate: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2012_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509ExtensionTemplateName: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2011_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509Extensions: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e200e_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509MachineEnrollmentFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2051_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509NameValuePair: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e203f_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509PolicyServerListManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91f39029_217f_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509PolicyServerUrl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91f3902a_217f_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509PrivateKey: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e200c_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509PublicKey: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e200b_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509SCEPEnrollment: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2061_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CX509SCEPEnrollmentHelper: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x884e2062_217d_11da_b2a4_000e7bbb2b09);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ClientIdAutoEnroll: RequestClientInfoClientId = RequestClientInfoClientId(6i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ClientIdAutoEnroll2003: RequestClientInfoClientId = RequestClientInfoClientId(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ClientIdCertReq: RequestClientInfoClientId = RequestClientInfoClientId(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ClientIdCertReq2003: RequestClientInfoClientId = RequestClientInfoClientId(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ClientIdDefaultRequest: RequestClientInfoClientId = RequestClientInfoClientId(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ClientIdEOBO: RequestClientInfoClientId = RequestClientInfoClientId(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ClientIdNone: RequestClientInfoClientId = RequestClientInfoClientId(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ClientIdRequestWizard: RequestClientInfoClientId = RequestClientInfoClientId(7i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ClientIdTest: RequestClientInfoClientId = RequestClientInfoClientId(10i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ClientIdUserStart: RequestClientInfoClientId = RequestClientInfoClientId(1000i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ClientIdWinRT: RequestClientInfoClientId = RequestClientInfoClientId(11i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ClientIdWizard2003: RequestClientInfoClientId = RequestClientInfoClientId(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ClientIdXEnroll2003: RequestClientInfoClientId = RequestClientInfoClientId(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CommitFlagDeleteTemplate: CommitTemplateFlags = CommitTemplateFlags(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CommitFlagSaveTemplateGenerateOID: CommitTemplateFlags = CommitTemplateFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CommitFlagSaveTemplateOverwrite: CommitTemplateFlags = CommitTemplateFlags(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CommitFlagSaveTemplateUseCurrentOID: CommitTemplateFlags = CommitTemplateFlags(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ContextAdministratorForceMachine: X509CertificateEnrollmentContext = X509CertificateEnrollmentContext(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ContextMachine: X509CertificateEnrollmentContext = X509CertificateEnrollmentContext(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ContextNone: X509CertificateEnrollmentContext = X509CertificateEnrollmentContext(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ContextUser: X509CertificateEnrollmentContext = X509CertificateEnrollmentContext(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DBFLAGS_CHECKPOINTDEPTH60MB: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DBFLAGS_CIRCULARLOGGING: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DBFLAGS_CREATEIFNEEDED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DBFLAGS_DISABLESNAPSHOTBACKUP: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DBFLAGS_ENABLEVOLATILEREQUESTS: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DBFLAGS_LAZYFLUSH: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DBFLAGS_LOGBUFFERSHUGE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DBFLAGS_LOGBUFFERSLARGE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DBFLAGS_LOGFILESIZE16MB: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DBFLAGS_MAXCACHESIZEX100: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DBFLAGS_MULTITHREADTRANSACTIONS: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DBFLAGS_READONLY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DBG_CERTSRV: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DBSESSIONCOUNTDEFAULT: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DB_DISP_ACTIVE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DB_DISP_CA_CERT: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DB_DISP_CA_CERT_CHAIN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DB_DISP_DENIED: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DB_DISP_ERROR: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DB_DISP_FOREIGN: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DB_DISP_ISSUED: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DB_DISP_KRA_CERT: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DB_DISP_LOG_FAILED_MIN: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DB_DISP_LOG_MIN: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DB_DISP_PENDING: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DB_DISP_QUEUE_MAX: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DB_DISP_REVOKED: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DefaultNone: EnrollmentPolicyServerPropertyFlags = EnrollmentPolicyServerPropertyFlags(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DefaultPolicyServer: EnrollmentPolicyServerPropertyFlags = EnrollmentPolicyServerPropertyFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DelayRetryLong: DelayRetryAction = DelayRetryAction(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DelayRetryNone: DelayRetryAction = DelayRetryAction(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DelayRetryPastSuccess: DelayRetryAction = DelayRetryAction(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DelayRetryShort: DelayRetryAction = DelayRetryAction(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DelayRetrySuccess: DelayRetryAction = DelayRetryAction(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DelayRetryUnknown: DelayRetryAction = DelayRetryAction(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DisableGroupPolicyList: EnrollmentPolicyFlags = EnrollmentPolicyFlags(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DisableUserServerList: EnrollmentPolicyFlags = EnrollmentPolicyFlags(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DisplayNo: EnrollmentDisplayStatus = EnrollmentDisplayStatus(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DisplayYes: EnrollmentDisplayStatus = EnrollmentDisplayStatus(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EANR_SUPPRESS_IA5CONVERSION: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EAN_NAMEOBJECTID: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ADDOLDCERTTYPE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ADDOLDKEYUSAGE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ATTRIBUTECA: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ATTRIBUTEEKU: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ATTRIBUTEENDDATE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ATTRIBUTESUBJECTALTNAME2: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_AUDITCERTTEMPLATELOAD: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_BASICCONSTRAINTSCA: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_BASICCONSTRAINTSCRITICAL: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_DISABLEEXTENSIONLIST: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_DISABLELDAPPACKAGELIST: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_DISABLEOLDOSCNUPN: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_EMAILOPTIONAL: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ENABLEAKICRITICAL: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ENABLEAKIISSUERNAME: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ENABLEAKIISSUERSERIAL: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ENABLEAKIKEYID: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ENABLECHASECLIENTDC: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ENABLEDEFAULTSMIME: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ENABLEKEYENCIPHERMENTCACERT: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ENABLELDAPREFERRALS: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ENABLEOCSPREVNOCHECK: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ENABLERENEWONBEHALFOF: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ENABLEREQUESTEXTENSIONS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_ENABLEUPNMAP: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_IGNOREREQUESTERGROUP: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_REQUESTEXTENSIONLIST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EDITF_SERVERUPGRADED: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ENUMEXT_OBJECTID: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ENUM_ENTERPRISE_ROOTCA: ENUM_CATYPES = ENUM_CATYPES(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ENUM_ENTERPRISE_SUBCA: ENUM_CATYPES = ENUM_CATYPES(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ENUM_STANDALONE_ROOTCA: ENUM_CATYPES = ENUM_CATYPES(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ENUM_STANDALONE_SUBCA: ENUM_CATYPES = ENUM_CATYPES(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ENUM_UNKNOWN_CA: ENUM_CATYPES = ENUM_CATYPES(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITEVENT_CERTDENIED: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITEVENT_CERTIMPORTED: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITEVENT_CERTISSUED: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITEVENT_CERTPENDING: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITEVENT_CERTRETRIEVEPENDING: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(16u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITEVENT_CERTREVOKED: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITEVENT_CRLISSUED: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(32u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITEVENT_INVALID: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITEVENT_SHUTDOWN: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(64u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITEVENT_STARTUP: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITPUB_ACTIVEDIRECTORY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITPUB_DEFAULT_ENTERPRISE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITPUB_DEFAULT_STANDALONE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITPUB_FILE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITPUB_REMOVEOLDCERTS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXTENSION_CRITICAL_FLAG: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXTENSION_DELETE_FLAG: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXTENSION_DISABLE_FLAG: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXTENSION_ORIGIN_ADMIN: u32 = 196608u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXTENSION_ORIGIN_CACERT: u32 = 589824u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXTENSION_ORIGIN_CMC: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXTENSION_ORIGIN_IMPORTEDCERT: u32 = 393216u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXTENSION_ORIGIN_MASK: u32 = 983040u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXTENSION_ORIGIN_PKCS7: u32 = 458752u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXTENSION_ORIGIN_POLICY: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXTENSION_ORIGIN_RENEWALCERT: u32 = 327680u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXTENSION_ORIGIN_REQUEST: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXTENSION_ORIGIN_SERVER: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXTENSION_POLICY_MASK: u32 = 65535u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollDenied: EnrollmentEnrollStatus = EnrollmentEnrollStatus(256i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollError: EnrollmentEnrollStatus = EnrollmentEnrollStatus(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollPended: EnrollmentEnrollStatus = EnrollmentEnrollStatus(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollPrompt: WebEnrollmentFlags = WebEnrollmentFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollSkipped: EnrollmentEnrollStatus = EnrollmentEnrollStatus(64i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollUIDeferredEnrollmentRequired: EnrollmentEnrollStatus = EnrollmentEnrollStatus(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollUnknown: EnrollmentEnrollStatus = EnrollmentEnrollStatus(32i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const Enrolled: EnrollmentEnrollStatus = EnrollmentEnrollStatus(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentAddOCSPNoCheck: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(4096i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentAddTemplateName: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(512i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentAllowEnrollOnBehalfOf: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(2048i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentAutoEnrollment: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(32i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentAutoEnrollmentCheckUserDSCertificate: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentCertificateIssuancePoliciesFromRequest: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(131072i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentDomainAuthenticationNotRequired: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(128i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentIncludeBasicConstraintsForEECerts: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(32768i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentIncludeSymmetricAlgorithms: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentNoRevocationInfoInCerts: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(16384i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentPendAllRequests: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentPreviousApprovalKeyBasedValidateReenrollment: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentPreviousApprovalValidateReenrollment: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(64i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentPublishToDS: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentPublishToKRAContainer: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentRemoveInvalidCertificateFromPersonalStore: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(1024i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentReuseKeyOnFullSmartCard: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(8192i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentSkipAutoRenewal: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(262144i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentUserInteractionRequired: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(256i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ExportCAs: X509EnrollmentPolicyExportFlags = X509EnrollmentPolicyExportFlags(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ExportOIDs: X509EnrollmentPolicyExportFlags = X509EnrollmentPolicyExportFlags(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ExportTemplates: X509EnrollmentPolicyExportFlags = X509EnrollmentPolicyExportFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_ATTESTATIONCHALLENGE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(20i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_ATTESTATIONPROVIDERNAME: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(21i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_BODYPARTSTRING: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_CAEXCHANGECERTIFICATE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(17i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_CAEXCHANGECERTIFICATECHAIN: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(18i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_CAEXCHANGECERTIFICATECRLCHAIN: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(19i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_CAEXCHANGECERTIFICATEHASH: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_CLAIMCHALLENGE: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_ENCRYPTEDKEYHASH: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(14i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_FAILINFO: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_FULLRESPONSE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_FULLRESPONSENOPKCS7: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(15i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_ISSUEDCERTIFICATE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(11i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_ISSUEDCERTIFICATECHAIN: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(12i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_ISSUEDCERTIFICATECRLCHAIN: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(13i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_ISSUEDCERTIFICATEHASH: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(10i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_NONE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_OTHERINFOCHOICE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_PENDINFOTIME: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_PENDINFOTOKEN: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_STATUS: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_STATUSINFOCOUNT: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_STATUSSTRING: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const GeneralCA: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(128i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const GeneralCrossCA: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(2048i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const GeneralDefault: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const GeneralDonotPersist: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(4096i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const GeneralMachineType: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(64i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const GeneralModified: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(131072i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ICF_ALLOWFOREIGN: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ICF_EXISTINGROW: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const IF_ENABLEADMINASAUDITOR: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const IF_ENABLEEXITKEYRETRIEVAL: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const IF_ENFORCEENCRYPTICERTADMIN: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const IF_ENFORCEENCRYPTICERTREQUEST: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const IF_LOCKICERTREQUEST: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const IF_NOLOCALICERTADMIN: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const IF_NOLOCALICERTADMINBACKUP: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const IF_NOLOCALICERTREQUEST: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const IF_NOREMOTEICERTADMIN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const IF_NOREMOTEICERTADMINBACKUP: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const IF_NOREMOTEICERTREQUEST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const IF_NORPCICERTREQUEST: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const IF_NOSNAPSHOTBACKUP: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const IKF_OVERWRITE: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ISSCERT_DEFAULT_DS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ISSCERT_DEFAULT_NODS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ISSCERT_ENABLE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ISSCERT_FILEURL_OLD: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ISSCERT_FTPURL_OLD: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ISSCERT_HTTPURL_OLD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ISSCERT_LDAPURL_OLD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ISSCERT_URLMASK_OLD: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ImportExportable: ImportPFXFlags = ImportPFXFlags(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ImportExportableEncrypted: ImportPFXFlags = ImportPFXFlags(32i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ImportForceOverwrite: ImportPFXFlags = ImportPFXFlags(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ImportInstallCertificate: ImportPFXFlags = ImportPFXFlags(512i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ImportInstallChain: ImportPFXFlags = ImportPFXFlags(1024i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ImportInstallChainAndRoot: ImportPFXFlags = ImportPFXFlags(2048i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ImportMachineContext: ImportPFXFlags = ImportPFXFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ImportNoUserProtected: ImportPFXFlags = ImportPFXFlags(64i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ImportNone: ImportPFXFlags = ImportPFXFlags(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ImportSaveProperties: ImportPFXFlags = ImportPFXFlags(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ImportSilent: ImportPFXFlags = ImportPFXFlags(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ImportUserProtected: ImportPFXFlags = ImportPFXFlags(128i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ImportUserProtectedHigh: ImportPFXFlags = ImportPFXFlags(256i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const InheritDefault: X509RequestInheritOptions = X509RequestInheritOptions(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const InheritExtensionsFlag: X509RequestInheritOptions = X509RequestInheritOptions(256i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const InheritKeyMask: X509RequestInheritOptions = X509RequestInheritOptions(15i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const InheritNewDefaultKey: X509RequestInheritOptions = X509RequestInheritOptions(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const InheritNewSimilarKey: X509RequestInheritOptions = X509RequestInheritOptions(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const InheritNone: X509RequestInheritOptions = X509RequestInheritOptions(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const InheritPrivateKey: X509RequestInheritOptions = X509RequestInheritOptions(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const InheritPublicKey: X509RequestInheritOptions = X509RequestInheritOptions(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const InheritRenewalCertificateFlag: X509RequestInheritOptions = X509RequestInheritOptions(32i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const InheritReserved80000000: X509RequestInheritOptions = X509RequestInheritOptions(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const InheritSubjectAltNameFlag: X509RequestInheritOptions = X509RequestInheritOptions(512i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const InheritSubjectFlag: X509RequestInheritOptions = X509RequestInheritOptions(128i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const InheritTemplateFlag: X509RequestInheritOptions = X509RequestInheritOptions(64i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const InheritValidityPeriodFlag: X509RequestInheritOptions = X509RequestInheritOptions(1024i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const KRAF_DISABLEUSEDEFAULTPROVIDER: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const KRAF_ENABLEARCHIVEALL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const KRAF_ENABLEFOREIGN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const KRAF_SAVEBADREQUESTKEY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const KRA_DISP_EXPIRED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const KRA_DISP_INVALID: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const KRA_DISP_NOTFOUND: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const KRA_DISP_NOTLOADED: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const KRA_DISP_REVOKED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const KRA_DISP_UNTRUSTED: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const KRA_DISP_VALID: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const KR_ENABLE_MACHINE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const KR_ENABLE_USER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const LDAPF_SIGNDISABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const LDAPF_SSLENABLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const LevelInnermost: InnerRequestLevel = InnerRequestLevel(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const LevelNext: InnerRequestLevel = InnerRequestLevel(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const LevelSafe: WebSecurityLevel = WebSecurityLevel(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const LevelUnsafe: WebSecurityLevel = WebSecurityLevel(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const LoadOptionCacheOnly: X509EnrollmentPolicyLoadOption = X509EnrollmentPolicyLoadOption(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const LoadOptionDefault: X509EnrollmentPolicyLoadOption = X509EnrollmentPolicyLoadOption(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const LoadOptionRegisterForADChanges: X509EnrollmentPolicyLoadOption = X509EnrollmentPolicyLoadOption(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const LoadOptionReload: X509EnrollmentPolicyLoadOption = X509EnrollmentPolicyLoadOption(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const OCSPAdmin: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3f73511_92c9_47cb_8ff2_8d891a7c4de4);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const OCSPPropertyCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf935a528_ba8a_4dd9_ba79_f283275cb2de);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const OCSP_RF_REJECT_SIGNED_REQUESTS: OCSPRequestFlag = OCSPRequestFlag(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const OCSP_SF_ALLOW_NONCE_EXTENSION: OCSPSigningFlag = OCSPSigningFlag(256i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const OCSP_SF_ALLOW_SIGNINGCERT_AUTOENROLLMENT: OCSPSigningFlag = OCSPSigningFlag(512i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const OCSP_SF_ALLOW_SIGNINGCERT_AUTORENEWAL: OCSPSigningFlag = OCSPSigningFlag(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const OCSP_SF_AUTODISCOVER_SIGNINGCERT: OCSPSigningFlag = OCSPSigningFlag(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const OCSP_SF_FORCE_SIGNINGCERT_ISSUER_ISCA: OCSPSigningFlag = OCSPSigningFlag(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const OCSP_SF_MANUAL_ASSIGN_SIGNINGCERT: OCSPSigningFlag = OCSPSigningFlag(32i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const OCSP_SF_RESPONDER_ID_KEYHASH: OCSPSigningFlag = OCSPSigningFlag(64i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const OCSP_SF_RESPONDER_ID_NAME: OCSPSigningFlag = OCSPSigningFlag(128i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const OCSP_SF_SILENT: OCSPSigningFlag = OCSPSigningFlag(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const OCSP_SF_USE_CACERT: OCSPSigningFlag = OCSPSigningFlag(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PFXExportChainNoRoot: PFXExportOptions = PFXExportOptions(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PFXExportChainWithRoot: PFXExportOptions = PFXExportOptions(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PFXExportEEOnly: PFXExportOptions = PFXExportOptions(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PROCFLG_ENFORCEGOODKEYS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PROCFLG_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PROPCALLER_ADMIN: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PROPCALLER_EXIT: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PROPCALLER_MASK: u32 = 3840u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PROPCALLER_POLICY: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PROPCALLER_REQUEST: u32 = 1280u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PROPCALLER_SERVER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PROPFLAGS_INDEXED: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PROPTYPE_BINARY: CERT_PROPERTY_TYPE = CERT_PROPERTY_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PROPTYPE_DATE: CERT_PROPERTY_TYPE = CERT_PROPERTY_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PROPTYPE_LONG: CERT_PROPERTY_TYPE = CERT_PROPERTY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PROPTYPE_MASK: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PROPTYPE_STRING: CERT_PROPERTY_TYPE = CERT_PROPERTY_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PolicyQualifierTypeFlags: PolicyQualifierType = PolicyQualifierType(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PolicyQualifierTypeUnknown: PolicyQualifierType = PolicyQualifierType(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PolicyQualifierTypeUrl: PolicyQualifierType = PolicyQualifierType(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PolicyQualifierTypeUserNotice: PolicyQualifierType = PolicyQualifierType(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyAttestMask: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(12288i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyAttestNone: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyAttestPreferred: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(4096i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyAttestRequired: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(8192i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyAttestWithoutPolicy: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(16384i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyClientVersionMask: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(251658240i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyClientVersionShift: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(24i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyEKTrustOnUse: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(512i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyEKValidateCert: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(1024i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyEKValidateKey: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(2048i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyExportable: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyHelloKspKey: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(1048576i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyHelloLogonKey: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(2097152i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyRequireAlternateSignatureAlgorithm: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(64i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyRequireArchival: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyRequireSameKeyRenewal: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(128i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyRequireStrongKeyProtection: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(32i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyServerVersionMask: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(983040i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyServerVersionShift: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyUseLegacyProvider: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(256i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PsFriendlyName: PolicyServerUrlPropertyID = PolicyServerUrlPropertyID(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PsPolicyID: PolicyServerUrlPropertyID = PolicyServerUrlPropertyID(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PsfAllowUnTrustedCA: PolicyServerUrlFlags = PolicyServerUrlFlags(32i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PsfAutoEnrollmentEnabled: PolicyServerUrlFlags = PolicyServerUrlFlags(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PsfLocationGroupPolicy: PolicyServerUrlFlags = PolicyServerUrlFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PsfLocationRegistry: PolicyServerUrlFlags = PolicyServerUrlFlags(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PsfNone: PolicyServerUrlFlags = PolicyServerUrlFlags(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PsfUseClientId: PolicyServerUrlFlags = PolicyServerUrlFlags(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REQDISP_DEFAULT_ENTERPRISE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REQDISP_DENY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REQDISP_ISSUE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REQDISP_MASK: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REQDISP_PENDING: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REQDISP_PENDINGFIRST: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REQDISP_USEREQUESTATTRIBUTE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REVEXT_ASPENABLE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REVEXT_CDPENABLE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REVEXT_CDPFILEURL_OLD: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REVEXT_CDPFTPURL_OLD: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REVEXT_CDPHTTPURL_OLD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REVEXT_CDPLDAPURL_OLD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REVEXT_CDPURLMASK_OLD: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REVEXT_DEFAULT_DS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REVEXT_DEFAULT_NODS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPDispositionFailure: X509SCEPDisposition = X509SCEPDisposition(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPDispositionPending: X509SCEPDisposition = X509SCEPDisposition(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPDispositionPendingChallenge: X509SCEPDisposition = X509SCEPDisposition(11i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPDispositionSuccess: X509SCEPDisposition = X509SCEPDisposition(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPDispositionUnknown: X509SCEPDisposition = X509SCEPDisposition(-1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPFailBadAlgorithm: X509SCEPFailInfo = X509SCEPFailInfo(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPFailBadCertId: X509SCEPFailInfo = X509SCEPFailInfo(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPFailBadMessageCheck: X509SCEPFailInfo = X509SCEPFailInfo(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPFailBadRequest: X509SCEPFailInfo = X509SCEPFailInfo(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPFailBadTime: X509SCEPFailInfo = X509SCEPFailInfo(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPFailUnknown: X509SCEPFailInfo = X509SCEPFailInfo(-1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPMessageCertResponse: X509SCEPMessageType = X509SCEPMessageType(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPMessageClaimChallengeAnswer: X509SCEPMessageType = X509SCEPMessageType(41i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPMessageGetCRL: X509SCEPMessageType = X509SCEPMessageType(22i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPMessageGetCert: X509SCEPMessageType = X509SCEPMessageType(21i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPMessageGetCertInitial: X509SCEPMessageType = X509SCEPMessageType(20i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPMessagePKCSRequest: X509SCEPMessageType = X509SCEPMessageType(19i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPMessageUnknown: X509SCEPMessageType = X509SCEPMessageType(-1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPProcessDefault: X509SCEPProcessMessageFlags = X509SCEPProcessMessageFlags(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPProcessSkipCertInstall: X509SCEPProcessMessageFlags = X509SCEPProcessMessageFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SETUP_ATTEMPT_VROOT_CREATE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SETUP_CLIENT_FLAG: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SETUP_CREATEDB_FLAG: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SETUP_DCOM_SECURITY_UPDATED_FLAG: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SETUP_DENIED_FLAG: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SETUP_FORCECRL_FLAG: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SETUP_ONLINE_FLAG: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SETUP_REQUEST_FLAG: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SETUP_SECURITY_CHANGED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SETUP_SERVER_FLAG: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SETUP_SERVER_IS_UP_TO_DATE_FLAG: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SETUP_SERVER_UPGRADED_FLAG: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SETUP_SUSPEND_FLAG: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SETUP_UPDATE_CAOBJECT_SVRTYPE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SETUP_W2K_SECURITY_NOT_UPGRADED_FLAG: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SKIHashCapiSha1: KeyIdentifierHashAlgorithm = KeyIdentifierHashAlgorithm(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SKIHashDefault: KeyIdentifierHashAlgorithm = KeyIdentifierHashAlgorithm(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SKIHashHPKP: KeyIdentifierHashAlgorithm = KeyIdentifierHashAlgorithm(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SKIHashSha1: KeyIdentifierHashAlgorithm = KeyIdentifierHashAlgorithm(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SKIHashSha256: KeyIdentifierHashAlgorithm = KeyIdentifierHashAlgorithm(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SelectedNo: EnrollmentSelectionStatus = EnrollmentSelectionStatus(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SelectedYes: EnrollmentSelectionStatus = EnrollmentSelectionStatus(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SubjectAlternativeNameEnrolleeSupplies: X509CertificateTemplateSubjectNameFlag = X509CertificateTemplateSubjectNameFlag(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SubjectAlternativeNameRequireDNS: X509CertificateTemplateSubjectNameFlag = X509CertificateTemplateSubjectNameFlag(134217728i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SubjectAlternativeNameRequireDirectoryGUID: X509CertificateTemplateSubjectNameFlag = X509CertificateTemplateSubjectNameFlag(16777216i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SubjectAlternativeNameRequireDomainDNS: X509CertificateTemplateSubjectNameFlag = X509CertificateTemplateSubjectNameFlag(4194304i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SubjectAlternativeNameRequireEmail: X509CertificateTemplateSubjectNameFlag = X509CertificateTemplateSubjectNameFlag(67108864i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SubjectAlternativeNameRequireSPN: X509CertificateTemplateSubjectNameFlag = X509CertificateTemplateSubjectNameFlag(8388608i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SubjectAlternativeNameRequireUPN: X509CertificateTemplateSubjectNameFlag = X509CertificateTemplateSubjectNameFlag(33554432i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SubjectNameAndAlternativeNameOldCertSupplies: X509CertificateTemplateSubjectNameFlag = X509CertificateTemplateSubjectNameFlag(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SubjectNameEnrolleeSupplies: X509CertificateTemplateSubjectNameFlag = X509CertificateTemplateSubjectNameFlag(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SubjectNameRequireCommonName: X509CertificateTemplateSubjectNameFlag = X509CertificateTemplateSubjectNameFlag(1073741824i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SubjectNameRequireDNS: X509CertificateTemplateSubjectNameFlag = X509CertificateTemplateSubjectNameFlag(268435456i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SubjectNameRequireDirectoryPath: X509CertificateTemplateSubjectNameFlag = X509CertificateTemplateSubjectNameFlag(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SubjectNameRequireEmail: X509CertificateTemplateSubjectNameFlag = X509CertificateTemplateSubjectNameFlag(536870912i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TP_MACHINEPOLICY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropAsymmetricAlgorithm: EnrollmentTemplateProperty = EnrollmentTemplateProperty(18i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropCertificatePolicies: EnrollmentTemplateProperty = EnrollmentTemplateProperty(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropCommonName: EnrollmentTemplateProperty = EnrollmentTemplateProperty(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropCryptoProviders: EnrollmentTemplateProperty = EnrollmentTemplateProperty(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropDescription: EnrollmentTemplateProperty = EnrollmentTemplateProperty(6i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropEKUs: EnrollmentTemplateProperty = EnrollmentTemplateProperty(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropEnrollmentFlags: EnrollmentTemplateProperty = EnrollmentTemplateProperty(24i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropExtensions: EnrollmentTemplateProperty = EnrollmentTemplateProperty(29i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropFriendlyName: EnrollmentTemplateProperty = EnrollmentTemplateProperty(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropGeneralFlags: EnrollmentTemplateProperty = EnrollmentTemplateProperty(27i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropHashAlgorithm: EnrollmentTemplateProperty = EnrollmentTemplateProperty(22i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropKeySecurityDescriptor: EnrollmentTemplateProperty = EnrollmentTemplateProperty(19i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropKeySpec: EnrollmentTemplateProperty = EnrollmentTemplateProperty(7i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropKeyUsage: EnrollmentTemplateProperty = EnrollmentTemplateProperty(23i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropMajorRevision: EnrollmentTemplateProperty = EnrollmentTemplateProperty(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropMinimumKeySize: EnrollmentTemplateProperty = EnrollmentTemplateProperty(11i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropMinorRevision: EnrollmentTemplateProperty = EnrollmentTemplateProperty(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropOID: EnrollmentTemplateProperty = EnrollmentTemplateProperty(12i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropPrivateKeyFlags: EnrollmentTemplateProperty = EnrollmentTemplateProperty(26i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropRACertificatePolicies: EnrollmentTemplateProperty = EnrollmentTemplateProperty(14i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropRAEKUs: EnrollmentTemplateProperty = EnrollmentTemplateProperty(15i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropRASignatureCount: EnrollmentTemplateProperty = EnrollmentTemplateProperty(10i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropRenewalPeriod: EnrollmentTemplateProperty = EnrollmentTemplateProperty(31i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropSchemaVersion: EnrollmentTemplateProperty = EnrollmentTemplateProperty(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropSecurityDescriptor: EnrollmentTemplateProperty = EnrollmentTemplateProperty(28i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropSubjectNameFlags: EnrollmentTemplateProperty = EnrollmentTemplateProperty(25i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropSupersede: EnrollmentTemplateProperty = EnrollmentTemplateProperty(13i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropSymmetricAlgorithm: EnrollmentTemplateProperty = EnrollmentTemplateProperty(20i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropSymmetricKeyLength: EnrollmentTemplateProperty = EnrollmentTemplateProperty(21i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropV1ApplicationPolicy: EnrollmentTemplateProperty = EnrollmentTemplateProperty(17i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropValidityPeriod: EnrollmentTemplateProperty = EnrollmentTemplateProperty(30i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TypeAny: X509RequestType = X509RequestType(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TypeCertificate: X509RequestType = X509RequestType(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TypeCmc: X509RequestType = X509RequestType(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TypePkcs10: X509RequestType = X509RequestType(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TypePkcs7: X509RequestType = X509RequestType(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const VR_INSTANT_BAD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const VR_INSTANT_OK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const VR_PENDING: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const VerifyAllowUI: X509PrivateKeyVerify = X509PrivateKeyVerify(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const VerifyNone: X509PrivateKeyVerify = X509PrivateKeyVerify(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const VerifySilent: X509PrivateKeyVerify = X509PrivateKeyVerify(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const VerifySmartCardNone: X509PrivateKeyVerify = X509PrivateKeyVerify(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const VerifySmartCardSilent: X509PrivateKeyVerify = X509PrivateKeyVerify(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const X509AuthAnonymous: X509EnrollmentAuthFlags = X509EnrollmentAuthFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const X509AuthCertificate: X509EnrollmentAuthFlags = X509EnrollmentAuthFlags(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const X509AuthKerberos: X509EnrollmentAuthFlags = X509EnrollmentAuthFlags(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const X509AuthNone: X509EnrollmentAuthFlags = X509EnrollmentAuthFlags(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const X509AuthUsername: X509EnrollmentAuthFlags = X509EnrollmentAuthFlags(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_AT_KEYEXCHANGE: X509KeySpec = X509KeySpec(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_AT_NONE: X509KeySpec = X509KeySpec(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_AT_SIGNATURE: X509KeySpec = X509KeySpec(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: AlgorithmType = AlgorithmType(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_BCRYPT_CIPHER_INTERFACE: AlgorithmType = AlgorithmType(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_BCRYPT_HASH_INTERFACE: AlgorithmType = AlgorithmType(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_BCRYPT_KEY_DERIVATION_INTERFACE: AlgorithmType = AlgorithmType(7i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_BCRYPT_RNG_INTERFACE: AlgorithmType = AlgorithmType(6i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_BCRYPT_SECRET_AGREEMENT_INTERFACE: AlgorithmType = AlgorithmType(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_BCRYPT_SIGNATURE_INTERFACE: AlgorithmType = AlgorithmType(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_BCRYPT_UNKNOWN_INTERFACE: AlgorithmType = AlgorithmType(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ACCESS_STATE_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(14i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_AIA_URL_RETRIEVED_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(67i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ALT_NAME_DIRECTORY_NAME: AlternativeNameType = AlternativeNameType(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ALT_NAME_DNS_NAME: AlternativeNameType = AlternativeNameType(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ALT_NAME_EDI_PARTY_NAME: AlternativeNameType = AlternativeNameType(6i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ALT_NAME_GUID: AlternativeNameType = AlternativeNameType(10i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ALT_NAME_IP_ADDRESS: AlternativeNameType = AlternativeNameType(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ALT_NAME_OTHER_NAME: AlternativeNameType = AlternativeNameType(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ALT_NAME_REGISTERED_ID: AlternativeNameType = AlternativeNameType(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ALT_NAME_RFC822_NAME: AlternativeNameType = AlternativeNameType(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ALT_NAME_UNKNOWN: AlternativeNameType = AlternativeNameType(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ALT_NAME_URL: AlternativeNameType = AlternativeNameType(7i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ALT_NAME_USER_PRINCIPLE_NAME: AlternativeNameType = AlternativeNameType(11i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ALT_NAME_X400_ADDRESS: AlternativeNameType = AlternativeNameType(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ARCHIVED_KEY_HASH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(65i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ARCHIVED_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(19i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_AUTHORITY_INFO_ACCESS_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(68i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_AUTH_ROOT_SHA256_HASH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(98i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_AUTO_ENROLL_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(21i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_AUTO_ENROLL_RETRY_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(66i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_BACKED_UP_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(69i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_CA_DISABLE_CRL_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(82i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_CA_OCSP_AUTHORITY_INFO_ACCESS_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(81i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_CEP_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(87i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_CERT_NOT_BEFORE_ENHKEY_USAGE_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(127i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_CLR_DELETE_KEY_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(125i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_CRL_SIGN_KEY_USAGE: X509KeyUsageFlags = X509KeyUsageFlags(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_CROSS_CERT_DIST_POINTS_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(23i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_CTL_USAGE_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_DATA_ENCIPHERMENT_KEY_USAGE: X509KeyUsageFlags = X509KeyUsageFlags(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_DATE_STAMP_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(27i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_DECIPHER_ONLY_KEY_USAGE: X509KeyUsageFlags = X509KeyUsageFlags(32768i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_DESCRIPTION_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(13i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_DIGITAL_SIGNATURE_KEY_USAGE: X509KeyUsageFlags = X509KeyUsageFlags(128i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_DISALLOWED_ENHKEY_USAGE_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(122i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_DISALLOWED_FILETIME_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(104i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_EFS_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(17i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ENCIPHER_ONLY_KEY_USAGE: X509KeyUsageFlags = X509KeyUsageFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ENHKEY_USAGE_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ENROLLMENT_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(26i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_EXTENDED_ERROR_INFO_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(30i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_FIRST_RESERVED_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(129i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_FIRST_USER_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(32768i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_FORTEZZA_DATA_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(18i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_FRIENDLY_NAME_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(11i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_HASH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_HCRYPTPROV_OR_NCRYPT_KEY_HANDLE_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(79i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_HCRYPTPROV_TRANSFER_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(100i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_IE30_RESERVED_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(7i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ISOLATED_KEY_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(118i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ISSUER_CHAIN_PUB_KEY_CNG_ALG_BIT_LENGTH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(96i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ISSUER_CHAIN_SIGN_HASH_CNG_ALG_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(95i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ISSUER_PUBLIC_KEY_MD5_HASH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(24i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ISSUER_PUB_KEY_BIT_LENGTH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(94i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ISSUER_SERIAL_NUMBER_MD5_HASH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(28i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_KEY_AGREEMENT_KEY_USAGE: X509KeyUsageFlags = X509KeyUsageFlags(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_KEY_CERT_SIGN_KEY_USAGE: X509KeyUsageFlags = X509KeyUsageFlags(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_KEY_CLASSIFICATION_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(120i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_KEY_CONTEXT_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_KEY_ENCIPHERMENT_KEY_USAGE: X509KeyUsageFlags = X509KeyUsageFlags(32i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_KEY_IDENTIFIER_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(20i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_KEY_PROV_HANDLE_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_KEY_PROV_INFO_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_KEY_REPAIR_ATTEMPTED_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(103i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_KEY_SPEC_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(6i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_LAST_RESERVED_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(32767i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_LAST_USER_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(65535i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_MD5_HASH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_AMBIGUOUS_SEPARATOR_FLAGS: X500NameFlags = X500NameFlags(1275068416i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_COMMA_FLAG: X500NameFlags = X500NameFlags(67108864i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_CRLF_FLAG: X500NameFlags = X500NameFlags(134217728i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_DISABLE_IE4_UTF8_FLAG: X500NameFlags = X500NameFlags(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_DISABLE_UTF8_DIR_STR_FLAG: X500NameFlags = X500NameFlags(1048576i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_DS_ESCAPED: X500NameFlags = X500NameFlags(8388608i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_ENABLE_PUNYCODE_FLAG: X500NameFlags = X500NameFlags(2097152i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_ENABLE_T61_UNICODE_FLAG: X500NameFlags = X500NameFlags(131072i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_ENABLE_UTF8_UNICODE_FLAG: X500NameFlags = X500NameFlags(262144i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_FORCE_UTF8_DIR_STR_FLAG: X500NameFlags = X500NameFlags(524288i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_FORWARD_FLAG: X500NameFlags = X500NameFlags(16777216i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_NONE: X500NameFlags = X500NameFlags(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_NO_PLUS_FLAG: X500NameFlags = X500NameFlags(536870912i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_NO_QUOTING_FLAG: X500NameFlags = X500NameFlags(268435456i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_REVERSE_FLAG: X500NameFlags = X500NameFlags(33554432i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_SEMICOLON_FLAG: X500NameFlags = X500NameFlags(1073741824i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NCRYPT_KEY_HANDLE_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(78i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NCRYPT_KEY_HANDLE_TRANSFER_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(99i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NEW_KEY_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(74i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NEXT_UPDATE_LOCATION_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(10i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NONCOMPLIANT_ROOT_URL_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(123i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NON_REPUDIATION_KEY_USAGE: X509KeyUsageFlags = X509KeyUsageFlags(64i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NOT_BEFORE_FILETIME_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(126i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NO_AUTO_EXPIRE_CHECK_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(77i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NO_EXPIRE_NOTIFICATION_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(97i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NO_KEY_USAGE: X509KeyUsageFlags = X509KeyUsageFlags(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_OCSP_CACHE_PREFIX_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(75i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_OCSP_RESPONSE_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(70i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_OFFLINE_CRL_SIGN_KEY_USAGE: X509KeyUsageFlags = X509KeyUsageFlags(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_OID_NAME_STR: X500NameFlags = X500NameFlags(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_PIN_SHA256_HASH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(124i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_PUBKEY_ALG_PARA_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(22i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_PUBKEY_HASH_RESERVED_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_PUB_KEY_CNG_ALG_BIT_LENGTH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(93i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_PVK_FILE_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(12i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_RENEWAL_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(64i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_REQUEST_ORIGINATOR_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(71i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ROOT_PROGRAM_CERT_POLICIES_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(83i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ROOT_PROGRAM_CHAIN_POLICIES_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(105i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ROOT_PROGRAM_NAME_CONSTRAINTS_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(84i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SCARD_PIN_ID_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(90i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SCARD_PIN_INFO_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(91i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SCEP_CA_CERT_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(111i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SCEP_ENCRYPT_HASH_CNG_ALG_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(114i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SCEP_FLAGS_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(115i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SCEP_GUID_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(116i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SCEP_NONCE_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(113i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SCEP_RA_ENCRYPTION_CERT_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(110i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SCEP_RA_SIGNATURE_CERT_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(109i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SCEP_SERVER_CERTS_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(108i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SCEP_SIGNER_CERT_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(112i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SEND_AS_TRUSTED_ISSUER_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(102i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SERIALIZABLE_KEY_CONTEXT_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(117i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SERIAL_CHAIN_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(119i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SHA1_HASH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SHA256_HASH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(107i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SIGNATURE_HASH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(15i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SIGN_HASH_CNG_ALG_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(89i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SIMPLE_NAME_STR: X500NameFlags = X500NameFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SMART_CARD_DATA_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SMART_CARD_READER_NON_REMOVABLE_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(106i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SMART_CARD_READER_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(101i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SMART_CARD_ROOT_INFO_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(76i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SOURCE_LOCATION_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(72i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SOURCE_URL_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(73i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_STORE_LOCALIZED_NAME_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(4096i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SUBJECT_DISABLE_CRL_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(86i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SUBJECT_INFO_ACCESS_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(80i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SUBJECT_NAME_MD5_HASH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(29i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SUBJECT_OCSP_AUTHORITY_INFO_ACCESS_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(85i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SUBJECT_PUBLIC_KEY_MD5_HASH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(25i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_SUBJECT_PUB_KEY_BIT_LENGTH_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(92i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_X500_NAME_STR: X500NameFlags = X500NameFlags(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_XML_NAME_STR: X500NameFlags = X500NameFlags(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRL_REASON_AA_COMPROMISE: CRLRevocationReason = CRLRevocationReason(10i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRL_REASON_AFFILIATION_CHANGED: CRLRevocationReason = CRLRevocationReason(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRL_REASON_CA_COMPROMISE: CRLRevocationReason = CRLRevocationReason(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRL_REASON_CERTIFICATE_HOLD: CRLRevocationReason = CRLRevocationReason(6i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRL_REASON_CESSATION_OF_OPERATION: CRLRevocationReason = CRLRevocationReason(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRL_REASON_KEY_COMPROMISE: CRLRevocationReason = CRLRevocationReason(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRL_REASON_PRIVILEGE_WITHDRAWN: CRLRevocationReason = CRLRevocationReason(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRL_REASON_REMOVE_FROM_CRL: CRLRevocationReason = CRLRevocationReason(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRL_REASON_SUPERSEDED: CRLRevocationReason = CRLRevocationReason(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRL_REASON_UNSPECIFIED: CRLRevocationReason = CRLRevocationReason(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_ANY_GROUP_ID: ObjectIdGroupId = ObjectIdGroupId(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_ENCRYPT_ALG_OID_GROUP_ID: ObjectIdGroupId = ObjectIdGroupId(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_ENHKEY_USAGE_OID_GROUP_ID: ObjectIdGroupId = ObjectIdGroupId(7i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_EXT_OR_ATTR_OID_GROUP_ID: ObjectIdGroupId = ObjectIdGroupId(6i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_FIRST_ALG_OID_GROUP_ID: ObjectIdGroupId = ObjectIdGroupId(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_GROUP_ID_MASK: ObjectIdGroupId = ObjectIdGroupId(65535i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_HASH_ALG_OID_GROUP_ID: ObjectIdGroupId = ObjectIdGroupId(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_KDF_OID_GROUP_ID: ObjectIdGroupId = ObjectIdGroupId(10i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_KEY_LENGTH_MASK: ObjectIdGroupId = ObjectIdGroupId(268369920i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_LAST_ALG_OID_GROUP_ID: ObjectIdGroupId = ObjectIdGroupId(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_LAST_OID_GROUP_ID: ObjectIdGroupId = ObjectIdGroupId(10i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_OID_DISABLE_SEARCH_DS_FLAG: ObjectIdGroupId = ObjectIdGroupId(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_OID_INFO_OID_GROUP_BIT_LEN_MASK: ObjectIdGroupId = ObjectIdGroupId(268369920i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_OID_INFO_OID_GROUP_BIT_LEN_SHIFT: ObjectIdGroupId = ObjectIdGroupId(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_OID_INFO_PUBKEY_ANY: ObjectIdPublicKeyFlags = ObjectIdPublicKeyFlags(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_OID_INFO_PUBKEY_ENCRYPT_KEY_FLAG: ObjectIdPublicKeyFlags = ObjectIdPublicKeyFlags(1073741824i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_OID_INFO_PUBKEY_SIGN_KEY_FLAG: ObjectIdPublicKeyFlags = ObjectIdPublicKeyFlags(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_OID_PREFER_CNG_ALGID_FLAG: ObjectIdGroupId = ObjectIdGroupId(1073741824i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_OID_USE_CURVE_NAME_FOR_ENCODE_FLAG: X509KeyParametersExportType = X509KeyParametersExportType(536870912i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_OID_USE_CURVE_NONE: X509KeyParametersExportType = X509KeyParametersExportType(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_OID_USE_CURVE_PARAMETERS_FOR_ENCODE_FLAG: X509KeyParametersExportType = X509KeyParametersExportType(268435456i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_POLICY_OID_GROUP_ID: ObjectIdGroupId = ObjectIdGroupId(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_PUBKEY_ALG_OID_GROUP_ID: ObjectIdGroupId = ObjectIdGroupId(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_RDN_ATTR_OID_GROUP_ID: ObjectIdGroupId = ObjectIdGroupId(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_SIGN_ALG_OID_GROUP_ID: ObjectIdGroupId = ObjectIdGroupId(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_ANY: EncodingType = EncodingType(7i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_BASE64: EncodingType = EncodingType(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_BASE64HEADER: EncodingType = EncodingType(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_BASE64REQUESTHEADER: EncodingType = EncodingType(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_BASE64URI: EncodingType = EncodingType(13i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_BASE64X509CRLHEADER: EncodingType = EncodingType(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_BASE64_ANY: EncodingType = EncodingType(6i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_BINARY: EncodingType = EncodingType(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_CHAIN: EncodingType = EncodingType(256i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_ENCODEMASK: EncodingType = EncodingType(255i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_HASHDATA: EncodingType = EncodingType(268435456i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_HEX: EncodingType = EncodingType(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_HEXADDR: EncodingType = EncodingType(10i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_HEXASCII: EncodingType = EncodingType(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_HEXASCIIADDR: EncodingType = EncodingType(11i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_HEXRAW: EncodingType = EncodingType(12i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_HEX_ANY: EncodingType = EncodingType(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_NOCR: EncodingType = EncodingType(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_NOCRLF: EncodingType = EncodingType(1073741824i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_PERCENTESCAPE: EncodingType = EncodingType(134217728i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_STRICT: EncodingType = EncodingType(536870912i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_TEXT: EncodingType = EncodingType(512i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_TEMPLATE_OID_GROUP_ID: ObjectIdGroupId = ObjectIdGroupId(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_ALLOW_ALL_USAGES: X509PrivateKeyUsageFlags = X509PrivateKeyUsageFlags(16777215i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_ALLOW_ARCHIVING_FLAG: X509PrivateKeyExportFlags = X509PrivateKeyExportFlags(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_ALLOW_DECRYPT_FLAG: X509PrivateKeyUsageFlags = X509PrivateKeyUsageFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_ALLOW_EXPORT_FLAG: X509PrivateKeyExportFlags = X509PrivateKeyExportFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_ALLOW_EXPORT_NONE: X509PrivateKeyExportFlags = X509PrivateKeyExportFlags(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_ALLOW_KEY_AGREEMENT_FLAG: X509PrivateKeyUsageFlags = X509PrivateKeyUsageFlags(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_ALLOW_KEY_IMPORT_FLAG: X509PrivateKeyUsageFlags = X509PrivateKeyUsageFlags(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_ALLOW_PLAINTEXT_ARCHIVING_FLAG: X509PrivateKeyExportFlags = X509PrivateKeyExportFlags(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_ALLOW_PLAINTEXT_EXPORT_FLAG: X509PrivateKeyExportFlags = X509PrivateKeyExportFlags(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_ALLOW_SIGNING_FLAG: X509PrivateKeyUsageFlags = X509PrivateKeyUsageFlags(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_ALLOW_USAGES_NONE: X509PrivateKeyUsageFlags = X509PrivateKeyUsageFlags(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_ANY_ASYMMETRIC_OPERATION: AlgorithmOperationFlags = AlgorithmOperationFlags(28i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: AlgorithmOperationFlags = AlgorithmOperationFlags(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_CIPHER_OPERATION: AlgorithmOperationFlags = AlgorithmOperationFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_CLAIM_AUTHORITY_AND_SUBJECT: KeyAttestationClaimType = KeyAttestationClaimType(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_CLAIM_AUTHORITY_ONLY: KeyAttestationClaimType = KeyAttestationClaimType(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_CLAIM_NONE: KeyAttestationClaimType = KeyAttestationClaimType(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_CLAIM_SUBJECT_ONLY: KeyAttestationClaimType = KeyAttestationClaimType(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_CLAIM_UNKNOWN: KeyAttestationClaimType = KeyAttestationClaimType(4096i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_EXACT_MATCH_OPERATION: AlgorithmOperationFlags = AlgorithmOperationFlags(8388608i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_HASH_OPERATION: AlgorithmOperationFlags = AlgorithmOperationFlags(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_KEY_DERIVATION_OPERATION: AlgorithmOperationFlags = AlgorithmOperationFlags(64i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_NO_OPERATION: AlgorithmOperationFlags = AlgorithmOperationFlags(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_PCP_ENCRYPTION_KEY: X509HardwareKeyUsageFlags = X509HardwareKeyUsageFlags(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_PCP_GENERIC_KEY: X509HardwareKeyUsageFlags = X509HardwareKeyUsageFlags(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_PCP_IDENTITY_KEY: X509HardwareKeyUsageFlags = X509HardwareKeyUsageFlags(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_PCP_NONE: X509HardwareKeyUsageFlags = X509HardwareKeyUsageFlags(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_PCP_SIGNATURE_KEY: X509HardwareKeyUsageFlags = X509HardwareKeyUsageFlags(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_PCP_STORAGE_KEY: X509HardwareKeyUsageFlags = X509HardwareKeyUsageFlags(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_PREFERENCE_MASK_OPERATION: AlgorithmOperationFlags = AlgorithmOperationFlags(14680064i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_PREFER_NON_SIGNATURE_OPERATION: AlgorithmOperationFlags = AlgorithmOperationFlags(4194304i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_PREFER_SIGNATURE_ONLY_OPERATION: AlgorithmOperationFlags = AlgorithmOperationFlags(2097152i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_RNG_OPERATION: AlgorithmOperationFlags = AlgorithmOperationFlags(32i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_SECRET_AGREEMENT_OPERATION: AlgorithmOperationFlags = AlgorithmOperationFlags(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_SIGNATURE_OPERATION: AlgorithmOperationFlags = AlgorithmOperationFlags(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_TPM12_PROVIDER: X509HardwareKeyUsageFlags = X509HardwareKeyUsageFlags(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_UI_APPCONTAINER_ACCESS_MEDIUM_FLAG: X509PrivateKeyProtection = X509PrivateKeyProtection(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_UI_FINGERPRINT_PROTECTION_FLAG: X509PrivateKeyProtection = X509PrivateKeyProtection(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG: X509PrivateKeyProtection = X509PrivateKeyProtection(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_UI_NO_PROTECTION_FLAG: X509PrivateKeyProtection = X509PrivateKeyProtection(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_UI_PROTECT_KEY_FLAG: X509PrivateKeyProtection = X509PrivateKeyProtection(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OIDVerisign_FailInfo: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(431i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OIDVerisign_MessageType: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(429i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OIDVerisign_PkiStatus: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(430i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OIDVerisign_RecipientNonce: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(433i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OIDVerisign_SenderNonce: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(432i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OIDVerisign_TransactionID: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(434i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ANSI_X942: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(53i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ANSI_X942_DH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(54i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ANY_APPLICATION_POLICY: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(216i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ANY_CERT_POLICY: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(180i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ANY_ENHANCED_KEY_USAGE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(352i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_APPLICATION_CERT_POLICIES: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(229i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_APPLICATION_POLICY_CONSTRAINTS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(231i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_APPLICATION_POLICY_MAPPINGS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(230i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ARCHIVED_KEY_ATTR: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(232i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ARCHIVED_KEY_CERT_HASH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(235i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ATTR_SUPPORTED_ALGORITHMS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(355i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ATTR_TPM_SECURITY_ASSERTIONS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(356i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ATTR_TPM_SPECIFICATION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(357i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_AUTHORITY_INFO_ACCESS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(204i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_AUTHORITY_KEY_IDENTIFIER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(169i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_AUTHORITY_KEY_IDENTIFIER2: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(181i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_AUTHORITY_REVOCATION_LIST: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(156i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_AUTO_ENROLL_CTL_USAGE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(217i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_BACKGROUND_OTHER_LOGOTYPE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(327i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_BASIC_CONSTRAINTS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(175i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_BASIC_CONSTRAINTS2: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(178i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_BIOMETRIC_EXT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(205i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_BUSINESS_CATEGORY: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(133i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CA_CERTIFICATE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(155i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERTIFICATE_REVOCATION_LIST: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(157i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERTIFICATE_TEMPLATE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(226i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERTSRV_CA_VERSION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(220i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERTSRV_CROSSCA_VERSION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(240i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERTSRV_PREVIOUS_CERT_HASH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(221i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_DISALLOWED_FILETIME_PROP_ID: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(358i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_EXTENSIONS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(207i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_ISSUER_SERIAL_NUMBER_MD5_HASH_PROP_ID: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(339i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_KEY_IDENTIFIER_PROP_ID: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(338i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_MANIFOLD: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(219i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_MD5_HASH_PROP_ID: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(341i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_POLICIES: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(179i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_POLICIES_95: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(171i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_POLICIES_95_QUALIFIER1: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(281i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_PROP_ID_PREFIX: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(337i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_SIGNATURE_HASH_PROP_ID: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(359i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_STRONG_KEY_OS_1: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(360i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_STRONG_KEY_OS_CURRENT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(361i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_STRONG_KEY_OS_PREFIX: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(362i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_STRONG_SIGN_OS_1: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(363i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_STRONG_SIGN_OS_CURRENT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(364i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_STRONG_SIGN_OS_PREFIX: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(365i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CERT_SUBJECT_NAME_MD5_HASH_PROP_ID: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(340i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(304i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_ADD_ATTRIBUTES: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(325i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_ADD_EXTENSIONS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(312i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_DATA_RETURN: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(308i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_DECRYPTED_POP: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(314i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_ENCRYPTED_POP: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(313i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_GET_CERT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(316i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_GET_CRL: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(317i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_IDENTIFICATION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(306i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_IDENTITY_PROOF: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(307i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_ID_CONFIRM_CERT_ACCEPTANCE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(324i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_ID_POP_LINK_RANDOM: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(322i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_ID_POP_LINK_WITNESS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(323i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_LRA_POP_WITNESS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(315i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_QUERY_PENDING: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(321i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_RECIPIENT_NONCE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(311i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_REG_INFO: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(319i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_RESPONSE_INFO: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(320i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_REVOKE_REQUEST: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(318i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_SENDER_NONCE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(310i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_STATUS_INFO: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(305i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CMC_TRANSACTION_ID: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(309i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_COMMON_NAME: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(121i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_COUNTRY_NAME: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(124i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CRL_DIST_POINTS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(187i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CRL_NEXT_PUBLISH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(223i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CRL_NUMBER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(189i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CRL_REASON_CODE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(185i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CRL_SELF_CDP: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(233i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CRL_VIRTUAL_BASE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(222i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CROSS_CERTIFICATE_PAIR: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(158i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CROSS_CERT_DIST_POINTS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(210i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CTL: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(211i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CT_PKI_DATA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(301i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_CT_PKI_RESPONSE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(302i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DELTA_CRL_INDICATOR: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(190i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DESCRIPTION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(131i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DESTINATION_INDICATOR: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(145i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DEVICE_SERIAL_NUMBER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(123i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DH_SINGLE_PASS_STDDH_SHA1_KDF: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(366i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DH_SINGLE_PASS_STDDH_SHA256_KDF: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(367i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DH_SINGLE_PASS_STDDH_SHA384_KDF: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(368i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DISALLOWED_HASH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(369i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DISALLOWED_LIST: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(370i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DN_QUALIFIER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(161i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DOMAIN_COMPONENT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(162i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DRM: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(273i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DRM_INDIVIDUALIZATION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(274i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(58i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DSALG: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(59i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DSALG_CRPT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(60i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DSALG_HASH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(61i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DSALG_RSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(63i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DSALG_SIGN: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(62i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_DS_EMAIL_REPLICATION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(237i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ECC_CURVE_P256: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(371i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ECC_CURVE_P384: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(372i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ECC_CURVE_P521: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(373i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ECC_PUBLIC_KEY: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(349i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ECDSA_SHA1: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(350i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ECDSA_SHA256: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(374i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ECDSA_SHA384: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(375i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ECDSA_SHA512: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(376i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ECDSA_SPECIFIED: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(351i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_EFS_RECOVERY: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(260i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_EMBEDDED_NT_CRYPTO: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(264i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENCRYPTED_KEY_HASH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(239i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENHANCED_KEY_USAGE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(188i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENROLLMENT_AGENT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(201i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENROLLMENT_CSP_PROVIDER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(199i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENROLLMENT_NAME_VALUE_PAIR: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(198i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENROLL_ATTESTATION_CHALLENGE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(435i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENROLL_ATTESTATION_STATEMENT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(436i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENROLL_CAXCHGCERT_HASH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(377i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENROLL_CERTTYPE_EXTENSION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(218i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENROLL_EKPUB_CHALLENGE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(379i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENROLL_EKVERIFYCERT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(380i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENROLL_EKVERIFYCREDS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(381i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENROLL_EKVERIFYKEY: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(382i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENROLL_EK_INFO: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(378i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENROLL_ENCRYPTION_ALGORITHM: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(437i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENROLL_KSP_NAME: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(438i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENROLL_SCEP_ERROR: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(428i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ENTERPRISE_OID_ROOT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(227i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_EV_RDN_COUNTRY: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(383i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_EV_RDN_LOCALE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(384i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_EV_RDN_STATE_OR_PROVINCE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(385i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_FACSIMILE_TELEPHONE_NUMBER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(141i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_FRESHEST_CRL: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(192i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_GIVEN_NAME: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(159i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(99i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_SuiteAConfidentiality: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(113i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_SuiteAIntegrity: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(114i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_SuiteAKMandSig: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(117i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_SuiteAKeyManagement: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(116i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_SuiteASignature: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(112i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_SuiteATokenProtection: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(115i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_mosaicConfidentiality: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(103i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_mosaicIntegrity: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(105i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_mosaicKMandSig: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(111i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_mosaicKMandUpdSig: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(119i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_mosaicKeyManagement: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(109i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_mosaicSignature: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(101i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_mosaicTokenProtection: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(107i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_mosaicUpdatedInteg: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(120i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_mosaicUpdatedSig: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(118i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_sdnsConfidentiality: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(102i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_sdnsIntegrity: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(104i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_sdnsKMandSig: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(110i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_sdnsKeyManagement: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(108i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_sdnsSignature: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(100i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INFOSEC_sdnsTokenProtection: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(106i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INHIBIT_ANY_POLICY: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(386i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INITIALS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(160i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INTERNATIONALIZED_EMAIL_ADDRESS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(387i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_INTERNATIONAL_ISDN_NUMBER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(143i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_IPSEC_KP_IKE_INTERMEDIATE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(254i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ISSUED_CERT_HASH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(236i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ISSUER_ALT_NAME: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(174i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ISSUER_ALT_NAME2: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(184i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ISSUING_DIST_POINT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(191i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KEYID_RDN: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(168i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KEY_ATTRIBUTES: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(170i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KEY_USAGE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(176i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KEY_USAGE_RESTRICTION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(172i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_CA_EXCHANGE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(224i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_CSP_SIGNATURE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(272i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_CTL_USAGE_SIGNING: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(255i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_DOCUMENT_SIGNING: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(268i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_EFS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(259i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_KERNEL_MODE_CODE_SIGNING: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(388i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_KERNEL_MODE_HAL_EXTENSION_SIGNING: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(389i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_KERNEL_MODE_TRUSTED_BOOT_SIGNING: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(390i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_KEY_RECOVERY: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(267i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_KEY_RECOVERY_AGENT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(225i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_LIFETIME_SIGNING: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(269i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_MOBILE_DEVICE_SOFTWARE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(270i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_QUALIFIED_SUBORDINATION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(266i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_SMARTCARD_LOGON: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(277i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_SMART_DISPLAY: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(271i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_TIME_STAMP_SIGNING: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(256i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_TPM_AIK_CERTIFICATE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(391i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_TPM_EK_CERTIFICATE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(392i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_KP_TPM_PLATFORM_CERTIFICATE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(393i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_LEGACY_POLICY_MAPPINGS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(195i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_LICENSES: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(275i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_LICENSE_SERVER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(276i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_LOCALITY_NAME: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(125i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_LOCAL_MACHINE_KEYSET: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(166i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_LOGOTYPE_EXT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(206i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_LOYALTY_OTHER_LOGOTYPE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(326i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_MEMBER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(149i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NAME_CONSTRAINTS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(193i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NETSCAPE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(289i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NETSCAPE_BASE_URL: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(292i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NETSCAPE_CA_POLICY_URL: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(296i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NETSCAPE_CA_REVOCATION_URL: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(294i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NETSCAPE_CERT_EXTENSION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(290i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NETSCAPE_CERT_RENEWAL_URL: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(295i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NETSCAPE_CERT_SEQUENCE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(300i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NETSCAPE_CERT_TYPE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(291i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NETSCAPE_COMMENT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(298i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NETSCAPE_DATA_TYPE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(299i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NETSCAPE_REVOCATION_URL: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(293i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NETSCAPE_SSL_SERVER_NAME: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(297i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NEXT_UPDATE_LOCATION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(208i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NIST_AES128_CBC: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(394i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NIST_AES128_WRAP: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(395i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NIST_AES192_CBC: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(396i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NIST_AES192_WRAP: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(397i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NIST_AES256_CBC: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(398i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NIST_AES256_WRAP: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(399i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NIST_sha256: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(345i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NIST_sha384: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(346i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NIST_sha512: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(347i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NONE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NT5_CRYPTO: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(262i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NTDS_REPLICATION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(241i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NT_PRINCIPAL_NAME: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(214i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OEM_WHQL_CRYPTO: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(263i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIW: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(64i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWDIR: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(93i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWDIR_CRPT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(94i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWDIR_HASH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(95i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWDIR_SIGN: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(96i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWDIR_md2: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(97i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWDIR_md2RSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(98i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(65i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_desCBC: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(70i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_desCFB: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(72i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_desECB: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(69i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_desEDE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(80i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_desMAC: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(73i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_desOFB: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(71i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_dhCommMod: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(79i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_dsa: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(75i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_dsaComm: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(83i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_dsaCommSHA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(84i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_dsaCommSHA1: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(91i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_dsaSHA1: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(90i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_keyHashSeal: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(86i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_md2RSASign: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(87i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_md4RSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(66i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_md4RSA2: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(68i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_md5RSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(67i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_md5RSASign: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(88i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_mdc2: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(82i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_mdc2RSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(77i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_rsaSign: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(74i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_rsaXchg: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(85i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_sha: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(81i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_sha1: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(89i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_sha1RSASign: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(92i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_shaDSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(76i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OIWSEC_shaRSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(78i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ORGANIZATIONAL_UNIT_NAME: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(129i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ORGANIZATION_NAME: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(128i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OS_VERSION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(200i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_OWNER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(150i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PHYSICAL_DELIVERY_OFFICE_NAME: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(137i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_1: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_10: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(14i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_12: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(15i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_12_EXTENDED_ATTRIBUTES: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(167i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_12_FRIENDLY_NAME_ATTR: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(163i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_12_KEY_PROVIDER_NAME_ATTR: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(165i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_12_LOCAL_KEY_ID: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(164i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_12_PROTECTED_PASSWORD_SECRET_BAG_TYPE_ID: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(407i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_12_PbeIds: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(400i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_12_pbeWithSHA1And128BitRC2: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(401i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_12_pbeWithSHA1And128BitRC4: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(402i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_12_pbeWithSHA1And2KeyTripleDES: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(403i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_12_pbeWithSHA1And3KeyTripleDES: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(404i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_12_pbeWithSHA1And40BitRC2: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(405i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_12_pbeWithSHA1And40BitRC4: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(406i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_2: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(6i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_3: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(7i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_4: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_5: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_6: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(10i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_7: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(11i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_7_DATA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(329i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_7_DIGESTED: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(333i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_7_ENCRYPTED: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(334i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_7_ENVELOPED: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(331i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_7_SIGNED: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(330i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_7_SIGNEDANDENVELOPED: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(332i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_8: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(12i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_9: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(13i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_9_CONTENT_TYPE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(335i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKCS_9_MESSAGE_DIGEST: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(336i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKINIT_KP_KDC: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(408i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(202i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_ACC_DESCR: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(282i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_CA_ISSUERS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(284i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_CA_REPOSITORY: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(409i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_KP: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(243i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_KP_CLIENT_AUTH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(245i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_KP_CODE_SIGNING: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(246i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_KP_EMAIL_PROTECTION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(247i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_KP_IPSEC_END_SYSTEM: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(248i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_KP_IPSEC_TUNNEL: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(249i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_KP_IPSEC_USER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(250i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_KP_OCSP_SIGNING: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(252i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_KP_SERVER_AUTH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(244i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_KP_TIMESTAMP_SIGNING: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(251i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_NO_SIGNATURE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(303i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_OCSP: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(283i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_OCSP_BASIC_SIGNED_RESPONSE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(328i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_OCSP_NOCHECK: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(253i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_OCSP_NONCE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(410i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_PE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(203i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_POLICY_QUALIFIER_CPS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(279i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_POLICY_QUALIFIER_USERNOTICE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(280i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PKIX_TIME_STAMPING: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(411i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_POLICY_CONSTRAINTS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(196i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_POLICY_MAPPINGS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(194i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_POSTAL_ADDRESS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(134i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_POSTAL_CODE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(135i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_POST_OFFICE_BOX: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(136i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PREFERRED_DELIVERY_METHOD: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(146i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PRESENTATION_ADDRESS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(147i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PRIVATEKEY_USAGE_PERIOD: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(177i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_PRODUCT_UPDATE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(215i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_QC_EU_COMPLIANCE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(412i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_QC_SSCD: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(413i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_QC_STATEMENTS_EXT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(414i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RDN_DUMMY_SIGNER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(228i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RDN_TPM_MANUFACTURER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(415i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RDN_TPM_MODEL: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(416i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RDN_TPM_VERSION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(417i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_REASON_CODE_HOLD: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(186i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_REGISTERED_ADDRESS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(144i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_REMOVE_CERTIFICATE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(209i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RENEWAL_CERTIFICATE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(197i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_REQUEST_CLIENT_INFO: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(238i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_REQUIRE_CERT_CHAIN_POLICY: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(234i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_REVOKED_LIST_SIGNER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(418i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RFC3161_counterSign: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(419i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ROLE_OCCUPANT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(151i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ROOT_LIST_SIGNER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(265i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ROOT_PROGRAM_AUTO_UPDATE_CA_REVOCATION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(420i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ROOT_PROGRAM_AUTO_UPDATE_END_REVOCATION: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(421i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ROOT_PROGRAM_FLAGS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(422i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_ROOT_PROGRAM_NO_OCSP_FAILOVER_TO_CRL: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(423i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSAES_OAEP: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(425i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_DES_EDE3_CBC: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(51i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_DH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(22i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_ENCRYPT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_HASH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_MD2: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(46i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_MD2RSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(17i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_MD4: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(47i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_MD4RSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(18i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_MD5: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(48i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_MD5RSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(19i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_MGF1: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(348i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_PSPECIFIED: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(424i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_RC2CBC: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(49i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_RC4: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(50i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_RC5_CBCPad: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(52i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_RSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_SETOAEP_RSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(21i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_SHA1RSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(20i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_SHA256RSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(342i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_SHA384RSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(343i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_SHA512RSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(344i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_SMIMECapabilities: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(40i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_SMIMEalg: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(42i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_SMIMEalgCMS3DESwrap: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(44i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_SMIMEalgCMSRC2wrap: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(45i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_SMIMEalgESDH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(43i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_SSA_PSS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(353i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_certExtensions: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(39i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_challengePwd: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(36i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_contentType: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(32i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_counterSign: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(35i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_data: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(23i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_digestedData: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(27i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_emailAddr: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(30i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_encryptedData: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(29i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_envelopedData: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(25i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_extCertAttrs: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(38i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_hashedData: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(28i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_messageDigest: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(33i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_preferSignedData: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(41i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_signEnvData: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(26i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_signedData: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(24i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_signingTime: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(34i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_unstructAddr: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(37i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_RSA_unstructName: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(31i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_SEARCH_GUIDE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(132i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_SEE_ALSO: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(152i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_SERIALIZED: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(213i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_SERVER_GATED_CRYPTO: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(257i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_SGC_NETSCAPE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(258i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_SORTED_CTL: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(212i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_STATE_OR_PROVINCE_NAME: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(126i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_STREET_ADDRESS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(127i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_SUBJECT_ALT_NAME: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(173i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_SUBJECT_ALT_NAME2: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(183i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_SUBJECT_DIR_ATTRS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(242i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_SUBJECT_INFO_ACCESS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(426i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_SUBJECT_KEY_IDENTIFIER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(182i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_SUPPORTED_APPLICATION_CONTEXT: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(148i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_SUR_NAME: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(122i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_TELEPHONE_NUMBER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(138i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_TELETEXT_TERMINAL_IDENTIFIER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(140i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_TELEX_NUMBER: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(139i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_TIMESTAMP_TOKEN: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(427i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_TITLE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(130i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_USER_CERTIFICATE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(154i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_USER_PASSWORD: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(153i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_VERISIGN_BITSTRING_6_13: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(287i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_VERISIGN_ISS_STRONG_CRYPTO: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(288i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_VERISIGN_ONSITE_JURISDICTION_HASH: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(286i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_VERISIGN_PRIVATE_6_9: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(285i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_WHQL_CRYPTO: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(261i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_X21_ADDRESS: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(142i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_X957: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(55i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_X957_DSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(56i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_X957_SHA1DSA: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(57i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_YESNO_TRUST_ATTR: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(278i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROPERTYID_NONE: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_DH_SCHANNEL: X509ProviderType = X509ProviderType(18i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_DSS: X509ProviderType = X509ProviderType(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_DSS_DH: X509ProviderType = X509ProviderType(13i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_EC_ECDSA_FULL: X509ProviderType = X509ProviderType(16i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_EC_ECDSA_SIG: X509ProviderType = X509ProviderType(14i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_EC_ECNRA_FULL: X509ProviderType = X509ProviderType(17i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_EC_ECNRA_SIG: X509ProviderType = X509ProviderType(15i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_FORTEZZA: X509ProviderType = X509ProviderType(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_INTEL_SEC: X509ProviderType = X509ProviderType(22i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_MS_EXCHANGE: X509ProviderType = X509ProviderType(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_NONE: X509ProviderType = X509ProviderType(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_REPLACE_OWF: X509ProviderType = X509ProviderType(23i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_RNG: X509ProviderType = X509ProviderType(21i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_RSA_AES: X509ProviderType = X509ProviderType(24i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_RSA_FULL: X509ProviderType = X509ProviderType(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_RSA_SCHANNEL: X509ProviderType = X509ProviderType(12i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_RSA_SIG: X509ProviderType = X509ProviderType(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_SPYRUS_LYNKS: X509ProviderType = X509ProviderType(20i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_SSL: X509ProviderType = X509ProviderType(6i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XECI_AUTOENROLL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XECI_CERTREQ: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XECI_DISABLE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XECI_REQWIZARD: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XECI_XENROLL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XECP_STRING_PROPERTY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XECR_CMC: CERT_CREATE_REQUEST_FLAGS = CERT_CREATE_REQUEST_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XECR_PKCS10_V1_5: CERT_CREATE_REQUEST_FLAGS = CERT_CREATE_REQUEST_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XECR_PKCS10_V2_0: CERT_CREATE_REQUEST_FLAGS = CERT_CREATE_REQUEST_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XECR_PKCS7: CERT_CREATE_REQUEST_FLAGS = CERT_CREATE_REQUEST_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XECT_EXTENSION_V1: ADDED_CERT_TYPE = ADDED_CERT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XECT_EXTENSION_V2: ADDED_CERT_TYPE = ADDED_CERT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEKL_KEYSIZE_DEFAULT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEKL_KEYSIZE_INC: XEKL_KEYSIZE = XEKL_KEYSIZE(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEKL_KEYSIZE_MAX: XEKL_KEYSIZE = XEKL_KEYSIZE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEKL_KEYSIZE_MIN: XEKL_KEYSIZE = XEKL_KEYSIZE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEKL_KEYSPEC_KEYX: XEKL_KEYSPEC = XEKL_KEYSPEC(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEKL_KEYSPEC_SIG: XEKL_KEYSPEC = XEKL_KEYSPEC(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEPR_CADNS: PENDING_REQUEST_DESIRED_PROPERTY = PENDING_REQUEST_DESIRED_PROPERTY(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEPR_CAFRIENDLYNAME: PENDING_REQUEST_DESIRED_PROPERTY = PENDING_REQUEST_DESIRED_PROPERTY(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEPR_CANAME: PENDING_REQUEST_DESIRED_PROPERTY = PENDING_REQUEST_DESIRED_PROPERTY(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEPR_DATE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEPR_ENUM_FIRST: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEPR_HASH: PENDING_REQUEST_DESIRED_PROPERTY = PENDING_REQUEST_DESIRED_PROPERTY(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEPR_REQUESTID: PENDING_REQUEST_DESIRED_PROPERTY = PENDING_REQUEST_DESIRED_PROPERTY(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEPR_TEMPLATENAME: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEPR_V1TEMPLATENAME: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEPR_V2TEMPLATEOID: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEPR_VERSION: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const dwCAXCHGOVERLAPPERIODCOUNTDEFAULT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const dwCAXCHGVALIDITYPERIODCOUNTDEFAULT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const dwCRLDELTAOVERLAPPERIODCOUNTDEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const dwCRLDELTAPERIODCOUNTDEFAULT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const dwCRLOVERLAPPERIODCOUNTDEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const dwCRLPERIODCOUNTDEFAULT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const dwVALIDITYPERIODCOUNTDEFAULT_ENTERPRISE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const dwVALIDITYPERIODCOUNTDEFAULT_ROOT: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const dwVALIDITYPERIODCOUNTDEFAULT_STANDALONE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const szBACKUPANNOTATION: ::windows_core::PCSTR = ::windows_core::s!("Cert Server Backup Interface");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const szDBBASENAMEPARM: ::windows_core::PCSTR = ::windows_core::s!("edb");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const szNAMESEPARATORDEFAULT: ::windows_core::PCSTR = ::windows_core::s!("\n");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const szPROPASNTAG: ::windows_core::PCSTR = ::windows_core::s!("{asn}");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const szRESTOREANNOTATION: ::windows_core::PCSTR = ::windows_core::s!("Cert Server Restore Interface");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszAT_EKCERTINF: ::windows_core::PCWSTR = ::windows_core::w!("@EKCert");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszAT_TESTROOT: ::windows_core::PCWSTR = ::windows_core::w!("@TestRoot");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCAPOLICYFILE: ::windows_core::PCWSTR = ::windows_core::w!("CAPolicy.inf");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCERTEXITMODULE_POSTFIX: ::windows_core::PCWSTR = ::windows_core::w!(".Exit");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCERTIFICATETRANSPARENCYFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("CertificateTransparencyFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCERTMANAGE_SUFFIX: ::windows_core::PCWSTR = ::windows_core::w!("Manage");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCERTPOLICYMODULE_POSTFIX: ::windows_core::PCWSTR = ::windows_core::w!(".Policy");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCERT_TYPE: ::windows_core::PCWSTR = ::windows_core::w!("RequestType");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCERT_TYPE_CLIENT: ::windows_core::PCWSTR = ::windows_core::w!("Client");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCERT_TYPE_CODESIGN: ::windows_core::PCWSTR = ::windows_core::w!("CodeSign");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCERT_TYPE_CUSTOMER: ::windows_core::PCWSTR = ::windows_core::w!("SetCustomer");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCERT_TYPE_MERCHANT: ::windows_core::PCWSTR = ::windows_core::w!("SetMerchant");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCERT_TYPE_PAYMENT: ::windows_core::PCWSTR = ::windows_core::w!("SetPayment");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCERT_TYPE_SERVER: ::windows_core::PCWSTR = ::windows_core::w!("Server");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCERT_VERSION: ::windows_core::PCWSTR = ::windows_core::w!("Version");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCERT_VERSION_1: ::windows_core::PCWSTR = ::windows_core::w!("1");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCERT_VERSION_2: ::windows_core::PCWSTR = ::windows_core::w!("2");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCERT_VERSION_3: ::windows_core::PCWSTR = ::windows_core::w!("3");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCLASS_CERTADMIN: ::windows_core::PCWSTR = ::windows_core::w!("CertificateAuthority.Admin");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCLASS_CERTCONFIG: ::windows_core::PCWSTR = ::windows_core::w!("CertificateAuthority.Config");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCLASS_CERTDBMEM: ::windows_core::PCWSTR = ::windows_core::w!("CertificateAuthority.DBMem");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCLASS_CERTENCODE: ::windows_core::PCWSTR = ::windows_core::w!("CertificateAuthority.Encode");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCLASS_CERTGETCONFIG: ::windows_core::PCWSTR = ::windows_core::w!("CertificateAuthority.GetConfig");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCLASS_CERTREQUEST: ::windows_core::PCWSTR = ::windows_core::w!("CertificateAuthority.Request");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCLASS_CERTSERVEREXIT: ::windows_core::PCWSTR = ::windows_core::w!("CertificateAuthority.ServerExit");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCLASS_CERTSERVERPOLICY: ::windows_core::PCWSTR = ::windows_core::w!("CertificateAuthority.ServerPolicy");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCLASS_CERTVIEW: ::windows_core::PCWSTR = ::windows_core::w!("CertificateAuthority.View");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCMM_PROP_COPYRIGHT: ::windows_core::PCWSTR = ::windows_core::w!("Copyright");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCMM_PROP_DESCRIPTION: ::windows_core::PCWSTR = ::windows_core::w!("Description");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCMM_PROP_DISPLAY_HWND: ::windows_core::PCWSTR = ::windows_core::w!("HWND");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCMM_PROP_FILEVER: ::windows_core::PCWSTR = ::windows_core::w!("File Version");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCMM_PROP_ISMULTITHREADED: ::windows_core::PCWSTR = ::windows_core::w!("IsMultiThreaded");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCMM_PROP_NAME: ::windows_core::PCWSTR = ::windows_core::w!("Name");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCMM_PROP_PRODUCTVER: ::windows_core::PCWSTR = ::windows_core::w!("Product Version");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCNGENCRYPTIONALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("CNGEncryptionAlgorithm");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCNGHASHALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("CNGHashAlgorithm");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCNGPUBLICKEYALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("CNGPublicKeyAlgorithm");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_AUTHORITY: ::windows_core::PCWSTR = ::windows_core::w!("Authority");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_COMMENT: ::windows_core::PCWSTR = ::windows_core::w!("Comment");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_COMMONNAME: ::windows_core::PCWSTR = ::windows_core::w!("CommonName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_CONFIG: ::windows_core::PCWSTR = ::windows_core::w!("Config");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_COUNTRY: ::windows_core::PCWSTR = ::windows_core::w!("Country");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_DESCRIPTION: ::windows_core::PCWSTR = ::windows_core::w!("Description");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_EXCHANGECERTIFICATE: ::windows_core::PCWSTR = ::windows_core::w!("ExchangeCertificate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_FLAGS: ::windows_core::PCWSTR = ::windows_core::w!("Flags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_LOCALITY: ::windows_core::PCWSTR = ::windows_core::w!("Locality");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_ORGANIZATION: ::windows_core::PCWSTR = ::windows_core::w!("Organization");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_ORGUNIT: ::windows_core::PCWSTR = ::windows_core::w!("OrgUnit");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_SANITIZEDNAME: ::windows_core::PCWSTR = ::windows_core::w!("SanitizedName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_SANITIZEDSHORTNAME: ::windows_core::PCWSTR = ::windows_core::w!("SanitizedShortName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_SERVER: ::windows_core::PCWSTR = ::windows_core::w!("Server");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_SHORTNAME: ::windows_core::PCWSTR = ::windows_core::w!("ShortName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_SIGNATURECERTIFICATE: ::windows_core::PCWSTR = ::windows_core::w!("SignatureCertificate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_STATE: ::windows_core::PCWSTR = ::windows_core::w!("State");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCONFIG_WEBENROLLMENTSERVERS: ::windows_core::PCWSTR = ::windows_core::w!("WebEnrollmentServers");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCRLPUBLISHRETRYCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("CRLPublishRetryCount");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszCRTFILENAMEEXT: ::windows_core::PCWSTR = ::windows_core::w!(".crt");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszDATFILENAMEEXT: ::windows_core::PCWSTR = ::windows_core::w!(".dat");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszDBBACKUPCERTBACKDAT: ::windows_core::PCWSTR = ::windows_core::w!("certbkxp.dat");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszDBBACKUPSUBDIR: ::windows_core::PCWSTR = ::windows_core::w!("DataBase");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszDBFILENAMEEXT: ::windows_core::PCWSTR = ::windows_core::w!(".edb");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszENCRYPTIONALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("EncryptionAlgorithm");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszENROLLMENTAGENTRIGHTS: ::windows_core::PCWSTR = ::windows_core::w!("EnrollmentAgentRights");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszHASHALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("HashAlgorithm");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_ALTERNATESIGNATUREALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("AlternateSignatureAlgorithm");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_ATTESTPRIVATEKEY: ::windows_core::PCWSTR = ::windows_core::w!("AttestPrivateKey");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_CACAPABILITIES: ::windows_core::PCWSTR = ::windows_core::w!("CACapabilities");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_CACERTS: ::windows_core::PCWSTR = ::windows_core::w!("CACerts");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_CATHUMBPRINT: ::windows_core::PCWSTR = ::windows_core::w!("CAThumbprint");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_CCDPSYNCDELTATIME: ::windows_core::PCWSTR = ::windows_core::w!("SyncDeltaTime");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_CHALLENGEPASSWORD: ::windows_core::PCWSTR = ::windows_core::w!("ChallengePassword");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_CONTINUE: ::windows_core::PCWSTR = ::windows_core::w!("_continue_");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_CRITICAL: ::windows_core::PCWSTR = ::windows_core::w!("Critical");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_CRLDELTAPERIODCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("CRLDeltaPeriodUnits");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_CRLDELTAPERIODSTRING: ::windows_core::PCWSTR = ::windows_core::w!("CRLDeltaPeriod");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_CRLPERIODCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("CRLPeriodUnits");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_CRLPERIODSTRING: ::windows_core::PCWSTR = ::windows_core::w!("CRLPeriod");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_DIRECTORYNAME: ::windows_core::PCWSTR = ::windows_core::w!("DirectoryName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_DNS: ::windows_core::PCWSTR = ::windows_core::w!("DNS");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_ECCKEYPARAMETERS: ::windows_core::PCWSTR = ::windows_core::w!("EccKeyParameters");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_ECCKEYPARAMETERSTYPE: ::windows_core::PCWSTR = ::windows_core::w!("EccKeyParametersType");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_ECCKEYPARAMETERS_A: ::windows_core::PCWSTR = ::windows_core::w!("EccKeyParameters_A");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_ECCKEYPARAMETERS_B: ::windows_core::PCWSTR = ::windows_core::w!("EccKeyParameters_B");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_ECCKEYPARAMETERS_BASE: ::windows_core::PCWSTR = ::windows_core::w!("EccKeyParameters_Base");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_ECCKEYPARAMETERS_COFACTOR: ::windows_core::PCWSTR = ::windows_core::w!("EccKeyParameters_Cofactor");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_ECCKEYPARAMETERS_ORDER: ::windows_core::PCWSTR = ::windows_core::w!("EccKeyParameters_Order");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_ECCKEYPARAMETERS_P: ::windows_core::PCWSTR = ::windows_core::w!("EccKeyParameters_P");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_ECCKEYPARAMETERS_SEED: ::windows_core::PCWSTR = ::windows_core::w!("EccKeyParameters_Seed");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_EMAIL: ::windows_core::PCWSTR = ::windows_core::w!("EMail");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_EMPTY: ::windows_core::PCWSTR = ::windows_core::w!("Empty");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_ENABLEKEYCOUNTING: ::windows_core::PCWSTR = ::windows_core::w!("EnableKeyCounting");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_ENCRYPTIONALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("EncryptionAlgorithm");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_ENCRYPTIONLENGTH: ::windows_core::PCWSTR = ::windows_core::w!("EncryptionLength");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_EXCLUDE: ::windows_core::PCWSTR = ::windows_core::w!("Exclude");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_EXPORTABLE: ::windows_core::PCWSTR = ::windows_core::w!("Exportable");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_EXPORTABLEENCRYPTED: ::windows_core::PCWSTR = ::windows_core::w!("ExportableEncrypted");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_FLAGS: ::windows_core::PCWSTR = ::windows_core::w!("Flags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_FORCEUTF8: ::windows_core::PCWSTR = ::windows_core::w!("ForceUTF8");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_FRIENDLYNAME: ::windows_core::PCWSTR = ::windows_core::w!("FriendlyName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_HASHALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("HashAlgorithm");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_INCLUDE: ::windows_core::PCWSTR = ::windows_core::w!("Include");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_INHIBITPOLICYMAPPING: ::windows_core::PCWSTR = ::windows_core::w!("InhibitPolicyMapping");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_IPADDRESS: ::windows_core::PCWSTR = ::windows_core::w!("IPAddress");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_KEYALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("KeyAlgorithm");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_KEYALGORITHMPARMETERS: ::windows_core::PCWSTR = ::windows_core::w!("KeyAlgorithmParameters");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_KEYCONTAINER: ::windows_core::PCWSTR = ::windows_core::w!("KeyContainer");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_KEYLENGTH: ::windows_core::PCWSTR = ::windows_core::w!("KeyLength");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_KEYPROTECTION: ::windows_core::PCWSTR = ::windows_core::w!("KeyProtection");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_KEYUSAGEEXTENSION: ::windows_core::PCWSTR = ::windows_core::w!("KeyUsage");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_KEYUSAGEPROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("KeyUsageProperty");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_LEGACYKEYSPEC: ::windows_core::PCWSTR = ::windows_core::w!("KeySpec");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_LOADDEFAULTTEMPLATES: ::windows_core::PCWSTR = ::windows_core::w!("LoadDefaultTemplates");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_MACHINEKEYSET: ::windows_core::PCWSTR = ::windows_core::w!("MachineKeySet");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_NOTAFTER: ::windows_core::PCWSTR = ::windows_core::w!("NotAfter");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_NOTBEFORE: ::windows_core::PCWSTR = ::windows_core::w!("NotBefore");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_NOTICE: ::windows_core::PCWSTR = ::windows_core::w!("Notice");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_OID: ::windows_core::PCWSTR = ::windows_core::w!("OID");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_OTHERNAME: ::windows_core::PCWSTR = ::windows_core::w!("OtherName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_PATHLENGTH: ::windows_core::PCWSTR = ::windows_core::w!("PathLength");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_POLICIES: ::windows_core::PCWSTR = ::windows_core::w!("Policies");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_PRIVATEKEYARCHIVE: ::windows_core::PCWSTR = ::windows_core::w!("PrivateKeyArchive");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_PROVIDERNAME: ::windows_core::PCWSTR = ::windows_core::w!("ProviderName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_PROVIDERTYPE: ::windows_core::PCWSTR = ::windows_core::w!("ProviderType");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_PUBLICKEY: ::windows_core::PCWSTR = ::windows_core::w!("PublicKey");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_PUBLICKEYPARAMETERS: ::windows_core::PCWSTR = ::windows_core::w!("PublicKeyParameters");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_READERNAME: ::windows_core::PCWSTR = ::windows_core::w!("ReaderName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_REGISTEREDID: ::windows_core::PCWSTR = ::windows_core::w!("RegisteredId");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_RENEWALCERT: ::windows_core::PCWSTR = ::windows_core::w!("RenewalCert");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_RENEWALKEYLENGTH: ::windows_core::PCWSTR = ::windows_core::w!("RenewalKeyLength");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_RENEWALVALIDITYPERIODCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("RenewalValidityPeriodUnits");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_RENEWALVALIDITYPERIODSTRING: ::windows_core::PCWSTR = ::windows_core::w!("RenewalValidityPeriod");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_REQUESTTYPE: ::windows_core::PCWSTR = ::windows_core::w!("RequestType");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_REQUIREEXPLICITPOLICY: ::windows_core::PCWSTR = ::windows_core::w!("RequireExplicitPolicy");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_SECURITYDESCRIPTOR: ::windows_core::PCWSTR = ::windows_core::w!("SecurityDescriptor");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_SERIALNUMBER: ::windows_core::PCWSTR = ::windows_core::w!("SerialNumber");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_SHOWALLCSPS: ::windows_core::PCWSTR = ::windows_core::w!("ShowAllCSPs");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_SILENT: ::windows_core::PCWSTR = ::windows_core::w!("Silent");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_SMIME: ::windows_core::PCWSTR = ::windows_core::w!("SMIME");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_SUBJECT: ::windows_core::PCWSTR = ::windows_core::w!("Subject");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_SUBJECTNAMEFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("SubjectNameFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_SUBTREE: ::windows_core::PCWSTR = ::windows_core::w!("SubTree");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_SUPPRESSDEFAULTS: ::windows_core::PCWSTR = ::windows_core::w!("SuppressDefaults");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_UICONTEXTMESSAGE: ::windows_core::PCWSTR = ::windows_core::w!("UIContextMessage");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_UPN: ::windows_core::PCWSTR = ::windows_core::w!("UPN");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_URL: ::windows_core::PCWSTR = ::windows_core::w!("URL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_USEEXISTINGKEY: ::windows_core::PCWSTR = ::windows_core::w!("UseExistingKeySet");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_USERPROTECTED: ::windows_core::PCWSTR = ::windows_core::w!("UserProtected");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_UTF8: ::windows_core::PCWSTR = ::windows_core::w!("UTF8");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFKEY_X500NAMEFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("X500NameFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_AIA: ::windows_core::PCWSTR = ::windows_core::w!("AuthorityInformationAccess");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_APPLICATIONPOLICYCONSTRAINTS: ::windows_core::PCWSTR = ::windows_core::w!("ApplicationPolicyConstraintsExtension");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_APPLICATIONPOLICYMAPPINGS: ::windows_core::PCWSTR = ::windows_core::w!("ApplicationPolicyMappingsExtension");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_APPLICATIONPOLICYSTATEMENT: ::windows_core::PCWSTR = ::windows_core::w!("ApplicationPolicyStatementExtension");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_BASICCONSTRAINTS: ::windows_core::PCWSTR = ::windows_core::w!("BasicConstraintsExtension");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_CAPOLICY: ::windows_core::PCWSTR = ::windows_core::w!("CAPolicy");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_CCDP: ::windows_core::PCWSTR = ::windows_core::w!("CrossCertificateDistributionPointsExtension");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_CDP: ::windows_core::PCWSTR = ::windows_core::w!("CRLDistributionPoint");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_CERTSERVER: ::windows_core::PCWSTR = ::windows_core::w!("certsrv_server");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_EKU: ::windows_core::PCWSTR = ::windows_core::w!("EnhancedKeyUsageExtension");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_EXTENSIONS: ::windows_core::PCWSTR = ::windows_core::w!("Extensions");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_NAMECONSTRAINTS: ::windows_core::PCWSTR = ::windows_core::w!("NameConstraintsExtension");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_NEWREQUEST: ::windows_core::PCWSTR = ::windows_core::w!("NewRequest");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_POLICYCONSTRAINTS: ::windows_core::PCWSTR = ::windows_core::w!("PolicyConstraintsExtension");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_POLICYMAPPINGS: ::windows_core::PCWSTR = ::windows_core::w!("PolicyMappingsExtension");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_POLICYSTATEMENT: ::windows_core::PCWSTR = ::windows_core::w!("PolicyStatementExtension");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_PROPERTIES: ::windows_core::PCWSTR = ::windows_core::w!("Properties");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFSECTION_REQUESTATTRIBUTES: ::windows_core::PCWSTR = ::windows_core::w!("RequestAttributes");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFVALUE_ENDORSEMENTKEY: ::windows_core::PCWSTR = ::windows_core::w!("EndorsementKey");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFVALUE_REQUESTTYPE_CERT: ::windows_core::PCWSTR = ::windows_core::w!("Cert");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFVALUE_REQUESTTYPE_CMC: ::windows_core::PCWSTR = ::windows_core::w!("CMC");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFVALUE_REQUESTTYPE_PKCS10: ::windows_core::PCWSTR = ::windows_core::w!("PKCS10");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFVALUE_REQUESTTYPE_PKCS7: ::windows_core::PCWSTR = ::windows_core::w!("PKCS7");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszINFVALUE_REQUESTTYPE_SCEP: ::windows_core::PCWSTR = ::windows_core::w!("SCEP");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszLDAPSESSIONOPTIONVALUE: ::windows_core::PCWSTR = ::windows_core::w!("LDAPSessionOptionValue");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszLOCALIZEDTIMEPERIODUNITS: ::windows_core::PCWSTR = ::windows_core::w!("LocalizedTimePeriodUnits");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszLOGFILENAMEEXT: ::windows_core::PCWSTR = ::windows_core::w!(".log");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszLOGPATH: ::windows_core::PCWSTR = ::windows_core::w!("CertLog");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszMACHINEKEYSET: ::windows_core::PCWSTR = ::windows_core::w!("MachineKeyset");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszMICROSOFTCERTMODULE_PREFIX: ::windows_core::PCWSTR = ::windows_core::w!("CertificateAuthority_MicrosoftDefault");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszNETSCAPEREVOCATIONTYPE: ::windows_core::PCWSTR = ::windows_core::w!("Netscape");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCAPROP_CACERTIFICATE: ::windows_core::PCWSTR = ::windows_core::w!("CACertificate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCAPROP_CACONFIG: ::windows_core::PCWSTR = ::windows_core::w!("CAConfig");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCAPROP_CSPNAME: ::windows_core::PCWSTR = ::windows_core::w!("CSPName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCAPROP_ERRORCODE: ::windows_core::PCWSTR = ::windows_core::w!("ErrorCode");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCAPROP_HASHALGORITHMID: ::windows_core::PCWSTR = ::windows_core::w!("HashAlgorithmId");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCAPROP_KEYSPEC: ::windows_core::PCWSTR = ::windows_core::w!("KeySpec");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCAPROP_LOCALREVOCATIONINFORMATION: ::windows_core::PCWSTR = ::windows_core::w!("LocalRevocationInformation");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCAPROP_PROVIDERCLSID: ::windows_core::PCWSTR = ::windows_core::w!("ProviderCLSID");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCAPROP_PROVIDERPROPERTIES: ::windows_core::PCWSTR = ::windows_core::w!("Provider");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCAPROP_REMINDERDURATION: ::windows_core::PCWSTR = ::windows_core::w!("ReminderDuration");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCAPROP_SIGNINGCERTIFICATE: ::windows_core::PCWSTR = ::windows_core::w!("SigningCertificate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCAPROP_SIGNINGCERTIFICATETEMPLATE: ::windows_core::PCWSTR = ::windows_core::w!("SigningCertificateTemplate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCAPROP_SIGNINGFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("SigningFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCOMMONPROP_MAXINCOMINGMESSAGESIZE: ::windows_core::PCWSTR = ::windows_core::w!("MaxIncomingMessageSize");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCOMMONPROP_MAXNUMOFREQUESTENTRIES: ::windows_core::PCWSTR = ::windows_core::w!("MaxNumOfRequestEntries");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPCOMMONPROP_REQFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("RequestFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPISAPIPROP_DEBUG: ::windows_core::PCWSTR = ::windows_core::w!("ISAPIDebug");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPISAPIPROP_MAXAGE: ::windows_core::PCWSTR = ::windows_core::w!("MaxAge");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPISAPIPROP_MAXNUMOFCACHEENTRIES: ::windows_core::PCWSTR = ::windows_core::w!("MaxNumOfCacheEntries");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPISAPIPROP_NUMOFBACKENDCONNECTIONS: ::windows_core::PCWSTR = ::windows_core::w!("NumOfBackendConnections");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPISAPIPROP_NUMOFTHREADS: ::windows_core::PCWSTR = ::windows_core::w!("NumOfThreads");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPISAPIPROP_REFRESHRATE: ::windows_core::PCWSTR = ::windows_core::w!("RefreshRate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPISAPIPROP_VIRTUALROOTNAME: ::windows_core::PCWSTR = ::windows_core::w!("VirtualRootName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPPROP_ARRAYCONTROLLER: ::windows_core::PCWSTR = ::windows_core::w!("ArrayController");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPPROP_ARRAYMEMBERS: ::windows_core::PCWSTR = ::windows_core::w!("ArrayMembers");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPPROP_AUDITFILTER: ::windows_core::PCWSTR = ::windows_core::w!("AuditFilter");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPPROP_DEBUG: ::windows_core::PCWSTR = ::windows_core::w!("Debug");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPPROP_ENROLLPOLLINTERVAL: ::windows_core::PCWSTR = ::windows_core::w!("EnrollPollInterval");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPPROP_LOGLEVEL: ::windows_core::PCWSTR = ::windows_core::w!("LogLevel");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPREVPROP_BASECRL: ::windows_core::PCWSTR = ::windows_core::w!("BaseCrl");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPREVPROP_BASECRLURLS: ::windows_core::PCWSTR = ::windows_core::w!("BaseCrlUrls");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPREVPROP_CRLURLTIMEOUT: ::windows_core::PCWSTR = ::windows_core::w!("CrlUrlTimeOut");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPREVPROP_DELTACRL: ::windows_core::PCWSTR = ::windows_core::w!("DeltaCrl");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPREVPROP_DELTACRLURLS: ::windows_core::PCWSTR = ::windows_core::w!("DeltaCrlUrls");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPREVPROP_ERRORCODE: ::windows_core::PCWSTR = ::windows_core::w!("RevocationErrorCode");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPREVPROP_REFRESHTIMEOUT: ::windows_core::PCWSTR = ::windows_core::w!("RefreshTimeOut");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszOCSPREVPROP_SERIALNUMBERSDIRS: ::windows_core::PCWSTR = ::windows_core::w!("IssuedSerialNumbersDirectories");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPERIODDAYS: ::windows_core::PCWSTR = ::windows_core::w!("Days");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPERIODHOURS: ::windows_core::PCWSTR = ::windows_core::w!("Hours");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPERIODMINUTES: ::windows_core::PCWSTR = ::windows_core::w!("Minutes");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPERIODMONTHS: ::windows_core::PCWSTR = ::windows_core::w!("Months");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPERIODSECONDS: ::windows_core::PCWSTR = ::windows_core::w!("Seconds");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPERIODWEEKS: ::windows_core::PCWSTR = ::windows_core::w!("Weeks");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPERIODYEARS: ::windows_core::PCWSTR = ::windows_core::w!("Years");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPFXFILENAMEEXT: ::windows_core::PCWSTR = ::windows_core::w!(".p12");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPATTESTATIONCHALLENGE: ::windows_core::PCWSTR = ::windows_core::w!("AttestationChallenge");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPATTRIBNAME: ::windows_core::PCWSTR = ::windows_core::w!("AttributeName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPATTRIBREQUESTID: ::windows_core::PCWSTR = ::windows_core::w!("AttributeRequestId");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPATTRIBVALUE: ::windows_core::PCWSTR = ::windows_core::w!("AttributeValue");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCALLERNAME: ::windows_core::PCWSTR = ::windows_core::w!("CallerName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCATYPE: ::windows_core::PCWSTR = ::windows_core::w!("CAType");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTCLIENTMACHINE: ::windows_core::PCWSTR = ::windows_core::w!("ccm");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("CertCount");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATEENROLLMENTFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("EnrollmentFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATEGENERALFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("GeneralFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATEHASH: ::windows_core::PCWSTR = ::windows_core::w!("CertificateHash");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATENOTAFTERDATE: ::windows_core::PCWSTR = ::windows_core::w!("NotAfter");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATENOTBEFOREDATE: ::windows_core::PCWSTR = ::windows_core::w!("NotBefore");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATEPRIVATEKEYFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("PrivatekeyFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATEPUBLICKEYALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("PublicKeyAlgorithm");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATEPUBLICKEYLENGTH: ::windows_core::PCWSTR = ::windows_core::w!("PublicKeyLength");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATERAWPUBLICKEY: ::windows_core::PCWSTR = ::windows_core::w!("RawPublicKey");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATERAWPUBLICKEYALGORITHMPARAMETERS: ::windows_core::PCWSTR = ::windows_core::w!("RawPublicKeyAlgorithmParameters");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATERAWSMIMECAPABILITIES: ::windows_core::PCWSTR = ::windows_core::w!("RawSMIMECapabilities");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATEREQUESTID: ::windows_core::PCWSTR = ::windows_core::w!("RequestID");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATESERIALNUMBER: ::windows_core::PCWSTR = ::windows_core::w!("SerialNumber");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATESUBJECTKEYIDENTIFIER: ::windows_core::PCWSTR = ::windows_core::w!("SubjectKeyIdentifier");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATETEMPLATE: ::windows_core::PCWSTR = ::windows_core::w!("CertificateTemplate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATETYPE: ::windows_core::PCWSTR = ::windows_core::w!("CertificateType");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTIFICATEUPN: ::windows_core::PCWSTR = ::windows_core::w!("UPN");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTSTATE: ::windows_core::PCWSTR = ::windows_core::w!("CertState");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTSUFFIX: ::windows_core::PCWSTR = ::windows_core::w!("CertSuffix");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTTEMPLATE: ::windows_core::PCWSTR = ::windows_core::w!("CertificateTemplate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTTYPE: ::windows_core::PCWSTR = ::windows_core::w!("CertType");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCERTUSAGE: ::windows_core::PCWSTR = ::windows_core::w!("CertificateUsage");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCHALLENGE: ::windows_core::PCWSTR = ::windows_core::w!("Challenge");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCLIENTBROWSERMACHINE: ::windows_core::PCWSTR = ::windows_core::w!("cbm");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCLIENTDCDNS: ::windows_core::PCWSTR = ::windows_core::w!("cdc");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCOMMONNAME: ::windows_core::PCWSTR = ::windows_core::w!("CommonName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCONFIGDN: ::windows_core::PCWSTR = ::windows_core::w!("ConfigDN");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCOUNTRY: ::windows_core::PCWSTR = ::windows_core::w!("Country");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRITICALTAG: ::windows_core::PCWSTR = ::windows_core::w!("{critical}");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("CRLCount");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLEFFECTIVE: ::windows_core::PCWSTR = ::windows_core::w!("CRLEffective");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLINDEX: ::windows_core::PCWSTR = ::windows_core::w!("CRLIndex");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLLASTPUBLISHED: ::windows_core::PCWSTR = ::windows_core::w!("CRLLastPublished");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLMINBASE: ::windows_core::PCWSTR = ::windows_core::w!("CRLMinBase");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLNAMEID: ::windows_core::PCWSTR = ::windows_core::w!("CRLNameId");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLNEXTPUBLISH: ::windows_core::PCWSTR = ::windows_core::w!("CRLNextPublish");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLNEXTUPDATE: ::windows_core::PCWSTR = ::windows_core::w!("CRLNextUpdate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLNUMBER: ::windows_core::PCWSTR = ::windows_core::w!("CRLNumber");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLPROPAGATIONCOMPLETE: ::windows_core::PCWSTR = ::windows_core::w!("CRLPropagationComplete");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLPUBLISHATTEMPTS: ::windows_core::PCWSTR = ::windows_core::w!("CRLPublishAttempts");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLPUBLISHERROR: ::windows_core::PCWSTR = ::windows_core::w!("CRLPublishError");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLPUBLISHFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("CRLPublishFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLPUBLISHSTATUSCODE: ::windows_core::PCWSTR = ::windows_core::w!("CRLPublishStatusCode");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLRAWCRL: ::windows_core::PCWSTR = ::windows_core::w!("CRLRawCRL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLROWID: ::windows_core::PCWSTR = ::windows_core::w!("CRLRowId");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLSTATE: ::windows_core::PCWSTR = ::windows_core::w!("CRLState");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLSUFFIX: ::windows_core::PCWSTR = ::windows_core::w!("CRLSuffix");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLTHISPUBLISH: ::windows_core::PCWSTR = ::windows_core::w!("CRLThisPublish");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCRLTHISUPDATE: ::windows_core::PCWSTR = ::windows_core::w!("CRLThisUpdate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPCROSSFOREST: ::windows_core::PCWSTR = ::windows_core::w!("CrossForest");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPDCNAME: ::windows_core::PCWSTR = ::windows_core::w!("DCName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPDECIMALTAG: ::windows_core::PCWSTR = ::windows_core::w!("{decimal}");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPDELTACRLSDISABLED: ::windows_core::PCWSTR = ::windows_core::w!("fDeltaCRLsDisabled");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPDEVICESERIALNUMBER: ::windows_core::PCWSTR = ::windows_core::w!("DeviceSerialNumber");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPDISPOSITION: ::windows_core::PCWSTR = ::windows_core::w!("Disposition");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPDISPOSITIONDENY: ::windows_core::PCWSTR = ::windows_core::w!("Deny");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPDISPOSITIONPENDING: ::windows_core::PCWSTR = ::windows_core::w!("Pending");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPDISTINGUISHEDNAME: ::windows_core::PCWSTR = ::windows_core::w!("DistinguishedName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPDN: ::windows_core::PCWSTR = ::windows_core::w!("dn");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPDNS: ::windows_core::PCWSTR = ::windows_core::w!("dns");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPDOMAINCOMPONENT: ::windows_core::PCWSTR = ::windows_core::w!("DomainComponent");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPDOMAINDN: ::windows_core::PCWSTR = ::windows_core::w!("DomainDN");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPEMAIL: ::windows_core::PCWSTR = ::windows_core::w!("EMail");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPENDORSEMENTCERTIFICATEHASH: ::windows_core::PCWSTR = ::windows_core::w!("EndorsementCertificateHash");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPENDORSEMENTKEYHASH: ::windows_core::PCWSTR = ::windows_core::w!("EndorsementKeyHash");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPEVENTLOGERROR: ::windows_core::PCWSTR = ::windows_core::w!("EventLogError");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPEVENTLOGEXHAUSTIVE: ::windows_core::PCWSTR = ::windows_core::w!("EventLogExhaustive");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPEVENTLOGTERSE: ::windows_core::PCWSTR = ::windows_core::w!("EventLogTerse");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPEVENTLOGVERBOSE: ::windows_core::PCWSTR = ::windows_core::w!("EventLogVerbose");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPEVENTLOGWARNING: ::windows_core::PCWSTR = ::windows_core::w!("EventLogWarning");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPEXITCERTFILE: ::windows_core::PCWSTR = ::windows_core::w!("CertFile");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPEXPECTEDCHALLENGE: ::windows_core::PCWSTR = ::windows_core::w!("ExpectedChallenge");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPEXPIRATIONDATE: ::windows_core::PCWSTR = ::windows_core::w!("ExpirationDate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPEXTFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("ExtensionFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPEXTNAME: ::windows_core::PCWSTR = ::windows_core::w!("ExtensionName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPEXTRAWVALUE: ::windows_core::PCWSTR = ::windows_core::w!("ExtensionRawValue");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPEXTREQUESTID: ::windows_core::PCWSTR = ::windows_core::w!("ExtensionRequestId");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPFILETAG: ::windows_core::PCWSTR = ::windows_core::w!("{file}");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPGIVENNAME: ::windows_core::PCWSTR = ::windows_core::w!("GivenName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPGUID: ::windows_core::PCWSTR = ::windows_core::w!("guid");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPHEXTAG: ::windows_core::PCWSTR = ::windows_core::w!("{hex}");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPINITIALS: ::windows_core::PCWSTR = ::windows_core::w!("Initials");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPIPADDRESS: ::windows_core::PCWSTR = ::windows_core::w!("ipaddress");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPKEYARCHIVED: ::windows_core::PCWSTR = ::windows_core::w!("KeyArchived");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPLOCALITY: ::windows_core::PCWSTR = ::windows_core::w!("Locality");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPLOGLEVEL: ::windows_core::PCWSTR = ::windows_core::w!("LogLevel");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPMACHINEDNSNAME: ::windows_core::PCWSTR = ::windows_core::w!("MachineDNSName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPMODULEREGLOC: ::windows_core::PCWSTR = ::windows_core::w!("ModuleRegistryLocation");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPNAMETYPE: ::windows_core::PCWSTR = ::windows_core::w!("NameType");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPOCTETTAG: ::windows_core::PCWSTR = ::windows_core::w!("{octet}");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPOFFICER: ::windows_core::PCWSTR = ::windows_core::w!("Officer");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPOID: ::windows_core::PCWSTR = ::windows_core::w!("oid");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPORGANIZATION: ::windows_core::PCWSTR = ::windows_core::w!("Organization");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPORGUNIT: ::windows_core::PCWSTR = ::windows_core::w!("OrgUnit");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPPUBLISHEXPIREDCERTINCRL: ::windows_core::PCWSTR = ::windows_core::w!("PublishExpiredCertInCRL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPRAWCACERTIFICATE: ::windows_core::PCWSTR = ::windows_core::w!("RawCACertificate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPRAWCERTIFICATE: ::windows_core::PCWSTR = ::windows_core::w!("RawCertificate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPRAWCRL: ::windows_core::PCWSTR = ::windows_core::w!("RawCRL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPRAWDELTACRL: ::windows_core::PCWSTR = ::windows_core::w!("RawDeltaCRL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPRAWNAME: ::windows_core::PCWSTR = ::windows_core::w!("RawName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPRAWPRECERTIFICATE: ::windows_core::PCWSTR = ::windows_core::w!("RawPrecertificate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTARCHIVEDKEY: ::windows_core::PCWSTR = ::windows_core::w!("ArchivedKey");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTATTRIBUTES: ::windows_core::PCWSTR = ::windows_core::w!("RequestAttributes");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTCSPPROVIDER: ::windows_core::PCWSTR = ::windows_core::w!("RequestCSPProvider");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTDISPOSITION: ::windows_core::PCWSTR = ::windows_core::w!("Disposition");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTDISPOSITIONMESSAGE: ::windows_core::PCWSTR = ::windows_core::w!("DispositionMessage");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTDOT: ::windows_core::PCWSTR = ::windows_core::w!("Request.");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTERCAACCESS: ::windows_core::PCWSTR = ::windows_core::w!("RequesterCAAccess");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTERDN: ::windows_core::PCWSTR = ::windows_core::w!("RequesterDN");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTERNAME: ::windows_core::PCWSTR = ::windows_core::w!("RequesterName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTERNAMEFROMOLDCERTIFICATE: ::windows_core::PCWSTR = ::windows_core::w!("RequesterNameFromOldCertificate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTERSAMNAME: ::windows_core::PCWSTR = ::windows_core::w!("RequesterSAMName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTERUPN: ::windows_core::PCWSTR = ::windows_core::w!("RequesterUPN");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("RequestFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTKEYRECOVERYHASHES: ::windows_core::PCWSTR = ::windows_core::w!("KeyRecoveryHashes");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTMACHINEDNS: ::windows_core::PCWSTR = ::windows_core::w!("rmd");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTOSVERSION: ::windows_core::PCWSTR = ::windows_core::w!("RequestOSVersion");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTRAWARCHIVEDKEY: ::windows_core::PCWSTR = ::windows_core::w!("RawArchivedKey");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTRAWOLDCERTIFICATE: ::windows_core::PCWSTR = ::windows_core::w!("RawOldCertificate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTRAWREQUEST: ::windows_core::PCWSTR = ::windows_core::w!("RawRequest");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTREQUESTID: ::windows_core::PCWSTR = ::windows_core::w!("RequestID");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTRESOLVEDWHEN: ::windows_core::PCWSTR = ::windows_core::w!("ResolvedWhen");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTREVOKEDEFFECTIVEWHEN: ::windows_core::PCWSTR = ::windows_core::w!("RevokedEffectiveWhen");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTREVOKEDREASON: ::windows_core::PCWSTR = ::windows_core::w!("RevokedReason");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTREVOKEDWHEN: ::windows_core::PCWSTR = ::windows_core::w!("RevokedWhen");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTSTATUSCODE: ::windows_core::PCWSTR = ::windows_core::w!("StatusCode");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTSUBMITTEDWHEN: ::windows_core::PCWSTR = ::windows_core::w!("SubmittedWhen");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPREQUESTTYPE: ::windows_core::PCWSTR = ::windows_core::w!("RequestType");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPSANITIZEDCANAME: ::windows_core::PCWSTR = ::windows_core::w!("SanitizedCAName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPSANITIZEDSHORTNAME: ::windows_core::PCWSTR = ::windows_core::w!("SanitizedShortName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPSEAUDITFILTER: ::windows_core::PCWSTR = ::windows_core::w!("SEAuditFilter");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPSEAUDITID: ::windows_core::PCWSTR = ::windows_core::w!("SEAuditId");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPSERVERUPGRADED: ::windows_core::PCWSTR = ::windows_core::w!("fServerUpgraded");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPSESSIONCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("SessionCount");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPSIGNERAPPLICATIONPOLICIES: ::windows_core::PCWSTR = ::windows_core::w!("SignerApplicationPolicies");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPSIGNERPOLICIES: ::windows_core::PCWSTR = ::windows_core::w!("SignerPolicies");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPSTATE: ::windows_core::PCWSTR = ::windows_core::w!("State");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPSTREETADDRESS: ::windows_core::PCWSTR = ::windows_core::w!("StreetAddress");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPSUBJECTALTNAME2: ::windows_core::PCWSTR = ::windows_core::w!("san");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPSUBJECTDOT: ::windows_core::PCWSTR = ::windows_core::w!("Subject.");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPSURNAME: ::windows_core::PCWSTR = ::windows_core::w!("SurName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPTEMPLATECHANGESEQUENCENUMBER: ::windows_core::PCWSTR = ::windows_core::w!("TemplateChangeSequenceNumber");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPTEXTTAG: ::windows_core::PCWSTR = ::windows_core::w!("{text}");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPTITLE: ::windows_core::PCWSTR = ::windows_core::w!("Title");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPUNSTRUCTUREDADDRESS: ::windows_core::PCWSTR = ::windows_core::w!("UnstructuredAddress");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPUNSTRUCTUREDNAME: ::windows_core::PCWSTR = ::windows_core::w!("UnstructuredName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPUPN: ::windows_core::PCWSTR = ::windows_core::w!("upn");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPURL: ::windows_core::PCWSTR = ::windows_core::w!("url");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPUSEDS: ::windows_core::PCWSTR = ::windows_core::w!("fUseDS");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPUSERDN: ::windows_core::PCWSTR = ::windows_core::w!("UserDN");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPUTF8TAG: ::windows_core::PCWSTR = ::windows_core::w!("{utf8}");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPVALIDITYPERIODCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("ValidityPeriodUnits");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPVALIDITYPERIODSTRING: ::windows_core::PCWSTR = ::windows_core::w!("ValidityPeriod");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszPROPVOLATILEMODE: ::windows_core::PCWSTR = ::windows_core::w!("VolatileMode");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGACTIVE: ::windows_core::PCWSTR = ::windows_core::w!("Active");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGAELOGLEVEL_OLD: ::windows_core::PCWSTR = ::windows_core::w!("AEEventLogLevel");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGAIKCLOUDCAURL: ::windows_core::PCWSTR = ::windows_core::w!("AIKCloudCAURL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGAIKKEYALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("AIKKeyAlgorithm");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGAIKKEYLENGTH: ::windows_core::PCWSTR = ::windows_core::w!("AIKKeyLength");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGALLPROVIDERS: ::windows_core::PCWSTR = ::windows_core::w!("All");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGALTERNATEPUBLISHDOMAINS: ::windows_core::PCWSTR = ::windows_core::w!("AlternatePublishDomains");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGALTERNATESIGNATUREALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("AlternateSignatureAlgorithm");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGAUDITFILTER: ::windows_core::PCWSTR = ::windows_core::w!("AuditFilter");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGB2ICERTMANAGEMODULE: ::windows_core::PCWSTR = ::windows_core::w!("ICertManageModule");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGBACKUPLOGDIRECTORY: ::windows_core::PCWSTR = ::windows_core::w!("BackupLogDirectory");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCACERTFILENAME: ::windows_core::PCWSTR = ::windows_core::w!("CACertFileName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCACERTHASH: ::windows_core::PCWSTR = ::windows_core::w!("CACertHash");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCACERTPUBLICATIONURLS: ::windows_core::PCWSTR = ::windows_core::w!("CACertPublicationURLs");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCADESCRIPTION: ::windows_core::PCWSTR = ::windows_core::w!("CADescription");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCAPATHLENGTH: ::windows_core::PCWSTR = ::windows_core::w!("CAPathLength");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCASECURITY: ::windows_core::PCWSTR = ::windows_core::w!("Security");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCASERIALNUMBER: ::windows_core::PCWSTR = ::windows_core::w!("CACertSerialNumber");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCASERVERNAME: ::windows_core::PCWSTR = ::windows_core::w!("CAServerName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCATYPE: ::windows_core::PCWSTR = ::windows_core::w!("CAType");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCAUSEDS: ::windows_core::PCWSTR = ::windows_core::w!("UseDS");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCAXCHGCERTHASH: ::windows_core::PCWSTR = ::windows_core::w!("CAXchgCertHash");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCAXCHGOVERLAPPERIODCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("CAXchgOverlapPeriodUnits");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCAXCHGOVERLAPPERIODSTRING: ::windows_core::PCWSTR = ::windows_core::w!("CAXchgOverlapPeriod");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCAXCHGVALIDITYPERIODCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("CAXchgValidityPeriodUnits");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCAXCHGVALIDITYPERIODSTRING: ::windows_core::PCWSTR = ::windows_core::w!("CAXchgValidityPeriod");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCERTENROLLCOMPATIBLE: ::windows_core::PCWSTR = ::windows_core::w!("CertEnrollCompatible");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCERTIFICATETRANSPARENCYINFOOID: ::windows_core::PCWSTR = ::windows_core::w!("CTInformationExtensionOid");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCERTPUBLISHFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("PublishCertFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCERTSRVDEBUG: ::windows_core::PCWSTR = ::windows_core::w!("Debug");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCHECKPOINTFILE: ::windows_core::PCWSTR = ::windows_core::w!("CheckPointFile");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCLOCKSKEWMINUTES: ::windows_core::PCWSTR = ::windows_core::w!("ClockSkewMinutes");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCOMMONNAME: ::windows_core::PCWSTR = ::windows_core::w!("CommonName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCRLATTEMPTREPUBLISH: ::windows_core::PCWSTR = ::windows_core::w!("CRLAttemptRepublish");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCRLDELTANEXTPUBLISH: ::windows_core::PCWSTR = ::windows_core::w!("CRLDeltaNextPublish");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCRLDELTAOVERLAPPERIODCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("CRLDeltaOverlapUnits");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCRLDELTAOVERLAPPERIODSTRING: ::windows_core::PCWSTR = ::windows_core::w!("CRLDeltaOverlapPeriod");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCRLDELTAPERIODCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("CRLDeltaPeriodUnits");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCRLDELTAPERIODSTRING: ::windows_core::PCWSTR = ::windows_core::w!("CRLDeltaPeriod");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCRLEDITFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("CRLEditFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCRLFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("CRLFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCRLNEXTPUBLISH: ::windows_core::PCWSTR = ::windows_core::w!("CRLNextPublish");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCRLOVERLAPPERIODCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("CRLOverlapUnits");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCRLOVERLAPPERIODSTRING: ::windows_core::PCWSTR = ::windows_core::w!("CRLOverlapPeriod");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCRLPATH_OLD: ::windows_core::PCWSTR = ::windows_core::w!("CRLPath");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCRLPERIODCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("CRLPeriodUnits");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCRLPERIODSTRING: ::windows_core::PCWSTR = ::windows_core::w!("CRLPeriod");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGCRLPUBLICATIONURLS: ::windows_core::PCWSTR = ::windows_core::w!("CRLPublicationURLs");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDATABASERECOVERED: ::windows_core::PCWSTR = ::windows_core::w!("DatabaseRecovered");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDBDIRECTORY: ::windows_core::PCWSTR = ::windows_core::w!("DBDirectory");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDBFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("DBFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDBLASTFULLBACKUP: ::windows_core::PCWSTR = ::windows_core::w!("DBLastFullBackup");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDBLASTINCREMENTALBACKUP: ::windows_core::PCWSTR = ::windows_core::w!("DBLastIncrementalBackup");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDBLASTRECOVERY: ::windows_core::PCWSTR = ::windows_core::w!("DBLastRecovery");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDBLOGDIRECTORY: ::windows_core::PCWSTR = ::windows_core::w!("DBLogDirectory");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDBMAXREADSESSIONCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("DBMaxReadSessionCount");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDBSESSIONCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("DBSessionCount");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDBSYSDIRECTORY: ::windows_core::PCWSTR = ::windows_core::w!("DBSystemDirectory");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDBTEMPDIRECTORY: ::windows_core::PCWSTR = ::windows_core::w!("DBTempDirectory");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDEFAULTSMIME: ::windows_core::PCWSTR = ::windows_core::w!("DefaultSMIME");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDIRECTORY: ::windows_core::PCWSTR = ::windows_core::w!("ConfigurationDirectory");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDISABLEEXTENSIONLIST: ::windows_core::PCWSTR = ::windows_core::w!("DisableExtensionList");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDISABLESECEXTENSION: ::windows_core::PCWSTR = ::windows_core::w!("DisableSecExtension");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDSCONFIGDN: ::windows_core::PCWSTR = ::windows_core::w!("DSConfigDN");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGDSDOMAINDN: ::windows_core::PCWSTR = ::windows_core::w!("DSDomainDN");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEDITFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("EditFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEKPUBLISTDIRECTORIES: ::windows_core::PCWSTR = ::windows_core::w!("EndorsementKeyListDirectories");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEKUOIDSFORPUBLISHEXPIREDCERTINCRL: ::windows_core::PCWSTR = ::windows_core::w!("EKUOIDsForPublishExpiredCertInCRL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEKUOIDSFORVOLATILEREQUESTS: ::windows_core::PCWSTR = ::windows_core::w!("EKUOIDsforVolatileRequests");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGENABLED: ::windows_core::PCWSTR = ::windows_core::w!("Enabled");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGENABLEDEKUFORDEFINEDCACERT: ::windows_core::PCWSTR = ::windows_core::w!("EnabledEKUForDefinedCACert");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGENABLEENROLLEEREQUESTEXTENSIONLIST: ::windows_core::PCWSTR = ::windows_core::w!("EnableEnrolleeRequestExtensionList");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGENABLEREQUESTEXTENSIONLIST: ::windows_core::PCWSTR = ::windows_core::w!("EnableRequestExtensionList");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGENFORCEX500NAMELENGTHS: ::windows_core::PCWSTR = ::windows_core::w!("EnforceX500NameLengths");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGENROLLFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("EnrollFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITBODYARG: ::windows_core::PCWSTR = ::windows_core::w!("BodyArg");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITBODYFORMAT: ::windows_core::PCWSTR = ::windows_core::w!("BodyFormat");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITCRLISSUEDKEY: ::windows_core::PCWSTR = ::windows_core::w!("CRLIssued");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITDENIEDKEY: ::windows_core::PCWSTR = ::windows_core::w!("Denied");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITIMPORTEDKEY: ::windows_core::PCWSTR = ::windows_core::w!("Imported");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITISSUEDKEY: ::windows_core::PCWSTR = ::windows_core::w!("Issued");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITPENDINGKEY: ::windows_core::PCWSTR = ::windows_core::w!("Pending");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITPROPNOTFOUND: ::windows_core::PCWSTR = ::windows_core::w!("???");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITREVOKEDKEY: ::windows_core::PCWSTR = ::windows_core::w!("Revoked");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITSHUTDOWNKEY: ::windows_core::PCWSTR = ::windows_core::w!("Shutdown");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITSMTPAUTHENTICATE: ::windows_core::PCWSTR = ::windows_core::w!("SMTPAuthenticate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITSMTPCC: ::windows_core::PCWSTR = ::windows_core::w!("Cc");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITSMTPEVENTFILTER: ::windows_core::PCWSTR = ::windows_core::w!("EventFilter");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITSMTPFROM: ::windows_core::PCWSTR = ::windows_core::w!("From");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITSMTPKEY: ::windows_core::PCWSTR = ::windows_core::w!("SMTP");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITSMTPSERVER: ::windows_core::PCWSTR = ::windows_core::w!("SMTPServer");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITSMTPTEMPLATES: ::windows_core::PCWSTR = ::windows_core::w!("Templates");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITSMTPTO: ::windows_core::PCWSTR = ::windows_core::w!("To");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITSTARTUPKEY: ::windows_core::PCWSTR = ::windows_core::w!("Startup");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITTITLEARG: ::windows_core::PCWSTR = ::windows_core::w!("TitleArg");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGEXITTITLEFORMAT: ::windows_core::PCWSTR = ::windows_core::w!("TitleFormat");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGFILEISSUERCERTURL_OLD: ::windows_core::PCWSTR = ::windows_core::w!("FileIssuerCertURL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGFILEREVOCATIONCRLURL_OLD: ::windows_core::PCWSTR = ::windows_core::w!("FileRevocationCRLURL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGFORCETELETEX: ::windows_core::PCWSTR = ::windows_core::w!("ForceTeletex");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGFTPISSUERCERTURL_OLD: ::windows_core::PCWSTR = ::windows_core::w!("FTPIssuerCertURL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGFTPREVOCATIONCRLURL_OLD: ::windows_core::PCWSTR = ::windows_core::w!("FTPRevocationCRLURL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGHIGHLOGNUMBER: ::windows_core::PCWSTR = ::windows_core::w!("HighLogNumber");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGHIGHSERIAL: ::windows_core::PCWSTR = ::windows_core::w!("HighSerial");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGINTERFACEFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("InterfaceFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGISSUERCERTURLFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("IssuerCertURLFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGISSUERCERTURL_OLD: ::windows_core::PCWSTR = ::windows_core::w!("IssuerCertURL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKEYBASE: ::windows_core::PCWSTR = ::windows_core::w!("SYSTEM\\CurrentControlSet\\Services\\CertSvc");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKEYCERTSVCPATH: ::windows_core::PCWSTR = ::windows_core::w!("SYSTEM\\CurrentControlSet\\Services\\CertSvc");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKEYCONFIG: ::windows_core::PCWSTR = ::windows_core::w!("Configuration");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKEYCSP: ::windows_core::PCWSTR = ::windows_core::w!("CSP");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKEYDBPARAMETERS: ::windows_core::PCWSTR = ::windows_core::w!("DBParameters");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKEYENCRYPTIONCSP: ::windows_core::PCWSTR = ::windows_core::w!("EncryptionCSP");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKEYENROLLMENT: ::windows_core::PCWSTR = ::windows_core::w!("Software\\Microsoft\\Cryptography\\AutoEnrollment");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKEYEXITMODULES: ::windows_core::PCWSTR = ::windows_core::w!("ExitModules");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKEYGROUPPOLICYENROLLMENT: ::windows_core::PCWSTR = ::windows_core::w!("Software\\Policies\\Microsoft\\Cryptography\\AutoEnrollment");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKEYNOSYSTEMCERTSVCPATH: ::windows_core::PCWSTR = ::windows_core::w!("CurrentControlSet\\Services\\CertSvc");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKEYPOLICYMODULES: ::windows_core::PCWSTR = ::windows_core::w!("PolicyModules");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKEYREPAIR: ::windows_core::PCWSTR = ::windows_core::w!("KeyRepair");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKEYRESTOREINPROGRESS: ::windows_core::PCWSTR = ::windows_core::w!("RestoreInProgress");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKEYSIZE: ::windows_core::PCWSTR = ::windows_core::w!("KeySize");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKRACERTCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("KRACertCount");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKRACERTHASH: ::windows_core::PCWSTR = ::windows_core::w!("KRACertHash");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGKRAFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("KRAFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGLDAPFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("LDAPFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGLDAPISSUERCERTURL_OLD: ::windows_core::PCWSTR = ::windows_core::w!("LDAPIssuerCertURL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGLDAPREVOCATIONCRLURL_OLD: ::windows_core::PCWSTR = ::windows_core::w!("LDAPRevocationCRLURL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGLDAPREVOCATIONDNTEMPLATE_OLD: ::windows_core::PCWSTR = ::windows_core::w!("LDAPRevocationDNTemplate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGLDAPREVOCATIONDN_OLD: ::windows_core::PCWSTR = ::windows_core::w!("LDAPRevocationDN");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGLDAPSESSIONOPTIONS: ::windows_core::PCWSTR = ::windows_core::w!("LDAPSessionOptions");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGLOGLEVEL: ::windows_core::PCWSTR = ::windows_core::w!("LogLevel");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGLOGPATH: ::windows_core::PCWSTR = ::windows_core::w!("LogPath");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGLOWLOGNUMBER: ::windows_core::PCWSTR = ::windows_core::w!("LowLogNumber");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGMAXINCOMINGALLOCSIZE: ::windows_core::PCWSTR = ::windows_core::w!("MaxIncomingAllocSize");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGMAXINCOMINGMESSAGESIZE: ::windows_core::PCWSTR = ::windows_core::w!("MaxIncomingMessageSize");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGMAXPENDINGREQUESTDAYS: ::windows_core::PCWSTR = ::windows_core::w!("MaxPendingRequestDays");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGMAXSCTLISTSIZE: ::windows_core::PCWSTR = ::windows_core::w!("MaxSCTListSize");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGNAMESEPARATOR: ::windows_core::PCWSTR = ::windows_core::w!("SubjectNameSeparator");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGNETSCAPECERTTYPE: ::windows_core::PCWSTR = ::windows_core::w!("NetscapeCertType");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGOFFICERRIGHTS: ::windows_core::PCWSTR = ::windows_core::w!("OfficerRights");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGPARENTCAMACHINE: ::windows_core::PCWSTR = ::windows_core::w!("ParentCAMachine");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGPARENTCANAME: ::windows_core::PCWSTR = ::windows_core::w!("ParentCAName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGPOLICYFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("PolicyFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGPRESERVESCEPDUMMYCERTS: ::windows_core::PCWSTR = ::windows_core::w!("PreserveSCEPDummyCerts");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGPROCESSINGFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("ProcessingFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGPROVIDER: ::windows_core::PCWSTR = ::windows_core::w!("Provider");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGPROVIDERTYPE: ::windows_core::PCWSTR = ::windows_core::w!("ProviderType");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGREQUESTDISPOSITION: ::windows_core::PCWSTR = ::windows_core::w!("RequestDisposition");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGREQUESTFILENAME: ::windows_core::PCWSTR = ::windows_core::w!("RequestFileName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGREQUESTID: ::windows_core::PCWSTR = ::windows_core::w!("RequestId");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGREQUESTKEYCONTAINER: ::windows_core::PCWSTR = ::windows_core::w!("RequestKeyContainer");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGREQUESTKEYINDEX: ::windows_core::PCWSTR = ::windows_core::w!("RequestKeyIndex");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGRESTOREMAP: ::windows_core::PCWSTR = ::windows_core::w!("RestoreMap");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGRESTOREMAPCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("RestoreMapCount");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGRESTORESTATUS: ::windows_core::PCWSTR = ::windows_core::w!("RestoreStatus");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGREVOCATIONCRLURL_OLD: ::windows_core::PCWSTR = ::windows_core::w!("RevocationCRLURL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGREVOCATIONTYPE: ::windows_core::PCWSTR = ::windows_core::w!("RevocationType");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGREVOCATIONURL: ::windows_core::PCWSTR = ::windows_core::w!("RevocationURL");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGROLESEPARATIONENABLED: ::windows_core::PCWSTR = ::windows_core::w!("RoleSeparationEnabled");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGSETUPSTATUS: ::windows_core::PCWSTR = ::windows_core::w!("SetupStatus");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGSP4DEFAULTCONFIGURATION: ::windows_core::PCWSTR = ::windows_core::w!("DefaultConfiguration");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGSP4KEYSETNAME: ::windows_core::PCWSTR = ::windows_core::w!("KeySetName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGSP4NAMES: ::windows_core::PCWSTR = ::windows_core::w!("Names");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGSP4QUERIES: ::windows_core::PCWSTR = ::windows_core::w!("Queries");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGSP4SUBJECTNAMESEPARATOR: ::windows_core::PCWSTR = ::windows_core::w!("SubjectNameSeparator");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGSUBJECTALTNAME: ::windows_core::PCWSTR = ::windows_core::w!("SubjectAltName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGSUBJECTALTNAME2: ::windows_core::PCWSTR = ::windows_core::w!("SubjectAltName2");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGSUBJECTTEMPLATE: ::windows_core::PCWSTR = ::windows_core::w!("SubjectTemplate");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGSYMMETRICKEYSIZE: ::windows_core::PCWSTR = ::windows_core::w!("SymmetricKeySize");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGUNICODE: ::windows_core::PCWSTR = ::windows_core::w!("Unicode");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGUPNMAP: ::windows_core::PCWSTR = ::windows_core::w!("UPNMap");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGUSEDEFINEDCACERTINREQ: ::windows_core::PCWSTR = ::windows_core::w!("UseDefinedCACertInRequest");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGVALIDITYPERIODCOUNT: ::windows_core::PCWSTR = ::windows_core::w!("ValidityPeriodUnits");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGVALIDITYPERIODSTRING: ::windows_core::PCWSTR = ::windows_core::w!("ValidityPeriod");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGVERIFYFLAGS: ::windows_core::PCWSTR = ::windows_core::w!("VerifyFlags");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGVERSION: ::windows_core::PCWSTR = ::windows_core::w!("Version");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGVIEWAGEMINUTES: ::windows_core::PCWSTR = ::windows_core::w!("ViewAgeMinutes");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGVIEWIDLEMINUTES: ::windows_core::PCWSTR = ::windows_core::w!("ViewIdleMinutes");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGWEBCLIENTCAMACHINE: ::windows_core::PCWSTR = ::windows_core::w!("WebClientCAMachine");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGWEBCLIENTCANAME: ::windows_core::PCWSTR = ::windows_core::w!("WebClientCAName");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszREGWEBCLIENTCATYPE: ::windows_core::PCWSTR = ::windows_core::w!("WebClientCAType");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszSECUREDATTRIBUTES: ::windows_core::PCWSTR = ::windows_core::w!("SignedAttributes");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszSERVICE_NAME: ::windows_core::PCWSTR = ::windows_core::w!("CertSvc");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const wszzDEFAULTSIGNEDATTRIBUTES: ::windows_core::PCWSTR = ::windows_core::w!("RequesterName\u{0}");
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADDED_CERT_TYPE(pub i32);
@@ -23362,7 +21186,6 @@ impl ::core::fmt::Debug for ADDED_CERT_TYPE {
         f.debug_tuple("ADDED_CERT_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AlgorithmFlags(pub i32);
@@ -23385,7 +21208,6 @@ impl ::core::fmt::Debug for AlgorithmFlags {
         f.debug_tuple("AlgorithmFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AlgorithmOperationFlags(pub i32);
@@ -23408,7 +21230,6 @@ impl ::core::fmt::Debug for AlgorithmOperationFlags {
         f.debug_tuple("AlgorithmOperationFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AlgorithmType(pub i32);
@@ -23431,7 +21252,6 @@ impl ::core::fmt::Debug for AlgorithmType {
         f.debug_tuple("AlgorithmType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AlternativeNameType(pub i32);
@@ -23454,7 +21274,6 @@ impl ::core::fmt::Debug for AlternativeNameType {
         f.debug_tuple("AlternativeNameType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERTADMIN_GET_ROLES_FLAGS(pub u32);
@@ -23510,7 +21329,6 @@ impl ::core::ops::Not for CERTADMIN_GET_ROLES_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERTENROLL_OBJECTID(pub i32);
@@ -23533,7 +21351,6 @@ impl ::core::fmt::Debug for CERTENROLL_OBJECTID {
         f.debug_tuple("CERTENROLL_OBJECTID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERTENROLL_PROPERTYID(pub i32);
@@ -23556,7 +21373,6 @@ impl ::core::fmt::Debug for CERTENROLL_PROPERTYID {
         f.debug_tuple("CERTENROLL_PROPERTYID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_ALT_NAME(pub i32);
@@ -23579,7 +21395,6 @@ impl ::core::fmt::Debug for CERT_ALT_NAME {
         f.debug_tuple("CERT_ALT_NAME").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_CREATE_REQUEST_FLAGS(pub i32);
@@ -23602,7 +21417,6 @@ impl ::core::fmt::Debug for CERT_CREATE_REQUEST_FLAGS {
         f.debug_tuple("CERT_CREATE_REQUEST_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_DELETE_ROW_FLAGS(pub i32);
@@ -23625,7 +21439,6 @@ impl ::core::fmt::Debug for CERT_DELETE_ROW_FLAGS {
         f.debug_tuple("CERT_DELETE_ROW_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_EXIT_EVENT_MASK(pub u32);
@@ -23681,7 +21494,6 @@ impl ::core::ops::Not for CERT_EXIT_EVENT_MASK {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_GET_CONFIG_FLAGS(pub i32);
@@ -23704,7 +21516,6 @@ impl ::core::fmt::Debug for CERT_GET_CONFIG_FLAGS {
         f.debug_tuple("CERT_GET_CONFIG_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_IMPORT_FLAGS(pub i32);
@@ -23727,7 +21538,6 @@ impl ::core::fmt::Debug for CERT_IMPORT_FLAGS {
         f.debug_tuple("CERT_IMPORT_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_PROPERTY_TYPE(pub i32);
@@ -23750,7 +21560,6 @@ impl ::core::fmt::Debug for CERT_PROPERTY_TYPE {
         f.debug_tuple("CERT_PROPERTY_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_REQUEST_OUT_TYPE(pub i32);
@@ -23773,7 +21582,6 @@ impl ::core::fmt::Debug for CERT_REQUEST_OUT_TYPE {
         f.debug_tuple("CERT_REQUEST_OUT_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_VIEW_COLUMN_INDEX(pub i32);
@@ -23796,7 +21604,6 @@ impl ::core::fmt::Debug for CERT_VIEW_COLUMN_INDEX {
         f.debug_tuple("CERT_VIEW_COLUMN_INDEX").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_VIEW_SEEK_OPERATOR_FLAGS(pub i32);
@@ -23819,7 +21626,6 @@ impl ::core::fmt::Debug for CERT_VIEW_SEEK_OPERATOR_FLAGS {
         f.debug_tuple("CERT_VIEW_SEEK_OPERATOR_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRLRevocationReason(pub i32);
@@ -23842,7 +21648,6 @@ impl ::core::fmt::Debug for CRLRevocationReason {
         f.debug_tuple("CRLRevocationReason").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CR_DISP(pub u32);
@@ -23865,7 +21670,6 @@ impl ::core::fmt::Debug for CR_DISP {
         f.debug_tuple("CR_DISP").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSBACKUP_TYPE(pub u32);
@@ -23888,7 +21692,6 @@ impl ::core::fmt::Debug for CSBACKUP_TYPE {
         f.debug_tuple("CSBACKUP_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CVRC_COLUMN(pub i32);
@@ -23911,7 +21714,6 @@ impl ::core::fmt::Debug for CVRC_COLUMN {
         f.debug_tuple("CVRC_COLUMN").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CVRC_TABLE(pub i32);
@@ -23934,7 +21736,6 @@ impl ::core::fmt::Debug for CVRC_TABLE {
         f.debug_tuple("CVRC_TABLE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CommitTemplateFlags(pub i32);
@@ -23957,7 +21758,6 @@ impl ::core::fmt::Debug for CommitTemplateFlags {
         f.debug_tuple("CommitTemplateFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DelayRetryAction(pub i32);
@@ -23980,7 +21780,6 @@ impl ::core::fmt::Debug for DelayRetryAction {
         f.debug_tuple("DelayRetryAction").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_CATYPES(pub i32);
@@ -24003,7 +21802,6 @@ impl ::core::fmt::Debug for ENUM_CATYPES {
         f.debug_tuple("ENUM_CATYPES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_CERT_COLUMN_VALUE_FLAGS(pub i32);
@@ -24026,7 +21824,6 @@ impl ::core::fmt::Debug for ENUM_CERT_COLUMN_VALUE_FLAGS {
         f.debug_tuple("ENUM_CERT_COLUMN_VALUE_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EncodingType(pub i32);
@@ -24049,7 +21846,6 @@ impl ::core::fmt::Debug for EncodingType {
         f.debug_tuple("EncodingType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnrollmentCAProperty(pub i32);
@@ -24072,7 +21868,6 @@ impl ::core::fmt::Debug for EnrollmentCAProperty {
         f.debug_tuple("EnrollmentCAProperty").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnrollmentDisplayStatus(pub i32);
@@ -24095,7 +21890,6 @@ impl ::core::fmt::Debug for EnrollmentDisplayStatus {
         f.debug_tuple("EnrollmentDisplayStatus").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnrollmentEnrollStatus(pub i32);
@@ -24118,7 +21912,6 @@ impl ::core::fmt::Debug for EnrollmentEnrollStatus {
         f.debug_tuple("EnrollmentEnrollStatus").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnrollmentPolicyFlags(pub i32);
@@ -24141,7 +21934,6 @@ impl ::core::fmt::Debug for EnrollmentPolicyFlags {
         f.debug_tuple("EnrollmentPolicyFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnrollmentPolicyServerPropertyFlags(pub i32);
@@ -24164,7 +21956,6 @@ impl ::core::fmt::Debug for EnrollmentPolicyServerPropertyFlags {
         f.debug_tuple("EnrollmentPolicyServerPropertyFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnrollmentSelectionStatus(pub i32);
@@ -24187,7 +21978,6 @@ impl ::core::fmt::Debug for EnrollmentSelectionStatus {
         f.debug_tuple("EnrollmentSelectionStatus").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnrollmentTemplateProperty(pub i32);
@@ -24210,7 +22000,6 @@ impl ::core::fmt::Debug for EnrollmentTemplateProperty {
         f.debug_tuple("EnrollmentTemplateProperty").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FULL_RESPONSE_PROPERTY_ID(pub i32);
@@ -24233,7 +22022,6 @@ impl ::core::fmt::Debug for FULL_RESPONSE_PROPERTY_ID {
         f.debug_tuple("FULL_RESPONSE_PROPERTY_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ImportPFXFlags(pub i32);
@@ -24256,7 +22044,6 @@ impl ::core::fmt::Debug for ImportPFXFlags {
         f.debug_tuple("ImportPFXFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InnerRequestLevel(pub i32);
@@ -24279,7 +22066,6 @@ impl ::core::fmt::Debug for InnerRequestLevel {
         f.debug_tuple("InnerRequestLevel").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InstallResponseRestrictionFlags(pub i32);
@@ -24302,7 +22088,6 @@ impl ::core::fmt::Debug for InstallResponseRestrictionFlags {
         f.debug_tuple("InstallResponseRestrictionFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KeyAttestationClaimType(pub i32);
@@ -24325,7 +22110,6 @@ impl ::core::fmt::Debug for KeyAttestationClaimType {
         f.debug_tuple("KeyAttestationClaimType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KeyIdentifierHashAlgorithm(pub i32);
@@ -24348,7 +22132,6 @@ impl ::core::fmt::Debug for KeyIdentifierHashAlgorithm {
         f.debug_tuple("KeyIdentifierHashAlgorithm").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OCSPRequestFlag(pub i32);
@@ -24371,7 +22154,6 @@ impl ::core::fmt::Debug for OCSPRequestFlag {
         f.debug_tuple("OCSPRequestFlag").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OCSPSigningFlag(pub i32);
@@ -24394,7 +22176,6 @@ impl ::core::fmt::Debug for OCSPSigningFlag {
         f.debug_tuple("OCSPSigningFlag").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ObjectIdGroupId(pub i32);
@@ -24417,7 +22198,6 @@ impl ::core::fmt::Debug for ObjectIdGroupId {
         f.debug_tuple("ObjectIdGroupId").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ObjectIdPublicKeyFlags(pub i32);
@@ -24440,7 +22220,6 @@ impl ::core::fmt::Debug for ObjectIdPublicKeyFlags {
         f.debug_tuple("ObjectIdPublicKeyFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PENDING_REQUEST_DESIRED_PROPERTY(pub i32);
@@ -24463,7 +22242,6 @@ impl ::core::fmt::Debug for PENDING_REQUEST_DESIRED_PROPERTY {
         f.debug_tuple("PENDING_REQUEST_DESIRED_PROPERTY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PFXExportOptions(pub i32);
@@ -24486,7 +22264,6 @@ impl ::core::fmt::Debug for PFXExportOptions {
         f.debug_tuple("PFXExportOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Pkcs10AllowedSignatureTypes(pub i32);
@@ -24509,7 +22286,6 @@ impl ::core::fmt::Debug for Pkcs10AllowedSignatureTypes {
         f.debug_tuple("Pkcs10AllowedSignatureTypes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PolicyQualifierType(pub i32);
@@ -24532,7 +22308,6 @@ impl ::core::fmt::Debug for PolicyQualifierType {
         f.debug_tuple("PolicyQualifierType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PolicyServerUrlFlags(pub i32);
@@ -24555,7 +22330,6 @@ impl ::core::fmt::Debug for PolicyServerUrlFlags {
         f.debug_tuple("PolicyServerUrlFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PolicyServerUrlPropertyID(pub i32);
@@ -24578,7 +22352,6 @@ impl ::core::fmt::Debug for PolicyServerUrlPropertyID {
         f.debug_tuple("PolicyServerUrlPropertyID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RequestClientInfoClientId(pub i32);
@@ -24601,7 +22374,6 @@ impl ::core::fmt::Debug for RequestClientInfoClientId {
         f.debug_tuple("RequestClientInfoClientId").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebEnrollmentFlags(pub i32);
@@ -24624,7 +22396,6 @@ impl ::core::fmt::Debug for WebEnrollmentFlags {
         f.debug_tuple("WebEnrollmentFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebSecurityLevel(pub i32);
@@ -24647,7 +22418,6 @@ impl ::core::fmt::Debug for WebSecurityLevel {
         f.debug_tuple("WebSecurityLevel").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X500NameFlags(pub i32);
@@ -24670,7 +22440,6 @@ impl ::core::fmt::Debug for X500NameFlags {
         f.debug_tuple("X500NameFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509CertificateEnrollmentContext(pub i32);
@@ -24693,7 +22462,6 @@ impl ::core::fmt::Debug for X509CertificateEnrollmentContext {
         f.debug_tuple("X509CertificateEnrollmentContext").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509CertificateTemplateEnrollmentFlag(pub i32);
@@ -24716,7 +22484,6 @@ impl ::core::fmt::Debug for X509CertificateTemplateEnrollmentFlag {
         f.debug_tuple("X509CertificateTemplateEnrollmentFlag").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509CertificateTemplateGeneralFlag(pub i32);
@@ -24739,7 +22506,6 @@ impl ::core::fmt::Debug for X509CertificateTemplateGeneralFlag {
         f.debug_tuple("X509CertificateTemplateGeneralFlag").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509CertificateTemplatePrivateKeyFlag(pub i32);
@@ -24762,7 +22528,6 @@ impl ::core::fmt::Debug for X509CertificateTemplatePrivateKeyFlag {
         f.debug_tuple("X509CertificateTemplatePrivateKeyFlag").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509CertificateTemplateSubjectNameFlag(pub i32);
@@ -24785,7 +22550,6 @@ impl ::core::fmt::Debug for X509CertificateTemplateSubjectNameFlag {
         f.debug_tuple("X509CertificateTemplateSubjectNameFlag").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509EnrollmentAuthFlags(pub i32);
@@ -24808,7 +22572,6 @@ impl ::core::fmt::Debug for X509EnrollmentAuthFlags {
         f.debug_tuple("X509EnrollmentAuthFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509EnrollmentPolicyExportFlags(pub i32);
@@ -24831,7 +22594,6 @@ impl ::core::fmt::Debug for X509EnrollmentPolicyExportFlags {
         f.debug_tuple("X509EnrollmentPolicyExportFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509EnrollmentPolicyLoadOption(pub i32);
@@ -24854,7 +22616,6 @@ impl ::core::fmt::Debug for X509EnrollmentPolicyLoadOption {
         f.debug_tuple("X509EnrollmentPolicyLoadOption").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509HardwareKeyUsageFlags(pub i32);
@@ -24877,7 +22638,6 @@ impl ::core::fmt::Debug for X509HardwareKeyUsageFlags {
         f.debug_tuple("X509HardwareKeyUsageFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509KeyParametersExportType(pub i32);
@@ -24900,7 +22660,6 @@ impl ::core::fmt::Debug for X509KeyParametersExportType {
         f.debug_tuple("X509KeyParametersExportType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509KeySpec(pub i32);
@@ -24923,7 +22682,6 @@ impl ::core::fmt::Debug for X509KeySpec {
         f.debug_tuple("X509KeySpec").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509KeyUsageFlags(pub i32);
@@ -24946,7 +22704,6 @@ impl ::core::fmt::Debug for X509KeyUsageFlags {
         f.debug_tuple("X509KeyUsageFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509PrivateKeyExportFlags(pub i32);
@@ -24969,7 +22726,6 @@ impl ::core::fmt::Debug for X509PrivateKeyExportFlags {
         f.debug_tuple("X509PrivateKeyExportFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509PrivateKeyProtection(pub i32);
@@ -24992,7 +22748,6 @@ impl ::core::fmt::Debug for X509PrivateKeyProtection {
         f.debug_tuple("X509PrivateKeyProtection").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509PrivateKeyUsageFlags(pub i32);
@@ -25015,7 +22770,6 @@ impl ::core::fmt::Debug for X509PrivateKeyUsageFlags {
         f.debug_tuple("X509PrivateKeyUsageFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509PrivateKeyVerify(pub i32);
@@ -25038,7 +22792,6 @@ impl ::core::fmt::Debug for X509PrivateKeyVerify {
         f.debug_tuple("X509PrivateKeyVerify").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509ProviderType(pub i32);
@@ -25061,7 +22814,6 @@ impl ::core::fmt::Debug for X509ProviderType {
         f.debug_tuple("X509ProviderType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509RequestInheritOptions(pub i32);
@@ -25084,7 +22836,6 @@ impl ::core::fmt::Debug for X509RequestInheritOptions {
         f.debug_tuple("X509RequestInheritOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509RequestType(pub i32);
@@ -25107,7 +22858,6 @@ impl ::core::fmt::Debug for X509RequestType {
         f.debug_tuple("X509RequestType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509SCEPDisposition(pub i32);
@@ -25130,7 +22880,6 @@ impl ::core::fmt::Debug for X509SCEPDisposition {
         f.debug_tuple("X509SCEPDisposition").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509SCEPFailInfo(pub i32);
@@ -25153,7 +22902,6 @@ impl ::core::fmt::Debug for X509SCEPFailInfo {
         f.debug_tuple("X509SCEPFailInfo").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509SCEPMessageType(pub i32);
@@ -25176,7 +22924,6 @@ impl ::core::fmt::Debug for X509SCEPMessageType {
         f.debug_tuple("X509SCEPMessageType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509SCEPProcessMessageFlags(pub i32);
@@ -25199,7 +22946,6 @@ impl ::core::fmt::Debug for X509SCEPProcessMessageFlags {
         f.debug_tuple("X509SCEPProcessMessageFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XEKL_KEYSIZE(pub i32);
@@ -25222,7 +22968,6 @@ impl ::core::fmt::Debug for XEKL_KEYSIZE {
         f.debug_tuple("XEKL_KEYSIZE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XEKL_KEYSPEC(pub i32);
@@ -25246,7 +22991,6 @@ impl ::core::fmt::Debug for XEKL_KEYSPEC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub struct CAINFO {
     pub cbSize: u32,
     pub CAType: ENUM_CATYPES,
@@ -25296,7 +23040,6 @@ impl ::core::default::Default for CAINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub struct CERTTRANSBLOB {
     pub cb: u32,
     pub pb: *mut u8,
@@ -25327,7 +23070,6 @@ impl ::core::default::Default for CERTTRANSBLOB {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub struct CERTVIEWRESTRICTION {
     pub ColumnIndex: u32,
     pub SeekOperator: i32,
@@ -25361,7 +23103,6 @@ impl ::core::default::Default for CERTVIEWRESTRICTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub struct CSEDB_RSTMAPW {
     pub pwszDatabaseName: ::windows_core::PWSTR,
     pub pwszNewDatabaseName: ::windows_core::PWSTR,
@@ -25391,45 +23132,29 @@ impl ::core::default::Default for CSEDB_RSTMAPW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVBACKUPCLOSE = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVBACKUPEND = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVBACKUPFREE = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void) -> ()>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVBACKUPGETBACKUPLOGSW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzbackuplogfiles: *mut *mut u16, pcbsize: *mut u32) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVBACKUPGETDATABASENAMESW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzattachmentinformation: *mut *mut u16, pcbsize: *mut u32) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVBACKUPGETDYNAMICFILELISTW = ::core::option::Option<unsafe extern "system" fn(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut *mut u16, pcbsize: *mut u32) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVBACKUPOPENFILEW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, pwszattachmentname: ::windows_core::PCWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVBACKUPPREPAREW = ::core::option::Option<unsafe extern "system" fn(pwszservername: ::windows_core::PCWSTR, grbitjet: u32, dwbackupflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVBACKUPREAD = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVBACKUPTRUNCATELOGS = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FNCERTSRVISSERVERONLINEW = ::core::option::Option<unsafe extern "system" fn(pwszservername: ::windows_core::PCWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVRESTOREEND = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVRESTOREGETDATABASELOCATIONSW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut *mut u16, pcbsize: *mut u32) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVRESTOREPREPAREW = ::core::option::Option<unsafe extern "system" fn(pwszservername: ::windows_core::PCWSTR, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVRESTOREREGISTERCOMPLETE = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, hrrestorestate: ::windows_core::HRESULT) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVRESTOREREGISTERW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: ::windows_core::PCWSTR, pwszlogpath: ::windows_core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: ::windows_core::PCWSTR, genlow: u32, genhigh: u32) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub type FNCERTSRVSERVERCONTROLW = ::core::option::Option<unsafe extern "system" fn(pwszservername: ::windows_core::PCWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FNIMPORTPFXTOPROVIDER = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::super::Foundation::HWND, pbpfx: *const u8, cbpfx: u32, importflags: ImportPFXFlags, pwszpassword: ::windows_core::PCWSTR, pwszprovidername: ::windows_core::PCWSTR, pwszreadername: ::windows_core::PCWSTR, pwszcontainernameprefix: ::windows_core::PCWSTR, pwszpin: ::windows_core::PCWSTR, pwszfriendlyname: ::windows_core::PCWSTR, pccertout: *mut u32, prgpcertout: *mut *mut *mut super::CERT_CONTEXT) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FNIMPORTPFXTOPROVIDERFREEDATA = ::core::option::Option<unsafe extern "system" fn(ccert: u32, rgpcert: *const *const super::CERT_CONTEXT) -> ()>;
 #[cfg(feature = "implement")]

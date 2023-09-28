@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeAsyncRecvDone<P0>(hclientrequest: P0, action: u32) -> u32
@@ -8,37 +8,32 @@ where
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeAsyncRecvDone(hclientrequest : super::super::Foundation:: HANDLE, action : u32) -> u32);
     PxeAsyncRecvDone(hclientrequest.into_param().abi(), action)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpAppendOption(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, boption: u8, boptionlen: u8, pvalue: ::core::option::Option<*const ::core::ffi::c_void>) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpAppendOption(preplypacket : *mut ::core::ffi::c_void, umaxreplypacketlen : u32, pureplypacketlen : *mut u32, boption : u8, boptionlen : u8, pvalue : *const ::core::ffi::c_void) -> u32);
     PxeDhcpAppendOption(preplypacket, umaxreplypacketlen, pureplypacketlen, boption, boptionlen, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpAppendOptionRaw(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, ubufferlen: u16, pbuffer: *const ::core::ffi::c_void) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpAppendOptionRaw(preplypacket : *mut ::core::ffi::c_void, umaxreplypacketlen : u32, pureplypacketlen : *mut u32, ubufferlen : u16, pbuffer : *const ::core::ffi::c_void) -> u32);
     PxeDhcpAppendOptionRaw(preplypacket, umaxreplypacketlen, pureplypacketlen, ubufferlen, pbuffer)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpGetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, boption: u8, pboptionlen: ::core::option::Option<*mut u8>, ppoptionvalue: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpGetOptionValue(ppacket : *const ::core::ffi::c_void, upacketlen : u32, uinstance : u32, boption : u8, pboptionlen : *mut u8, ppoptionvalue : *mut *mut ::core::ffi::c_void) -> u32);
     PxeDhcpGetOptionValue(ppacket, upacketlen, uinstance, boption, ::core::mem::transmute(pboptionlen.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppoptionvalue.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpGetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, boption: u8, uinstance: u32, pboptionlen: ::core::option::Option<*mut u8>, ppoptionvalue: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpGetVendorOptionValue(ppacket : *const ::core::ffi::c_void, upacketlen : u32, boption : u8, uinstance : u32, pboptionlen : *mut u8, ppoptionvalue : *mut *mut ::core::ffi::c_void) -> u32);
     PxeDhcpGetVendorOptionValue(ppacket, upacketlen, boption, uinstance, ::core::mem::transmute(pboptionlen.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppoptionvalue.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpInitialize(precvpacket: *const ::core::ffi::c_void, urecvpacketlen: u32, preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpInitialize(precvpacket : *const ::core::ffi::c_void, urecvpacketlen : u32, preplypacket : *mut ::core::ffi::c_void, umaxreplypacketlen : u32, pureplypacketlen : *mut u32) -> u32);
     PxeDhcpInitialize(precvpacket, urecvpacketlen, preplypacket, umaxreplypacketlen, pureplypacketlen)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeDhcpIsValid<P0>(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: P0, pbpxeoptionpresent: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> u32
@@ -48,43 +43,37 @@ where
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpIsValid(ppacket : *const ::core::ffi::c_void, upacketlen : u32, brequestpacket : super::super::Foundation:: BOOL, pbpxeoptionpresent : *mut super::super::Foundation:: BOOL) -> u32);
     PxeDhcpIsValid(ppacket, upacketlen, brequestpacket.into_param().abi(), ::core::mem::transmute(pbpxeoptionpresent.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6AppendOption(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, woptiontype: u16, cboption: u16, poption: *const ::core::ffi::c_void) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpv6AppendOption(preply : *mut ::core::ffi::c_void, cbreply : u32, pcbreplyused : *mut u32, woptiontype : u16, cboption : u16, poption : *const ::core::ffi::c_void) -> u32);
     PxeDhcpv6AppendOption(preply, cbreply, pcbreplyused, woptiontype, cboption, poption)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6AppendOptionRaw(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, cbbuffer: u16, pbuffer: *const ::core::ffi::c_void) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpv6AppendOptionRaw(preply : *mut ::core::ffi::c_void, cbreply : u32, pcbreplyused : *mut u32, cbbuffer : u16, pbuffer : *const ::core::ffi::c_void) -> u32);
     PxeDhcpv6AppendOptionRaw(preply, cbreply, pcbreplyused, cbbuffer, pbuffer)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6CreateRelayRepl(prelaymessages: &[PXE_DHCPV6_NESTED_RELAY_MESSAGE], pinnerpacket: &[u8], preplybuffer: *mut ::core::ffi::c_void, cbreplybuffer: u32, pcbreplybuffer: *mut u32) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpv6CreateRelayRepl(prelaymessages : *const PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages : u32, pinnerpacket : *const u8, cbinnerpacket : u32, preplybuffer : *mut ::core::ffi::c_void, cbreplybuffer : u32, pcbreplybuffer : *mut u32) -> u32);
     PxeDhcpv6CreateRelayRepl(::core::mem::transmute(prelaymessages.as_ptr()), prelaymessages.len() as _, ::core::mem::transmute(pinnerpacket.as_ptr()), pinnerpacket.len() as _, preplybuffer, cbreplybuffer, pcbreplybuffer)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6GetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, woption: u16, pwoptionlen: ::core::option::Option<*mut u16>, ppoptionvalue: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpv6GetOptionValue(ppacket : *const ::core::ffi::c_void, upacketlen : u32, uinstance : u32, woption : u16, pwoptionlen : *mut u16, ppoptionvalue : *mut *mut ::core::ffi::c_void) -> u32);
     PxeDhcpv6GetOptionValue(ppacket, upacketlen, uinstance, woption, ::core::mem::transmute(pwoptionlen.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppoptionvalue.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6GetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, dwenterprisenumber: u32, woption: u16, uinstance: u32, pwoptionlen: ::core::option::Option<*mut u16>, ppoptionvalue: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpv6GetVendorOptionValue(ppacket : *const ::core::ffi::c_void, upacketlen : u32, dwenterprisenumber : u32, woption : u16, uinstance : u32, pwoptionlen : *mut u16, ppoptionvalue : *mut *mut ::core::ffi::c_void) -> u32);
     PxeDhcpv6GetVendorOptionValue(ppacket, upacketlen, dwenterprisenumber, woption, uinstance, ::core::mem::transmute(pwoptionlen.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppoptionvalue.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6Initialize(prequest: *const ::core::ffi::c_void, cbrequest: u32, preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpv6Initialize(prequest : *const ::core::ffi::c_void, cbrequest : u32, preply : *mut ::core::ffi::c_void, cbreply : u32, pcbreplyused : *mut u32) -> u32);
     PxeDhcpv6Initialize(prequest, cbrequest, preply, cbreply, pcbreplyused)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeDhcpv6IsValid<P0>(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: P0, pbpxeoptionpresent: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> u32
@@ -94,25 +83,22 @@ where
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpv6IsValid(ppacket : *const ::core::ffi::c_void, upacketlen : u32, brequestpacket : super::super::Foundation:: BOOL, pbpxeoptionpresent : *mut super::super::Foundation:: BOOL) -> u32);
     PxeDhcpv6IsValid(ppacket, upacketlen, brequestpacket.into_param().abi(), ::core::mem::transmute(pbpxeoptionpresent.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const ::core::ffi::c_void, urelayforwpacketlen: u32, prelaymessages: &mut [PXE_DHCPV6_NESTED_RELAY_MESSAGE], pnrelaymessages: *mut u32, ppinnerpacket: *mut *mut u8, pcbinnerpacket: *mut u32) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeDhcpv6ParseRelayForw(prelayforwpacket : *const ::core::ffi::c_void, urelayforwpacketlen : u32, prelaymessages : *mut PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages : u32, pnrelaymessages : *mut u32, ppinnerpacket : *mut *mut u8, pcbinnerpacket : *mut u32) -> u32);
     PxeDhcpv6ParseRelayForw(prelayforwpacket, urelayforwpacketlen, ::core::mem::transmute(prelaymessages.as_ptr()), prelaymessages.len() as _, pnrelaymessages, ppinnerpacket, pcbinnerpacket)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeGetServerInfo(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeGetServerInfo(uinfotype : u32, pbuffer : *mut ::core::ffi::c_void, ubufferlen : u32) -> u32);
     PxeGetServerInfo(uinfotype, pbuffer, ubufferlen)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32, pubufferused: *mut u32) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeGetServerInfoEx(uinfotype : u32, pbuffer : *mut ::core::ffi::c_void, ubufferlen : u32, pubufferused : *mut u32) -> u32);
     PxeGetServerInfoEx(uinfotype, pbuffer, ubufferlen, pubufferused)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxePacketAllocate<P0, P1>(hprovider: P0, hclientrequest: P1, usize: u32) -> *mut ::core::ffi::c_void
@@ -123,7 +109,7 @@ where
     ::windows_targets::link!("wdspxe.dll" "system" fn PxePacketAllocate(hprovider : super::super::Foundation:: HANDLE, hclientrequest : super::super::Foundation:: HANDLE, usize : u32) -> *mut ::core::ffi::c_void);
     PxePacketAllocate(hprovider.into_param().abi(), hclientrequest.into_param().abi(), usize)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxePacketFree<P0, P1>(hprovider: P0, hclientrequest: P1, ppacket: *const ::core::ffi::c_void) -> u32
@@ -134,7 +120,7 @@ where
     ::windows_targets::link!("wdspxe.dll" "system" fn PxePacketFree(hprovider : super::super::Foundation:: HANDLE, hclientrequest : super::super::Foundation:: HANDLE, ppacket : *const ::core::ffi::c_void) -> u32);
     PxePacketFree(hprovider.into_param().abi(), hclientrequest.into_param().abi(), ppacket)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeProviderEnumClose<P0>(henum: P0) -> u32
@@ -144,14 +130,14 @@ where
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeProviderEnumClose(henum : super::super::Foundation:: HANDLE) -> u32);
     PxeProviderEnumClose(henum.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeProviderEnumFirst(phenum : *mut super::super::Foundation:: HANDLE) -> u32);
     PxeProviderEnumFirst(phenum)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeProviderEnumNext<P0>(henum: P0, ppprovider: *mut *mut PXE_PROVIDER) -> u32
@@ -161,14 +147,13 @@ where
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeProviderEnumNext(henum : super::super::Foundation:: HANDLE, ppprovider : *mut *mut PXE_PROVIDER) -> u32);
     PxeProviderEnumNext(henum.into_param().abi(), ppprovider)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32 {
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeProviderFreeInfo(pprovider : *const PXE_PROVIDER) -> u32);
     PxeProviderFreeInfo(pprovider)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeProviderQueryIndex<P0>(pszprovidername: P0, puindex: *mut u32) -> u32
 where
@@ -177,7 +162,7 @@ where
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeProviderQueryIndex(pszprovidername : ::windows_core::PCWSTR, puindex : *mut u32) -> u32);
     PxeProviderQueryIndex(pszprovidername.into_param().abi(), puindex)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn PxeProviderRegister<P0, P1, P2>(pszprovidername: P0, pszmodulepath: P1, index: u32, biscritical: P2, phproviderkey: ::core::option::Option<*mut super::Registry::HKEY>) -> u32
@@ -189,7 +174,7 @@ where
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeProviderRegister(pszprovidername : ::windows_core::PCWSTR, pszmodulepath : ::windows_core::PCWSTR, index : u32, biscritical : super::super::Foundation:: BOOL, phproviderkey : *mut super::Registry:: HKEY) -> u32);
     PxeProviderRegister(pszprovidername.into_param().abi(), pszmodulepath.into_param().abi(), index, biscritical.into_param().abi(), ::core::mem::transmute(phproviderkey.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeProviderSetAttribute<P0>(hprovider: P0, attribute: u32, pparameterbuffer: *const ::core::ffi::c_void, uparamlen: u32) -> u32
@@ -199,7 +184,6 @@ where
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeProviderSetAttribute(hprovider : super::super::Foundation:: HANDLE, attribute : u32, pparameterbuffer : *const ::core::ffi::c_void, uparamlen : u32) -> u32);
     PxeProviderSetAttribute(hprovider.into_param().abi(), attribute, pparameterbuffer, uparamlen)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeProviderUnRegister<P0>(pszprovidername: P0) -> u32
 where
@@ -208,7 +192,7 @@ where
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeProviderUnRegister(pszprovidername : ::windows_core::PCWSTR) -> u32);
     PxeProviderUnRegister(pszprovidername.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeRegisterCallback<P0>(hprovider: P0, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -218,7 +202,7 @@ where
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeRegisterCallback(hprovider : super::super::Foundation:: HANDLE, callbacktype : u32, pcallbackfunction : *const ::core::ffi::c_void, pcontext : *const ::core::ffi::c_void) -> u32);
     PxeRegisterCallback(hprovider.into_param().abi(), callbacktype, pcallbackfunction, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeSendReply<P0>(hclientrequest: P0, ppacket: *const ::core::ffi::c_void, upacketlen: u32, paddress: *const PXE_ADDRESS) -> u32
@@ -228,7 +212,7 @@ where
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeSendReply(hclientrequest : super::super::Foundation:: HANDLE, ppacket : *const ::core::ffi::c_void, upacketlen : u32, paddress : *const PXE_ADDRESS) -> u32);
     PxeSendReply(hclientrequest.into_param().abi(), ppacket, upacketlen, paddress)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeTrace<P0, P1>(hprovider: P0, severity: u32, pszformat: P1) -> u32
@@ -239,7 +223,7 @@ where
     ::windows_targets::link!("wdspxe.dll" "cdecl" fn PxeTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pszformat : ::windows_core::PCWSTR) -> u32);
     PxeTrace(hprovider.into_param().abi(), severity, pszformat.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeTraceV<P0, P1>(hprovider: P0, severity: u32, pszformat: P1, params: *const i8) -> u32
@@ -250,7 +234,7 @@ where
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeTraceV(hprovider : super::super::Foundation:: HANDLE, severity : u32, pszformat : ::windows_core::PCWSTR, params : *const i8) -> u32);
     PxeTraceV(hprovider.into_param().abi(), severity, pszformat.into_param().abi(), params)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsBpAddOption<P0>(hhandle: P0, uoption: u32, uvaluelen: u32, pvalue: *const ::core::ffi::c_void) -> u32
@@ -260,7 +244,7 @@ where
     ::windows_targets::link!("wdsbp.dll" "system" fn WdsBpAddOption(hhandle : super::super::Foundation:: HANDLE, uoption : u32, uvaluelen : u32, pvalue : *const ::core::ffi::c_void) -> u32);
     WdsBpAddOption(hhandle.into_param().abi(), uoption, uvaluelen, pvalue)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsBpCloseHandle<P0>(hhandle: P0) -> u32
@@ -270,7 +254,7 @@ where
     ::windows_targets::link!("wdsbp.dll" "system" fn WdsBpCloseHandle(hhandle : super::super::Foundation:: HANDLE) -> u32);
     WdsBpCloseHandle(hhandle.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsBpGetOptionBuffer<P0>(hhandle: P0, ubufferlen: u32, pbuffer: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32
@@ -280,28 +264,28 @@ where
     ::windows_targets::link!("wdsbp.dll" "system" fn WdsBpGetOptionBuffer(hhandle : super::super::Foundation:: HANDLE, ubufferlen : u32, pbuffer : *mut ::core::ffi::c_void, pubytes : *mut u32) -> u32);
     WdsBpGetOptionBuffer(hhandle.into_param().abi(), ubufferlen, pbuffer, pubytes)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsBpInitialize(bpackettype: u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     ::windows_targets::link!("wdsbp.dll" "system" fn WdsBpInitialize(bpackettype : u8, phhandle : *mut super::super::Foundation:: HANDLE) -> u32);
     WdsBpInitialize(bpackettype, phhandle)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsBpParseInitialize(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: ::core::option::Option<*mut u8>, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     ::windows_targets::link!("wdsbp.dll" "system" fn WdsBpParseInitialize(ppacket : *const ::core::ffi::c_void, upacketlen : u32, pbpackettype : *mut u8, phhandle : *mut super::super::Foundation:: HANDLE) -> u32);
     WdsBpParseInitialize(ppacket, upacketlen, ::core::mem::transmute(pbpackettype.unwrap_or(::std::ptr::null_mut())), phhandle)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsBpParseInitializev6(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: ::core::option::Option<*mut u8>, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     ::windows_targets::link!("wdsbp.dll" "system" fn WdsBpParseInitializev6(ppacket : *const ::core::ffi::c_void, upacketlen : u32, pbpackettype : *mut u8, phhandle : *mut super::super::Foundation:: HANDLE) -> u32);
     WdsBpParseInitializev6(ppacket, upacketlen, ::core::mem::transmute(pbpackettype.unwrap_or(::std::ptr::null_mut())), phhandle)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsBpQueryOption<P0>(hhandle: P0, uoption: u32, uvaluelen: u32, pvalue: *mut ::core::ffi::c_void, pubytes: ::core::option::Option<*mut u32>) -> u32
@@ -311,7 +295,7 @@ where
     ::windows_targets::link!("wdsbp.dll" "system" fn WdsBpQueryOption(hhandle : super::super::Foundation:: HANDLE, uoption : u32, uvaluelen : u32, pvalue : *mut ::core::ffi::c_void, pubytes : *mut u32) -> u32);
     WdsBpQueryOption(hhandle.into_param().abi(), uoption, uvaluelen, pvalue, ::core::mem::transmute(pubytes.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliAuthorizeSession<P0>(hsession: P0, pcred: ::core::option::Option<*const WDS_CLI_CRED>) -> ::windows_core::Result<()>
@@ -321,7 +305,7 @@ where
     ::windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliAuthorizeSession(hsession : super::super::Foundation:: HANDLE, pcred : *const WDS_CLI_CRED) -> ::windows_core::HRESULT);
     WdsCliAuthorizeSession(hsession.into_param().abi(), ::core::mem::transmute(pcred.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliCancelTransfer<P0>(htransfer: P0) -> ::windows_core::Result<()>
@@ -331,7 +315,7 @@ where
     ::windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliCancelTransfer(htransfer : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     WdsCliCancelTransfer(htransfer.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliClose<P0>(handle: P0) -> ::windows_core::Result<()>
@@ -341,7 +325,7 @@ where
     ::windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliClose(handle : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     WdsCliClose(handle.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliCreateSession<P0>(pwszserver: P0, pcred: ::core::option::Option<*const WDS_CLI_CRED>) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -352,7 +336,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliCreateSession(pwszserver.into_param().abi(), ::core::mem::transmute(pcred.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliFindFirstImage<P0>(hsession: P0) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -363,7 +347,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliFindFirstImage(hsession.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliFindNextImage<P0>(handle: P0) -> ::windows_core::Result<()>
@@ -373,13 +357,11 @@ where
     ::windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliFindNextImage(handle : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     WdsCliFindNextImage(handle.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsCliFreeStringArray(ppwszarray: ::core::option::Option<&mut [::windows_core::PWSTR]>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliFreeStringArray(ppwszarray : *mut ::windows_core::PWSTR, ulcount : u32) -> ::windows_core::HRESULT);
     WdsCliFreeStringArray(::core::mem::transmute(ppwszarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ppwszarray.as_deref().map_or(0, |slice| slice.len() as _)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsCliGetDriverQueryXml<P0>(pwszwindirpath: P0) -> ::windows_core::Result<::windows_core::PWSTR>
 where
@@ -389,7 +371,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetDriverQueryXml(pwszwindirpath.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetEnumerationFlags<P0>(handle: P0) -> ::windows_core::Result<u32>
@@ -400,7 +382,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetEnumerationFlags(handle.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageArchitecture<P0>(hifh: P0) -> ::windows_core::Result<CPU_ARCHITECTURE>
@@ -411,7 +393,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetImageArchitecture(hifh.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageDescription<P0>(hifh: P0) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -422,7 +404,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetImageDescription(hifh.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageFiles<P0>(hifh: P0, pppwszfiles: *mut *mut ::windows_core::PWSTR, pdwcount: *mut u32) -> ::windows_core::Result<()>
@@ -432,7 +414,7 @@ where
     ::windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliGetImageFiles(hifh : super::super::Foundation:: HANDLE, pppwszfiles : *mut *mut ::windows_core::PWSTR, pdwcount : *mut u32) -> ::windows_core::HRESULT);
     WdsCliGetImageFiles(hifh.into_param().abi(), pppwszfiles, pdwcount).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageGroup<P0>(hifh: P0) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -443,7 +425,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetImageGroup(hifh.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageHalName<P0>(hifh: P0) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -454,7 +436,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetImageHalName(hifh.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageHandleFromFindHandle<P0>(findhandle: P0) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -465,7 +447,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetImageHandleFromFindHandle(findhandle.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageHandleFromTransferHandle<P0>(htransfer: P0) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -476,7 +458,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetImageHandleFromTransferHandle(htransfer.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageIndex<P0>(hifh: P0) -> ::windows_core::Result<u32>
@@ -487,7 +469,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetImageIndex(hifh.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageLanguage<P0>(hifh: P0) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -498,7 +480,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetImageLanguage(hifh.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageLanguages<P0>(hifh: P0, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> ::windows_core::Result<()>
@@ -508,7 +490,7 @@ where
     ::windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliGetImageLanguages(hifh : super::super::Foundation:: HANDLE, pppszvalues : *mut *mut *mut i8, pdwnumvalues : *mut u32) -> ::windows_core::HRESULT);
     WdsCliGetImageLanguages(hifh.into_param().abi(), pppszvalues, pdwnumvalues).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageLastModifiedTime<P0>(hifh: P0) -> ::windows_core::Result<*mut super::super::Foundation::SYSTEMTIME>
@@ -519,7 +501,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetImageLastModifiedTime(hifh.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageName<P0>(hifh: P0) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -530,7 +512,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetImageName(hifh.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageNamespace<P0>(hifh: P0) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -541,7 +523,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetImageNamespace(hifh.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageParameter<P0>(hifh: P0, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows_core::Result<()>
@@ -551,7 +533,7 @@ where
     ::windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliGetImageParameter(hifh : super::super::Foundation:: HANDLE, paramtype : WDS_CLI_IMAGE_PARAM_TYPE, presponse : *mut ::core::ffi::c_void, uresponselen : u32) -> ::windows_core::HRESULT);
     WdsCliGetImageParameter(hifh.into_param().abi(), paramtype, presponse, uresponselen).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImagePath<P0>(hifh: P0) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -562,7 +544,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetImagePath(hifh.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageSize<P0>(hifh: P0) -> ::windows_core::Result<u64>
@@ -573,7 +555,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetImageSize(hifh.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageType<P0>(hifh: P0) -> ::windows_core::Result<WDS_CLI_IMAGE_TYPE>
@@ -584,7 +566,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetImageType(hifh.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageVersion<P0>(hifh: P0) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -595,7 +577,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetImageVersion(hifh.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetTransferSize<P0>(hifh: P0) -> ::windows_core::Result<u64>
@@ -606,7 +588,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliGetTransferSize(hifh.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliInitializeLog<P0, P1, P2>(hsession: P0, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: P1, pwszclientaddress: P2) -> ::windows_core::Result<()>
@@ -618,7 +600,7 @@ where
     ::windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliInitializeLog(hsession : super::super::Foundation:: HANDLE, ulclientarchitecture : CPU_ARCHITECTURE, pwszclientid : ::windows_core::PCWSTR, pwszclientaddress : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     WdsCliInitializeLog(hsession.into_param().abi(), ulclientarchitecture, pwszclientid.into_param().abi(), pwszclientaddress.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliLog<P0>(hsession: P0, ulloglevel: u32, ulmessagecode: u32) -> ::windows_core::Result<()>
@@ -628,7 +610,7 @@ where
     ::windows_targets::link!("wdsclientapi.dll" "cdecl" fn WdsCliLog(hsession : super::super::Foundation:: HANDLE, ulloglevel : u32, ulmessagecode : u32) -> ::windows_core::HRESULT);
     WdsCliLog(hsession.into_param().abi(), ulloglevel, ulmessagecode).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliObtainDriverPackages<P0>(himage: P0, ppwszservername: *mut ::windows_core::PWSTR, pppwszdriverpackages: *mut *mut ::windows_core::PWSTR, pulcount: *mut u32) -> ::windows_core::Result<()>
@@ -638,7 +620,7 @@ where
     ::windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliObtainDriverPackages(himage : super::super::Foundation:: HANDLE, ppwszservername : *mut ::windows_core::PWSTR, pppwszdriverpackages : *mut *mut ::windows_core::PWSTR, pulcount : *mut u32) -> ::windows_core::HRESULT);
     WdsCliObtainDriverPackages(himage.into_param().abi(), ppwszservername, pppwszdriverpackages, pulcount).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliObtainDriverPackagesEx<P0, P1>(hsession: P0, pwszmachineinfo: P1, ppwszservername: *mut ::windows_core::PWSTR, pppwszdriverpackages: *mut *mut ::windows_core::PWSTR, pulcount: *mut u32) -> ::windows_core::Result<()>
@@ -649,19 +631,17 @@ where
     ::windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliObtainDriverPackagesEx(hsession : super::super::Foundation:: HANDLE, pwszmachineinfo : ::windows_core::PCWSTR, ppwszservername : *mut ::windows_core::PWSTR, pppwszdriverpackages : *mut *mut ::windows_core::PWSTR, pulcount : *mut u32) -> ::windows_core::HRESULT);
     WdsCliObtainDriverPackagesEx(hsession.into_param().abi(), pwszmachineinfo.into_param().abi(), ppwszservername, pppwszdriverpackages, pulcount).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsCliRegisterTrace(pfn: PFN_WdsCliTraceFunction) -> ::windows_core::Result<()> {
     ::windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliRegisterTrace(pfn : PFN_WdsCliTraceFunction) -> ::windows_core::HRESULT);
     WdsCliRegisterTrace(pfn).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
     ::windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliSetTransferBufferSize(ulsizeinbytes : u32) -> ());
     WdsCliSetTransferBufferSize(ulsizeinbytes)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliTransferFile<P0, P1, P2, P3>(pwszserver: P0, pwsznamespace: P1, pwszremotefilepath: P2, pwszlocalfilepath: P3, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -675,7 +655,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliTransferFile(pwszserver.into_param().abi(), pwsznamespace.into_param().abi(), pwszremotefilepath.into_param().abi(), pwszlocalfilepath.into_param().abi(), dwflags, dwreserved, pfnwdsclicallback, ::core::mem::transmute(pvuserdata.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliTransferImage<P0, P1>(himage: P0, pwszlocalpath: P1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -687,7 +667,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WdsCliTransferImage(himage.into_param().abi(), pwszlocalpath.into_param().abi(), dwflags, dwreserved, pfnwdsclicallback, ::core::mem::transmute(pvuserdata.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliWaitForTransfer<P0>(htransfer: P0) -> ::windows_core::Result<()>
@@ -697,13 +677,12 @@ where
     ::windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliWaitForTransfer(htransfer : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     WdsCliWaitForTransfer(htransfer.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::core::ffi::c_void) -> u32 {
     ::windows_targets::link!("wdstptc.dll" "system" fn WdsTransportClientAddRefBuffer(pvbuffer : *const ::core::ffi::c_void) -> u32);
     WdsTransportClientAddRefBuffer(pvbuffer)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientCancelSession<P0>(hsessionkey: P0) -> u32
@@ -713,7 +692,7 @@ where
     ::windows_targets::link!("wdstptc.dll" "system" fn WdsTransportClientCancelSession(hsessionkey : super::super::Foundation:: HANDLE) -> u32);
     WdsTransportClientCancelSession(hsessionkey.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientCancelSessionEx<P0>(hsessionkey: P0, dwerrorcode: u32) -> u32
@@ -723,7 +702,7 @@ where
     ::windows_targets::link!("wdstptc.dll" "system" fn WdsTransportClientCancelSessionEx(hsessionkey : super::super::Foundation:: HANDLE, dwerrorcode : u32) -> u32);
     WdsTransportClientCancelSessionEx(hsessionkey.into_param().abi(), dwerrorcode)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientCloseSession<P0>(hsessionkey: P0) -> u32
@@ -733,7 +712,7 @@ where
     ::windows_targets::link!("wdstptc.dll" "system" fn WdsTransportClientCloseSession(hsessionkey : super::super::Foundation:: HANDLE) -> u32);
     WdsTransportClientCloseSession(hsessionkey.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientCompleteReceive<P0>(hsessionkey: P0, ulsize: u32, pulloffset: *const u64) -> u32
@@ -743,20 +722,19 @@ where
     ::windows_targets::link!("wdstptc.dll" "system" fn WdsTransportClientCompleteReceive(hsessionkey : super::super::Foundation:: HANDLE, ulsize : u32, pulloffset : *const u64) -> u32);
     WdsTransportClientCompleteReceive(hsessionkey.into_param().abi(), ulsize, pulloffset)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsTransportClientInitialize() -> u32 {
     ::windows_targets::link!("wdstptc.dll" "system" fn WdsTransportClientInitialize() -> u32);
     WdsTransportClientInitialize()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientInitializeSession(psessionrequest: *const WDS_TRANSPORTCLIENT_REQUEST, pcallerdata: *const ::core::ffi::c_void, hsessionkey: *mut super::super::Foundation::HANDLE) -> u32 {
     ::windows_targets::link!("wdstptc.dll" "system" fn WdsTransportClientInitializeSession(psessionrequest : *const WDS_TRANSPORTCLIENT_REQUEST, pcallerdata : *const ::core::ffi::c_void, hsessionkey : *mut super::super::Foundation:: HANDLE) -> u32);
     WdsTransportClientInitializeSession(psessionrequest, pcallerdata, hsessionkey)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientQueryStatus<P0>(hsessionkey: P0, pustatus: *mut u32, puerrorcode: *mut u32) -> u32
@@ -766,7 +744,7 @@ where
     ::windows_targets::link!("wdstptc.dll" "system" fn WdsTransportClientQueryStatus(hsessionkey : super::super::Foundation:: HANDLE, pustatus : *mut u32, puerrorcode : *mut u32) -> u32);
     WdsTransportClientQueryStatus(hsessionkey.into_param().abi(), pustatus, puerrorcode)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientRegisterCallback<P0>(hsessionkey: P0, callbackid: TRANSPORTCLIENT_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> u32
@@ -776,19 +754,17 @@ where
     ::windows_targets::link!("wdstptc.dll" "system" fn WdsTransportClientRegisterCallback(hsessionkey : super::super::Foundation:: HANDLE, callbackid : TRANSPORTCLIENT_CALLBACK_ID, pfncallback : *const ::core::ffi::c_void) -> u32);
     WdsTransportClientRegisterCallback(hsessionkey.into_param().abi(), callbackid, pfncallback)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsTransportClientReleaseBuffer(pvbuffer: *const ::core::ffi::c_void) -> u32 {
     ::windows_targets::link!("wdstptc.dll" "system" fn WdsTransportClientReleaseBuffer(pvbuffer : *const ::core::ffi::c_void) -> u32);
     WdsTransportClientReleaseBuffer(pvbuffer)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsTransportClientShutdown() -> u32 {
     ::windows_targets::link!("wdstptc.dll" "system" fn WdsTransportClientShutdown() -> u32);
     WdsTransportClientShutdown()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientStartSession<P0>(hsessionkey: P0) -> u32
@@ -798,7 +774,7 @@ where
     ::windows_targets::link!("wdstptc.dll" "system" fn WdsTransportClientStartSession(hsessionkey : super::super::Foundation:: HANDLE) -> u32);
     WdsTransportClientStartSession(hsessionkey.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientWaitForCompletion<P0>(hsessionkey: P0, utimeout: u32) -> u32
@@ -808,7 +784,7 @@ where
     ::windows_targets::link!("wdstptc.dll" "system" fn WdsTransportClientWaitForCompletion(hsessionkey : super::super::Foundation:: HANDLE, utimeout : u32) -> u32);
     WdsTransportClientWaitForCompletion(hsessionkey.into_param().abi(), utimeout)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportServerAllocateBuffer<P0>(hprovider: P0, ulbuffersize: u32) -> *mut ::core::ffi::c_void
@@ -818,7 +794,7 @@ where
     ::windows_targets::link!("wdsmc.dll" "system" fn WdsTransportServerAllocateBuffer(hprovider : super::super::Foundation:: HANDLE, ulbuffersize : u32) -> *mut ::core::ffi::c_void);
     WdsTransportServerAllocateBuffer(hprovider.into_param().abi(), ulbuffersize)
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportServerCompleteRead<P0>(hprovider: P0, ulbytesread: u32, pvuserdata: *const ::core::ffi::c_void, hreadresult: ::windows_core::HRESULT) -> ::windows_core::Result<()>
@@ -828,7 +804,7 @@ where
     ::windows_targets::link!("wdsmc.dll" "system" fn WdsTransportServerCompleteRead(hprovider : super::super::Foundation:: HANDLE, ulbytesread : u32, pvuserdata : *const ::core::ffi::c_void, hreadresult : ::windows_core::HRESULT) -> ::windows_core::HRESULT);
     WdsTransportServerCompleteRead(hprovider.into_param().abi(), ulbytesread, pvuserdata, hreadresult).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportServerFreeBuffer<P0>(hprovider: P0, pvbuffer: *const ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -838,7 +814,7 @@ where
     ::windows_targets::link!("wdsmc.dll" "system" fn WdsTransportServerFreeBuffer(hprovider : super::super::Foundation:: HANDLE, pvbuffer : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     WdsTransportServerFreeBuffer(hprovider.into_param().abi(), pvbuffer).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportServerRegisterCallback<P0>(hprovider: P0, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -848,7 +824,7 @@ where
     ::windows_targets::link!("wdsmc.dll" "system" fn WdsTransportServerRegisterCallback(hprovider : super::super::Foundation:: HANDLE, callbackid : TRANSPORTPROVIDER_CALLBACK_ID, pfncallback : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     WdsTransportServerRegisterCallback(hprovider.into_param().abi(), callbackid, pfncallback).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportServerTrace<P0, P1>(hprovider: P0, severity: u32, pwszformat: P1) -> ::windows_core::Result<()>
@@ -859,7 +835,7 @@ where
     ::windows_targets::link!("wdsmc.dll" "cdecl" fn WdsTransportServerTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pwszformat : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     WdsTransportServerTrace(hprovider.into_param().abi(), severity, pwszformat.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportServerTraceV<P0, P1>(hprovider: P0, severity: u32, pwszformat: P1, params: *const i8) -> ::windows_core::Result<()>
@@ -870,14 +846,14 @@ where
     ::windows_targets::link!("wdsmc.dll" "system" fn WdsTransportServerTraceV(hprovider : super::super::Foundation:: HANDLE, severity : u32, pwszformat : ::windows_core::PCWSTR, params : *const i8) -> ::windows_core::HRESULT);
     WdsTransportServerTraceV(hprovider.into_param().abi(), severity, pwszformat.into_param().abi(), params).ok()
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportCacheable(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportCacheable {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Dirty(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -916,14 +892,14 @@ pub struct IWdsTransportCacheable_Vtbl {
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportClient(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportClient {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Session(&self) -> ::windows_core::Result<IWdsTransportSession> {
         let mut result__ = ::std::mem::zeroed();
@@ -1004,7 +980,7 @@ pub struct IWdsTransportClient_Vtbl {
     pub UserIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszuseridentity: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1015,7 +991,7 @@ impl IWdsTransportCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, ulindex: u32) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -1048,26 +1024,26 @@ pub struct IWdsTransportCollection_Vtbl {
     get_Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportConfigurationManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportConfigurationManager {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ServicePolicy(&self) -> ::windows_core::Result<IWdsTransportServicePolicy> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ServicePolicy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DiagnosticsPolicy(&self) -> ::windows_core::Result<IWdsTransportDiagnosticsPolicy> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DiagnosticsPolicy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_WdsTransportServicesRunning<P0>(&self, brealtimestatus: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -1129,26 +1105,26 @@ pub struct IWdsTransportConfigurationManager_Vtbl {
     pub RestartWdsTransportServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub NotifyWdsTransportServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportConfigurationManager2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportConfigurationManager2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ServicePolicy(&self) -> ::windows_core::Result<IWdsTransportServicePolicy> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ServicePolicy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DiagnosticsPolicy(&self) -> ::windows_core::Result<IWdsTransportDiagnosticsPolicy> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DiagnosticsPolicy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_WdsTransportServicesRunning<P0>(&self, brealtimestatus: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -1175,7 +1151,7 @@ impl IWdsTransportConfigurationManager2 {
     pub unsafe fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.NotifyWdsTransportServices)(::windows_core::Interface::as_raw(self), servicenotification).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MulticastSessionPolicy(&self) -> ::windows_core::Result<IWdsTransportMulticastSessionPolicy> {
         let mut result__ = ::std::mem::zeroed();
@@ -1202,14 +1178,14 @@ pub struct IWdsTransportConfigurationManager2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     MulticastSessionPolicy: usize,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportContent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportContent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Namespace(&self) -> ::windows_core::Result<IWdsTransportNamespace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1223,7 +1199,7 @@ impl IWdsTransportContent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveSessions(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -1260,7 +1236,7 @@ pub struct IWdsTransportContent_Vtbl {
     RetrieveSessions: usize,
     pub Terminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1304,14 +1280,14 @@ pub struct IWdsTransportContentProvider_Vtbl {
     pub FilePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszfilepath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub InitializationRoutine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszinitializationroutine: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportDiagnosticsPolicy(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportDiagnosticsPolicy {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Dirty(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1326,13 +1302,13 @@ impl IWdsTransportDiagnosticsPolicy {
     pub unsafe fn Commit(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Commit)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Enabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnabled<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -1374,14 +1350,14 @@ pub struct IWdsTransportDiagnosticsPolicy_Vtbl {
     pub Components: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcomponents: *mut u32) -> ::windows_core::HRESULT,
     pub SetComponents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcomponents: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportManager {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWdsTransportServer<P0>(&self, bszservername: P0) -> ::windows_core::Result<IWdsTransportServer>
     where
@@ -1411,14 +1387,14 @@ pub struct IWdsTransportManager_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetWdsTransportServer: usize,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportMulticastSessionPolicy(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportMulticastSessionPolicy {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Dirty(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1454,13 +1430,13 @@ impl IWdsTransportMulticastSessionPolicy {
     pub unsafe fn SetMultistreamStreamCount(&self, ulstreamcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMultistreamStreamCount)(::windows_core::Interface::as_raw(self), ulstreamcount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SlowClientFallback(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SlowClientFallback)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSlowClientFallback<P0>(&self, bclientfallback: P0) -> ::windows_core::Result<()>
     where
@@ -1499,7 +1475,7 @@ pub struct IWdsTransportMulticastSessionPolicy_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetSlowClientFallback: usize,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1564,13 +1540,13 @@ impl IWdsTransportNamespace {
     {
         (::windows_core::Interface::vtable(self).SetConfiguration)(::windows_core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Registered(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Registered)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Tombstoned(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1580,7 +1556,7 @@ impl IWdsTransportNamespace {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TombstoneTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransmissionStarted(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1589,7 +1565,7 @@ impl IWdsTransportNamespace {
     pub unsafe fn Register(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Register)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Deregister<P0>(&self, bterminatesessions: P0) -> ::windows_core::Result<()>
     where
@@ -1597,7 +1573,7 @@ impl IWdsTransportNamespace {
     {
         (::windows_core::Interface::vtable(self).Deregister)(::windows_core::Interface::as_raw(self), bterminatesessions.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IWdsTransportNamespace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1606,7 +1582,7 @@ impl IWdsTransportNamespace {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -1668,7 +1644,7 @@ pub struct IWdsTransportNamespace_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     RetrieveContents: usize,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1733,13 +1709,13 @@ impl IWdsTransportNamespaceAutoCast {
     {
         (::windows_core::Interface::vtable(self).base__.SetConfiguration)(::windows_core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Registered(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Registered)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Tombstoned(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1749,7 +1725,7 @@ impl IWdsTransportNamespaceAutoCast {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TombstoneTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransmissionStarted(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1758,7 +1734,7 @@ impl IWdsTransportNamespaceAutoCast {
     pub unsafe fn Register(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Register)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Deregister<P0>(&self, bterminatesessions: P0) -> ::windows_core::Result<()>
     where
@@ -1766,7 +1742,7 @@ impl IWdsTransportNamespaceAutoCast {
     {
         (::windows_core::Interface::vtable(self).base__.Deregister)(::windows_core::Interface::as_raw(self), bterminatesessions.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IWdsTransportNamespace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1775,7 +1751,7 @@ impl IWdsTransportNamespaceAutoCast {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -1798,14 +1774,14 @@ unsafe impl ::windows_core::ComInterface for IWdsTransportNamespaceAutoCast {
 pub struct IWdsTransportNamespaceAutoCast_Vtbl {
     pub base__: IWdsTransportNamespace_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportNamespaceManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportNamespaceManager {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateNamespace<P0, P1, P2>(&self, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: P0, bszcontentprovider: P1, bszconfiguration: P2) -> ::windows_core::Result<IWdsTransportNamespace>
     where
@@ -1816,7 +1792,7 @@ impl IWdsTransportNamespaceManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateNamespace)(::windows_core::Interface::as_raw(self), namespacetype, bsznamespacename.into_param().abi(), bszcontentprovider.into_param().abi(), bszconfiguration.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveNamespace<P0>(&self, bsznamespacename: P0) -> ::windows_core::Result<IWdsTransportNamespace>
     where
@@ -1825,7 +1801,7 @@ impl IWdsTransportNamespaceManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RetrieveNamespace)(::windows_core::Interface::as_raw(self), bsznamespacename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RetrieveNamespaces<P0, P1, P2>(&self, bszcontentprovider: P0, bsznamespacename: P1, bincludetombstones: P2) -> ::windows_core::Result<IWdsTransportCollection>
     where
@@ -1865,7 +1841,7 @@ pub struct IWdsTransportNamespaceManager_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     RetrieveNamespaces: usize,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1930,13 +1906,13 @@ impl IWdsTransportNamespaceScheduledCast {
     {
         (::windows_core::Interface::vtable(self).base__.SetConfiguration)(::windows_core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Registered(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Registered)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Tombstoned(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1946,7 +1922,7 @@ impl IWdsTransportNamespaceScheduledCast {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TombstoneTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransmissionStarted(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1955,7 +1931,7 @@ impl IWdsTransportNamespaceScheduledCast {
     pub unsafe fn Register(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Register)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Deregister<P0>(&self, bterminatesessions: P0) -> ::windows_core::Result<()>
     where
@@ -1963,7 +1939,7 @@ impl IWdsTransportNamespaceScheduledCast {
     {
         (::windows_core::Interface::vtable(self).base__.Deregister)(::windows_core::Interface::as_raw(self), bterminatesessions.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IWdsTransportNamespace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1972,7 +1948,7 @@ impl IWdsTransportNamespaceScheduledCast {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -1999,7 +1975,7 @@ pub struct IWdsTransportNamespaceScheduledCast_Vtbl {
     pub base__: IWdsTransportNamespace_Vtbl,
     pub StartTransmission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2064,13 +2040,13 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetConfiguration)(::windows_core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Registered(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Registered)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Tombstoned(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2080,7 +2056,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.TombstoneTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransmissionStarted(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2089,7 +2065,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     pub unsafe fn Register(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Register)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Deregister<P0>(&self, bterminatesessions: P0) -> ::windows_core::Result<()>
     where
@@ -2097,7 +2073,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     {
         (::windows_core::Interface::vtable(self).base__.base__.Deregister)(::windows_core::Interface::as_raw(self), bterminatesessions.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IWdsTransportNamespace> {
         let mut result__ = ::std::mem::zeroed();
@@ -2106,7 +2082,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -2150,7 +2126,7 @@ pub struct IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
     pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstarttime: *mut f64) -> ::windows_core::HRESULT,
     pub SetStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: f64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2215,13 +2191,13 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetConfiguration)(::windows_core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Registered(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Registered)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Tombstoned(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2231,7 +2207,7 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.TombstoneTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransmissionStarted(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2240,7 +2216,7 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     pub unsafe fn Register(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Register)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Deregister<P0>(&self, bterminatesessions: P0) -> ::windows_core::Result<()>
     where
@@ -2248,7 +2224,7 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     {
         (::windows_core::Interface::vtable(self).base__.base__.Deregister)(::windows_core::Interface::as_raw(self), bterminatesessions.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IWdsTransportNamespace> {
         let mut result__ = ::std::mem::zeroed();
@@ -2257,7 +2233,7 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -2283,7 +2259,7 @@ unsafe impl ::windows_core::ComInterface for IWdsTransportNamespaceScheduledCast
 pub struct IWdsTransportNamespaceScheduledCastManualStart_Vtbl {
     pub base__: IWdsTransportNamespaceScheduledCast_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2294,19 +2270,19 @@ impl IWdsTransportServer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetupManager(&self) -> ::windows_core::Result<IWdsTransportSetupManager> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetupManager)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConfigurationManager(&self) -> ::windows_core::Result<IWdsTransportConfigurationManager> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConfigurationManager)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceManager(&self) -> ::windows_core::Result<IWdsTransportNamespaceManager> {
         let mut result__ = ::std::mem::zeroed();
@@ -2346,7 +2322,7 @@ pub struct IWdsTransportServer_Vtbl {
     NamespaceManager: usize,
     pub DisconnectClient: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2357,19 +2333,19 @@ impl IWdsTransportServer2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetupManager(&self) -> ::windows_core::Result<IWdsTransportSetupManager> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SetupManager)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConfigurationManager(&self) -> ::windows_core::Result<IWdsTransportConfigurationManager> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ConfigurationManager)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceManager(&self) -> ::windows_core::Result<IWdsTransportNamespaceManager> {
         let mut result__ = ::std::mem::zeroed();
@@ -2378,7 +2354,7 @@ impl IWdsTransportServer2 {
     pub unsafe fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.DisconnectClient)(::windows_core::Interface::as_raw(self), ulclientid, disconnectiontype).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TftpManager(&self) -> ::windows_core::Result<IWdsTransportTftpManager> {
         let mut result__ = ::std::mem::zeroed();
@@ -2405,14 +2381,14 @@ pub struct IWdsTransportServer2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     TftpManager: usize,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportServicePolicy(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportServicePolicy {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Dirty(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2504,14 +2480,14 @@ pub struct IWdsTransportServicePolicy_Vtbl {
     pub NetworkProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofiletype: *mut WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows_core::HRESULT,
     pub SetNetworkProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportServicePolicy2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportServicePolicy2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Dirty(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2588,13 +2564,13 @@ impl IWdsTransportServicePolicy2 {
     pub unsafe fn SetTftpMaximumBlockSize(&self, ultftpmaximumblocksize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTftpMaximumBlockSize)(::windows_core::Interface::as_raw(self), ultftpmaximumblocksize).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableTftpVariableWindowExtension(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnableTftpVariableWindowExtension)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableTftpVariableWindowExtension<P0>(&self, benabletftpvariablewindowextension: P0) -> ::windows_core::Result<()>
     where
@@ -2631,14 +2607,14 @@ pub struct IWdsTransportServicePolicy2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetEnableTftpVariableWindowExtension: usize,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportSession(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportSession {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Content(&self) -> ::windows_core::Result<IWdsTransportContent> {
         let mut result__ = ::std::mem::zeroed();
@@ -2664,7 +2640,7 @@ impl IWdsTransportSession {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MasterClientId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveClients(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -2704,7 +2680,7 @@ pub struct IWdsTransportSession_Vtbl {
     RetrieveClients: usize,
     pub Terminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2760,7 +2736,7 @@ pub struct IWdsTransportSetupManager_Vtbl {
     pub RegisterContentProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bszdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>, bszfilepath: ::std::mem::MaybeUninit<::windows_core::BSTR>, bszinitializationroutine: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub DeregisterContentProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2798,7 +2774,7 @@ impl IWdsTransportSetupManager2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TftpCapabilities)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ContentProviders(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -2826,7 +2802,7 @@ pub struct IWdsTransportSetupManager2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ContentProviders: usize,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2885,14 +2861,14 @@ pub struct IWdsTransportTftpClient_Vtbl {
     pub BlockSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulblocksize: *mut u32) -> ::windows_core::HRESULT,
     pub WindowSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulwindowsize: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWdsTransportTftpManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportTftpManager {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveTftpClients(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -2919,595 +2895,300 @@ pub struct IWdsTransportTftpManager_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     RetrieveTftpClients: usize,
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const CPU_ARCHITECTURE_AMD64: CPU_ARCHITECTURE = CPU_ARCHITECTURE(9u32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const CPU_ARCHITECTURE_IA64: CPU_ARCHITECTURE = CPU_ARCHITECTURE(6u32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const CPU_ARCHITECTURE_INTEL: CPU_ARCHITECTURE = CPU_ARCHITECTURE(0u32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_CP_CALLBACKS_NOT_REG: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801324i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_CP_CLOSE_INSTANCE_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801320i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_CP_DLL_LOAD_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801328i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_CP_DLL_LOAD_FAILED_CRITICAL: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801317i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_CP_INCOMPATIBLE_SERVER_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801325i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_CP_INIT_FUNC_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801326i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_CP_INIT_FUNC_MISSING: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801327i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_CP_MEMORY_LEAK: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801322i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_CP_OPEN_CONTENT_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801319i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_CP_OPEN_INSTANCE_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801321i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_CP_SHUTDOWN_FUNC_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801323i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_DUPLICATE_MULTICAST_ADDR: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801406i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_NON_WDS_DUPLICATE_MULTICAST_ADDR: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801405i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_NSREG_CONTENT_PROVIDER_NOT_REG: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801151i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_NSREG_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801149i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_NSREG_NAMESPACE_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801150i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_NSREG_START_TIME_IN_PAST: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801152i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_E_PARAMETERS_READ_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801407i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_S_PARAMETERS_READ: ::windows_core::HRESULT = ::windows_core::HRESULT(1092682240i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const EVT_WDSMCS_W_CP_DLL_LOAD_FAILED_NOT_CRITICAL: ::windows_core::HRESULT = ::windows_core::HRESULT(-2128543142i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const FACILITY_WDSMCCLIENT: u32 = 290u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const FACILITY_WDSMCSERVER: u32 = 289u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const FACILITY_WDSTPTMGMT: u32 = 272u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const MC_SERVER_CURRENT_VERSION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_ADDR_BROADCAST: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_ADDR_USE_ADDR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_ADDR_USE_DHCP_RULES: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_ADDR_USE_PORT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_BA_CUSTOM: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_BA_IGNORE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_BA_NBP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_BA_REJECTED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_CALLBACK_MAX: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_CALLBACK_RECV_REQUEST: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_CALLBACK_SERVICE_CONTROL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_CALLBACK_SHUTDOWN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_DHCPV6_CLIENT_PORT: u32 = 546u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_DHCPV6_RELAY_HOP_COUNT_LIMIT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_DHCPV6_SERVER_PORT: u32 = 547u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_DHCP_CLIENT_PORT: u32 = 68u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_DHCP_FILE_SIZE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_DHCP_HWAADR_SIZE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_DHCP_MAGIC_COOKIE_SIZE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_DHCP_SERVER_PORT: u32 = 67u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_DHCP_SERVER_SIZE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_GSI_SERVER_DUID: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_GSI_TRACE_ENABLED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_MAX_ADDRESS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_PROV_ATTR_FILTER: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_PROV_ATTR_FILTER_IPV6: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_PROV_ATTR_IPV6_CAPABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_PROV_FILTER_ALL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_PROV_FILTER_DHCP_ONLY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_PROV_FILTER_PXE_ONLY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_REG_INDEX_BOTTOM: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_REG_INDEX_TOP: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_SERVER_PORT: u32 = 4011u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_TRACE_ERROR: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_TRACE_FATAL: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_TRACE_INFO: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_TRACE_VERBOSE: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const PXE_TRACE_WARNING: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const TRANSPORTPROVIDER_CURRENT_VERSION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPTVAL_ACTION_ABORT: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPTVAL_ACTION_APPROVAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPTVAL_ACTION_REFERRAL: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPTVAL_NBP_VER_7: u32 = 1792u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPTVAL_NBP_VER_8: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPTVAL_PXE_PROMPT_NOPROMPT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPTVAL_PXE_PROMPT_OPTIN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPTVAL_PXE_PROMPT_OPTOUT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPT_TYPE_BYTE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPT_TYPE_IP4: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPT_TYPE_IP6: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPT_TYPE_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPT_TYPE_STR: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPT_TYPE_ULONG: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPT_TYPE_USHORT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_OPT_TYPE_WSTR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_PK_TYPE_BCD: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_PK_TYPE_DHCP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_PK_TYPE_DHCPV6: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSBP_PK_TYPE_WDSNBP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCCLIENT_CATEGORY: ::windows_core::HRESULT = ::windows_core::HRESULT(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCSERVER_CATEGORY: ::windows_core::HRESULT = ::windows_core::HRESULT(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_CLIENT_DOESNOT_SUPPORT_SECURITY_MODE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801648i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_CLIENT_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801660i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_CONTENT_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801661i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_CONTENT_PROVIDER_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801658i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_INCOMPATIBLE_VERSION: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801662i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_NAMESPACE_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801657i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_NAMESPACE_ALREADY_STARTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801655i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_NAMESPACE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801659i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_NAMESPACE_SHUTDOWN_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801656i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_NS_START_FAILED_NO_CLIENTS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801654i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_PACKET_HAS_SECURITY: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801650i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_PACKET_NOT_CHECKSUMED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801649i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_PACKET_NOT_HASHED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801652i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_PACKET_NOT_SIGNED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801651i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_REQCALLBACKS_NOT_REG: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801663i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_SESSION_SHUTDOWN_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801664i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSMCS_E_START_TIME_IN_PAST: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054801653i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPC_E_ALREADY_COMPLETED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054735615i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPC_E_ALREADY_IN_LOWEST_SESSION: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054735606i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPC_E_ALREADY_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054735614i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPC_E_CALLBACKS_NOT_REG: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054735616i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPC_E_CLIENT_DEMOTE_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054735605i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPC_E_KICKED_FAIL: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054735609i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPC_E_KICKED_FALLBACK: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054735610i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPC_E_KICKED_POLICY_NOT_MET: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054735611i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPC_E_KICKED_UNKNOWN: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054735608i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPC_E_MULTISTREAM_NOT_ENABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054735607i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPC_E_NOT_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054735612i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPC_E_NO_IP4_INTERFACE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054735604i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPC_E_UNKNOWN_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054735613i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTC_E_WIM_APPLY_REQUIRES_REFERENCE_IMAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1054735603i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_CATEGORY: ::windows_core::HRESULT = ::windows_core::HRESULT(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_CANNOT_REFRESH_DIRTY_OBJECT: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915761i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_CANNOT_REINITIALIZE_OBJECT: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915767i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_CONTENT_PROVIDER_ALREADY_REGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915773i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_CONTENT_PROVIDER_NOT_REGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915772i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_AUTO_DISCONNECT_THRESHOLD: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915748i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_CLASS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915774i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_CONTENT_PROVIDER_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915771i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_DIAGNOSTICS_COMPONENTS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915762i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_IPV4_MULTICAST_ADDRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915753i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_IPV6_MULTICAST_ADDRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915752i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_IPV6_MULTICAST_ADDRESS_SOURCE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915750i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_IP_ADDRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915754i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_MULTISTREAM_STREAM_COUNT: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915749i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_NAMESPACE_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915765i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_NAMESPACE_NAME: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915766i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_NAMESPACE_START_PARAMETERS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915758i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_NAMESPACE_START_TIME: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915763i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_OPERATION: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915775i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_PROPERTY: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915776i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_SERVICE_IP_ADDRESS_RANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915760i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_SERVICE_PORT_RANGE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915759i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_SLOW_CLIENT_HANDLING_TYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915746i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_INVALID_TFTP_MAX_BLOCKSIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915741i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_IPV6_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915751i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_MULTICAST_SESSION_POLICY_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915747i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_NAMESPACE_ALREADY_REGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915769i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_NAMESPACE_NOT_ON_SERVER: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915756i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_NAMESPACE_NOT_REGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915768i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_NAMESPACE_READ_ONLY: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915764i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_NAMESPACE_REMOVED_FROM_SERVER: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915755i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_NETWORK_PROFILES_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915745i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_TFTP_MAX_BLOCKSIZE_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915743i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_TFTP_VAR_WINDOW_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915742i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_TRANSPORT_SERVER_ROLE_NOT_CONFIGURED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915770i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_TRANSPORT_SERVER_UNAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915757i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTPTMGMT_E_UDP_PORT_POLICY_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1055915744i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDSTRANSPORT_RESOURCE_UTILIZATION_UNKNOWN: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_FIRMWARE_BIOS: WDS_CLI_FIRMWARE_TYPE = WDS_CLI_FIRMWARE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_FIRMWARE_EFI: WDS_CLI_FIRMWARE_TYPE = WDS_CLI_FIRMWARE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_FIRMWARE_UNKNOWN: WDS_CLI_FIRMWARE_TYPE = WDS_CLI_FIRMWARE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_IMAGE_PARAM_SPARSE_FILE: WDS_CLI_IMAGE_PARAM_TYPE = WDS_CLI_IMAGE_PARAM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_IMAGE_PARAM_SUPPORTED_FIRMWARES: WDS_CLI_IMAGE_PARAM_TYPE = WDS_CLI_IMAGE_PARAM_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_IMAGE_PARAM_UNKNOWN: WDS_CLI_IMAGE_PARAM_TYPE = WDS_CLI_IMAGE_PARAM_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_IMAGE_TYPE_UNKNOWN: WDS_CLI_IMAGE_TYPE = WDS_CLI_IMAGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_IMAGE_TYPE_VHD: WDS_CLI_IMAGE_TYPE = WDS_CLI_IMAGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_IMAGE_TYPE_VHDX: WDS_CLI_IMAGE_TYPE = WDS_CLI_IMAGE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_IMAGE_TYPE_WIM: WDS_CLI_IMAGE_TYPE = WDS_CLI_IMAGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_MSG_COMPLETE: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(1u32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_MSG_PROGRESS: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(2u32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_MSG_START: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(0u32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_MSG_TEXT: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(3u32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_NO_SPARSE_FILE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_TRANSFER_ASYNCHRONOUS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_LEVEL_DISABLED: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_LEVEL_ERROR: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_LEVEL_INFO: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_LEVEL_WARNING: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_APPLY_FINISHED: i32 = 6i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_APPLY_FINISHED_2: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_APPLY_STARTED: i32 = 5i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_APPLY_STARTED_2: i32 = 15i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_DOMAINJOINERROR: i32 = 12i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_DOMAINJOINERROR_2: i32 = 17i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_DRIVER_PACKAGE_NOT_ACCESSIBLE: i32 = 18i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_ERROR: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_FINISHED: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_GENERIC_MESSAGE: i32 = 7i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_IMAGE_SELECTED: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_IMAGE_SELECTED2: i32 = 22i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_IMAGE_SELECTED3: i32 = 23i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_MAX_CODE: i32 = 24i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_OFFLINE_DRIVER_INJECTION_END: i32 = 20i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_OFFLINE_DRIVER_INJECTION_FAILURE: i32 = 21i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_OFFLINE_DRIVER_INJECTION_START: i32 = 19i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_POST_ACTIONS_END: i32 = 14i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_POST_ACTIONS_START: i32 = 13i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_STARTED: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_TRANSFER_DOWNGRADE: i32 = 11i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_TRANSFER_END: i32 = 10i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_TRANSFER_START: i32 = 9i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_LOG_TYPE_CLIENT_UNATTEND_MODE: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_MC_TRACE_ERROR: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_MC_TRACE_FATAL: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_MC_TRACE_INFO: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_MC_TRACE_VERBOSE: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_MC_TRACE_WARNING: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(1u32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_CURRENT_API_VERSION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_MAX_CALLBACKS: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(6i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_NO_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(2u32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_NO_CACHE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_PROTOCOL_MULTICAST: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_RECEIVE_CONTENTS: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_RECEIVE_METADATA: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(3i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_SESSION_COMPLETE: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_SESSION_NEGOTIATE: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(5i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_SESSION_START: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(0i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_SESSION_STARTEX: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(4i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_STATUS_FAILURE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_STATUS_IN_PROGRESS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_STATUS_SUCCESS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTPROVIDER_CLOSE_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(6i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTPROVIDER_CLOSE_INSTANCE: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(7i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTPROVIDER_COMPARE_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTPROVIDER_CREATE_INSTANCE: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(0i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTPROVIDER_DUMP_STATE: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(9i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTPROVIDER_GET_CONTENT_METADATA: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(11i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTPROVIDER_GET_CONTENT_SIZE: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(4i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTPROVIDER_MAX_CALLBACKS: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(12i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTPROVIDER_OPEN_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTPROVIDER_READ_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(5i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTPROVIDER_REFRESH_SETTINGS: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(10i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTPROVIDER_SHUTDOWN: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(8i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTPROVIDER_USER_ACCESS_CHECK: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(3i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsCliFlagEnumFilterFirmware: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsCliFlagEnumFilterVersion: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptDiagnosticsComponentImageServer: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptDiagnosticsComponentMulticast: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptDiagnosticsComponentPxe: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptDiagnosticsComponentTftp: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptDisconnectAbort: WDSTRANSPORT_DISCONNECT_TYPE = WDSTRANSPORT_DISCONNECT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptDisconnectFallback: WDSTRANSPORT_DISCONNECT_TYPE = WDSTRANSPORT_DISCONNECT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptDisconnectUnknown: WDSTRANSPORT_DISCONNECT_TYPE = WDSTRANSPORT_DISCONNECT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptFeatureAdminPack: WDSTRANSPORT_FEATURE_FLAGS = WDSTRANSPORT_FEATURE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptFeatureDeploymentServer: WDSTRANSPORT_FEATURE_FLAGS = WDSTRANSPORT_FEATURE_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptFeatureTransportServer: WDSTRANSPORT_FEATURE_FLAGS = WDSTRANSPORT_FEATURE_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptIpAddressIpv4: WDSTRANSPORT_IP_ADDRESS_TYPE = WDSTRANSPORT_IP_ADDRESS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptIpAddressIpv6: WDSTRANSPORT_IP_ADDRESS_TYPE = WDSTRANSPORT_IP_ADDRESS_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptIpAddressSourceDhcp: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptIpAddressSourceRange: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptIpAddressSourceUnknown: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptIpAddressUnknown: WDSTRANSPORT_IP_ADDRESS_TYPE = WDSTRANSPORT_IP_ADDRESS_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptNamespaceTypeAutoCast: WDSTRANSPORT_NAMESPACE_TYPE = WDSTRANSPORT_NAMESPACE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptNamespaceTypeScheduledCastAutoStart: WDSTRANSPORT_NAMESPACE_TYPE = WDSTRANSPORT_NAMESPACE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptNamespaceTypeScheduledCastManualStart: WDSTRANSPORT_NAMESPACE_TYPE = WDSTRANSPORT_NAMESPACE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptNamespaceTypeUnknown: WDSTRANSPORT_NAMESPACE_TYPE = WDSTRANSPORT_NAMESPACE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptNetworkProfile100Mbps: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptNetworkProfile10Mbps: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptNetworkProfile1Gbps: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptNetworkProfileCustom: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptNetworkProfileUnknown: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptProtocolMulticast: WDSTRANSPORT_PROTOCOL_FLAGS = WDSTRANSPORT_PROTOCOL_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptProtocolUnicast: WDSTRANSPORT_PROTOCOL_FLAGS = WDSTRANSPORT_PROTOCOL_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptServiceNotifyReadSettings: WDSTRANSPORT_SERVICE_NOTIFICATION = WDSTRANSPORT_SERVICE_NOTIFICATION(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptServiceNotifyUnknown: WDSTRANSPORT_SERVICE_NOTIFICATION = WDSTRANSPORT_SERVICE_NOTIFICATION(0i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptSlowClientHandlingAutoDisconnect: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptSlowClientHandlingMultistream: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptSlowClientHandlingNone: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptSlowClientHandlingUnknown: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptTftpCapMaximumBlockSize: WDSTRANSPORT_TFTP_CAPABILITY = WDSTRANSPORT_TFTP_CAPABILITY(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptTftpCapVariableWindow: WDSTRANSPORT_TFTP_CAPABILITY = WDSTRANSPORT_TFTP_CAPABILITY(2i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptUdpPortPolicyDynamic: WDSTRANSPORT_UDP_PORT_POLICY = WDSTRANSPORT_UDP_PORT_POLICY(0i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptUdpPortPolicyFixed: WDSTRANSPORT_UDP_PORT_POLICY = WDSTRANSPORT_UDP_PORT_POLICY(1i32);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportCacheable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70590b16_f146_46bd_bd9d_4aaa90084bf5);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportClient: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66d2c5e9_0ff6_49ec_9733_dafb1e01df1c);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7f18b09_391e_436e_b10b_c3ef46f2c34f);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportConfigurationManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8743f674_904c_47ca_8512_35fe98f6b0ac);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportContent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a891fe7_4a3f_4c65_b6f2_1467619679ea);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportContentProvider: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0be741f_5a75_4eb9_8a2d_5e189b45f327);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportDiagnosticsPolicy: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb3333e1_a7ad_46f5_80d6_6b740204e509);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf21523f6_837c_4a58_af99_8a7e27f8ff59);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportMulticastSessionPolicy: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c6bc3f4_6418_472a_b6f1_52d457195437);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportNamespace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8385768_0732_4ec1_95ea_16da581908a1);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportNamespaceAutoCast: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb091f5a8_6a99_478d_b23b_09e8fee04574);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportNamespaceManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf08cdb63_85de_4a28_a1a9_5ca3e7efda73);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportNamespaceScheduledCast: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbadc1897_7025_44eb_9108_fb61c4055792);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportNamespaceScheduledCastAutoStart: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1107052_122c_4b81_9b7c_386e6855383f);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportNamespaceScheduledCastManualStart: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3e1a2aa_caac_460e_b98a_47f9f318a1fa);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportServer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea19b643_4adf_4413_942c_14f379118760);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportServicePolicy: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65aceadc_2f0b_4f43_9f4d_811865d8cead);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x749ac4e0_67bc_4743_bfe5_cacb1f26f57f);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportSetupManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7beeaad_9f04_4923_9f0c_fbf52bc7590f);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportTftpClient: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50343925_7c5c_4c8c_96c4_ad9fa5005fba);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTransportTftpManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8e9dca2_3241_4e4d_b806_bc74019dfeda);
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CPU_ARCHITECTURE(pub u32);
@@ -3530,7 +3211,6 @@ impl ::core::fmt::Debug for CPU_ARCHITECTURE {
         f.debug_tuple("CPU_ARCHITECTURE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PFN_WDS_CLI_CALLBACK_MESSAGE_ID(pub u32);
@@ -3553,7 +3233,6 @@ impl ::core::fmt::Debug for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
         f.debug_tuple("PFN_WDS_CLI_CALLBACK_MESSAGE_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSPORTCLIENT_CALLBACK_ID(pub i32);
@@ -3576,7 +3255,6 @@ impl ::core::fmt::Debug for TRANSPORTCLIENT_CALLBACK_ID {
         f.debug_tuple("TRANSPORTCLIENT_CALLBACK_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSPORTPROVIDER_CALLBACK_ID(pub i32);
@@ -3599,7 +3277,6 @@ impl ::core::fmt::Debug for TRANSPORTPROVIDER_CALLBACK_ID {
         f.debug_tuple("TRANSPORTPROVIDER_CALLBACK_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(pub i32);
@@ -3622,7 +3299,6 @@ impl ::core::fmt::Debug for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {
         f.debug_tuple("WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_DISCONNECT_TYPE(pub i32);
@@ -3645,7 +3321,6 @@ impl ::core::fmt::Debug for WDSTRANSPORT_DISCONNECT_TYPE {
         f.debug_tuple("WDSTRANSPORT_DISCONNECT_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_FEATURE_FLAGS(pub i32);
@@ -3668,7 +3343,6 @@ impl ::core::fmt::Debug for WDSTRANSPORT_FEATURE_FLAGS {
         f.debug_tuple("WDSTRANSPORT_FEATURE_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(pub i32);
@@ -3691,7 +3365,6 @@ impl ::core::fmt::Debug for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {
         f.debug_tuple("WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_IP_ADDRESS_TYPE(pub i32);
@@ -3714,7 +3387,6 @@ impl ::core::fmt::Debug for WDSTRANSPORT_IP_ADDRESS_TYPE {
         f.debug_tuple("WDSTRANSPORT_IP_ADDRESS_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_NAMESPACE_TYPE(pub i32);
@@ -3737,7 +3409,6 @@ impl ::core::fmt::Debug for WDSTRANSPORT_NAMESPACE_TYPE {
         f.debug_tuple("WDSTRANSPORT_NAMESPACE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_NETWORK_PROFILE_TYPE(pub i32);
@@ -3760,7 +3431,6 @@ impl ::core::fmt::Debug for WDSTRANSPORT_NETWORK_PROFILE_TYPE {
         f.debug_tuple("WDSTRANSPORT_NETWORK_PROFILE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_PROTOCOL_FLAGS(pub i32);
@@ -3783,7 +3453,6 @@ impl ::core::fmt::Debug for WDSTRANSPORT_PROTOCOL_FLAGS {
         f.debug_tuple("WDSTRANSPORT_PROTOCOL_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_SERVICE_NOTIFICATION(pub i32);
@@ -3806,7 +3475,6 @@ impl ::core::fmt::Debug for WDSTRANSPORT_SERVICE_NOTIFICATION {
         f.debug_tuple("WDSTRANSPORT_SERVICE_NOTIFICATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(pub i32);
@@ -3829,7 +3497,6 @@ impl ::core::fmt::Debug for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {
         f.debug_tuple("WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_TFTP_CAPABILITY(pub i32);
@@ -3852,7 +3519,6 @@ impl ::core::fmt::Debug for WDSTRANSPORT_TFTP_CAPABILITY {
         f.debug_tuple("WDSTRANSPORT_TFTP_CAPABILITY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_UDP_PORT_POLICY(pub i32);
@@ -3875,7 +3541,6 @@ impl ::core::fmt::Debug for WDSTRANSPORT_UDP_PORT_POLICY {
         f.debug_tuple("WDSTRANSPORT_UDP_PORT_POLICY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDS_CLI_FIRMWARE_TYPE(pub i32);
@@ -3898,7 +3563,6 @@ impl ::core::fmt::Debug for WDS_CLI_FIRMWARE_TYPE {
         f.debug_tuple("WDS_CLI_FIRMWARE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDS_CLI_IMAGE_PARAM_TYPE(pub i32);
@@ -3921,7 +3585,6 @@ impl ::core::fmt::Debug for WDS_CLI_IMAGE_PARAM_TYPE {
         f.debug_tuple("WDS_CLI_IMAGE_PARAM_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDS_CLI_IMAGE_TYPE(pub i32);
@@ -3944,7 +3607,6 @@ impl ::core::fmt::Debug for WDS_CLI_IMAGE_TYPE {
         f.debug_tuple("WDS_CLI_IMAGE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(pub u32);
@@ -3968,7 +3630,6 @@ impl ::core::fmt::Debug for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_ADDRESS {
     pub uFlags: u32,
     pub Anonymous: PXE_ADDRESS_0,
@@ -3990,7 +3651,6 @@ impl ::core::default::Default for PXE_ADDRESS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub union PXE_ADDRESS_0 {
     pub bAddress: [u8; 16],
     pub uIpAddress: u32,
@@ -4010,7 +3670,6 @@ impl ::core::default::Default for PXE_ADDRESS_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_DHCPV6_MESSAGE {
     pub MessageType: u8,
     pub TransactionIDByte1: u8,
@@ -4033,7 +3692,6 @@ impl ::core::default::Default for PXE_DHCPV6_MESSAGE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_DHCPV6_MESSAGE_HEADER {
     pub MessageType: u8,
     pub Message: [u8; 1],
@@ -4053,7 +3711,6 @@ impl ::core::default::Default for PXE_DHCPV6_MESSAGE_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_DHCPV6_NESTED_RELAY_MESSAGE {
     pub pRelayMessage: *mut PXE_DHCPV6_RELAY_MESSAGE,
     pub cbRelayMessage: u32,
@@ -4086,7 +3743,6 @@ impl ::core::default::Default for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_DHCPV6_OPTION {
     pub OptionCode: u16,
     pub DataLength: u16,
@@ -4107,7 +3763,6 @@ impl ::core::default::Default for PXE_DHCPV6_OPTION {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_DHCPV6_RELAY_MESSAGE {
     pub MessageType: u8,
     pub HopCount: u8,
@@ -4130,7 +3785,6 @@ impl ::core::default::Default for PXE_DHCPV6_RELAY_MESSAGE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_DHCP_MESSAGE {
     pub Operation: u8,
     pub HardwareAddressType: u8,
@@ -4164,7 +3818,6 @@ impl ::core::default::Default for PXE_DHCP_MESSAGE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub union PXE_DHCP_MESSAGE_0 {
     pub bMagicCookie: [u8; 4],
     pub uMagicCookie: u32,
@@ -4184,7 +3837,6 @@ impl ::core::default::Default for PXE_DHCP_MESSAGE_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct PXE_DHCP_OPTION {
     pub OptionType: u8,
     pub OptionLength: u8,
@@ -4205,7 +3857,7 @@ impl ::core::default::Default for PXE_DHCP_OPTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PXE_PROVIDER {
     pub uSizeOfStruct: u32,
@@ -4247,7 +3899,6 @@ impl ::core::default::Default for PXE_PROVIDER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct TRANSPORTCLIENT_SESSION_INFO {
     pub ulStructureLength: u32,
     pub ullFileSize: u64,
@@ -4279,7 +3930,6 @@ impl ::core::default::Default for TRANSPORTCLIENT_SESSION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct WDS_CLI_CRED {
     pub pwszUserName: ::windows_core::PCWSTR,
     pub pwszDomain: ::windows_core::PCWSTR,
@@ -4311,7 +3961,7 @@ impl ::core::default::Default for WDS_CLI_CRED {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
     pub SessionStart: PFN_WdsTransportClientSessionStart,
@@ -4346,7 +3996,6 @@ impl ::core::default::Default for WDS_TRANSPORTCLIENT_CALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct WDS_TRANSPORTCLIENT_REQUEST {
     pub ulLength: u32,
     pub ulApiVersion: u32,
@@ -4385,7 +4034,7 @@ impl ::core::default::Default for WDS_TRANSPORTCLIENT_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     pub ulLength: u32,
@@ -4426,7 +4075,6 @@ impl ::core::default::Default for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub struct WDS_TRANSPORTPROVIDER_SETTINGS {
     pub ulLength: u32,
     pub ulProviderVersion: u32,
@@ -4456,27 +4104,26 @@ impl ::core::default::Default for WDS_TRANSPORTPROVIDER_SETTINGS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsCliCallback = ::core::option::Option<unsafe extern "system" fn(dwmessageid: PFN_WDS_CLI_CALLBACK_MESSAGE_ID, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pvuserdata: *const ::core::ffi::c_void) -> ()>;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub type PFN_WdsCliTraceFunction = ::core::option::Option<unsafe extern "system" fn(pwszformat: ::windows_core::PCWSTR, params: *const i8) -> ()>;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsTransportClientReceiveContents = ::core::option::Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::core::ffi::c_void, pcontents: *const ::core::ffi::c_void, ulsize: u32, pullcontentoffset: *const u64) -> ()>;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsTransportClientReceiveMetadata = ::core::option::Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::core::ffi::c_void, pmetadata: *const ::core::ffi::c_void, ulsize: u32) -> ()>;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsTransportClientSessionComplete = ::core::option::Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::core::ffi::c_void, dwerror: u32) -> ()>;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsTransportClientSessionNegotiate = ::core::option::Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::core::ffi::c_void, pinfo: *const TRANSPORTCLIENT_SESSION_INFO, hnegotiatekey: super::super::Foundation::HANDLE) -> ()>;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsTransportClientSessionStart = ::core::option::Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::core::ffi::c_void, ullfilesize: *const u64) -> ()>;
-#[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsTransportClientSessionStartEx = ::core::option::Option<unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::core::ffi::c_void, info: *const TRANSPORTCLIENT_SESSION_INFO) -> ()>;
 #[cfg(feature = "implement")]

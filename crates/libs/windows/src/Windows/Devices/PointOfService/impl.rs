@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Devices_PointOfService\"`, `\"implement\"`*"]
 pub trait ICashDrawerEventSourceEventArgs_Impl: Sized {
     fn CashDrawer(&self) -> ::windows_core::Result<CashDrawer>;
 }
@@ -28,7 +27,6 @@ impl ICashDrawerEventSourceEventArgs_Vtbl {
         *iid == <ICashDrawerEventSourceEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`, `\"implement\"`*"]
 pub trait ICommonClaimedPosPrinterStation_Impl: Sized {
     fn SetCharactersPerLine(&self, value: u32) -> ::windows_core::Result<()>;
     fn CharactersPerLine(&self) -> ::windows_core::Result<u32>;
@@ -261,7 +259,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         *iid == <ICommonClaimedPosPrinterStation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait ICommonPosPrintStationCapabilities_Impl: Sized {
     fn IsPrinterPresent(&self) -> ::windows_core::Result<bool>;
@@ -450,7 +448,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         *iid == <ICommonPosPrintStationCapabilities as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait ICommonReceiptSlipCapabilities_Impl: Sized + ICommonPosPrintStationCapabilities_Impl {
     fn IsBarcodeSupported(&self) -> ::windows_core::Result<bool>;
@@ -588,7 +586,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
         *iid == <ICommonReceiptSlipCapabilities as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`"]
 #[cfg(feature = "Foundation")]
 pub trait IPosPrinterJob_Impl: Sized {
     fn Print(&self, data: &::windows_core::HSTRING) -> ::windows_core::Result<()>;
@@ -642,7 +640,7 @@ impl IPosPrinterJob_Vtbl {
         *iid == <IPosPrinterJob as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Graphics_Imaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`, `Graphics_Imaging`"]
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
 pub trait IReceiptOrSlipJob_Impl: Sized + IPosPrinterJob_Impl {
     fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> ::windows_core::Result<()>;

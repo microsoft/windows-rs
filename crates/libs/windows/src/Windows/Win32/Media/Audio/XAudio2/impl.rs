@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXAPO_Impl: Sized {
     fn GetRegistrationProperties(&self) -> ::windows_core::Result<*mut XAPO_REGISTRATION_PROPERTIES>;
@@ -91,7 +91,6 @@ impl IXAPO_Vtbl {
         *iid == <IXAPO as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"implement\"`*"]
 pub trait IXAPOHrtfParameters_Impl: Sized {
     fn SetSourcePosition(&self, position: *const HrtfPosition) -> ::windows_core::Result<()>;
     fn SetSourceOrientation(&self, orientation: *const HrtfOrientation) -> ::windows_core::Result<()>;
@@ -133,7 +132,6 @@ impl IXAPOHrtfParameters_Vtbl {
         *iid == <IXAPOHrtfParameters as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"implement\"`*"]
 pub trait IXAPOParameters_Impl: Sized {
     fn SetParameters(&self, pparameters: *const ::core::ffi::c_void, parameterbytesize: u32);
     fn GetParameters(&self, pparameters: *mut ::core::ffi::c_void, parameterbytesize: u32);
@@ -161,7 +159,7 @@ impl IXAPOParameters_Vtbl {
         *iid == <IXAPOParameters as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2_Impl: Sized {
     fn RegisterForCallbacks(&self, pcallback: ::core::option::Option<&IXAudio2EngineCallback>) -> ::windows_core::Result<()>;
@@ -248,7 +246,6 @@ impl IXAudio2_Vtbl {
         *iid == <IXAudio2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"implement\"`*"]
 pub trait IXAudio2EngineCallback_Impl: Sized {
     fn OnProcessingPassStart(&self);
     fn OnProcessingPassEnd(&self);
@@ -286,7 +283,6 @@ impl IXAudio2EngineCallback {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"implement\"`*"]
 pub trait IXAudio2Extension_Impl: Sized {
     fn GetProcessingQuantum(&self, quantumnumerator: *mut u32, quantumdenominator: *mut u32);
     fn GetProcessor(&self, processor: *mut u32);
@@ -314,7 +310,7 @@ impl IXAudio2Extension_Vtbl {
         *iid == <IXAudio2Extension as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2MasteringVoice_Impl: Sized + IXAudio2Voice_Impl {
     fn GetChannelMask(&self) -> ::windows_core::Result<u32>;
@@ -351,7 +347,7 @@ impl IXAudio2MasteringVoice {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2SourceVoice_Impl: Sized + IXAudio2Voice_Impl {
     fn Start(&self, flags: u32, operationset: u32) -> ::windows_core::Result<()>;
@@ -448,7 +444,7 @@ impl IXAudio2SourceVoice {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2SubmixVoice_Impl: Sized + IXAudio2Voice_Impl {}
 #[cfg(feature = "Win32_Foundation")]
@@ -472,7 +468,7 @@ impl IXAudio2SubmixVoice {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2Voice_Impl: Sized {
     fn GetVoiceDetails(&self, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS) -> ();
@@ -631,7 +627,6 @@ impl IXAudio2Voice {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"implement\"`*"]
 pub trait IXAudio2VoiceCallback_Impl: Sized {
     fn OnVoiceProcessingPassStart(&self, bytesrequired: u32);
     fn OnVoiceProcessingPassEnd(&self);

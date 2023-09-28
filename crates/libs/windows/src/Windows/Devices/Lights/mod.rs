@@ -1,4 +1,5 @@
 #[cfg(feature = "Devices_Lights_Effects")]
+#[doc = "Required features: `Devices_Lights_Effects`"]
 pub mod Effects;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -211,12 +212,11 @@ pub struct ILampStatics_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     GetDefaultAsync: usize,
 }
-#[doc = "*Required features: `\"Devices_Lights\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Lamp(::windows_core::IUnknown);
 impl Lamp {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -258,7 +258,7 @@ impl Lamp {
             (::windows_core::Interface::vtable(this).IsColorSettable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn Color(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -267,13 +267,13 @@ impl Lamp {
             (::windows_core::Interface::vtable(this).Color)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetColor(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AvailabilityChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -285,7 +285,7 @@ impl Lamp {
             (::windows_core::Interface::vtable(this).AvailabilityChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAvailabilityChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -297,7 +297,7 @@ impl Lamp {
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Lamp>> {
         Self::ILampStatics(|this| unsafe {
@@ -305,7 +305,7 @@ impl Lamp {
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Lamp>> {
         Self::ILampStatics(|this| unsafe {
@@ -336,7 +336,6 @@ impl ::windows_core::RuntimeName for Lamp {
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for Lamp {}
 unsafe impl ::core::marker::Send for Lamp {}
 unsafe impl ::core::marker::Sync for Lamp {}
-#[doc = "*Required features: `\"Devices_Lights\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArray(::windows_core::IUnknown);
@@ -383,7 +382,7 @@ impl LampArray {
             (::windows_core::Interface::vtable(this).LampCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn MinUpdateInterval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -392,7 +391,7 @@ impl LampArray {
             (::windows_core::Interface::vtable(this).MinUpdateInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
+    #[doc = "Required features: `Foundation_Numerics`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn BoundingBox(&self) -> ::windows_core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -444,7 +443,7 @@ impl LampArray {
             (::windows_core::Interface::vtable(this).GetLampInfo)(::windows_core::Interface::as_raw(this), lampindex, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"System\"`*"]
+    #[doc = "Required features: `System`"]
     #[cfg(feature = "System")]
     pub fn GetIndicesForKey(&self, key: super::super::System::VirtualKey) -> ::windows_core::Result<::windows_core::Array<i32>> {
         let this = self;
@@ -460,49 +459,49 @@ impl LampArray {
             (::windows_core::Interface::vtable(this).GetIndicesForPurposes)(::windows_core::Interface::as_raw(this), purposes, ::windows_core::Array::<i32>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetColor(&self, desiredcolor: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetColor)(::windows_core::Interface::as_raw(this), desiredcolor).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetColorForIndex(&self, lampindex: i32, desiredcolor: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetColorForIndex)(::windows_core::Interface::as_raw(this), lampindex, desiredcolor).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetSingleColorForIndices(&self, desiredcolor: super::super::UI::Color, lampindexes: &[i32]) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSingleColorForIndices)(::windows_core::Interface::as_raw(this), desiredcolor, lampindexes.len() as u32, lampindexes.as_ptr()).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetColorsForIndices(&self, desiredcolors: &[super::super::UI::Color], lampindexes: &[i32]) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetColorsForIndices)(::windows_core::Interface::as_raw(this), desiredcolors.len() as u32, desiredcolors.as_ptr(), lampindexes.len() as u32, lampindexes.as_ptr()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`, `\"UI\"`*"]
+    #[doc = "Required features: `System`, `UI`"]
     #[cfg(all(feature = "System", feature = "UI"))]
     pub fn SetColorsForKey(&self, desiredcolor: super::super::UI::Color, key: super::super::System::VirtualKey) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetColorsForKey)(::windows_core::Interface::as_raw(this), desiredcolor, key).ok() }
     }
-    #[doc = "*Required features: `\"System\"`, `\"UI\"`*"]
+    #[doc = "Required features: `System`, `UI`"]
     #[cfg(all(feature = "System", feature = "UI"))]
     pub fn SetColorsForKeys(&self, desiredcolors: &[super::super::UI::Color], keys: &[super::super::System::VirtualKey]) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetColorsForKeys)(::windows_core::Interface::as_raw(this), desiredcolors.len() as u32, desiredcolors.as_ptr(), keys.len() as u32, keys.as_ptr()).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetColorsForPurposes(&self, desiredcolor: super::super::UI::Color, purposes: LampPurposes) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetColorsForPurposes)(::windows_core::Interface::as_raw(this), desiredcolor, purposes).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SendMessageAsync<P0>(&self, messageid: i32, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -514,7 +513,7 @@ impl LampArray {
             (::windows_core::Interface::vtable(this).SendMessageAsync)(::windows_core::Interface::as_raw(this), messageid, message.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn RequestMessageAsync(&self, messageid: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
@@ -529,7 +528,7 @@ impl LampArray {
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LampArray>> {
         Self::ILampArrayStatics(|this| unsafe {
@@ -558,7 +557,6 @@ impl ::windows_core::RuntimeName for LampArray {
 ::windows_core::imp::interface_hierarchy!(LampArray, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LampArray {}
 unsafe impl ::core::marker::Sync for LampArray {}
-#[doc = "*Required features: `\"Devices_Lights\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampAvailabilityChangedEventArgs(::windows_core::IUnknown);
@@ -586,7 +584,6 @@ impl ::windows_core::RuntimeName for LampAvailabilityChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(LampAvailabilityChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LampAvailabilityChangedEventArgs {}
 unsafe impl ::core::marker::Sync for LampAvailabilityChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Lights\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampInfo(::windows_core::IUnknown);
@@ -605,7 +602,7 @@ impl LampInfo {
             (::windows_core::Interface::vtable(this).Purposes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
+    #[doc = "Required features: `Foundation_Numerics`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -642,7 +639,7 @@ impl LampInfo {
             (::windows_core::Interface::vtable(this).GainLevelCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"UI\"`*"]
+    #[doc = "Required features: `Foundation`, `UI`"]
     #[cfg(all(feature = "Foundation", feature = "UI"))]
     pub fn FixedColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::UI::Color>> {
         let this = self;
@@ -651,7 +648,7 @@ impl LampInfo {
             (::windows_core::Interface::vtable(this).FixedColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn GetNearestSupportedColor(&self, desiredcolor: super::super::UI::Color) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -660,7 +657,7 @@ impl LampInfo {
             (::windows_core::Interface::vtable(this).GetNearestSupportedColor)(::windows_core::Interface::as_raw(this), desiredcolor, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateLatency(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -685,7 +682,6 @@ impl ::windows_core::RuntimeName for LampInfo {
 ::windows_core::imp::interface_hierarchy!(LampInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LampInfo {}
 unsafe impl ::core::marker::Sync for LampInfo {}
-#[doc = "*Required features: `\"Devices_Lights\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LampArrayKind(pub i32);
@@ -724,7 +720,6 @@ impl ::core::fmt::Debug for LampArrayKind {
 impl ::windows_core::RuntimeType for LampArrayKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampArrayKind;i4)");
 }
-#[doc = "*Required features: `\"Devices_Lights\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LampPurposes(pub u32);

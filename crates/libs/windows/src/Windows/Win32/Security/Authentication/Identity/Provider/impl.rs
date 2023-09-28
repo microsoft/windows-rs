@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait AsyncIAssociatedIdentityProvider_Impl: Sized {
     fn Begin_AssociateIdentity(&self, hwndparent: super::super::super::super::Foundation::HWND) -> ::windows_core::Result<()>;
@@ -63,7 +63,7 @@ impl AsyncIAssociatedIdentityProvider_Vtbl {
         *iid == <AsyncIAssociatedIdentityProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait AsyncIConnectedIdentityProvider_Impl: Sized {
     fn Begin_ConnectIdentity(&self, authbuffer: *const u8, authbuffersize: u32) -> ::windows_core::Result<()>;
@@ -162,7 +162,6 @@ impl AsyncIConnectedIdentityProvider_Vtbl {
         *iid == <AsyncIConnectedIdentityProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"implement\"`*"]
 pub trait AsyncIIdentityAdvise_Impl: Sized {
     fn Begin_IdentityUpdated(&self, dwidentityupdateevents: u32, lpszuniqueid: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn Finish_IdentityUpdated(&self) -> ::windows_core::Result<()>;
@@ -190,7 +189,7 @@ impl AsyncIIdentityAdvise_Vtbl {
         *iid == <AsyncIIdentityAdvise as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait AsyncIIdentityAuthentication_Impl: Sized {
     fn Begin_SetIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32) -> ::windows_core::Result<()>;
@@ -235,7 +234,7 @@ impl AsyncIIdentityAuthentication_Vtbl {
         *iid == <AsyncIIdentityAuthentication as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait AsyncIIdentityProvider_Impl: Sized {
     fn Begin_GetIdentityEnum(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
@@ -394,7 +393,7 @@ impl AsyncIIdentityProvider_Vtbl {
         *iid == <AsyncIIdentityProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait AsyncIIdentityStore_Impl: Sized {
     fn Begin_GetCount(&self) -> ::windows_core::Result<()>;
@@ -507,7 +506,6 @@ impl AsyncIIdentityStore_Vtbl {
         *iid == <AsyncIIdentityStore as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"implement\"`*"]
 pub trait AsyncIIdentityStoreEx_Impl: Sized {
     fn Begin_CreateConnectedIdentity(&self, localname: &::windows_core::PCWSTR, connectedname: &::windows_core::PCWSTR, providerguid: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn Finish_CreateConnectedIdentity(&self) -> ::windows_core::Result<()>;
@@ -549,7 +547,7 @@ impl AsyncIIdentityStoreEx_Vtbl {
         *iid == <AsyncIIdentityStoreEx as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IAssociatedIdentityProvider_Impl: Sized {
     fn AssociateIdentity(&self, hwndparent: super::super::super::super::Foundation::HWND) -> ::windows_core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
@@ -593,7 +591,7 @@ impl IAssociatedIdentityProvider_Vtbl {
         *iid == <IAssociatedIdentityProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IConnectedIdentityProvider_Impl: Sized {
     fn ConnectIdentity(&self, authbuffer: *const u8, authbuffersize: u32) -> ::windows_core::Result<()>;
@@ -657,7 +655,6 @@ impl IConnectedIdentityProvider_Vtbl {
         *iid == <IConnectedIdentityProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"implement\"`*"]
 pub trait IIdentityAdvise_Impl: Sized {
     fn IdentityUpdated(&self, dwidentityupdateevents: &IdentityUpdateEvent, lpszuniqueid: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
 }
@@ -675,7 +672,7 @@ impl IIdentityAdvise_Vtbl {
         *iid == <IIdentityAdvise as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IIdentityAuthentication_Impl: Sized {
     fn SetIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32) -> ::windows_core::Result<()>;
@@ -706,7 +703,7 @@ impl IIdentityAuthentication_Vtbl {
         *iid == <IIdentityAuthentication as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IIdentityProvider_Impl: Sized {
     fn GetIdentityEnum(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::super::super::System::Com::IEnumUnknown>;
@@ -803,7 +800,7 @@ impl IIdentityProvider_Vtbl {
         *iid == <IIdentityProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IIdentityStore_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
@@ -874,7 +871,6 @@ impl IIdentityStore_Vtbl {
         *iid == <IIdentityStore as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"implement\"`*"]
 pub trait IIdentityStoreEx_Impl: Sized {
     fn CreateConnectedIdentity(&self, localname: &::windows_core::PCWSTR, connectedname: &::windows_core::PCWSTR, providerguid: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn DeleteConnectedIdentity(&self, connectedname: &::windows_core::PCWSTR, providerguid: *const ::windows_core::GUID) -> ::windows_core::Result<()>;

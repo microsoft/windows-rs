@@ -45,7 +45,6 @@ pub struct IExtendedExecutionForegroundSession_Vtbl {
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionForegroundReason) -> ::windows_core::HRESULT,
     pub SetReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ExtendedExecutionForegroundReason) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ExtendedExecutionForegroundRevokedEventArgs(::windows_core::IUnknown);
@@ -73,7 +72,6 @@ impl ::windows_core::RuntimeName for ExtendedExecutionForegroundRevokedEventArgs
 ::windows_core::imp::interface_hierarchy!(ExtendedExecutionForegroundRevokedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ExtendedExecutionForegroundRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionForegroundRevokedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ExtendedExecutionForegroundSession(::windows_core::IUnknown);
@@ -85,7 +83,7 @@ impl ExtendedExecutionForegroundSession {
         static SHARED: ::windows_core::imp::FactoryCache<ExtendedExecutionForegroundSession, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -102,7 +100,7 @@ impl ExtendedExecutionForegroundSession {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDescription)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Revoked<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -114,13 +112,13 @@ impl ExtendedExecutionForegroundSession {
             (::windows_core::Interface::vtable(this).Revoked)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRevoked(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRevoked)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestExtensionAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<ExtendedExecutionForegroundResult>> {
         let this = self;
@@ -158,7 +156,6 @@ impl ::windows_core::RuntimeName for ExtendedExecutionForegroundSession {
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for ExtendedExecutionForegroundSession {}
 unsafe impl ::core::marker::Send for ExtendedExecutionForegroundSession {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionForegroundSession {}
-#[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExtendedExecutionForegroundReason(pub i32);
@@ -190,7 +187,6 @@ impl ::core::fmt::Debug for ExtendedExecutionForegroundReason {
 impl ::windows_core::RuntimeType for ExtendedExecutionForegroundReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundReason;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExtendedExecutionForegroundResult(pub i32);
@@ -220,7 +216,6 @@ impl ::core::fmt::Debug for ExtendedExecutionForegroundResult {
 impl ::windows_core::RuntimeType for ExtendedExecutionForegroundResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundResult;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExtendedExecutionForegroundRevokedReason(pub i32);

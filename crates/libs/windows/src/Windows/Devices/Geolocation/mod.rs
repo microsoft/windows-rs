@@ -1,6 +1,8 @@
 #[cfg(feature = "Devices_Geolocation_Geofencing")]
+#[doc = "Required features: `Devices_Geolocation_Geofencing`"]
 pub mod Geofencing;
 #[cfg(feature = "Devices_Geolocation_Provider")]
+#[doc = "Required features: `Devices_Geolocation_Provider`"]
 pub mod Provider;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -536,7 +538,6 @@ pub struct IGeoposition2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VenueData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGeoshape(::windows_core::IUnknown);
@@ -731,7 +732,6 @@ pub struct IVenueData_Vtbl {
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Level: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CivicAddress(::windows_core::IUnknown);
@@ -764,7 +764,7 @@ impl CivicAddress {
             (::windows_core::Interface::vtable(this).PostalCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -789,7 +789,6 @@ impl ::windows_core::RuntimeName for CivicAddress {
 ::windows_core::imp::interface_hierarchy!(CivicAddress, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CivicAddress {}
 unsafe impl ::core::marker::Sync for CivicAddress {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GeoboundingBox(::windows_core::IUnknown);
@@ -847,7 +846,7 @@ impl GeoboundingBox {
             (::windows_core::Interface::vtable(this).CreateWithAltitudeReferenceAndSpatialReference)(::windows_core::Interface::as_raw(this), northwestcorner, southeastcorner, altitudereferencesystem, spatialreferenceid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryCompute<P0>(positions: P0) -> ::windows_core::Result<GeoboundingBox>
     where
@@ -858,7 +857,7 @@ impl GeoboundingBox {
             (::windows_core::Interface::vtable(this).TryCompute)(::windows_core::Interface::as_raw(this), positions.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryComputeWithAltitudeReference<P0>(positions: P0, altituderefsystem: AltitudeReferenceSystem) -> ::windows_core::Result<GeoboundingBox>
     where
@@ -869,7 +868,7 @@ impl GeoboundingBox {
             (::windows_core::Interface::vtable(this).TryComputeWithAltitudeReference)(::windows_core::Interface::as_raw(this), positions.try_into_param()?.abi(), altituderefsystem, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryComputeWithAltitudeReferenceAndSpatialReference<P0>(positions: P0, altituderefsystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows_core::Result<GeoboundingBox>
     where
@@ -928,7 +927,6 @@ impl ::windows_core::RuntimeName for GeoboundingBox {
 impl ::windows_core::CanTryInto<IGeoshape> for GeoboundingBox {}
 unsafe impl ::core::marker::Send for GeoboundingBox {}
 unsafe impl ::core::marker::Sync for GeoboundingBox {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Geocircle(::windows_core::IUnknown);
@@ -1008,12 +1006,11 @@ impl ::windows_core::RuntimeName for Geocircle {
 impl ::windows_core::CanTryInto<IGeoshape> for Geocircle {}
 unsafe impl ::core::marker::Send for Geocircle {}
 unsafe impl ::core::marker::Sync for Geocircle {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Geocoordinate(::windows_core::IUnknown);
 impl Geocoordinate {
-    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[doc = "Required features: `deprecated`"]
     #[cfg(feature = "deprecated")]
     pub fn Latitude(&self) -> ::windows_core::Result<f64> {
         let this = self;
@@ -1022,7 +1019,7 @@ impl Geocoordinate {
             (::windows_core::Interface::vtable(this).Latitude)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[doc = "Required features: `deprecated`"]
     #[cfg(feature = "deprecated")]
     pub fn Longitude(&self) -> ::windows_core::Result<f64> {
         let this = self;
@@ -1031,7 +1028,7 @@ impl Geocoordinate {
             (::windows_core::Interface::vtable(this).Longitude)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "Required features: `Foundation`, `deprecated`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn Altitude(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -1047,7 +1044,7 @@ impl Geocoordinate {
             (::windows_core::Interface::vtable(this).Accuracy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AltitudeAccuracy(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -1056,7 +1053,7 @@ impl Geocoordinate {
             (::windows_core::Interface::vtable(this).AltitudeAccuracy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Heading(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -1065,7 +1062,7 @@ impl Geocoordinate {
             (::windows_core::Interface::vtable(this).Heading)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Speed(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -1074,7 +1071,7 @@ impl Geocoordinate {
             (::windows_core::Interface::vtable(this).Speed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1104,7 +1101,7 @@ impl Geocoordinate {
             (::windows_core::Interface::vtable(this).SatelliteData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PositionSourceTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = &::windows_core::ComInterface::cast::<IGeocoordinateWithPositionSourceTimestamp>(self)?;
@@ -1136,12 +1133,11 @@ impl ::windows_core::RuntimeName for Geocoordinate {
 ::windows_core::imp::interface_hierarchy!(Geocoordinate, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Geocoordinate {}
 unsafe impl ::core::marker::Sync for Geocoordinate {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GeocoordinateSatelliteData(::windows_core::IUnknown);
 impl GeocoordinateSatelliteData {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PositionDilutionOfPrecision(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -1150,7 +1146,7 @@ impl GeocoordinateSatelliteData {
             (::windows_core::Interface::vtable(this).PositionDilutionOfPrecision)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn HorizontalDilutionOfPrecision(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -1159,7 +1155,7 @@ impl GeocoordinateSatelliteData {
             (::windows_core::Interface::vtable(this).HorizontalDilutionOfPrecision)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn VerticalDilutionOfPrecision(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -1168,7 +1164,7 @@ impl GeocoordinateSatelliteData {
             (::windows_core::Interface::vtable(this).VerticalDilutionOfPrecision)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GeometricDilutionOfPrecision(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows_core::ComInterface::cast::<IGeocoordinateSatelliteData2>(self)?;
@@ -1177,7 +1173,7 @@ impl GeocoordinateSatelliteData {
             (::windows_core::Interface::vtable(this).GeometricDilutionOfPrecision)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeDilutionOfPrecision(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows_core::ComInterface::cast::<IGeocoordinateSatelliteData2>(self)?;
@@ -1202,7 +1198,6 @@ impl ::windows_core::RuntimeName for GeocoordinateSatelliteData {
 ::windows_core::imp::interface_hierarchy!(GeocoordinateSatelliteData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GeocoordinateSatelliteData {}
 unsafe impl ::core::marker::Sync for GeocoordinateSatelliteData {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Geolocator(::windows_core::IUnknown);
@@ -1254,7 +1249,7 @@ impl Geolocator {
             (::windows_core::Interface::vtable(this).LocationStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetGeopositionAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Geoposition>> {
         let this = self;
@@ -1263,7 +1258,7 @@ impl Geolocator {
             (::windows_core::Interface::vtable(this).GetGeopositionAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetGeopositionAsyncWithAgeAndTimeout(&self, maximumage: super::super::Foundation::TimeSpan, timeout: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Geoposition>> {
         let this = self;
@@ -1272,7 +1267,7 @@ impl Geolocator {
             (::windows_core::Interface::vtable(this).GetGeopositionAsyncWithAgeAndTimeout)(::windows_core::Interface::as_raw(this), maximumage, timeout, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PositionChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1284,13 +1279,13 @@ impl Geolocator {
             (::windows_core::Interface::vtable(this).PositionChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePositionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePositionChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn StatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1302,7 +1297,7 @@ impl Geolocator {
             (::windows_core::Interface::vtable(this).StatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1312,7 +1307,7 @@ impl Geolocator {
         let this = &::windows_core::ComInterface::cast::<IGeolocator2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).AllowFallbackToConsentlessPositions)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<GeolocationAccessStatus>> {
         Self::IGeolocatorStatics(|this| unsafe {
@@ -1320,7 +1315,7 @@ impl Geolocator {
             (::windows_core::Interface::vtable(this).RequestAccessAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetGeopositionHistoryAsync(starttime: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>> {
         Self::IGeolocatorStatics(|this| unsafe {
@@ -1328,7 +1323,7 @@ impl Geolocator {
             (::windows_core::Interface::vtable(this).GetGeopositionHistoryAsync)(::windows_core::Interface::as_raw(this), starttime, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetGeopositionHistoryWithDurationAsync(starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>> {
         Self::IGeolocatorStatics(|this| unsafe {
@@ -1342,7 +1337,7 @@ impl Geolocator {
             (::windows_core::Interface::vtable(this).IsDefaultGeopositionRecommended)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDefaultGeoposition<P0>(value: P0) -> ::windows_core::Result<()>
     where
@@ -1350,7 +1345,7 @@ impl Geolocator {
     {
         Self::IGeolocatorStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).SetDefaultGeoposition)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DefaultGeoposition() -> ::windows_core::Result<super::super::Foundation::IReference<BasicGeoposition>> {
         Self::IGeolocatorStatics2(|this| unsafe {
@@ -1358,7 +1353,7 @@ impl Geolocator {
             (::windows_core::Interface::vtable(this).DefaultGeoposition)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DesiredAccuracyInMeters(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = &::windows_core::ComInterface::cast::<IGeolocatorWithScalarAccuracy>(self)?;
@@ -1367,7 +1362,7 @@ impl Geolocator {
             (::windows_core::Interface::vtable(this).DesiredAccuracyInMeters)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredAccuracyInMeters<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1402,12 +1397,11 @@ impl ::windows_core::RuntimeName for Geolocator {
 ::windows_core::imp::interface_hierarchy!(Geolocator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Geolocator {}
 unsafe impl ::core::marker::Sync for Geolocator {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Geopath(::windows_core::IUnknown);
 impl Geopath {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Positions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<BasicGeoposition>> {
         let this = self;
@@ -1416,7 +1410,7 @@ impl Geopath {
             (::windows_core::Interface::vtable(this).Positions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0>(positions: P0) -> ::windows_core::Result<Geopath>
     where
@@ -1427,7 +1421,7 @@ impl Geopath {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), positions.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithAltitudeReference<P0>(positions: P0, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows_core::Result<Geopath>
     where
@@ -1438,7 +1432,7 @@ impl Geopath {
             (::windows_core::Interface::vtable(this).CreateWithAltitudeReference)(::windows_core::Interface::as_raw(this), positions.try_into_param()?.abi(), altitudereferencesystem, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithAltitudeReferenceAndSpatialReference<P0>(positions: P0, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows_core::Result<Geopath>
     where
@@ -1492,7 +1486,6 @@ impl ::windows_core::RuntimeName for Geopath {
 impl ::windows_core::CanTryInto<IGeoshape> for Geopath {}
 unsafe impl ::core::marker::Send for Geopath {}
 unsafe impl ::core::marker::Sync for Geopath {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Geopoint(::windows_core::IUnknown);
@@ -1565,7 +1558,6 @@ impl ::windows_core::RuntimeName for Geopoint {
 impl ::windows_core::CanTryInto<IGeoshape> for Geopoint {}
 unsafe impl ::core::marker::Send for Geopoint {}
 unsafe impl ::core::marker::Sync for Geopoint {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Geoposition(::windows_core::IUnknown);
@@ -1607,7 +1599,6 @@ impl ::windows_core::RuntimeName for Geoposition {
 ::windows_core::imp::interface_hierarchy!(Geoposition, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Geoposition {}
 unsafe impl ::core::marker::Sync for Geoposition {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Geovisit(::windows_core::IUnknown);
@@ -1626,7 +1617,7 @@ impl Geovisit {
             (::windows_core::Interface::vtable(this).StateChange)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1651,7 +1642,6 @@ impl ::windows_core::RuntimeName for Geovisit {
 ::windows_core::imp::interface_hierarchy!(Geovisit, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Geovisit {}
 unsafe impl ::core::marker::Sync for Geovisit {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GeovisitMonitor(::windows_core::IUnknown);
@@ -1678,7 +1668,7 @@ impl GeovisitMonitor {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Stop)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn VisitStateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1690,13 +1680,13 @@ impl GeovisitMonitor {
             (::windows_core::Interface::vtable(this).VisitStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVisitStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveVisitStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetLastReportAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Geovisit>> {
         Self::IGeovisitMonitorStatics(|this| unsafe {
@@ -1725,7 +1715,6 @@ impl ::windows_core::RuntimeName for GeovisitMonitor {
 ::windows_core::imp::interface_hierarchy!(GeovisitMonitor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GeovisitMonitor {}
 unsafe impl ::core::marker::Sync for GeovisitMonitor {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GeovisitStateChangedEventArgs(::windows_core::IUnknown);
@@ -1753,12 +1742,11 @@ impl ::windows_core::RuntimeName for GeovisitStateChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(GeovisitStateChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GeovisitStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GeovisitStateChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GeovisitTriggerDetails(::windows_core::IUnknown);
 impl GeovisitTriggerDetails {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadReports(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<Geovisit>> {
         let this = self;
@@ -1783,7 +1771,6 @@ impl ::windows_core::RuntimeName for GeovisitTriggerDetails {
 ::windows_core::imp::interface_hierarchy!(GeovisitTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GeovisitTriggerDetails {}
 unsafe impl ::core::marker::Sync for GeovisitTriggerDetails {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PositionChangedEventArgs(::windows_core::IUnknown);
@@ -1811,7 +1798,6 @@ impl ::windows_core::RuntimeName for PositionChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(PositionChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PositionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PositionChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StatusChangedEventArgs(::windows_core::IUnknown);
@@ -1839,7 +1825,6 @@ impl ::windows_core::RuntimeName for StatusChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(StatusChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for StatusChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VenueData(::windows_core::IUnknown);
@@ -1874,7 +1859,6 @@ impl ::windows_core::RuntimeName for VenueData {
 ::windows_core::imp::interface_hierarchy!(VenueData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VenueData {}
 unsafe impl ::core::marker::Sync for VenueData {}
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AltitudeReferenceSystem(pub i32);
@@ -1907,7 +1891,6 @@ impl ::core::fmt::Debug for AltitudeReferenceSystem {
 impl ::windows_core::RuntimeType for AltitudeReferenceSystem {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.AltitudeReferenceSystem;i4)");
 }
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GeolocationAccessStatus(pub i32);
@@ -1938,7 +1921,6 @@ impl ::core::fmt::Debug for GeolocationAccessStatus {
 impl ::windows_core::RuntimeType for GeolocationAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeolocationAccessStatus;i4)");
 }
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GeoshapeType(pub i32);
@@ -1970,7 +1952,6 @@ impl ::core::fmt::Debug for GeoshapeType {
 impl ::windows_core::RuntimeType for GeoshapeType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeoshapeType;i4)");
 }
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PositionAccuracy(pub i32);
@@ -2000,7 +1981,6 @@ impl ::core::fmt::Debug for PositionAccuracy {
 impl ::windows_core::RuntimeType for PositionAccuracy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionAccuracy;i4)");
 }
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PositionSource(pub i32);
@@ -2035,7 +2015,6 @@ impl ::core::fmt::Debug for PositionSource {
 impl ::windows_core::RuntimeType for PositionSource {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionSource;i4)");
 }
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PositionStatus(pub i32);
@@ -2069,7 +2048,6 @@ impl ::core::fmt::Debug for PositionStatus {
 impl ::windows_core::RuntimeType for PositionStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionStatus;i4)");
 }
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VisitMonitoringScope(pub i32);
@@ -2099,7 +2077,6 @@ impl ::core::fmt::Debug for VisitMonitoringScope {
 impl ::windows_core::RuntimeType for VisitMonitoringScope {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitMonitoringScope;i4)");
 }
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VisitStateChange(pub i32);
@@ -2132,7 +2109,6 @@ impl ::windows_core::RuntimeType for VisitStateChange {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitStateChange;i4)");
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 pub struct BasicGeoposition {
     pub Latitude: f64,
     pub Longitude: f64,

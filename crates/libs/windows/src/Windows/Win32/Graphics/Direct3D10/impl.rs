@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10Asynchronous_Impl: Sized + ID3D10DeviceChild_Impl {
     fn Begin(&self);
     fn End(&self);
@@ -40,7 +39,7 @@ impl ID3D10Asynchronous_Vtbl {
         *iid == <ID3D10Asynchronous as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10BlendState_Impl: Sized + ID3D10DeviceChild_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_BLEND_DESC);
@@ -61,7 +60,7 @@ impl ID3D10BlendState_Vtbl {
         *iid == <ID3D10BlendState as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10BlendState1_Impl: Sized + ID3D10BlendState_Impl {
     fn GetDesc1(&self, pdesc: *mut D3D10_BLEND_DESC1);
@@ -82,7 +81,6 @@ impl ID3D10BlendState1_Vtbl {
         *iid == <ID3D10BlendState1 as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D10BlendState as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10Buffer_Impl: Sized + ID3D10Resource_Impl {
     fn Map(&self, maptype: D3D10_MAP, mapflags: u32, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn Unmap(&self);
@@ -117,7 +115,6 @@ impl ID3D10Buffer_Vtbl {
         *iid == <ID3D10Buffer as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D10Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10Counter_Impl: Sized + ID3D10Asynchronous_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_COUNTER_DESC) -> ();
 }
@@ -135,7 +132,7 @@ impl ID3D10Counter_Vtbl {
         *iid == <ID3D10Counter as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D10Asynchronous as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Dxgi\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi`"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub trait ID3D10Debug_Impl: Sized {
     fn SetFeatureMask(&self, mask: u32) -> ::windows_core::Result<()>;
@@ -207,7 +204,7 @@ impl ID3D10Debug_Vtbl {
         *iid == <ID3D10Debug as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10DepthStencilState_Impl: Sized + ID3D10DeviceChild_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_DEPTH_STENCIL_DESC);
@@ -228,7 +225,7 @@ impl ID3D10DepthStencilState_Vtbl {
         *iid == <ID3D10DepthStencilState as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D10DepthStencilView_Impl: Sized + ID3D10View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_DEPTH_STENCIL_VIEW_DESC);
@@ -249,7 +246,7 @@ impl ID3D10DepthStencilView_Vtbl {
         *iid == <ID3D10DepthStencilView as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D10View as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D`, `Win32_Graphics_Dxgi_Common`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D10Device_Impl: Sized {
     fn VSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D10Buffer>);
@@ -961,7 +958,7 @@ impl ID3D10Device_Vtbl {
         *iid == <ID3D10Device as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D`, `Win32_Graphics_Dxgi_Common`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D10Device1_Impl: Sized + ID3D10Device_Impl {
     fn CreateShaderResourceView1(&self, presource: ::core::option::Option<&ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, ppsrview: *mut ::core::option::Option<ID3D10ShaderResourceView1>) -> ::windows_core::Result<()>;
@@ -999,7 +996,6 @@ impl ID3D10Device1_Vtbl {
         *iid == <ID3D10Device1 as ::windows_core::ComInterface>::IID || *iid == <ID3D10Device as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10DeviceChild_Impl: Sized {
     fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D10Device>) -> ();
     fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -1041,7 +1037,7 @@ impl ID3D10DeviceChild_Vtbl {
         *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10Effect_Impl: Sized {
     fn IsValid(&self) -> super::super::Foundation::BOOL;
@@ -1155,7 +1151,7 @@ impl ID3D10Effect_Vtbl {
         *iid == <ID3D10Effect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectBlendVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetBlendState(&self, index: u32) -> ::windows_core::Result<ID3D10BlendState>;
@@ -1198,7 +1194,7 @@ impl ID3D10EffectBlendVariable {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectConstantBuffer_Impl: Sized + ID3D10EffectVariable_Impl {
     fn SetConstantBuffer(&self, pconstantbuffer: ::core::option::Option<&ID3D10Buffer>) -> ::windows_core::Result<()>;
@@ -1265,7 +1261,7 @@ impl ID3D10EffectConstantBuffer {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectDepthStencilVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetDepthStencilState(&self, index: u32) -> ::windows_core::Result<ID3D10DepthStencilState>;
@@ -1308,7 +1304,7 @@ impl ID3D10EffectDepthStencilVariable {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectDepthStencilViewVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn SetDepthStencil(&self, presource: ::core::option::Option<&ID3D10DepthStencilView>) -> ::windows_core::Result<()>;
@@ -1369,7 +1365,7 @@ impl ID3D10EffectDepthStencilViewVariable {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectMatrixVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn SetMatrix(&self, pdata: *mut f32) -> ::windows_core::Result<()>;
@@ -1452,7 +1448,7 @@ impl ID3D10EffectMatrixVariable {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectPass_Impl: Sized {
     fn IsValid(&self) -> super::super::Foundation::BOOL;
@@ -1541,7 +1537,6 @@ impl ID3D10EffectPass {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10EffectPool_Impl: Sized {
     fn AsEffect(&self) -> ::core::option::Option<ID3D10Effect>;
 }
@@ -1559,7 +1554,7 @@ impl ID3D10EffectPool_Vtbl {
         *iid == <ID3D10EffectPool as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectRasterizerVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetRasterizerState(&self, index: u32) -> ::windows_core::Result<ID3D10RasterizerState>;
@@ -1602,7 +1597,7 @@ impl ID3D10EffectRasterizerVariable {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectRenderTargetViewVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn SetRenderTarget(&self, presource: ::core::option::Option<&ID3D10RenderTargetView>) -> ::windows_core::Result<()>;
@@ -1663,7 +1658,7 @@ impl ID3D10EffectRenderTargetViewVariable {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectSamplerVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetSampler(&self, index: u32) -> ::windows_core::Result<ID3D10SamplerState>;
@@ -1706,7 +1701,7 @@ impl ID3D10EffectSamplerVariable {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectScalarVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn SetFloat(&self, value: f32) -> ::windows_core::Result<()>;
@@ -1835,7 +1830,7 @@ impl ID3D10EffectScalarVariable {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectShaderResourceVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn SetResource(&self, presource: ::core::option::Option<&ID3D10ShaderResourceView>) -> ::windows_core::Result<()>;
@@ -1896,7 +1891,7 @@ impl ID3D10EffectShaderResourceVariable {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D10EffectShaderVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetShaderDesc(&self, shaderindex: u32, pdesc: *mut D3D10_EFFECT_SHADER_DESC) -> ::windows_core::Result<()>;
@@ -1983,7 +1978,7 @@ impl ID3D10EffectShaderVariable {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectStringVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetString(&self) -> ::windows_core::Result<::windows_core::PCSTR>;
@@ -2026,7 +2021,7 @@ impl ID3D10EffectStringVariable {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectTechnique_Impl: Sized {
     fn IsValid(&self) -> super::super::Foundation::BOOL;
@@ -2101,7 +2096,7 @@ impl ID3D10EffectTechnique {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D10EffectType_Impl: Sized {
     fn IsValid(&self) -> super::super::Foundation::BOOL;
@@ -2176,7 +2171,7 @@ impl ID3D10EffectType {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectVariable_Impl: Sized {
     fn IsValid(&self) -> super::super::Foundation::BOOL;
@@ -2377,7 +2372,7 @@ impl ID3D10EffectVariable {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectVectorVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn SetBoolVector(&self, pdata: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -2488,7 +2483,6 @@ impl ID3D10EffectVectorVariable {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10GeometryShader_Impl: Sized + ID3D10DeviceChild_Impl {}
 impl ::windows_core::RuntimeName for ID3D10GeometryShader {}
 impl ID3D10GeometryShader_Vtbl {
@@ -2499,7 +2493,7 @@ impl ID3D10GeometryShader_Vtbl {
         *iid == <ID3D10GeometryShader as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10InfoQueue_Impl: Sized {
     fn SetMessageCountLimit(&self, messagecountlimit: u64) -> ::windows_core::Result<()>;
@@ -2761,7 +2755,6 @@ impl ID3D10InfoQueue_Vtbl {
         *iid == <ID3D10InfoQueue as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10InputLayout_Impl: Sized + ID3D10DeviceChild_Impl {}
 impl ::windows_core::RuntimeName for ID3D10InputLayout {}
 impl ID3D10InputLayout_Vtbl {
@@ -2772,7 +2765,7 @@ impl ID3D10InputLayout_Vtbl {
         *iid == <ID3D10InputLayout as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10Multithread_Impl: Sized {
     fn Enter(&self);
@@ -2817,7 +2810,6 @@ impl ID3D10Multithread_Vtbl {
         *iid == <ID3D10Multithread as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10PixelShader_Impl: Sized + ID3D10DeviceChild_Impl {}
 impl ::windows_core::RuntimeName for ID3D10PixelShader {}
 impl ID3D10PixelShader_Vtbl {
@@ -2828,7 +2820,6 @@ impl ID3D10PixelShader_Vtbl {
         *iid == <ID3D10PixelShader as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10Predicate_Impl: Sized + ID3D10Query_Impl {}
 impl ::windows_core::RuntimeName for ID3D10Predicate {}
 impl ID3D10Predicate_Vtbl {
@@ -2839,7 +2830,6 @@ impl ID3D10Predicate_Vtbl {
         *iid == <ID3D10Predicate as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D10Asynchronous as ::windows_core::ComInterface>::IID || *iid == <ID3D10Query as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10Query_Impl: Sized + ID3D10Asynchronous_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_QUERY_DESC) -> ();
 }
@@ -2857,7 +2847,7 @@ impl ID3D10Query_Vtbl {
         *iid == <ID3D10Query as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D10Asynchronous as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10RasterizerState_Impl: Sized + ID3D10DeviceChild_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_RASTERIZER_DESC);
@@ -2878,7 +2868,7 @@ impl ID3D10RasterizerState_Vtbl {
         *iid == <ID3D10RasterizerState as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D10RenderTargetView_Impl: Sized + ID3D10View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_RENDER_TARGET_VIEW_DESC);
@@ -2899,7 +2889,6 @@ impl ID3D10RenderTargetView_Vtbl {
         *iid == <ID3D10RenderTargetView as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D10View as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10Resource_Impl: Sized + ID3D10DeviceChild_Impl {
     fn GetType(&self, rtype: *mut D3D10_RESOURCE_DIMENSION) -> ();
     fn SetEvictionPriority(&self, evictionpriority: u32);
@@ -2934,7 +2923,6 @@ impl ID3D10Resource_Vtbl {
         *iid == <ID3D10Resource as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10SamplerState_Impl: Sized + ID3D10DeviceChild_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_SAMPLER_DESC);
 }
@@ -2952,7 +2940,7 @@ impl ID3D10SamplerState_Vtbl {
         *iid == <ID3D10SamplerState as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D10ShaderReflection_Impl: Sized {
     fn GetDesc(&self, pdesc: *mut D3D10_SHADER_DESC) -> ::windows_core::Result<()>;
@@ -3011,7 +2999,7 @@ impl ID3D10ShaderReflection_Vtbl {
         *iid == <ID3D10ShaderReflection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D10ShaderReflection1_Impl: Sized {
     fn GetDesc(&self, pdesc: *mut D3D10_SHADER_DESC) -> ::windows_core::Result<()>;
@@ -3175,7 +3163,7 @@ impl ID3D10ShaderReflection1_Vtbl {
         *iid == <ID3D10ShaderReflection1 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D10ShaderReflectionConstantBuffer_Impl: Sized {
     fn GetDesc(&self, pdesc: *mut D3D10_SHADER_BUFFER_DESC) -> ::windows_core::Result<()>;
@@ -3218,7 +3206,7 @@ impl ID3D10ShaderReflectionConstantBuffer {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D10ShaderReflectionType_Impl: Sized {
     fn GetDesc(&self, pdesc: *mut D3D10_SHADER_TYPE_DESC) -> ::windows_core::Result<()>;
@@ -3272,7 +3260,6 @@ impl ID3D10ShaderReflectionType {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10ShaderReflectionVariable_Impl: Sized {
     fn GetDesc(&self, pdesc: *mut D3D10_SHADER_VARIABLE_DESC) -> ::windows_core::Result<()>;
     fn GetType(&self) -> ::core::option::Option<ID3D10ShaderReflectionType>;
@@ -3304,7 +3291,7 @@ impl ID3D10ShaderReflectionVariable {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D`, `Win32_Graphics_Dxgi_Common`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D10ShaderResourceView_Impl: Sized + ID3D10View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC);
@@ -3325,7 +3312,7 @@ impl ID3D10ShaderResourceView_Vtbl {
         *iid == <ID3D10ShaderResourceView as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D10View as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D`, `Win32_Graphics_Dxgi_Common`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D10ShaderResourceView1_Impl: Sized + ID3D10ShaderResourceView_Impl {
     fn GetDesc1(&self, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC1);
@@ -3346,7 +3333,6 @@ impl ID3D10ShaderResourceView1_Vtbl {
         *iid == <ID3D10ShaderResourceView1 as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D10View as ::windows_core::ComInterface>::IID || *iid == <ID3D10ShaderResourceView as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10StateBlock_Impl: Sized {
     fn Capture(&self) -> ::windows_core::Result<()>;
     fn Apply(&self) -> ::windows_core::Result<()>;
@@ -3394,7 +3380,7 @@ impl ID3D10StateBlock_Vtbl {
         *iid == <ID3D10StateBlock as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10SwitchToRef_Impl: Sized {
     fn SetUseRef(&self, useref: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
@@ -3425,7 +3411,7 @@ impl ID3D10SwitchToRef_Vtbl {
         *iid == <ID3D10SwitchToRef as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D10Texture1D_Impl: Sized + ID3D10Resource_Impl {
     fn Map(&self, subresource: u32, maptype: D3D10_MAP, mapflags: u32, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -3463,7 +3449,7 @@ impl ID3D10Texture1D_Vtbl {
         *iid == <ID3D10Texture1D as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D10Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D10Texture2D_Impl: Sized + ID3D10Resource_Impl {
     fn Map(&self, subresource: u32, maptype: D3D10_MAP, mapflags: u32) -> ::windows_core::Result<D3D10_MAPPED_TEXTURE2D>;
@@ -3507,7 +3493,7 @@ impl ID3D10Texture2D_Vtbl {
         *iid == <ID3D10Texture2D as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D10Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D10Texture3D_Impl: Sized + ID3D10Resource_Impl {
     fn Map(&self, subresource: u32, maptype: D3D10_MAP, mapflags: u32) -> ::windows_core::Result<D3D10_MAPPED_TEXTURE3D>;
@@ -3551,7 +3537,6 @@ impl ID3D10Texture3D_Vtbl {
         *iid == <ID3D10Texture3D as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID || *iid == <ID3D10Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10VertexShader_Impl: Sized + ID3D10DeviceChild_Impl {}
 impl ::windows_core::RuntimeName for ID3D10VertexShader {}
 impl ID3D10VertexShader_Vtbl {
@@ -3562,7 +3547,6 @@ impl ID3D10VertexShader_Vtbl {
         *iid == <ID3D10VertexShader as ::windows_core::ComInterface>::IID || *iid == <ID3D10DeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"implement\"`*"]
 pub trait ID3D10View_Impl: Sized + ID3D10DeviceChild_Impl {
     fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D10Resource>) -> ();
 }

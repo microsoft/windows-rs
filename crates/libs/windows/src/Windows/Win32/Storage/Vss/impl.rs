@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
 pub trait IVssAdmin_Impl: Sized {
     fn RegisterProvider(&self, pproviderid: &::windows_core::GUID, classid: &::windows_core::GUID, pwszprovidername: *const u16, eprovidertype: VSS_PROVIDER_TYPE, pwszproviderversion: *const u16, providerversionid: &::windows_core::GUID) -> ::windows_core::Result<()>;
     fn UnregisterProvider(&self, providerid: &::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -46,7 +45,6 @@ impl IVssAdmin_Vtbl {
         *iid == <IVssAdmin as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
 pub trait IVssAdminEx_Impl: Sized + IVssAdmin_Impl {
     fn GetProviderCapability(&self, pproviderid: &::windows_core::GUID) -> ::windows_core::Result<u64>;
     fn GetProviderContext(&self, providerid: &::windows_core::GUID) -> ::windows_core::Result<i32>;
@@ -93,7 +91,6 @@ impl IVssAdminEx_Vtbl {
         *iid == <IVssAdminEx as ::windows_core::ComInterface>::IID || *iid == <IVssAdmin as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
 pub trait IVssAsync_Impl: Sized {
     fn Cancel(&self) -> ::windows_core::Result<()>;
     fn Wait(&self, dwmilliseconds: u32) -> ::windows_core::Result<()>;
@@ -128,7 +125,7 @@ impl IVssAsync_Vtbl {
         *iid == <IVssAsync as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssComponent_Impl: Sized {
     fn GetLogicalPath(&self, pbstrpath: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -423,7 +420,7 @@ impl IVssComponent_Vtbl {
         *iid == <IVssComponent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssComponentEx_Impl: Sized + IVssComponent_Impl {
     fn SetPrepareForBackupFailureMsg(&self, wszfailuremsg: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -513,7 +510,7 @@ impl IVssComponentEx_Vtbl {
         *iid == <IVssComponentEx as ::windows_core::ComInterface>::IID || *iid == <IVssComponent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssComponentEx2_Impl: Sized + IVssComponentEx_Impl {
     fn SetFailure(&self, hr: ::windows_core::HRESULT, hrapplication: ::windows_core::HRESULT, wszapplicationmessage: &::windows_core::PCWSTR, dwreserved: u32) -> ::windows_core::Result<()>;
@@ -544,7 +541,6 @@ impl IVssComponentEx2_Vtbl {
         *iid == <IVssComponentEx2 as ::windows_core::ComInterface>::IID || *iid == <IVssComponent as ::windows_core::ComInterface>::IID || *iid == <IVssComponentEx as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
 pub trait IVssCreateExpressWriterMetadata_Impl: Sized {
     fn AddExcludeFiles(&self, wszpath: &::windows_core::PCWSTR, wszfilespec: &::windows_core::PCWSTR, brecursive: u8) -> ::windows_core::Result<()>;
     fn AddComponent(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: &::windows_core::PCWSTR, wszcomponentname: &::windows_core::PCWSTR, wszcaption: &::windows_core::PCWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows_core::Result<()>;
@@ -614,7 +610,7 @@ impl IVssCreateExpressWriterMetadata_Vtbl {
         *iid == <IVssCreateExpressWriterMetadata as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IVssCreateWriterMetadata_Impl: Sized {
     fn AddIncludeFiles(&self, wszpath: &::windows_core::PCWSTR, wszfilespec: &::windows_core::PCWSTR, brecursive: u8, wszalternatelocation: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -731,7 +727,6 @@ impl IVssCreateWriterMetadata {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
 pub trait IVssDifferentialSoftwareSnapshotMgmt_Impl: Sized {
     fn AddDiffArea(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> ::windows_core::Result<()>;
     fn ChangeDiffAreaMaximumSize(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> ::windows_core::Result<()>;
@@ -811,7 +806,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
         *iid == <IVssDifferentialSoftwareSnapshotMgmt as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssDifferentialSoftwareSnapshotMgmt2_Impl: Sized + IVssDifferentialSoftwareSnapshotMgmt_Impl {
     fn ChangeDiffAreaMaximumSizeEx(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -862,7 +857,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
         *iid == <IVssDifferentialSoftwareSnapshotMgmt2 as ::windows_core::ComInterface>::IID || *iid == <IVssDifferentialSoftwareSnapshotMgmt as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssDifferentialSoftwareSnapshotMgmt3_Impl: Sized + IVssDifferentialSoftwareSnapshotMgmt2_Impl {
     fn SetVolumeProtectLevel(&self, pwszvolumename: *const u16, protectionlevel: VSS_PROTECTION_LEVEL) -> ::windows_core::Result<()>;
@@ -914,7 +909,6 @@ impl IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
         *iid == <IVssDifferentialSoftwareSnapshotMgmt3 as ::windows_core::ComInterface>::IID || *iid == <IVssDifferentialSoftwareSnapshotMgmt as ::windows_core::ComInterface>::IID || *iid == <IVssDifferentialSoftwareSnapshotMgmt2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
 pub trait IVssEnumMgmtObject_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut VSS_MGMT_OBJECT_PROP, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
@@ -956,7 +950,6 @@ impl IVssEnumMgmtObject_Vtbl {
         *iid == <IVssEnumMgmtObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
 pub trait IVssEnumObject_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
@@ -998,7 +991,6 @@ impl IVssEnumObject_Vtbl {
         *iid == <IVssEnumObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
 pub trait IVssExpressWriter_Impl: Sized {
     fn CreateMetadata(&self, writerid: &::windows_core::GUID, writername: &::windows_core::PCWSTR, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32) -> ::windows_core::Result<IVssCreateExpressWriterMetadata>;
     fn LoadMetadata(&self, metadata: &::windows_core::PCWSTR, reserved: u32) -> ::windows_core::Result<()>;
@@ -1046,7 +1038,7 @@ impl IVssExpressWriter_Vtbl {
         *iid == <IVssExpressWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IVssFileShareSnapshotProvider_Impl: Sized {
     fn SetContext(&self, lcontext: i32) -> ::windows_core::Result<()>;
@@ -1131,7 +1123,7 @@ impl IVssFileShareSnapshotProvider_Vtbl {
         *iid == <IVssFileShareSnapshotProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
 pub trait IVssHardwareSnapshotProvider_Impl: Sized {
     fn AreLunsSupported(&self, lluncount: i32, lcontext: i32, rgwszdevices: *const *const u16, pluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -1190,7 +1182,7 @@ impl IVssHardwareSnapshotProvider_Vtbl {
         *iid == <IVssHardwareSnapshotProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
 pub trait IVssHardwareSnapshotProviderEx_Impl: Sized + IVssHardwareSnapshotProvider_Impl {
     fn GetProviderCapabilities(&self) -> ::windows_core::Result<u64>;
@@ -1247,7 +1239,6 @@ impl IVssHardwareSnapshotProviderEx_Vtbl {
         *iid == <IVssHardwareSnapshotProviderEx as ::windows_core::ComInterface>::IID || *iid == <IVssHardwareSnapshotProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
 pub trait IVssProviderCreateSnapshotSet_Impl: Sized {
     fn EndPrepareSnapshots(&self, snapshotsetid: &::windows_core::GUID) -> ::windows_core::Result<()>;
     fn PreCommitSnapshots(&self, snapshotsetid: &::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -1310,7 +1301,7 @@ impl IVssProviderCreateSnapshotSet_Vtbl {
         *iid == <IVssProviderCreateSnapshotSet as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssProviderNotifications_Impl: Sized {
     fn OnLoad(&self, pcallback: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -1341,7 +1332,6 @@ impl IVssProviderNotifications_Vtbl {
         *iid == <IVssProviderNotifications as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
 pub trait IVssSnapshotMgmt_Impl: Sized {
     fn GetProviderMgmtInterface(&self, providerid: &::windows_core::GUID, interfaceid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn QueryVolumesSupportedForSnapshots(&self, providerid: &::windows_core::GUID, lcontext: i32) -> ::windows_core::Result<IVssEnumMgmtObject>;
@@ -1394,7 +1384,6 @@ impl IVssSnapshotMgmt_Vtbl {
         *iid == <IVssSnapshotMgmt as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
 pub trait IVssSnapshotMgmt2_Impl: Sized {
     fn GetMinDiffAreaSize(&self) -> ::windows_core::Result<i64>;
 }
@@ -1418,7 +1407,7 @@ impl IVssSnapshotMgmt2_Vtbl {
         *iid == <IVssSnapshotMgmt2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IVssSoftwareSnapshotProvider_Impl: Sized {
     fn SetContext(&self, lcontext: i32) -> ::windows_core::Result<()>;
@@ -1523,7 +1512,6 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
         *iid == <IVssSoftwareSnapshotProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
 pub trait IVssWMDependency_Impl: Sized {
     fn GetWriterId(&self, pwriterid: *mut ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn GetLogicalPath(&self, pbstrlogicalpath: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -1558,7 +1546,6 @@ impl IVssWMDependency_Vtbl {
         *iid == <IVssWMDependency as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
 pub trait IVssWMFiledesc_Impl: Sized {
     fn GetPath(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetFilespec(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1637,7 +1624,6 @@ impl IVssWMFiledesc_Vtbl {
         *iid == <IVssWMFiledesc as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
 pub trait IVssWriterComponents_Impl: Sized {
     fn GetComponentCount(&self, pccomponents: *mut u32) -> ::windows_core::Result<()>;
     fn GetWriterInfo(&self, pidinstance: *mut ::windows_core::GUID, pidwriter: *mut ::windows_core::GUID) -> ::windows_core::Result<()>;

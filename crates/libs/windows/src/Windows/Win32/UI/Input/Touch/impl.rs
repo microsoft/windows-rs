@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInertiaProcessor_Impl: Sized {
     fn InitialOriginX(&self) -> ::windows_core::Result<f32>;
@@ -502,7 +502,6 @@ impl IInertiaProcessor_Vtbl {
         *iid == <IInertiaProcessor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"implement\"`*"]
 pub trait IManipulationProcessor_Impl: Sized {
     fn SupportedManipulations(&self) -> ::windows_core::Result<MANIPULATION_PROCESSOR_MANIPULATIONS>;
     fn SetSupportedManipulations(&self, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows_core::Result<()>;
@@ -717,7 +716,6 @@ impl IManipulationProcessor_Vtbl {
         *iid == <IManipulationProcessor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"implement\"`*"]
 pub trait _IManipulationEvents_Impl: Sized {
     fn ManipulationStarted(&self, x: f32, y: f32) -> ::windows_core::Result<()>;
     fn ManipulationDelta(&self, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows_core::Result<()>;

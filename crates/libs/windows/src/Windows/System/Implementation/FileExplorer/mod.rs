@@ -30,12 +30,11 @@ pub struct ISysStorageProviderEventReceivedEventArgsFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, json: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"System_Implementation_FileExplorer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISysStorageProviderEventSource(::windows_core::IUnknown);
 impl ISysStorageProviderEventSource {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn EventReceived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -47,7 +46,7 @@ impl ISysStorageProviderEventSource {
             (::windows_core::Interface::vtable(this).EventReceived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEventReceived(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -77,7 +76,6 @@ pub struct ISysStorageProviderEventSource_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveEventReceived: usize,
 }
-#[doc = "*Required features: `\"System_Implementation_FileExplorer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISysStorageProviderHandlerFactory(::windows_core::IUnknown);
@@ -114,12 +112,11 @@ pub struct ISysStorageProviderHandlerFactory_Vtbl {
     pub GetHttpRequestProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetEventSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, eventname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"System_Implementation_FileExplorer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISysStorageProviderHttpRequestProvider(::windows_core::IUnknown);
 impl ISysStorageProviderHttpRequestProvider {
-    #[doc = "*Required features: `\"Foundation\"`, `\"Web_Http\"`*"]
+    #[doc = "Required features: `Foundation`, `Web_Http`"]
     #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
     pub fn SendRequestAsync<P0>(&self, request: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>
     where
@@ -151,7 +148,6 @@ pub struct ISysStorageProviderHttpRequestProvider_Vtbl {
     #[cfg(not(all(feature = "Foundation", feature = "Web_Http")))]
     SendRequestAsync: usize,
 }
-#[doc = "*Required features: `\"System_Implementation_FileExplorer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SysStorageProviderEventReceivedEventArgs(::windows_core::IUnknown);

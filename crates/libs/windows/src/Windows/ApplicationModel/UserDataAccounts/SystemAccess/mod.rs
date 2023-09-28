@@ -190,7 +190,6 @@ pub struct IUserDataAccountSystemAccessManagerStatics2_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     GetDeviceAccountConfigurationAsync: usize,
 }
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceAccountConfiguration(::windows_core::IUnknown);
@@ -378,7 +377,7 @@ impl DeviceAccountConfiguration {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetOutgoingServerUsername)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Security_Credentials\"`*"]
+    #[doc = "Required features: `Security_Credentials`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn IncomingServerCredential(&self) -> ::windows_core::Result<super::super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -387,7 +386,7 @@ impl DeviceAccountConfiguration {
             (::windows_core::Interface::vtable(this).IncomingServerCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials\"`*"]
+    #[doc = "Required features: `Security_Credentials`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetIncomingServerCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -396,7 +395,7 @@ impl DeviceAccountConfiguration {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetIncomingServerCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Security_Credentials\"`*"]
+    #[doc = "Required features: `Security_Credentials`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn OutgoingServerCredential(&self) -> ::windows_core::Result<super::super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -405,7 +404,7 @@ impl DeviceAccountConfiguration {
             (::windows_core::Interface::vtable(this).OutgoingServerCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials\"`*"]
+    #[doc = "Required features: `Security_Credentials`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetOutgoingServerCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -571,7 +570,7 @@ impl DeviceAccountConfiguration {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetCalDavSyncScheduleKind)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CardDavServerUrl(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -580,7 +579,7 @@ impl DeviceAccountConfiguration {
             (::windows_core::Interface::vtable(this).CardDavServerUrl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetCardDavServerUrl<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -600,7 +599,7 @@ impl DeviceAccountConfiguration {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetCardDavRequiresSsl)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CalDavServerUrl(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -609,7 +608,7 @@ impl DeviceAccountConfiguration {
             (::windows_core::Interface::vtable(this).CalDavServerUrl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetCalDavServerUrl<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -733,10 +732,9 @@ impl ::windows_core::RuntimeName for DeviceAccountConfiguration {
 ::windows_core::imp::interface_hierarchy!(DeviceAccountConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceAccountConfiguration {}
 unsafe impl ::core::marker::Sync for DeviceAccountConfiguration {}
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 pub struct UserDataAccountSystemAccessManager;
 impl UserDataAccountSystemAccessManager {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddAndShowDeviceAccountsAsync<P0>(accounts: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>>
     where
@@ -747,7 +745,7 @@ impl UserDataAccountSystemAccessManager {
             (::windows_core::Interface::vtable(this).AddAndShowDeviceAccountsAsync)(::windows_core::Interface::as_raw(this), accounts.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SuppressLocalAccountWithAccountAsync(userdataaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
@@ -755,7 +753,7 @@ impl UserDataAccountSystemAccessManager {
             (::windows_core::Interface::vtable(this).SuppressLocalAccountWithAccountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(userdataaccountid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateDeviceAccountAsync<P0>(account: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -766,7 +764,7 @@ impl UserDataAccountSystemAccessManager {
             (::windows_core::Interface::vtable(this).CreateDeviceAccountAsync)(::windows_core::Interface::as_raw(this), account.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteDeviceAccountAsync(accountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
@@ -774,7 +772,7 @@ impl UserDataAccountSystemAccessManager {
             (::windows_core::Interface::vtable(this).DeleteDeviceAccountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(accountid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeviceAccountConfigurationAsync(accountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<DeviceAccountConfiguration>> {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
@@ -796,7 +794,6 @@ impl UserDataAccountSystemAccessManager {
 impl ::windows_core::RuntimeName for UserDataAccountSystemAccessManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.SystemAccess.UserDataAccountSystemAccessManager";
 }
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceAccountAuthenticationType(pub i32);
@@ -827,7 +824,6 @@ impl ::core::fmt::Debug for DeviceAccountAuthenticationType {
 impl ::windows_core::RuntimeType for DeviceAccountAuthenticationType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountAuthenticationType;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceAccountIconId(pub i32);
@@ -859,7 +855,6 @@ impl ::core::fmt::Debug for DeviceAccountIconId {
 impl ::windows_core::RuntimeType for DeviceAccountIconId {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountIconId;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceAccountMailAgeFilter(pub i32);
@@ -894,7 +889,6 @@ impl ::core::fmt::Debug for DeviceAccountMailAgeFilter {
 impl ::windows_core::RuntimeType for DeviceAccountMailAgeFilter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountMailAgeFilter;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceAccountServerType(pub i32);
@@ -925,7 +919,6 @@ impl ::core::fmt::Debug for DeviceAccountServerType {
 impl ::windows_core::RuntimeType for DeviceAccountServerType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountServerType;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceAccountSyncScheduleKind(pub i32);

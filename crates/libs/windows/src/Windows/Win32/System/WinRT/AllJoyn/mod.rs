@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInterop(::windows_core::IUnknown);
@@ -24,7 +23,6 @@ pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromWin32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, win32handle: u64, enableaboutdata: u8, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsDevicesAllJoynBusAttachmentInterop(::windows_core::IUnknown);
@@ -47,7 +45,6 @@ pub struct IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Win32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop(::windows_core::IUnknown);
@@ -73,7 +70,6 @@ pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromWin32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, win32handle: u64, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsDevicesAllJoynBusObjectInterop(::windows_core::IUnknown);

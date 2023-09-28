@@ -235,12 +235,11 @@ pub struct IRfcommOutboundConnectionInformation_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_Rfcomm"))]
     SetRemoteServiceId: usize,
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothLEAdvertisementPublisherTriggerDetails(::windows_core::IUnknown);
 impl BluetoothLEAdvertisementPublisherTriggerDetails {
-    #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_Advertisement`"]
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
     pub fn Status(&self) -> ::windows_core::Result<super::Advertisement::BluetoothLEAdvertisementPublisherStatus> {
         let this = self;
@@ -256,7 +255,7 @@ impl BluetoothLEAdvertisementPublisherTriggerDetails {
             (::windows_core::Interface::vtable(this).Error)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SelectedTransmitPowerLevelInDBm(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<i16>> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEAdvertisementPublisherTriggerDetails2>(self)?;
@@ -281,7 +280,6 @@ impl ::windows_core::RuntimeName for BluetoothLEAdvertisementPublisherTriggerDet
 ::windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisherTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisherTriggerDetails {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisherTriggerDetails {}
-#[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothLEAdvertisementWatcherTriggerDetails(::windows_core::IUnknown);
@@ -293,7 +291,7 @@ impl BluetoothLEAdvertisementWatcherTriggerDetails {
             (::windows_core::Interface::vtable(this).Error)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_Advertisement`, `Foundation_Collections`"]
     #[cfg(all(feature = "Devices_Bluetooth_Advertisement", feature = "Foundation_Collections"))]
     pub fn Advertisements(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::Advertisement::BluetoothLEAdvertisementReceivedEventArgs>> {
         let this = self;
@@ -325,12 +323,11 @@ impl ::windows_core::RuntimeName for BluetoothLEAdvertisementWatcherTriggerDetai
 ::windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcherTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcherTriggerDetails {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcherTriggerDetails {}
-#[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattCharacteristicNotificationTriggerDetails(::windows_core::IUnknown);
 impl GattCharacteristicNotificationTriggerDetails {
-    #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_GenericAttributeProfile`"]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn Characteristic(&self) -> ::windows_core::Result<super::GenericAttributeProfile::GattCharacteristic> {
         let this = self;
@@ -339,7 +336,7 @@ impl GattCharacteristicNotificationTriggerDetails {
             (::windows_core::Interface::vtable(this).Characteristic)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Value(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -362,7 +359,7 @@ impl GattCharacteristicNotificationTriggerDetails {
             (::windows_core::Interface::vtable(this).EventTriggeringMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_GenericAttributeProfile`, `Foundation_Collections`"]
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation_Collections"))]
     pub fn ValueChangedEvents(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::GenericAttributeProfile::GattValueChangedEventArgs>> {
         let this = &::windows_core::ComInterface::cast::<IGattCharacteristicNotificationTriggerDetails2>(self)?;
@@ -387,7 +384,6 @@ impl ::windows_core::RuntimeName for GattCharacteristicNotificationTriggerDetail
 ::windows_core::imp::interface_hierarchy!(GattCharacteristicNotificationTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattCharacteristicNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for GattCharacteristicNotificationTriggerDetails {}
-#[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattServiceProviderConnection(::windows_core::IUnknown);
@@ -399,7 +395,7 @@ impl GattServiceProviderConnection {
             (::windows_core::Interface::vtable(this).TriggerId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_GenericAttributeProfile`"]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn Service(&self) -> ::windows_core::Result<super::GenericAttributeProfile::GattLocalService> {
         let this = self;
@@ -412,7 +408,7 @@ impl GattServiceProviderConnection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Start)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllServices() -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, GattServiceProviderConnection>> {
         Self::IGattServiceProviderConnectionStatics(|this| unsafe {
@@ -441,7 +437,6 @@ impl ::windows_core::RuntimeName for GattServiceProviderConnection {
 ::windows_core::imp::interface_hierarchy!(GattServiceProviderConnection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderConnection {}
 unsafe impl ::core::marker::Sync for GattServiceProviderConnection {}
-#[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattServiceProviderTriggerDetails(::windows_core::IUnknown);
@@ -469,12 +464,11 @@ impl ::windows_core::RuntimeName for GattServiceProviderTriggerDetails {
 ::windows_core::imp::interface_hierarchy!(GattServiceProviderTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for GattServiceProviderTriggerDetails {}
-#[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RfcommConnectionTriggerDetails(::windows_core::IUnknown);
 impl RfcommConnectionTriggerDetails {
-    #[doc = "*Required features: `\"Networking_Sockets\"`*"]
+    #[doc = "Required features: `Networking_Sockets`"]
     #[cfg(feature = "Networking_Sockets")]
     pub fn Socket(&self) -> ::windows_core::Result<super::super::super::Networking::Sockets::StreamSocket> {
         let this = self;
@@ -513,12 +507,11 @@ impl ::windows_core::RuntimeName for RfcommConnectionTriggerDetails {
 ::windows_core::imp::interface_hierarchy!(RfcommConnectionTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommConnectionTriggerDetails {}
 unsafe impl ::core::marker::Sync for RfcommConnectionTriggerDetails {}
-#[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RfcommInboundConnectionInformation(::windows_core::IUnknown);
 impl RfcommInboundConnectionInformation {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SdpRecord(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -527,7 +520,7 @@ impl RfcommInboundConnectionInformation {
             (::windows_core::Interface::vtable(this).SdpRecord)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSdpRecord<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -536,7 +529,7 @@ impl RfcommInboundConnectionInformation {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSdpRecord)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_Rfcomm`"]
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
     pub fn LocalServiceId(&self) -> ::windows_core::Result<super::Rfcomm::RfcommServiceId> {
         let this = self;
@@ -545,7 +538,7 @@ impl RfcommInboundConnectionInformation {
             (::windows_core::Interface::vtable(this).LocalServiceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_Rfcomm`"]
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
     pub fn SetLocalServiceId<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -581,12 +574,11 @@ impl ::windows_core::RuntimeName for RfcommInboundConnectionInformation {
 ::windows_core::imp::interface_hierarchy!(RfcommInboundConnectionInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommInboundConnectionInformation {}
 unsafe impl ::core::marker::Sync for RfcommInboundConnectionInformation {}
-#[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RfcommOutboundConnectionInformation(::windows_core::IUnknown);
 impl RfcommOutboundConnectionInformation {
-    #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_Rfcomm`"]
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
     pub fn RemoteServiceId(&self) -> ::windows_core::Result<super::Rfcomm::RfcommServiceId> {
         let this = self;
@@ -595,7 +587,7 @@ impl RfcommOutboundConnectionInformation {
             (::windows_core::Interface::vtable(this).RemoteServiceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_Rfcomm`"]
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
     pub fn SetRemoteServiceId<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -620,7 +612,6 @@ impl ::windows_core::RuntimeName for RfcommOutboundConnectionInformation {
 ::windows_core::imp::interface_hierarchy!(RfcommOutboundConnectionInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommOutboundConnectionInformation {}
 unsafe impl ::core::marker::Sync for RfcommOutboundConnectionInformation {}
-#[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BluetoothEventTriggeringMode(pub i32);

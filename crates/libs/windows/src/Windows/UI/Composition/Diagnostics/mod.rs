@@ -49,7 +49,6 @@ pub struct ICompositionDebugSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryGetSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionDebugHeatMaps(::windows_core::IUnknown);
@@ -98,7 +97,6 @@ impl ::windows_core::RuntimeName for CompositionDebugHeatMaps {
 ::windows_core::imp::interface_hierarchy!(CompositionDebugHeatMaps, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CompositionDebugHeatMaps {}
 unsafe impl ::core::marker::Sync for CompositionDebugHeatMaps {}
-#[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompositionDebugSettings(::windows_core::IUnknown);
@@ -140,7 +138,6 @@ impl ::windows_core::RuntimeName for CompositionDebugSettings {
 ::windows_core::imp::interface_hierarchy!(CompositionDebugSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CompositionDebugSettings {}
 unsafe impl ::core::marker::Sync for CompositionDebugSettings {}
-#[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);

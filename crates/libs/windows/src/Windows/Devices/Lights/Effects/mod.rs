@@ -283,7 +283,6 @@ pub struct ILampArrayCustomEffectFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: *mut ::core::ffi::c_void, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILampArrayEffect(::windows_core::IUnknown);
@@ -462,12 +461,11 @@ pub struct ILampArrayUpdateRequestedEventArgs_Vtbl {
     #[cfg(not(feature = "UI"))]
     SetColorsForIndices: usize,
 }
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArrayBitmapEffect(::windows_core::IUnknown);
 impl LampArrayBitmapEffect {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -476,13 +474,13 @@ impl LampArrayBitmapEffect {
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDuration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn StartDelay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -491,13 +489,13 @@ impl LampArrayBitmapEffect {
             (::windows_core::Interface::vtable(this).StartDelay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartDelay(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetStartDelay)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateInterval(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -506,13 +504,13 @@ impl LampArrayBitmapEffect {
             (::windows_core::Interface::vtable(this).UpdateInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetUpdateInterval(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetUpdateInterval)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SuggestedBitmapSize(&self) -> ::windows_core::Result<super::super::super::Foundation::Size> {
         let this = self;
@@ -521,7 +519,7 @@ impl LampArrayBitmapEffect {
             (::windows_core::Interface::vtable(this).SuggestedBitmapSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn BitmapRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -533,7 +531,7 @@ impl LampArrayBitmapEffect {
             (::windows_core::Interface::vtable(this).BitmapRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBitmapRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -581,12 +579,11 @@ impl ::windows_core::RuntimeName for LampArrayBitmapEffect {
 impl ::windows_core::CanTryInto<ILampArrayEffect> for LampArrayBitmapEffect {}
 unsafe impl ::core::marker::Send for LampArrayBitmapEffect {}
 unsafe impl ::core::marker::Sync for LampArrayBitmapEffect {}
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArrayBitmapRequestedEventArgs(::windows_core::IUnknown);
 impl LampArrayBitmapRequestedEventArgs {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SinceStarted(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -595,7 +592,7 @@ impl LampArrayBitmapRequestedEventArgs {
             (::windows_core::Interface::vtable(this).SinceStarted)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
+    #[doc = "Required features: `Graphics_Imaging`"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn UpdateBitmap<P0>(&self, bitmap: P0) -> ::windows_core::Result<()>
     where
@@ -620,12 +617,11 @@ impl ::windows_core::RuntimeName for LampArrayBitmapRequestedEventArgs {
 ::windows_core::imp::interface_hierarchy!(LampArrayBitmapRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LampArrayBitmapRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LampArrayBitmapRequestedEventArgs {}
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArrayBlinkEffect(::windows_core::IUnknown);
 impl LampArrayBlinkEffect {
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn Color(&self) -> ::windows_core::Result<super::super::super::UI::Color> {
         let this = self;
@@ -634,13 +630,13 @@ impl LampArrayBlinkEffect {
             (::windows_core::Interface::vtable(this).Color)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetColor(&self, value: super::super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AttackDuration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -649,13 +645,13 @@ impl LampArrayBlinkEffect {
             (::windows_core::Interface::vtable(this).AttackDuration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetAttackDuration(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAttackDuration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SustainDuration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -664,13 +660,13 @@ impl LampArrayBlinkEffect {
             (::windows_core::Interface::vtable(this).SustainDuration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetSustainDuration(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSustainDuration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DecayDuration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -679,13 +675,13 @@ impl LampArrayBlinkEffect {
             (::windows_core::Interface::vtable(this).DecayDuration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDecayDuration(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDecayDuration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RepetitionDelay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -694,13 +690,13 @@ impl LampArrayBlinkEffect {
             (::windows_core::Interface::vtable(this).RepetitionDelay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetRepetitionDelay(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetRepetitionDelay)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn StartDelay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -709,7 +705,7 @@ impl LampArrayBlinkEffect {
             (::windows_core::Interface::vtable(this).StartDelay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartDelay(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
@@ -779,12 +775,11 @@ impl ::windows_core::RuntimeName for LampArrayBlinkEffect {
 impl ::windows_core::CanTryInto<ILampArrayEffect> for LampArrayBlinkEffect {}
 unsafe impl ::core::marker::Send for LampArrayBlinkEffect {}
 unsafe impl ::core::marker::Sync for LampArrayBlinkEffect {}
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArrayColorRampEffect(::windows_core::IUnknown);
 impl LampArrayColorRampEffect {
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn Color(&self) -> ::windows_core::Result<super::super::super::UI::Color> {
         let this = self;
@@ -793,13 +788,13 @@ impl LampArrayColorRampEffect {
             (::windows_core::Interface::vtable(this).Color)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetColor(&self, value: super::super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RampDuration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -808,13 +803,13 @@ impl LampArrayColorRampEffect {
             (::windows_core::Interface::vtable(this).RampDuration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetRampDuration(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetRampDuration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn StartDelay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -823,7 +818,7 @@ impl LampArrayColorRampEffect {
             (::windows_core::Interface::vtable(this).StartDelay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartDelay(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
@@ -882,12 +877,11 @@ impl ::windows_core::RuntimeName for LampArrayColorRampEffect {
 impl ::windows_core::CanTryInto<ILampArrayEffect> for LampArrayColorRampEffect {}
 unsafe impl ::core::marker::Send for LampArrayColorRampEffect {}
 unsafe impl ::core::marker::Sync for LampArrayColorRampEffect {}
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArrayCustomEffect(::windows_core::IUnknown);
 impl LampArrayCustomEffect {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -896,13 +890,13 @@ impl LampArrayCustomEffect {
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDuration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateInterval(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -911,13 +905,13 @@ impl LampArrayCustomEffect {
             (::windows_core::Interface::vtable(this).UpdateInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetUpdateInterval(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetUpdateInterval)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -929,7 +923,7 @@ impl LampArrayCustomEffect {
             (::windows_core::Interface::vtable(this).UpdateRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdateRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -977,7 +971,6 @@ impl ::windows_core::RuntimeName for LampArrayCustomEffect {
 impl ::windows_core::CanTryInto<ILampArrayEffect> for LampArrayCustomEffect {}
 unsafe impl ::core::marker::Send for LampArrayCustomEffect {}
 unsafe impl ::core::marker::Sync for LampArrayCustomEffect {}
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArrayEffectPlaylist(::windows_core::IUnknown);
@@ -989,7 +982,7 @@ impl LampArrayEffectPlaylist {
         static SHARED: ::windows_core::imp::FactoryCache<LampArrayEffectPlaylist, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterator<ILampArrayEffect>> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IIterable<ILampArrayEffect>>(self)?;
@@ -1054,7 +1047,7 @@ impl LampArrayEffectPlaylist {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetRepetitionMode)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartAll<P0>(value: P0) -> ::windows_core::Result<()>
     where
@@ -1062,7 +1055,7 @@ impl LampArrayEffectPlaylist {
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows_core::Interface::vtable(this).StartAll)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StopAll<P0>(value: P0) -> ::windows_core::Result<()>
     where
@@ -1070,7 +1063,7 @@ impl LampArrayEffectPlaylist {
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows_core::Interface::vtable(this).StopAll)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PauseAll<P0>(value: P0) -> ::windows_core::Result<()>
     where
@@ -1078,7 +1071,7 @@ impl LampArrayEffectPlaylist {
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows_core::Interface::vtable(this).PauseAll)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<ILampArrayEffect> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
@@ -1087,7 +1080,7 @@ impl LampArrayEffectPlaylist {
             (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
@@ -1096,7 +1089,7 @@ impl LampArrayEffectPlaylist {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
     where
@@ -1108,7 +1101,7 @@ impl LampArrayEffectPlaylist {
             (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<ILampArrayEffect>]) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
@@ -1158,7 +1151,6 @@ impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::II
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>> for LampArrayEffectPlaylist {}
 unsafe impl ::core::marker::Send for LampArrayEffectPlaylist {}
 unsafe impl ::core::marker::Sync for LampArrayEffectPlaylist {}
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArraySolidEffect(::windows_core::IUnknown);
@@ -1174,7 +1166,7 @@ impl LampArraySolidEffect {
         let this = &::windows_core::ComInterface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetZIndex)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn Color(&self) -> ::windows_core::Result<super::super::super::UI::Color> {
         let this = self;
@@ -1183,13 +1175,13 @@ impl LampArraySolidEffect {
             (::windows_core::Interface::vtable(this).Color)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetColor(&self, value: super::super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1198,13 +1190,13 @@ impl LampArraySolidEffect {
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDuration)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn StartDelay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1213,7 +1205,7 @@ impl LampArraySolidEffect {
             (::windows_core::Interface::vtable(this).StartDelay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetStartDelay(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
@@ -1261,12 +1253,11 @@ impl ::windows_core::RuntimeName for LampArraySolidEffect {
 impl ::windows_core::CanTryInto<ILampArrayEffect> for LampArraySolidEffect {}
 unsafe impl ::core::marker::Send for LampArraySolidEffect {}
 unsafe impl ::core::marker::Sync for LampArraySolidEffect {}
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArrayUpdateRequestedEventArgs(::windows_core::IUnknown);
 impl LampArrayUpdateRequestedEventArgs {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SinceStarted(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1275,25 +1266,25 @@ impl LampArrayUpdateRequestedEventArgs {
             (::windows_core::Interface::vtable(this).SinceStarted)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetColor(&self, desiredcolor: super::super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetColor)(::windows_core::Interface::as_raw(this), desiredcolor).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetColorForIndex(&self, lampindex: i32, desiredcolor: super::super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetColorForIndex)(::windows_core::Interface::as_raw(this), lampindex, desiredcolor).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetSingleColorForIndices(&self, desiredcolor: super::super::super::UI::Color, lampindexes: &[i32]) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSingleColorForIndices)(::windows_core::Interface::as_raw(this), desiredcolor, lampindexes.len() as u32, lampindexes.as_ptr()).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetColorsForIndices(&self, desiredcolors: &[super::super::super::UI::Color], lampindexes: &[i32]) -> ::windows_core::Result<()> {
         let this = self;
@@ -1315,7 +1306,6 @@ impl ::windows_core::RuntimeName for LampArrayUpdateRequestedEventArgs {
 ::windows_core::imp::interface_hierarchy!(LampArrayUpdateRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LampArrayUpdateRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LampArrayUpdateRequestedEventArgs {}
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LampArrayEffectCompletionBehavior(pub i32);
@@ -1345,7 +1335,6 @@ impl ::core::fmt::Debug for LampArrayEffectCompletionBehavior {
 impl ::windows_core::RuntimeType for LampArrayEffectCompletionBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior;i4)");
 }
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LampArrayEffectStartMode(pub i32);
@@ -1375,7 +1364,6 @@ impl ::core::fmt::Debug for LampArrayEffectStartMode {
 impl ::windows_core::RuntimeType for LampArrayEffectStartMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectStartMode;i4)");
 }
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LampArrayRepetitionMode(pub i32);

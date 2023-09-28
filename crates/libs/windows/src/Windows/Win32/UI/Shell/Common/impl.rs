@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`, `\"implement\"`*"]
 pub trait IObjectArray_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
     fn GetAt(&self, uiindex: u32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -32,7 +31,6 @@ impl IObjectArray_Vtbl {
         *iid == <IObjectArray as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_Common\"`, `\"implement\"`*"]
 pub trait IObjectCollection_Impl: Sized + IObjectArray_Impl {
     fn AddObject(&self, punk: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn AddFromArray(&self, poasource: ::core::option::Option<&IObjectArray>) -> ::windows_core::Result<()>;

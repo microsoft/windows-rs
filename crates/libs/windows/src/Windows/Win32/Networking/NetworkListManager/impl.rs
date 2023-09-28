@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumNetworkConnections_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<super::super::System::Ole::IEnumVARIANT>;
@@ -62,7 +62,7 @@ impl IEnumNetworkConnections_Vtbl {
         *iid == <IEnumNetworkConnections as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumNetworks_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<super::super::System::Ole::IEnumVARIANT>;
@@ -126,7 +126,7 @@ impl IEnumNetworks_Vtbl {
         *iid == <IEnumNetworks as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetwork_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -288,7 +288,7 @@ impl INetwork_Vtbl {
         *iid == <INetwork as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetwork2_Impl: Sized + INetwork_Impl {
     fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -315,7 +315,7 @@ impl INetwork2_Vtbl {
         *iid == <INetwork2 as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <INetwork as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetworkConnection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetNetwork(&self) -> ::windows_core::Result<INetwork>;
@@ -423,7 +423,7 @@ impl INetworkConnection_Vtbl {
         *iid == <INetworkConnection as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetworkConnection2_Impl: Sized + INetworkConnection_Impl {
     fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -450,7 +450,7 @@ impl INetworkConnection2_Vtbl {
         *iid == <INetworkConnection2 as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <INetworkConnection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetworkConnectionCost_Impl: Sized {
     fn GetCost(&self) -> ::windows_core::Result<u32>;
@@ -487,7 +487,6 @@ impl INetworkConnectionCost_Vtbl {
         *iid == <INetworkConnectionCost as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"implement\"`*"]
 pub trait INetworkConnectionCostEvents_Impl: Sized {
     fn ConnectionCostChanged(&self, connectionid: &::windows_core::GUID, newcost: u32) -> ::windows_core::Result<()>;
     fn ConnectionDataPlanStatusChanged(&self, connectionid: &::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -515,7 +514,6 @@ impl INetworkConnectionCostEvents_Vtbl {
         *iid == <INetworkConnectionCostEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"implement\"`*"]
 pub trait INetworkConnectionEvents_Impl: Sized {
     fn NetworkConnectionConnectivityChanged(&self, connectionid: &::windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows_core::Result<()>;
     fn NetworkConnectionPropertyChanged(&self, connectionid: &::windows_core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> ::windows_core::Result<()>;
@@ -543,7 +541,7 @@ impl INetworkConnectionEvents_Vtbl {
         *iid == <INetworkConnectionEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetworkCostManager_Impl: Sized {
     fn GetCost(&self, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> ::windows_core::Result<()>;
@@ -581,7 +579,6 @@ impl INetworkCostManager_Vtbl {
         *iid == <INetworkCostManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"implement\"`*"]
 pub trait INetworkCostManagerEvents_Impl: Sized {
     fn CostChanged(&self, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> ::windows_core::Result<()>;
     fn DataPlanStatusChanged(&self, pdestaddr: *const NLM_SOCKADDR) -> ::windows_core::Result<()>;
@@ -609,7 +606,6 @@ impl INetworkCostManagerEvents_Vtbl {
         *iid == <INetworkCostManagerEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"implement\"`*"]
 pub trait INetworkEvents_Impl: Sized {
     fn NetworkAdded(&self, networkid: &::windows_core::GUID) -> ::windows_core::Result<()>;
     fn NetworkDeleted(&self, networkid: &::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -651,7 +647,7 @@ impl INetworkEvents_Vtbl {
         *iid == <INetworkEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetworkListManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetNetworks(&self, flags: NLM_ENUM_NETWORK) -> ::windows_core::Result<IEnumNetworks>;
@@ -773,7 +769,6 @@ impl INetworkListManager_Vtbl {
         *iid == <INetworkListManager as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"implement\"`*"]
 pub trait INetworkListManagerEvents_Impl: Sized {
     fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> ::windows_core::Result<()>;
 }

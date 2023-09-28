@@ -18,7 +18,6 @@ pub struct ICoreUserActivityManagerStatics_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     DeleteUserActivitySessionsInTimeRangeAsync: usize,
 }
-#[doc = "*Required features: `\"ApplicationModel_UserActivities_Core\"`*"]
 pub struct CoreUserActivityManager;
 impl CoreUserActivityManager {
     pub fn CreateUserActivitySessionInBackground<P0>(activity: P0) -> ::windows_core::Result<super::UserActivitySession>
@@ -30,7 +29,7 @@ impl CoreUserActivityManager {
             (::windows_core::Interface::vtable(this).CreateUserActivitySessionInBackground)(::windows_core::Interface::as_raw(this), activity.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteUserActivitySessionsInTimeRangeAsync<P0>(channel: P0, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where

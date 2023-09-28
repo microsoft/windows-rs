@@ -1,20 +1,27 @@
 #[cfg(feature = "Graphics_Capture")]
+#[doc = "Required features: `Graphics_Capture`"]
 pub mod Capture;
 #[cfg(feature = "Graphics_DirectX")]
+#[doc = "Required features: `Graphics_DirectX`"]
 pub mod DirectX;
 #[cfg(feature = "Graphics_Display")]
+#[doc = "Required features: `Graphics_Display`"]
 pub mod Display;
 #[cfg(feature = "Graphics_Effects")]
+#[doc = "Required features: `Graphics_Effects`"]
 pub mod Effects;
 #[cfg(feature = "Graphics_Holographic")]
+#[doc = "Required features: `Graphics_Holographic`"]
 pub mod Holographic;
 #[cfg(feature = "Graphics_Imaging")]
+#[doc = "Required features: `Graphics_Imaging`"]
 pub mod Imaging;
 #[cfg(feature = "Graphics_Printing")]
+#[doc = "Required features: `Graphics_Printing`"]
 pub mod Printing;
 #[cfg(feature = "Graphics_Printing3D")]
+#[doc = "Required features: `Graphics_Printing3D`"]
 pub mod Printing3D;
-#[doc = "*Required features: `\"Graphics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGeometrySource2D(::windows_core::IUnknown);
@@ -35,7 +42,6 @@ pub struct IGeometrySource2D_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Graphics\"`*"]
 pub struct DisplayAdapterId {
     pub LowPart: u32,
     pub HighPart: i32,
@@ -69,7 +75,6 @@ impl ::core::default::Default for DisplayAdapterId {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Graphics\"`*"]
 pub struct DisplayId {
     pub Value: u64,
 }
@@ -102,7 +107,6 @@ impl ::core::default::Default for DisplayId {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Graphics\"`*"]
 pub struct PointInt32 {
     pub X: i32,
     pub Y: i32,
@@ -136,7 +140,6 @@ impl ::core::default::Default for PointInt32 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Graphics\"`*"]
 pub struct RectInt32 {
     pub X: i32,
     pub Y: i32,
@@ -172,7 +175,6 @@ impl ::core::default::Default for RectInt32 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Graphics\"`*"]
 pub struct SizeInt32 {
     pub Width: i32,
     pub Height: i32,

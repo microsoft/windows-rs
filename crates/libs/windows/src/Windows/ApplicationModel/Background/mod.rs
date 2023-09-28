@@ -182,7 +182,6 @@ unsafe impl ::windows_core::ComInterface for IAppointmentStoreNotificationTrigge
 pub struct IAppointmentStoreNotificationTrigger_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCondition(::windows_core::IUnknown);
@@ -269,7 +268,6 @@ pub struct IBackgroundExecutionManagerStatics3_Vtbl {
     pub GetAccessStatusForModernStandby: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BackgroundAccessStatus) -> ::windows_core::HRESULT,
     pub GetAccessStatusForModernStandbyForApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut BackgroundAccessStatus) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundTask(::windows_core::IUnknown);
@@ -420,7 +418,6 @@ pub struct IBackgroundTaskDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundTaskInstance(::windows_core::IUnknown);
@@ -457,7 +454,7 @@ impl IBackgroundTaskInstance {
             (::windows_core::Interface::vtable(this).TriggerDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Canceled<P0>(&self, cancelhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -469,7 +466,7 @@ impl IBackgroundTaskInstance {
             (::windows_core::Interface::vtable(this).Canceled)(::windows_core::Interface::as_raw(this), cancelhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCanceled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -520,7 +517,6 @@ pub struct IBackgroundTaskInstance_Vtbl {
     pub SuspendedCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundTaskInstance2(::windows_core::IUnknown);
@@ -564,7 +560,7 @@ impl IBackgroundTaskInstance2 {
             (::windows_core::Interface::vtable(this).TriggerDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Canceled<P0>(&self, cancelhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -576,7 +572,7 @@ impl IBackgroundTaskInstance2 {
             (::windows_core::Interface::vtable(this).Canceled)(::windows_core::Interface::as_raw(this), cancelhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCanceled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
@@ -614,12 +610,11 @@ pub struct IBackgroundTaskInstance2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetThrottleCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, counter: BackgroundTaskThrottleCounter, result__: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundTaskInstance4(::windows_core::IUnknown);
 impl IBackgroundTaskInstance4 {
-    #[doc = "*Required features: `\"System\"`*"]
+    #[doc = "Required features: `System`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
@@ -660,7 +655,7 @@ impl IBackgroundTaskInstance4 {
             (::windows_core::Interface::vtable(this).TriggerDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Canceled<P0>(&self, cancelhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -672,7 +667,7 @@ impl IBackgroundTaskInstance4 {
             (::windows_core::Interface::vtable(this).Canceled)(::windows_core::Interface::as_raw(this), cancelhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCanceled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
@@ -730,7 +725,6 @@ pub struct IBackgroundTaskProgressEventArgs_Vtbl {
     pub InstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub Progress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundTaskRegistration(::windows_core::IUnknown);
@@ -749,7 +743,7 @@ impl IBackgroundTaskRegistration {
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Progress<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -761,13 +755,13 @@ impl IBackgroundTaskRegistration {
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProgress(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveProgress)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Completed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -779,7 +773,7 @@ impl IBackgroundTaskRegistration {
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -824,7 +818,6 @@ pub struct IBackgroundTaskRegistration_Vtbl {
     RemoveCompleted: usize,
     pub Unregister: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, canceltask: bool) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundTaskRegistration2(::windows_core::IUnknown);
@@ -850,7 +843,7 @@ impl IBackgroundTaskRegistration2 {
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Progress<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -862,13 +855,13 @@ impl IBackgroundTaskRegistration2 {
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProgress(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveProgress)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Completed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -880,7 +873,7 @@ impl IBackgroundTaskRegistration2 {
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskRegistration>(self)?;
@@ -908,7 +901,6 @@ pub struct IBackgroundTaskRegistration2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Trigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundTaskRegistration3(::windows_core::IUnknown);
@@ -934,7 +926,7 @@ impl IBackgroundTaskRegistration3 {
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Progress<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -946,13 +938,13 @@ impl IBackgroundTaskRegistration3 {
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProgress(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveProgress)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Completed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -964,7 +956,7 @@ impl IBackgroundTaskRegistration3 {
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskRegistration>(self)?;
@@ -1077,7 +1069,6 @@ pub struct IBackgroundTaskRegistrationStatics2_Vtbl {
     AllTaskGroups: usize,
     pub GetTaskGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, groupid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundTrigger(::windows_core::IUnknown);
@@ -2303,12 +2294,11 @@ pub struct IUserNotificationChangedTriggerFactory_Vtbl {
     #[cfg(not(feature = "UI_Notifications"))]
     Create: usize,
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ActivitySensorTrigger(::windows_core::IUnknown);
 impl ActivitySensorTrigger {
-    #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Devices_Sensors`, `Foundation_Collections`"]
     #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))]
     pub fn SubscribedActivities(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Devices::Sensors::ActivityType>> {
         let this = self;
@@ -2324,7 +2314,7 @@ impl ActivitySensorTrigger {
             (::windows_core::Interface::vtable(this).ReportInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Devices_Sensors`, `Foundation_Collections`"]
     #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))]
     pub fn SupportedActivities(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Devices::Sensors::ActivityType>> {
         let this = self;
@@ -2368,10 +2358,9 @@ impl ::windows_core::RuntimeName for ActivitySensorTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for ActivitySensorTrigger {}
 unsafe impl ::core::marker::Send for ActivitySensorTrigger {}
 unsafe impl ::core::marker::Sync for ActivitySensorTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 pub struct AlarmApplicationManager;
 impl AlarmApplicationManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AlarmAccessStatus>> {
         Self::IAlarmApplicationManagerStatics(|this| unsafe {
@@ -2394,7 +2383,6 @@ impl AlarmApplicationManager {
 impl ::windows_core::RuntimeName for AlarmApplicationManager {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AlarmApplicationManager";
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppBroadcastTrigger(::windows_core::IUnknown);
@@ -2441,7 +2429,6 @@ impl ::windows_core::RuntimeName for AppBroadcastTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for AppBroadcastTrigger {}
 unsafe impl ::core::marker::Send for AppBroadcastTrigger {}
 unsafe impl ::core::marker::Sync for AppBroadcastTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppBroadcastTriggerProviderInfo(::windows_core::IUnknown);
@@ -2468,13 +2455,13 @@ impl AppBroadcastTriggerProviderInfo {
             (::windows_core::Interface::vtable(this).LogoResource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetVideoKeyFrameInterval(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetVideoKeyFrameInterval)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn VideoKeyFrameInterval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -2532,7 +2519,6 @@ impl ::windows_core::RuntimeName for AppBroadcastTriggerProviderInfo {
 ::windows_core::imp::interface_hierarchy!(AppBroadcastTriggerProviderInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastTriggerProviderInfo {}
 unsafe impl ::core::marker::Sync for AppBroadcastTriggerProviderInfo {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ApplicationTrigger(::windows_core::IUnknown);
@@ -2544,7 +2530,7 @@ impl ApplicationTrigger {
         static SHARED: ::windows_core::imp::FactoryCache<ApplicationTrigger, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>> {
         let this = self;
@@ -2553,7 +2539,7 @@ impl ApplicationTrigger {
             (::windows_core::Interface::vtable(this).RequestAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestAsyncWithArguments<P0>(&self, arguments: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>>
     where
@@ -2582,12 +2568,11 @@ impl ::windows_core::RuntimeName for ApplicationTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for ApplicationTrigger {}
 unsafe impl ::core::marker::Send for ApplicationTrigger {}
 unsafe impl ::core::marker::Sync for ApplicationTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ApplicationTriggerDetails(::windows_core::IUnknown);
 impl ApplicationTriggerDetails {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Arguments(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -2612,7 +2597,6 @@ impl ::windows_core::RuntimeName for ApplicationTriggerDetails {
 ::windows_core::imp::interface_hierarchy!(ApplicationTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ApplicationTriggerDetails {}
 unsafe impl ::core::marker::Sync for ApplicationTriggerDetails {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentStoreNotificationTrigger(::windows_core::IUnknown);
@@ -2641,10 +2625,9 @@ impl ::windows_core::RuntimeName for AppointmentStoreNotificationTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for AppointmentStoreNotificationTrigger {}
 unsafe impl ::core::marker::Send for AppointmentStoreNotificationTrigger {}
 unsafe impl ::core::marker::Sync for AppointmentStoreNotificationTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 pub struct BackgroundExecutionManager;
 impl BackgroundExecutionManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>> {
         Self::IBackgroundExecutionManagerStatics(|this| unsafe {
@@ -2652,7 +2635,7 @@ impl BackgroundExecutionManager {
             (::windows_core::Interface::vtable(this).RequestAccessAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessForApplicationAsync(applicationid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>> {
         Self::IBackgroundExecutionManagerStatics(|this| unsafe {
@@ -2678,7 +2661,7 @@ impl BackgroundExecutionManager {
             (::windows_core::Interface::vtable(this).GetAccessStatusForApplication)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessKindAsync(requestedaccess: BackgroundAccessRequestKind, reason: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IBackgroundExecutionManagerStatics2(|this| unsafe {
@@ -2686,7 +2669,7 @@ impl BackgroundExecutionManager {
             (::windows_core::Interface::vtable(this).RequestAccessKindAsync)(::windows_core::Interface::as_raw(this), requestedaccess, ::core::mem::transmute_copy(reason), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessKindForModernStandbyAsync(requestedaccess: BackgroundAccessRequestKind, reason: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IBackgroundExecutionManagerStatics3(|this| unsafe {
@@ -2725,7 +2708,6 @@ impl BackgroundExecutionManager {
 impl ::windows_core::RuntimeName for BackgroundExecutionManager {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundExecutionManager";
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackgroundTaskBuilder(::windows_core::IUnknown);
@@ -2834,7 +2816,6 @@ impl ::windows_core::RuntimeName for BackgroundTaskBuilder {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskBuilder";
 }
 ::windows_core::imp::interface_hierarchy!(BackgroundTaskBuilder, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackgroundTaskCompletedEventArgs(::windows_core::IUnknown);
@@ -2866,7 +2847,6 @@ impl ::windows_core::RuntimeName for BackgroundTaskCompletedEventArgs {
 ::windows_core::imp::interface_hierarchy!(BackgroundTaskCompletedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for BackgroundTaskCompletedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackgroundTaskDeferral(::windows_core::IUnknown);
@@ -2891,7 +2871,6 @@ impl ::windows_core::RuntimeName for BackgroundTaskDeferral {
 ::windows_core::imp::interface_hierarchy!(BackgroundTaskDeferral, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTaskDeferral {}
 unsafe impl ::core::marker::Sync for BackgroundTaskDeferral {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackgroundTaskProgressEventArgs(::windows_core::IUnknown);
@@ -2926,7 +2905,6 @@ impl ::windows_core::RuntimeName for BackgroundTaskProgressEventArgs {
 ::windows_core::imp::interface_hierarchy!(BackgroundTaskProgressEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTaskProgressEventArgs {}
 unsafe impl ::core::marker::Sync for BackgroundTaskProgressEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackgroundTaskRegistration(::windows_core::IUnknown);
@@ -2945,7 +2923,7 @@ impl BackgroundTaskRegistration {
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Progress<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2957,13 +2935,13 @@ impl BackgroundTaskRegistration {
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProgress(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveProgress)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Completed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2975,7 +2953,7 @@ impl BackgroundTaskRegistration {
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -2999,7 +2977,7 @@ impl BackgroundTaskRegistration {
             (::windows_core::Interface::vtable(this).TaskGroup)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllTasks() -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::GUID, IBackgroundTaskRegistration>> {
         Self::IBackgroundTaskRegistrationStatics(|this| unsafe {
@@ -3007,7 +2985,7 @@ impl BackgroundTaskRegistration {
             (::windows_core::Interface::vtable(this).AllTasks)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllTaskGroups() -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, BackgroundTaskRegistrationGroup>> {
         Self::IBackgroundTaskRegistrationStatics2(|this| unsafe {
@@ -3050,7 +3028,6 @@ impl ::windows_core::CanTryInto<IBackgroundTaskRegistration2> for BackgroundTask
 impl ::windows_core::CanTryInto<IBackgroundTaskRegistration3> for BackgroundTaskRegistration {}
 unsafe impl ::core::marker::Send for BackgroundTaskRegistration {}
 unsafe impl ::core::marker::Sync for BackgroundTaskRegistration {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackgroundTaskRegistrationGroup(::windows_core::IUnknown);
@@ -3069,7 +3046,7 @@ impl BackgroundTaskRegistrationGroup {
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
+    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     pub fn BackgroundActivated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3081,13 +3058,13 @@ impl BackgroundTaskRegistrationGroup {
             (::windows_core::Interface::vtable(this).BackgroundActivated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBackgroundActivated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveBackgroundActivated)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllTasks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::GUID, BackgroundTaskRegistration>> {
         let this = self;
@@ -3129,7 +3106,6 @@ impl ::windows_core::RuntimeName for BackgroundTaskRegistrationGroup {
 ::windows_core::imp::interface_hierarchy!(BackgroundTaskRegistrationGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for BackgroundTaskRegistrationGroup {}
 unsafe impl ::core::marker::Sync for BackgroundTaskRegistrationGroup {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 pub struct BackgroundWorkCost;
 impl BackgroundWorkCost {
     pub fn CurrentBackgroundWorkCost() -> ::windows_core::Result<BackgroundWorkCostValue> {
@@ -3147,7 +3123,6 @@ impl BackgroundWorkCost {
 impl ::windows_core::RuntimeName for BackgroundWorkCost {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundWorkCost";
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothLEAdvertisementPublisherTrigger(::windows_core::IUnknown);
@@ -3159,7 +3134,7 @@ impl BluetoothLEAdvertisementPublisherTrigger {
         static SHARED: ::windows_core::imp::FactoryCache<BluetoothLEAdvertisementPublisherTrigger, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_Advertisement`"]
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
     pub fn Advertisement(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement> {
         let this = self;
@@ -3168,7 +3143,7 @@ impl BluetoothLEAdvertisementPublisherTrigger {
             (::windows_core::Interface::vtable(this).Advertisement)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PreferredTransmitPowerLevelInDBm(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i16>> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEAdvertisementPublisherTrigger2>(self)?;
@@ -3177,7 +3152,7 @@ impl BluetoothLEAdvertisementPublisherTrigger {
             (::windows_core::Interface::vtable(this).PreferredTransmitPowerLevelInDBm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPreferredTransmitPowerLevelInDBm<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3236,7 +3211,6 @@ impl ::windows_core::RuntimeName for BluetoothLEAdvertisementPublisherTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for BluetoothLEAdvertisementPublisherTrigger {}
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisherTrigger {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisherTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BluetoothLEAdvertisementWatcherTrigger(::windows_core::IUnknown);
@@ -3248,7 +3222,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
         static SHARED: ::windows_core::imp::FactoryCache<BluetoothLEAdvertisementWatcherTrigger, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn MinSamplingInterval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -3257,7 +3231,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
             (::windows_core::Interface::vtable(this).MinSamplingInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn MaxSamplingInterval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -3266,7 +3240,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
             (::windows_core::Interface::vtable(this).MaxSamplingInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn MinOutOfRangeTimeout(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -3275,7 +3249,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
             (::windows_core::Interface::vtable(this).MinOutOfRangeTimeout)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn MaxOutOfRangeTimeout(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -3284,7 +3258,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
             (::windows_core::Interface::vtable(this).MaxOutOfRangeTimeout)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth`"]
     #[cfg(feature = "Devices_Bluetooth")]
     pub fn SignalStrengthFilter(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::BluetoothSignalStrengthFilter> {
         let this = self;
@@ -3293,7 +3267,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
             (::windows_core::Interface::vtable(this).SignalStrengthFilter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth`"]
     #[cfg(feature = "Devices_Bluetooth")]
     pub fn SetSignalStrengthFilter<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3302,7 +3276,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSignalStrengthFilter)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_Advertisement`"]
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
     pub fn AdvertisementFilter(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter> {
         let this = self;
@@ -3311,7 +3285,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
             (::windows_core::Interface::vtable(this).AdvertisementFilter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_Advertisement`"]
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
     pub fn SetAdvertisementFilter<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3348,7 +3322,6 @@ impl ::windows_core::RuntimeName for BluetoothLEAdvertisementWatcherTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for BluetoothLEAdvertisementWatcherTrigger {}
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcherTrigger {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcherTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CachedFileUpdaterTrigger(::windows_core::IUnknown);
@@ -3377,12 +3350,11 @@ impl ::windows_core::RuntimeName for CachedFileUpdaterTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for CachedFileUpdaterTrigger {}
 unsafe impl ::core::marker::Send for CachedFileUpdaterTrigger {}
 unsafe impl ::core::marker::Sync for CachedFileUpdaterTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CachedFileUpdaterTriggerDetails(::windows_core::IUnknown);
 impl CachedFileUpdaterTriggerDetails {
-    #[doc = "*Required features: `\"Storage_Provider\"`*"]
+    #[doc = "Required features: `Storage_Provider`"]
     #[cfg(feature = "Storage_Provider")]
     pub fn UpdateTarget(&self) -> ::windows_core::Result<super::super::Storage::Provider::CachedFileTarget> {
         let this = self;
@@ -3391,7 +3363,7 @@ impl CachedFileUpdaterTriggerDetails {
             (::windows_core::Interface::vtable(this).UpdateTarget)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Provider\"`*"]
+    #[doc = "Required features: `Storage_Provider`"]
     #[cfg(feature = "Storage_Provider")]
     pub fn UpdateRequest(&self) -> ::windows_core::Result<super::super::Storage::Provider::FileUpdateRequest> {
         let this = self;
@@ -3423,7 +3395,6 @@ impl ::windows_core::RuntimeName for CachedFileUpdaterTriggerDetails {
 ::windows_core::imp::interface_hierarchy!(CachedFileUpdaterTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CachedFileUpdaterTriggerDetails {}
 unsafe impl ::core::marker::Sync for CachedFileUpdaterTriggerDetails {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessageNotificationTrigger(::windows_core::IUnknown);
@@ -3452,7 +3423,6 @@ impl ::windows_core::RuntimeName for ChatMessageNotificationTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for ChatMessageNotificationTrigger {}
 unsafe impl ::core::marker::Send for ChatMessageNotificationTrigger {}
 unsafe impl ::core::marker::Sync for ChatMessageNotificationTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessageReceivedNotificationTrigger(::windows_core::IUnknown);
@@ -3481,7 +3451,6 @@ impl ::windows_core::RuntimeName for ChatMessageReceivedNotificationTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for ChatMessageReceivedNotificationTrigger {}
 unsafe impl ::core::marker::Send for ChatMessageReceivedNotificationTrigger {}
 unsafe impl ::core::marker::Sync for ChatMessageReceivedNotificationTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CommunicationBlockingAppSetAsActiveTrigger(::windows_core::IUnknown);
@@ -3510,7 +3479,6 @@ impl ::windows_core::RuntimeName for CommunicationBlockingAppSetAsActiveTrigger 
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for CommunicationBlockingAppSetAsActiveTrigger {}
 unsafe impl ::core::marker::Send for CommunicationBlockingAppSetAsActiveTrigger {}
 unsafe impl ::core::marker::Sync for CommunicationBlockingAppSetAsActiveTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactStoreNotificationTrigger(::windows_core::IUnknown);
@@ -3539,7 +3507,6 @@ impl ::windows_core::RuntimeName for ContactStoreNotificationTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for ContactStoreNotificationTrigger {}
 unsafe impl ::core::marker::Send for ContactStoreNotificationTrigger {}
 unsafe impl ::core::marker::Sync for ContactStoreNotificationTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContentPrefetchTrigger(::windows_core::IUnknown);
@@ -3551,7 +3518,7 @@ impl ContentPrefetchTrigger {
         static SHARED: ::windows_core::imp::FactoryCache<ContentPrefetchTrigger, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn WaitInterval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -3560,7 +3527,7 @@ impl ContentPrefetchTrigger {
             (::windows_core::Interface::vtable(this).WaitInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Create(waitinterval: super::super::Foundation::TimeSpan) -> ::windows_core::Result<ContentPrefetchTrigger> {
         Self::IContentPrefetchTriggerFactory(|this| unsafe {
@@ -3588,7 +3555,6 @@ impl ::windows_core::RuntimeName for ContentPrefetchTrigger {
 }
 ::windows_core::imp::interface_hierarchy!(ContentPrefetchTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for ContentPrefetchTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConversationalAgentTrigger(::windows_core::IUnknown);
@@ -3615,7 +3581,6 @@ impl ::windows_core::RuntimeName for ConversationalAgentTrigger {
 }
 ::windows_core::imp::interface_hierarchy!(ConversationalAgentTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for ConversationalAgentTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CustomSystemEventTrigger(::windows_core::IUnknown);
@@ -3660,7 +3625,6 @@ impl ::windows_core::RuntimeName for CustomSystemEventTrigger {
 }
 ::windows_core::imp::interface_hierarchy!(CustomSystemEventTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for CustomSystemEventTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceConnectionChangeTrigger(::windows_core::IUnknown);
@@ -3690,7 +3654,7 @@ impl DeviceConnectionChangeTrigger {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMaintainConnection)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceConnectionChangeTrigger>> {
         Self::IDeviceConnectionChangeTriggerStatics(|this| unsafe {
@@ -3720,14 +3684,14 @@ impl ::windows_core::RuntimeName for DeviceConnectionChangeTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for DeviceConnectionChangeTrigger {}
 unsafe impl ::core::marker::Send for DeviceConnectionChangeTrigger {}
 unsafe impl ::core::marker::Sync for DeviceConnectionChangeTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"deprecated\"`*"]
+#[doc = "Required features: `deprecated`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceManufacturerNotificationTrigger(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl DeviceManufacturerNotificationTrigger {
-    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[doc = "Required features: `deprecated`"]
     #[cfg(feature = "deprecated")]
     pub fn TriggerQualifier(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -3736,7 +3700,7 @@ impl DeviceManufacturerNotificationTrigger {
             (::windows_core::Interface::vtable(this).TriggerQualifier)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[doc = "Required features: `deprecated`"]
     #[cfg(feature = "deprecated")]
     pub fn OneShot(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -3745,7 +3709,7 @@ impl DeviceManufacturerNotificationTrigger {
             (::windows_core::Interface::vtable(this).OneShot)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[doc = "Required features: `deprecated`"]
     #[cfg(feature = "deprecated")]
     pub fn Create(triggerqualifier: &::windows_core::HSTRING, oneshot: bool) -> ::windows_core::Result<DeviceManufacturerNotificationTrigger> {
         Self::IDeviceManufacturerNotificationTriggerFactory(|this| unsafe {
@@ -3780,7 +3744,6 @@ impl ::windows_core::RuntimeName for DeviceManufacturerNotificationTrigger {
 ::windows_core::imp::interface_hierarchy!(DeviceManufacturerNotificationTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for DeviceManufacturerNotificationTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceServicingTrigger(::windows_core::IUnknown);
@@ -3792,7 +3755,7 @@ impl DeviceServicingTrigger {
         static SHARED: ::windows_core::imp::FactoryCache<DeviceServicingTrigger, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAsyncSimple(&self, deviceid: &::windows_core::HSTRING, expectedduration: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
@@ -3801,7 +3764,7 @@ impl DeviceServicingTrigger {
             (::windows_core::Interface::vtable(this).RequestAsyncSimple)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), expectedduration, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAsyncWithArguments(&self, deviceid: &::windows_core::HSTRING, expectedduration: super::super::Foundation::TimeSpan, arguments: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
@@ -3827,7 +3790,6 @@ impl ::windows_core::RuntimeName for DeviceServicingTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for DeviceServicingTrigger {}
 unsafe impl ::core::marker::Send for DeviceServicingTrigger {}
 unsafe impl ::core::marker::Sync for DeviceServicingTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceUseTrigger(::windows_core::IUnknown);
@@ -3839,7 +3801,7 @@ impl DeviceUseTrigger {
         static SHARED: ::windows_core::imp::FactoryCache<DeviceUseTrigger, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAsyncSimple(&self, deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
@@ -3848,7 +3810,7 @@ impl DeviceUseTrigger {
             (::windows_core::Interface::vtable(this).RequestAsyncSimple)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAsyncWithArguments(&self, deviceid: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
@@ -3874,7 +3836,6 @@ impl ::windows_core::RuntimeName for DeviceUseTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for DeviceUseTrigger {}
 unsafe impl ::core::marker::Send for DeviceUseTrigger {}
 unsafe impl ::core::marker::Sync for DeviceUseTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceWatcherTrigger(::windows_core::IUnknown);
@@ -3893,7 +3854,6 @@ impl ::windows_core::RuntimeName for DeviceWatcherTrigger {
 }
 ::windows_core::imp::interface_hierarchy!(DeviceWatcherTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for DeviceWatcherTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailStoreNotificationTrigger(::windows_core::IUnknown);
@@ -3922,12 +3882,11 @@ impl ::windows_core::RuntimeName for EmailStoreNotificationTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for EmailStoreNotificationTrigger {}
 unsafe impl ::core::marker::Send for EmailStoreNotificationTrigger {}
 unsafe impl ::core::marker::Sync for EmailStoreNotificationTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattCharacteristicNotificationTrigger(::windows_core::IUnknown);
 impl GattCharacteristicNotificationTrigger {
-    #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_GenericAttributeProfile`"]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn Characteristic(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic> {
         let this = self;
@@ -3936,7 +3895,7 @@ impl GattCharacteristicNotificationTrigger {
             (::windows_core::Interface::vtable(this).Characteristic)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_Background`"]
     #[cfg(feature = "Devices_Bluetooth_Background")]
     pub fn EventTriggeringMode(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode> {
         let this = &::windows_core::ComInterface::cast::<IGattCharacteristicNotificationTrigger2>(self)?;
@@ -3945,7 +3904,7 @@ impl GattCharacteristicNotificationTrigger {
             (::windows_core::Interface::vtable(this).EventTriggeringMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_GenericAttributeProfile`"]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn Create<P0>(characteristic: P0) -> ::windows_core::Result<GattCharacteristicNotificationTrigger>
     where
@@ -3956,7 +3915,7 @@ impl GattCharacteristicNotificationTrigger {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), characteristic.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`, `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_Background`, `Devices_Bluetooth_GenericAttributeProfile`"]
     #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     pub fn CreateWithEventTriggeringMode<P0>(characteristic: P0, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> ::windows_core::Result<GattCharacteristicNotificationTrigger>
     where
@@ -3994,7 +3953,6 @@ impl ::windows_core::RuntimeName for GattCharacteristicNotificationTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for GattCharacteristicNotificationTrigger {}
 unsafe impl ::core::marker::Send for GattCharacteristicNotificationTrigger {}
 unsafe impl ::core::marker::Sync for GattCharacteristicNotificationTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattServiceProviderTrigger(::windows_core::IUnknown);
@@ -4006,7 +3964,7 @@ impl GattServiceProviderTrigger {
             (::windows_core::Interface::vtable(this).TriggerId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_GenericAttributeProfile`"]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn Service(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattLocalService> {
         let this = self;
@@ -4015,7 +3973,7 @@ impl GattServiceProviderTrigger {
             (::windows_core::Interface::vtable(this).Service)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_GenericAttributeProfile`"]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn SetAdvertisingParameters<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4024,7 +3982,7 @@ impl GattServiceProviderTrigger {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAdvertisingParameters)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_GenericAttributeProfile`"]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn AdvertisingParameters(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters> {
         let this = self;
@@ -4033,7 +3991,7 @@ impl GattServiceProviderTrigger {
             (::windows_core::Interface::vtable(this).AdvertisingParameters)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync(triggerid: &::windows_core::HSTRING, serviceuuid: ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<GattServiceProviderTriggerResult>> {
         Self::IGattServiceProviderTriggerStatics(|this| unsafe {
@@ -4063,7 +4021,6 @@ impl ::windows_core::RuntimeName for GattServiceProviderTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for GattServiceProviderTrigger {}
 unsafe impl ::core::marker::Send for GattServiceProviderTrigger {}
 unsafe impl ::core::marker::Sync for GattServiceProviderTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattServiceProviderTriggerResult(::windows_core::IUnknown);
@@ -4075,7 +4032,7 @@ impl GattServiceProviderTriggerResult {
             (::windows_core::Interface::vtable(this).Trigger)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth`"]
     #[cfg(feature = "Devices_Bluetooth")]
     pub fn Error(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::BluetoothError> {
         let this = self;
@@ -4100,7 +4057,6 @@ impl ::windows_core::RuntimeName for GattServiceProviderTriggerResult {
 ::windows_core::imp::interface_hierarchy!(GattServiceProviderTriggerResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderTriggerResult {}
 unsafe impl ::core::marker::Sync for GattServiceProviderTriggerResult {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GeovisitTrigger(::windows_core::IUnknown);
@@ -4112,7 +4068,7 @@ impl GeovisitTrigger {
         static SHARED: ::windows_core::imp::FactoryCache<GeovisitTrigger, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
+    #[doc = "Required features: `Devices_Geolocation`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn MonitoringScope(&self) -> ::windows_core::Result<super::super::Devices::Geolocation::VisitMonitoringScope> {
         let this = self;
@@ -4121,7 +4077,7 @@ impl GeovisitTrigger {
             (::windows_core::Interface::vtable(this).MonitoringScope)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
+    #[doc = "Required features: `Devices_Geolocation`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn SetMonitoringScope(&self, value: super::super::Devices::Geolocation::VisitMonitoringScope) -> ::windows_core::Result<()> {
         let this = self;
@@ -4144,7 +4100,6 @@ impl ::windows_core::RuntimeName for GeovisitTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for GeovisitTrigger {}
 unsafe impl ::core::marker::Send for GeovisitTrigger {}
 unsafe impl ::core::marker::Sync for GeovisitTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LocationTrigger(::windows_core::IUnknown);
@@ -4184,7 +4139,6 @@ impl ::windows_core::RuntimeName for LocationTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for LocationTrigger {}
 unsafe impl ::core::marker::Send for LocationTrigger {}
 unsafe impl ::core::marker::Sync for LocationTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MaintenanceTrigger(::windows_core::IUnknown);
@@ -4229,7 +4183,6 @@ impl ::windows_core::RuntimeName for MaintenanceTrigger {
 }
 ::windows_core::imp::interface_hierarchy!(MaintenanceTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for MaintenanceTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaProcessingTrigger(::windows_core::IUnknown);
@@ -4241,7 +4194,7 @@ impl MediaProcessingTrigger {
         static SHARED: ::windows_core::imp::FactoryCache<MediaProcessingTrigger, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>> {
         let this = self;
@@ -4250,7 +4203,7 @@ impl MediaProcessingTrigger {
             (::windows_core::Interface::vtable(this).RequestAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestAsyncWithArguments<P0>(&self, arguments: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>
     where
@@ -4277,7 +4230,6 @@ impl ::windows_core::RuntimeName for MediaProcessingTrigger {
 }
 ::windows_core::imp::interface_hierarchy!(MediaProcessingTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for MediaProcessingTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandDeviceServiceNotificationTrigger(::windows_core::IUnknown);
@@ -4306,7 +4258,6 @@ impl ::windows_core::RuntimeName for MobileBroadbandDeviceServiceNotificationTri
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for MobileBroadbandDeviceServiceNotificationTrigger {}
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceNotificationTrigger {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceNotificationTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandPcoDataChangeTrigger(::windows_core::IUnknown);
@@ -4335,7 +4286,6 @@ impl ::windows_core::RuntimeName for MobileBroadbandPcoDataChangeTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for MobileBroadbandPcoDataChangeTrigger {}
 unsafe impl ::core::marker::Send for MobileBroadbandPcoDataChangeTrigger {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPcoDataChangeTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandPinLockStateChangeTrigger(::windows_core::IUnknown);
@@ -4364,7 +4314,6 @@ impl ::windows_core::RuntimeName for MobileBroadbandPinLockStateChangeTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for MobileBroadbandPinLockStateChangeTrigger {}
 unsafe impl ::core::marker::Send for MobileBroadbandPinLockStateChangeTrigger {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPinLockStateChangeTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandRadioStateChangeTrigger(::windows_core::IUnknown);
@@ -4393,7 +4342,6 @@ impl ::windows_core::RuntimeName for MobileBroadbandRadioStateChangeTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for MobileBroadbandRadioStateChangeTrigger {}
 unsafe impl ::core::marker::Send for MobileBroadbandRadioStateChangeTrigger {}
 unsafe impl ::core::marker::Sync for MobileBroadbandRadioStateChangeTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandRegistrationStateChangeTrigger(::windows_core::IUnknown);
@@ -4422,7 +4370,6 @@ impl ::windows_core::RuntimeName for MobileBroadbandRegistrationStateChangeTrigg
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for MobileBroadbandRegistrationStateChangeTrigger {}
 unsafe impl ::core::marker::Send for MobileBroadbandRegistrationStateChangeTrigger {}
 unsafe impl ::core::marker::Sync for MobileBroadbandRegistrationStateChangeTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct NetworkOperatorDataUsageTrigger(::windows_core::IUnknown);
@@ -4451,7 +4398,6 @@ impl ::windows_core::RuntimeName for NetworkOperatorDataUsageTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for NetworkOperatorDataUsageTrigger {}
 unsafe impl ::core::marker::Send for NetworkOperatorDataUsageTrigger {}
 unsafe impl ::core::marker::Sync for NetworkOperatorDataUsageTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct NetworkOperatorHotspotAuthenticationTrigger(::windows_core::IUnknown);
@@ -4478,7 +4424,6 @@ impl ::windows_core::RuntimeName for NetworkOperatorHotspotAuthenticationTrigger
 }
 ::windows_core::imp::interface_hierarchy!(NetworkOperatorHotspotAuthenticationTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for NetworkOperatorHotspotAuthenticationTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct NetworkOperatorNotificationTrigger(::windows_core::IUnknown);
@@ -4516,7 +4461,6 @@ impl ::windows_core::RuntimeName for NetworkOperatorNotificationTrigger {
 }
 ::windows_core::imp::interface_hierarchy!(NetworkOperatorNotificationTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for NetworkOperatorNotificationTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentAppCanMakePaymentTrigger(::windows_core::IUnknown);
@@ -4545,7 +4489,6 @@ impl ::windows_core::RuntimeName for PaymentAppCanMakePaymentTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for PaymentAppCanMakePaymentTrigger {}
 unsafe impl ::core::marker::Send for PaymentAppCanMakePaymentTrigger {}
 unsafe impl ::core::marker::Sync for PaymentAppCanMakePaymentTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneTrigger(::windows_core::IUnknown);
@@ -4557,7 +4500,7 @@ impl PhoneTrigger {
             (::windows_core::Interface::vtable(this).OneShot)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
+    #[doc = "Required features: `ApplicationModel_Calls_Background`"]
     #[cfg(feature = "ApplicationModel_Calls_Background")]
     pub fn TriggerType(&self) -> ::windows_core::Result<super::Calls::Background::PhoneTriggerType> {
         let this = self;
@@ -4566,7 +4509,7 @@ impl PhoneTrigger {
             (::windows_core::Interface::vtable(this).TriggerType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
+    #[doc = "Required features: `ApplicationModel_Calls_Background`"]
     #[cfg(feature = "ApplicationModel_Calls_Background")]
     pub fn Create(r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool) -> ::windows_core::Result<PhoneTrigger> {
         Self::IPhoneTriggerFactory(|this| unsafe {
@@ -4596,7 +4539,6 @@ impl ::windows_core::RuntimeName for PhoneTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for PhoneTrigger {}
 unsafe impl ::core::marker::Send for PhoneTrigger {}
 unsafe impl ::core::marker::Sync for PhoneTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PushNotificationTrigger(::windows_core::IUnknown);
@@ -4636,7 +4578,6 @@ impl ::windows_core::RuntimeName for PushNotificationTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for PushNotificationTrigger {}
 unsafe impl ::core::marker::Send for PushNotificationTrigger {}
 unsafe impl ::core::marker::Sync for PushNotificationTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RcsEndUserMessageAvailableTrigger(::windows_core::IUnknown);
@@ -4665,7 +4606,6 @@ impl ::windows_core::RuntimeName for RcsEndUserMessageAvailableTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for RcsEndUserMessageAvailableTrigger {}
 unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableTrigger {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageAvailableTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RfcommConnectionTrigger(::windows_core::IUnknown);
@@ -4677,7 +4617,7 @@ impl RfcommConnectionTrigger {
         static SHARED: ::windows_core::imp::FactoryCache<RfcommConnectionTrigger, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_Background`"]
     #[cfg(feature = "Devices_Bluetooth_Background")]
     pub fn InboundConnection(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::Background::RfcommInboundConnectionInformation> {
         let this = self;
@@ -4686,7 +4626,7 @@ impl RfcommConnectionTrigger {
             (::windows_core::Interface::vtable(this).InboundConnection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
+    #[doc = "Required features: `Devices_Bluetooth_Background`"]
     #[cfg(feature = "Devices_Bluetooth_Background")]
     pub fn OutboundConnection(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::Background::RfcommOutboundConnectionInformation> {
         let this = self;
@@ -4706,7 +4646,7 @@ impl RfcommConnectionTrigger {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAllowMultipleConnections)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Networking_Sockets\"`*"]
+    #[doc = "Required features: `Networking_Sockets`"]
     #[cfg(feature = "Networking_Sockets")]
     pub fn ProtectionLevel(&self) -> ::windows_core::Result<super::super::Networking::Sockets::SocketProtectionLevel> {
         let this = self;
@@ -4715,13 +4655,13 @@ impl RfcommConnectionTrigger {
             (::windows_core::Interface::vtable(this).ProtectionLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking_Sockets\"`*"]
+    #[doc = "Required features: `Networking_Sockets`"]
     #[cfg(feature = "Networking_Sockets")]
     pub fn SetProtectionLevel(&self, value: super::super::Networking::Sockets::SocketProtectionLevel) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetProtectionLevel)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
+    #[doc = "Required features: `Networking`"]
     #[cfg(feature = "Networking")]
     pub fn RemoteHostName(&self) -> ::windows_core::Result<super::super::Networking::HostName> {
         let this = self;
@@ -4730,7 +4670,7 @@ impl RfcommConnectionTrigger {
             (::windows_core::Interface::vtable(this).RemoteHostName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
+    #[doc = "Required features: `Networking`"]
     #[cfg(feature = "Networking")]
     pub fn SetRemoteHostName<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4756,7 +4696,7 @@ impl ::windows_core::RuntimeName for RfcommConnectionTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for RfcommConnectionTrigger {}
 unsafe impl ::core::marker::Send for RfcommConnectionTrigger {}
 unsafe impl ::core::marker::Sync for RfcommConnectionTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"deprecated\"`*"]
+#[doc = "Required features: `deprecated`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4791,12 +4731,11 @@ impl ::windows_core::RuntimeName for SecondaryAuthenticationFactorAuthentication
 ::windows_core::imp::interface_hierarchy!(SecondaryAuthenticationFactorAuthenticationTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for SecondaryAuthenticationFactorAuthenticationTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SensorDataThresholdTrigger(::windows_core::IUnknown);
 impl SensorDataThresholdTrigger {
-    #[doc = "*Required features: `\"Devices_Sensors\"`*"]
+    #[doc = "Required features: `Devices_Sensors`"]
     #[cfg(feature = "Devices_Sensors")]
     pub fn Create<P0>(threshold: P0) -> ::windows_core::Result<SensorDataThresholdTrigger>
     where
@@ -4829,12 +4768,11 @@ impl ::windows_core::RuntimeName for SensorDataThresholdTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for SensorDataThresholdTrigger {}
 unsafe impl ::core::marker::Send for SensorDataThresholdTrigger {}
 unsafe impl ::core::marker::Sync for SensorDataThresholdTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardTrigger(::windows_core::IUnknown);
 impl SmartCardTrigger {
-    #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+    #[doc = "Required features: `Devices_SmartCards`"]
     #[cfg(feature = "Devices_SmartCards")]
     pub fn TriggerType(&self) -> ::windows_core::Result<super::super::Devices::SmartCards::SmartCardTriggerType> {
         let this = self;
@@ -4843,7 +4781,7 @@ impl SmartCardTrigger {
             (::windows_core::Interface::vtable(this).TriggerType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+    #[doc = "Required features: `Devices_SmartCards`"]
     #[cfg(feature = "Devices_SmartCards")]
     pub fn Create(triggertype: super::super::Devices::SmartCards::SmartCardTriggerType) -> ::windows_core::Result<SmartCardTrigger> {
         Self::ISmartCardTriggerFactory(|this| unsafe {
@@ -4871,12 +4809,11 @@ impl ::windows_core::RuntimeName for SmartCardTrigger {
 }
 ::windows_core::imp::interface_hierarchy!(SmartCardTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for SmartCardTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmsMessageReceivedTrigger(::windows_core::IUnknown);
 impl SmsMessageReceivedTrigger {
-    #[doc = "*Required features: `\"Devices_Sms\"`*"]
+    #[doc = "Required features: `Devices_Sms`"]
     #[cfg(feature = "Devices_Sms")]
     pub fn Create<P0>(filterrules: P0) -> ::windows_core::Result<SmsMessageReceivedTrigger>
     where
@@ -4909,7 +4846,6 @@ impl ::windows_core::RuntimeName for SmsMessageReceivedTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for SmsMessageReceivedTrigger {}
 unsafe impl ::core::marker::Send for SmsMessageReceivedTrigger {}
 unsafe impl ::core::marker::Sync for SmsMessageReceivedTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SocketActivityTrigger(::windows_core::IUnknown);
@@ -4945,12 +4881,11 @@ impl ::windows_core::RuntimeName for SocketActivityTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for SocketActivityTrigger {}
 unsafe impl ::core::marker::Send for SocketActivityTrigger {}
 unsafe impl ::core::marker::Sync for SocketActivityTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorageLibraryChangeTrackerTrigger(::windows_core::IUnknown);
 impl StorageLibraryChangeTrackerTrigger {
-    #[doc = "*Required features: `\"Storage\"`*"]
+    #[doc = "Required features: `Storage`"]
     #[cfg(feature = "Storage")]
     pub fn Create<P0>(tracker: P0) -> ::windows_core::Result<StorageLibraryChangeTrackerTrigger>
     where
@@ -4983,12 +4918,11 @@ impl ::windows_core::RuntimeName for StorageLibraryChangeTrackerTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for StorageLibraryChangeTrackerTrigger {}
 unsafe impl ::core::marker::Send for StorageLibraryChangeTrackerTrigger {}
 unsafe impl ::core::marker::Sync for StorageLibraryChangeTrackerTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorageLibraryContentChangedTrigger(::windows_core::IUnknown);
 impl StorageLibraryContentChangedTrigger {
-    #[doc = "*Required features: `\"Storage\"`*"]
+    #[doc = "Required features: `Storage`"]
     #[cfg(feature = "Storage")]
     pub fn Create<P0>(storagelibrary: P0) -> ::windows_core::Result<StorageLibraryContentChangedTrigger>
     where
@@ -4999,7 +4933,7 @@ impl StorageLibraryContentChangedTrigger {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), storagelibrary.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `Storage`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn CreateFromLibraries<P0>(storagelibraries: P0) -> ::windows_core::Result<StorageLibraryContentChangedTrigger>
     where
@@ -5030,7 +4964,6 @@ impl ::windows_core::RuntimeName for StorageLibraryContentChangedTrigger {
 }
 ::windows_core::imp::interface_hierarchy!(StorageLibraryContentChangedTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for StorageLibraryContentChangedTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemCondition(::windows_core::IUnknown);
@@ -5068,7 +5001,6 @@ impl ::windows_core::RuntimeName for SystemCondition {
 }
 ::windows_core::imp::interface_hierarchy!(SystemCondition, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundCondition> for SystemCondition {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemTrigger(::windows_core::IUnknown);
@@ -5113,7 +5045,6 @@ impl ::windows_core::RuntimeName for SystemTrigger {
 }
 ::windows_core::imp::interface_hierarchy!(SystemTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for SystemTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TetheringEntitlementCheckTrigger(::windows_core::IUnknown);
@@ -5142,7 +5073,6 @@ impl ::windows_core::RuntimeName for TetheringEntitlementCheckTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for TetheringEntitlementCheckTrigger {}
 unsafe impl ::core::marker::Send for TetheringEntitlementCheckTrigger {}
 unsafe impl ::core::marker::Sync for TetheringEntitlementCheckTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TimeTrigger(::windows_core::IUnknown);
@@ -5187,7 +5117,6 @@ impl ::windows_core::RuntimeName for TimeTrigger {
 }
 ::windows_core::imp::interface_hierarchy!(TimeTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for TimeTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ToastNotificationActionTrigger(::windows_core::IUnknown);
@@ -5227,7 +5156,6 @@ impl ::windows_core::RuntimeName for ToastNotificationActionTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for ToastNotificationActionTrigger {}
 unsafe impl ::core::marker::Send for ToastNotificationActionTrigger {}
 unsafe impl ::core::marker::Sync for ToastNotificationActionTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ToastNotificationHistoryChangedTrigger(::windows_core::IUnknown);
@@ -5267,12 +5195,11 @@ impl ::windows_core::RuntimeName for ToastNotificationHistoryChangedTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for ToastNotificationHistoryChangedTrigger {}
 unsafe impl ::core::marker::Send for ToastNotificationHistoryChangedTrigger {}
 unsafe impl ::core::marker::Sync for ToastNotificationHistoryChangedTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserNotificationChangedTrigger(::windows_core::IUnknown);
 impl UserNotificationChangedTrigger {
-    #[doc = "*Required features: `\"UI_Notifications\"`*"]
+    #[doc = "Required features: `UI_Notifications`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn Create(notificationkinds: super::super::UI::Notifications::NotificationKinds) -> ::windows_core::Result<UserNotificationChangedTrigger> {
         Self::IUserNotificationChangedTriggerFactory(|this| unsafe {
@@ -5302,7 +5229,6 @@ impl ::windows_core::RuntimeName for UserNotificationChangedTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for UserNotificationChangedTrigger {}
 unsafe impl ::core::marker::Send for UserNotificationChangedTrigger {}
 unsafe impl ::core::marker::Sync for UserNotificationChangedTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WiFiOnDemandHotspotConnectTrigger(::windows_core::IUnknown);
@@ -5331,7 +5257,6 @@ impl ::windows_core::RuntimeName for WiFiOnDemandHotspotConnectTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for WiFiOnDemandHotspotConnectTrigger {}
 unsafe impl ::core::marker::Send for WiFiOnDemandHotspotConnectTrigger {}
 unsafe impl ::core::marker::Sync for WiFiOnDemandHotspotConnectTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WiFiOnDemandHotspotUpdateMetadataTrigger(::windows_core::IUnknown);
@@ -5360,7 +5285,6 @@ impl ::windows_core::RuntimeName for WiFiOnDemandHotspotUpdateMetadataTrigger {
 impl ::windows_core::CanTryInto<IBackgroundTrigger> for WiFiOnDemandHotspotUpdateMetadataTrigger {}
 unsafe impl ::core::marker::Send for WiFiOnDemandHotspotUpdateMetadataTrigger {}
 unsafe impl ::core::marker::Sync for WiFiOnDemandHotspotUpdateMetadataTrigger {}
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AlarmAccessStatus(pub i32);
@@ -5392,7 +5316,6 @@ impl ::core::fmt::Debug for AlarmAccessStatus {
 impl ::windows_core::RuntimeType for AlarmAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.AlarmAccessStatus;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationTriggerResult(pub i32);
@@ -5424,7 +5347,6 @@ impl ::core::fmt::Debug for ApplicationTriggerResult {
 impl ::windows_core::RuntimeType for ApplicationTriggerResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.ApplicationTriggerResult;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BackgroundAccessRequestKind(pub i32);
@@ -5454,7 +5376,6 @@ impl ::core::fmt::Debug for BackgroundAccessRequestKind {
 impl ::windows_core::RuntimeType for BackgroundAccessRequestKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessRequestKind;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BackgroundAccessStatus(pub i32);
@@ -5490,7 +5411,6 @@ impl ::core::fmt::Debug for BackgroundAccessStatus {
 impl ::windows_core::RuntimeType for BackgroundAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessStatus;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BackgroundTaskCancellationReason(pub i32);
@@ -5530,7 +5450,6 @@ impl ::core::fmt::Debug for BackgroundTaskCancellationReason {
 impl ::windows_core::RuntimeType for BackgroundTaskCancellationReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskCancellationReason;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BackgroundTaskThrottleCounter(pub i32);
@@ -5561,7 +5480,6 @@ impl ::core::fmt::Debug for BackgroundTaskThrottleCounter {
 impl ::windows_core::RuntimeType for BackgroundTaskThrottleCounter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskThrottleCounter;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BackgroundWorkCostValue(pub i32);
@@ -5592,7 +5510,6 @@ impl ::core::fmt::Debug for BackgroundWorkCostValue {
 impl ::windows_core::RuntimeType for BackgroundWorkCostValue {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundWorkCostValue;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CustomSystemEventTriggerRecurrence(pub i32);
@@ -5622,7 +5539,6 @@ impl ::core::fmt::Debug for CustomSystemEventTriggerRecurrence {
 impl ::windows_core::RuntimeType for CustomSystemEventTriggerRecurrence {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.CustomSystemEventTriggerRecurrence;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceTriggerResult(pub i32);
@@ -5654,7 +5570,6 @@ impl ::core::fmt::Debug for DeviceTriggerResult {
 impl ::windows_core::RuntimeType for DeviceTriggerResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.DeviceTriggerResult;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LocationTriggerType(pub i32);
@@ -5683,7 +5598,6 @@ impl ::core::fmt::Debug for LocationTriggerType {
 impl ::windows_core::RuntimeType for LocationTriggerType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.LocationTriggerType;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaProcessingTriggerResult(pub i32);
@@ -5715,7 +5629,6 @@ impl ::core::fmt::Debug for MediaProcessingTriggerResult {
 impl ::windows_core::RuntimeType for MediaProcessingTriggerResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.MediaProcessingTriggerResult;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemConditionType(pub i32);
@@ -5752,7 +5665,6 @@ impl ::core::fmt::Debug for SystemConditionType {
 impl ::windows_core::RuntimeType for SystemConditionType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemConditionType;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemTriggerType(pub i32);
@@ -5796,7 +5708,6 @@ impl ::core::fmt::Debug for SystemTriggerType {
 impl ::windows_core::RuntimeType for SystemTriggerType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemTriggerType;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackgroundTaskCanceledEventHandler(pub ::windows_core::IUnknown);
@@ -5869,7 +5780,6 @@ pub struct BackgroundTaskCanceledEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, reason: BackgroundTaskCancellationReason) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackgroundTaskCompletedEventHandler(pub ::windows_core::IUnknown);
@@ -5943,7 +5853,6 @@ pub struct BackgroundTaskCompletedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackgroundTaskProgressEventHandler(pub ::windows_core::IUnknown);

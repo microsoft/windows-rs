@@ -1,8 +1,11 @@
 #[cfg(feature = "System_Diagnostics_DevicePortal")]
+#[doc = "Required features: `System_Diagnostics_DevicePortal`"]
 pub mod DevicePortal;
 #[cfg(feature = "System_Diagnostics_Telemetry")]
+#[doc = "Required features: `System_Diagnostics_Telemetry`"]
 pub mod Telemetry;
 #[cfg(feature = "System_Diagnostics_TraceReporting")]
+#[doc = "Required features: `System_Diagnostics_TraceReporting`"]
 pub mod TraceReporting;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -407,7 +410,6 @@ pub struct ISystemMemoryUsageReport_Vtbl {
     pub AvailableSizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows_core::HRESULT,
     pub CommittedSizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DiagnosticActionResult(::windows_core::IUnknown);
@@ -419,7 +421,7 @@ impl DiagnosticActionResult {
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Results(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -444,12 +446,11 @@ impl ::windows_core::RuntimeName for DiagnosticActionResult {
 ::windows_core::imp::interface_hierarchy!(DiagnosticActionResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DiagnosticActionResult {}
 unsafe impl ::core::marker::Sync for DiagnosticActionResult {}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DiagnosticInvoker(::windows_core::IUnknown);
 impl DiagnosticInvoker {
-    #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation\"`*"]
+    #[doc = "Required features: `Data_Json`, `Foundation`"]
     #[cfg(all(feature = "Data_Json", feature = "Foundation"))]
     pub fn RunDiagnosticActionAsync<P0>(&self, context: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
     where
@@ -461,7 +462,7 @@ impl DiagnosticInvoker {
             (::windows_core::Interface::vtable(this).RunDiagnosticActionAsync)(::windows_core::Interface::as_raw(this), context.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RunDiagnosticActionFromStringAsync(&self, context: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
         let this = &::windows_core::ComInterface::cast::<IDiagnosticInvoker2>(self)?;
@@ -512,7 +513,6 @@ impl ::windows_core::RuntimeName for DiagnosticInvoker {
 ::windows_core::imp::interface_hierarchy!(DiagnosticInvoker, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DiagnosticInvoker {}
 unsafe impl ::core::marker::Sync for DiagnosticInvoker {}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessCpuUsage(::windows_core::IUnknown);
@@ -540,12 +540,11 @@ impl ::windows_core::RuntimeName for ProcessCpuUsage {
 ::windows_core::imp::interface_hierarchy!(ProcessCpuUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessCpuUsage {}
 unsafe impl ::core::marker::Sync for ProcessCpuUsage {}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessCpuUsageReport(::windows_core::IUnknown);
 impl ProcessCpuUsageReport {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn KernelTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -554,7 +553,7 @@ impl ProcessCpuUsageReport {
             (::windows_core::Interface::vtable(this).KernelTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn UserTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -579,7 +578,6 @@ impl ::windows_core::RuntimeName for ProcessCpuUsageReport {
 ::windows_core::imp::interface_hierarchy!(ProcessCpuUsageReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessCpuUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessCpuUsageReport {}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessDiagnosticInfo(::windows_core::IUnknown);
@@ -605,7 +603,7 @@ impl ProcessDiagnosticInfo {
             (::windows_core::Interface::vtable(this).Parent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ProcessStartTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -635,7 +633,7 @@ impl ProcessDiagnosticInfo {
             (::windows_core::Interface::vtable(this).CpuUsage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAppDiagnosticInfos(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>> {
         let this = &::windows_core::ComInterface::cast::<IProcessDiagnosticInfo2>(self)?;
@@ -651,7 +649,7 @@ impl ProcessDiagnosticInfo {
             (::windows_core::Interface::vtable(this).IsPackaged)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetForProcesses() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>> {
         Self::IProcessDiagnosticInfoStatics(|this| unsafe {
@@ -697,7 +695,6 @@ impl ::windows_core::RuntimeName for ProcessDiagnosticInfo {
 ::windows_core::imp::interface_hierarchy!(ProcessDiagnosticInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for ProcessDiagnosticInfo {}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessDiskUsage(::windows_core::IUnknown);
@@ -725,7 +722,6 @@ impl ::windows_core::RuntimeName for ProcessDiskUsage {
 ::windows_core::imp::interface_hierarchy!(ProcessDiskUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessDiskUsage {}
 unsafe impl ::core::marker::Sync for ProcessDiskUsage {}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessDiskUsageReport(::windows_core::IUnknown);
@@ -788,7 +784,6 @@ impl ::windows_core::RuntimeName for ProcessDiskUsageReport {
 ::windows_core::imp::interface_hierarchy!(ProcessDiskUsageReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessDiskUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessDiskUsageReport {}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessMemoryUsage(::windows_core::IUnknown);
@@ -816,7 +811,6 @@ impl ::windows_core::RuntimeName for ProcessMemoryUsage {
 ::windows_core::imp::interface_hierarchy!(ProcessMemoryUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessMemoryUsage {}
 unsafe impl ::core::marker::Sync for ProcessMemoryUsage {}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessMemoryUsageReport(::windows_core::IUnknown);
@@ -921,7 +915,6 @@ impl ::windows_core::RuntimeName for ProcessMemoryUsageReport {
 ::windows_core::imp::interface_hierarchy!(ProcessMemoryUsageReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessMemoryUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessMemoryUsageReport {}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemCpuUsage(::windows_core::IUnknown);
@@ -949,12 +942,11 @@ impl ::windows_core::RuntimeName for SystemCpuUsage {
 ::windows_core::imp::interface_hierarchy!(SystemCpuUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SystemCpuUsage {}
 unsafe impl ::core::marker::Sync for SystemCpuUsage {}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemCpuUsageReport(::windows_core::IUnknown);
 impl SystemCpuUsageReport {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn KernelTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -963,7 +955,7 @@ impl SystemCpuUsageReport {
             (::windows_core::Interface::vtable(this).KernelTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn UserTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -972,7 +964,7 @@ impl SystemCpuUsageReport {
             (::windows_core::Interface::vtable(this).UserTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn IdleTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -997,7 +989,6 @@ impl ::windows_core::RuntimeName for SystemCpuUsageReport {
 ::windows_core::imp::interface_hierarchy!(SystemCpuUsageReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SystemCpuUsageReport {}
 unsafe impl ::core::marker::Sync for SystemCpuUsageReport {}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemDiagnosticInfo(::windows_core::IUnknown);
@@ -1060,7 +1051,6 @@ impl ::windows_core::RuntimeName for SystemDiagnosticInfo {
 ::windows_core::imp::interface_hierarchy!(SystemDiagnosticInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SystemDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for SystemDiagnosticInfo {}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemMemoryUsage(::windows_core::IUnknown);
@@ -1088,7 +1078,6 @@ impl ::windows_core::RuntimeName for SystemMemoryUsage {
 ::windows_core::imp::interface_hierarchy!(SystemMemoryUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SystemMemoryUsage {}
 unsafe impl ::core::marker::Sync for SystemMemoryUsage {}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemMemoryUsageReport(::windows_core::IUnknown);
@@ -1130,7 +1119,6 @@ impl ::windows_core::RuntimeName for SystemMemoryUsageReport {
 ::windows_core::imp::interface_hierarchy!(SystemMemoryUsageReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SystemMemoryUsageReport {}
 unsafe impl ::core::marker::Sync for SystemMemoryUsageReport {}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DiagnosticActionState(pub i32);

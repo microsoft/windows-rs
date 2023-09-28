@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"implement\"`*"]
 pub trait IChatItem_Impl: Sized {
     fn ItemKind(&self) -> ::windows_core::Result<ChatItemKind>;
 }

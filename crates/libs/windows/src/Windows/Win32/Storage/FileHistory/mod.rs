@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[doc = "Required features: `Win32_System_WindowsProgramming`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceBlockBackup<P0>(pipe: P0) -> ::windows_core::Result<()>
@@ -8,7 +8,7 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceBlockBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_core::HRESULT);
     FhServiceBlockBackup(pipe.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[doc = "Required features: `Win32_System_WindowsProgramming`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceClosePipe<P0>(pipe: P0) -> ::windows_core::Result<()>
@@ -18,7 +18,7 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceClosePipe(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_core::HRESULT);
     FhServiceClosePipe(pipe.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_WindowsProgramming`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn FhServiceOpenPipe<P0>(startserviceifstopped: P0) -> ::windows_core::Result<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>
@@ -29,7 +29,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     FhServiceOpenPipe(startserviceifstopped.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[doc = "Required features: `Win32_System_WindowsProgramming`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceReloadConfiguration<P0>(pipe: P0) -> ::windows_core::Result<()>
@@ -39,7 +39,7 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceReloadConfiguration(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_core::HRESULT);
     FhServiceReloadConfiguration(pipe.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_WindowsProgramming`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn FhServiceStartBackup<P0, P1>(pipe: P0, lowpriorityio: P1) -> ::windows_core::Result<()>
@@ -50,7 +50,7 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStartBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE, lowpriorityio : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     FhServiceStartBackup(pipe.into_param().abi(), lowpriorityio.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_WindowsProgramming`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn FhServiceStopBackup<P0, P1>(pipe: P0, stoptracking: P1) -> ::windows_core::Result<()>
@@ -61,7 +61,7 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStopBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE, stoptracking : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     FhServiceStopBackup(pipe.into_param().abi(), stoptracking.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[doc = "Required features: `Win32_System_WindowsProgramming`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceUnblockBackup<P0>(pipe: P0) -> ::windows_core::Result<()>
@@ -71,7 +71,6 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceUnblockBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_core::HRESULT);
     FhServiceUnblockBackup(pipe.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFhConfigMgr(::windows_core::IUnknown);
@@ -79,7 +78,7 @@ impl IFhConfigMgr {
     pub unsafe fn LoadConfiguration(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LoadConfiguration)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDefaultConfiguration<P0>(&self, overwriteifexists: P0) -> ::windows_core::Result<()>
     where
@@ -90,7 +89,7 @@ impl IFhConfigMgr {
     pub unsafe fn SaveConfiguration(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SaveConfiguration)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddRemoveExcludeRule<P0, P1>(&self, add: P0, category: FH_PROTECTED_ITEM_CATEGORY, item: P1) -> ::windows_core::Result<()>
     where
@@ -99,7 +98,7 @@ impl IFhConfigMgr {
     {
         (::windows_core::Interface::vtable(self).AddRemoveExcludeRule)(::windows_core::Interface::as_raw(self), add.into_param().abi(), category, item.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIncludeExcludeRules<P0>(&self, include: P0, category: FH_PROTECTED_ITEM_CATEGORY) -> ::windows_core::Result<IFhScopeIterator>
     where
@@ -140,7 +139,7 @@ impl IFhConfigMgr {
     {
         (::windows_core::Interface::vtable(self).ProvisionAndSetNewTarget)(::windows_core::Interface::as_raw(self), targeturl.into_param().abi(), targetname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeDefaultTargetRecommendation<P0>(&self, recommend: P0) -> ::windows_core::Result<()>
     where
@@ -190,7 +189,6 @@ pub struct IFhConfigMgr_Vtbl {
     ChangeDefaultTargetRecommendation: usize,
     pub QueryProtectionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protectionstate: *mut u32, protecteduntiltime: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFhReassociation(::windows_core::IUnknown);
@@ -208,7 +206,7 @@ impl IFhReassociation {
     {
         (::windows_core::Interface::vtable(self).ScanTargetForConfigurations)(::windows_core::Interface::as_raw(self), targeturl.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetConfigurationDetails(&self, index: u32, username: *mut ::windows_core::BSTR, pcname: *mut ::windows_core::BSTR, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetConfigurationDetails)(::windows_core::Interface::as_raw(self), index, ::core::mem::transmute(username), ::core::mem::transmute(pcname), backuptime).ok()
@@ -216,7 +214,7 @@ impl IFhReassociation {
     pub unsafe fn SelectConfiguration(&self, index: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SelectConfiguration)(::windows_core::Interface::as_raw(self), index).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PerformReassociation<P0>(&self, overwriteifexists: P0) -> ::windows_core::Result<()>
     where
@@ -248,7 +246,6 @@ pub struct IFhReassociation_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     PerformReassociation: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFhScopeIterator(::windows_core::IUnknown);
@@ -275,7 +272,6 @@ pub struct IFhScopeIterator_Vtbl {
     pub MoveToNextItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFhTarget(::windows_core::IUnknown);
@@ -303,169 +299,87 @@ pub struct IFhTarget_Vtbl {
     pub GetStringProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetNumericalProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut u64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const BackupCancelled: FhBackupStopReason = FhBackupStopReason(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const BackupInvalidStopReason: FhBackupStopReason = FhBackupStopReason(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const BackupLimitUserBusyMachineOnAC: FhBackupStopReason = FhBackupStopReason(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const BackupLimitUserBusyMachineOnDC: FhBackupStopReason = FhBackupStopReason(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const BackupLimitUserIdleMachineOnDC: FhBackupStopReason = FhBackupStopReason(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_CONFIGURATION_PREVIOUSLY_LOADED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220731i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_CONFIG_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220734i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_CONFIG_FILE_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220735i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_CORRUPT_CONFIG_FILE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220736i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_INVALID_REHYDRATION_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220726i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_LEGACY_BACKUP_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220715i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_LEGACY_BACKUP_USER_EXCLUDED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220716i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_LEGACY_TARGET_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220718i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_LEGACY_TARGET_VALIDATION_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220717i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_NO_VALID_CONFIGURATION_LOADED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220733i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_RECOMMENDATION_CHANGE_NOT_ALLOWED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220720i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_TARGET_CANNOT_BE_USED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220727i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_TARGET_NOT_CONFIGURED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220729i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_TARGET_NOT_CONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220732i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_TARGET_NOT_ENOUGH_FREE_SPACE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220728i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_TARGET_REHYDRATED_ELSEWHERE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220719i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHCFG_E_TARGET_VERIFICATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220730i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHSVC_E_BACKUP_BLOCKED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147219968i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHSVC_E_CONFIG_DISABLED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147219966i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHSVC_E_CONFIG_DISABLED_GP: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147219965i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHSVC_E_CONFIG_REHYDRATING: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147219963i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHSVC_E_FATAL_CONFIG_ERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147219964i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FHSVC_E_NOT_CONFIGURED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147219967i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_ACCESS_DENIED: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_CURRENT_DEFAULT: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_DRIVE_FIXED: FH_TARGET_DRIVE_TYPES = FH_TARGET_DRIVE_TYPES(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_DRIVE_REMOTE: FH_TARGET_DRIVE_TYPES = FH_TARGET_DRIVE_TYPES(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_DRIVE_REMOVABLE: FH_TARGET_DRIVE_TYPES = FH_TARGET_DRIVE_TYPES(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_DRIVE_UNKNOWN: FH_TARGET_DRIVE_TYPES = FH_TARGET_DRIVE_TYPES(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_FOLDER: FH_PROTECTED_ITEM_CATEGORY = FH_PROTECTED_ITEM_CATEGORY(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_FREQUENCY: FH_LOCAL_POLICY_TYPE = FH_LOCAL_POLICY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_INVALID_DRIVE_TYPE: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_LIBRARY: FH_PROTECTED_ITEM_CATEGORY = FH_PROTECTED_ITEM_CATEGORY(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_NAMESPACE_EXISTS: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_READ_ONLY_PERMISSION: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_RETENTION_AGE: FH_LOCAL_POLICY_TYPE = FH_LOCAL_POLICY_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_RETENTION_AGE_BASED: FH_RETENTION_TYPES = FH_RETENTION_TYPES(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_RETENTION_DISABLED: FH_RETENTION_TYPES = FH_RETENTION_TYPES(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_RETENTION_TYPE: FH_LOCAL_POLICY_TYPE = FH_LOCAL_POLICY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_RETENTION_UNLIMITED: FH_RETENTION_TYPES = FH_RETENTION_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_BACKUP_NOT_SUPPORTED: u32 = 2064u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_DISABLED_BY_GP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_FATAL_CONFIG_ERROR: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_MIGRATING: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_NOT_TRACKED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_NO_ERROR: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_OFF: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_REHYDRATING: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_RUNNING: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_STAGING_FULL: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_TARGET_ABSENT: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_TARGET_ACCESS_DENIED: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_TARGET_FS_LIMITATION: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_TARGET_FULL: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_TARGET_FULL_RETENTION_MAX: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_TARGET_LOW_SPACE: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_TARGET_LOW_SPACE_RETENTION_MAX: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_TARGET_VOLUME_DIRTY: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATE_TOO_MUCH_BEHIND: u32 = 240u32;
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATUS_DISABLED: FH_BACKUP_STATUS = FH_BACKUP_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATUS_DISABLED_BY_GP: FH_BACKUP_STATUS = FH_BACKUP_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATUS_ENABLED: FH_BACKUP_STATUS = FH_BACKUP_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATUS_REHYDRATING: FH_BACKUP_STATUS = FH_BACKUP_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_TARGET_DRIVE_TYPE: FH_TARGET_PROPERTY_TYPE = FH_TARGET_PROPERTY_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_TARGET_NAME: FH_TARGET_PROPERTY_TYPE = FH_TARGET_PROPERTY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_TARGET_PART_OF_LIBRARY: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_TARGET_URL: FH_TARGET_PROPERTY_TYPE = FH_TARGET_PROPERTY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_VALID_TARGET: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FhConfigMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed43bb3c_09e9_498a_9df6_2177244c6db4);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FhReassociation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d728e35_16fa_4320_9e8b_bfd7100a8846);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const MAX_BACKUP_STATUS: FH_BACKUP_STATUS = FH_BACKUP_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const MAX_LOCAL_POLICY: FH_LOCAL_POLICY_TYPE = FH_LOCAL_POLICY_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const MAX_PROTECTED_ITEM_CATEGORY: FH_PROTECTED_ITEM_CATEGORY = FH_PROTECTED_ITEM_CATEGORY(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const MAX_RETENTION_TYPE: FH_RETENTION_TYPES = FH_RETENTION_TYPES(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const MAX_TARGET_PROPERTY: FH_TARGET_PROPERTY_TYPE = FH_TARGET_PROPERTY_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const MAX_VALIDATION_RESULT: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FH_BACKUP_STATUS(pub i32);
@@ -488,7 +402,6 @@ impl ::core::fmt::Debug for FH_BACKUP_STATUS {
         f.debug_tuple("FH_BACKUP_STATUS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FH_DEVICE_VALIDATION_RESULT(pub i32);
@@ -511,7 +424,6 @@ impl ::core::fmt::Debug for FH_DEVICE_VALIDATION_RESULT {
         f.debug_tuple("FH_DEVICE_VALIDATION_RESULT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FH_LOCAL_POLICY_TYPE(pub i32);
@@ -534,7 +446,6 @@ impl ::core::fmt::Debug for FH_LOCAL_POLICY_TYPE {
         f.debug_tuple("FH_LOCAL_POLICY_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FH_PROTECTED_ITEM_CATEGORY(pub i32);
@@ -557,7 +468,6 @@ impl ::core::fmt::Debug for FH_PROTECTED_ITEM_CATEGORY {
         f.debug_tuple("FH_PROTECTED_ITEM_CATEGORY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FH_RETENTION_TYPES(pub i32);
@@ -580,7 +490,6 @@ impl ::core::fmt::Debug for FH_RETENTION_TYPES {
         f.debug_tuple("FH_RETENTION_TYPES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FH_TARGET_DRIVE_TYPES(pub i32);
@@ -603,7 +512,6 @@ impl ::core::fmt::Debug for FH_TARGET_DRIVE_TYPES {
         f.debug_tuple("FH_TARGET_DRIVE_TYPES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FH_TARGET_PROPERTY_TYPE(pub i32);
@@ -626,7 +534,6 @@ impl ::core::fmt::Debug for FH_TARGET_PROPERTY_TYPE {
         f.debug_tuple("FH_TARGET_PROPERTY_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FhBackupStopReason(pub i32);

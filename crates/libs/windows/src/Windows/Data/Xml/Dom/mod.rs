@@ -67,7 +67,6 @@ unsafe impl ::windows_core::ComInterface for IXmlCDataSection {
 pub struct IXmlCDataSection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlCharacterData(::windows_core::IUnknown);
@@ -626,7 +625,6 @@ pub struct IXmlNamedNodeMap_Vtbl {
     pub RemoveNamedItemNS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetNamedItemNS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, node: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlNode(::windows_core::IUnknown);
@@ -913,7 +911,6 @@ pub struct IXmlNodeList_Vtbl {
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlNodeSelector(::windows_core::IUnknown);
@@ -972,7 +969,6 @@ pub struct IXmlNodeSelector_Vtbl {
     pub SelectSingleNodeNS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, namespaces: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SelectNodesNS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, namespaces: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlNodeSerializer(::windows_core::IUnknown);
@@ -1032,7 +1028,6 @@ pub struct IXmlProcessingInstruction_Vtbl {
     pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlText(::windows_core::IUnknown);
@@ -1330,7 +1325,6 @@ pub struct IXmlText_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SplitText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DtdEntity(::windows_core::IUnknown);
@@ -1599,7 +1593,6 @@ impl ::windows_core::CanTryInto<IXmlNodeSelector> for DtdEntity {}
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for DtdEntity {}
 unsafe impl ::core::marker::Send for DtdEntity {}
 unsafe impl ::core::marker::Sync for DtdEntity {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DtdNotation(::windows_core::IUnknown);
@@ -1861,7 +1854,6 @@ impl ::windows_core::CanTryInto<IXmlNodeSelector> for DtdNotation {}
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for DtdNotation {}
 unsafe impl ::core::marker::Send for DtdNotation {}
 unsafe impl ::core::marker::Sync for DtdNotation {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlAttribute(::windows_core::IUnknown);
@@ -2134,7 +2126,6 @@ impl ::windows_core::CanTryInto<IXmlNodeSelector> for XmlAttribute {}
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for XmlAttribute {}
 unsafe impl ::core::marker::Send for XmlAttribute {}
 unsafe impl ::core::marker::Sync for XmlAttribute {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlCDataSection(::windows_core::IUnknown);
@@ -2432,7 +2423,6 @@ impl ::windows_core::CanTryInto<IXmlNodeSerializer> for XmlCDataSection {}
 impl ::windows_core::CanTryInto<IXmlText> for XmlCDataSection {}
 unsafe impl ::core::marker::Send for XmlCDataSection {}
 unsafe impl ::core::marker::Sync for XmlCDataSection {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlComment(::windows_core::IUnknown);
@@ -2722,7 +2712,6 @@ impl ::windows_core::CanTryInto<IXmlNodeSelector> for XmlComment {}
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for XmlComment {}
 unsafe impl ::core::marker::Send for XmlComment {}
 unsafe impl ::core::marker::Sync for XmlComment {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlDocument(::windows_core::IUnknown);
@@ -2873,7 +2862,7 @@ impl XmlDocument {
         let this = &::windows_core::ComInterface::cast::<IXmlDocumentIO>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).LoadXmlWithSettings)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(xml), loadsettings.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn SaveToFileAsync<P0>(&self, file: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -2885,7 +2874,7 @@ impl XmlDocument {
             (::windows_core::Interface::vtable(this).SaveToFileAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadXmlFromBuffer<P0>(&self, buffer: P0) -> ::windows_core::Result<()>
     where
@@ -2894,7 +2883,7 @@ impl XmlDocument {
         let this = &::windows_core::ComInterface::cast::<IXmlDocumentIO2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).LoadXmlFromBuffer)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadXmlFromBufferWithSettings<P0, P1>(&self, buffer: P0, loadsettings: P1) -> ::windows_core::Result<()>
     where
@@ -2904,7 +2893,7 @@ impl XmlDocument {
         let this = &::windows_core::ComInterface::cast::<IXmlDocumentIO2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).LoadXmlFromBufferWithSettings)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), loadsettings.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LoadFromUriAsync<P0>(uri: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
     where
@@ -2915,7 +2904,7 @@ impl XmlDocument {
             (::windows_core::Interface::vtable(this).LoadFromUriAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LoadFromUriWithSettingsAsync<P0, P1>(uri: P0, loadsettings: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
     where
@@ -2927,7 +2916,7 @@ impl XmlDocument {
             (::windows_core::Interface::vtable(this).LoadFromUriWithSettingsAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), loadsettings.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LoadFromFileAsync<P0>(file: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
     where
@@ -2938,7 +2927,7 @@ impl XmlDocument {
             (::windows_core::Interface::vtable(this).LoadFromFileAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LoadFromFileWithSettingsAsync<P0, P1>(file: P0, loadsettings: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
     where
@@ -3198,7 +3187,6 @@ impl ::windows_core::CanTryInto<IXmlNodeSelector> for XmlDocument {}
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for XmlDocument {}
 unsafe impl ::core::marker::Send for XmlDocument {}
 unsafe impl ::core::marker::Sync for XmlDocument {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlDocumentFragment(::windows_core::IUnknown);
@@ -3446,7 +3434,6 @@ impl ::windows_core::CanTryInto<IXmlNodeSelector> for XmlDocumentFragment {}
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for XmlDocumentFragment {}
 unsafe impl ::core::marker::Send for XmlDocumentFragment {}
 unsafe impl ::core::marker::Sync for XmlDocumentFragment {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlDocumentType(::windows_core::IUnknown);
@@ -3715,7 +3702,6 @@ impl ::windows_core::CanTryInto<IXmlNodeSelector> for XmlDocumentType {}
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for XmlDocumentType {}
 unsafe impl ::core::marker::Send for XmlDocumentType {}
 unsafe impl ::core::marker::Sync for XmlDocumentType {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlDomImplementation(::windows_core::IUnknown);
@@ -3746,7 +3732,6 @@ impl ::windows_core::RuntimeName for XmlDomImplementation {
 ::windows_core::imp::interface_hierarchy!(XmlDomImplementation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for XmlDomImplementation {}
 unsafe impl ::core::marker::Sync for XmlDomImplementation {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlElement(::windows_core::IUnknown);
@@ -4094,7 +4079,6 @@ impl ::windows_core::CanTryInto<IXmlNodeSelector> for XmlElement {}
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for XmlElement {}
 unsafe impl ::core::marker::Send for XmlElement {}
 unsafe impl ::core::marker::Sync for XmlElement {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlEntityReference(::windows_core::IUnknown);
@@ -4342,7 +4326,6 @@ impl ::windows_core::CanTryInto<IXmlNodeSelector> for XmlEntityReference {}
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for XmlEntityReference {}
 unsafe impl ::core::marker::Send for XmlEntityReference {}
 unsafe impl ::core::marker::Sync for XmlEntityReference {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlLoadSettings(::windows_core::IUnknown);
@@ -4425,12 +4408,11 @@ impl ::windows_core::RuntimeName for XmlLoadSettings {
 ::windows_core::imp::interface_hierarchy!(XmlLoadSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for XmlLoadSettings {}
 unsafe impl ::core::marker::Sync for XmlLoadSettings {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlNamedNodeMap(::windows_core::IUnknown);
 impl XmlNamedNodeMap {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterator<IXmlNode>> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IIterable<IXmlNode>>(self)?;
@@ -4439,7 +4421,7 @@ impl XmlNamedNodeMap {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<IXmlNode> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
@@ -4448,7 +4430,7 @@ impl XmlNamedNodeMap {
             (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
@@ -4457,7 +4439,7 @@ impl XmlNamedNodeMap {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
     where
@@ -4469,7 +4451,7 @@ impl XmlNamedNodeMap {
             (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<IXmlNode>]) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
@@ -4582,12 +4564,11 @@ impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::II
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVectorView<IXmlNode>> for XmlNamedNodeMap {}
 unsafe impl ::core::marker::Send for XmlNamedNodeMap {}
 unsafe impl ::core::marker::Sync for XmlNamedNodeMap {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlNodeList(::windows_core::IUnknown);
 impl XmlNodeList {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterator<IXmlNode>> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IIterable<IXmlNode>>(self)?;
@@ -4596,7 +4577,7 @@ impl XmlNodeList {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<IXmlNode> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
@@ -4605,7 +4586,7 @@ impl XmlNodeList {
             (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
@@ -4614,7 +4595,7 @@ impl XmlNodeList {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
     where
@@ -4626,7 +4607,7 @@ impl XmlNodeList {
             (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<IXmlNode>]) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
@@ -4685,7 +4666,6 @@ impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::II
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVectorView<IXmlNode>> for XmlNodeList {}
 unsafe impl ::core::marker::Send for XmlNodeList {}
 unsafe impl ::core::marker::Sync for XmlNodeList {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlProcessingInstruction(::windows_core::IUnknown);
@@ -4951,7 +4931,6 @@ impl ::windows_core::CanTryInto<IXmlNodeSelector> for XmlProcessingInstruction {
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for XmlProcessingInstruction {}
 unsafe impl ::core::marker::Send for XmlProcessingInstruction {}
 unsafe impl ::core::marker::Sync for XmlProcessingInstruction {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlText(::windows_core::IUnknown);
@@ -5249,7 +5228,6 @@ impl ::windows_core::CanTryInto<IXmlNodeSerializer> for XmlText {}
 impl ::windows_core::CanTryInto<IXmlText> for XmlText {}
 unsafe impl ::core::marker::Send for XmlText {}
 unsafe impl ::core::marker::Sync for XmlText {}
-#[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NodeType(pub i32);

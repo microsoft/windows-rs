@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsDestinationReachableA<P0>(lpszdestination: P0, lpqocinfo: *mut QOCINFO) -> ::windows_core::Result<()>
@@ -8,7 +8,7 @@ where
     ::windows_targets::link!("sensapi.dll" "system" fn IsDestinationReachableA(lpszdestination : ::windows_core::PCSTR, lpqocinfo : *mut QOCINFO) -> super::super::Foundation:: BOOL);
     IsDestinationReachableA(lpszdestination.into_param().abi(), lpqocinfo).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsDestinationReachableW<P0>(lpszdestination: P0, lpqocinfo: *mut QOCINFO) -> ::windows_core::Result<()>
@@ -18,14 +18,14 @@ where
     ::windows_targets::link!("sensapi.dll" "system" fn IsDestinationReachableW(lpszdestination : ::windows_core::PCWSTR, lpqocinfo : *mut QOCINFO) -> super::super::Foundation:: BOOL);
     IsDestinationReachableW(lpszdestination.into_param().abi(), lpqocinfo).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("sensapi.dll" "system" fn IsNetworkAlive(lpdwflags : *mut u32) -> super::super::Foundation:: BOOL);
     IsNetworkAlive(lpdwflags).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -98,7 +98,7 @@ pub struct ISensLogon_Vtbl {
     pub StartScreenSaver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub StopScreenSaver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -157,7 +157,7 @@ pub struct ISensLogon2_Vtbl {
     pub SessionReconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows_core::BSTR>, dwsessionid: u32) -> ::windows_core::HRESULT,
     pub PostShell: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows_core::BSTR>, dwsessionid: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -218,7 +218,7 @@ pub struct ISensNetwork_Vtbl {
     pub DestinationReachable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdestination: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrconnection: ::std::mem::MaybeUninit<::windows_core::BSTR>, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows_core::HRESULT,
     pub DestinationReachableNoQOCInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdestination: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrconnection: ::std::mem::MaybeUninit<::windows_core::BSTR>, ultype: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -254,37 +254,21 @@ pub struct ISensOnNow_Vtbl {
     pub OnBatteryPower: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwbatterylifepercent: u32) -> ::windows_core::HRESULT,
     pub BatteryLow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwbatterylifepercent: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const CONNECTION_AOL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const NETWORK_ALIVE_AOL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const NETWORK_ALIVE_INTERNET: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const NETWORK_ALIVE_LAN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const NETWORK_ALIVE_WAN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const SENS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd597cafe_5b9f_11d1_8dd2_00aa004abd5e);
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const SENSGUID_EVENTCLASS_LOGON: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5978630_5b9f_11d1_8dd2_00aa004abd5e);
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const SENSGUID_EVENTCLASS_LOGON2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5978650_5b9f_11d1_8dd2_00aa004abd5e);
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const SENSGUID_EVENTCLASS_NETWORK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5978620_5b9f_11d1_8dd2_00aa004abd5e);
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const SENSGUID_EVENTCLASS_ONNOW: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5978640_5b9f_11d1_8dd2_00aa004abd5e);
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const SENSGUID_PUBLISHER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5fee1bd6_5b9b_11d1_8dd2_00aa004abd5e);
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const SENSGUID_SUBSCRIBER_LCE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3938ab0_5b9d_11d1_8dd2_00aa004abd5e);
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const SENSGUID_SUBSCRIBER_WININET: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3938ab5_5b9d_11d1_8dd2_00aa004abd5e);
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SENS_CONNECTION_TYPE(pub u32);
@@ -308,7 +292,6 @@ impl ::core::fmt::Debug for SENS_CONNECTION_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub struct QOCINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -341,7 +324,6 @@ impl ::core::default::Default for QOCINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub struct SENS_QOCINFO {
     pub dwSize: u32,
     pub dwFlags: u32,

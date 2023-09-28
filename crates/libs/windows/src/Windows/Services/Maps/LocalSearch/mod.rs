@@ -173,7 +173,6 @@ pub struct IPlaceInfoHelperStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateFromLocalLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 pub struct LocalCategories;
 impl LocalCategories {
     pub fn BankAndCreditUnions() -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -233,7 +232,6 @@ impl LocalCategories {
 impl ::windows_core::RuntimeName for LocalCategories {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalCategories";
 }
-#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LocalLocation(::windows_core::IUnknown);
@@ -266,7 +264,7 @@ impl LocalLocation {
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
+    #[doc = "Required features: `Devices_Geolocation`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn Point(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::Geopoint> {
         let this = self;
@@ -303,7 +301,7 @@ impl LocalLocation {
             (::windows_core::Interface::vtable(this).RatingInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HoursOfOperation(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocationHoursOfOperationItem>> {
         let this = &::windows_core::ComInterface::cast::<ILocalLocation2>(self)?;
@@ -328,10 +326,9 @@ impl ::windows_core::RuntimeName for LocalLocation {
 ::windows_core::imp::interface_hierarchy!(LocalLocation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LocalLocation {}
 unsafe impl ::core::marker::Sync for LocalLocation {}
-#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 pub struct LocalLocationFinder;
 impl LocalLocationFinder {
-    #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
+    #[doc = "Required features: `Devices_Geolocation`, `Foundation`"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn FindLocalLocationsAsync<P0>(searchterm: &::windows_core::HSTRING, searcharea: P0, localcategory: &::windows_core::HSTRING, maxresults: u32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>
     where
@@ -351,12 +348,11 @@ impl LocalLocationFinder {
 impl ::windows_core::RuntimeName for LocalLocationFinder {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationFinder";
 }
-#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LocalLocationFinderResult(::windows_core::IUnknown);
 impl LocalLocationFinderResult {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LocalLocations(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocation>> {
         let this = self;
@@ -388,12 +384,11 @@ impl ::windows_core::RuntimeName for LocalLocationFinderResult {
 ::windows_core::imp::interface_hierarchy!(LocalLocationFinderResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LocalLocationFinderResult {}
 unsafe impl ::core::marker::Sync for LocalLocationFinderResult {}
-#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LocalLocationHoursOfOperationItem(::windows_core::IUnknown);
 impl LocalLocationHoursOfOperationItem {
-    #[doc = "*Required features: `\"Globalization\"`*"]
+    #[doc = "Required features: `Globalization`"]
     #[cfg(feature = "Globalization")]
     pub fn Day(&self) -> ::windows_core::Result<super::super::super::Globalization::DayOfWeek> {
         let this = self;
@@ -402,7 +397,7 @@ impl LocalLocationHoursOfOperationItem {
             (::windows_core::Interface::vtable(this).Day)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Start(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -411,7 +406,7 @@ impl LocalLocationHoursOfOperationItem {
             (::windows_core::Interface::vtable(this).Start)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Span(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -436,12 +431,11 @@ impl ::windows_core::RuntimeName for LocalLocationHoursOfOperationItem {
 ::windows_core::imp::interface_hierarchy!(LocalLocationHoursOfOperationItem, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LocalLocationHoursOfOperationItem {}
 unsafe impl ::core::marker::Sync for LocalLocationHoursOfOperationItem {}
-#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LocalLocationRatingInfo(::windows_core::IUnknown);
 impl LocalLocationRatingInfo {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AggregateRating(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -450,7 +444,7 @@ impl LocalLocationRatingInfo {
             (::windows_core::Interface::vtable(this).AggregateRating)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RatingCount(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -482,7 +476,6 @@ impl ::windows_core::RuntimeName for LocalLocationRatingInfo {
 ::windows_core::imp::interface_hierarchy!(LocalLocationRatingInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LocalLocationRatingInfo {}
 unsafe impl ::core::marker::Sync for LocalLocationRatingInfo {}
-#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 pub struct PlaceInfoHelper;
 impl PlaceInfoHelper {
     pub fn CreateFromLocalLocation<P0>(location: P0) -> ::windows_core::Result<super::PlaceInfo>
@@ -503,7 +496,6 @@ impl PlaceInfoHelper {
 impl ::windows_core::RuntimeName for PlaceInfoHelper {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.PlaceInfoHelper";
 }
-#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LocalLocationFinderStatus(pub i32);

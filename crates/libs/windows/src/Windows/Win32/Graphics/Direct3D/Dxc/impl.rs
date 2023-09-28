@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcAssembler_Impl: Sized {
     fn AssembleToContainer(&self, pshader: ::core::option::Option<&IDxcBlob>) -> ::windows_core::Result<IDxcOperationResult>;
 }
@@ -22,7 +21,6 @@ impl IDxcAssembler_Vtbl {
         *iid == <IDxcAssembler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcBlob_Impl: Sized {
     fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void;
     fn GetBufferSize(&self) -> usize;
@@ -50,7 +48,7 @@ impl IDxcBlob_Vtbl {
         *iid == <IDxcBlob as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcBlobEncoding_Impl: Sized + IDxcBlob_Impl {
     fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows_core::Result<()>;
@@ -71,7 +69,7 @@ impl IDxcBlobEncoding_Vtbl {
         *iid == <IDxcBlobEncoding as ::windows_core::ComInterface>::IID || *iid == <IDxcBlob as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcBlobUtf16_Impl: Sized + IDxcBlobEncoding_Impl {
     fn GetStringPointer(&self) -> ::windows_core::PCWSTR;
@@ -102,7 +100,7 @@ impl IDxcBlobUtf16_Vtbl {
         *iid == <IDxcBlobUtf16 as ::windows_core::ComInterface>::IID || *iid == <IDxcBlob as ::windows_core::ComInterface>::IID || *iid == <IDxcBlobEncoding as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcBlobUtf8_Impl: Sized + IDxcBlobEncoding_Impl {
     fn GetStringPointer(&self) -> ::windows_core::PCSTR;
@@ -133,7 +131,6 @@ impl IDxcBlobUtf8_Vtbl {
         *iid == <IDxcBlobUtf8 as ::windows_core::ComInterface>::IID || *iid == <IDxcBlob as ::windows_core::ComInterface>::IID || *iid == <IDxcBlobEncoding as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcCompiler_Impl: Sized {
     fn Compile(&self, psource: ::core::option::Option<&IDxcBlob>, psourcename: &::windows_core::PCWSTR, pentrypoint: &::windows_core::PCWSTR, ptargetprofile: &::windows_core::PCWSTR, parguments: *const ::windows_core::PCWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::core::option::Option<&IDxcIncludeHandler>) -> ::windows_core::Result<IDxcOperationResult>;
     fn Preprocess(&self, psource: ::core::option::Option<&IDxcBlob>, psourcename: &::windows_core::PCWSTR, parguments: *const ::windows_core::PCWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::core::option::Option<&IDxcIncludeHandler>) -> ::windows_core::Result<IDxcOperationResult>;
@@ -186,7 +183,6 @@ impl IDxcCompiler_Vtbl {
         *iid == <IDxcCompiler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcCompiler2_Impl: Sized + IDxcCompiler_Impl {
     fn CompileWithDebug(&self, psource: ::core::option::Option<&IDxcBlob>, psourcename: &::windows_core::PCWSTR, pentrypoint: &::windows_core::PCWSTR, ptargetprofile: &::windows_core::PCWSTR, parguments: *const ::windows_core::PCWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::core::option::Option<&IDxcIncludeHandler>, ppresult: *mut ::core::option::Option<IDxcOperationResult>, ppdebugblobname: *mut ::windows_core::PWSTR, ppdebugblob: *mut ::core::option::Option<IDxcBlob>) -> ::windows_core::Result<()>;
 }
@@ -218,7 +214,6 @@ impl IDxcCompiler2_Vtbl {
         *iid == <IDxcCompiler2 as ::windows_core::ComInterface>::IID || *iid == <IDxcCompiler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcCompiler3_Impl: Sized {
     fn Compile(&self, psource: *const DxcBuffer, parguments: *const ::windows_core::PCWSTR, argcount: u32, pincludehandler: ::core::option::Option<&IDxcIncludeHandler>, riid: *const ::windows_core::GUID, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn Disassemble(&self, pobject: *const DxcBuffer, riid: *const ::windows_core::GUID, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -246,7 +241,6 @@ impl IDxcCompiler3_Vtbl {
         *iid == <IDxcCompiler3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcCompilerArgs_Impl: Sized {
     fn GetArguments(&self) -> *mut ::windows_core::PCWSTR;
     fn GetCount(&self) -> u32;
@@ -295,7 +289,6 @@ impl IDxcCompilerArgs_Vtbl {
         *iid == <IDxcCompilerArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcContainerBuilder_Impl: Sized {
     fn Load(&self, pdxilcontainerheader: ::core::option::Option<&IDxcBlob>) -> ::windows_core::Result<()>;
     fn AddPart(&self, fourcc: u32, psource: ::core::option::Option<&IDxcBlob>) -> ::windows_core::Result<()>;
@@ -343,7 +336,6 @@ impl IDxcContainerBuilder_Vtbl {
         *iid == <IDxcContainerBuilder as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcContainerReflection_Impl: Sized {
     fn Load(&self, pcontainer: ::core::option::Option<&IDxcBlob>) -> ::windows_core::Result<()>;
     fn GetPartCount(&self) -> ::windows_core::Result<u32>;
@@ -423,7 +415,6 @@ impl IDxcContainerReflection_Vtbl {
         *iid == <IDxcContainerReflection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcExtraOutputs_Impl: Sized {
     fn GetOutputCount(&self) -> u32;
     fn GetOutput(&self, uindex: u32, iid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void, ppoutputtype: *mut ::core::option::Option<IDxcBlobUtf16>, ppoutputname: *mut ::core::option::Option<IDxcBlobUtf16>) -> ::windows_core::Result<()>;
@@ -451,7 +442,6 @@ impl IDxcExtraOutputs_Vtbl {
         *iid == <IDxcExtraOutputs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcIncludeHandler_Impl: Sized {
     fn LoadSource(&self, pfilename: &::windows_core::PCWSTR) -> ::windows_core::Result<IDxcBlob>;
 }
@@ -475,7 +465,7 @@ impl IDxcIncludeHandler_Vtbl {
         *iid == <IDxcIncludeHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDxcLibrary_Impl: Sized {
     fn SetMalloc(&self, pmalloc: ::core::option::Option<&super::super::super::System::Com::IMalloc>) -> ::windows_core::Result<()>;
@@ -616,7 +606,6 @@ impl IDxcLibrary_Vtbl {
         *iid == <IDxcLibrary as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcLinker_Impl: Sized {
     fn RegisterLibrary(&self, plibname: &::windows_core::PCWSTR, plib: ::core::option::Option<&IDxcBlob>) -> ::windows_core::Result<()>;
     fn Link(&self, pentryname: &::windows_core::PCWSTR, ptargetprofile: &::windows_core::PCWSTR, plibnames: *const ::windows_core::PCWSTR, libcount: u32, parguments: *const ::windows_core::PCWSTR, argcount: u32) -> ::windows_core::Result<IDxcOperationResult>;
@@ -650,7 +639,6 @@ impl IDxcLinker_Vtbl {
         *iid == <IDxcLinker as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcOperationResult_Impl: Sized {
     fn GetStatus(&self) -> ::windows_core::Result<::windows_core::HRESULT>;
     fn GetResult(&self) -> ::windows_core::Result<IDxcBlob>;
@@ -703,7 +691,6 @@ impl IDxcOperationResult_Vtbl {
         *iid == <IDxcOperationResult as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcOptimizer_Impl: Sized {
     fn GetAvailablePassCount(&self) -> ::windows_core::Result<u32>;
     fn GetAvailablePass(&self, index: u32) -> ::windows_core::Result<IDxcOptimizerPass>;
@@ -750,7 +737,6 @@ impl IDxcOptimizer_Vtbl {
         *iid == <IDxcOptimizer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcOptimizerPass_Impl: Sized {
     fn GetOptionName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetDescription(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -829,7 +815,7 @@ impl IDxcOptimizerPass_Vtbl {
         *iid == <IDxcOptimizerPass as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcPdbUtils_Impl: Sized {
     fn Load(&self, ppdbordxil: ::core::option::Option<&IDxcBlob>) -> ::windows_core::Result<()>;
@@ -1122,7 +1108,7 @@ impl IDxcPdbUtils_Vtbl {
         *iid == <IDxcPdbUtils as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcResult_Impl: Sized + IDxcOperationResult_Impl {
     fn HasOutput(&self, dxcoutkind: DXC_OUT_KIND) -> super::super::super::Foundation::BOOL;
@@ -1174,7 +1160,7 @@ impl IDxcResult_Vtbl {
         *iid == <IDxcResult as ::windows_core::ComInterface>::IID || *iid == <IDxcOperationResult as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDxcUtils_Impl: Sized {
     fn CreateBlobFromBlob(&self, pblob: ::core::option::Option<&IDxcBlob>, offset: u32, length: u32) -> ::windows_core::Result<IDxcBlob>;
@@ -1342,7 +1328,6 @@ impl IDxcUtils_Vtbl {
         *iid == <IDxcUtils as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcValidator_Impl: Sized {
     fn Validate(&self, pshader: ::core::option::Option<&IDxcBlob>, flags: u32) -> ::windows_core::Result<IDxcOperationResult>;
 }
@@ -1366,7 +1351,6 @@ impl IDxcValidator_Vtbl {
         *iid == <IDxcValidator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcValidator2_Impl: Sized + IDxcValidator_Impl {
     fn ValidateWithDebug(&self, pshader: ::core::option::Option<&IDxcBlob>, flags: u32, poptdebugbitcode: *const DxcBuffer) -> ::windows_core::Result<IDxcOperationResult>;
 }
@@ -1390,7 +1374,6 @@ impl IDxcValidator2_Vtbl {
         *iid == <IDxcValidator2 as ::windows_core::ComInterface>::IID || *iid == <IDxcValidator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcVersionInfo_Impl: Sized {
     fn GetVersion(&self, pmajor: *mut u32, pminor: *mut u32) -> ::windows_core::Result<()>;
     fn GetFlags(&self) -> ::windows_core::Result<u32>;
@@ -1424,7 +1407,6 @@ impl IDxcVersionInfo_Vtbl {
         *iid == <IDxcVersionInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcVersionInfo2_Impl: Sized + IDxcVersionInfo_Impl {
     fn GetCommitInfo(&self, pcommitcount: *mut u32, pcommithash: *mut *mut i8) -> ::windows_core::Result<()>;
 }
@@ -1442,7 +1424,6 @@ impl IDxcVersionInfo2_Vtbl {
         *iid == <IDxcVersionInfo2 as ::windows_core::ComInterface>::IID || *iid == <IDxcVersionInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcVersionInfo3_Impl: Sized {
     fn GetCustomVersionString(&self) -> ::windows_core::Result<*mut i8>;
 }

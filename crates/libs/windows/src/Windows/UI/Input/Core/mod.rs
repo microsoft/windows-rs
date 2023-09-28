@@ -56,7 +56,6 @@ pub struct IRadialControllerIndependentInputSourceStatics_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Core"))]
     CreateForView: usize,
 }
-#[doc = "*Required features: `\"UI_Input_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RadialControllerIndependentInputSource(::windows_core::IUnknown);
@@ -68,7 +67,7 @@ impl RadialControllerIndependentInputSource {
             (::windows_core::Interface::vtable(this).Controller)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
+    #[doc = "Required features: `UI_Core`"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows_core::Result<super::super::Core::CoreDispatcher> {
         let this = self;
@@ -77,7 +76,7 @@ impl RadialControllerIndependentInputSource {
             (::windows_core::Interface::vtable(this).Dispatcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"System\"`*"]
+    #[doc = "Required features: `System`"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows_core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows_core::ComInterface::cast::<IRadialControllerIndependentInputSource2>(self)?;
@@ -86,7 +85,7 @@ impl RadialControllerIndependentInputSource {
             (::windows_core::Interface::vtable(this).DispatcherQueue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
+    #[doc = "Required features: `ApplicationModel_Core`"]
     #[cfg(feature = "ApplicationModel_Core")]
     pub fn CreateForView<P0>(view: P0) -> ::windows_core::Result<RadialControllerIndependentInputSource>
     where

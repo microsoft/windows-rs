@@ -1,8 +1,11 @@
 #[cfg(feature = "Perception_Automation")]
+#[doc = "Required features: `Perception_Automation`"]
 pub mod Automation;
 #[cfg(feature = "Perception_People")]
+#[doc = "Required features: `Perception_People`"]
 pub mod People;
 #[cfg(feature = "Perception_Spatial")]
+#[doc = "Required features: `Perception_Spatial`"]
 pub mod Spatial;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -84,12 +87,11 @@ pub struct IPerceptionTimestampHelperStatics2_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     FromSystemRelativeTargetTime: usize,
 }
-#[doc = "*Required features: `\"Perception\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PerceptionTimestamp(::windows_core::IUnknown);
 impl PerceptionTimestamp {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TargetTime(&self) -> ::windows_core::Result<super::Foundation::DateTime> {
         let this = self;
@@ -98,7 +100,7 @@ impl PerceptionTimestamp {
             (::windows_core::Interface::vtable(this).TargetTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PredictionAmount(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
@@ -107,7 +109,7 @@ impl PerceptionTimestamp {
             (::windows_core::Interface::vtable(this).PredictionAmount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SystemRelativeTargetTime(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IPerceptionTimestamp2>(self)?;
@@ -132,10 +134,9 @@ impl ::windows_core::RuntimeName for PerceptionTimestamp {
 ::windows_core::imp::interface_hierarchy!(PerceptionTimestamp, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PerceptionTimestamp {}
 unsafe impl ::core::marker::Sync for PerceptionTimestamp {}
-#[doc = "*Required features: `\"Perception\"`*"]
 pub struct PerceptionTimestampHelper;
 impl PerceptionTimestampHelper {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn FromHistoricalTargetTime(targettime: super::Foundation::DateTime) -> ::windows_core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics(|this| unsafe {
@@ -143,7 +144,7 @@ impl PerceptionTimestampHelper {
             (::windows_core::Interface::vtable(this).FromHistoricalTargetTime)(::windows_core::Interface::as_raw(this), targettime, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn FromSystemRelativeTargetTime(targettime: super::Foundation::TimeSpan) -> ::windows_core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics2(|this| unsafe {

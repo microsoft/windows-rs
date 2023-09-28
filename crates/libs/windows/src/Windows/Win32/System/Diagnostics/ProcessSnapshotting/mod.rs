@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PssCaptureSnapshot<P0>(processhandle: P0, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32
@@ -8,7 +8,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn PssCaptureSnapshot(processhandle : super::super::super::Foundation:: HANDLE, captureflags : PSS_CAPTURE_FLAGS, threadcontextflags : u32, snapshothandle : *mut HPSS) -> u32);
     PssCaptureSnapshot(processhandle.into_param().abi(), captureflags, threadcontextflags, snapshothandle)
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PssDuplicateSnapshot<P0, P1, P2>(sourceprocesshandle: P0, snapshothandle: P1, targetprocesshandle: P2, targetsnapshothandle: *mut HPSS, flags: PSS_DUPLICATE_FLAGS) -> u32
@@ -20,7 +20,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn PssDuplicateSnapshot(sourceprocesshandle : super::super::super::Foundation:: HANDLE, snapshothandle : HPSS, targetprocesshandle : super::super::super::Foundation:: HANDLE, targetsnapshothandle : *mut HPSS, flags : PSS_DUPLICATE_FLAGS) -> u32);
     PssDuplicateSnapshot(sourceprocesshandle.into_param().abi(), snapshothandle.into_param().abi(), targetprocesshandle.into_param().abi(), targetsnapshothandle, flags)
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PssFreeSnapshot<P0, P1>(processhandle: P0, snapshothandle: P1) -> u32
@@ -31,7 +31,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn PssFreeSnapshot(processhandle : super::super::super::Foundation:: HANDLE, snapshothandle : HPSS) -> u32);
     PssFreeSnapshot(processhandle.into_param().abi(), snapshothandle.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssQuerySnapshot<P0>(snapshothandle: P0, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32
 where
@@ -40,13 +39,11 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn PssQuerySnapshot(snapshothandle : HPSS, informationclass : PSS_QUERY_INFORMATION_CLASS, buffer : *mut ::core::ffi::c_void, bufferlength : u32) -> u32);
     PssQuerySnapshot(snapshothandle.into_param().abi(), informationclass, buffer, bufferlength)
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerCreate(allocator: ::core::option::Option<*const PSS_ALLOCATOR>, walkmarkerhandle: *mut HPSSWALK) -> u32 {
     ::windows_targets::link!("kernel32.dll" "system" fn PssWalkMarkerCreate(allocator : *const PSS_ALLOCATOR, walkmarkerhandle : *mut HPSSWALK) -> u32);
     PssWalkMarkerCreate(::core::mem::transmute(allocator.unwrap_or(::std::ptr::null())), walkmarkerhandle)
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerFree<P0>(walkmarkerhandle: P0) -> u32
 where
@@ -55,7 +52,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn PssWalkMarkerFree(walkmarkerhandle : HPSSWALK) -> u32);
     PssWalkMarkerFree(walkmarkerhandle.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerGetPosition<P0>(walkmarkerhandle: P0, position: *mut usize) -> u32
 where
@@ -64,7 +60,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn PssWalkMarkerGetPosition(walkmarkerhandle : HPSSWALK, position : *mut usize) -> u32);
     PssWalkMarkerGetPosition(walkmarkerhandle.into_param().abi(), position)
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerSeekToBeginning<P0>(walkmarkerhandle: P0) -> u32
 where
@@ -73,7 +68,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn PssWalkMarkerSeekToBeginning(walkmarkerhandle : HPSSWALK) -> u32);
     PssWalkMarkerSeekToBeginning(walkmarkerhandle.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerSetPosition<P0>(walkmarkerhandle: P0, position: usize) -> u32
 where
@@ -82,7 +76,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn PssWalkMarkerSetPosition(walkmarkerhandle : HPSSWALK, position : usize) -> u32);
     PssWalkMarkerSetPosition(walkmarkerhandle.into_param().abi(), position)
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkSnapshot<P0, P1>(snapshothandle: P0, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: P1, buffer: ::core::option::Option<&mut [u8]>) -> u32
 where
@@ -92,121 +85,63 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn PssWalkSnapshot(snapshothandle : HPSS, informationclass : PSS_WALK_INFORMATION_CLASS, walkmarkerhandle : HPSSWALK, buffer : *mut ::core::ffi::c_void, bufferlength : u32) -> u32);
     PssWalkSnapshot(snapshothandle.into_param().abi(), informationclass, walkmarkerhandle.into_param().abi(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_HANDLES: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_HANDLE_BASIC_INFORMATION: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_HANDLE_NAME_INFORMATION: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_HANDLE_TRACE: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_HANDLE_TYPE_SPECIFIC_INFORMATION: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_IPT_TRACE: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_NONE: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_RESERVED_00000002: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_RESERVED_00000400: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_RESERVED_00004000: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_THREADS: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_THREAD_CONTEXT: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_THREAD_CONTEXT_EXTENDED: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_VA_CLONE: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_VA_SPACE: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CAPTURE_VA_SPACE_SECTION_INFORMATION: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CREATE_BREAKAWAY: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(134217728u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CREATE_BREAKAWAY_OPTIONAL: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(67108864u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CREATE_FORCE_BREAKAWAY: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(268435456u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CREATE_MEASURE_PERFORMANCE: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(1073741824u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CREATE_RELEASE_SECTION: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(2147483648u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_CREATE_USE_VM_ALLOCATIONS: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(536870912u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_DUPLICATE_CLOSE_SOURCE: PSS_DUPLICATE_FLAGS = PSS_DUPLICATE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_DUPLICATE_NONE: PSS_DUPLICATE_FLAGS = PSS_DUPLICATE_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_HANDLE_HAVE_BASIC_INFORMATION: PSS_HANDLE_FLAGS = PSS_HANDLE_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_HANDLE_HAVE_NAME: PSS_HANDLE_FLAGS = PSS_HANDLE_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_HANDLE_HAVE_TYPE: PSS_HANDLE_FLAGS = PSS_HANDLE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_HANDLE_HAVE_TYPE_SPECIFIC_INFORMATION: PSS_HANDLE_FLAGS = PSS_HANDLE_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_HANDLE_NONE: PSS_HANDLE_FLAGS = PSS_HANDLE_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_OBJECT_TYPE_EVENT: PSS_OBJECT_TYPE = PSS_OBJECT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_OBJECT_TYPE_MUTANT: PSS_OBJECT_TYPE = PSS_OBJECT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_OBJECT_TYPE_PROCESS: PSS_OBJECT_TYPE = PSS_OBJECT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_OBJECT_TYPE_SECTION: PSS_OBJECT_TYPE = PSS_OBJECT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_OBJECT_TYPE_SEMAPHORE: PSS_OBJECT_TYPE = PSS_OBJECT_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_OBJECT_TYPE_THREAD: PSS_OBJECT_TYPE = PSS_OBJECT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_OBJECT_TYPE_UNKNOWN: PSS_OBJECT_TYPE = PSS_OBJECT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_PERF_RESOLUTION: u32 = 1000000u32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_PROCESS_FLAGS_FROZEN: PSS_PROCESS_FLAGS = PSS_PROCESS_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_PROCESS_FLAGS_NONE: PSS_PROCESS_FLAGS = PSS_PROCESS_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_PROCESS_FLAGS_PROTECTED: PSS_PROCESS_FLAGS = PSS_PROCESS_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_PROCESS_FLAGS_RESERVED_03: PSS_PROCESS_FLAGS = PSS_PROCESS_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_PROCESS_FLAGS_RESERVED_04: PSS_PROCESS_FLAGS = PSS_PROCESS_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_PROCESS_FLAGS_WOW64: PSS_PROCESS_FLAGS = PSS_PROCESS_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_QUERY_AUXILIARY_PAGES_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_QUERY_HANDLE_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_QUERY_HANDLE_TRACE_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_QUERY_PERFORMANCE_COUNTERS: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_QUERY_PROCESS_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_QUERY_THREAD_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_QUERY_VA_CLONE_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_QUERY_VA_SPACE_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_THREAD_FLAGS_NONE: PSS_THREAD_FLAGS = PSS_THREAD_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_THREAD_FLAGS_TERMINATED: PSS_THREAD_FLAGS = PSS_THREAD_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_WALK_AUXILIARY_PAGES: PSS_WALK_INFORMATION_CLASS = PSS_WALK_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_WALK_HANDLES: PSS_WALK_INFORMATION_CLASS = PSS_WALK_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_WALK_THREADS: PSS_WALK_INFORMATION_CLASS = PSS_WALK_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_WALK_VA_SPACE: PSS_WALK_INFORMATION_CLASS = PSS_WALK_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSS_CAPTURE_FLAGS(pub u32);
@@ -262,7 +197,6 @@ impl ::core::ops::Not for PSS_CAPTURE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSS_DUPLICATE_FLAGS(pub i32);
@@ -318,7 +252,6 @@ impl ::core::ops::Not for PSS_DUPLICATE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSS_HANDLE_FLAGS(pub i32);
@@ -374,7 +307,6 @@ impl ::core::ops::Not for PSS_HANDLE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSS_OBJECT_TYPE(pub i32);
@@ -397,7 +329,6 @@ impl ::core::fmt::Debug for PSS_OBJECT_TYPE {
         f.debug_tuple("PSS_OBJECT_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSS_PROCESS_FLAGS(pub i32);
@@ -453,7 +384,6 @@ impl ::core::ops::Not for PSS_PROCESS_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSS_QUERY_INFORMATION_CLASS(pub i32);
@@ -476,7 +406,6 @@ impl ::core::fmt::Debug for PSS_QUERY_INFORMATION_CLASS {
         f.debug_tuple("PSS_QUERY_INFORMATION_CLASS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSS_THREAD_FLAGS(pub i32);
@@ -532,7 +461,6 @@ impl ::core::ops::Not for PSS_THREAD_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSS_WALK_INFORMATION_CLASS(pub i32);
@@ -610,7 +538,6 @@ impl ::windows_core::TypeKind for HPSSWALK {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub struct PSS_ALLOCATOR {
     pub Context: *mut ::core::ffi::c_void,
     pub AllocRoutine: isize,
@@ -642,7 +569,6 @@ impl ::core::default::Default for PSS_ALLOCATOR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub struct PSS_AUXILIARY_PAGES_INFORMATION {
     pub AuxPagesCaptured: u32,
 }
@@ -672,7 +598,7 @@ impl ::core::default::Default for PSS_AUXILIARY_PAGES_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`, `\"Win32_System_Memory\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Memory`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct PSS_AUXILIARY_PAGE_ENTRY {
     pub Address: *mut ::core::ffi::c_void,
@@ -714,7 +640,7 @@ impl ::core::default::Default for PSS_AUXILIARY_PAGE_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY {
     pub Handle: super::super::super::Foundation::HANDLE,
@@ -753,7 +679,7 @@ impl ::core::default::Default for PSS_HANDLE_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PSS_HANDLE_ENTRY_0 {
     pub Process: PSS_HANDLE_ENTRY_0_2,
@@ -782,7 +708,7 @@ impl ::core::default::Default for PSS_HANDLE_ENTRY_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY_0_0 {
     pub ManualReset: super::super::super::Foundation::BOOL,
@@ -821,7 +747,7 @@ impl ::core::default::Default for PSS_HANDLE_ENTRY_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY_0_1 {
     pub CurrentCount: i32,
@@ -862,7 +788,7 @@ impl ::core::default::Default for PSS_HANDLE_ENTRY_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY_0_2 {
     pub ExitStatus: u32,
@@ -906,7 +832,7 @@ impl ::core::default::Default for PSS_HANDLE_ENTRY_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY_0_3 {
     pub BaseAddress: *mut ::core::ffi::c_void,
@@ -946,7 +872,7 @@ impl ::core::default::Default for PSS_HANDLE_ENTRY_0_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY_0_4 {
     pub CurrentCount: i32,
@@ -985,7 +911,7 @@ impl ::core::default::Default for PSS_HANDLE_ENTRY_0_4 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY_0_5 {
     pub ExitStatus: u32,
@@ -1030,7 +956,6 @@ impl ::core::default::Default for PSS_HANDLE_ENTRY_0_5 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub struct PSS_HANDLE_INFORMATION {
     pub HandlesCaptured: u32,
 }
@@ -1060,7 +985,7 @@ impl ::core::default::Default for PSS_HANDLE_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_TRACE_INFORMATION {
     pub SectionHandle: super::super::super::Foundation::HANDLE,
@@ -1099,7 +1024,6 @@ impl ::core::default::Default for PSS_HANDLE_TRACE_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub struct PSS_PERFORMANCE_COUNTERS {
     pub TotalCycleCount: u64,
     pub TotalWallClockPeriod: u64,
@@ -1153,7 +1077,7 @@ impl ::core::default::Default for PSS_PERFORMANCE_COUNTERS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PSS_PROCESS_INFORMATION {
     pub ExitStatus: u32,
@@ -1268,7 +1192,7 @@ impl ::core::default::Default for PSS_PROCESS_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct PSS_THREAD_ENTRY {
     pub ExitStatus: u32,
@@ -1362,7 +1286,6 @@ impl ::core::default::Default for PSS_THREAD_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub struct PSS_THREAD_INFORMATION {
     pub ThreadsCaptured: u32,
     pub ContextLength: u32,
@@ -1393,7 +1316,7 @@ impl ::core::default::Default for PSS_THREAD_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PSS_VA_CLONE_INFORMATION {
     pub VaCloneHandle: super::super::super::Foundation::HANDLE,
@@ -1431,7 +1354,6 @@ impl ::core::default::Default for PSS_VA_CLONE_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub struct PSS_VA_SPACE_ENTRY {
     pub BaseAddress: *mut ::core::ffi::c_void,
     pub AllocationBase: *mut ::core::ffi::c_void,
@@ -1487,7 +1409,6 @@ impl ::core::default::Default for PSS_VA_SPACE_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub struct PSS_VA_SPACE_INFORMATION {
     pub RegionCount: u32,
 }

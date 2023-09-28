@@ -1,11 +1,11 @@
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICatalog(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICatalog {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCollection<P0>(&self, bstrcollname: P0) -> ::windows_core::Result<super::Com::IDispatch>
     where
@@ -14,7 +14,7 @@ impl ICatalog {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCollection)(::windows_core::Interface::as_raw(self), bstrcollname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Connect<P0>(&self, bstrconnectstring: P0) -> ::windows_core::Result<super::Com::IDispatch>
     where
@@ -56,7 +56,7 @@ pub struct ICatalog_Vtbl {
     pub MajorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
     pub MinorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -83,7 +83,7 @@ impl IComponentUtil {
     {
         (::windows_core::Interface::vtable(self).ImportComponentByName)(::windows_core::Interface::as_raw(self), bstrprogid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCLSIDs<P0, P1>(&self, bstrdllfile: P0, bstrtypelibfile: P1, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -116,7 +116,7 @@ pub struct IComponentUtil_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetCLSIDs: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -163,7 +163,7 @@ pub struct IPackageUtil_Vtbl {
     pub ExportPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpackageid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpackagefile: ::std::mem::MaybeUninit<::windows_core::BSTR>, loptions: i32) -> ::windows_core::HRESULT,
     pub ShutdownPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpackageid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -205,7 +205,7 @@ pub struct IRemoteComponentUtil_Vtbl {
     pub InstallRemoteComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrserver: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpackageid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrclsid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub InstallRemoteComponentByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrserver: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpackagename: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrprogid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -243,115 +243,60 @@ pub struct IRoleAssociationUtil_Vtbl {
     pub AssociateRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrroleid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub AssociateRoleByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrolename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const Catalog: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22881_8a19_11d0_81b6_00a0c9231c29);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const CatalogCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22883_8a19_11d0_81b6_00a0c9231c29);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const CatalogObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22882_8a19_11d0_81b6_00a0c9231c29);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const ComponentUtil: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22884_8a19_11d0_81b6_00a0c9231c29);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const PackageUtil: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22885_8a19_11d0_81b6_00a0c9231c29);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const RemoteComponentUtil: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22886_8a19_11d0_81b6_00a0c9231c29);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const RoleAssociationUtil: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22887_8a19_11d0_81b6_00a0c9231c29);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrAlreadyInstalled: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368508i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrAuthenticationLevel: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368493i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrBadForward: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368479i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrBadIID: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368478i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrBadPath: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368502i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrBadRegistryLibID: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368482i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrBadRegistryProgID: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368494i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrCLSIDOrIIDMismatch: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368488i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrCantCopyFile: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368499i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrCoReqCompInstalled: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368496i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrCompFileBadTLB: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368472i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrCompFileClassNotAvail: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368473i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrCompFileDoesNotExist: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368476i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrCompFileGetClassObj: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368474i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrCompFileLoadDLLFail: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368475i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrCompFileNoRegistrar: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368460i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrCompFileNotInstallable: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368471i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrDllLoadFailed: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368483i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrDllRegisterServer: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368486i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrDownloadFailed: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368507i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrInvalidUserids: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368496i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrKeyMissing: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368509i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrNoAccessToUNC: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368484i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrNoRegistryCLSID: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368495i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrNoRegistryRead: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368491i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrNoRegistryRepair: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368489i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrNoRegistryWrite: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368490i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrNoServerShare: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368485i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrNoTypeLib: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368498i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrNoUser: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368497i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrNotChangeable: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368470i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrNotDeletable: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368469i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrObjectErrors: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368511i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrObjectInvalid: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368510i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrPDFReadFail: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368504i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrPDFVersion: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368503i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrPDFWriteFail: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368505i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrPackDirNotFound: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368481i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrPackageExists: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368501i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrRegistrarFailed: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368477i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrRemoteInterface: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368487i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrRoleExists: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368500i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrSession: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368468i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrTreatAs: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368480i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrUserPasswdNotValid: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368492i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsExportUsers: MTSPackageExportOptions = MTSPackageExportOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsInstallUsers: MTSPackageInstallOptions = MTSPackageInstallOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MTSAdminErrorCodes(pub i32);
@@ -374,7 +319,6 @@ impl ::core::fmt::Debug for MTSAdminErrorCodes {
         f.debug_tuple("MTSAdminErrorCodes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MTSPackageExportOptions(pub i32);
@@ -397,7 +341,6 @@ impl ::core::fmt::Debug for MTSPackageExportOptions {
         f.debug_tuple("MTSPackageExportOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MTSPackageInstallOptions(pub i32);

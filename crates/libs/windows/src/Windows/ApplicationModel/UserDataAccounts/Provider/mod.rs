@@ -37,7 +37,6 @@ pub struct IUserDataAccountProviderAddAccountOperation_Vtbl {
     PartnerAccountInfos: usize,
     pub ReportCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdataaccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataAccountProviderOperation(::windows_core::IUnknown);
@@ -100,7 +99,6 @@ pub struct IUserDataAccountProviderSettingsOperation_Vtbl {
     pub UserDataAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub ReportCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataAccountPartnerAccountInfo(::windows_core::IUnknown);
@@ -142,7 +140,6 @@ impl ::windows_core::RuntimeName for UserDataAccountPartnerAccountInfo {
 ::windows_core::imp::interface_hierarchy!(UserDataAccountPartnerAccountInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataAccountPartnerAccountInfo {}
 unsafe impl ::core::marker::Sync for UserDataAccountPartnerAccountInfo {}
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataAccountProviderAddAccountOperation(::windows_core::IUnknown);
@@ -154,7 +151,7 @@ impl UserDataAccountProviderAddAccountOperation {
             (::windows_core::Interface::vtable(this).ContentKinds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PartnerAccountInfos(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<UserDataAccountPartnerAccountInfo>> {
         let this = self;
@@ -191,7 +188,6 @@ impl ::windows_core::RuntimeName for UserDataAccountProviderAddAccountOperation 
 impl ::windows_core::CanTryInto<IUserDataAccountProviderOperation> for UserDataAccountProviderAddAccountOperation {}
 unsafe impl ::core::marker::Send for UserDataAccountProviderAddAccountOperation {}
 unsafe impl ::core::marker::Sync for UserDataAccountProviderAddAccountOperation {}
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataAccountProviderResolveErrorsOperation(::windows_core::IUnknown);
@@ -231,7 +227,6 @@ impl ::windows_core::RuntimeName for UserDataAccountProviderResolveErrorsOperati
 impl ::windows_core::CanTryInto<IUserDataAccountProviderOperation> for UserDataAccountProviderResolveErrorsOperation {}
 unsafe impl ::core::marker::Send for UserDataAccountProviderResolveErrorsOperation {}
 unsafe impl ::core::marker::Sync for UserDataAccountProviderResolveErrorsOperation {}
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataAccountProviderSettingsOperation(::windows_core::IUnknown);
@@ -271,7 +266,6 @@ impl ::windows_core::RuntimeName for UserDataAccountProviderSettingsOperation {
 impl ::windows_core::CanTryInto<IUserDataAccountProviderOperation> for UserDataAccountProviderSettingsOperation {}
 unsafe impl ::core::marker::Send for UserDataAccountProviderSettingsOperation {}
 unsafe impl ::core::marker::Sync for UserDataAccountProviderSettingsOperation {}
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserDataAccountProviderOperationKind(pub i32);
@@ -302,7 +296,6 @@ impl ::core::fmt::Debug for UserDataAccountProviderOperationKind {
 impl ::windows_core::RuntimeType for UserDataAccountProviderOperationKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderOperationKind;i4)");
 }
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserDataAccountProviderPartnerAccountKind(pub i32);

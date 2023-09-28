@@ -1,4 +1,5 @@
 #[cfg(feature = "UI_Text_Core")]
+#[doc = "Required features: `UI_Text_Core`"]
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -89,7 +90,6 @@ pub struct IRichEditTextRange_Vtbl {
     pub ContentLinkInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetContentLinkInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextCharacterFormat(::windows_core::IUnknown);
@@ -467,7 +467,6 @@ pub struct ITextConstantsStatics_Vtbl {
     pub UndefinedFontStretch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FontStretch) -> ::windows_core::HRESULT,
     pub UndefinedFontStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FontStyle) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextDocument(::windows_core::IUnknown);
@@ -583,7 +582,7 @@ impl ITextDocument {
             (::windows_core::Interface::vtable(this).GetRange)(::windows_core::Interface::as_raw(this), startposition, endposition, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetRangeFromPoint(&self, point: super::super::Foundation::Point, options: PointOptions) -> ::windows_core::Result<ITextRange> {
         let this = self;
@@ -596,7 +595,7 @@ impl ITextDocument {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetText)(::windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStream<P0>(&self, options: TextSetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -609,7 +608,7 @@ impl ITextDocument {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Redo)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SaveToStream<P0>(&self, options: TextGetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -745,7 +744,6 @@ pub struct ITextDocument4_Vtbl {
     pub GetMath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetMathMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: RichEditMathMode) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextParagraphFormat(::windows_core::IUnknown);
@@ -1084,7 +1082,6 @@ pub struct ITextParagraphFormat_Vtbl {
     pub SetIndents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, start: f32, left: f32, right: f32) -> ::windows_core::HRESULT,
     pub SetLineSpacing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rule: LineSpacingRule, spacing: f32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextRange(::windows_core::IUnknown);
@@ -1280,13 +1277,13 @@ impl ITextRange {
             (::windows_core::Interface::vtable(this).GetIndex)(::windows_core::Interface::as_raw(this), unit, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetPoint(&self, horizontalalign: HorizontalCharacterAlignment, verticalalign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetPoint)(::windows_core::Interface::as_raw(this), horizontalalign, verticalalign, options, point).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows_core::Result<()> {
         let this = self;
@@ -1296,7 +1293,7 @@ impl ITextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetText)(::windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetTextViaStream<P0>(&self, options: TextGetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -1315,7 +1312,7 @@ impl ITextRange {
             (::windows_core::Interface::vtable(this).InRange)(::windows_core::Interface::as_raw(this), range.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InsertImage<P0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows_core::HSTRING, value: P0) -> ::windows_core::Result<()>
     where
@@ -1381,7 +1378,7 @@ impl ITextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIndex)(::windows_core::Interface::as_raw(this), unit, index, extend).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint(&self, point: super::super::Foundation::Point, options: PointOptions, extend: bool) -> ::windows_core::Result<()> {
         let this = self;
@@ -1395,7 +1392,7 @@ impl ITextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetText2)(::windows_core::Interface::as_raw(this), options, ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextViaStream<P0>(&self, options: TextSetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -1497,7 +1494,6 @@ pub struct ITextRange_Vtbl {
     SetTextViaStream: usize,
     pub StartOf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: TextRangeUnit, extend: bool, result__: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextSelection(::windows_core::IUnknown);
@@ -1757,13 +1753,13 @@ impl ITextSelection {
             (::windows_core::Interface::vtable(this).GetIndex)(::windows_core::Interface::as_raw(this), unit, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetPoint(&self, horizontalalign: HorizontalCharacterAlignment, verticalalign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ITextRange>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).GetPoint)(::windows_core::Interface::as_raw(this), horizontalalign, verticalalign, options, point).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ITextRange>(self)?;
@@ -1773,7 +1769,7 @@ impl ITextSelection {
         let this = &::windows_core::ComInterface::cast::<ITextRange>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).GetText)(::windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetTextViaStream<P0>(&self, options: TextGetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -1792,7 +1788,7 @@ impl ITextSelection {
             (::windows_core::Interface::vtable(this).InRange)(::windows_core::Interface::as_raw(this), range.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InsertImage<P0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows_core::HSTRING, value: P0) -> ::windows_core::Result<()>
     where
@@ -1858,7 +1854,7 @@ impl ITextSelection {
         let this = &::windows_core::ComInterface::cast::<ITextRange>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetIndex)(::windows_core::Interface::as_raw(this), unit, index, extend).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint(&self, point: super::super::Foundation::Point, options: PointOptions, extend: bool) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ITextRange>(self)?;
@@ -1872,7 +1868,7 @@ impl ITextSelection {
         let this = &::windows_core::ComInterface::cast::<ITextRange>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetText2)(::windows_core::Interface::as_raw(this), options, ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextViaStream<P0>(&self, options: TextSetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -1915,7 +1911,6 @@ pub struct ITextSelection_Vtbl {
     pub MoveUp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: TextRangeUnit, count: i32, extend: bool, result__: *mut i32) -> ::windows_core::HRESULT,
     pub TypeText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContentLinkInfo(::windows_core::IUnknown);
@@ -1960,7 +1955,7 @@ impl ContentLinkInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSecondaryText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1969,7 +1964,7 @@ impl ContentLinkInfo {
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2005,7 +2000,6 @@ impl ::windows_core::RuntimeName for ContentLinkInfo {
 ::windows_core::imp::interface_hierarchy!(ContentLinkInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ContentLinkInfo {}
 unsafe impl ::core::marker::Sync for ContentLinkInfo {}
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FontWeights(::windows_core::IUnknown);
@@ -2097,7 +2091,6 @@ impl ::windows_core::RuntimeName for FontWeights {
 ::windows_core::imp::interface_hierarchy!(FontWeights, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for FontWeights {}
 unsafe impl ::core::marker::Sync for FontWeights {}
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RichEditTextDocument(::windows_core::IUnknown);
@@ -2213,7 +2206,7 @@ impl RichEditTextDocument {
             (::windows_core::Interface::vtable(this).GetRange)(::windows_core::Interface::as_raw(this), startposition, endposition, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetRangeFromPoint(&self, point: super::super::Foundation::Point, options: PointOptions) -> ::windows_core::Result<ITextRange> {
         let this = self;
@@ -2226,7 +2219,7 @@ impl RichEditTextDocument {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetText)(::windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStream<P0>(&self, options: TextSetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -2239,7 +2232,7 @@ impl RichEditTextDocument {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Redo)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SaveToStream<P0>(&self, options: TextGetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -2325,7 +2318,6 @@ impl ::windows_core::RuntimeName for RichEditTextDocument {
 impl ::windows_core::CanTryInto<ITextDocument> for RichEditTextDocument {}
 unsafe impl ::core::marker::Send for RichEditTextDocument {}
 unsafe impl ::core::marker::Sync for RichEditTextDocument {}
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RichEditTextRange(::windows_core::IUnknown);
@@ -2535,13 +2527,13 @@ impl RichEditTextRange {
             (::windows_core::Interface::vtable(this).GetIndex)(::windows_core::Interface::as_raw(this), unit, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetPoint(&self, horizontalalign: HorizontalCharacterAlignment, verticalalign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetPoint)(::windows_core::Interface::as_raw(this), horizontalalign, verticalalign, options, point).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows_core::Result<()> {
         let this = self;
@@ -2551,7 +2543,7 @@ impl RichEditTextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetText)(::windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetTextViaStream<P0>(&self, options: TextGetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -2570,7 +2562,7 @@ impl RichEditTextRange {
             (::windows_core::Interface::vtable(this).InRange)(::windows_core::Interface::as_raw(this), range.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InsertImage<P0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows_core::HSTRING, value: P0) -> ::windows_core::Result<()>
     where
@@ -2636,7 +2628,7 @@ impl RichEditTextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIndex)(::windows_core::Interface::as_raw(this), unit, index, extend).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint(&self, point: super::super::Foundation::Point, options: PointOptions, extend: bool) -> ::windows_core::Result<()> {
         let this = self;
@@ -2650,7 +2642,7 @@ impl RichEditTextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetText2)(::windows_core::Interface::as_raw(this), options, ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextViaStream<P0>(&self, options: TextSetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -2683,7 +2675,6 @@ impl ::windows_core::RuntimeName for RichEditTextRange {
 impl ::windows_core::CanTryInto<ITextRange> for RichEditTextRange {}
 unsafe impl ::core::marker::Send for RichEditTextRange {}
 unsafe impl ::core::marker::Sync for RichEditTextRange {}
-#[doc = "*Required features: `\"UI_Text\"`*"]
 pub struct TextConstants;
 impl TextConstants {
     pub fn AutoColor() -> ::windows_core::Result<super::Color> {
@@ -2743,7 +2734,6 @@ impl TextConstants {
 impl ::windows_core::RuntimeName for TextConstants {
     const NAME: &'static str = "Windows.UI.Text.TextConstants";
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CaretType(pub i32);
@@ -2773,7 +2763,6 @@ impl ::core::fmt::Debug for CaretType {
 impl ::windows_core::RuntimeType for CaretType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.CaretType;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FindOptions(pub u32);
@@ -2837,7 +2826,6 @@ impl ::core::ops::Not for FindOptions {
 impl ::windows_core::RuntimeType for FindOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FindOptions;u4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FontStretch(pub i32);
@@ -2875,7 +2863,6 @@ impl ::core::fmt::Debug for FontStretch {
 impl ::windows_core::RuntimeType for FontStretch {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FontStretch;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FontStyle(pub i32);
@@ -2906,7 +2893,6 @@ impl ::core::fmt::Debug for FontStyle {
 impl ::windows_core::RuntimeType for FontStyle {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FontStyle;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FormatEffect(pub i32);
@@ -2938,7 +2924,6 @@ impl ::core::fmt::Debug for FormatEffect {
 impl ::windows_core::RuntimeType for FormatEffect {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FormatEffect;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HorizontalCharacterAlignment(pub i32);
@@ -2969,7 +2954,6 @@ impl ::core::fmt::Debug for HorizontalCharacterAlignment {
 impl ::windows_core::RuntimeType for HorizontalCharacterAlignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.HorizontalCharacterAlignment;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LetterCase(pub i32);
@@ -2999,7 +2983,6 @@ impl ::core::fmt::Debug for LetterCase {
 impl ::windows_core::RuntimeType for LetterCase {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LetterCase;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineSpacingRule(pub i32);
@@ -3035,7 +3018,6 @@ impl ::core::fmt::Debug for LineSpacingRule {
 impl ::windows_core::RuntimeType for LineSpacingRule {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LineSpacingRule;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LinkType(pub i32);
@@ -3072,7 +3054,6 @@ impl ::core::fmt::Debug for LinkType {
 impl ::windows_core::RuntimeType for LinkType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LinkType;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MarkerAlignment(pub i32);
@@ -3104,7 +3085,6 @@ impl ::core::fmt::Debug for MarkerAlignment {
 impl ::windows_core::RuntimeType for MarkerAlignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerAlignment;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MarkerStyle(pub i32);
@@ -3139,7 +3119,6 @@ impl ::core::fmt::Debug for MarkerStyle {
 impl ::windows_core::RuntimeType for MarkerStyle {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerStyle;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MarkerType(pub i32);
@@ -3192,7 +3171,6 @@ impl ::core::fmt::Debug for MarkerType {
 impl ::windows_core::RuntimeType for MarkerType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerType;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ParagraphAlignment(pub i32);
@@ -3225,7 +3203,6 @@ impl ::core::fmt::Debug for ParagraphAlignment {
 impl ::windows_core::RuntimeType for ParagraphAlignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphAlignment;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ParagraphStyle(pub i32);
@@ -3265,7 +3242,6 @@ impl ::core::fmt::Debug for ParagraphStyle {
 impl ::windows_core::RuntimeType for ParagraphStyle {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphStyle;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PointOptions(pub u32);
@@ -3334,7 +3310,6 @@ impl ::core::ops::Not for PointOptions {
 impl ::windows_core::RuntimeType for PointOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.PointOptions;u4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RangeGravity(pub i32);
@@ -3367,7 +3342,6 @@ impl ::core::fmt::Debug for RangeGravity {
 impl ::windows_core::RuntimeType for RangeGravity {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RangeGravity;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RichEditMathMode(pub i32);
@@ -3397,7 +3371,6 @@ impl ::core::fmt::Debug for RichEditMathMode {
 impl ::windows_core::RuntimeType for RichEditMathMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RichEditMathMode;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SelectionOptions(pub u32);
@@ -3463,7 +3436,6 @@ impl ::core::ops::Not for SelectionOptions {
 impl ::windows_core::RuntimeType for SelectionOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.SelectionOptions;u4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SelectionType(pub i32);
@@ -3496,7 +3468,6 @@ impl ::core::fmt::Debug for SelectionType {
 impl ::windows_core::RuntimeType for SelectionType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.SelectionType;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TabAlignment(pub i32);
@@ -3529,7 +3500,6 @@ impl ::core::fmt::Debug for TabAlignment {
 impl ::windows_core::RuntimeType for TabAlignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabAlignment;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TabLeader(pub i32);
@@ -3563,7 +3533,6 @@ impl ::core::fmt::Debug for TabLeader {
 impl ::windows_core::RuntimeType for TabLeader {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabLeader;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextDecorations(pub u32);
@@ -3627,7 +3596,6 @@ impl ::core::ops::Not for TextDecorations {
 impl ::windows_core::RuntimeType for TextDecorations {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextDecorations;u4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextGetOptions(pub u32);
@@ -3697,7 +3665,6 @@ impl ::core::ops::Not for TextGetOptions {
 impl ::windows_core::RuntimeType for TextGetOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextGetOptions;u4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextRangeUnit(pub i32);
@@ -3758,7 +3725,6 @@ impl ::core::fmt::Debug for TextRangeUnit {
 impl ::windows_core::RuntimeType for TextRangeUnit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextRangeUnit;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextScript(pub i32);
@@ -3850,7 +3816,6 @@ impl ::core::fmt::Debug for TextScript {
 impl ::windows_core::RuntimeType for TextScript {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextScript;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextSetOptions(pub u32);
@@ -3918,7 +3883,6 @@ impl ::core::ops::Not for TextSetOptions {
 impl ::windows_core::RuntimeType for TextSetOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextSetOptions;u4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnderlineType(pub i32);
@@ -3966,7 +3930,6 @@ impl ::core::fmt::Debug for UnderlineType {
 impl ::windows_core::RuntimeType for UnderlineType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.UnderlineType;i4)");
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VerticalCharacterAlignment(pub i32);
@@ -3998,7 +3961,6 @@ impl ::windows_core::RuntimeType for VerticalCharacterAlignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.VerticalCharacterAlignment;i4)");
 }
 #[repr(C)]
-#[doc = "*Required features: `\"UI_Text\"`*"]
 pub struct FontWeight {
     pub Weight: u16,
 }

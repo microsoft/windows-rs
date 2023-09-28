@@ -1,4 +1,5 @@
 #[cfg(feature = "Devices_Enumeration_Pnp")]
+#[doc = "Required features: `Devices_Enumeration_Pnp`"]
 pub mod Pnp;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -443,7 +444,6 @@ pub struct IDevicePairingResult_Vtbl {
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingResultStatus) -> ::windows_core::HRESULT,
     pub ProtectionLevelUsed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingProtectionLevel) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDevicePairingSettings(::windows_core::IUnknown);
@@ -794,7 +794,6 @@ pub struct IEnclosureLocation2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RotationAngleInDegreesClockwise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceAccessChangedEventArgs(::windows_core::IUnknown);
@@ -829,12 +828,11 @@ impl ::windows_core::RuntimeName for DeviceAccessChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(DeviceAccessChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceAccessChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceAccessChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceAccessInformation(::windows_core::IUnknown);
 impl DeviceAccessInformation {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AccessChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -846,7 +844,7 @@ impl DeviceAccessInformation {
             (::windows_core::Interface::vtable(this).AccessChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAccessChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -898,7 +896,6 @@ impl ::windows_core::RuntimeName for DeviceAccessInformation {
 ::windows_core::imp::interface_hierarchy!(DeviceAccessInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceAccessInformation {}
 unsafe impl ::core::marker::Sync for DeviceAccessInformation {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceConnectionChangeTriggerDetails(::windows_core::IUnknown);
@@ -926,7 +923,6 @@ impl ::windows_core::RuntimeName for DeviceConnectionChangeTriggerDetails {
 ::windows_core::imp::interface_hierarchy!(DeviceConnectionChangeTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceConnectionChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for DeviceConnectionChangeTriggerDetails {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceDisconnectButtonClickedEventArgs(::windows_core::IUnknown);
@@ -954,7 +950,6 @@ impl ::windows_core::RuntimeName for DeviceDisconnectButtonClickedEventArgs {
 ::windows_core::imp::interface_hierarchy!(DeviceDisconnectButtonClickedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceDisconnectButtonClickedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceDisconnectButtonClickedEventArgs {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceInformation(::windows_core::IUnknown);
@@ -994,7 +989,7 @@ impl DeviceInformation {
             (::windows_core::Interface::vtable(this).EnclosureLocation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = self;
@@ -1010,7 +1005,7 @@ impl DeviceInformation {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Update)(::windows_core::Interface::as_raw(this), updateinfo.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn GetThumbnailAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceThumbnail>> {
         let this = self;
@@ -1019,7 +1014,7 @@ impl DeviceInformation {
             (::windows_core::Interface::vtable(this).GetThumbnailAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn GetGlyphThumbnailAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceThumbnail>> {
         let this = self;
@@ -1042,7 +1037,7 @@ impl DeviceInformation {
             (::windows_core::Interface::vtable(this).Pairing)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateFromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>> {
         Self::IDeviceInformationStatics(|this| unsafe {
@@ -1050,7 +1045,7 @@ impl DeviceInformation {
             (::windows_core::Interface::vtable(this).CreateFromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIdAsyncAdditionalProperties<P0>(deviceid: &::windows_core::HSTRING, additionalproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>
     where
@@ -1061,7 +1056,7 @@ impl DeviceInformation {
             (::windows_core::Interface::vtable(this).CreateFromIdAsyncAdditionalProperties)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), additionalproperties.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>> {
         Self::IDeviceInformationStatics(|this| unsafe {
@@ -1069,7 +1064,7 @@ impl DeviceInformation {
             (::windows_core::Interface::vtable(this).FindAllAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsyncDeviceClass(deviceclass: DeviceClass) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>> {
         Self::IDeviceInformationStatics(|this| unsafe {
@@ -1077,7 +1072,7 @@ impl DeviceInformation {
             (::windows_core::Interface::vtable(this).FindAllAsyncDeviceClass)(::windows_core::Interface::as_raw(this), deviceclass, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsyncAqsFilter(aqsfilter: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>> {
         Self::IDeviceInformationStatics(|this| unsafe {
@@ -1085,7 +1080,7 @@ impl DeviceInformation {
             (::windows_core::Interface::vtable(this).FindAllAsyncAqsFilter)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(aqsfilter), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsyncAqsFilterAndAdditionalProperties<P0>(aqsfilter: &::windows_core::HSTRING, additionalproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>
     where
@@ -1114,7 +1109,7 @@ impl DeviceInformation {
             (::windows_core::Interface::vtable(this).CreateWatcherAqsFilter)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(aqsfilter), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWatcherAqsFilterAndAdditionalProperties<P0>(aqsfilter: &::windows_core::HSTRING, additionalproperties: P0) -> ::windows_core::Result<DeviceWatcher>
     where
@@ -1131,7 +1126,7 @@ impl DeviceInformation {
             (::windows_core::Interface::vtable(this).GetAqsFilterFromDeviceClass)(::windows_core::Interface::as_raw(this), deviceclass, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIdAsyncWithKindAndAdditionalProperties<P0>(deviceid: &::windows_core::HSTRING, additionalproperties: P0, kind: DeviceInformationKind) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>
     where
@@ -1142,7 +1137,7 @@ impl DeviceInformation {
             (::windows_core::Interface::vtable(this).CreateFromIdAsyncWithKindAndAdditionalProperties)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), additionalproperties.try_into_param()?.abi(), kind, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsyncWithKindAqsFilterAndAdditionalProperties<P0>(aqsfilter: &::windows_core::HSTRING, additionalproperties: P0, kind: DeviceInformationKind) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>
     where
@@ -1153,7 +1148,7 @@ impl DeviceInformation {
             (::windows_core::Interface::vtable(this).FindAllAsyncWithKindAqsFilterAndAdditionalProperties)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(aqsfilter), additionalproperties.try_into_param()?.abi(), kind, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWatcherWithKindAqsFilterAndAdditionalProperties<P0>(aqsfilter: &::windows_core::HSTRING, additionalproperties: P0, kind: DeviceInformationKind) -> ::windows_core::Result<DeviceWatcher>
     where
@@ -1190,14 +1185,14 @@ impl ::windows_core::RuntimeName for DeviceInformation {
 ::windows_core::imp::interface_hierarchy!(DeviceInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceInformation {}
 unsafe impl ::core::marker::Sync for DeviceInformation {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation_Collections\"`*"]
+#[doc = "Required features: `Foundation_Collections`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceInformationCollection(::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl DeviceInformationCollection {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IIterator<DeviceInformation>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IIterable<DeviceInformation>>(self)?;
@@ -1206,7 +1201,7 @@ impl DeviceInformationCollection {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<DeviceInformation> {
         let this = self;
@@ -1215,7 +1210,7 @@ impl DeviceInformationCollection {
             (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -1224,7 +1219,7 @@ impl DeviceInformationCollection {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
     where
@@ -1236,7 +1231,7 @@ impl DeviceInformationCollection {
             (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<DeviceInformation>]) -> ::windows_core::Result<u32> {
         let this = self;
@@ -1288,12 +1283,11 @@ impl ::windows_core::CanTryInto<super::super::Foundation::Collections::IVectorVi
 unsafe impl ::core::marker::Send for DeviceInformationCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for DeviceInformationCollection {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceInformationCustomPairing(::windows_core::IUnknown);
 impl DeviceInformationCustomPairing {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PairAsync(&self, pairingkindssupported: DevicePairingKinds) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>> {
         let this = self;
@@ -1302,7 +1296,7 @@ impl DeviceInformationCustomPairing {
             (::windows_core::Interface::vtable(this).PairAsync)(::windows_core::Interface::as_raw(this), pairingkindssupported, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PairWithProtectionLevelAsync(&self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>> {
         let this = self;
@@ -1311,7 +1305,7 @@ impl DeviceInformationCustomPairing {
             (::windows_core::Interface::vtable(this).PairWithProtectionLevelAsync)(::windows_core::Interface::as_raw(this), pairingkindssupported, minprotectionlevel, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PairWithProtectionLevelAndSettingsAsync<P0>(&self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>
     where
@@ -1323,7 +1317,7 @@ impl DeviceInformationCustomPairing {
             (::windows_core::Interface::vtable(this).PairWithProtectionLevelAndSettingsAsync)(::windows_core::Interface::as_raw(this), pairingkindssupported, minprotectionlevel, devicepairingsettings.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PairingRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1335,7 +1329,7 @@ impl DeviceInformationCustomPairing {
             (::windows_core::Interface::vtable(this).PairingRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePairingRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1357,7 +1351,6 @@ impl ::windows_core::RuntimeName for DeviceInformationCustomPairing {
 ::windows_core::imp::interface_hierarchy!(DeviceInformationCustomPairing, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceInformationCustomPairing {}
 unsafe impl ::core::marker::Sync for DeviceInformationCustomPairing {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceInformationPairing(::windows_core::IUnknown);
@@ -1376,7 +1369,7 @@ impl DeviceInformationPairing {
             (::windows_core::Interface::vtable(this).CanPair)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PairAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>> {
         let this = self;
@@ -1385,7 +1378,7 @@ impl DeviceInformationPairing {
             (::windows_core::Interface::vtable(this).PairAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PairWithProtectionLevelAsync(&self, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>> {
         let this = self;
@@ -1408,7 +1401,7 @@ impl DeviceInformationPairing {
             (::windows_core::Interface::vtable(this).Custom)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PairWithProtectionLevelAndSettingsAsync<P0>(&self, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>
     where
@@ -1420,7 +1413,7 @@ impl DeviceInformationPairing {
             (::windows_core::Interface::vtable(this).PairWithProtectionLevelAndSettingsAsync)(::windows_core::Interface::as_raw(this), minprotectionlevel, devicepairingsettings.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn UnpairAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceUnpairingResult>> {
         let this = &::windows_core::ComInterface::cast::<IDeviceInformationPairing2>(self)?;
@@ -1467,7 +1460,6 @@ impl ::windows_core::RuntimeName for DeviceInformationPairing {
 ::windows_core::imp::interface_hierarchy!(DeviceInformationPairing, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceInformationPairing {}
 unsafe impl ::core::marker::Sync for DeviceInformationPairing {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceInformationUpdate(::windows_core::IUnknown);
@@ -1479,7 +1471,7 @@ impl DeviceInformationUpdate {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = self;
@@ -1511,7 +1503,6 @@ impl ::windows_core::RuntimeName for DeviceInformationUpdate {
 ::windows_core::imp::interface_hierarchy!(DeviceInformationUpdate, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceInformationUpdate {}
 unsafe impl ::core::marker::Sync for DeviceInformationUpdate {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DevicePairingRequestedEventArgs(::windows_core::IUnknown);
@@ -1545,7 +1536,7 @@ impl DevicePairingRequestedEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AcceptWithPin)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(pin)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -1554,7 +1545,7 @@ impl DevicePairingRequestedEventArgs {
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials\"`*"]
+    #[doc = "Required features: `Security_Credentials`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn AcceptWithPasswordCredential<P0>(&self, passwordcredential: P0) -> ::windows_core::Result<()>
     where
@@ -1579,7 +1570,6 @@ impl ::windows_core::RuntimeName for DevicePairingRequestedEventArgs {
 ::windows_core::imp::interface_hierarchy!(DevicePairingRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePairingRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePairingRequestedEventArgs {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DevicePairingResult(::windows_core::IUnknown);
@@ -1614,7 +1604,6 @@ impl ::windows_core::RuntimeName for DevicePairingResult {
 ::windows_core::imp::interface_hierarchy!(DevicePairingResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePairingResult {}
 unsafe impl ::core::marker::Sync for DevicePairingResult {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DevicePicker(::windows_core::IUnknown);
@@ -1640,7 +1629,7 @@ impl DevicePicker {
             (::windows_core::Interface::vtable(this).Appearance)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestedProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -1649,7 +1638,7 @@ impl DevicePicker {
             (::windows_core::Interface::vtable(this).RequestedProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DeviceSelected<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1661,13 +1650,13 @@ impl DevicePicker {
             (::windows_core::Interface::vtable(this).DeviceSelected)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDeviceSelected(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveDeviceSelected)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DisconnectButtonClicked<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1679,13 +1668,13 @@ impl DevicePicker {
             (::windows_core::Interface::vtable(this).DisconnectButtonClicked)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDisconnectButtonClicked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveDisconnectButtonClicked)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DevicePickerDismissed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1697,25 +1686,25 @@ impl DevicePicker {
             (::windows_core::Interface::vtable(this).DevicePickerDismissed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDevicePickerDismissed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveDevicePickerDismissed)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Show(&self, selection: super::super::Foundation::Rect) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Show)(::windows_core::Interface::as_raw(this), selection).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"UI_Popups\"`*"]
+    #[doc = "Required features: `Foundation`, `UI_Popups`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowWithPlacement(&self, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).ShowWithPlacement)(::windows_core::Interface::as_raw(this), selection, placement).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PickSingleDeviceAsync(&self, selection: super::super::Foundation::Rect) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>> {
         let this = self;
@@ -1724,7 +1713,7 @@ impl DevicePicker {
             (::windows_core::Interface::vtable(this).PickSingleDeviceAsync)(::windows_core::Interface::as_raw(this), selection, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"UI_Popups\"`*"]
+    #[doc = "Required features: `Foundation`, `UI_Popups`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn PickSingleDeviceAsyncWithPlacement(&self, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>> {
         let this = self;
@@ -1760,7 +1749,6 @@ impl ::windows_core::RuntimeName for DevicePicker {
 ::windows_core::imp::interface_hierarchy!(DevicePicker, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePicker {}
 unsafe impl ::core::marker::Sync for DevicePicker {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DevicePickerAppearance(::windows_core::IUnknown);
@@ -1776,7 +1764,7 @@ impl DevicePickerAppearance {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTitle)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn ForegroundColor(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -1785,13 +1773,13 @@ impl DevicePickerAppearance {
             (::windows_core::Interface::vtable(this).ForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetForegroundColor(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetForegroundColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn BackgroundColor(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -1800,13 +1788,13 @@ impl DevicePickerAppearance {
             (::windows_core::Interface::vtable(this).BackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetBackgroundColor(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetBackgroundColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn AccentColor(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -1815,13 +1803,13 @@ impl DevicePickerAppearance {
             (::windows_core::Interface::vtable(this).AccentColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetAccentColor(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAccentColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SelectedForegroundColor(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -1830,13 +1818,13 @@ impl DevicePickerAppearance {
             (::windows_core::Interface::vtable(this).SelectedForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetSelectedForegroundColor(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSelectedForegroundColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SelectedBackgroundColor(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -1845,13 +1833,13 @@ impl DevicePickerAppearance {
             (::windows_core::Interface::vtable(this).SelectedBackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetSelectedBackgroundColor(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSelectedBackgroundColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SelectedAccentColor(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -1860,7 +1848,7 @@ impl DevicePickerAppearance {
             (::windows_core::Interface::vtable(this).SelectedAccentColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetSelectedAccentColor(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
@@ -1882,12 +1870,11 @@ impl ::windows_core::RuntimeName for DevicePickerAppearance {
 ::windows_core::imp::interface_hierarchy!(DevicePickerAppearance, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePickerAppearance {}
 unsafe impl ::core::marker::Sync for DevicePickerAppearance {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DevicePickerFilter(::windows_core::IUnknown);
 impl DevicePickerFilter {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedDeviceClasses(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<DeviceClass>> {
         let this = self;
@@ -1896,7 +1883,7 @@ impl DevicePickerFilter {
             (::windows_core::Interface::vtable(this).SupportedDeviceClasses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedDeviceSelectors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -1921,7 +1908,6 @@ impl ::windows_core::RuntimeName for DevicePickerFilter {
 ::windows_core::imp::interface_hierarchy!(DevicePickerFilter, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePickerFilter {}
 unsafe impl ::core::marker::Sync for DevicePickerFilter {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceSelectedEventArgs(::windows_core::IUnknown);
@@ -1949,20 +1935,20 @@ impl ::windows_core::RuntimeName for DeviceSelectedEventArgs {
 ::windows_core::imp::interface_hierarchy!(DeviceSelectedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceSelectedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceSelectedEventArgs {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Storage_Streams\"`*"]
+#[doc = "Required features: `Storage_Streams`"]
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceThumbnail(::windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 impl DeviceThumbnail {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ContentType(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IContentTypeProvider>(self)?;
@@ -1971,7 +1957,7 @@ impl DeviceThumbnail {
             (::windows_core::Interface::vtable(this).ContentType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
     where
@@ -1983,7 +1969,7 @@ impl DeviceThumbnail {
             (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteAsync<P0>(&self, buffer: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -1995,7 +1981,7 @@ impl DeviceThumbnail {
             (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
@@ -2004,7 +1990,7 @@ impl DeviceThumbnail {
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Size(&self) -> ::windows_core::Result<u64> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -2013,13 +1999,13 @@ impl DeviceThumbnail {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSize(&self, value: u64) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSize)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -2028,7 +2014,7 @@ impl DeviceThumbnail {
             (::windows_core::Interface::vtable(this).GetInputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -2037,7 +2023,7 @@ impl DeviceThumbnail {
             (::windows_core::Interface::vtable(this).GetOutputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Position(&self) -> ::windows_core::Result<u64> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -2046,13 +2032,13 @@ impl DeviceThumbnail {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Seek(&self, position: u64) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Seek)(::windows_core::Interface::as_raw(this), position).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CloneStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -2061,7 +2047,7 @@ impl DeviceThumbnail {
             (::windows_core::Interface::vtable(this).CloneStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CanRead(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -2070,7 +2056,7 @@ impl DeviceThumbnail {
             (::windows_core::Interface::vtable(this).CanRead)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CanWrite(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -2114,7 +2100,6 @@ impl ::windows_core::CanTryInto<super::super::Storage::Streams::IRandomAccessStr
 unsafe impl ::core::marker::Send for DeviceThumbnail {}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::core::marker::Sync for DeviceThumbnail {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceUnpairingResult(::windows_core::IUnknown);
@@ -2142,12 +2127,11 @@ impl ::windows_core::RuntimeName for DeviceUnpairingResult {
 ::windows_core::imp::interface_hierarchy!(DeviceUnpairingResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceUnpairingResult {}
 unsafe impl ::core::marker::Sync for DeviceUnpairingResult {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceWatcher(::windows_core::IUnknown);
 impl DeviceWatcher {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Added<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2159,13 +2143,13 @@ impl DeviceWatcher {
             (::windows_core::Interface::vtable(this).Added)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAdded)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Updated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2177,13 +2161,13 @@ impl DeviceWatcher {
             (::windows_core::Interface::vtable(this).Updated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveUpdated)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Removed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2195,13 +2179,13 @@ impl DeviceWatcher {
             (::windows_core::Interface::vtable(this).Removed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRemoved)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2213,13 +2197,13 @@ impl DeviceWatcher {
             (::windows_core::Interface::vtable(this).EnumerationCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Stopped<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2231,7 +2215,7 @@ impl DeviceWatcher {
             (::windows_core::Interface::vtable(this).Stopped)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -2252,7 +2236,7 @@ impl DeviceWatcher {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Stop)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `ApplicationModel_Background`, `Foundation_Collections`"]
     #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation_Collections"))]
     pub fn GetBackgroundTrigger<P0>(&self, requestedeventkinds: P0) -> ::windows_core::Result<super::super::ApplicationModel::Background::DeviceWatcherTrigger>
     where
@@ -2280,7 +2264,6 @@ impl ::windows_core::RuntimeName for DeviceWatcher {
 ::windows_core::imp::interface_hierarchy!(DeviceWatcher, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceWatcher {}
 unsafe impl ::core::marker::Sync for DeviceWatcher {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceWatcherEvent(::windows_core::IUnknown);
@@ -2322,12 +2305,11 @@ impl ::windows_core::RuntimeName for DeviceWatcherEvent {
 ::windows_core::imp::interface_hierarchy!(DeviceWatcherEvent, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceWatcherEvent {}
 unsafe impl ::core::marker::Sync for DeviceWatcherEvent {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceWatcherTriggerDetails(::windows_core::IUnknown);
 impl DeviceWatcherTriggerDetails {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DeviceWatcherEvents(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<DeviceWatcherEvent>> {
         let this = self;
@@ -2352,7 +2334,6 @@ impl ::windows_core::RuntimeName for DeviceWatcherTriggerDetails {
 ::windows_core::imp::interface_hierarchy!(DeviceWatcherTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceWatcherTriggerDetails {}
 unsafe impl ::core::marker::Sync for DeviceWatcherTriggerDetails {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EnclosureLocation(::windows_core::IUnknown);
@@ -2401,7 +2382,6 @@ impl ::windows_core::RuntimeName for EnclosureLocation {
 ::windows_core::imp::interface_hierarchy!(EnclosureLocation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for EnclosureLocation {}
 unsafe impl ::core::marker::Sync for EnclosureLocation {}
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceAccessStatus(pub i32);
@@ -2433,7 +2413,6 @@ impl ::core::fmt::Debug for DeviceAccessStatus {
 impl ::windows_core::RuntimeType for DeviceAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceAccessStatus;i4)");
 }
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceClass(pub i32);
@@ -2468,7 +2447,6 @@ impl ::core::fmt::Debug for DeviceClass {
 impl ::windows_core::RuntimeType for DeviceClass {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceClass;i4)");
 }
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceInformationKind(pub i32);
@@ -2505,7 +2483,6 @@ impl ::core::fmt::Debug for DeviceInformationKind {
 impl ::windows_core::RuntimeType for DeviceInformationKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceInformationKind;i4)");
 }
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DevicePairingKinds(pub u32);
@@ -2572,7 +2549,6 @@ impl ::core::ops::Not for DevicePairingKinds {
 impl ::windows_core::RuntimeType for DevicePairingKinds {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingKinds;u4)");
 }
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DevicePairingProtectionLevel(pub i32);
@@ -2604,7 +2580,6 @@ impl ::core::fmt::Debug for DevicePairingProtectionLevel {
 impl ::windows_core::RuntimeType for DevicePairingProtectionLevel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingProtectionLevel;i4)");
 }
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DevicePairingResultStatus(pub i32);
@@ -2652,7 +2627,6 @@ impl ::core::fmt::Debug for DevicePairingResultStatus {
 impl ::windows_core::RuntimeType for DevicePairingResultStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingResultStatus;i4)");
 }
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DevicePickerDisplayStatusOptions(pub u32);
@@ -2717,7 +2691,6 @@ impl ::core::ops::Not for DevicePickerDisplayStatusOptions {
 impl ::windows_core::RuntimeType for DevicePickerDisplayStatusOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePickerDisplayStatusOptions;u4)");
 }
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceUnpairingResultStatus(pub i32);
@@ -2750,7 +2723,6 @@ impl ::core::fmt::Debug for DeviceUnpairingResultStatus {
 impl ::windows_core::RuntimeType for DeviceUnpairingResultStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceUnpairingResultStatus;i4)");
 }
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceWatcherEventKind(pub i32);
@@ -2781,7 +2753,6 @@ impl ::core::fmt::Debug for DeviceWatcherEventKind {
 impl ::windows_core::RuntimeType for DeviceWatcherEventKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherEventKind;i4)");
 }
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceWatcherStatus(pub i32);
@@ -2815,7 +2786,6 @@ impl ::core::fmt::Debug for DeviceWatcherStatus {
 impl ::windows_core::RuntimeType for DeviceWatcherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherStatus;i4)");
 }
-#[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Panel(pub i32);

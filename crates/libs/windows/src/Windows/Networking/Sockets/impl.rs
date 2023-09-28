@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Networking_Sockets\"`, `\"implement\"`*"]
 pub trait IControlChannelTriggerEventDetails_Impl: Sized {
     fn ControlChannelTrigger(&self) -> ::windows_core::Result<ControlChannelTrigger>;
 }
@@ -28,7 +27,6 @@ impl IControlChannelTriggerEventDetails_Vtbl {
         *iid == <IControlChannelTriggerEventDetails as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Networking_Sockets\"`, `\"implement\"`*"]
 pub trait IControlChannelTriggerResetEventDetails_Impl: Sized {
     fn ResetReason(&self) -> ::windows_core::Result<ControlChannelTriggerResetReason>;
     fn HardwareSlotReset(&self) -> ::windows_core::Result<bool>;
@@ -83,7 +81,7 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
         *iid == <IControlChannelTriggerResetEventDetails as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Networking_Sockets\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`, `Storage_Streams`"]
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IWebSocket_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn OutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream>;
@@ -164,7 +162,7 @@ impl IWebSocket_Vtbl {
         *iid == <IWebSocket as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Networking_Sockets\"`, `\"Foundation_Collections\"`, `\"Security_Credentials\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`, `Security_Credentials`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
 pub trait IWebSocketControl_Impl: Sized {
     fn OutboundBufferSizeInBytes(&self) -> ::windows_core::Result<u32>;
@@ -259,7 +257,7 @@ impl IWebSocketControl_Vtbl {
         *iid == <IWebSocketControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Networking_Sockets\"`, `\"Foundation_Collections\"`, `\"Security_Credentials\"`, `\"Security_Cryptography_Certificates\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`, `Security_Credentials`, `Security_Cryptography_Certificates`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 pub trait IWebSocketControl2_Impl: Sized + IWebSocketControl_Impl {
     fn IgnorableServerCertificateErrors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
@@ -292,7 +290,6 @@ impl IWebSocketControl2_Vtbl {
         *iid == <IWebSocketControl2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Networking_Sockets\"`, `\"implement\"`*"]
 pub trait IWebSocketInformation_Impl: Sized {
     fn LocalAddress(&self) -> ::windows_core::Result<super::HostName>;
     fn BandwidthStatistics(&self) -> ::windows_core::Result<BandwidthStatistics>;
@@ -349,7 +346,7 @@ impl IWebSocketInformation_Vtbl {
         *iid == <IWebSocketInformation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Networking_Sockets\"`, `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`, `Security_Cryptography_Certificates`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
 pub trait IWebSocketInformation2_Impl: Sized + IWebSocketInformation_Impl {
     fn ServerCertificate(&self) -> ::windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate>;

@@ -1,20 +1,29 @@
 #[cfg(feature = "Networking_BackgroundTransfer")]
+#[doc = "Required features: `Networking_BackgroundTransfer`"]
 pub mod BackgroundTransfer;
 #[cfg(feature = "Networking_Connectivity")]
+#[doc = "Required features: `Networking_Connectivity`"]
 pub mod Connectivity;
 #[cfg(feature = "Networking_NetworkOperators")]
+#[doc = "Required features: `Networking_NetworkOperators`"]
 pub mod NetworkOperators;
 #[cfg(feature = "Networking_Proximity")]
+#[doc = "Required features: `Networking_Proximity`"]
 pub mod Proximity;
 #[cfg(feature = "Networking_PushNotifications")]
+#[doc = "Required features: `Networking_PushNotifications`"]
 pub mod PushNotifications;
 #[cfg(feature = "Networking_ServiceDiscovery")]
+#[doc = "Required features: `Networking_ServiceDiscovery`"]
 pub mod ServiceDiscovery;
 #[cfg(feature = "Networking_Sockets")]
+#[doc = "Required features: `Networking_Sockets`"]
 pub mod Sockets;
 #[cfg(feature = "Networking_Vpn")]
+#[doc = "Required features: `Networking_Vpn`"]
 pub mod Vpn;
 #[cfg(feature = "Networking_XboxLive")]
+#[doc = "Required features: `Networking_XboxLive`"]
 pub mod XboxLive;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -111,7 +120,6 @@ pub struct IHostNameStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Compare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value1: ::std::mem::MaybeUninit<::windows_core::HSTRING>, value2: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EndpointPair(::windows_core::IUnknown);
@@ -197,12 +205,11 @@ impl ::windows_core::RuntimeName for EndpointPair {
 ::windows_core::imp::interface_hierarchy!(EndpointPair, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for EndpointPair {}
 unsafe impl ::core::marker::Sync for EndpointPair {}
-#[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HostName(::windows_core::IUnknown);
 impl HostName {
-    #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+    #[doc = "Required features: `Networking_Connectivity`"]
     #[cfg(feature = "Networking_Connectivity")]
     pub fn IPInformation(&self) -> ::windows_core::Result<Connectivity::IPInformation> {
         let this = self;
@@ -261,7 +268,7 @@ impl HostName {
             (::windows_core::Interface::vtable(this).Compare)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value1), ::core::mem::transmute_copy(value2), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::Foundation::IStringable>(self)?;
@@ -298,7 +305,6 @@ impl ::windows_core::RuntimeName for HostName {
 impl ::windows_core::CanTryInto<super::Foundation::IStringable> for HostName {}
 unsafe impl ::core::marker::Send for HostName {}
 unsafe impl ::core::marker::Sync for HostName {}
-#[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DomainNameType(pub i32);
@@ -328,7 +334,6 @@ impl ::core::fmt::Debug for DomainNameType {
 impl ::windows_core::RuntimeType for DomainNameType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.DomainNameType;i4)");
 }
-#[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HostNameSortOptions(pub u32);
@@ -391,7 +396,6 @@ impl ::core::ops::Not for HostNameSortOptions {
 impl ::windows_core::RuntimeType for HostNameSortOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameSortOptions;u4)");
 }
-#[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HostNameType(pub i32);

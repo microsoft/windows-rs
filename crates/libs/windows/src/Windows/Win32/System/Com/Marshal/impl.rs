@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"implement\"`*"]
 pub trait IMarshal_Impl: Sized {
     fn GetUnmarshalClass(&self, riid: *const ::windows_core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows_core::Result<::windows_core::GUID>;
     fn GetMarshalSizeMax(&self, riid: *const ::windows_core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows_core::Result<u32>;
@@ -66,7 +65,6 @@ impl IMarshal_Vtbl {
         *iid == <IMarshal as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"implement\"`*"]
 pub trait IMarshal2_Impl: Sized + IMarshal_Impl {}
 impl ::windows_core::RuntimeName for IMarshal2 {}
 impl IMarshal2_Vtbl {
@@ -77,7 +75,7 @@ impl IMarshal2_Vtbl {
         *iid == <IMarshal2 as ::windows_core::ComInterface>::IID || *iid == <IMarshal as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMarshalingStream_Impl: Sized + super::IStream_Impl {
     fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> ::windows_core::Result<usize>;

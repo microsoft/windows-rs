@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`"]
 #[cfg(feature = "Foundation")]
 pub trait IEnteredBackgroundEventArgs_Impl: Sized {
     fn GetDeferral(&self) -> ::windows_core::Result<super::Foundation::Deferral>;
@@ -31,7 +31,7 @@ impl IEnteredBackgroundEventArgs_Vtbl {
         *iid == <IEnteredBackgroundEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`"]
 #[cfg(feature = "Foundation")]
 pub trait ILeavingBackgroundEventArgs_Impl: Sized {
     fn GetDeferral(&self) -> ::windows_core::Result<super::Foundation::Deferral>;
@@ -64,7 +64,6 @@ impl ILeavingBackgroundEventArgs_Vtbl {
         *iid == <ILeavingBackgroundEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel\"`, `\"implement\"`*"]
 pub trait IPackageCatalogStatics2_Impl: Sized {
     fn OpenForPackage(&self, package: ::core::option::Option<&Package>) -> ::windows_core::Result<PackageCatalog>;
 }
@@ -94,7 +93,6 @@ impl IPackageCatalogStatics2_Vtbl {
         *iid == <IPackageCatalogStatics2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel\"`, `\"implement\"`*"]
 pub trait ISuspendingDeferral_Impl: Sized {
     fn Complete(&self) -> ::windows_core::Result<()>;
 }
@@ -114,7 +112,6 @@ impl ISuspendingDeferral_Vtbl {
         *iid == <ISuspendingDeferral as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel\"`, `\"implement\"`*"]
 pub trait ISuspendingEventArgs_Impl: Sized {
     fn SuspendingOperation(&self) -> ::windows_core::Result<SuspendingOperation>;
 }
@@ -144,7 +141,7 @@ impl ISuspendingEventArgs_Vtbl {
         *iid == <ISuspendingEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`"]
 #[cfg(feature = "Foundation")]
 pub trait ISuspendingOperation_Impl: Sized {
     fn GetDeferral(&self) -> ::windows_core::Result<SuspendingDeferral>;

@@ -99,7 +99,6 @@ pub struct IAppBroadcastingUIStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
-#[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppBroadcastingMonitor(::windows_core::IUnknown);
@@ -118,7 +117,7 @@ impl AppBroadcastingMonitor {
             (::windows_core::Interface::vtable(this).IsCurrentAppBroadcasting)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn IsCurrentAppBroadcastingChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -130,7 +129,7 @@ impl AppBroadcastingMonitor {
             (::windows_core::Interface::vtable(this).IsCurrentAppBroadcastingChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIsCurrentAppBroadcastingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -152,7 +151,6 @@ impl ::windows_core::RuntimeName for AppBroadcastingMonitor {
 ::windows_core::imp::interface_hierarchy!(AppBroadcastingMonitor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastingMonitor {}
 unsafe impl ::core::marker::Sync for AppBroadcastingMonitor {}
-#[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppBroadcastingStatus(::windows_core::IUnknown);
@@ -187,7 +185,6 @@ impl ::windows_core::RuntimeName for AppBroadcastingStatus {
 ::windows_core::imp::interface_hierarchy!(AppBroadcastingStatus, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastingStatus {}
 unsafe impl ::core::marker::Sync for AppBroadcastingStatus {}
-#[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppBroadcastingStatusDetails(::windows_core::IUnknown);
@@ -264,7 +261,6 @@ impl ::windows_core::RuntimeName for AppBroadcastingStatusDetails {
 ::windows_core::imp::interface_hierarchy!(AppBroadcastingStatusDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastingStatusDetails {}
 unsafe impl ::core::marker::Sync for AppBroadcastingStatusDetails {}
-#[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppBroadcastingUI(::windows_core::IUnknown);
@@ -286,7 +282,7 @@ impl AppBroadcastingUI {
             (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"System\"`*"]
+    #[doc = "Required features: `System`"]
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<AppBroadcastingUI>
     where

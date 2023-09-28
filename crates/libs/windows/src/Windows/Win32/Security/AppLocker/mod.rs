@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferCloseLevel<P0>(hlevelhandle: P0) -> ::windows_core::Result<()>
@@ -8,7 +8,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn SaferCloseLevel(hlevelhandle : super:: SAFER_LEVEL_HANDLE) -> super::super::Foundation:: BOOL);
     SaferCloseLevel(hlevelhandle.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferComputeTokenFromLevel<P0, P1>(levelhandle: P0, inaccesstoken: P1, outaccesstoken: *mut super::super::Foundation::HANDLE, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -19,14 +19,14 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn SaferComputeTokenFromLevel(levelhandle : super:: SAFER_LEVEL_HANDLE, inaccesstoken : super::super::Foundation:: HANDLE, outaccesstoken : *mut super::super::Foundation:: HANDLE, dwflags : SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SaferComputeTokenFromLevel(levelhandle.into_param().abi(), inaccesstoken.into_param().abi(), outaccesstoken, dwflags, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn SaferCreateLevel(dwscopeid : u32, dwlevelid : u32, openflags : u32, plevelhandle : *mut super:: SAFER_LEVEL_HANDLE, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SaferCreateLevel(dwscopeid, dwlevelid, openflags, plevelhandle, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferGetLevelInformation<P0>(levelhandle: P0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: ::core::option::Option<*mut ::core::ffi::c_void>, dwinbuffersize: u32, lpdwoutbuffersize: *mut u32) -> ::windows_core::Result<()>
@@ -36,21 +36,21 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn SaferGetLevelInformation(levelhandle : super:: SAFER_LEVEL_HANDLE, dwinfotype : SAFER_OBJECT_INFO_CLASS, lpquerybuffer : *mut ::core::ffi::c_void, dwinbuffersize : u32, lpdwoutbuffersize : *mut u32) -> super::super::Foundation:: BOOL);
     SaferGetLevelInformation(levelhandle.into_param().abi(), dwinfotype, ::core::mem::transmute(lpquerybuffer.unwrap_or(::std::ptr::null_mut())), dwinbuffersize, lpdwoutbuffersize).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *mut ::core::ffi::c_void, infobufferretsize: *mut u32, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn SaferGetPolicyInformation(dwscopeid : u32, saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS, infobuffersize : u32, infobuffer : *mut ::core::ffi::c_void, infobufferretsize : *mut u32, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SaferGetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer, infobufferretsize, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferIdentifyLevel(pcodeproperties: ::core::option::Option<&[SAFER_CODE_PROPERTIES_V2]>, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn SaferIdentifyLevel(dwnumproperties : u32, pcodeproperties : *const SAFER_CODE_PROPERTIES_V2, plevelhandle : *mut super:: SAFER_LEVEL_HANDLE, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SaferIdentifyLevel(pcodeproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcodeproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), plevelhandle, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferRecordEventLogEntry<P0, P1>(hlevel: P0, sztargetpath: P1, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -61,7 +61,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn SaferRecordEventLogEntry(hlevel : super:: SAFER_LEVEL_HANDLE, sztargetpath : ::windows_core::PCWSTR, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SaferRecordEventLogEntry(hlevel.into_param().abi(), sztargetpath.into_param().abi(), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferSetLevelInformation<P0>(levelhandle: P0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *const ::core::ffi::c_void, dwinbuffersize: u32) -> ::windows_core::Result<()>
@@ -71,14 +71,14 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn SaferSetLevelInformation(levelhandle : super:: SAFER_LEVEL_HANDLE, dwinfotype : SAFER_OBJECT_INFO_CLASS, lpquerybuffer : *const ::core::ffi::c_void, dwinbuffersize : u32) -> super::super::Foundation:: BOOL);
     SaferSetLevelInformation(levelhandle.into_param().abi(), dwinfotype, lpquerybuffer, dwinbuffersize).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *const ::core::ffi::c_void, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn SaferSetPolicyInformation(dwscopeid : u32, saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS, infobuffersize : u32, infobuffer : *const ::core::ffi::c_void, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SaferSetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferiIsExecutableFileType<P0, P1>(szfullpathname: P0, bfromshellexecute: P1) -> super::super::Foundation::BOOL
@@ -89,153 +89,79 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn SaferiIsExecutableFileType(szfullpathname : ::windows_core::PCWSTR, bfromshellexecute : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: BOOL);
     SaferiIsExecutableFileType(szfullpathname.into_param().abi(), bfromshellexecute.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_CRITERIA_AUTHENTICODE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_CRITERIA_IMAGEHASH: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_CRITERIA_IMAGEPATH: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_CRITERIA_URLZONE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_LEVELID_CONSTRAINED: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_LEVELID_DISALLOWED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_LEVELID_FULLYTRUSTED: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_LEVELID_NORMALUSER: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_LEVELID_UNTRUSTED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_LEVEL_OPEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_MAX_DESCRIPTION_SIZE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_MAX_HASH_SIZE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_POLICY_JOBID_CONSTRAINED: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_POLICY_JOBID_MASK: u32 = 4278190080u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_POLICY_JOBID_UNTRUSTED: u32 = 50331648u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_POLICY_ONLY_AUDIT: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_POLICY_ONLY_EXES: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_POLICY_SANDBOX_INERT: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_POLICY_UIFLAGS_HIDDEN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_POLICY_UIFLAGS_INFORMATION_PROMPT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_POLICY_UIFLAGS_MASK: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_POLICY_UIFLAGS_OPTION_PROMPT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_SCOPEID_MACHINE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_SCOPEID_USER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_TOKEN_COMPARE_ONLY: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_TOKEN_MAKE_INERT: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_TOKEN_NULL_IF_EQUAL: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_TOKEN_WANT_FLAGS: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SRP_POLICY_APPX: ::windows_core::PCWSTR = ::windows_core::w!("APPX");
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SRP_POLICY_DLL: ::windows_core::PCWSTR = ::windows_core::w!("DLL");
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SRP_POLICY_EXE: ::windows_core::PCWSTR = ::windows_core::w!("EXE");
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SRP_POLICY_MANAGEDINSTALLER: ::windows_core::PCWSTR = ::windows_core::w!("MANAGEDINSTALLER");
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SRP_POLICY_MSI: ::windows_core::PCWSTR = ::windows_core::w!("MSI");
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SRP_POLICY_NOV2: ::windows_core::PCWSTR = ::windows_core::w!("IGNORESRPV2");
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SRP_POLICY_SCRIPT: ::windows_core::PCWSTR = ::windows_core::w!("SCRIPT");
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SRP_POLICY_SHELL: ::windows_core::PCWSTR = ::windows_core::w!("SHELL");
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SRP_POLICY_WLDPCONFIGCI: ::windows_core::PCWSTR = ::windows_core::w!("WLDPCONFIGCI");
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SRP_POLICY_WLDPMSI: ::windows_core::PCWSTR = ::windows_core::w!("WLDPMSI");
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SRP_POLICY_WLDPSCRIPT: ::windows_core::PCWSTR = ::windows_core::w!("WLDPSCRIPT");
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferIdentityDefault: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(0i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferIdentityTypeCertificate: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(4i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferIdentityTypeImageHash: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(2i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferIdentityTypeImageName: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferIdentityTypeUrlZone: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(3i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectAllIdentificationGuids: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(14i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectBuiltin: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectDefaultOwner: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(10i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectDeletedPrivileges: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(9i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectDescription: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectDisableMaxPrivilege: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectDisallowed: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectExtendedError: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(16i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectFriendlyName: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectInvertDeletedPrivileges: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectLevelId: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectRestrictedSidsAdded: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(13i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectRestrictedSidsInverted: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(12i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectScopeId: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectSidsToDisable: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(11i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectSingleIdentification: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(15i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferPolicyAuthenticodeEnabled: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferPolicyDefaultLevel: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferPolicyDefaultLevelFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferPolicyEnableTransparentEnforcement: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferPolicyEvaluateUserScope: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferPolicyLevelList: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferPolicyScopeFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(pub u32);
@@ -291,7 +217,6 @@ impl ::core::ops::Not for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SAFER_IDENTIFICATION_TYPES(pub i32);
@@ -314,7 +239,6 @@ impl ::core::fmt::Debug for SAFER_IDENTIFICATION_TYPES {
         f.debug_tuple("SAFER_IDENTIFICATION_TYPES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SAFER_OBJECT_INFO_CLASS(pub i32);
@@ -337,7 +261,6 @@ impl ::core::fmt::Debug for SAFER_OBJECT_INFO_CLASS {
         f.debug_tuple("SAFER_OBJECT_INFO_CLASS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SAFER_POLICY_INFO_CLASS(pub i32);
@@ -361,7 +284,7 @@ impl ::core::fmt::Debug for SAFER_POLICY_INFO_CLASS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_CODE_PROPERTIES_V1 {
     pub cbSize: u32,
@@ -423,7 +346,7 @@ impl ::core::default::Default for SAFER_CODE_PROPERTIES_V1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_CODE_PROPERTIES_V2 {
     pub cbSize: u32,
@@ -495,7 +418,7 @@ impl ::core::default::Default for SAFER_CODE_PROPERTIES_V2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_HASH_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
@@ -540,7 +463,7 @@ impl ::core::default::Default for SAFER_HASH_IDENTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_HASH_IDENTIFICATION2 {
     pub hashIdentification: SAFER_HASH_IDENTIFICATION,
@@ -581,7 +504,7 @@ impl ::core::default::Default for SAFER_HASH_IDENTIFICATION2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_IDENTIFICATION_HEADER {
     pub dwIdentificationType: SAFER_IDENTIFICATION_TYPES,
@@ -622,7 +545,7 @@ impl ::core::default::Default for SAFER_IDENTIFICATION_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_PATHNAME_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
@@ -663,7 +586,7 @@ impl ::core::default::Default for SAFER_PATHNAME_IDENTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_URLZONE_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,

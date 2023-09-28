@@ -14,7 +14,6 @@ pub struct IHtmlUtilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ConvertToText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, html: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Data_Html\"`*"]
 pub struct HtmlUtilities;
 impl HtmlUtilities {
     pub fn ConvertToText(html: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING> {

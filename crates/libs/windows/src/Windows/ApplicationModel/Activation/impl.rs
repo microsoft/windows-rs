@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IActivatedEventArgs_Impl: Sized {
     fn Kind(&self) -> ::windows_core::Result<ActivationKind>;
     fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState>;
@@ -54,7 +53,7 @@ impl IActivatedEventArgs_Vtbl {
         *iid == <IActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`, `\"implement\"`*"]
+#[doc = "Required features: `System`"]
 #[cfg(feature = "System")]
 pub trait IActivatedEventArgsWithUser_Impl: Sized + IActivatedEventArgs_Impl {
     fn User(&self) -> ::windows_core::Result<super::super::System::User>;
@@ -84,7 +83,6 @@ impl IActivatedEventArgsWithUser_Vtbl {
         *iid == <IActivatedEventArgsWithUser as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IApplicationViewActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32>;
 }
@@ -113,7 +111,6 @@ impl IApplicationViewActivatedEventArgs_Vtbl {
         *iid == <IApplicationViewActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IAppointmentsProviderActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
 }
@@ -143,7 +140,7 @@ impl IAppointmentsProviderActivatedEventArgs_Vtbl {
         *iid == <IAppointmentsProviderActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Appointments_AppointmentsProvider\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_Appointments_AppointmentsProvider`"]
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
 pub trait IAppointmentsProviderAddAppointmentActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IAppointmentsProviderActivatedEventArgs_Impl {
     fn AddAppointmentOperation(&self) -> ::windows_core::Result<super::Appointments::AppointmentsProvider::AddAppointmentOperation>;
@@ -176,7 +173,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
         *iid == <IAppointmentsProviderAddAppointmentActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Appointments_AppointmentsProvider\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_Appointments_AppointmentsProvider`"]
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
 pub trait IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IAppointmentsProviderActivatedEventArgs_Impl {
     fn RemoveAppointmentOperation(&self) -> ::windows_core::Result<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation>;
@@ -209,7 +206,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
         *iid == <IAppointmentsProviderRemoveAppointmentActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Appointments_AppointmentsProvider\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_Appointments_AppointmentsProvider`"]
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
 pub trait IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IAppointmentsProviderActivatedEventArgs_Impl {
     fn ReplaceAppointmentOperation(&self) -> ::windows_core::Result<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>;
@@ -242,7 +239,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
         *iid == <IAppointmentsProviderReplaceAppointmentActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`"]
 #[cfg(feature = "Foundation")]
 pub trait IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IAppointmentsProviderActivatedEventArgs_Impl {
     fn InstanceStartDate(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
@@ -303,7 +300,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
         *iid == <IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`"]
 #[cfg(feature = "Foundation")]
 pub trait IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IAppointmentsProviderActivatedEventArgs_Impl {
     fn TimeToShow(&self) -> ::windows_core::Result<super::super::Foundation::DateTime>;
@@ -348,7 +345,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
         *iid == <IAppointmentsProviderShowTimeFrameActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Background\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_Background`"]
 #[cfg(feature = "ApplicationModel_Background")]
 pub trait IBackgroundActivatedEventArgs_Impl: Sized {
     fn TaskInstance(&self) -> ::windows_core::Result<super::Background::IBackgroundTaskInstance>;
@@ -381,7 +378,6 @@ impl IBackgroundActivatedEventArgs_Vtbl {
         *iid == <IBackgroundActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IBarcodeScannerPreviewActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn ConnectionId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
 }
@@ -411,7 +407,7 @@ impl IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
         *iid == <IBarcodeScannerPreviewActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Storage_Provider\"`, `\"implement\"`*"]
+#[doc = "Required features: `Storage_Provider`"]
 #[cfg(feature = "Storage_Provider")]
 pub trait ICachedFileUpdaterActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn CachedFileUpdaterUI(&self) -> ::windows_core::Result<super::super::Storage::Provider::CachedFileUpdaterUI>;
@@ -444,7 +440,6 @@ impl ICachedFileUpdaterActivatedEventArgs_Vtbl {
         *iid == <ICachedFileUpdaterActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait ICameraSettingsActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn VideoDeviceController(&self) -> ::windows_core::Result<::windows_core::IInspectable>;
     fn VideoDeviceExtension(&self) -> ::windows_core::Result<::windows_core::IInspectable>;
@@ -488,7 +483,6 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
         *iid == <ICameraSettingsActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait ICommandLineActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Operation(&self) -> ::windows_core::Result<CommandLineActivationOperation>;
 }
@@ -518,7 +512,6 @@ impl ICommandLineActivatedEventArgs_Vtbl {
         *iid == <ICommandLineActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IContactActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
 }
@@ -545,7 +538,7 @@ impl IContactActivatedEventArgs_Vtbl {
         *iid == <IContactActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_Contacts`"]
 #[cfg(feature = "ApplicationModel_Contacts")]
 pub trait IContactCallActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IContactActivatedEventArgs_Impl {
     fn ServiceId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -606,7 +599,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
         *iid == <IContactCallActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_Contacts`"]
 #[cfg(feature = "ApplicationModel_Contacts")]
 pub trait IContactMapActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IContactActivatedEventArgs_Impl {
     fn Address(&self) -> ::windows_core::Result<super::Contacts::ContactAddress>;
@@ -653,7 +646,7 @@ impl IContactMapActivatedEventArgs_Vtbl {
         *iid == <IContactMapActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_Contacts`"]
 #[cfg(feature = "ApplicationModel_Contacts")]
 pub trait IContactMessageActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IContactActivatedEventArgs_Impl {
     fn ServiceId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -714,7 +707,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
         *iid == <IContactMessageActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_Contacts`"]
 #[cfg(feature = "ApplicationModel_Contacts")]
 pub trait IContactPanelActivatedEventArgs_Impl: Sized {
     fn ContactPanel(&self) -> ::windows_core::Result<super::Contacts::ContactPanel>;
@@ -761,7 +754,7 @@ impl IContactPanelActivatedEventArgs_Vtbl {
         *iid == <IContactPanelActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts_Provider\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_Contacts_Provider`"]
 #[cfg(feature = "ApplicationModel_Contacts_Provider")]
 pub trait IContactPickerActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn ContactPickerUI(&self) -> ::windows_core::Result<super::Contacts::Provider::ContactPickerUI>;
@@ -794,7 +787,7 @@ impl IContactPickerActivatedEventArgs_Vtbl {
         *iid == <IContactPickerActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_Contacts`"]
 #[cfg(feature = "ApplicationModel_Contacts")]
 pub trait IContactPostActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IContactActivatedEventArgs_Impl {
     fn ServiceId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -855,7 +848,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
         *iid == <IContactPostActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_Contacts`"]
 #[cfg(feature = "ApplicationModel_Contacts")]
 pub trait IContactVideoCallActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IContactActivatedEventArgs_Impl {
     fn ServiceId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -916,7 +909,6 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
         *iid == <IContactVideoCallActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IContactsProviderActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
 }
@@ -943,7 +935,7 @@ impl IContactsProviderActivatedEventArgs_Vtbl {
         *iid == <IContactsProviderActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IContinuationActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet>;
@@ -976,7 +968,6 @@ impl IContinuationActivatedEventArgs_Vtbl {
         *iid == <IContinuationActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IDeviceActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn DeviceInformationId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -1020,7 +1011,7 @@ impl IDeviceActivatedEventArgs_Vtbl {
         *iid == <IDeviceActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Devices_Enumeration\"`, `\"implement\"`*"]
+#[doc = "Required features: `Devices_Enumeration`"]
 #[cfg(feature = "Devices_Enumeration")]
 pub trait IDevicePairingActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn DeviceInformation(&self) -> ::windows_core::Result<super::super::Devices::Enumeration::DeviceInformation>;
@@ -1053,7 +1044,6 @@ impl IDevicePairingActivatedEventArgs_Vtbl {
         *iid == <IDevicePairingActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IDialReceiverActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + ILaunchActivatedEventArgs_Impl {
     fn AppName(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
 }
@@ -1083,7 +1073,7 @@ impl IDialReceiverActivatedEventArgs_Vtbl {
         *iid == <IDialReceiverActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`, `\"Storage\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`, `Storage`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
 pub trait IFileActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Files(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>;
@@ -1130,7 +1120,6 @@ impl IFileActivatedEventArgs_Vtbl {
         *iid == <IFileActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IFileActivatedEventArgsWithCallerPackageFamilyName_Impl: Sized + IActivatedEventArgs_Impl {
     fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
 }
@@ -1160,7 +1149,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
         *iid == <IFileActivatedEventArgsWithCallerPackageFamilyName as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`, `\"Storage_Search\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`, `Storage_Search`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
 pub trait IFileActivatedEventArgsWithNeighboringFiles_Impl: Sized + IActivatedEventArgs_Impl + IFileActivatedEventArgs_Impl {
     fn NeighboringFilesQuery(&self) -> ::windows_core::Result<super::super::Storage::Search::StorageFileQueryResult>;
@@ -1193,7 +1182,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
         *iid == <IFileActivatedEventArgsWithNeighboringFiles as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Storage_Pickers_Provider\"`, `\"implement\"`*"]
+#[doc = "Required features: `Storage_Pickers_Provider`"]
 #[cfg(feature = "Storage_Pickers_Provider")]
 pub trait IFileOpenPickerActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn FileOpenPickerUI(&self) -> ::windows_core::Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI>;
@@ -1226,7 +1215,6 @@ impl IFileOpenPickerActivatedEventArgs_Vtbl {
         *iid == <IFileOpenPickerActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IFileOpenPickerActivatedEventArgs2_Impl: Sized {
     fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
 }
@@ -1256,7 +1244,7 @@ impl IFileOpenPickerActivatedEventArgs2_Vtbl {
         *iid == <IFileOpenPickerActivatedEventArgs2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`, `Storage`, `deprecated`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 pub trait IFileOpenPickerContinuationEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IContinuationActivatedEventArgs_Impl {
     fn Files(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>;
@@ -1289,7 +1277,7 @@ impl IFileOpenPickerContinuationEventArgs_Vtbl {
         *iid == <IFileOpenPickerContinuationEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Storage_Pickers_Provider\"`, `\"implement\"`*"]
+#[doc = "Required features: `Storage_Pickers_Provider`"]
 #[cfg(feature = "Storage_Pickers_Provider")]
 pub trait IFileSavePickerActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn FileSavePickerUI(&self) -> ::windows_core::Result<super::super::Storage::Pickers::Provider::FileSavePickerUI>;
@@ -1322,7 +1310,6 @@ impl IFileSavePickerActivatedEventArgs_Vtbl {
         *iid == <IFileSavePickerActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IFileSavePickerActivatedEventArgs2_Impl: Sized {
     fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn EnterpriseId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -1366,7 +1353,7 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
         *iid == <IFileSavePickerActivatedEventArgs2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`, `Storage`, `deprecated`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 pub trait IFileSavePickerContinuationEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IContinuationActivatedEventArgs_Impl {
     fn File(&self) -> ::windows_core::Result<super::super::Storage::StorageFile>;
@@ -1396,7 +1383,7 @@ impl IFileSavePickerContinuationEventArgs_Vtbl {
         *iid == <IFileSavePickerContinuationEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`, `Storage`, `deprecated`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 pub trait IFolderPickerContinuationEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IContinuationActivatedEventArgs_Impl {
     fn Folder(&self) -> ::windows_core::Result<super::super::Storage::StorageFolder>;
@@ -1429,7 +1416,6 @@ impl IFolderPickerContinuationEventArgs_Vtbl {
         *iid == <IFolderPickerContinuationEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait ILaunchActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Arguments(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn TileId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -1473,7 +1459,6 @@ impl ILaunchActivatedEventArgs_Vtbl {
         *iid == <ILaunchActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait ILaunchActivatedEventArgs2_Impl: Sized + IActivatedEventArgs_Impl + ILaunchActivatedEventArgs_Impl {
     fn TileActivatedInfo(&self) -> ::windows_core::Result<TileActivatedInfo>;
 }
@@ -1503,7 +1488,6 @@ impl ILaunchActivatedEventArgs2_Vtbl {
         *iid == <ILaunchActivatedEventArgs2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait ILockScreenActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Info(&self) -> ::windows_core::Result<::windows_core::IInspectable>;
 }
@@ -1530,7 +1514,7 @@ impl ILockScreenActivatedEventArgs_Vtbl {
         *iid == <ILockScreenActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Calls\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_Calls`"]
 #[cfg(feature = "ApplicationModel_Calls")]
 pub trait ILockScreenCallActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + ILaunchActivatedEventArgs_Impl {
     fn CallUI(&self) -> ::windows_core::Result<super::Calls::LockScreenCallUI>;
@@ -1563,7 +1547,6 @@ impl ILockScreenCallActivatedEventArgs_Vtbl {
         *iid == <ILockScreenCallActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IPhoneCallActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn LineId(&self) -> ::windows_core::Result<::windows_core::GUID>;
 }
@@ -1589,7 +1572,6 @@ impl IPhoneCallActivatedEventArgs_Vtbl {
         *iid == <IPhoneCallActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IPickerReturnedActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn PickerOperationId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
 }
@@ -1619,7 +1601,6 @@ impl IPickerReturnedActivatedEventArgs_Vtbl {
         *iid == <IPickerReturnedActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IPrelaunchActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn PrelaunchActivated(&self) -> ::windows_core::Result<bool>;
 }
@@ -1648,7 +1629,7 @@ impl IPrelaunchActivatedEventArgs_Vtbl {
         *iid == <IPrelaunchActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Devices_Printers_Extensions\"`, `\"implement\"`*"]
+#[doc = "Required features: `Devices_Printers_Extensions`"]
 #[cfg(feature = "Devices_Printers_Extensions")]
 pub trait IPrint3DWorkflowActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Workflow(&self) -> ::windows_core::Result<super::super::Devices::Printers::Extensions::Print3DWorkflow>;
@@ -1681,7 +1662,7 @@ impl IPrint3DWorkflowActivatedEventArgs_Vtbl {
         *iid == <IPrint3DWorkflowActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Devices_Printers_Extensions\"`, `\"implement\"`*"]
+#[doc = "Required features: `Devices_Printers_Extensions`"]
 #[cfg(feature = "Devices_Printers_Extensions")]
 pub trait IPrintTaskSettingsActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Configuration(&self) -> ::windows_core::Result<super::super::Devices::Printers::Extensions::PrintTaskConfiguration>;
@@ -1714,7 +1695,7 @@ impl IPrintTaskSettingsActivatedEventArgs_Vtbl {
         *iid == <IPrintTaskSettingsActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`"]
 #[cfg(feature = "Foundation")]
 pub trait IProtocolActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri>;
@@ -1744,7 +1725,7 @@ impl IProtocolActivatedEventArgs_Vtbl {
         *iid == <IProtocolActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl: Sized + IActivatedEventArgs_Impl {
     fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -1791,7 +1772,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
         *iid == <IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`, `\"implement\"`*"]
+#[doc = "Required features: `System`"]
 #[cfg(feature = "System")]
 pub trait IProtocolForResultsActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn ProtocolForResultsOperation(&self) -> ::windows_core::Result<super::super::System::ProtocolForResultsOperation>;
@@ -1824,7 +1805,6 @@ impl IProtocolForResultsActivatedEventArgs_Vtbl {
         *iid == <IProtocolForResultsActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IRestrictedLaunchActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn SharedContext(&self) -> ::windows_core::Result<::windows_core::IInspectable>;
 }
@@ -1854,7 +1834,6 @@ impl IRestrictedLaunchActivatedEventArgs_Vtbl {
         *iid == <IRestrictedLaunchActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait ISearchActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn QueryText(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn Language(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -1898,7 +1877,7 @@ impl ISearchActivatedEventArgs_Vtbl {
         *iid == <ISearchActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Search\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_Search`"]
 #[cfg(feature = "ApplicationModel_Search")]
 pub trait ISearchActivatedEventArgsWithLinguisticDetails_Impl: Sized {
     fn LinguisticDetails(&self) -> ::windows_core::Result<super::Search::SearchPaneQueryLinguisticDetails>;
@@ -1931,7 +1910,7 @@ impl ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
         *iid == <ISearchActivatedEventArgsWithLinguisticDetails as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_DataTransfer_ShareTarget\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_DataTransfer_ShareTarget`"]
 #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
 pub trait IShareTargetActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn ShareOperation(&self) -> ::windows_core::Result<super::DataTransfer::ShareTarget::ShareOperation>;
@@ -1964,7 +1943,6 @@ impl IShareTargetActivatedEventArgs_Vtbl {
         *iid == <IShareTargetActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"implement\"`*"]
 pub trait IStartupTaskActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn TaskId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
 }
@@ -1991,7 +1969,7 @@ impl IStartupTaskActivatedEventArgs_Vtbl {
         *iid == <IStartupTaskActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IToastNotificationActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Argument(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -2038,7 +2016,7 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
         *iid == <IToastNotificationActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_UserDataAccounts_Provider\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_UserDataAccounts_Provider`"]
 #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
 pub trait IUserDataAccountProviderActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Operation(&self) -> ::windows_core::Result<super::UserDataAccounts::Provider::IUserDataAccountProviderOperation>;
@@ -2071,7 +2049,7 @@ impl IUserDataAccountProviderActivatedEventArgs_Vtbl {
         *iid == <IUserDataAccountProviderActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"UI_ViewManagement\"`, `\"implement\"`*"]
+#[doc = "Required features: `UI_ViewManagement`"]
 #[cfg(feature = "UI_ViewManagement")]
 pub trait IViewSwitcherProvider_Impl: Sized + IActivatedEventArgs_Impl {
     fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher>;
@@ -2104,7 +2082,7 @@ impl IViewSwitcherProvider_Vtbl {
         *iid == <IViewSwitcherProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Media_SpeechRecognition\"`, `\"implement\"`*"]
+#[doc = "Required features: `Media_SpeechRecognition`"]
 #[cfg(feature = "Media_SpeechRecognition")]
 pub trait IVoiceCommandActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Result(&self) -> ::windows_core::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult>;
@@ -2134,7 +2112,7 @@ impl IVoiceCommandActivatedEventArgs_Vtbl {
         *iid == <IVoiceCommandActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Wallet\"`, `\"deprecated\"`, `\"implement\"`*"]
+#[doc = "Required features: `ApplicationModel_Wallet`, `deprecated`"]
 #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
 pub trait IWalletActionActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn ItemId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -2194,7 +2172,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
         *iid == <IWalletActionActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Security_Authentication_Web_Provider\"`, `\"implement\"`*"]
+#[doc = "Required features: `Security_Authentication_Web_Provider`"]
 #[cfg(feature = "Security_Authentication_Web_Provider")]
 pub trait IWebAccountProviderActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Operation(&self) -> ::windows_core::Result<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation>;
@@ -2227,7 +2205,7 @@ impl IWebAccountProviderActivatedEventArgs_Vtbl {
         *iid == <IWebAccountProviderActivatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`, `\"Security_Authentication_Web\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`, `Security_Authentication_Web`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Authentication_Web"))]
 pub trait IWebAuthenticationBrokerContinuationEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IContinuationActivatedEventArgs_Impl {
     fn WebAuthenticationResult(&self) -> ::windows_core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult>;

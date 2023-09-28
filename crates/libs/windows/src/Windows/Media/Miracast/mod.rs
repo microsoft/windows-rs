@@ -492,7 +492,6 @@ pub struct IMiracastTransmitter_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     LastConnectionTime: usize,
 }
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiver(::windows_core::IUnknown);
@@ -518,7 +517,7 @@ impl MiracastReceiver {
             (::windows_core::Interface::vtable(this).GetCurrentSettings)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetCurrentSettingsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverSettings>> {
         let this = self;
@@ -537,7 +536,7 @@ impl MiracastReceiver {
             (::windows_core::Interface::vtable(this).DisconnectAllAndApplySettings)(::windows_core::Interface::as_raw(this), settings.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DisconnectAllAndApplySettingsAsync<P0>(&self, settings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverApplySettingsResult>>
     where
@@ -556,7 +555,7 @@ impl MiracastReceiver {
             (::windows_core::Interface::vtable(this).GetStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetStatusAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverStatus>> {
         let this = self;
@@ -565,7 +564,7 @@ impl MiracastReceiver {
             (::windows_core::Interface::vtable(this).GetStatusAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn StatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -577,13 +576,13 @@ impl MiracastReceiver {
             (::windows_core::Interface::vtable(this).StatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
+    #[doc = "Required features: `ApplicationModel_Core`"]
     #[cfg(feature = "ApplicationModel_Core")]
     pub fn CreateSession<P0>(&self, view: P0) -> ::windows_core::Result<MiracastReceiverSession>
     where
@@ -595,7 +594,7 @@ impl MiracastReceiver {
             (::windows_core::Interface::vtable(this).CreateSession)(::windows_core::Interface::as_raw(this), view.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
+    #[doc = "Required features: `ApplicationModel_Core`, `Foundation`"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
     pub fn CreateSessionAsync<P0>(&self, view: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverSession>>
     where
@@ -634,7 +633,6 @@ impl ::windows_core::RuntimeName for MiracastReceiver {
 ::windows_core::imp::interface_hierarchy!(MiracastReceiver, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiver {}
 unsafe impl ::core::marker::Sync for MiracastReceiver {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverApplySettingsResult(::windows_core::IUnknown);
@@ -669,12 +667,11 @@ impl ::windows_core::RuntimeName for MiracastReceiverApplySettingsResult {
 ::windows_core::imp::interface_hierarchy!(MiracastReceiverApplySettingsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverApplySettingsResult {}
 unsafe impl ::core::marker::Sync for MiracastReceiverApplySettingsResult {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverConnection(::windows_core::IUnknown);
 impl MiracastReceiverConnection {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -692,7 +689,7 @@ impl MiracastReceiverConnection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Pause)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PauseAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -705,7 +702,7 @@ impl MiracastReceiverConnection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Resume)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ResumeAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -760,7 +757,6 @@ impl ::windows_core::RuntimeName for MiracastReceiverConnection {
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for MiracastReceiverConnection {}
 unsafe impl ::core::marker::Send for MiracastReceiverConnection {}
 unsafe impl ::core::marker::Sync for MiracastReceiverConnection {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverConnectionCreatedEventArgs(::windows_core::IUnknown);
@@ -779,7 +775,7 @@ impl MiracastReceiverConnectionCreatedEventArgs {
             (::windows_core::Interface::vtable(this).Pin)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -804,7 +800,6 @@ impl ::windows_core::RuntimeName for MiracastReceiverConnectionCreatedEventArgs 
 ::windows_core::imp::interface_hierarchy!(MiracastReceiverConnectionCreatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverConnectionCreatedEventArgs {}
 unsafe impl ::core::marker::Sync for MiracastReceiverConnectionCreatedEventArgs {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverCursorImageChannel(::windows_core::IUnknown);
@@ -816,7 +811,7 @@ impl MiracastReceiverCursorImageChannel {
             (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
+    #[doc = "Required features: `Graphics`"]
     #[cfg(feature = "Graphics")]
     pub fn MaxImageSize(&self) -> ::windows_core::Result<super::super::Graphics::SizeInt32> {
         let this = self;
@@ -825,7 +820,7 @@ impl MiracastReceiverCursorImageChannel {
             (::windows_core::Interface::vtable(this).MaxImageSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
+    #[doc = "Required features: `Graphics`"]
     #[cfg(feature = "Graphics")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Graphics::PointInt32> {
         let this = self;
@@ -834,7 +829,7 @@ impl MiracastReceiverCursorImageChannel {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ImageStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
@@ -843,7 +838,7 @@ impl MiracastReceiverCursorImageChannel {
             (::windows_core::Interface::vtable(this).ImageStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ImageStreamChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -855,13 +850,13 @@ impl MiracastReceiverCursorImageChannel {
             (::windows_core::Interface::vtable(this).ImageStreamChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveImageStreamChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveImageStreamChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PositionChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -873,7 +868,7 @@ impl MiracastReceiverCursorImageChannel {
             (::windows_core::Interface::vtable(this).PositionChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePositionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -895,7 +890,6 @@ impl ::windows_core::RuntimeName for MiracastReceiverCursorImageChannel {
 ::windows_core::imp::interface_hierarchy!(MiracastReceiverCursorImageChannel, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverCursorImageChannel {}
 unsafe impl ::core::marker::Sync for MiracastReceiverCursorImageChannel {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverCursorImageChannelSettings(::windows_core::IUnknown);
@@ -911,7 +905,7 @@ impl MiracastReceiverCursorImageChannelSettings {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIsEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
+    #[doc = "Required features: `Graphics`"]
     #[cfg(feature = "Graphics")]
     pub fn MaxImageSize(&self) -> ::windows_core::Result<super::super::Graphics::SizeInt32> {
         let this = self;
@@ -920,7 +914,7 @@ impl MiracastReceiverCursorImageChannelSettings {
             (::windows_core::Interface::vtable(this).MaxImageSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
+    #[doc = "Required features: `Graphics`"]
     #[cfg(feature = "Graphics")]
     pub fn SetMaxImageSize(&self, value: super::super::Graphics::SizeInt32) -> ::windows_core::Result<()> {
         let this = self;
@@ -942,7 +936,6 @@ impl ::windows_core::RuntimeName for MiracastReceiverCursorImageChannelSettings 
 ::windows_core::imp::interface_hierarchy!(MiracastReceiverCursorImageChannelSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverCursorImageChannelSettings {}
 unsafe impl ::core::marker::Sync for MiracastReceiverCursorImageChannelSettings {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverDisconnectedEventArgs(::windows_core::IUnknown);
@@ -970,7 +963,6 @@ impl ::windows_core::RuntimeName for MiracastReceiverDisconnectedEventArgs {
 ::windows_core::imp::interface_hierarchy!(MiracastReceiverDisconnectedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverDisconnectedEventArgs {}
 unsafe impl ::core::marker::Sync for MiracastReceiverDisconnectedEventArgs {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverGameControllerDevice(::windows_core::IUnknown);
@@ -1011,7 +1003,7 @@ impl MiracastReceiverGameControllerDevice {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMode)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Changed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1023,7 +1015,7 @@ impl MiracastReceiverGameControllerDevice {
             (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1045,7 +1037,6 @@ impl ::windows_core::RuntimeName for MiracastReceiverGameControllerDevice {
 ::windows_core::imp::interface_hierarchy!(MiracastReceiverGameControllerDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverGameControllerDevice {}
 unsafe impl ::core::marker::Sync for MiracastReceiverGameControllerDevice {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverInputDevices(::windows_core::IUnknown);
@@ -1080,7 +1071,6 @@ impl ::windows_core::RuntimeName for MiracastReceiverInputDevices {
 ::windows_core::imp::interface_hierarchy!(MiracastReceiverInputDevices, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverInputDevices {}
 unsafe impl ::core::marker::Sync for MiracastReceiverInputDevices {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverKeyboardDevice(::windows_core::IUnknown);
@@ -1110,7 +1100,7 @@ impl MiracastReceiverKeyboardDevice {
             (::windows_core::Interface::vtable(this).IsTransmittingInput)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Changed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1122,7 +1112,7 @@ impl MiracastReceiverKeyboardDevice {
             (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1144,7 +1134,6 @@ impl ::windows_core::RuntimeName for MiracastReceiverKeyboardDevice {
 ::windows_core::imp::interface_hierarchy!(MiracastReceiverKeyboardDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverKeyboardDevice {}
 unsafe impl ::core::marker::Sync for MiracastReceiverKeyboardDevice {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverMediaSourceCreatedEventArgs(::windows_core::IUnknown);
@@ -1156,7 +1145,7 @@ impl MiracastReceiverMediaSourceCreatedEventArgs {
             (::windows_core::Interface::vtable(this).Connection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Core\"`*"]
+    #[doc = "Required features: `Media_Core`"]
     #[cfg(feature = "Media_Core")]
     pub fn MediaSource(&self) -> ::windows_core::Result<super::Core::MediaSource> {
         let this = self;
@@ -1172,7 +1161,7 @@ impl MiracastReceiverMediaSourceCreatedEventArgs {
             (::windows_core::Interface::vtable(this).CursorImageChannelSettings)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -1197,18 +1186,17 @@ impl ::windows_core::RuntimeName for MiracastReceiverMediaSourceCreatedEventArgs
 ::windows_core::imp::interface_hierarchy!(MiracastReceiverMediaSourceCreatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverMediaSourceCreatedEventArgs {}
 unsafe impl ::core::marker::Sync for MiracastReceiverMediaSourceCreatedEventArgs {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverSession(::windows_core::IUnknown);
 impl MiracastReceiverSession {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectionCreated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1220,13 +1208,13 @@ impl MiracastReceiverSession {
             (::windows_core::Interface::vtable(this).ConnectionCreated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveConnectionCreated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveConnectionCreated)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn MediaSourceCreated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1238,13 +1226,13 @@ impl MiracastReceiverSession {
             (::windows_core::Interface::vtable(this).MediaSourceCreated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMediaSourceCreated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveMediaSourceCreated)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Disconnected<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1256,7 +1244,7 @@ impl MiracastReceiverSession {
             (::windows_core::Interface::vtable(this).Disconnected)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDisconnected(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1291,7 +1279,7 @@ impl MiracastReceiverSession {
             (::windows_core::Interface::vtable(this).Start)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverSessionStartResult>> {
         let this = self;
@@ -1318,7 +1306,6 @@ impl ::windows_core::RuntimeName for MiracastReceiverSession {
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for MiracastReceiverSession {}
 unsafe impl ::core::marker::Send for MiracastReceiverSession {}
 unsafe impl ::core::marker::Sync for MiracastReceiverSession {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverSessionStartResult(::windows_core::IUnknown);
@@ -1353,7 +1340,6 @@ impl ::windows_core::RuntimeName for MiracastReceiverSessionStartResult {
 ::windows_core::imp::interface_hierarchy!(MiracastReceiverSessionStartResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverSessionStartResult {}
 unsafe impl ::core::marker::Sync for MiracastReceiverSessionStartResult {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverSettings(::windows_core::IUnknown);
@@ -1429,7 +1415,6 @@ impl ::windows_core::RuntimeName for MiracastReceiverSettings {
 ::windows_core::imp::interface_hierarchy!(MiracastReceiverSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverSettings {}
 unsafe impl ::core::marker::Sync for MiracastReceiverSettings {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverStatus(::windows_core::IUnknown);
@@ -1462,7 +1447,7 @@ impl MiracastReceiverStatus {
             (::windows_core::Interface::vtable(this).MaxSimultaneousConnections)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn KnownTransmitters(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MiracastTransmitter>> {
         let this = self;
@@ -1487,7 +1472,6 @@ impl ::windows_core::RuntimeName for MiracastReceiverStatus {
 ::windows_core::imp::interface_hierarchy!(MiracastReceiverStatus, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverStatus {}
 unsafe impl ::core::marker::Sync for MiracastReceiverStatus {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverStreamControl(::windows_core::IUnknown);
@@ -1499,7 +1483,7 @@ impl MiracastReceiverStreamControl {
             (::windows_core::Interface::vtable(this).GetVideoStreamSettings)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetVideoStreamSettingsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverVideoStreamSettings>> {
         let this = self;
@@ -1515,7 +1499,7 @@ impl MiracastReceiverStreamControl {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SuggestVideoStreamSettings)(::windows_core::Interface::as_raw(this), settings.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SuggestVideoStreamSettingsAsync<P0>(&self, settings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1554,12 +1538,11 @@ impl ::windows_core::RuntimeName for MiracastReceiverStreamControl {
 ::windows_core::imp::interface_hierarchy!(MiracastReceiverStreamControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverStreamControl {}
 unsafe impl ::core::marker::Sync for MiracastReceiverStreamControl {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastReceiverVideoStreamSettings(::windows_core::IUnknown);
 impl MiracastReceiverVideoStreamSettings {
-    #[doc = "*Required features: `\"Graphics\"`*"]
+    #[doc = "Required features: `Graphics`"]
     #[cfg(feature = "Graphics")]
     pub fn Size(&self) -> ::windows_core::Result<super::super::Graphics::SizeInt32> {
         let this = self;
@@ -1568,7 +1551,7 @@ impl MiracastReceiverVideoStreamSettings {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
+    #[doc = "Required features: `Graphics`"]
     #[cfg(feature = "Graphics")]
     pub fn SetSize(&self, value: super::super::Graphics::SizeInt32) -> ::windows_core::Result<()> {
         let this = self;
@@ -1601,7 +1584,6 @@ impl ::windows_core::RuntimeName for MiracastReceiverVideoStreamSettings {
 ::windows_core::imp::interface_hierarchy!(MiracastReceiverVideoStreamSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverVideoStreamSettings {}
 unsafe impl ::core::marker::Sync for MiracastReceiverVideoStreamSettings {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MiracastTransmitter(::windows_core::IUnknown);
@@ -1628,7 +1610,7 @@ impl MiracastTransmitter {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAuthorizationStatus)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetConnections(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MiracastReceiverConnection>> {
         let this = self;
@@ -1644,7 +1626,7 @@ impl MiracastTransmitter {
             (::windows_core::Interface::vtable(this).MacAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LastConnectionTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1669,7 +1651,6 @@ impl ::windows_core::RuntimeName for MiracastTransmitter {
 ::windows_core::imp::interface_hierarchy!(MiracastTransmitter, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastTransmitter {}
 unsafe impl ::core::marker::Sync for MiracastTransmitter {}
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MiracastReceiverApplySettingsStatus(pub i32);
@@ -1705,7 +1686,6 @@ impl ::core::fmt::Debug for MiracastReceiverApplySettingsStatus {
 impl ::windows_core::RuntimeType for MiracastReceiverApplySettingsStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverApplySettingsStatus;i4)");
 }
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MiracastReceiverAuthorizationMethod(pub i32);
@@ -1737,7 +1717,6 @@ impl ::core::fmt::Debug for MiracastReceiverAuthorizationMethod {
 impl ::windows_core::RuntimeType for MiracastReceiverAuthorizationMethod {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverAuthorizationMethod;i4)");
 }
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MiracastReceiverDisconnectReason(pub i32);
@@ -1773,7 +1752,6 @@ impl ::core::fmt::Debug for MiracastReceiverDisconnectReason {
 impl ::windows_core::RuntimeType for MiracastReceiverDisconnectReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverDisconnectReason;i4)");
 }
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MiracastReceiverGameControllerDeviceUsageMode(pub i32);
@@ -1803,7 +1781,6 @@ impl ::core::fmt::Debug for MiracastReceiverGameControllerDeviceUsageMode {
 impl ::windows_core::RuntimeType for MiracastReceiverGameControllerDeviceUsageMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverGameControllerDeviceUsageMode;i4)");
 }
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MiracastReceiverListeningStatus(pub i32);
@@ -1837,7 +1814,6 @@ impl ::core::fmt::Debug for MiracastReceiverListeningStatus {
 impl ::windows_core::RuntimeType for MiracastReceiverListeningStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverListeningStatus;i4)");
 }
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MiracastReceiverSessionStartStatus(pub i32);
@@ -1869,7 +1845,6 @@ impl ::core::fmt::Debug for MiracastReceiverSessionStartStatus {
 impl ::windows_core::RuntimeType for MiracastReceiverSessionStartStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverSessionStartStatus;i4)");
 }
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MiracastReceiverWiFiStatus(pub i32);
@@ -1901,7 +1876,6 @@ impl ::core::fmt::Debug for MiracastReceiverWiFiStatus {
 impl ::windows_core::RuntimeType for MiracastReceiverWiFiStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverWiFiStatus;i4)");
 }
-#[doc = "*Required features: `\"Media_Miracast\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MiracastTransmitterAuthorizationStatus(pub i32);

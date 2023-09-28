@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn CLRCreateInstance<T>(clsid: *const ::windows_core::GUID) -> ::windows_core::Result<T>
 where
@@ -8,7 +7,6 @@ where
     let mut result__ = ::std::ptr::null_mut();
     CLRCreateInstance(clsid, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn CallFunctionShim<P0, P1, P2>(szdllname: P0, szfunctionname: P1, lpvargument1: *mut ::core::ffi::c_void, lpvargument2: *mut ::core::ffi::c_void, szversion: P2, pvreserved: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -19,7 +17,6 @@ where
     ::windows_targets::link!("mscoree.dll" "system" fn CallFunctionShim(szdllname : ::windows_core::PCWSTR, szfunctionname : ::windows_core::PCSTR, lpvargument1 : *mut ::core::ffi::c_void, lpvargument2 : *mut ::core::ffi::c_void, szversion : ::windows_core::PCWSTR, pvreserved : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CallFunctionShim(szdllname.into_param().abi(), szfunctionname.into_param().abi(), lpvargument1, lpvargument2, szversion.into_param().abi(), pvreserved).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn ClrCreateManagedInstance<P0>(ptypename: P0, riid: *const ::windows_core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -28,7 +25,6 @@ where
     ::windows_targets::link!("mscoree.dll" "system" fn ClrCreateManagedInstance(ptypename : ::windows_core::PCWSTR, riid : *const ::windows_core::GUID, ppobject : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ClrCreateManagedInstance(ptypename.into_param().abi(), riid, ppobject).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn CorBindToCurrentRuntime<P0>(pwszfilename: P0, rclsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -37,7 +33,6 @@ where
     ::windows_targets::link!("mscoree.dll" "system" fn CorBindToCurrentRuntime(pwszfilename : ::windows_core::PCWSTR, rclsid : *const ::windows_core::GUID, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CorBindToCurrentRuntime(pwszfilename.into_param().abi(), rclsid, riid, ppv).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn CorBindToRuntime<P0, P1>(pwszversion: P0, pwszbuildflavor: P1, rclsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -47,7 +42,7 @@ where
     ::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntime(pwszversion : ::windows_core::PCWSTR, pwszbuildflavor : ::windows_core::PCWSTR, rclsid : *const ::windows_core::GUID, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CorBindToRuntime(pwszversion.into_param().abi(), pwszbuildflavor.into_param().abi(), rclsid, riid, ppv).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CorBindToRuntimeByCfg<P0>(pcfgstream: P0, reserved: u32, startupflags: u32, rclsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -57,7 +52,6 @@ where
     ::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeByCfg(pcfgstream : * mut::core::ffi::c_void, reserved : u32, startupflags : u32, rclsid : *const ::windows_core::GUID, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CorBindToRuntimeByCfg(pcfgstream.into_param().abi(), reserved, startupflags, rclsid, riid, ppv).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn CorBindToRuntimeEx<P0, P1>(pwszversion: P0, pwszbuildflavor: P1, startupflags: u32, rclsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -67,7 +61,6 @@ where
     ::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeEx(pwszversion : ::windows_core::PCWSTR, pwszbuildflavor : ::windows_core::PCWSTR, startupflags : u32, rclsid : *const ::windows_core::GUID, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CorBindToRuntimeEx(pwszversion.into_param().abi(), pwszbuildflavor.into_param().abi(), startupflags, rclsid, riid, ppv).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn CorBindToRuntimeHost<P0, P1, P2>(pwszversion: P0, pwszbuildflavor: P1, pwszhostconfigfile: P2, preserved: *mut ::core::ffi::c_void, startupflags: u32, rclsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -78,13 +71,12 @@ where
     ::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeHost(pwszversion : ::windows_core::PCWSTR, pwszbuildflavor : ::windows_core::PCWSTR, pwszhostconfigfile : ::windows_core::PCWSTR, preserved : *mut ::core::ffi::c_void, startupflags : u32, rclsid : *const ::windows_core::GUID, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CorBindToRuntimeHost(pwszversion.into_param().abi(), pwszbuildflavor.into_param().abi(), pwszhostconfigfile.into_param().abi(), preserved, startupflags, rclsid, riid, ppv).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn CorExitProcess(exitcode: i32) {
     ::windows_targets::link!("mscoree.dll" "system" fn CorExitProcess(exitcode : i32) -> ());
     CorExitProcess(exitcode)
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Threading`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
 pub unsafe fn CorLaunchApplication<P0>(dwclickoncehost: HOST_TYPE, pwzappfullname: P0, dwmanifestpaths: u32, ppwzmanifestpaths: *const ::windows_core::PCWSTR, dwactivationdata: u32, ppwzactivationdata: *const ::windows_core::PCWSTR, lpprocessinformation: *mut super::Threading::PROCESS_INFORMATION) -> ::windows_core::Result<()>
@@ -94,13 +86,11 @@ where
     ::windows_targets::link!("mscoree.dll" "system" fn CorLaunchApplication(dwclickoncehost : HOST_TYPE, pwzappfullname : ::windows_core::PCWSTR, dwmanifestpaths : u32, ppwzmanifestpaths : *const ::windows_core::PCWSTR, dwactivationdata : u32, ppwzactivationdata : *const ::windows_core::PCWSTR, lpprocessinformation : *mut super::Threading:: PROCESS_INFORMATION) -> ::windows_core::HRESULT);
     CorLaunchApplication(dwclickoncehost, pwzappfullname.into_param().abi(), dwmanifestpaths, ppwzmanifestpaths, dwactivationdata, ppwzactivationdata, lpprocessinformation).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn CorMarkThreadInThreadPool() {
     ::windows_targets::link!("mscoree.dll" "system" fn CorMarkThreadInThreadPool() -> ());
     CorMarkThreadInThreadPool()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn CreateDebuggingInterfaceFromVersion<P0>(idebuggerversion: i32, szdebuggeeversion: P0) -> ::windows_core::Result<::windows_core::IUnknown>
 where
@@ -110,32 +100,27 @@ where
     let mut result__ = ::std::mem::zeroed();
     CreateDebuggingInterfaceFromVersion(idebuggerversion, szdebuggeeversion.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn GetCLRIdentityManager(riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
     ::windows_targets::link!("mscoree.dll" "system" fn GetCLRIdentityManager(riid : *const ::windows_core::GUID, ppmanager : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     GetCLRIdentityManager(riid, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn GetCORRequiredVersion(pbuffer: &mut [u16], dwlength: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mscoree.dll" "system" fn GetCORRequiredVersion(pbuffer : ::windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_core::HRESULT);
     GetCORRequiredVersion(::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, dwlength).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn GetCORSystemDirectory(pbuffer: &mut [u16], dwlength: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mscoree.dll" "system" fn GetCORSystemDirectory(pbuffer : ::windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_core::HRESULT);
     GetCORSystemDirectory(::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, dwlength).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn GetCORVersion(pbbuffer: &mut [u16], dwlength: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mscoree.dll" "system" fn GetCORVersion(pbbuffer : ::windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_core::HRESULT);
     GetCORVersion(::core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len() as _, dwlength).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn GetFileVersion<P0>(szfilename: P0, szbuffer: ::core::option::Option<&mut [u16]>, dwlength: *mut u32) -> ::windows_core::Result<()>
 where
@@ -144,7 +129,6 @@ where
     ::windows_targets::link!("mscoree.dll" "system" fn GetFileVersion(szfilename : ::windows_core::PCWSTR, szbuffer : ::windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_core::HRESULT);
     GetFileVersion(szfilename.into_param().abi(), ::core::mem::transmute(szbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), szbuffer.as_deref().map_or(0, |slice| slice.len() as _), dwlength).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn GetRealProcAddress<P0>(pwszprocname: P0, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
@@ -153,7 +137,6 @@ where
     ::windows_targets::link!("mscoree.dll" "system" fn GetRealProcAddress(pwszprocname : ::windows_core::PCSTR, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     GetRealProcAddress(pwszprocname.into_param().abi(), ppv).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn GetRequestedRuntimeInfo<P0, P1, P2>(pexe: P0, pwszversion: P1, pconfigurationfile: P2, startupflags: u32, runtimeinfoflags: u32, pdirectory: ::core::option::Option<&mut [u16]>, dwdirectorylength: ::core::option::Option<*mut u32>, pversion: ::core::option::Option<&mut [u16]>, dwlength: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
@@ -177,7 +160,6 @@ where
     )
     .ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn GetRequestedRuntimeVersion<P0>(pexe: P0, pversion: &mut [u16], dwlength: *mut u32) -> ::windows_core::Result<()>
 where
@@ -186,13 +168,12 @@ where
     ::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersion(pexe : ::windows_core::PCWSTR, pversion : ::windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_core::HRESULT);
     GetRequestedRuntimeVersion(pexe.into_param().abi(), ::core::mem::transmute(pversion.as_ptr()), pversion.len() as _, dwlength).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn GetRequestedRuntimeVersionForCLSID(rclsid: *const ::windows_core::GUID, pversion: ::core::option::Option<&mut [u16]>, dwlength: ::core::option::Option<*mut u32>, dwresolutionflags: CLSID_RESOLUTION_FLAGS) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersionForCLSID(rclsid : *const ::windows_core::GUID, pversion : ::windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32, dwresolutionflags : CLSID_RESOLUTION_FLAGS) -> ::windows_core::HRESULT);
     GetRequestedRuntimeVersionForCLSID(rclsid, ::core::mem::transmute(pversion.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pversion.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(dwlength.unwrap_or(::std::ptr::null_mut())), dwresolutionflags).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVersionFromProcess<P0>(hprocess: P0, pversion: &mut [u16], dwlength: *mut u32) -> ::windows_core::Result<()>
@@ -202,7 +183,7 @@ where
     ::windows_targets::link!("mscoree.dll" "system" fn GetVersionFromProcess(hprocess : super::super::Foundation:: HANDLE, pversion : ::windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> ::windows_core::HRESULT);
     GetVersionFromProcess(hprocess.into_param().abi(), ::core::mem::transmute(pversion.as_ptr()), pversion.len() as _, dwlength).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadLibraryShim<P0, P1>(szdllname: P0, szversion: P1, pvreserved: *mut ::core::ffi::c_void, phmoddll: *mut super::super::Foundation::HMODULE) -> ::windows_core::Result<()>
@@ -213,25 +194,22 @@ where
     ::windows_targets::link!("mscoree.dll" "system" fn LoadLibraryShim(szdllname : ::windows_core::PCWSTR, szversion : ::windows_core::PCWSTR, pvreserved : *mut ::core::ffi::c_void, phmoddll : *mut super::super::Foundation:: HMODULE) -> ::windows_core::HRESULT);
     LoadLibraryShim(szdllname.into_param().abi(), szversion.into_param().abi(), pvreserved, phmoddll).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn LoadStringRC(iresouceid: u32, szbuffer: &mut [u16], bquiet: i32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mscoree.dll" "system" fn LoadStringRC(iresouceid : u32, szbuffer : ::windows_core::PWSTR, imax : i32, bquiet : i32) -> ::windows_core::HRESULT);
     LoadStringRC(iresouceid, ::core::mem::transmute(szbuffer.as_ptr()), szbuffer.len() as _, bquiet).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn LoadStringRCEx(lcid: u32, iresouceid: u32, szbuffer: &mut [u16], bquiet: i32, pcwchused: *mut i32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mscoree.dll" "system" fn LoadStringRCEx(lcid : u32, iresouceid : u32, szbuffer : ::windows_core::PWSTR, imax : i32, bquiet : i32, pcwchused : *mut i32) -> ::windows_core::HRESULT);
     LoadStringRCEx(lcid, iresouceid, ::core::mem::transmute(szbuffer.as_ptr()), szbuffer.len() as _, bquiet, pcwchused).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[inline]
 pub unsafe fn LockClrVersion(hostcallback: FLockClrVersionCallback, pbeginhostsetup: *mut FLockClrVersionCallback, pendhostsetup: *mut FLockClrVersionCallback) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mscoree.dll" "system" fn LockClrVersion(hostcallback : FLockClrVersionCallback, pbeginhostsetup : *mut FLockClrVersionCallback, pendhostsetup : *mut FLockClrVersionCallback) -> ::windows_core::HRESULT);
     LockClrVersion(hostcallback, pbeginhostsetup, pendhostsetup).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RunDll32ShimW<P0, P1, P2>(hwnd: P0, hinst: P1, lpszcmdline: P2, ncmdshow: i32) -> ::windows_core::Result<()>
@@ -243,7 +221,6 @@ where
     ::windows_targets::link!("mscoree.dll" "system" fn RunDll32ShimW(hwnd : super::super::Foundation:: HWND, hinst : super::super::Foundation:: HINSTANCE, lpszcmdline : ::windows_core::PCWSTR, ncmdshow : i32) -> ::windows_core::HRESULT);
     RunDll32ShimW(hwnd.into_param().abi(), hinst.into_param().abi(), lpszcmdline.into_param().abi(), ncmdshow).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActionOnCLREvent(::windows_core::IUnknown);
@@ -265,7 +242,6 @@ pub struct IActionOnCLREvent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: EClrEvent, data: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IApartmentCallback(::windows_core::IUnknown);
@@ -287,7 +263,6 @@ pub struct IApartmentCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub DoCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfunc: usize, pdata: usize) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppDomainBinding(::windows_core::IUnknown);
@@ -312,7 +287,6 @@ pub struct IAppDomainBinding_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnAppDomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pappdomain: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRAppDomainResourceMonitor(::windows_core::IUnknown);
@@ -342,7 +316,6 @@ pub struct ICLRAppDomainResourceMonitor_Vtbl {
     pub GetCurrentSurvived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwappdomainid: u32, pappdomainbytessurvived: *mut u64, ptotalbytessurvived: *mut u64) -> ::windows_core::HRESULT,
     pub GetCurrentCpuTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwappdomainid: u32, pmilliseconds: *mut u64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRAssemblyIdentityManager(::windows_core::IUnknown);
@@ -357,7 +330,7 @@ impl ICLRAssemblyIdentityManager {
     {
         (::windows_core::Interface::vtable(self).GetBindingIdentityFromFile)(::windows_core::Interface::as_raw(self), pwzfilepath.into_param().abi(), dwflags, ::core::mem::transmute(pwzbuffer), pcchbuffersize).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBindingIdentityFromStream<P0>(&self, pstream: P0, dwflags: u32, pwzbuffer: ::windows_core::PWSTR, pcchbuffersize: *mut u32) -> ::windows_core::Result<()>
     where
@@ -373,7 +346,7 @@ impl ICLRAssemblyIdentityManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReferencedAssembliesFromFile)(::windows_core::Interface::as_raw(self), pwzfilepath.into_param().abi(), dwflags, pexcludeassemblieslist.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetReferencedAssembliesFromStream<P0, P1>(&self, pstream: P0, dwflags: u32, pexcludeassemblieslist: P1) -> ::windows_core::Result<ICLRReferenceAssemblyEnum>
     where
@@ -390,7 +363,7 @@ impl ICLRAssemblyIdentityManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProbingAssembliesFromReference)(::windows_core::Interface::as_raw(self), dwmachinetype, dwflags, pwzreferenceidentity.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsStronglyNamed<P0>(&self, pwzassemblyidentity: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -428,7 +401,6 @@ pub struct ICLRAssemblyIdentityManager_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsStronglyNamed: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRAssemblyReferenceList(::windows_core::IUnknown);
@@ -460,7 +432,6 @@ pub struct ICLRAssemblyReferenceList_Vtbl {
     pub IsStringAssemblyReferenceInList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzassemblyname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub IsAssemblyReferenceInList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRControl(::windows_core::IUnknown);
@@ -490,7 +461,6 @@ pub struct ICLRControl_Vtbl {
     pub GetCLRManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetAppDomainManagerType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzappdomainmanagerassembly: ::windows_core::PCWSTR, pwzappdomainmanagertype: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRDebugManager(::windows_core::IUnknown);
@@ -507,18 +477,18 @@ impl ICLRDebugManager {
     pub unsafe fn EndConnection(&self, dwconnectionid: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EndConnection)(::windows_core::Interface::as_raw(self), dwconnectionid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security\"`*"]
+    #[doc = "Required features: `Win32_Security`"]
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn SetDacl(&self, pacl: *const super::super::Security::ACL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDacl)(::windows_core::Interface::as_raw(self), pacl).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security\"`*"]
+    #[doc = "Required features: `Win32_Security`"]
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn GetDacl(&self) -> ::windows_core::Result<*mut super::super::Security::ACL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDacl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDebuggerAttached(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -556,7 +526,6 @@ pub struct ICLRDebugManager_Vtbl {
     IsDebuggerAttached: usize,
     pub SetSymbolReadingPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, policy: ESymbolReadingPolicy) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRDebugging(::windows_core::IUnknown);
@@ -568,7 +537,7 @@ impl ICLRDebugging {
     {
         (::windows_core::Interface::vtable(self).OpenVirtualProcess)(::windows_core::Interface::as_raw(self), modulebaseaddress, pdatatarget.into_param().abi(), plibraryprovider.into_param().abi(), pmaxdebuggersupportedversion, riidprocess, ::core::mem::transmute(ppprocess), pversion, pdwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanUnloadNow<P0>(&self, hmodule: P0) -> ::windows_core::Result<()>
     where
@@ -594,12 +563,11 @@ pub struct ICLRDebugging_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CanUnloadNow: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRDebuggingLibraryProvider(::windows_core::IUnknown);
 impl ICLRDebuggingLibraryProvider {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProvideLibrary<P0>(&self, pwszfilename: P0, dwtimestamp: u32, dwsizeofimage: u32) -> ::windows_core::Result<super::super::Foundation::HMODULE>
     where
@@ -625,7 +593,6 @@ pub struct ICLRDebuggingLibraryProvider_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ProvideLibrary: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRDomainManager(::windows_core::IUnknown);
@@ -655,12 +622,11 @@ pub struct ICLRDomainManager_Vtbl {
     pub SetAppDomainManagerType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszappdomainmanagerassembly: ::windows_core::PCWSTR, wszappdomainmanagertype: ::windows_core::PCWSTR, dwinitializedomainflags: EInitializeNewDomainFlags) -> ::windows_core::HRESULT,
     pub SetPropertiesForDefaultAppDomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nproperties: u32, pwszpropertynames: *const ::windows_core::PCWSTR, pwszpropertyvalues: *const ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRErrorReportingManager(::windows_core::IUnknown);
 impl ICLRErrorReportingManager {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBucketParametersForCurrentException(&self, pparams: *mut BucketParameters) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBucketParametersForCurrentException)(::windows_core::Interface::as_raw(self), pparams).ok()
@@ -690,7 +656,6 @@ pub struct ICLRErrorReportingManager_Vtbl {
     pub BeginCustomDump: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflavor: ECustomDumpFlavor, dwnumitems: u32, items: *const CustomDumpItem, dwreserved: u32) -> ::windows_core::HRESULT,
     pub EndCustomDump: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRGCManager(::windows_core::IUnknown);
@@ -720,7 +685,6 @@ pub struct ICLRGCManager_Vtbl {
     pub GetStats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstats: *mut COR_GC_STATS) -> ::windows_core::HRESULT,
     pub SetGCStartupLimits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, segmentsize: u32, maxgen0size: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRGCManager2(::windows_core::IUnknown);
@@ -751,7 +715,6 @@ pub struct ICLRGCManager2_Vtbl {
     pub base__: ICLRGCManager_Vtbl,
     pub SetGCStartupLimitsEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, segmentsize: usize, maxgen0size: usize) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRHostBindingPolicyManager(::windows_core::IUnknown);
@@ -784,7 +747,6 @@ pub struct ICLRHostBindingPolicyManager_Vtbl {
     pub ModifyApplicationPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzsourceassemblyidentity: ::windows_core::PCWSTR, pwztargetassemblyidentity: ::windows_core::PCWSTR, pbapplicationpolicy: *const u8, cbapppolicysize: u32, dwpolicymodifyflags: u32, pbnewapplicationpolicy: *mut u8, pcbnewapppolicysize: *mut u32) -> ::windows_core::HRESULT,
     pub EvaluatePolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzreferenceidentity: ::windows_core::PCWSTR, pbapplicationpolicy: *const u8, cbapppolicysize: u32, pwzpostpolicyreferenceidentity: ::windows_core::PWSTR, pcchpostpolicyreferenceidentity: *mut u32, pdwpoliciesapplied: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRHostProtectionManager(::windows_core::IUnknown);
@@ -810,7 +772,6 @@ pub struct ICLRHostProtectionManager_Vtbl {
     pub SetProtectedCategories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, categories: EApiCategories) -> ::windows_core::HRESULT,
     pub SetEagerSerializeGrantSets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRIoCompletionManager(::windows_core::IUnknown);
@@ -832,7 +793,6 @@ pub struct ICLRIoCompletionManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwerrorcode: u32, numberofbytestransferred: u32, pvoverlapped: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRMemoryNotificationCallback(::windows_core::IUnknown);
@@ -854,7 +814,6 @@ pub struct ICLRMemoryNotificationCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnMemoryNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ememoryavailable: EMemoryAvailable) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRMetaHost(::windows_core::IUnknown);
@@ -873,13 +832,13 @@ impl ICLRMetaHost {
     {
         (::windows_core::Interface::vtable(self).GetVersionFromFile)(::windows_core::Interface::as_raw(self), pwzfilepath.into_param().abi(), ::core::mem::transmute(pwzbuffer), pcchbuffer).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumerateInstalledRuntimes(&self) -> ::windows_core::Result<super::Com::IEnumUnknown> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateInstalledRuntimes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EnumerateLoadedRuntimes<P0>(&self, hndprocess: P0) -> ::windows_core::Result<super::Com::IEnumUnknown>
     where
@@ -927,12 +886,11 @@ pub struct ICLRMetaHost_Vtbl {
     pub QueryLegacyV2RuntimeBinding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ExitProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iexitcode: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRMetaHostPolicy(::windows_core::IUnknown);
 impl ICLRMetaHostPolicy {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRequestedRuntime<P0, P1, T>(&self, dwpolicyflags: METAHOST_POLICY_FLAGS, pwzbinary: P0, pcfgstream: P1, pwzversion: ::windows_core::PWSTR, pcchversion: *mut u32, pwzimageversion: ::windows_core::PWSTR, pcchimageversion: *mut u32, pdwconfigflags: *mut u32) -> ::windows_core::Result<T>
     where
@@ -960,7 +918,6 @@ pub struct ICLRMetaHostPolicy_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetRequestedRuntime: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLROnEventManager(::windows_core::IUnknown);
@@ -992,7 +949,6 @@ pub struct ICLROnEventManager_Vtbl {
     pub RegisterActionOnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: EClrEvent, paction: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub UnregisterActionOnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: EClrEvent, paction: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRPolicyManager(::windows_core::IUnknown);
@@ -1034,7 +990,6 @@ pub struct ICLRPolicyManager_Vtbl {
     pub SetActionOnFailure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, failure: EClrFailure, action: EPolicyAction) -> ::windows_core::HRESULT,
     pub SetUnhandledExceptionPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, policy: EClrUnhandledException) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRProbingAssemblyEnum(::windows_core::IUnknown);
@@ -1056,7 +1011,6 @@ pub struct ICLRProbingAssemblyEnum_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pwzbuffer: ::windows_core::PWSTR, pcchbuffersize: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRProfiling(::windows_core::IUnknown);
@@ -1081,7 +1035,6 @@ pub struct ICLRProfiling_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AttachProfiler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprofileeprocessid: u32, dwmillisecondsmax: u32, pclsidprofiler: *const ::windows_core::GUID, wszprofilerpath: ::windows_core::PCWSTR, pvclientdata: *const ::core::ffi::c_void, cbclientdata: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRReferenceAssemblyEnum(::windows_core::IUnknown);
@@ -1103,7 +1056,6 @@ pub struct ICLRReferenceAssemblyEnum_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pwzbuffer: ::windows_core::PWSTR, pcchbuffersize: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRRuntimeHost(::windows_core::IUnknown);
@@ -1124,7 +1076,7 @@ impl ICLRRuntimeHost {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCLRControl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UnloadAppDomain<P0>(&self, dwappdomainid: u32, fwaituntildone: P0) -> ::windows_core::Result<()>
     where
@@ -1181,7 +1133,6 @@ pub struct ICLRRuntimeHost_Vtbl {
     pub ExecuteApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzappfullname: ::windows_core::PCWSTR, dwmanifestpaths: u32, ppwzmanifestpaths: *const ::windows_core::PCWSTR, dwactivationdata: u32, ppwzactivationdata: *const ::windows_core::PCWSTR, preturnvalue: *mut i32) -> ::windows_core::HRESULT,
     pub ExecuteInDefaultAppDomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzassemblypath: ::windows_core::PCWSTR, pwztypename: ::windows_core::PCWSTR, pwzmethodname: ::windows_core::PCWSTR, pwzargument: ::windows_core::PCWSTR, preturnvalue: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRRuntimeInfo(::windows_core::IUnknown);
@@ -1192,7 +1143,7 @@ impl ICLRRuntimeInfo {
     pub unsafe fn GetRuntimeDirectory(&self, pwzbuffer: ::windows_core::PWSTR, pcchbuffer: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRuntimeDirectory)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwzbuffer), pcchbuffer).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLoaded<P0>(&self, hndprocess: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -1204,7 +1155,7 @@ impl ICLRRuntimeInfo {
     pub unsafe fn LoadErrorString(&self, iresourceid: u32, pwzbuffer: ::windows_core::PWSTR, pcchbuffer: *mut u32, ilocaleid: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LoadErrorString)(::windows_core::Interface::as_raw(self), iresourceid, ::core::mem::transmute(pwzbuffer), pcchbuffer, ilocaleid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoadLibraryA<P0>(&self, pwzdllname: P0) -> ::windows_core::Result<super::super::Foundation::HMODULE>
     where
@@ -1227,7 +1178,7 @@ impl ICLRRuntimeInfo {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).GetInterface)(::windows_core::Interface::as_raw(self), rclsid, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLoadable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1245,7 +1196,7 @@ impl ICLRRuntimeInfo {
     pub unsafe fn BindAsLegacyV2Runtime(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BindAsLegacyV2Runtime)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsStarted(&self, pbstarted: *mut super::super::Foundation::BOOL, pdwstartupflags: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsStarted)(::windows_core::Interface::as_raw(self), pbstarted, pdwstartupflags).ok()
@@ -1287,7 +1238,6 @@ pub struct ICLRRuntimeInfo_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsStarted: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRStrongName(::windows_core::IUnknown);
@@ -1319,7 +1269,7 @@ impl ICLRStrongName {
     {
         (::windows_core::Interface::vtable(self).GetHashFromFileW)(::windows_core::Interface::as_raw(self), pwzfilepath.into_param().abi(), pihashalg, ::core::mem::transmute(pbhash.as_ptr()), pbhash.len() as _, pchhash).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHashFromHandle<P0>(&self, hfile: P0, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> ::windows_core::Result<()>
     where
@@ -1405,7 +1355,7 @@ impl ICLRStrongName {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StrongNameSignatureVerification)(::windows_core::Interface::as_raw(self), pwzfilepath.into_param().abi(), dwinflags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StrongNameSignatureVerificationEx<P0, P1>(&self, pwzfilepath: P0, fforceverification: P1) -> ::windows_core::Result<u8>
     where
@@ -1478,7 +1428,6 @@ pub struct ICLRStrongName_Vtbl {
     pub StrongNameTokenFromAssemblyEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzfilepath: ::windows_core::PCWSTR, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32) -> ::windows_core::HRESULT,
     pub StrongNameTokenFromPublicKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbpublickeyblob: *const u8, cbpublickeyblob: u32, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRStrongName2(::windows_core::IUnknown);
@@ -1489,7 +1438,7 @@ impl ICLRStrongName2 {
     {
         (::windows_core::Interface::vtable(self).StrongNameGetPublicKeyEx)(::windows_core::Interface::as_raw(self), pwzkeycontainer.into_param().abi(), pbkeyblob, cbkeyblob, ppbpublickeyblob, pcbpublickeyblob, uhashalgid, ureserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StrongNameSignatureVerificationEx2<P0, P1>(&self, wszfilepath: P0, fforceverification: P1, pbecmapublickey: *const u8, cbecmapublickey: u32) -> ::windows_core::Result<u8>
     where
@@ -1517,7 +1466,6 @@ pub struct ICLRStrongName2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     StrongNameSignatureVerificationEx2: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRStrongName3(::windows_core::IUnknown);
@@ -1556,7 +1504,6 @@ pub struct ICLRStrongName3_Vtbl {
     pub StrongNameDigestSign: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszkeycontainer: ::windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32, pbdigestblob: *const u8, cbdigestblob: u32, hashalgid: u32, ppbsignatureblob: *mut *mut u8, pcbsignatureblob: *mut u32, dwflags: u32) -> ::windows_core::HRESULT,
     pub StrongNameDigestEmbed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszfilepath: ::windows_core::PCWSTR, pbsignatureblob: *const u8, cbsignatureblob: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRSyncManager(::windows_core::IUnknown);
@@ -1593,12 +1540,11 @@ pub struct ICLRSyncManager_Vtbl {
     pub GetRWLockOwnerNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iterator: usize, ppownerhosttask: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DeleteRWLockOwnerIterator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iterator: usize) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRTask(::windows_core::IUnknown);
 impl ICLRTask {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SwitchIn<P0>(&self, threadhandle: P0) -> ::windows_core::Result<()>
     where
@@ -1613,7 +1559,7 @@ impl ICLRTask {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMemStats)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Reset<P0>(&self, ffull: P0) -> ::windows_core::Result<()>
     where
@@ -1630,7 +1576,7 @@ impl ICLRTask {
     pub unsafe fn RudeAbort(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RudeAbort)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NeedsPriorityScheduling(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1679,12 +1625,11 @@ pub struct ICLRTask_Vtbl {
     pub LocksHeld: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plockcount: *mut usize) -> ::windows_core::HRESULT,
     pub SetTaskIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asked: u64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRTask2(::windows_core::IUnknown);
 impl ICLRTask2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SwitchIn<P0>(&self, threadhandle: P0) -> ::windows_core::Result<()>
     where
@@ -1699,7 +1644,7 @@ impl ICLRTask2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetMemStats)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Reset<P0>(&self, ffull: P0) -> ::windows_core::Result<()>
     where
@@ -1716,7 +1661,7 @@ impl ICLRTask2 {
     pub unsafe fn RudeAbort(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RudeAbort)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NeedsPriorityScheduling(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1753,7 +1698,6 @@ pub struct ICLRTask2_Vtbl {
     pub BeginPreventAsyncAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EndPreventAsyncAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRTaskManager(::windows_core::IUnknown);
@@ -1794,7 +1738,6 @@ pub struct ICLRTaskManager_Vtbl {
     pub SetLocale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcid: u32) -> ::windows_core::HRESULT,
     pub GetCurrentTaskType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptasktype: *mut ETaskType) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICatalogServices(::windows_core::IUnknown);
@@ -1820,7 +1763,6 @@ pub struct ICatalogServices_Vtbl {
     pub Autodone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub NotAutodone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorConfiguration(::windows_core::IUnknown);
@@ -1863,7 +1805,6 @@ pub struct ICorConfiguration_Vtbl {
     pub SetDebuggerThreadControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdebuggerthreadcontrol: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub AddDebuggerSpecialThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwspecialthreadid: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorRuntimeHost(::windows_core::IUnknown);
@@ -1885,7 +1826,7 @@ impl ICorRuntimeHost {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LocksHeldByLogicalThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MapFile<P0>(&self, hfile: P0) -> ::windows_core::Result<super::super::Foundation::HMODULE>
     where
@@ -1988,12 +1929,11 @@ pub struct ICorRuntimeHost_Vtbl {
     pub UnloadDomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pappdomain: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CurrentDomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pappdomain: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorThreadpool(::windows_core::IUnknown);
 impl ICorThreadpool {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Threading`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
     pub unsafe fn CorRegisterWaitForSingleObject<P0, P1>(&self, phnewwaitobject: *const super::super::Foundation::HANDLE, hwaitobject: P0, callback: super::Threading::WAITORTIMERCALLBACK, context: *const ::core::ffi::c_void, timeout: u32, executeonlyonce: P1) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -2003,7 +1943,7 @@ impl ICorThreadpool {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CorRegisterWaitForSingleObject)(::windows_core::Interface::as_raw(self), phnewwaitobject, hwaitobject.into_param().abi(), callback, context, timeout, executeonlyonce.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CorUnregisterWait<P0, P1>(&self, hwaitobject: P0, completionevent: P1) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -2013,7 +1953,7 @@ impl ICorThreadpool {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CorUnregisterWait)(::windows_core::Interface::as_raw(self), hwaitobject.into_param().abi(), completionevent.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Threading`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
     pub unsafe fn CorQueueUserWorkItem<P0>(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const ::core::ffi::c_void, executeonlyonce: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -2022,13 +1962,13 @@ impl ICorThreadpool {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CorQueueUserWorkItem)(::windows_core::Interface::as_raw(self), function, context, executeonlyonce.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Threading`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
     pub unsafe fn CorCreateTimer(&self, phnewtimer: *const super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, parameter: *const ::core::ffi::c_void, duetime: u32, period: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CorCreateTimer)(::windows_core::Interface::as_raw(self), phnewtimer, callback, parameter, duetime, period, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CorChangeTimer<P0>(&self, timer: P0, duetime: u32, period: u32) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -2037,7 +1977,7 @@ impl ICorThreadpool {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CorChangeTimer)(::windows_core::Interface::as_raw(self), timer.into_param().abi(), duetime, period, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CorDeleteTimer<P0, P1>(&self, timer: P0, completionevent: P1) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -2047,7 +1987,7 @@ impl ICorThreadpool {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CorDeleteTimer)(::windows_core::Interface::as_raw(self), timer.into_param().abi(), completionevent.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn CorBindIoCompletionCallback<P0>(&self, filehandle: P0, callback: super::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> ::windows_core::Result<()>
     where
@@ -2055,7 +1995,7 @@ impl ICorThreadpool {
     {
         (::windows_core::Interface::vtable(self).CorBindIoCompletionCallback)(::windows_core::Interface::as_raw(self), filehandle.into_param().abi(), callback).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Threading`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
     pub unsafe fn CorCallOrQueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const ::core::ffi::c_void) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2118,12 +2058,11 @@ pub struct ICorThreadpool_Vtbl {
     pub CorGetMaxThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxworkerthreads: *mut u32, maxiocompletionthreads: *mut u32) -> ::windows_core::HRESULT,
     pub CorGetAvailableThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, availableworkerthreads: *mut u32, availableiocompletionthreads: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebuggerInfo(::windows_core::IUnknown);
 impl IDebuggerInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDebuggerAttached(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2146,7 +2085,6 @@ pub struct IDebuggerInfo_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsDebuggerAttached: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebuggerThreadControl(::windows_core::IUnknown);
@@ -2176,7 +2114,6 @@ pub struct IDebuggerThreadControl_Vtbl {
     pub ReleaseAllRuntimeThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub StartBlockingForDebugger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwunused: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGCHost(::windows_core::IUnknown);
@@ -2214,7 +2151,6 @@ pub struct IGCHost_Vtbl {
     pub GetThreadStats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfibercookie: *const u32, pstats: *mut COR_GC_THREAD_STATS) -> ::windows_core::HRESULT,
     pub SetVirtualMemLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sztmaxvirtualmemmb: usize) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGCHost2(::windows_core::IUnknown);
@@ -2251,7 +2187,6 @@ pub struct IGCHost2_Vtbl {
     pub base__: IGCHost_Vtbl,
     pub SetGCStartupLimitsEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, segmentsize: usize, maxgen0size: usize) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGCHostControl(::windows_core::IUnknown);
@@ -2273,7 +2208,6 @@ pub struct IGCHostControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RequestVirtualMemLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sztmaxvirtualmemmb: usize, psztnewmaxvirtualmemmb: *mut usize) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGCThreadControl(::windows_core::IUnknown);
@@ -2303,7 +2237,6 @@ pub struct IGCThreadControl_Vtbl {
     pub SuspensionStarting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SuspensionEnding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, generation: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostAssemblyManager(::windows_core::IUnknown);
@@ -2331,17 +2264,16 @@ pub struct IHostAssemblyManager_Vtbl {
     pub GetNonHostStoreAssemblies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppreferencelist: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetAssemblyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppassemblystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostAssemblyStore(::windows_core::IUnknown);
 impl IHostAssemblyStore {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ProvideAssembly(&self, pbindinfo: *const AssemblyBindInfo, passemblyid: *mut u64, pcontext: *mut u64, ppstmassemblyimage: *mut ::core::option::Option<super::Com::IStream>, ppstmpdb: *mut ::core::option::Option<super::Com::IStream>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ProvideAssembly)(::windows_core::Interface::as_raw(self), pbindinfo, passemblyid, pcontext, ::core::mem::transmute(ppstmassemblyimage), ::core::mem::transmute(ppstmpdb)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ProvideModule(&self, pbindinfo: *const ModuleBindInfo, pdwmoduleid: *mut u32, ppstmmoduleimage: *mut ::core::option::Option<super::Com::IStream>, ppstmpdb: *mut ::core::option::Option<super::Com::IStream>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ProvideModule)(::windows_core::Interface::as_raw(self), pbindinfo, pdwmoduleid, ::core::mem::transmute(ppstmmoduleimage), ::core::mem::transmute(ppstmpdb)).ok()
@@ -2367,7 +2299,6 @@ pub struct IHostAssemblyStore_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ProvideModule: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostAutoEvent(::windows_core::IUnknown);
@@ -2393,7 +2324,6 @@ pub struct IHostAutoEvent_Vtbl {
     pub Wait: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmilliseconds: u32, option: u32) -> ::windows_core::HRESULT,
     pub Set: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostControl(::windows_core::IUnknown);
@@ -2422,7 +2352,6 @@ pub struct IHostControl_Vtbl {
     pub GetHostManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetAppDomainManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwappdomainid: u32, punkappdomainmanager: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostCrst(::windows_core::IUnknown);
@@ -2433,7 +2362,7 @@ impl IHostCrst {
     pub unsafe fn Leave(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Leave)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TryEnter(&self, option: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2462,7 +2391,6 @@ pub struct IHostCrst_Vtbl {
     TryEnter: usize,
     pub SetSpinCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwspincount: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostGCManager(::windows_core::IUnknown);
@@ -2492,18 +2420,17 @@ pub struct IHostGCManager_Vtbl {
     pub SuspensionStarting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SuspensionEnding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, generation: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostIoCompletionManager(::windows_core::IUnknown);
 impl IHostIoCompletionManager {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateIoCompletionPort(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateIoCompletionPort)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CloseIoCompletionPort<P0>(&self, hport: P0) -> ::windows_core::Result<()>
     where
@@ -2535,7 +2462,7 @@ impl IHostIoCompletionManager {
     pub unsafe fn InitializeHostOverlapped(&self, pvoverlapped: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitializeHostOverlapped)(::windows_core::Interface::as_raw(self), pvoverlapped).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Bind<P0, P1>(&self, hport: P0, hhandle: P1) -> ::windows_core::Result<()>
     where
@@ -2584,7 +2511,6 @@ pub struct IHostIoCompletionManager_Vtbl {
     pub SetMinThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwminiocompletionthreads: u32) -> ::windows_core::HRESULT,
     pub GetMinThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwminiocompletionthreads: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostMalloc(::windows_core::IUnknown);
@@ -2614,7 +2540,6 @@ pub struct IHostMalloc_Vtbl {
     pub DebugAlloc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbsize: usize, ecriticallevel: EMemoryCriticalLevel, pszfilename: *const u8, ilineno: i32, ppmem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Free: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmem: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostManualEvent(::windows_core::IUnknown);
@@ -2644,7 +2569,6 @@ pub struct IHostManualEvent_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Set: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostMemoryManager(::windows_core::IUnknown);
@@ -2707,7 +2631,6 @@ pub struct IHostMemoryManager_Vtbl {
     pub AcquiredVirtualAddressSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startaddress: *const ::core::ffi::c_void, size: usize) -> ::windows_core::HRESULT,
     pub ReleasedVirtualAddressSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startaddress: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostPolicyManager(::windows_core::IUnknown);
@@ -2737,7 +2660,6 @@ pub struct IHostPolicyManager_Vtbl {
     pub OnTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operation: EClrOperation, action: EPolicyAction) -> ::windows_core::HRESULT,
     pub OnFailure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, failure: EClrFailure, action: EPolicyAction) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostSecurityContext(::windows_core::IUnknown);
@@ -2760,12 +2682,11 @@ pub struct IHostSecurityContext_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Capture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclonedcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostSecurityManager(::windows_core::IUnknown);
 impl IHostSecurityManager {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ImpersonateLoggedOnUser<P0>(&self, htoken: P0) -> ::windows_core::Result<()>
     where
@@ -2776,7 +2697,7 @@ impl IHostSecurityManager {
     pub unsafe fn RevertToSelf(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RevertToSelf)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenThreadToken<P0>(&self, dwdesiredaccess: u32, bopenasself: P0) -> ::windows_core::Result<super::super::Foundation::HANDLE>
     where
@@ -2785,7 +2706,7 @@ impl IHostSecurityManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OpenThreadToken)(::windows_core::Interface::as_raw(self), dwdesiredaccess, bopenasself.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetThreadToken<P0>(&self, htoken: P0) -> ::windows_core::Result<()>
     where
@@ -2831,7 +2752,6 @@ pub struct IHostSecurityManager_Vtbl {
     pub GetSecurityContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, econtexttype: EContextType, ppsecuritycontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetSecurityContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, econtexttype: EContextType, psecuritycontext: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostSemaphore(::windows_core::IUnknown);
@@ -2858,7 +2778,6 @@ pub struct IHostSemaphore_Vtbl {
     pub Wait: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmilliseconds: u32, option: u32) -> ::windows_core::HRESULT,
     pub ReleaseSemaphore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lreleasecount: i32, lppreviouscount: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostSyncManager(::windows_core::IUnknown);
@@ -2881,7 +2800,7 @@ impl IHostSyncManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateAutoEvent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateManualEvent<P0>(&self, binitialstate: P0) -> ::windows_core::Result<IHostManualEvent>
     where
@@ -2898,7 +2817,7 @@ impl IHostSyncManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateRWLockWriterEvent)(::windows_core::Interface::as_raw(self), cookie, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRWLockReaderEvent<P0>(&self, binitialstate: P0, cookie: usize) -> ::windows_core::Result<IHostManualEvent>
     where
@@ -2939,7 +2858,6 @@ pub struct IHostSyncManager_Vtbl {
     CreateRWLockReaderEvent: usize,
     pub CreateSemaphoreA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinitial: u32, dwmax: u32, ppsemaphore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostTask(::windows_core::IUnknown);
@@ -2985,7 +2903,6 @@ pub struct IHostTask_Vtbl {
     pub GetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppriority: *mut i32) -> ::windows_core::HRESULT,
     pub SetCLRTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclrtask: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostTaskManager(::windows_core::IUnknown);
@@ -2994,7 +2911,7 @@ impl IHostTaskManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentTask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+    #[doc = "Required features: `Win32_System_Threading`"]
     #[cfg(feature = "Win32_System_Threading")]
     pub unsafe fn CreateTask(&self, dwstacksize: u32, pstartaddress: super::Threading::LPTHREAD_START_ROUTINE, pparameter: *const ::core::ffi::c_void) -> ::windows_core::Result<IHostTask> {
         let mut result__ = ::std::mem::zeroed();
@@ -3012,7 +2929,7 @@ impl IHostTaskManager {
     pub unsafe fn SetLocale(&self, lcid: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetLocale)(::windows_core::Interface::as_raw(self), lcid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CallNeedsHostHook(&self, target: usize) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3092,12 +3009,11 @@ pub struct IHostTaskManager_Vtbl {
     pub GetStackGuarantee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguarantee: *mut u32) -> ::windows_core::HRESULT,
     pub SetCLRTaskManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmanager: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostThreadpoolManager(::windows_core::IUnknown);
 impl IHostThreadpoolManager {
-    #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+    #[doc = "Required features: `Win32_System_Threading`"]
     #[cfg(feature = "Win32_System_Threading")]
     pub unsafe fn QueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const ::core::ffi::c_void, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueueUserWorkItem)(::windows_core::Interface::as_raw(self), function, context, flags).ok()
@@ -3142,7 +3058,6 @@ pub struct IHostThreadpoolManager_Vtbl {
     pub SetMinThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwminiocompletionthreads: u32) -> ::windows_core::HRESULT,
     pub GetMinThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwminiocompletionthreads: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IManagedObject(::windows_core::IUnknown);
@@ -3169,12 +3084,11 @@ pub struct IManagedObject_Vtbl {
     pub GetSerializedBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetObjectIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, appdomainid: *mut i32, pccw: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IObjectHandle(::windows_core::IUnknown);
 impl IObjectHandle {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Unwrap(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -3197,7 +3111,6 @@ pub struct IObjectHandle_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Unwrap: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITypeName(::windows_core::IUnknown);
@@ -3247,7 +3160,6 @@ pub struct ITypeName_Vtbl {
     pub GetModifiers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, rgmodifiers: *mut u32, pcount: *mut u32) -> ::windows_core::HRESULT,
     pub GetAssemblyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rgbszassemblynames: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITypeNameBuilder(::windows_core::IUnknown);
@@ -3320,7 +3232,6 @@ pub struct ITypeNameBuilder_Vtbl {
     pub ToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstringrepresentation: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITypeNameFactory(::windows_core::IUnknown);
@@ -3350,361 +3261,183 @@ pub struct ITypeNameFactory_Vtbl {
     pub ParseTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: ::windows_core::PCWSTR, perror: *mut u32, pptypename: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetTypeNameBuilder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptypebuilder: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const APPDOMAIN_FORCE_TRIVIAL_WAIT_OPERATIONS: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const APPDOMAIN_SECURITY_DEFAULT: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const APPDOMAIN_SECURITY_FORBID_CROSSAD_REVERSE_PINVOKE: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const APPDOMAIN_SECURITY_SANDBOXED: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const BucketParamLength: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const BucketParamsCount: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLRRuntimeHost: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x90f1a06e_7712_4762_86b5_7a5eba6bdb02);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLR_ASSEMBLY_BUILD_VERSION: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLR_ASSEMBLY_IDENTITY_FLAGS_DEFAULT: ECLRAssemblyIdentityFlags = ECLRAssemblyIdentityFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLR_ASSEMBLY_MAJOR_VERSION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLR_ASSEMBLY_MINOR_VERSION: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLR_BUILD_VERSION: u32 = 22220u32;
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLR_DEBUGGING_MANAGED_EVENT_DEBUGGER_LAUNCH: CLR_DEBUGGING_PROCESS_FLAGS = CLR_DEBUGGING_PROCESS_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLR_DEBUGGING_MANAGED_EVENT_PENDING: CLR_DEBUGGING_PROCESS_FLAGS = CLR_DEBUGGING_PROCESS_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLR_MAJOR_VERSION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLR_MINOR_VERSION: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLSID_CLRDebugging: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbacc578d_fbdd_48a4_969f_02d932b74634);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLSID_CLRDebuggingLegacy: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf8395b5_a4ba_450b_a77c_a9a47762c520);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLSID_CLRMetaHost: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9280188d_0e8e_4867_b30c_7fa83884e8de);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLSID_CLRMetaHostPolicy: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2ebcd49a_1b47_4a61_b13a_4a03701e594b);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLSID_CLRProfiling: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbd097ed8_733e_43fe_8ed7_a95ff9a8448c);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLSID_CLRStrongName: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb79b0acd_f5cd_409b_b5a5_a16244610b92);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLSID_RESOLUTION_DEFAULT: CLSID_RESOLUTION_FLAGS = CLSID_RESOLUTION_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLSID_RESOLUTION_REGISTERED: CLSID_RESOLUTION_FLAGS = CLSID_RESOLUTION_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const COR_GC_COUNTS: COR_GC_STAT_TYPES = COR_GC_STAT_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const COR_GC_MEMORYUSAGE: COR_GC_STAT_TYPES = COR_GC_STAT_TYPES(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const COR_GC_THREAD_HAS_PROMOTED_BYTES: COR_GC_THREAD_STATS_TYPES = COR_GC_THREAD_STATS_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const ComCallUnmarshal: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f281000_e95a_11d2_886b_00c04f869f04);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const ComCallUnmarshalV4: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45fb4600_e6e8_4928_b25e_50476ff79425);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CorRuntimeHost: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb2f6723_ab3a_11d2_9c40_00c04fa30a3e);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const DEPRECATED_CLR_API_MESG: ::windows_core::PCSTR = ::windows_core::s!("This API has been deprecated. Refer to https://go.microsoft.com/fwlink/?LinkId=143720 for more details.");
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const DUMP_FLAVOR_CriticalCLRState: ECustomDumpFlavor = ECustomDumpFlavor(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const DUMP_FLAVOR_Default: ECustomDumpFlavor = ECustomDumpFlavor(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const DUMP_FLAVOR_Mini: ECustomDumpFlavor = ECustomDumpFlavor(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const DUMP_FLAVOR_NonHeapCLRState: ECustomDumpFlavor = ECustomDumpFlavor(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const DUMP_ITEM_None: ECustomDumpItemKind = ECustomDumpItemKind(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const Event_ClrDisabled: EClrEvent = EClrEvent(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const Event_DomainUnload: EClrEvent = EClrEvent(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const Event_MDAFired: EClrEvent = EClrEvent(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const Event_StackOverflow: EClrEvent = EClrEvent(3i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const FAIL_AccessViolation: EClrFailure = EClrFailure(5i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const FAIL_CodeContract: EClrFailure = EClrFailure(6i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const FAIL_CriticalResource: EClrFailure = EClrFailure(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const FAIL_FatalRuntime: EClrFailure = EClrFailure(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const FAIL_NonCriticalResource: EClrFailure = EClrFailure(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const FAIL_OrphanedLock: EClrFailure = EClrFailure(3i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const FAIL_StackOverflow: EClrFailure = EClrFailure(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const HOST_APPLICATION_BINDING_POLICY: EHostApplicationPolicy = EHostApplicationPolicy(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const HOST_BINDING_POLICY_MODIFY_CHAIN: EHostBindingPolicyModifyFlags = EHostBindingPolicyModifyFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const HOST_BINDING_POLICY_MODIFY_DEFAULT: EHostBindingPolicyModifyFlags = EHostBindingPolicyModifyFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const HOST_BINDING_POLICY_MODIFY_MAX: EHostBindingPolicyModifyFlags = EHostBindingPolicyModifyFlags(3i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const HOST_BINDING_POLICY_MODIFY_REMOVE: EHostBindingPolicyModifyFlags = EHostBindingPolicyModifyFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const HOST_TYPE_APPLAUNCH: HOST_TYPE = HOST_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const HOST_TYPE_CORFLAG: HOST_TYPE = HOST_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const HOST_TYPE_DEFAULT: HOST_TYPE = HOST_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const InvalidBucketParamIndex: BucketParameterIndex = BucketParameterIndex(9i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const LIBID_mscoree: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5477469e_83b1_11d2_8b49_00a0c9b7c9c4);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const MALLOC_EXECUTABLE: MALLOC_TYPE = MALLOC_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const MALLOC_THREADSAFE: MALLOC_TYPE = MALLOC_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_FALSE: METAHOST_CONFIG_FLAGS = METAHOST_CONFIG_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_MASK: METAHOST_CONFIG_FLAGS = METAHOST_CONFIG_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_TRUE: METAHOST_CONFIG_FLAGS = METAHOST_CONFIG_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_UNSET: METAHOST_CONFIG_FLAGS = METAHOST_CONFIG_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const METAHOST_POLICY_APPLY_UPGRADE_POLICY: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const METAHOST_POLICY_EMULATE_EXE_LAUNCH: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const METAHOST_POLICY_ENSURE_SKU_SUPPORTED: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(128i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const METAHOST_POLICY_HIGHCOMPAT: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const METAHOST_POLICY_IGNORE_ERROR_MODE: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(4096i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const METAHOST_POLICY_SHOW_ERROR_DIALOG: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const METAHOST_POLICY_USE_PROCESS_IMAGE_PATH: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const MaxClrEvent: EClrEvent = EClrEvent(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const MaxClrFailure: EClrFailure = EClrFailure(7i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const MaxClrOperation: EClrOperation = EClrOperation(7i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const MaxPolicyAction: EPolicyAction = EPolicyAction(10i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const OPR_AppDomainRudeUnload: EClrOperation = EClrOperation(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const OPR_AppDomainUnload: EClrOperation = EClrOperation(3i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const OPR_FinalizerRun: EClrOperation = EClrOperation(6i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const OPR_ProcessExit: EClrOperation = EClrOperation(5i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const OPR_ThreadAbort: EClrOperation = EClrOperation(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const OPR_ThreadRudeAbortInCriticalRegion: EClrOperation = EClrOperation(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const OPR_ThreadRudeAbortInNonCriticalRegion: EClrOperation = EClrOperation(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const Parameter1: BucketParameterIndex = BucketParameterIndex(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const Parameter2: BucketParameterIndex = BucketParameterIndex(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const Parameter3: BucketParameterIndex = BucketParameterIndex(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const Parameter4: BucketParameterIndex = BucketParameterIndex(3i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const Parameter5: BucketParameterIndex = BucketParameterIndex(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const Parameter6: BucketParameterIndex = BucketParameterIndex(5i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const Parameter7: BucketParameterIndex = BucketParameterIndex(6i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const Parameter8: BucketParameterIndex = BucketParameterIndex(7i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const Parameter9: BucketParameterIndex = BucketParameterIndex(8i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const RUNTIME_INFO_DONT_RETURN_DIRECTORY: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const RUNTIME_INFO_DONT_RETURN_VERSION: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const RUNTIME_INFO_DONT_SHOW_ERROR_DIALOG: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const RUNTIME_INFO_IGNORE_ERROR_MODE: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(4096i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const RUNTIME_INFO_REQUEST_AMD64: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const RUNTIME_INFO_REQUEST_ARM64: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(8192i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const RUNTIME_INFO_REQUEST_IA64: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const RUNTIME_INFO_REQUEST_X86: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const RUNTIME_INFO_UPGRADE_VERSION: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const SO_ClrEngine: StackOverflowType = StackOverflowType(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const SO_Managed: StackOverflowType = StackOverflowType(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const SO_Other: StackOverflowType = StackOverflowType(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_ALWAYSFLOW_IMPERSONATION: STARTUP_FLAGS = STARTUP_FLAGS(262144i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_ARM: STARTUP_FLAGS = STARTUP_FLAGS(4194304i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_CONCURRENT_GC: STARTUP_FLAGS = STARTUP_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_DISABLE_COMMITTHREADSTACK: STARTUP_FLAGS = STARTUP_FLAGS(131072i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_ETW: STARTUP_FLAGS = STARTUP_FLAGS(1048576i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_HOARD_GC_VM: STARTUP_FLAGS = STARTUP_FLAGS(8192i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_LEGACY_IMPERSONATION: STARTUP_FLAGS = STARTUP_FLAGS(65536i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_LOADER_OPTIMIZATION_MASK: STARTUP_FLAGS = STARTUP_FLAGS(6i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_LOADER_OPTIMIZATION_MULTI_DOMAIN: STARTUP_FLAGS = STARTUP_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_LOADER_OPTIMIZATION_MULTI_DOMAIN_HOST: STARTUP_FLAGS = STARTUP_FLAGS(6i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_LOADER_OPTIMIZATION_SINGLE_DOMAIN: STARTUP_FLAGS = STARTUP_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_LOADER_SAFEMODE: STARTUP_FLAGS = STARTUP_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_LOADER_SETPREFERENCE: STARTUP_FLAGS = STARTUP_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_SERVER_GC: STARTUP_FLAGS = STARTUP_FLAGS(4096i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_SINGLE_VERSION_HOSTING_INTERFACE: STARTUP_FLAGS = STARTUP_FLAGS(16384i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const STARTUP_TRIM_GC_COMMIT: STARTUP_FLAGS = STARTUP_FLAGS(524288i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const TT_ADUNLOAD: ETaskType = ETaskType(128i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const TT_DEBUGGERHELPER: ETaskType = ETaskType(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const TT_FINALIZER: ETaskType = ETaskType(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const TT_GC: ETaskType = ETaskType(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const TT_THREADPOOL_GATE: ETaskType = ETaskType(16i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const TT_THREADPOOL_IOCOMPLETION: ETaskType = ETaskType(64i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const TT_THREADPOOL_TIMER: ETaskType = ETaskType(8i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const TT_THREADPOOL_WAIT: ETaskType = ETaskType(512i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const TT_THREADPOOL_WORKER: ETaskType = ETaskType(32i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const TT_UNKNOWN: ETaskType = ETaskType(-2147483648i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const TT_USER: ETaskType = ETaskType(256i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const TypeNameFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb81ff171_20f3_11d2_8dcc_00a0c9b00525);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const WAIT_ALERTABLE: WAIT_OPTION = WAIT_OPTION(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const WAIT_MSGPUMP: WAIT_OPTION = WAIT_OPTION(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const WAIT_NOTINDEADLOCK: WAIT_OPTION = WAIT_OPTION(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eAbortThread: EPolicyAction = EPolicyAction(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eAll: EApiCategories = EApiCategories(511i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eAppDomainCritical: EMemoryCriticalLevel = EMemoryCriticalLevel(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eCurrentContext: EContextType = EContextType(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eDisableRuntime: EPolicyAction = EPolicyAction(9i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eExitProcess: EPolicyAction = EPolicyAction(6i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eExternalProcessMgmt: EApiCategories = EApiCategories(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eExternalThreading: EApiCategories = EApiCategories(16i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eFastExitProcess: EPolicyAction = EPolicyAction(7i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eHostDeterminedPolicy: EClrUnhandledException = EClrUnhandledException(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eInitializeNewDomainFlags_NoSecurityChanges: EInitializeNewDomainFlags = EInitializeNewDomainFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eInitializeNewDomainFlags_None: EInitializeNewDomainFlags = EInitializeNewDomainFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eMayLeakOnAbort: EApiCategories = EApiCategories(256i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eMemoryAvailableHigh: EMemoryAvailable = EMemoryAvailable(3i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eMemoryAvailableLow: EMemoryAvailable = EMemoryAvailable(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eMemoryAvailableNeutral: EMemoryAvailable = EMemoryAvailable(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eNoAction: EPolicyAction = EPolicyAction(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eNoChecks: EApiCategories = EApiCategories(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const ePolicyLevelAdmin: EBindPolicyLevels = EBindPolicyLevels(32i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const ePolicyLevelApp: EBindPolicyLevels = EBindPolicyLevels(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const ePolicyLevelHost: EBindPolicyLevels = EBindPolicyLevels(16i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const ePolicyLevelNone: EBindPolicyLevels = EBindPolicyLevels(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const ePolicyLevelPublisher: EBindPolicyLevels = EBindPolicyLevels(8i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const ePolicyLevelRetargetable: EBindPolicyLevels = EBindPolicyLevels(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const ePolicyPortability: EBindPolicyLevels = EBindPolicyLevels(64i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const ePolicyUnifiedToCLR: EBindPolicyLevels = EBindPolicyLevels(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eProcessCritical: EMemoryCriticalLevel = EMemoryCriticalLevel(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eRestrictedContext: EContextType = EContextType(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eRudeAbortThread: EPolicyAction = EPolicyAction(3i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eRudeExitProcess: EPolicyAction = EPolicyAction(8i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eRudeUnloadAppDomain: EPolicyAction = EPolicyAction(5i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eRuntimeDeterminedPolicy: EClrUnhandledException = EClrUnhandledException(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eSecurityInfrastructure: EApiCategories = EApiCategories(64i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eSelfAffectingProcessMgmt: EApiCategories = EApiCategories(8i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eSelfAffectingThreading: EApiCategories = EApiCategories(32i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eSharedState: EApiCategories = EApiCategories(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eSymbolReadingAlways: ESymbolReadingPolicy = ESymbolReadingPolicy(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eSymbolReadingFullTrustOnly: ESymbolReadingPolicy = ESymbolReadingPolicy(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eSymbolReadingNever: ESymbolReadingPolicy = ESymbolReadingPolicy(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eSynchronization: EApiCategories = EApiCategories(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eTaskCritical: EMemoryCriticalLevel = EMemoryCriticalLevel(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eThrowException: EPolicyAction = EPolicyAction(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eUI: EApiCategories = EApiCategories(128i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const eUnloadAppDomain: EPolicyAction = EPolicyAction(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPDOMAIN_SECURITY_FLAGS(pub i32);
@@ -3727,7 +3460,6 @@ impl ::core::fmt::Debug for APPDOMAIN_SECURITY_FLAGS {
         f.debug_tuple("APPDOMAIN_SECURITY_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BucketParameterIndex(pub i32);
@@ -3750,7 +3482,6 @@ impl ::core::fmt::Debug for BucketParameterIndex {
         f.debug_tuple("BucketParameterIndex").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLR_DEBUGGING_PROCESS_FLAGS(pub i32);
@@ -3773,7 +3504,6 @@ impl ::core::fmt::Debug for CLR_DEBUGGING_PROCESS_FLAGS {
         f.debug_tuple("CLR_DEBUGGING_PROCESS_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLSID_RESOLUTION_FLAGS(pub i32);
@@ -3796,7 +3526,6 @@ impl ::core::fmt::Debug for CLSID_RESOLUTION_FLAGS {
         f.debug_tuple("CLSID_RESOLUTION_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_GC_STAT_TYPES(pub i32);
@@ -3819,7 +3548,6 @@ impl ::core::fmt::Debug for COR_GC_STAT_TYPES {
         f.debug_tuple("COR_GC_STAT_TYPES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_GC_THREAD_STATS_TYPES(pub i32);
@@ -3842,7 +3570,6 @@ impl ::core::fmt::Debug for COR_GC_THREAD_STATS_TYPES {
         f.debug_tuple("COR_GC_THREAD_STATS_TYPES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EApiCategories(pub i32);
@@ -3865,7 +3592,6 @@ impl ::core::fmt::Debug for EApiCategories {
         f.debug_tuple("EApiCategories").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EBindPolicyLevels(pub i32);
@@ -3888,7 +3614,6 @@ impl ::core::fmt::Debug for EBindPolicyLevels {
         f.debug_tuple("EBindPolicyLevels").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ECLRAssemblyIdentityFlags(pub i32);
@@ -3911,7 +3636,6 @@ impl ::core::fmt::Debug for ECLRAssemblyIdentityFlags {
         f.debug_tuple("ECLRAssemblyIdentityFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EClrEvent(pub i32);
@@ -3934,7 +3658,6 @@ impl ::core::fmt::Debug for EClrEvent {
         f.debug_tuple("EClrEvent").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EClrFailure(pub i32);
@@ -3957,7 +3680,6 @@ impl ::core::fmt::Debug for EClrFailure {
         f.debug_tuple("EClrFailure").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EClrOperation(pub i32);
@@ -3980,7 +3702,6 @@ impl ::core::fmt::Debug for EClrOperation {
         f.debug_tuple("EClrOperation").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EClrUnhandledException(pub i32);
@@ -4003,7 +3724,6 @@ impl ::core::fmt::Debug for EClrUnhandledException {
         f.debug_tuple("EClrUnhandledException").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EContextType(pub i32);
@@ -4026,7 +3746,6 @@ impl ::core::fmt::Debug for EContextType {
         f.debug_tuple("EContextType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ECustomDumpFlavor(pub i32);
@@ -4049,7 +3768,6 @@ impl ::core::fmt::Debug for ECustomDumpFlavor {
         f.debug_tuple("ECustomDumpFlavor").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ECustomDumpItemKind(pub i32);
@@ -4072,7 +3790,6 @@ impl ::core::fmt::Debug for ECustomDumpItemKind {
         f.debug_tuple("ECustomDumpItemKind").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EHostApplicationPolicy(pub i32);
@@ -4095,7 +3812,6 @@ impl ::core::fmt::Debug for EHostApplicationPolicy {
         f.debug_tuple("EHostApplicationPolicy").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EHostBindingPolicyModifyFlags(pub i32);
@@ -4118,7 +3834,6 @@ impl ::core::fmt::Debug for EHostBindingPolicyModifyFlags {
         f.debug_tuple("EHostBindingPolicyModifyFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EInitializeNewDomainFlags(pub i32);
@@ -4141,7 +3856,6 @@ impl ::core::fmt::Debug for EInitializeNewDomainFlags {
         f.debug_tuple("EInitializeNewDomainFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EMemoryAvailable(pub i32);
@@ -4164,7 +3878,6 @@ impl ::core::fmt::Debug for EMemoryAvailable {
         f.debug_tuple("EMemoryAvailable").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EMemoryCriticalLevel(pub i32);
@@ -4187,7 +3900,6 @@ impl ::core::fmt::Debug for EMemoryCriticalLevel {
         f.debug_tuple("EMemoryCriticalLevel").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EPolicyAction(pub i32);
@@ -4210,7 +3922,6 @@ impl ::core::fmt::Debug for EPolicyAction {
         f.debug_tuple("EPolicyAction").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ESymbolReadingPolicy(pub i32);
@@ -4233,7 +3944,6 @@ impl ::core::fmt::Debug for ESymbolReadingPolicy {
         f.debug_tuple("ESymbolReadingPolicy").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ETaskType(pub i32);
@@ -4256,7 +3966,6 @@ impl ::core::fmt::Debug for ETaskType {
         f.debug_tuple("ETaskType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HOST_TYPE(pub i32);
@@ -4279,7 +3988,6 @@ impl ::core::fmt::Debug for HOST_TYPE {
         f.debug_tuple("HOST_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MALLOC_TYPE(pub i32);
@@ -4302,7 +4010,6 @@ impl ::core::fmt::Debug for MALLOC_TYPE {
         f.debug_tuple("MALLOC_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct METAHOST_CONFIG_FLAGS(pub i32);
@@ -4325,7 +4032,6 @@ impl ::core::fmt::Debug for METAHOST_CONFIG_FLAGS {
         f.debug_tuple("METAHOST_CONFIG_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct METAHOST_POLICY_FLAGS(pub i32);
@@ -4348,7 +4054,6 @@ impl ::core::fmt::Debug for METAHOST_POLICY_FLAGS {
         f.debug_tuple("METAHOST_POLICY_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RUNTIME_INFO_FLAGS(pub i32);
@@ -4371,7 +4076,6 @@ impl ::core::fmt::Debug for RUNTIME_INFO_FLAGS {
         f.debug_tuple("RUNTIME_INFO_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STARTUP_FLAGS(pub i32);
@@ -4394,7 +4098,6 @@ impl ::core::fmt::Debug for STARTUP_FLAGS {
         f.debug_tuple("STARTUP_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StackOverflowType(pub i32);
@@ -4417,7 +4120,6 @@ impl ::core::fmt::Debug for StackOverflowType {
         f.debug_tuple("StackOverflowType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WAIT_OPTION(pub i32);
@@ -4441,7 +4143,6 @@ impl ::core::fmt::Debug for WAIT_OPTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub struct AssemblyBindInfo {
     pub dwAppDomainId: u32,
     pub lpReferencedIdentity: ::windows_core::PCWSTR,
@@ -4474,7 +4175,7 @@ impl ::core::default::Default for AssemblyBindInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BucketParameters {
     pub fInited: super::super::Foundation::BOOL,
@@ -4514,7 +4215,6 @@ impl ::core::default::Default for BucketParameters {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub struct CLR_DEBUGGING_VERSION {
     pub wStructVersion: u16,
     pub wMajor: u16,
@@ -4548,7 +4248,6 @@ impl ::core::default::Default for CLR_DEBUGGING_VERSION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub struct COR_GC_STATS {
     pub Flags: u32,
     pub ExplicitGCCount: usize,
@@ -4600,7 +4299,6 @@ impl ::core::default::Default for COR_GC_STATS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub struct COR_GC_THREAD_STATS {
     pub PerThreadAllocation: u64,
     pub Flags: u32,
@@ -4631,7 +4329,6 @@ impl ::core::default::Default for COR_GC_THREAD_STATS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub struct CustomDumpItem {
     pub itemKind: ECustomDumpItemKind,
     pub Anonymous: CustomDumpItem_0,
@@ -4651,7 +4348,6 @@ impl ::core::default::Default for CustomDumpItem {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub union CustomDumpItem_0 {
     pub pReserved: usize,
 }
@@ -4670,7 +4366,6 @@ impl ::core::default::Default for CustomDumpItem_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub struct MDAInfo {
     pub lpMDACaption: ::windows_core::PCWSTR,
     pub lpMDAMessage: ::windows_core::PCWSTR,
@@ -4702,7 +4397,6 @@ impl ::core::default::Default for MDAInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub struct ModuleBindInfo {
     pub dwAppDomainId: u32,
     pub lpAssemblyIdentity: ::windows_core::PCWSTR,
@@ -4734,7 +4428,7 @@ impl ::core::default::Default for ModuleBindInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct StackOverflowInfo {
     pub soType: StackOverflowType,
@@ -4772,21 +4466,13 @@ impl ::core::default::Default for StackOverflowInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub type CLRCreateInstanceFnPtr = ::core::option::Option<unsafe extern "system" fn(clsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub type CallbackThreadSetFnPtr = ::core::option::Option<unsafe extern "system" fn() -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub type CallbackThreadUnsetFnPtr = ::core::option::Option<unsafe extern "system" fn() -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub type CreateInterfaceFnPtr = ::core::option::Option<unsafe extern "system" fn(clsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub type FExecuteInAppDomainCallback = ::core::option::Option<unsafe extern "system" fn(cookie: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub type FLockClrVersionCallback = ::core::option::Option<unsafe extern "system" fn() -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub type PTLS_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(__midl____midl_itf_mscoree_0000_00040005: *mut ::core::ffi::c_void) -> ()>;
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub type RuntimeLoadedCallbackFnPtr = ::core::option::Option<unsafe extern "system" fn(pruntimeinfo: ::core::option::Option<ICLRRuntimeInfo>, pfncallbackthreadset: CallbackThreadSetFnPtr, pfncallbackthreadunset: CallbackThreadUnsetFnPtr) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

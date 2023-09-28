@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait DebugBaseEventCallbacks_Impl: Sized + IDebugEventCallbacks_Impl {}
 #[cfg(feature = "Win32_Foundation")]
@@ -12,7 +12,7 @@ impl DebugBaseEventCallbacks_Vtbl {
         *iid == <DebugBaseEventCallbacks as ::windows_core::ComInterface>::IID || *iid == <IDebugEventCallbacks as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait DebugBaseEventCallbacksWide_Impl: Sized + IDebugEventCallbacksWide_Impl {}
 #[cfg(feature = "Win32_Foundation")]
@@ -26,7 +26,6 @@ impl DebugBaseEventCallbacksWide_Vtbl {
         *iid == <DebugBaseEventCallbacksWide as ::windows_core::ComInterface>::IID || *iid == <IDebugEventCallbacksWide as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait ICodeAddressConcept_Impl: Sized {
     fn GetContainingSymbol(&self, pcontextobject: ::core::option::Option<&IModelObject>) -> ::windows_core::Result<IDebugHostSymbol>;
 }
@@ -50,7 +49,6 @@ impl ICodeAddressConcept_Vtbl {
         *iid == <ICodeAddressConcept as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IComparableConcept_Impl: Sized {
     fn CompareObjects(&self, contextobject: ::core::option::Option<&IModelObject>, otherobject: ::core::option::Option<&IModelObject>) -> ::windows_core::Result<i32>;
 }
@@ -74,7 +72,6 @@ impl IComparableConcept_Vtbl {
         *iid == <IComparableConcept as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelConcept_Impl: Sized {
     fn InitializeObject(&self, modelobject: ::core::option::Option<&IModelObject>, matchingtypesignature: ::core::option::Option<&IDebugHostTypeSignature>, wildcardmatches: ::core::option::Option<&IDebugHostSymbolEnumerator>) -> ::windows_core::Result<()>;
     fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -108,7 +105,7 @@ impl IDataModelConcept_Vtbl {
         *iid == <IDataModelConcept as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataModelManager_Impl: Sized {
     fn Close(&self) -> ::windows_core::Result<()>;
@@ -337,7 +334,7 @@ impl IDataModelManager_Vtbl {
         *iid == <IDataModelManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataModelManager2_Impl: Sized + IDataModelManager_Impl {
     fn AcquireSubNamespace(&self, modelname: &::windows_core::PCWSTR, subnamespacemodelname: &::windows_core::PCWSTR, accessname: &::windows_core::PCWSTR, metadata: ::core::option::Option<&IKeyStore>) -> ::windows_core::Result<IModelObject>;
@@ -380,7 +377,6 @@ impl IDataModelManager2_Vtbl {
         *iid == <IDataModelManager2 as ::windows_core::ComInterface>::IID || *iid == <IDataModelManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelNameBinder_Impl: Sized {
     fn BindValue(&self, contextobject: ::core::option::Option<&IModelObject>, name: &::windows_core::PCWSTR, value: *mut ::core::option::Option<IModelObject>, metadata: *mut ::core::option::Option<IKeyStore>) -> ::windows_core::Result<()>;
     fn BindReference(&self, contextobject: ::core::option::Option<&IModelObject>, name: &::windows_core::PCWSTR, reference: *mut ::core::option::Option<IModelObject>, metadata: *mut ::core::option::Option<IKeyStore>) -> ::windows_core::Result<()>;
@@ -434,7 +430,7 @@ impl IDataModelNameBinder_Vtbl {
         *iid == <IDataModelNameBinder as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDataModelScript_Impl: Sized {
     fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -512,7 +508,6 @@ impl IDataModelScript_Vtbl {
         *iid == <IDataModelScript as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelScriptClient_Impl: Sized {
     fn ReportError(&self, errclass: ErrorClass, hrfail: ::windows_core::HRESULT, message: &::windows_core::PCWSTR, line: u32, position: u32) -> ::windows_core::Result<()>;
 }
@@ -530,7 +525,6 @@ impl IDataModelScriptClient_Vtbl {
         *iid == <IDataModelScriptClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelScriptDebug_Impl: Sized {
     fn GetDebugState(&self) -> ScriptDebugState;
     fn GetCurrentPosition(&self, currentposition: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -644,7 +638,6 @@ impl IDataModelScriptDebug_Vtbl {
         *iid == <IDataModelScriptDebug as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelScriptDebug2_Impl: Sized + IDataModelScriptDebug_Impl {
     fn SetBreakpointAtFunction(&self, functionname: &::windows_core::PCWSTR) -> ::windows_core::Result<IDataModelScriptDebugBreakpoint>;
 }
@@ -668,7 +661,6 @@ impl IDataModelScriptDebug2_Vtbl {
         *iid == <IDataModelScriptDebug2 as ::windows_core::ComInterface>::IID || *iid == <IDataModelScriptDebug as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelScriptDebugBreakpoint_Impl: Sized {
     fn GetId(&self) -> u64;
     fn IsEnabled(&self) -> bool;
@@ -724,7 +716,6 @@ impl IDataModelScriptDebugBreakpoint_Vtbl {
         *iid == <IDataModelScriptDebugBreakpoint as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelScriptDebugBreakpointEnumerator_Impl: Sized {
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn GetNext(&self) -> ::windows_core::Result<IDataModelScriptDebugBreakpoint>;
@@ -758,7 +749,6 @@ impl IDataModelScriptDebugBreakpointEnumerator_Vtbl {
         *iid == <IDataModelScriptDebugBreakpointEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelScriptDebugClient_Impl: Sized {
     fn NotifyDebugEvent(&self, peventinfo: *const ScriptDebugEventInformation, pscript: ::core::option::Option<&IDataModelScript>, peventdataobject: ::core::option::Option<&IModelObject>, resumeeventkind: *mut ScriptExecutionKind) -> ::windows_core::Result<()>;
 }
@@ -776,7 +766,6 @@ impl IDataModelScriptDebugClient_Vtbl {
         *iid == <IDataModelScriptDebugClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelScriptDebugStack_Impl: Sized {
     fn GetFrameCount(&self) -> u64;
     fn GetStackFrame(&self, framenumber: u64) -> ::windows_core::Result<IDataModelScriptDebugStackFrame>;
@@ -810,7 +799,6 @@ impl IDataModelScriptDebugStack_Vtbl {
         *iid == <IDataModelScriptDebugStack as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelScriptDebugStackFrame_Impl: Sized {
     fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetPosition(&self, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -903,7 +891,6 @@ impl IDataModelScriptDebugStackFrame_Vtbl {
         *iid == <IDataModelScriptDebugStackFrame as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelScriptDebugVariableSetEnumerator_Impl: Sized {
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn GetNext(&self, variablename: *mut ::windows_core::BSTR, variablevalue: *mut ::core::option::Option<IModelObject>, variablemetadata: *mut ::core::option::Option<IKeyStore>) -> ::windows_core::Result<()>;
@@ -931,7 +918,6 @@ impl IDataModelScriptDebugVariableSetEnumerator_Vtbl {
         *iid == <IDataModelScriptDebugVariableSetEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelScriptHostContext_Impl: Sized {
     fn NotifyScriptChange(&self, script: ::core::option::Option<&IDataModelScript>, changekind: ScriptChangeKind) -> ::windows_core::Result<()>;
     fn GetNamespaceObject(&self) -> ::windows_core::Result<IModelObject>;
@@ -965,7 +951,6 @@ impl IDataModelScriptHostContext_Vtbl {
         *iid == <IDataModelScriptHostContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelScriptManager_Impl: Sized {
     fn GetDefaultNameBinder(&self) -> ::windows_core::Result<IDataModelNameBinder>;
     fn RegisterScriptProvider(&self, provider: ::core::option::Option<&IDataModelScriptProvider>) -> ::windows_core::Result<()>;
@@ -1045,7 +1030,6 @@ impl IDataModelScriptManager_Vtbl {
         *iid == <IDataModelScriptManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelScriptProvider_Impl: Sized {
     fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetExtension(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1124,7 +1108,6 @@ impl IDataModelScriptProvider_Vtbl {
         *iid == <IDataModelScriptProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelScriptProviderEnumerator_Impl: Sized {
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn GetNext(&self) -> ::windows_core::Result<IDataModelScriptProvider>;
@@ -1158,7 +1141,7 @@ impl IDataModelScriptProviderEnumerator_Vtbl {
         *iid == <IDataModelScriptProviderEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDataModelScriptTemplate_Impl: Sized {
     fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1214,7 +1197,6 @@ impl IDataModelScriptTemplate_Vtbl {
         *iid == <IDataModelScriptTemplate as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDataModelScriptTemplateEnumerator_Impl: Sized {
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn GetNext(&self) -> ::windows_core::Result<IDataModelScriptTemplate>;
@@ -1248,7 +1230,6 @@ impl IDataModelScriptTemplateEnumerator_Vtbl {
         *iid == <IDataModelScriptTemplateEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugAdvanced_Impl: Sized {
     fn GetThreadContext(&self, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()>;
     fn SetThreadContext(&self, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()>;
@@ -1276,7 +1257,6 @@ impl IDebugAdvanced_Vtbl {
         *iid == <IDebugAdvanced as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugAdvanced2_Impl: Sized {
     fn GetThreadContext(&self, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()>;
     fn SetThreadContext(&self, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()>;
@@ -1339,7 +1319,6 @@ impl IDebugAdvanced2_Vtbl {
         *iid == <IDebugAdvanced2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugAdvanced3_Impl: Sized {
     fn GetThreadContext(&self, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()>;
     fn SetThreadContext(&self, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()>;
@@ -1423,7 +1402,6 @@ impl IDebugAdvanced3_Vtbl {
         *iid == <IDebugAdvanced3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugAdvanced4_Impl: Sized {
     fn GetThreadContext(&self, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()>;
     fn SetThreadContext(&self, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()>;
@@ -1514,7 +1492,6 @@ impl IDebugAdvanced4_Vtbl {
         *iid == <IDebugAdvanced4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugBreakpoint_Impl: Sized {
     fn GetId(&self) -> ::windows_core::Result<u32>;
     fn GetType(&self, breaktype: *mut u32, proctype: *mut u32) -> ::windows_core::Result<()>;
@@ -1717,7 +1694,6 @@ impl IDebugBreakpoint_Vtbl {
         *iid == <IDebugBreakpoint as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugBreakpoint2_Impl: Sized {
     fn GetId(&self) -> ::windows_core::Result<u32>;
     fn GetType(&self, breaktype: *mut u32, proctype: *mut u32) -> ::windows_core::Result<()>;
@@ -1948,7 +1924,6 @@ impl IDebugBreakpoint2_Vtbl {
         *iid == <IDebugBreakpoint2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugBreakpoint3_Impl: Sized {
     fn GetId(&self) -> ::windows_core::Result<u32>;
     fn GetType(&self, breaktype: *mut u32, proctype: *mut u32) -> ::windows_core::Result<()>;
@@ -2192,7 +2167,6 @@ impl IDebugBreakpoint3_Vtbl {
         *iid == <IDebugBreakpoint3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugClient_Impl: Sized {
     fn AttachKernel(&self, flags: u32, connectoptions: &::windows_core::PCSTR) -> ::windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: ::windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows_core::Result<()>;
@@ -2587,7 +2561,6 @@ impl IDebugClient_Vtbl {
         *iid == <IDebugClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugClient2_Impl: Sized {
     fn AttachKernel(&self, flags: u32, connectoptions: &::windows_core::PCSTR) -> ::windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: ::windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows_core::Result<()>;
@@ -3038,7 +3011,6 @@ impl IDebugClient2_Vtbl {
         *iid == <IDebugClient2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugClient3_Impl: Sized {
     fn AttachKernel(&self, flags: u32, connectoptions: &::windows_core::PCSTR) -> ::windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: ::windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows_core::Result<()>;
@@ -3523,7 +3495,6 @@ impl IDebugClient3_Vtbl {
         *iid == <IDebugClient3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugClient4_Impl: Sized {
     fn AttachKernel(&self, flags: u32, connectoptions: &::windows_core::PCSTR) -> ::windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: ::windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows_core::Result<()>;
@@ -4056,7 +4027,6 @@ impl IDebugClient4_Vtbl {
         *iid == <IDebugClient4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugClient5_Impl: Sized {
     fn AttachKernel(&self, flags: u32, connectoptions: &::windows_core::PCSTR) -> ::windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: ::windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows_core::Result<()>;
@@ -4840,7 +4810,6 @@ impl IDebugClient5_Vtbl {
         *iid == <IDebugClient5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugClient6_Impl: Sized {
     fn AttachKernel(&self, flags: u32, connectoptions: &::windows_core::PCSTR) -> ::windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: ::windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows_core::Result<()>;
@@ -5631,7 +5600,6 @@ impl IDebugClient6_Vtbl {
         *iid == <IDebugClient6 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugClient7_Impl: Sized {
     fn AttachKernel(&self, flags: u32, connectoptions: &::windows_core::PCSTR) -> ::windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: ::windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows_core::Result<()>;
@@ -6429,7 +6397,6 @@ impl IDebugClient7_Vtbl {
         *iid == <IDebugClient7 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugClient8_Impl: Sized {
     fn AttachKernel(&self, flags: u32, connectoptions: &::windows_core::PCSTR) -> ::windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: ::windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows_core::Result<()>;
@@ -7234,7 +7201,7 @@ impl IDebugClient8_Vtbl {
         *iid == <IDebugClient8 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Kernel`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub trait IDebugControl_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -8046,7 +8013,7 @@ impl IDebugControl_Vtbl {
         *iid == <IDebugControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Kernel`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub trait IDebugControl2_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -8938,7 +8905,7 @@ impl IDebugControl2_Vtbl {
         *iid == <IDebugControl2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Kernel`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub trait IDebugControl3_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -9957,7 +9924,7 @@ impl IDebugControl3_Vtbl {
         *iid == <IDebugControl3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Kernel`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub trait IDebugControl4_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -11383,7 +11350,7 @@ impl IDebugControl4_Vtbl {
         *iid == <IDebugControl4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Kernel`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub trait IDebugControl5_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -12850,7 +12817,7 @@ impl IDebugControl5_Vtbl {
         *iid == <IDebugControl5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Kernel`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub trait IDebugControl6_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -14337,7 +14304,7 @@ impl IDebugControl6_Vtbl {
         *iid == <IDebugControl6 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Kernel`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub trait IDebugControl7_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -15831,7 +15798,6 @@ impl IDebugControl7_Vtbl {
         *iid == <IDebugControl7 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugDataSpaces_Impl: Sized {
     fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows_core::Result<()>;
     fn WriteVirtual(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> ::windows_core::Result<()>;
@@ -15997,7 +15963,7 @@ impl IDebugDataSpaces_Vtbl {
         *iid == <IDebugDataSpaces as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_System_Memory\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Memory`"]
 #[cfg(feature = "Win32_System_Memory")]
 pub trait IDebugDataSpaces2_Impl: Sized {
     fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows_core::Result<()>;
@@ -16214,7 +16180,7 @@ impl IDebugDataSpaces2_Vtbl {
         *iid == <IDebugDataSpaces2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_System_Memory\"`, `\"Win32_System_SystemInformation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Memory`, `Win32_System_SystemInformation`"]
 #[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 pub trait IDebugDataSpaces3_Impl: Sized {
     fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows_core::Result<()>;
@@ -16472,7 +16438,7 @@ impl IDebugDataSpaces3_Vtbl {
         *iid == <IDebugDataSpaces3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_System_Memory\"`, `\"Win32_System_SystemInformation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Memory`, `Win32_System_SystemInformation`"]
 #[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 pub trait IDebugDataSpaces4_Impl: Sized {
     fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows_core::Result<()>;
@@ -16812,7 +16778,7 @@ impl IDebugDataSpaces4_Vtbl {
         *iid == <IDebugDataSpaces4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugEventCallbacks_Impl: Sized {
     fn GetInterestMask(&self) -> ::windows_core::Result<u32>;
@@ -16934,7 +16900,7 @@ impl IDebugEventCallbacks_Vtbl {
         *iid == <IDebugEventCallbacks as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugEventCallbacksWide_Impl: Sized {
     fn GetInterestMask(&self) -> ::windows_core::Result<u32>;
@@ -17056,7 +17022,7 @@ impl IDebugEventCallbacksWide_Vtbl {
         *iid == <IDebugEventCallbacksWide as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugEventContextCallbacks_Impl: Sized {
     fn GetInterestMask(&self) -> ::windows_core::Result<u32>;
@@ -17192,7 +17158,7 @@ impl IDebugEventContextCallbacks_Vtbl {
         *iid == <IDebugEventContextCallbacks as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugFAEntryTags_Impl: Sized {
     fn GetType(&self, tag: DEBUG_FLR_PARAM_TYPE) -> FA_ENTRY_TYPE;
@@ -17266,7 +17232,6 @@ impl IDebugFAEntryTags {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugFailureAnalysis_Impl: Sized {
     fn GetFailureClass(&self) -> u32;
     fn GetFailureType(&self) -> DEBUG_FAILURE_TYPE;
@@ -17350,7 +17315,7 @@ impl IDebugFailureAnalysis_Vtbl {
         *iid == <IDebugFailureAnalysis as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IDebugFailureAnalysis2_Impl: Sized {
     fn GetFailureClass(&self) -> u32;
@@ -17540,7 +17505,7 @@ impl IDebugFailureAnalysis2_Vtbl {
         *iid == <IDebugFailureAnalysis2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugFailureAnalysis3_Impl: Sized {
     fn GetFailureClass(&self) -> u32;
@@ -17873,7 +17838,6 @@ impl IDebugFailureAnalysis3_Vtbl {
         *iid == <IDebugFailureAnalysis3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHost_Impl: Sized {
     fn GetHostDefinedInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn GetCurrentContext(&self) -> ::windows_core::Result<IDebugHostContext>;
@@ -17926,7 +17890,6 @@ impl IDebugHost_Vtbl {
         *iid == <IDebugHost as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostBaseClass_Impl: Sized + IDebugHostSymbol_Impl {
     fn GetOffset(&self) -> ::windows_core::Result<u64>;
 }
@@ -17950,7 +17913,7 @@ impl IDebugHostBaseClass_Vtbl {
         *iid == <IDebugHostBaseClass as ::windows_core::ComInterface>::IID || *iid == <IDebugHostSymbol as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugHostConstant_Impl: Sized + IDebugHostSymbol_Impl {
     fn GetValue(&self) -> ::windows_core::Result<super::super::super::Variant::VARIANT>;
@@ -17977,7 +17940,6 @@ impl IDebugHostConstant_Vtbl {
         *iid == <IDebugHostConstant as ::windows_core::ComInterface>::IID || *iid == <IDebugHostSymbol as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostContext_Impl: Sized {
     fn IsEqualTo(&self, pcontext: ::core::option::Option<&IDebugHostContext>) -> ::windows_core::Result<bool>;
 }
@@ -18001,7 +17963,7 @@ impl IDebugHostContext_Vtbl {
         *iid == <IDebugHostContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugHostData_Impl: Sized + IDebugHostSymbol_Impl {
     fn GetLocationKind(&self) -> ::windows_core::Result<LocationKind>;
@@ -18057,7 +18019,6 @@ impl IDebugHostData_Vtbl {
         *iid == <IDebugHostData as ::windows_core::ComInterface>::IID || *iid == <IDebugHostSymbol as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostErrorSink_Impl: Sized {
     fn ReportError(&self, errclass: ErrorClass, hrerror: ::windows_core::HRESULT, message: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
 }
@@ -18075,7 +18036,6 @@ impl IDebugHostErrorSink_Vtbl {
         *iid == <IDebugHostErrorSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostEvaluator_Impl: Sized {
     fn EvaluateExpression(&self, context: ::core::option::Option<&IDebugHostContext>, expression: &::windows_core::PCWSTR, bindingcontext: ::core::option::Option<&IModelObject>, result: *mut ::core::option::Option<IModelObject>, metadata: *mut ::core::option::Option<IKeyStore>) -> ::windows_core::Result<()>;
     fn EvaluateExtendedExpression(&self, context: ::core::option::Option<&IDebugHostContext>, expression: &::windows_core::PCWSTR, bindingcontext: ::core::option::Option<&IModelObject>, result: *mut ::core::option::Option<IModelObject>, metadata: *mut ::core::option::Option<IKeyStore>) -> ::windows_core::Result<()>;
@@ -18103,7 +18063,6 @@ impl IDebugHostEvaluator_Vtbl {
         *iid == <IDebugHostEvaluator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostEvaluator2_Impl: Sized + IDebugHostEvaluator_Impl {
     fn AssignTo(&self, assignmentreference: ::core::option::Option<&IModelObject>, assignmentvalue: ::core::option::Option<&IModelObject>, assignmentresult: *mut ::core::option::Option<IModelObject>, assignmentmetadata: *mut ::core::option::Option<IKeyStore>) -> ::windows_core::Result<()>;
 }
@@ -18121,7 +18080,6 @@ impl IDebugHostEvaluator2_Vtbl {
         *iid == <IDebugHostEvaluator2 as ::windows_core::ComInterface>::IID || *iid == <IDebugHostEvaluator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostExtensibility_Impl: Sized {
     fn CreateFunctionAlias(&self, aliasname: &::windows_core::PCWSTR, functionobject: ::core::option::Option<&IModelObject>) -> ::windows_core::Result<()>;
     fn DestroyFunctionAlias(&self, aliasname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -18149,7 +18107,7 @@ impl IDebugHostExtensibility_Vtbl {
         *iid == <IDebugHostExtensibility as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugHostField_Impl: Sized + IDebugHostSymbol_Impl {
     fn GetLocationKind(&self) -> ::windows_core::Result<LocationKind>;
@@ -18218,7 +18176,6 @@ impl IDebugHostField_Vtbl {
         *iid == <IDebugHostField as ::windows_core::ComInterface>::IID || *iid == <IDebugHostSymbol as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostMemory_Impl: Sized {
     fn ReadBytes(&self, context: ::core::option::Option<&IDebugHostContext>, location: &Location, buffer: *mut ::core::ffi::c_void, buffersize: u64, bytesread: *mut u64) -> ::windows_core::Result<()>;
     fn WriteBytes(&self, context: ::core::option::Option<&IDebugHostContext>, location: &Location, buffer: *const ::core::ffi::c_void, buffersize: u64, byteswritten: *mut u64) -> ::windows_core::Result<()>;
@@ -18273,7 +18230,6 @@ impl IDebugHostMemory_Vtbl {
         *iid == <IDebugHostMemory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostMemory2_Impl: Sized + IDebugHostMemory_Impl {
     fn LinearizeLocation(&self, context: ::core::option::Option<&IDebugHostContext>, location: &Location) -> ::windows_core::Result<Location>;
 }
@@ -18297,7 +18253,6 @@ impl IDebugHostMemory2_Vtbl {
         *iid == <IDebugHostMemory2 as ::windows_core::ComInterface>::IID || *iid == <IDebugHostMemory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostModule_Impl: Sized + IDebugHostSymbol_Impl {
     fn GetImageName(&self, allowpath: u8) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetBaseLocation(&self) -> ::windows_core::Result<Location>;
@@ -18383,7 +18338,6 @@ impl IDebugHostModule_Vtbl {
         *iid == <IDebugHostModule as ::windows_core::ComInterface>::IID || *iid == <IDebugHostSymbol as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostModule2_Impl: Sized + IDebugHostModule_Impl {
     fn FindContainingSymbolByRVA(&self, rva: u64, symbol: *mut ::core::option::Option<IDebugHostSymbol>, offset: *mut u64) -> ::windows_core::Result<()>;
 }
@@ -18401,7 +18355,6 @@ impl IDebugHostModule2_Vtbl {
         *iid == <IDebugHostModule2 as ::windows_core::ComInterface>::IID || *iid == <IDebugHostSymbol as ::windows_core::ComInterface>::IID || *iid == <IDebugHostModule as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostModuleSignature_Impl: Sized {
     fn IsMatch(&self, pmodule: ::core::option::Option<&IDebugHostModule>) -> ::windows_core::Result<bool>;
 }
@@ -18425,7 +18378,6 @@ impl IDebugHostModuleSignature_Vtbl {
         *iid == <IDebugHostModuleSignature as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostPublic_Impl: Sized + IDebugHostSymbol_Impl {
     fn GetLocationKind(&self) -> ::windows_core::Result<LocationKind>;
     fn GetLocation(&self) -> ::windows_core::Result<Location>;
@@ -18465,7 +18417,6 @@ impl IDebugHostPublic_Vtbl {
         *iid == <IDebugHostPublic as ::windows_core::ComInterface>::IID || *iid == <IDebugHostSymbol as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostScriptHost_Impl: Sized {
     fn CreateContext(&self, script: ::core::option::Option<&IDataModelScript>) -> ::windows_core::Result<IDataModelScriptHostContext>;
 }
@@ -18489,7 +18440,6 @@ impl IDebugHostScriptHost_Vtbl {
         *iid == <IDebugHostScriptHost as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostStatus_Impl: Sized {
     fn PollUserInterrupt(&self) -> ::windows_core::Result<bool>;
 }
@@ -18513,7 +18463,6 @@ impl IDebugHostStatus_Vtbl {
         *iid == <IDebugHostStatus as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostSymbol_Impl: Sized {
     fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext>;
     fn EnumerateChildren(&self, kind: SymbolKind, name: &::windows_core::PCWSTR) -> ::windows_core::Result<IDebugHostSymbolEnumerator>;
@@ -18618,7 +18567,6 @@ impl IDebugHostSymbol_Vtbl {
         *iid == <IDebugHostSymbol as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostSymbol2_Impl: Sized + IDebugHostSymbol_Impl {
     fn GetLanguage(&self) -> ::windows_core::Result<LanguageKind>;
 }
@@ -18642,7 +18590,6 @@ impl IDebugHostSymbol2_Vtbl {
         *iid == <IDebugHostSymbol2 as ::windows_core::ComInterface>::IID || *iid == <IDebugHostSymbol as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostSymbolEnumerator_Impl: Sized {
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn GetNext(&self) -> ::windows_core::Result<IDebugHostSymbol>;
@@ -18676,7 +18623,6 @@ impl IDebugHostSymbolEnumerator_Vtbl {
         *iid == <IDebugHostSymbolEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostSymbols_Impl: Sized {
     fn CreateModuleSignature(&self, pwszmodulename: &::windows_core::PCWSTR, pwszminversion: &::windows_core::PCWSTR, pwszmaxversion: &::windows_core::PCWSTR) -> ::windows_core::Result<IDebugHostModuleSignature>;
     fn CreateTypeSignature(&self, signaturespecification: &::windows_core::PCWSTR, module: ::core::option::Option<&IDebugHostModule>) -> ::windows_core::Result<IDebugHostTypeSignature>;
@@ -18775,7 +18721,6 @@ impl IDebugHostSymbols_Vtbl {
         *iid == <IDebugHostSymbols as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostType_Impl: Sized + IDebugHostSymbol_Impl {
     fn GetTypeKind(&self) -> ::windows_core::Result<TypeKind>;
     fn GetSize(&self) -> ::windows_core::Result<u64>;
@@ -19018,7 +18963,6 @@ impl IDebugHostType_Vtbl {
         *iid == <IDebugHostType as ::windows_core::ComInterface>::IID || *iid == <IDebugHostSymbol as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostType2_Impl: Sized + IDebugHostType_Impl {
     fn IsTypedef(&self) -> ::windows_core::Result<bool>;
     fn GetTypedefBaseType(&self) -> ::windows_core::Result<IDebugHostType2>;
@@ -19097,7 +19041,6 @@ impl IDebugHostType2_Vtbl {
         *iid == <IDebugHostType2 as ::windows_core::ComInterface>::IID || *iid == <IDebugHostSymbol as ::windows_core::ComInterface>::IID || *iid == <IDebugHostType as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugHostTypeSignature_Impl: Sized {
     fn GetHashCode(&self) -> ::windows_core::Result<u32>;
     fn IsMatch(&self, r#type: ::core::option::Option<&IDebugHostType>, ismatch: *mut bool, wildcardmatches: *mut ::core::option::Option<IDebugHostSymbolEnumerator>) -> ::windows_core::Result<()>;
@@ -19144,7 +19087,6 @@ impl IDebugHostTypeSignature_Vtbl {
         *iid == <IDebugHostTypeSignature as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugInputCallbacks_Impl: Sized {
     fn StartInput(&self, buffersize: u32) -> ::windows_core::Result<()>;
     fn EndInput(&self) -> ::windows_core::Result<()>;
@@ -19172,7 +19114,6 @@ impl IDebugInputCallbacks_Vtbl {
         *iid == <IDebugInputCallbacks as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugOutputCallbacks_Impl: Sized {
     fn Output(&self, mask: u32, text: &::windows_core::PCSTR) -> ::windows_core::Result<()>;
 }
@@ -19190,7 +19131,6 @@ impl IDebugOutputCallbacks_Vtbl {
         *iid == <IDebugOutputCallbacks as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugOutputCallbacks2_Impl: Sized {
     fn Output(&self, mask: u32, text: &::windows_core::PCSTR) -> ::windows_core::Result<()>;
     fn GetInterestMask(&self) -> ::windows_core::Result<u32>;
@@ -19231,7 +19171,6 @@ impl IDebugOutputCallbacks2_Vtbl {
         *iid == <IDebugOutputCallbacks2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugOutputCallbacksWide_Impl: Sized {
     fn Output(&self, mask: u32, text: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
 }
@@ -19249,7 +19188,6 @@ impl IDebugOutputCallbacksWide_Vtbl {
         *iid == <IDebugOutputCallbacksWide as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugOutputStream_Impl: Sized {
     fn Write(&self, psz: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
 }
@@ -19267,7 +19205,6 @@ impl IDebugOutputStream_Vtbl {
         *iid == <IDebugOutputStream as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugPlmClient_Impl: Sized {
     fn LaunchPlmPackageForDebugWide(&self, server: u64, timeout: u32, packagefullname: &::windows_core::PCWSTR, appname: &::windows_core::PCWSTR, arguments: &::windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> ::windows_core::Result<()>;
 }
@@ -19288,7 +19225,6 @@ impl IDebugPlmClient_Vtbl {
         *iid == <IDebugPlmClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugPlmClient2_Impl: Sized {
     fn LaunchPlmPackageForDebugWide(&self, server: u64, timeout: u32, packagefullname: &::windows_core::PCWSTR, appname: &::windows_core::PCWSTR, arguments: &::windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> ::windows_core::Result<()>;
     fn LaunchPlmBgTaskForDebugWide(&self, server: u64, timeout: u32, packagefullname: &::windows_core::PCWSTR, backgroundtaskid: &::windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> ::windows_core::Result<()>;
@@ -19316,7 +19252,6 @@ impl IDebugPlmClient2_Vtbl {
         *iid == <IDebugPlmClient2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugPlmClient3_Impl: Sized {
     fn LaunchPlmPackageForDebugWide(&self, server: u64, timeout: u32, packagefullname: &::windows_core::PCWSTR, appname: &::windows_core::PCWSTR, arguments: &::windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> ::windows_core::Result<()>;
     fn LaunchPlmBgTaskForDebugWide(&self, server: u64, timeout: u32, packagefullname: &::windows_core::PCWSTR, backgroundtaskid: &::windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> ::windows_core::Result<()>;
@@ -19407,7 +19342,7 @@ impl IDebugPlmClient3_Vtbl {
         *iid == <IDebugPlmClient3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugRegisters_Impl: Sized {
     fn GetNumberRegisters(&self) -> ::windows_core::Result<u32>;
@@ -19531,7 +19466,7 @@ impl IDebugRegisters_Vtbl {
         *iid == <IDebugRegisters as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugRegisters2_Impl: Sized {
     fn GetNumberRegisters(&self) -> ::windows_core::Result<u32>;
@@ -19802,7 +19737,7 @@ impl IDebugRegisters2_Vtbl {
         *iid == <IDebugRegisters2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugSymbolGroup_Impl: Sized {
     fn GetNumberSymbols(&self) -> ::windows_core::Result<u32>;
@@ -19895,7 +19830,7 @@ impl IDebugSymbolGroup_Vtbl {
         *iid == <IDebugSymbolGroup as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugSymbolGroup2_Impl: Sized {
     fn GetNumberSymbols(&self) -> ::windows_core::Result<u32>;
@@ -20097,7 +20032,7 @@ impl IDebugSymbolGroup2_Vtbl {
         *iid == <IDebugSymbolGroup2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugSymbols_Impl: Sized {
     fn GetSymbolOptions(&self) -> ::windows_core::Result<u32>;
@@ -20536,7 +20471,7 @@ impl IDebugSymbols_Vtbl {
         *iid == <IDebugSymbols as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugSymbols2_Impl: Sized {
     fn GetSymbolOptions(&self) -> ::windows_core::Result<u32>;
@@ -21037,7 +20972,7 @@ impl IDebugSymbols2_Vtbl {
         *iid == <IDebugSymbols2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugSymbols3_Impl: Sized {
     fn GetSymbolOptions(&self) -> ::windows_core::Result<u32>;
@@ -22066,7 +22001,7 @@ impl IDebugSymbols3_Vtbl {
         *iid == <IDebugSymbols3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugSymbols4_Impl: Sized {
     fn GetSymbolOptions(&self) -> ::windows_core::Result<u32>;
@@ -23144,7 +23079,7 @@ impl IDebugSymbols4_Vtbl {
         *iid == <IDebugSymbols4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugSymbols5_Impl: Sized {
     fn GetSymbolOptions(&self) -> ::windows_core::Result<u32>;
@@ -24242,7 +24177,6 @@ impl IDebugSymbols5_Vtbl {
         *iid == <IDebugSymbols5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugSystemObjects_Impl: Sized {
     fn GetEventThread(&self) -> ::windows_core::Result<u32>;
     fn GetEventProcess(&self) -> ::windows_core::Result<u32>;
@@ -24597,7 +24531,6 @@ impl IDebugSystemObjects_Vtbl {
         *iid == <IDebugSystemObjects as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugSystemObjects2_Impl: Sized {
     fn GetEventThread(&self) -> ::windows_core::Result<u32>;
     fn GetEventProcess(&self) -> ::windows_core::Result<u32>;
@@ -25005,7 +24938,6 @@ impl IDebugSystemObjects2_Vtbl {
         *iid == <IDebugSystemObjects2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugSystemObjects3_Impl: Sized {
     fn GetEventThread(&self) -> ::windows_core::Result<u32>;
     fn GetEventProcess(&self) -> ::windows_core::Result<u32>;
@@ -25506,7 +25438,6 @@ impl IDebugSystemObjects3_Vtbl {
         *iid == <IDebugSystemObjects3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDebugSystemObjects4_Impl: Sized {
     fn GetEventThread(&self) -> ::windows_core::Result<u32>;
     fn GetEventProcess(&self) -> ::windows_core::Result<u32>;
@@ -26021,7 +25952,6 @@ impl IDebugSystemObjects4_Vtbl {
         *iid == <IDebugSystemObjects4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDynamicConceptProviderConcept_Impl: Sized {
     fn GetConcept(&self, contextobject: ::core::option::Option<&IModelObject>, conceptid: *const ::windows_core::GUID, conceptinterface: *mut ::core::option::Option<::windows_core::IUnknown>, conceptmetadata: *mut ::core::option::Option<IKeyStore>, hasconcept: *mut bool) -> ::windows_core::Result<()>;
     fn SetConcept(&self, contextobject: ::core::option::Option<&IModelObject>, conceptid: *const ::windows_core::GUID, conceptinterface: ::core::option::Option<&::windows_core::IUnknown>, conceptmetadata: ::core::option::Option<&IKeyStore>) -> ::windows_core::Result<()>;
@@ -26070,7 +26000,6 @@ impl IDynamicConceptProviderConcept_Vtbl {
         *iid == <IDynamicConceptProviderConcept as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IDynamicKeyProviderConcept_Impl: Sized {
     fn GetKey(&self, contextobject: ::core::option::Option<&IModelObject>, key: &::windows_core::PCWSTR, keyvalue: *mut ::core::option::Option<IModelObject>, metadata: *mut ::core::option::Option<IKeyStore>, haskey: *mut bool) -> ::windows_core::Result<()>;
     fn SetKey(&self, contextobject: ::core::option::Option<&IModelObject>, key: &::windows_core::PCWSTR, keyvalue: ::core::option::Option<&IModelObject>, metadata: ::core::option::Option<&IKeyStore>) -> ::windows_core::Result<()>;
@@ -26111,7 +26040,6 @@ impl IDynamicKeyProviderConcept_Vtbl {
         *iid == <IDynamicKeyProviderConcept as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IEquatableConcept_Impl: Sized {
     fn AreObjectsEqual(&self, contextobject: ::core::option::Option<&IModelObject>, otherobject: ::core::option::Option<&IModelObject>) -> ::windows_core::Result<bool>;
 }
@@ -26135,7 +26063,6 @@ impl IEquatableConcept_Vtbl {
         *iid == <IEquatableConcept as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IHostDataModelAccess_Impl: Sized {
     fn GetDataModel(&self, manager: *mut ::core::option::Option<IDataModelManager>, host: *mut ::core::option::Option<IDebugHost>) -> ::windows_core::Result<()>;
 }
@@ -26153,7 +26080,6 @@ impl IHostDataModelAccess_Vtbl {
         *iid == <IHostDataModelAccess as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IIndexableConcept_Impl: Sized {
     fn GetDimensionality(&self, contextobject: ::core::option::Option<&IModelObject>) -> ::windows_core::Result<u64>;
     fn GetAt(&self, contextobject: ::core::option::Option<&IModelObject>, indexercount: u64, indexers: *const ::core::option::Option<IModelObject>, object: *mut ::core::option::Option<IModelObject>, metadata: *mut ::core::option::Option<IKeyStore>) -> ::windows_core::Result<()>;
@@ -26194,7 +26120,6 @@ impl IIndexableConcept_Vtbl {
         *iid == <IIndexableConcept as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IIterableConcept_Impl: Sized {
     fn GetDefaultIndexDimensionality(&self, contextobject: ::core::option::Option<&IModelObject>) -> ::windows_core::Result<u64>;
     fn GetIterator(&self, contextobject: ::core::option::Option<&IModelObject>) -> ::windows_core::Result<IModelIterator>;
@@ -26234,7 +26159,6 @@ impl IIterableConcept_Vtbl {
         *iid == <IIterableConcept as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IKeyEnumerator_Impl: Sized {
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn GetNext(&self, key: *mut ::windows_core::BSTR, value: *mut ::core::option::Option<IModelObject>, metadata: *mut ::core::option::Option<IKeyStore>) -> ::windows_core::Result<()>;
@@ -26262,7 +26186,6 @@ impl IKeyEnumerator_Vtbl {
         *iid == <IKeyEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IKeyStore_Impl: Sized {
     fn GetKey(&self, key: &::windows_core::PCWSTR, object: *mut ::core::option::Option<IModelObject>, metadata: *mut ::core::option::Option<IKeyStore>) -> ::windows_core::Result<()>;
     fn SetKey(&self, key: &::windows_core::PCWSTR, object: ::core::option::Option<&IModelObject>, metadata: ::core::option::Option<&IKeyStore>) -> ::windows_core::Result<()>;
@@ -26311,7 +26234,6 @@ impl IKeyStore_Vtbl {
         *iid == <IKeyStore as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IModelIterator_Impl: Sized {
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn GetNext(&self, object: *mut ::core::option::Option<IModelObject>, dimensions: u64, indexers: *mut ::core::option::Option<IModelObject>, metadata: *mut ::core::option::Option<IKeyStore>) -> ::windows_core::Result<()>;
@@ -26339,7 +26261,6 @@ impl IModelIterator_Vtbl {
         *iid == <IModelIterator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IModelKeyReference_Impl: Sized {
     fn GetKeyName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetOriginalObject(&self) -> ::windows_core::Result<IModelObject>;
@@ -26420,7 +26341,6 @@ impl IModelKeyReference_Vtbl {
         *iid == <IModelKeyReference as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IModelKeyReference2_Impl: Sized + IModelKeyReference_Impl {
     fn OverrideContextObject(&self, newcontextobject: ::core::option::Option<&IModelObject>) -> ::windows_core::Result<()>;
 }
@@ -26438,7 +26358,6 @@ impl IModelKeyReference2_Vtbl {
         *iid == <IModelKeyReference2 as ::windows_core::ComInterface>::IID || *iid == <IModelKeyReference as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IModelMethod_Impl: Sized {
     fn Call(&self, pcontextobject: ::core::option::Option<&IModelObject>, argcount: u64, pparguments: *const ::core::option::Option<IModelObject>, ppresult: *mut ::core::option::Option<IModelObject>, ppmetadata: *mut ::core::option::Option<IKeyStore>) -> ::windows_core::Result<()>;
 }
@@ -26456,7 +26375,7 @@ impl IModelMethod_Vtbl {
         *iid == <IModelMethod as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IModelObject_Impl: Sized {
     fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext>;
@@ -26812,7 +26731,6 @@ impl IModelObject_Vtbl {
         *iid == <IModelObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IModelPropertyAccessor_Impl: Sized {
     fn GetValue(&self, key: &::windows_core::PCWSTR, contextobject: ::core::option::Option<&IModelObject>) -> ::windows_core::Result<IModelObject>;
     fn SetValue(&self, key: &::windows_core::PCWSTR, contextobject: ::core::option::Option<&IModelObject>, value: ::core::option::Option<&IModelObject>) -> ::windows_core::Result<()>;
@@ -26846,7 +26764,6 @@ impl IModelPropertyAccessor_Vtbl {
         *iid == <IModelPropertyAccessor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IPreferredRuntimeTypeConcept_Impl: Sized {
     fn CastToPreferredRuntimeType(&self, contextobject: ::core::option::Option<&IModelObject>) -> ::windows_core::Result<IModelObject>;
 }
@@ -26873,7 +26790,6 @@ impl IPreferredRuntimeTypeConcept_Vtbl {
         *iid == <IPreferredRuntimeTypeConcept as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IRawEnumerator_Impl: Sized {
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn GetNext(&self, name: *mut ::windows_core::BSTR, kind: *mut SymbolKind, value: *mut ::core::option::Option<IModelObject>) -> ::windows_core::Result<()>;
@@ -26901,7 +26817,6 @@ impl IRawEnumerator_Vtbl {
         *iid == <IRawEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`, `\"implement\"`*"]
 pub trait IStringDisplayableConcept_Impl: Sized {
     fn ToDisplayString(&self, contextobject: ::core::option::Option<&IModelObject>, metadata: ::core::option::Option<&IKeyStore>) -> ::windows_core::Result<::windows_core::BSTR>;
 }

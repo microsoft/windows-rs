@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`, `Storage_Streams`"]
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IBitmapFrame_Impl: Sized {
     fn GetThumbnailAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>>;
@@ -177,7 +177,7 @@ impl IBitmapFrame_Vtbl {
         *iid == <IBitmapFrame as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`, `Storage_Streams`"]
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IBitmapFrameWithSoftwareBitmap_Impl: Sized + IBitmapFrame_Impl {
     fn GetSoftwareBitmapAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
@@ -238,7 +238,7 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
         *iid == <IBitmapFrameWithSoftwareBitmap as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IBitmapPropertiesView_Impl: Sized {
     fn GetPropertiesAsync(&self, propertiestoretrieve: ::core::option::Option<&super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>;

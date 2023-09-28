@@ -1,9 +1,8 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_Display\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayDeviceInterop(::windows_core::IUnknown);
 impl IDisplayDeviceInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub unsafe fn CreateSharedHandle<P0>(&self, pobject: P0, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::HANDLE>
     where
@@ -12,7 +11,7 @@ impl IDisplayDeviceInterop {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), psecurityattributes, access, ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenSharedHandle<P0>(&self, nthandle: P0, riid: ::windows_core::GUID) -> ::windows_core::Result<*mut ::core::ffi::c_void>
     where
@@ -42,12 +41,11 @@ pub struct IDisplayDeviceInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OpenSharedHandle: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Display\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayPathInterop(::windows_core::IUnknown);
 impl IDisplayPathInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSourcePresentationHandle(&self) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();

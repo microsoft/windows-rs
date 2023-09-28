@@ -1304,7 +1304,6 @@ pub struct ISmartCardTriggerDetails3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SmartCard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CardAddedEventArgs(::windows_core::IUnknown);
@@ -1332,7 +1331,6 @@ impl ::windows_core::RuntimeName for CardAddedEventArgs {
 ::windows_core::imp::interface_hierarchy!(CardAddedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CardAddedEventArgs {}
 unsafe impl ::core::marker::Sync for CardAddedEventArgs {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CardRemovedEventArgs(::windows_core::IUnknown);
@@ -1360,10 +1358,9 @@ impl ::windows_core::RuntimeName for CardRemovedEventArgs {
 ::windows_core::imp::interface_hierarchy!(CardRemovedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CardRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for CardRemovedEventArgs {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 pub struct KnownSmartCardAppletIds;
 impl KnownSmartCardAppletIds {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn PaymentSystemEnvironment() -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         Self::IKnownSmartCardAppletIds(|this| unsafe {
@@ -1371,7 +1368,7 @@ impl KnownSmartCardAppletIds {
             (::windows_core::Interface::vtable(this).PaymentSystemEnvironment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ProximityPaymentSystemEnvironment() -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         Self::IKnownSmartCardAppletIds(|this| unsafe {
@@ -1388,7 +1385,6 @@ impl KnownSmartCardAppletIds {
 impl ::windows_core::RuntimeName for KnownSmartCardAppletIds {
     const NAME: &'static str = "Windows.Devices.SmartCards.KnownSmartCardAppletIds";
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCard(::windows_core::IUnknown);
@@ -1400,7 +1396,7 @@ impl SmartCard {
             (::windows_core::Interface::vtable(this).Reader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetStatusAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardStatus>> {
         let this = self;
@@ -1409,7 +1405,7 @@ impl SmartCard {
             (::windows_core::Interface::vtable(this).GetStatusAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn GetAnswerToResetAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
@@ -1418,7 +1414,7 @@ impl SmartCard {
             (::windows_core::Interface::vtable(this).GetAnswerToResetAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardConnection>> {
         let this = &::windows_core::ComInterface::cast::<ISmartCardConnect>(self)?;
@@ -1443,7 +1439,6 @@ impl ::windows_core::RuntimeName for SmartCard {
 ::windows_core::imp::interface_hierarchy!(SmartCard, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCard {}
 unsafe impl ::core::marker::Sync for SmartCard {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardAppletIdGroup(::windows_core::IUnknown);
@@ -1466,7 +1461,7 @@ impl SmartCardAppletIdGroup {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDisplayName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn AppletIds(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>> {
         let this = self;
@@ -1508,7 +1503,7 @@ impl SmartCardAppletIdGroup {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAutomaticEnablement)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Logo(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows_core::ComInterface::cast::<ISmartCardAppletIdGroup2>(self)?;
@@ -1517,7 +1512,7 @@ impl SmartCardAppletIdGroup {
             (::windows_core::Interface::vtable(this).Logo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetLogo<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1537,7 +1532,7 @@ impl SmartCardAppletIdGroup {
         let this = &::windows_core::ComInterface::cast::<ISmartCardAppletIdGroup2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDescription)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<ISmartCardAppletIdGroup2>(self)?;
@@ -1557,7 +1552,7 @@ impl SmartCardAppletIdGroup {
         let this = &::windows_core::ComInterface::cast::<ISmartCardAppletIdGroup2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSecureUserAuthenticationRequired)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn Create<P0>(displayname: &::windows_core::HSTRING, appletids: P0, emulationcategory: SmartCardEmulationCategory, emulationtype: SmartCardEmulationType) -> ::windows_core::Result<SmartCardAppletIdGroup>
     where
@@ -1600,7 +1595,6 @@ impl ::windows_core::RuntimeName for SmartCardAppletIdGroup {
 ::windows_core::imp::interface_hierarchy!(SmartCardAppletIdGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardAppletIdGroup {}
 unsafe impl ::core::marker::Sync for SmartCardAppletIdGroup {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardAppletIdGroupRegistration(::windows_core::IUnknown);
@@ -1619,7 +1613,7 @@ impl SmartCardAppletIdGroupRegistration {
             (::windows_core::Interface::vtable(this).AppletIdGroup)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestActivationPolicyChangeAsync(&self, policy: SmartCardAppletIdGroupActivationPolicy) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardActivationPolicyChangeResult>> {
         let this = self;
@@ -1635,7 +1629,7 @@ impl SmartCardAppletIdGroupRegistration {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAutomaticResponseApdusAsync<P0>(&self, apdus: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1654,7 +1648,7 @@ impl SmartCardAppletIdGroupRegistration {
             (::windows_core::Interface::vtable(this).SmartCardReaderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetPropertiesAsync<P0>(&self, props: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1682,12 +1676,11 @@ impl ::windows_core::RuntimeName for SmartCardAppletIdGroupRegistration {
 ::windows_core::imp::interface_hierarchy!(SmartCardAppletIdGroupRegistration, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardAppletIdGroupRegistration {}
 unsafe impl ::core::marker::Sync for SmartCardAppletIdGroupRegistration {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardAutomaticResponseApdu(::windows_core::IUnknown);
 impl SmartCardAutomaticResponseApdu {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CommandApdu(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1696,7 +1689,7 @@ impl SmartCardAutomaticResponseApdu {
             (::windows_core::Interface::vtable(this).CommandApdu)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetCommandApdu<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1705,7 +1698,7 @@ impl SmartCardAutomaticResponseApdu {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCommandApdu)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CommandApduBitMask(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1714,7 +1707,7 @@ impl SmartCardAutomaticResponseApdu {
             (::windows_core::Interface::vtable(this).CommandApduBitMask)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetCommandApduBitMask<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1734,7 +1727,7 @@ impl SmartCardAutomaticResponseApdu {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetShouldMatchLength)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn AppletId(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1743,7 +1736,7 @@ impl SmartCardAutomaticResponseApdu {
             (::windows_core::Interface::vtable(this).AppletId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetAppletId<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1752,7 +1745,7 @@ impl SmartCardAutomaticResponseApdu {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAppletId)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ResponseApdu(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1761,7 +1754,7 @@ impl SmartCardAutomaticResponseApdu {
             (::windows_core::Interface::vtable(this).ResponseApdu)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetResponseApdu<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1770,7 +1763,7 @@ impl SmartCardAutomaticResponseApdu {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetResponseApdu)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn InputState(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = &::windows_core::ComInterface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
@@ -1779,7 +1772,7 @@ impl SmartCardAutomaticResponseApdu {
             (::windows_core::Interface::vtable(this).InputState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetInputState<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1788,7 +1781,7 @@ impl SmartCardAutomaticResponseApdu {
         let this = &::windows_core::ComInterface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetInputState)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn OutputState(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = &::windows_core::ComInterface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
@@ -1797,7 +1790,7 @@ impl SmartCardAutomaticResponseApdu {
             (::windows_core::Interface::vtable(this).OutputState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetOutputState<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1817,7 +1810,7 @@ impl SmartCardAutomaticResponseApdu {
         let this = &::windows_core::ComInterface::cast::<ISmartCardAutomaticResponseApdu3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetAllowWhenCryptogramGeneratorNotPrepared)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Create<P0, P1>(commandapdu: P0, responseapdu: P1) -> ::windows_core::Result<SmartCardAutomaticResponseApdu>
     where
@@ -1850,18 +1843,17 @@ impl ::windows_core::RuntimeName for SmartCardAutomaticResponseApdu {
 ::windows_core::imp::interface_hierarchy!(SmartCardAutomaticResponseApdu, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardAutomaticResponseApdu {}
 unsafe impl ::core::marker::Sync for SmartCardAutomaticResponseApdu {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardChallengeContext(::windows_core::IUnknown);
 impl SmartCardChallengeContext {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Challenge(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1870,7 +1862,7 @@ impl SmartCardChallengeContext {
             (::windows_core::Interface::vtable(this).Challenge)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn VerifyResponseAsync<P0>(&self, response: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1882,7 +1874,7 @@ impl SmartCardChallengeContext {
             (::windows_core::Interface::vtable(this).VerifyResponseAsync)(::windows_core::Interface::as_raw(this), response.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ProvisionAsync<P0>(&self, response: P0, formatcard: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1894,7 +1886,7 @@ impl SmartCardChallengeContext {
             (::windows_core::Interface::vtable(this).ProvisionAsync)(::windows_core::Interface::as_raw(this), response.try_into_param()?.abi(), formatcard, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ProvisionAsyncWithNewCardId<P0>(&self, response: P0, formatcard: bool, newcardid: ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1906,7 +1898,7 @@ impl SmartCardChallengeContext {
             (::windows_core::Interface::vtable(this).ProvisionAsyncWithNewCardId)(::windows_core::Interface::as_raw(this), response.try_into_param()?.abi(), formatcard, newcardid, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ChangeAdministrativeKeyAsync<P0, P1>(&self, response: P0, newadministrativekey: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1937,18 +1929,17 @@ impl ::windows_core::RuntimeName for SmartCardChallengeContext {
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for SmartCardChallengeContext {}
 unsafe impl ::core::marker::Send for SmartCardChallengeContext {}
 unsafe impl ::core::marker::Sync for SmartCardChallengeContext {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardConnection(::windows_core::IUnknown);
 impl SmartCardConnection {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn TransmitAsync<P0>(&self, command: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
@@ -1978,12 +1969,11 @@ impl ::windows_core::RuntimeName for SmartCardConnection {
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for SmartCardConnection {}
 unsafe impl ::core::marker::Send for SmartCardConnection {}
 unsafe impl ::core::marker::Sync for SmartCardConnection {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramGenerator(::windows_core::IUnknown);
 impl SmartCardCryptogramGenerator {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCryptogramMaterialTypes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialType>> {
         let this = self;
@@ -1992,7 +1982,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).SupportedCryptogramMaterialTypes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCryptogramAlgorithms(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>> {
         let this = self;
@@ -2001,7 +1991,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).SupportedCryptogramAlgorithms)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCryptogramMaterialPackageFormats(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageFormat>> {
         let this = self;
@@ -2010,7 +2000,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).SupportedCryptogramMaterialPackageFormats)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCryptogramMaterialPackageConfirmationResponseFormats(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageConfirmationResponseFormat>> {
         let this = self;
@@ -2019,7 +2009,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).SupportedCryptogramMaterialPackageConfirmationResponseFormats)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedSmartCardCryptogramStorageKeyCapabilities(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramStorageKeyCapabilities>> {
         let this = self;
@@ -2028,7 +2018,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).SupportedSmartCardCryptogramStorageKeyCapabilities)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteCryptogramMaterialStorageKeyAsync(&self, storagekeyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = self;
@@ -2037,7 +2027,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).DeleteCryptogramMaterialStorageKeyAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storagekeyname), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateCryptogramMaterialStorageKeyAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: &::windows_core::HSTRING, algorithm: SmartCardCryptogramStorageKeyAlgorithm, capabilities: SmartCardCryptogramStorageKeyCapabilities) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = self;
@@ -2046,7 +2036,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).CreateCryptogramMaterialStorageKeyAsync)(::windows_core::Interface::as_raw(this), promptingbehavior, ::core::mem::transmute_copy(storagekeyname), algorithm, capabilities, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Cryptography_Core\"`*"]
+    #[doc = "Required features: `Foundation`, `Security_Cryptography_Core`"]
     #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Core"))]
     pub fn RequestCryptogramMaterialStorageKeyInfoAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: &::windows_core::HSTRING, format: super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramStorageKeyInfo>> {
         let this = self;
@@ -2055,7 +2045,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).RequestCryptogramMaterialStorageKeyInfoAsync)(::windows_core::Interface::as_raw(this), promptingbehavior, ::core::mem::transmute_copy(storagekeyname), format, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ImportCryptogramMaterialPackageAsync<P0>(&self, format: SmartCardCryptogramMaterialPackageFormat, storagekeyname: &::windows_core::HSTRING, materialpackagename: &::windows_core::HSTRING, cryptogrammaterialpackage: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
@@ -2067,7 +2057,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).ImportCryptogramMaterialPackageAsync)(::windows_core::Interface::as_raw(this), format, ::core::mem::transmute_copy(storagekeyname), ::core::mem::transmute_copy(materialpackagename), cryptogrammaterialpackage.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn TryProvePossessionOfCryptogramMaterialPackageAsync<P0>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, responseformat: SmartCardCryptogramMaterialPackageConfirmationResponseFormat, materialpackagename: &::windows_core::HSTRING, materialname: &::windows_core::HSTRING, challenge: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramMaterialPossessionProof>>
     where
@@ -2079,7 +2069,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).TryProvePossessionOfCryptogramMaterialPackageAsync)(::windows_core::Interface::as_raw(this), promptingbehavior, responseformat, ::core::mem::transmute_copy(materialpackagename), ::core::mem::transmute_copy(materialname), challenge.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestUnlockCryptogramMaterialForUseAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = self;
@@ -2088,7 +2078,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).RequestUnlockCryptogramMaterialForUseAsync)(::windows_core::Interface::as_raw(this), promptingbehavior, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteCryptogramMaterialPackageAsync(&self, materialpackagename: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = self;
@@ -2097,7 +2087,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).DeleteCryptogramMaterialPackageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(materialpackagename), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn ValidateRequestApduAsync<P0, P1>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: P0, cryptogramplacementsteps: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
@@ -2110,7 +2100,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).ValidateRequestApduAsync)(::windows_core::Interface::as_raw(this), promptingbehavior, apdutovalidate.try_into_param()?.abi(), cryptogramplacementsteps.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetAllCryptogramStorageKeyCharacteristicsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult>> {
         let this = &::windows_core::ComInterface::cast::<ISmartCardCryptogramGenerator2>(self)?;
@@ -2119,7 +2109,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).GetAllCryptogramStorageKeyCharacteristicsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetAllCryptogramMaterialPackageCharacteristicsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>> {
         let this = &::windows_core::ComInterface::cast::<ISmartCardCryptogramGenerator2>(self)?;
@@ -2128,7 +2118,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).GetAllCryptogramMaterialPackageCharacteristicsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync(&self, storagekeyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>> {
         let this = &::windows_core::ComInterface::cast::<ISmartCardCryptogramGenerator2>(self)?;
@@ -2137,7 +2127,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storagekeyname), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetAllCryptogramMaterialCharacteristicsAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, materialpackagename: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>> {
         let this = &::windows_core::ComInterface::cast::<ISmartCardCryptogramGenerator2>(self)?;
@@ -2146,7 +2136,7 @@ impl SmartCardCryptogramGenerator {
             (::windows_core::Interface::vtable(this).GetAllCryptogramMaterialCharacteristicsAsync)(::windows_core::Interface::as_raw(this), promptingbehavior, ::core::mem::transmute_copy(materialpackagename), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetSmartCardCryptogramGeneratorAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGenerator>> {
         Self::ISmartCardCryptogramGeneratorStatics(|this| unsafe {
@@ -2186,7 +2176,6 @@ impl ::windows_core::RuntimeName for SmartCardCryptogramGenerator {
 ::windows_core::imp::interface_hierarchy!(SmartCardCryptogramGenerator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGenerator {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGenerator {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(::windows_core::IUnknown);
@@ -2205,7 +2194,7 @@ impl SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
             (::windows_core::Interface::vtable(this).OperationStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Characteristics(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialCharacteristics>> {
         let this = self;
@@ -2230,7 +2219,6 @@ impl ::windows_core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterial
 ::windows_core::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(::windows_core::IUnknown);
@@ -2249,7 +2237,7 @@ impl SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
             (::windows_core::Interface::vtable(this).OperationStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Characteristics(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageCharacteristics>> {
         let this = self;
@@ -2274,7 +2262,6 @@ impl ::windows_core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterial
 ::windows_core::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(::windows_core::IUnknown);
@@ -2293,7 +2280,7 @@ impl SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
             (::windows_core::Interface::vtable(this).OperationStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Characteristics(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramStorageKeyCharacteristics>> {
         let this = self;
@@ -2318,7 +2305,6 @@ impl ::windows_core::RuntimeName for SmartCardCryptogramGetAllCryptogramStorageK
 ::windows_core::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramMaterialCharacteristics(::windows_core::IUnknown);
@@ -2337,7 +2323,7 @@ impl SmartCardCryptogramMaterialCharacteristics {
             (::windows_core::Interface::vtable(this).MaterialName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllowedAlgorithms(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>> {
         let this = self;
@@ -2346,7 +2332,7 @@ impl SmartCardCryptogramMaterialCharacteristics {
             (::windows_core::Interface::vtable(this).AllowedAlgorithms)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllowedProofOfPossessionAlgorithms(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageConfirmationResponseFormat>> {
         let this = self;
@@ -2355,7 +2341,7 @@ impl SmartCardCryptogramMaterialCharacteristics {
             (::windows_core::Interface::vtable(this).AllowedProofOfPossessionAlgorithms)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllowedValidations(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>> {
         let this = self;
@@ -2408,7 +2394,6 @@ impl ::windows_core::RuntimeName for SmartCardCryptogramMaterialCharacteristics 
 ::windows_core::imp::interface_hierarchy!(SmartCardCryptogramMaterialCharacteristics, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialCharacteristics {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialCharacteristics {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramMaterialPackageCharacteristics(::windows_core::IUnknown);
@@ -2434,7 +2419,7 @@ impl SmartCardCryptogramMaterialPackageCharacteristics {
             (::windows_core::Interface::vtable(this).StorageKeyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DateImported(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2466,7 +2451,6 @@ impl ::windows_core::RuntimeName for SmartCardCryptogramMaterialPackageCharacter
 ::windows_core::imp::interface_hierarchy!(SmartCardCryptogramMaterialPackageCharacteristics, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPackageCharacteristics {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPackageCharacteristics {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramMaterialPossessionProof(::windows_core::IUnknown);
@@ -2478,7 +2462,7 @@ impl SmartCardCryptogramMaterialPossessionProof {
             (::windows_core::Interface::vtable(this).OperationStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Proof(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2503,7 +2487,6 @@ impl ::windows_core::RuntimeName for SmartCardCryptogramMaterialPossessionProof 
 ::windows_core::imp::interface_hierarchy!(SmartCardCryptogramMaterialPossessionProof, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPossessionProof {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPossessionProof {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramPlacementStep(::windows_core::IUnknown);
@@ -2526,7 +2509,7 @@ impl SmartCardCryptogramPlacementStep {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAlgorithm)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SourceData(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2535,7 +2518,7 @@ impl SmartCardCryptogramPlacementStep {
             (::windows_core::Interface::vtable(this).SourceData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSourceData<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2640,7 +2623,6 @@ impl ::windows_core::RuntimeName for SmartCardCryptogramPlacementStep {
 ::windows_core::imp::interface_hierarchy!(SmartCardCryptogramPlacementStep, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramPlacementStep {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramPlacementStep {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramStorageKeyCharacteristics(::windows_core::IUnknown);
@@ -2659,7 +2641,7 @@ impl SmartCardCryptogramStorageKeyCharacteristics {
             (::windows_core::Interface::vtable(this).StorageKeyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DateCreated(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2698,7 +2680,6 @@ impl ::windows_core::RuntimeName for SmartCardCryptogramStorageKeyCharacteristic
 ::windows_core::imp::interface_hierarchy!(SmartCardCryptogramStorageKeyCharacteristics, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyCharacteristics {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramStorageKeyCharacteristics {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramStorageKeyInfo(::windows_core::IUnknown);
@@ -2710,7 +2691,7 @@ impl SmartCardCryptogramStorageKeyInfo {
             (::windows_core::Interface::vtable(this).OperationStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
+    #[doc = "Required features: `Security_Cryptography_Core`"]
     #[cfg(feature = "Security_Cryptography_Core")]
     pub fn PublicKeyBlobType(&self) -> ::windows_core::Result<super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType> {
         let this = self;
@@ -2719,7 +2700,7 @@ impl SmartCardCryptogramStorageKeyInfo {
             (::windows_core::Interface::vtable(this).PublicKeyBlobType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn PublicKey(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2735,7 +2716,7 @@ impl SmartCardCryptogramStorageKeyInfo {
             (::windows_core::Interface::vtable(this).AttestationStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Attestation(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2744,7 +2725,7 @@ impl SmartCardCryptogramStorageKeyInfo {
             (::windows_core::Interface::vtable(this).Attestation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn AttestationCertificateChain(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2783,7 +2764,6 @@ impl ::windows_core::RuntimeName for SmartCardCryptogramStorageKeyInfo {
 ::windows_core::imp::interface_hierarchy!(SmartCardCryptogramStorageKeyInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyInfo {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramStorageKeyInfo {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardEmulator(::windows_core::IUnknown);
@@ -2795,7 +2775,7 @@ impl SmartCardEmulator {
             (::windows_core::Interface::vtable(this).EnablementPolicy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ApduReceived<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2807,13 +2787,13 @@ impl SmartCardEmulator {
             (::windows_core::Interface::vtable(this).ApduReceived)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveApduReceived(&self, value: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ISmartCardEmulator2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveApduReceived)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectionDeactivated<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2825,7 +2805,7 @@ impl SmartCardEmulator {
             (::windows_core::Interface::vtable(this).ConnectionDeactivated)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveConnectionDeactivated(&self, value: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ISmartCardEmulator2>(self)?;
@@ -2842,7 +2822,7 @@ impl SmartCardEmulator {
             (::windows_core::Interface::vtable(this).IsHostCardEmulationSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardEmulator>> {
         Self::ISmartCardEmulatorStatics(|this| unsafe {
@@ -2850,7 +2830,7 @@ impl SmartCardEmulator {
             (::windows_core::Interface::vtable(this).GetDefaultAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAppletIdGroupRegistrationsAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SmartCardAppletIdGroupRegistration>>> {
         Self::ISmartCardEmulatorStatics2(|this| unsafe {
@@ -2858,7 +2838,7 @@ impl SmartCardEmulator {
             (::windows_core::Interface::vtable(this).GetAppletIdGroupRegistrationsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RegisterAppletIdGroupAsync<P0>(appletidgroup: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardAppletIdGroupRegistration>>
     where
@@ -2869,7 +2849,7 @@ impl SmartCardEmulator {
             (::windows_core::Interface::vtable(this).RegisterAppletIdGroupAsync)(::windows_core::Interface::as_raw(this), appletidgroup.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn UnregisterAppletIdGroupAsync<P0>(registration: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2923,12 +2903,11 @@ impl ::windows_core::RuntimeName for SmartCardEmulator {
 ::windows_core::imp::interface_hierarchy!(SmartCardEmulator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulator {}
 unsafe impl ::core::marker::Sync for SmartCardEmulator {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardEmulatorApduReceivedEventArgs(::windows_core::IUnknown);
 impl SmartCardEmulatorApduReceivedEventArgs {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CommandApdu(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2944,7 +2923,7 @@ impl SmartCardEmulatorApduReceivedEventArgs {
             (::windows_core::Interface::vtable(this).ConnectionProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn TryRespondAsync<P0>(&self, responseapdu: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -2970,7 +2949,7 @@ impl SmartCardEmulatorApduReceivedEventArgs {
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn TryRespondWithStateAsync<P0, P1>(&self, responseapdu: P0, nextstate: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -2983,7 +2962,7 @@ impl SmartCardEmulatorApduReceivedEventArgs {
             (::windows_core::Interface::vtable(this).TryRespondWithStateAsync)(::windows_core::Interface::as_raw(this), responseapdu.try_into_param()?.abi(), nextstate.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn TryRespondWithCryptogramsAsync<P0, P1>(&self, responsetemplate: P0, cryptogramplacementsteps: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
@@ -2996,7 +2975,7 @@ impl SmartCardEmulatorApduReceivedEventArgs {
             (::windows_core::Interface::vtable(this).TryRespondWithCryptogramsAsync)(::windows_core::Interface::as_raw(this), responsetemplate.try_into_param()?.abi(), cryptogramplacementsteps.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn TryRespondWithCryptogramsAndStateAsync<P0, P1, P2>(&self, responsetemplate: P0, cryptogramplacementsteps: P1, nextstate: P2) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
@@ -3026,7 +3005,6 @@ impl ::windows_core::RuntimeName for SmartCardEmulatorApduReceivedEventArgs {
 ::windows_core::imp::interface_hierarchy!(SmartCardEmulatorApduReceivedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulatorApduReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorApduReceivedEventArgs {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardEmulatorConnectionDeactivatedEventArgs(::windows_core::IUnknown);
@@ -3061,7 +3039,6 @@ impl ::windows_core::RuntimeName for SmartCardEmulatorConnectionDeactivatedEvent
 ::windows_core::imp::interface_hierarchy!(SmartCardEmulatorConnectionDeactivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionDeactivatedEventArgs {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardEmulatorConnectionProperties(::windows_core::IUnknown);
@@ -3096,7 +3073,6 @@ impl ::windows_core::RuntimeName for SmartCardEmulatorConnectionProperties {
 ::windows_core::imp::interface_hierarchy!(SmartCardEmulatorConnectionProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionProperties {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionProperties {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardPinPolicy(::windows_core::IUnknown);
@@ -3190,7 +3166,6 @@ impl ::windows_core::RuntimeName for SmartCardPinPolicy {
 ::windows_core::imp::interface_hierarchy!(SmartCardPinPolicy, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardPinPolicy {}
 unsafe impl ::core::marker::Sync for SmartCardPinPolicy {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardPinResetDeferral(::windows_core::IUnknown);
@@ -3215,12 +3190,11 @@ impl ::windows_core::RuntimeName for SmartCardPinResetDeferral {
 ::windows_core::imp::interface_hierarchy!(SmartCardPinResetDeferral, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardPinResetDeferral {}
 unsafe impl ::core::marker::Sync for SmartCardPinResetDeferral {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardPinResetRequest(::windows_core::IUnknown);
 impl SmartCardPinResetRequest {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Challenge(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -3229,7 +3203,7 @@ impl SmartCardPinResetRequest {
             (::windows_core::Interface::vtable(this).Challenge)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Deadline(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -3245,7 +3219,7 @@ impl SmartCardPinResetRequest {
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetResponse<P0>(&self, response: P0) -> ::windows_core::Result<()>
     where
@@ -3270,7 +3244,6 @@ impl ::windows_core::RuntimeName for SmartCardPinResetRequest {
 ::windows_core::imp::interface_hierarchy!(SmartCardPinResetRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardPinResetRequest {}
 unsafe impl ::core::marker::Sync for SmartCardPinResetRequest {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardProvisioning(::windows_core::IUnknown);
@@ -3282,7 +3255,7 @@ impl SmartCardProvisioning {
             (::windows_core::Interface::vtable(this).SmartCard)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetIdAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::GUID>> {
         let this = self;
@@ -3291,7 +3264,7 @@ impl SmartCardProvisioning {
             (::windows_core::Interface::vtable(this).GetIdAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetNameAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         let this = self;
@@ -3300,7 +3273,7 @@ impl SmartCardProvisioning {
             (::windows_core::Interface::vtable(this).GetNameAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetChallengeContextAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardChallengeContext>> {
         let this = self;
@@ -3309,7 +3282,7 @@ impl SmartCardProvisioning {
             (::windows_core::Interface::vtable(this).GetChallengeContextAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPinChangeAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -3318,7 +3291,7 @@ impl SmartCardProvisioning {
             (::windows_core::Interface::vtable(this).RequestPinChangeAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPinResetAsync<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -3330,7 +3303,7 @@ impl SmartCardProvisioning {
             (::windows_core::Interface::vtable(this).RequestPinResetAsync)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetAuthorityKeyContainerNameAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<ISmartCardProvisioning2>(self)?;
@@ -3339,7 +3312,7 @@ impl SmartCardProvisioning {
             (::windows_core::Interface::vtable(this).GetAuthorityKeyContainerNameAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn FromSmartCardAsync<P0>(card: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
@@ -3350,7 +3323,7 @@ impl SmartCardProvisioning {
             (::windows_core::Interface::vtable(this).FromSmartCardAsync)(::windows_core::Interface::as_raw(this), card.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn RequestVirtualSmartCardCreationAsync<P0, P1>(friendlyname: &::windows_core::HSTRING, administrativekey: P0, pinpolicy: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
@@ -3362,7 +3335,7 @@ impl SmartCardProvisioning {
             (::windows_core::Interface::vtable(this).RequestVirtualSmartCardCreationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.try_into_param()?.abi(), pinpolicy.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn RequestVirtualSmartCardCreationAsyncWithCardId<P0, P1>(friendlyname: &::windows_core::HSTRING, administrativekey: P0, pinpolicy: P1, cardid: ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
@@ -3374,7 +3347,7 @@ impl SmartCardProvisioning {
             (::windows_core::Interface::vtable(this).RequestVirtualSmartCardCreationAsyncWithCardId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.try_into_param()?.abi(), pinpolicy.into_param().abi(), cardid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestVirtualSmartCardDeletionAsync<P0>(card: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -3385,7 +3358,7 @@ impl SmartCardProvisioning {
             (::windows_core::Interface::vtable(this).RequestVirtualSmartCardDeletionAsync)(::windows_core::Interface::as_raw(this), card.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn RequestAttestedVirtualSmartCardCreationAsync<P0, P1>(friendlyname: &::windows_core::HSTRING, administrativekey: P0, pinpolicy: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
@@ -3397,7 +3370,7 @@ impl SmartCardProvisioning {
             (::windows_core::Interface::vtable(this).RequestAttestedVirtualSmartCardCreationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.try_into_param()?.abi(), pinpolicy.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId<P0, P1>(friendlyname: &::windows_core::HSTRING, administrativekey: P0, pinpolicy: P1, cardid: ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
@@ -3435,7 +3408,6 @@ impl ::windows_core::RuntimeName for SmartCardProvisioning {
 ::windows_core::imp::interface_hierarchy!(SmartCardProvisioning, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardProvisioning {}
 unsafe impl ::core::marker::Sync for SmartCardProvisioning {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardReader(::windows_core::IUnknown);
@@ -3461,7 +3433,7 @@ impl SmartCardReader {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetStatusAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardReaderStatus>> {
         let this = self;
@@ -3470,7 +3442,7 @@ impl SmartCardReader {
             (::windows_core::Interface::vtable(this).GetStatusAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllCardsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SmartCard>>> {
         let this = self;
@@ -3479,7 +3451,7 @@ impl SmartCardReader {
             (::windows_core::Interface::vtable(this).FindAllCardsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CardAdded<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3491,13 +3463,13 @@ impl SmartCardReader {
             (::windows_core::Interface::vtable(this).CardAdded)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCardAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCardAdded)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CardRemoved<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3509,7 +3481,7 @@ impl SmartCardReader {
             (::windows_core::Interface::vtable(this).CardRemoved)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCardRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -3527,7 +3499,7 @@ impl SmartCardReader {
             (::windows_core::Interface::vtable(this).GetDeviceSelectorWithKind)(::windows_core::Interface::as_raw(this), kind, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardReader>> {
         Self::ISmartCardReaderStatics(|this| unsafe {
@@ -3556,7 +3528,6 @@ impl ::windows_core::RuntimeName for SmartCardReader {
 ::windows_core::imp::interface_hierarchy!(SmartCardReader, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardReader {}
 unsafe impl ::core::marker::Sync for SmartCardReader {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardTriggerDetails(::windows_core::IUnknown);
@@ -3568,7 +3539,7 @@ impl SmartCardTriggerDetails {
             (::windows_core::Interface::vtable(this).TriggerType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SourceAppletId(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -3577,7 +3548,7 @@ impl SmartCardTriggerDetails {
             (::windows_core::Interface::vtable(this).SourceAppletId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn TriggerData(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -3593,7 +3564,7 @@ impl SmartCardTriggerDetails {
             (::windows_core::Interface::vtable(this).Emulator)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TryLaunchCurrentAppAsync(&self, arguments: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<ISmartCardTriggerDetails2>(self)?;
@@ -3602,7 +3573,7 @@ impl SmartCardTriggerDetails {
             (::windows_core::Interface::vtable(this).TryLaunchCurrentAppAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(arguments), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TryLaunchCurrentAppWithBehaviorAsync(&self, arguments: &::windows_core::HSTRING, behavior: SmartCardLaunchBehavior) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<ISmartCardTriggerDetails2>(self)?;
@@ -3634,7 +3605,6 @@ impl ::windows_core::RuntimeName for SmartCardTriggerDetails {
 ::windows_core::imp::interface_hierarchy!(SmartCardTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardTriggerDetails {}
 unsafe impl ::core::marker::Sync for SmartCardTriggerDetails {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardActivationPolicyChangeResult(pub i32);
@@ -3664,7 +3634,6 @@ impl ::core::fmt::Debug for SmartCardActivationPolicyChangeResult {
 impl ::windows_core::RuntimeType for SmartCardActivationPolicyChangeResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardActivationPolicyChangeResult;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardAppletIdGroupActivationPolicy(pub i32);
@@ -3695,7 +3664,6 @@ impl ::core::fmt::Debug for SmartCardAppletIdGroupActivationPolicy {
 impl ::windows_core::RuntimeType for SmartCardAppletIdGroupActivationPolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAppletIdGroupActivationPolicy;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardAutomaticResponseStatus(pub i32);
@@ -3726,7 +3694,6 @@ impl ::core::fmt::Debug for SmartCardAutomaticResponseStatus {
 impl ::windows_core::RuntimeType for SmartCardAutomaticResponseStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAutomaticResponseStatus;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramAlgorithm(pub i32);
@@ -3763,7 +3730,6 @@ impl ::core::fmt::Debug for SmartCardCryptogramAlgorithm {
 impl ::windows_core::RuntimeType for SmartCardCryptogramAlgorithm {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramAlgorithm;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramGeneratorOperationStatus(pub i32);
@@ -3805,7 +3771,6 @@ impl ::core::fmt::Debug for SmartCardCryptogramGeneratorOperationStatus {
 impl ::windows_core::RuntimeType for SmartCardCryptogramGeneratorOperationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramGeneratorOperationStatus;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramMaterialPackageConfirmationResponseFormat(pub i32);
@@ -3835,7 +3800,6 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageConfirmationRespon
 impl ::windows_core::RuntimeType for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageConfirmationResponseFormat;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramMaterialPackageFormat(pub i32);
@@ -3865,7 +3829,6 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageFormat {
 impl ::windows_core::RuntimeType for SmartCardCryptogramMaterialPackageFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageFormat;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramMaterialProtectionMethod(pub i32);
@@ -3895,7 +3858,6 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialProtectionMethod {
 impl ::windows_core::RuntimeType for SmartCardCryptogramMaterialProtectionMethod {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialProtectionMethod;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramMaterialType(pub i32);
@@ -3928,7 +3890,6 @@ impl ::core::fmt::Debug for SmartCardCryptogramMaterialType {
 impl ::windows_core::RuntimeType for SmartCardCryptogramMaterialType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialType;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramPlacementOptions(pub u32);
@@ -3992,7 +3953,6 @@ impl ::core::ops::Not for SmartCardCryptogramPlacementOptions {
 impl ::windows_core::RuntimeType for SmartCardCryptogramPlacementOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramPlacementOptions;u4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramStorageKeyAlgorithm(pub i32);
@@ -4022,7 +3982,6 @@ impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyAlgorithm {
 impl ::windows_core::RuntimeType for SmartCardCryptogramStorageKeyAlgorithm {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyAlgorithm;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramStorageKeyCapabilities(pub u32);
@@ -4086,7 +4045,6 @@ impl ::core::ops::Not for SmartCardCryptogramStorageKeyCapabilities {
 impl ::windows_core::RuntimeType for SmartCardCryptogramStorageKeyCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCapabilities;u4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptographicKeyAttestationStatus(pub i32);
@@ -4122,7 +4080,6 @@ impl ::core::fmt::Debug for SmartCardCryptographicKeyAttestationStatus {
 impl ::windows_core::RuntimeType for SmartCardCryptographicKeyAttestationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptographicKeyAttestationStatus;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardEmulationCategory(pub i32);
@@ -4152,7 +4109,6 @@ impl ::core::fmt::Debug for SmartCardEmulationCategory {
 impl ::windows_core::RuntimeType for SmartCardEmulationCategory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationCategory;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardEmulationType(pub i32);
@@ -4183,7 +4139,6 @@ impl ::core::fmt::Debug for SmartCardEmulationType {
 impl ::windows_core::RuntimeType for SmartCardEmulationType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationType;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardEmulatorConnectionDeactivatedReason(pub i32);
@@ -4213,7 +4168,6 @@ impl ::core::fmt::Debug for SmartCardEmulatorConnectionDeactivatedReason {
 impl ::windows_core::RuntimeType for SmartCardEmulatorConnectionDeactivatedReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedReason;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardEmulatorConnectionSource(pub i32);
@@ -4243,7 +4197,6 @@ impl ::core::fmt::Debug for SmartCardEmulatorConnectionSource {
 impl ::windows_core::RuntimeType for SmartCardEmulatorConnectionSource {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionSource;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardEmulatorEnablementPolicy(pub i32);
@@ -4275,7 +4228,6 @@ impl ::core::fmt::Debug for SmartCardEmulatorEnablementPolicy {
 impl ::windows_core::RuntimeType for SmartCardEmulatorEnablementPolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorEnablementPolicy;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardLaunchBehavior(pub i32);
@@ -4305,7 +4257,6 @@ impl ::core::fmt::Debug for SmartCardLaunchBehavior {
 impl ::windows_core::RuntimeType for SmartCardLaunchBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardLaunchBehavior;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardPinCharacterPolicyOption(pub i32);
@@ -4336,7 +4287,6 @@ impl ::core::fmt::Debug for SmartCardPinCharacterPolicyOption {
 impl ::windows_core::RuntimeType for SmartCardPinCharacterPolicyOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardPinCharacterPolicyOption;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardReaderKind(pub i32);
@@ -4370,7 +4320,6 @@ impl ::core::fmt::Debug for SmartCardReaderKind {
 impl ::windows_core::RuntimeType for SmartCardReaderKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderKind;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardReaderStatus(pub i32);
@@ -4401,7 +4350,6 @@ impl ::core::fmt::Debug for SmartCardReaderStatus {
 impl ::windows_core::RuntimeType for SmartCardReaderStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderStatus;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardStatus(pub i32);
@@ -4434,7 +4382,6 @@ impl ::core::fmt::Debug for SmartCardStatus {
 impl ::windows_core::RuntimeType for SmartCardStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardStatus;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardTriggerType(pub i32);
@@ -4468,7 +4415,6 @@ impl ::core::fmt::Debug for SmartCardTriggerType {
 impl ::windows_core::RuntimeType for SmartCardTriggerType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardTriggerType;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardUnlockPromptingBehavior(pub i32);
@@ -4499,7 +4445,6 @@ impl ::core::fmt::Debug for SmartCardUnlockPromptingBehavior {
 impl ::windows_core::RuntimeType for SmartCardUnlockPromptingBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardUnlockPromptingBehavior;i4)");
 }
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardPinResetHandler(pub ::windows_core::IUnknown);

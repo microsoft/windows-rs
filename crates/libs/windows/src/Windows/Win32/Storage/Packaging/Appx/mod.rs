@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn ActivatePackageVirtualizationContext<P0>(context: P0) -> ::windows_core::Result<usize>
 where
@@ -8,7 +7,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     ActivatePackageVirtualizationContext(context.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn AddPackageDependency<P0>(packagedependencyid: P0, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()>
 where
@@ -17,7 +15,7 @@ where
     ::windows_targets::link!("kernelbase.dll" "system" fn AddPackageDependency(packagedependencyid : ::windows_core::PCWSTR, rank : i32, options : AddPackageDependencyOptions, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     AddPackageDependency(packagedependencyid.into_param().abi(), rank, options, packagedependencycontext, ::core::mem::transmute(packagefullname.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetClrCompat<P0>(processtoken: P0, policy: *mut AppPolicyClrCompat) -> ::windows_core::Result<()>
@@ -27,7 +25,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetClrCompat(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyClrCompat) -> super::super::super::Foundation:: WIN32_ERROR);
     AppPolicyGetClrCompat(processtoken.into_param().abi(), policy).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetCreateFileAccess<P0>(processtoken: P0, policy: *mut AppPolicyCreateFileAccess) -> ::windows_core::Result<()>
@@ -37,7 +35,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetCreateFileAccess(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyCreateFileAccess) -> super::super::super::Foundation:: WIN32_ERROR);
     AppPolicyGetCreateFileAccess(processtoken.into_param().abi(), policy).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetLifecycleManagement<P0>(processtoken: P0, policy: *mut AppPolicyLifecycleManagement) -> ::windows_core::Result<()>
@@ -47,7 +45,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetLifecycleManagement(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyLifecycleManagement) -> super::super::super::Foundation:: WIN32_ERROR);
     AppPolicyGetLifecycleManagement(processtoken.into_param().abi(), policy).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetMediaFoundationCodecLoading<P0>(processtoken: P0, policy: *mut AppPolicyMediaFoundationCodecLoading) -> ::windows_core::Result<()>
@@ -57,7 +55,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetMediaFoundationCodecLoading(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyMediaFoundationCodecLoading) -> super::super::super::Foundation:: WIN32_ERROR);
     AppPolicyGetMediaFoundationCodecLoading(processtoken.into_param().abi(), policy).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetProcessTerminationMethod<P0>(processtoken: P0, policy: *mut AppPolicyProcessTerminationMethod) -> ::windows_core::Result<()>
@@ -67,7 +65,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetProcessTerminationMethod(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyProcessTerminationMethod) -> super::super::super::Foundation:: WIN32_ERROR);
     AppPolicyGetProcessTerminationMethod(processtoken.into_param().abi(), policy).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetShowDeveloperDiagnostic<P0>(processtoken: P0, policy: *mut AppPolicyShowDeveloperDiagnostic) -> ::windows_core::Result<()>
@@ -77,7 +75,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetShowDeveloperDiagnostic(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyShowDeveloperDiagnostic) -> super::super::super::Foundation:: WIN32_ERROR);
     AppPolicyGetShowDeveloperDiagnostic(processtoken.into_param().abi(), policy).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetThreadInitializationType<P0>(processtoken: P0, policy: *mut AppPolicyThreadInitializationType) -> ::windows_core::Result<()>
@@ -87,7 +85,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetThreadInitializationType(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyThreadInitializationType) -> super::super::super::Foundation:: WIN32_ERROR);
     AppPolicyGetThreadInitializationType(processtoken.into_param().abi(), policy).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetWindowingModel<P0>(processtoken: P0, policy: *mut AppPolicyWindowingModel) -> ::windows_core::Result<()>
@@ -97,7 +95,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn AppPolicyGetWindowingModel(processtoken : super::super::super::Foundation:: HANDLE, policy : *mut AppPolicyWindowingModel) -> super::super::super::Foundation:: WIN32_ERROR);
     AppPolicyGetWindowingModel(processtoken.into_param().abi(), policy).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckIsMSIXPackage<P0>(packagefullname: P0) -> ::windows_core::Result<super::super::super::Foundation::BOOL>
@@ -108,14 +106,13 @@ where
     let mut result__ = ::std::mem::zeroed();
     CheckIsMSIXPackage(packagefullname.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClosePackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn ClosePackageInfo(packageinforeference : *const _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation:: WIN32_ERROR);
     ClosePackageInfo(packageinforeference).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn CreatePackageVirtualizationContext<P0>(packagefamilyname: P0) -> ::windows_core::Result<PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE>
 where
@@ -125,13 +122,11 @@ where
     let mut result__ = ::std::mem::zeroed();
     CreatePackageVirtualizationContext(packagefamilyname.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn DeactivatePackageVirtualizationContext(cookie: usize) {
     ::windows_targets::link!("kernel32.dll" "system" fn DeactivatePackageVirtualizationContext(cookie : usize) -> ());
     DeactivatePackageVirtualizationContext(cookie)
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn DeletePackageDependency<P0>(packagedependencyid: P0) -> ::windows_core::Result<()>
 where
@@ -140,7 +135,6 @@ where
     ::windows_targets::link!("kernelbase.dll" "system" fn DeletePackageDependency(packagedependencyid : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     DeletePackageDependency(packagedependencyid.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn DuplicatePackageVirtualizationContext<P0>(sourcecontext: P0) -> ::windows_core::Result<PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE>
 where
@@ -150,7 +144,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     DuplicatePackageVirtualizationContext(sourcecontext.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindPackagesByPackageFamily<P0>(packagefamilyname: P0, packagefilters: u32, count: *mut u32, packagefullnames: ::core::option::Option<*mut ::windows_core::PWSTR>, bufferlength: *mut u32, buffer: ::windows_core::PWSTR, packageproperties: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -160,7 +154,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn FindPackagesByPackageFamily(packagefamilyname : ::windows_core::PCWSTR, packagefilters : u32, count : *mut u32, packagefullnames : *mut ::windows_core::PWSTR, bufferlength : *mut u32, buffer : ::windows_core::PWSTR, packageproperties : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
     FindPackagesByPackageFamily(packagefamilyname.into_param().abi(), packagefilters, count, ::core::mem::transmute(packagefullnames.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(buffer), ::core::mem::transmute(packageproperties.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FormatApplicationUserModelId<P0, P1>(packagefamilyname: P0, packagerelativeapplicationid: P1, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows_core::PWSTR) -> ::windows_core::Result<()>
@@ -171,7 +165,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn FormatApplicationUserModelId(packagefamilyname : ::windows_core::PCWSTR, packagerelativeapplicationid : ::windows_core::PCWSTR, applicationusermodelidlength : *mut u32, applicationusermodelid : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     FormatApplicationUserModelId(packagefamilyname.into_param().abi(), packagerelativeapplicationid.into_param().abi(), applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetApplicationUserModelId<P0>(hprocess: P0, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows_core::PWSTR) -> ::windows_core::Result<()>
@@ -181,7 +175,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetApplicationUserModelId(hprocess : super::super::super::Foundation:: HANDLE, applicationusermodelidlength : *mut u32, applicationusermodelid : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetApplicationUserModelId(hprocess.into_param().abi(), applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetApplicationUserModelIdFromToken<P0>(token: P0, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows_core::PWSTR) -> ::windows_core::Result<()>
@@ -191,69 +185,67 @@ where
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetApplicationUserModelIdFromToken(token : super::super::super::Foundation:: HANDLE, applicationusermodelidlength : *mut u32, applicationusermodelid : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetApplicationUserModelIdFromToken(token.into_param().abi(), applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentApplicationUserModelId(applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentApplicationUserModelId(applicationusermodelidlength : *mut u32, applicationusermodelid : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetCurrentApplicationUserModelId(applicationusermodelidlength, ::core::mem::transmute(applicationusermodelid)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageFamilyName(packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentPackageFamilyName(packagefamilynamelength : *mut u32, packagefamilyname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetCurrentPackageFamilyName(packagefamilynamelength, ::core::mem::transmute(packagefamilyname)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageFullName(packagefullnamelength: *mut u32, packagefullname: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentPackageFullName(packagefullnamelength : *mut u32, packagefullname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetCurrentPackageFullName(packagefullnamelength, ::core::mem::transmute(packagefullname)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageId(bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentPackageId(bufferlength : *mut u32, buffer : *mut u8) -> super::super::super::Foundation:: WIN32_ERROR);
     GetCurrentPackageId(bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageInfo(flags: u32, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentPackageInfo(flags : u32, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
     GetCurrentPackageInfo(flags, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageInfo2(flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetCurrentPackageInfo2(flags : u32, packagepathtype : PackagePathType, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
     GetCurrentPackageInfo2(flags, packagepathtype, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackagePath(pathlength: *mut u32, path: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentPackagePath(pathlength : *mut u32, path : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetCurrentPackagePath(pathlength, ::core::mem::transmute(path)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetCurrentPackagePath2(packagepathtype : PackagePathType, pathlength : *mut u32, path : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetCurrentPackagePath2(packagepathtype, pathlength, ::core::mem::transmute(path)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn GetCurrentPackageVirtualizationContext() -> PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentPackageVirtualizationContext() -> PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE);
     GetCurrentPackageVirtualizationContext()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn GetIdForPackageDependencyContext<P0>(packagedependencycontext: P0) -> ::windows_core::Result<::windows_core::PWSTR>
 where
@@ -263,14 +255,14 @@ where
     let mut result__ = ::std::mem::zeroed();
     GetIdForPackageDependencyContext(packagedependencycontext.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageApplicationIds(packageinforeference: *const _PACKAGE_INFO_REFERENCE, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackageApplicationIds(packageinforeference : *const _PACKAGE_INFO_REFERENCE, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
     GetPackageApplicationIds(packageinforeference, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageFamilyName<P0>(hprocess: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR) -> ::windows_core::Result<()>
@@ -280,7 +272,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackageFamilyName(hprocess : super::super::super::Foundation:: HANDLE, packagefamilynamelength : *mut u32, packagefamilyname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetPackageFamilyName(hprocess.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageFamilyNameFromToken<P0>(token: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR) -> ::windows_core::Result<()>
@@ -290,7 +282,7 @@ where
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetPackageFamilyNameFromToken(token : super::super::super::Foundation:: HANDLE, packagefamilynamelength : *mut u32, packagefamilyname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetPackageFamilyNameFromToken(token.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageFullName<P0>(hprocess: P0, packagefullnamelength: *mut u32, packagefullname: ::windows_core::PWSTR) -> ::windows_core::Result<()>
@@ -300,7 +292,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackageFullName(hprocess : super::super::super::Foundation:: HANDLE, packagefullnamelength : *mut u32, packagefullname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetPackageFullName(hprocess.into_param().abi(), packagefullnamelength, ::core::mem::transmute(packagefullname)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageFullNameFromToken<P0>(token: P0, packagefullnamelength: *mut u32, packagefullname: ::windows_core::PWSTR) -> ::windows_core::Result<()>
@@ -310,13 +302,12 @@ where
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetPackageFullNameFromToken(token : super::super::super::Foundation:: HANDLE, packagefullnamelength : *mut u32, packagefullname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetPackageFullNameFromToken(token.into_param().abi(), packagefullnamelength, ::core::mem::transmute(packagefullname)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn GetPackageGraphRevisionId() -> u32 {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-6.dll" "system" fn GetPackageGraphRevisionId() -> u32);
     GetPackageGraphRevisionId()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageId<P0>(hprocess: P0, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>) -> ::windows_core::Result<()>
@@ -326,28 +317,28 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackageId(hprocess : super::super::super::Foundation:: HANDLE, bufferlength : *mut u32, buffer : *mut u8) -> super::super::super::Foundation:: WIN32_ERROR);
     GetPackageId(hprocess.into_param().abi(), bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackageInfo(packageinforeference : *const _PACKAGE_INFO_REFERENCE, flags : u32, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
     GetPackageInfo(packageinforeference, flags, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageInfo2(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>, count: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetPackageInfo2(packageinforeference : *const _PACKAGE_INFO_REFERENCE, flags : u32, packagepathtype : PackagePathType, bufferlength : *mut u32, buffer : *mut u8, count : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
     GetPackageInfo2(packageinforeference, flags, packagepathtype, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackagePath(packageid: *const PACKAGE_ID, reserved: u32, pathlength: *mut u32, path: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackagePath(packageid : *const PACKAGE_ID, reserved : u32, pathlength : *mut u32, path : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetPackagePath(packageid, reserved, pathlength, ::core::mem::transmute(path)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackagePathByFullName<P0>(packagefullname: P0, pathlength: *mut u32, path: ::windows_core::PWSTR) -> ::windows_core::Result<()>
@@ -357,7 +348,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackagePathByFullName(packagefullname : ::windows_core::PCWSTR, pathlength : *mut u32, path : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetPackagePathByFullName(packagefullname.into_param().abi(), pathlength, ::core::mem::transmute(path)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackagePathByFullName2<P0>(packagefullname: P0, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows_core::PWSTR) -> ::windows_core::Result<()>
@@ -367,7 +358,7 @@ where
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetPackagePathByFullName2(packagefullname : ::windows_core::PCWSTR, packagepathtype : PackagePathType, pathlength : *mut u32, path : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetPackagePathByFullName2(packagefullname.into_param().abi(), packagepathtype, pathlength, ::core::mem::transmute(path)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackagesByPackageFamily<P0>(packagefamilyname: P0, count: *mut u32, packagefullnames: ::core::option::Option<*mut ::windows_core::PWSTR>, bufferlength: *mut u32, buffer: ::windows_core::PWSTR) -> ::windows_core::Result<()>
@@ -377,7 +368,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetPackagesByPackageFamily(packagefamilyname : ::windows_core::PCWSTR, count : *mut u32, packagefullnames : *mut ::windows_core::PWSTR, bufferlength : *mut u32, buffer : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetPackagesByPackageFamily(packagefamilyname.into_param().abi(), count, ::core::mem::transmute(packagefullnames.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(buffer)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessesInVirtualizationContext<P0>(packagefamilyname: P0, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
@@ -387,7 +378,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetProcessesInVirtualizationContext(packagefamilyname : ::windows_core::PCWSTR, count : *mut u32, processes : *mut *mut super::super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     GetProcessesInVirtualizationContext(packagefamilyname.into_param().abi(), count, processes).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn GetResolvedPackageFullNameForPackageDependency<P0>(packagedependencyid: P0) -> ::windows_core::Result<::windows_core::PWSTR>
 where
@@ -397,7 +387,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     GetResolvedPackageFullNameForPackageDependency(packagedependencyid.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStagedPackageOrigin<P0>(packagefullname: P0, origin: *mut PackageOrigin) -> ::windows_core::Result<()>
@@ -407,7 +397,7 @@ where
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetStagedPackageOrigin(packagefullname : ::windows_core::PCWSTR, origin : *mut PackageOrigin) -> super::super::super::Foundation:: WIN32_ERROR);
     GetStagedPackageOrigin(packagefullname.into_param().abi(), origin).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStagedPackagePathByFullName<P0>(packagefullname: P0, pathlength: *mut u32, path: ::windows_core::PWSTR) -> ::windows_core::Result<()>
@@ -417,7 +407,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetStagedPackagePathByFullName(packagefullname : ::windows_core::PCWSTR, pathlength : *mut u32, path : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetStagedPackagePathByFullName(packagefullname.into_param().abi(), pathlength, ::core::mem::transmute(path)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStagedPackagePathByFullName2<P0>(packagefullname: P0, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows_core::PWSTR) -> ::windows_core::Result<()>
@@ -427,7 +417,7 @@ where
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetStagedPackagePathByFullName2(packagefullname : ::windows_core::PCWSTR, packagepathtype : PackagePathType, pathlength : *mut u32, path : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetStagedPackagePathByFullName2(packagefullname.into_param().abi(), packagepathtype, pathlength, ::core::mem::transmute(path)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenPackageInfoByFullName<P0>(packagefullname: P0, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> ::windows_core::Result<()>
@@ -437,7 +427,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn OpenPackageInfoByFullName(packagefullname : ::windows_core::PCWSTR, reserved : u32, packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation:: WIN32_ERROR);
     OpenPackageInfoByFullName(packagefullname.into_param().abi(), reserved, packageinforeference).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenPackageInfoByFullNameForUser<P0, P1>(usersid: P0, packagefullname: P1, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> ::windows_core::Result<()>
@@ -448,7 +438,7 @@ where
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn OpenPackageInfoByFullNameForUser(usersid : super::super::super::Foundation:: PSID, packagefullname : ::windows_core::PCWSTR, reserved : u32, packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation:: WIN32_ERROR);
     OpenPackageInfoByFullNameForUser(usersid.into_param().abi(), packagefullname.into_param().abi(), reserved, packageinforeference).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageFamilyNameFromFullName<P0>(packagefullname: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR) -> ::windows_core::Result<()>
@@ -458,21 +448,21 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn PackageFamilyNameFromFullName(packagefullname : ::windows_core::PCWSTR, packagefamilynamelength : *mut u32, packagefamilyname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     PackageFamilyNameFromFullName(packagefullname.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageFamilyNameFromId(packageid: *const PACKAGE_ID, packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn PackageFamilyNameFromId(packageid : *const PACKAGE_ID, packagefamilynamelength : *mut u32, packagefamilyname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     PackageFamilyNameFromId(packageid, packagefamilynamelength, ::core::mem::transmute(packagefamilyname)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageFullNameFromId(packageid: *const PACKAGE_ID, packagefullnamelength: *mut u32, packagefullname: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn PackageFullNameFromId(packageid : *const PACKAGE_ID, packagefullnamelength : *mut u32, packagefullname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     PackageFullNameFromId(packageid, packagefullnamelength, ::core::mem::transmute(packagefullname)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageIdFromFullName<P0>(packagefullname: P0, flags: u32, bufferlength: *mut u32, buffer: ::core::option::Option<*mut u8>) -> ::windows_core::Result<()>
@@ -482,7 +472,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn PackageIdFromFullName(packagefullname : ::windows_core::PCWSTR, flags : u32, bufferlength : *mut u32, buffer : *mut u8) -> super::super::super::Foundation:: WIN32_ERROR);
     PackageIdFromFullName(packagefullname.into_param().abi(), flags, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageNameAndPublisherIdFromFamilyName<P0>(packagefamilyname: P0, packagenamelength: *mut u32, packagename: ::windows_core::PWSTR, packagepublisheridlength: *mut u32, packagepublisherid: ::windows_core::PWSTR) -> ::windows_core::Result<()>
@@ -492,7 +482,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn PackageNameAndPublisherIdFromFamilyName(packagefamilyname : ::windows_core::PCWSTR, packagenamelength : *mut u32, packagename : ::windows_core::PWSTR, packagepublisheridlength : *mut u32, packagepublisherid : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     PackageNameAndPublisherIdFromFamilyName(packagefamilyname.into_param().abi(), packagenamelength, ::core::mem::transmute(packagename), packagepublisheridlength, ::core::mem::transmute(packagepublisherid)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ParseApplicationUserModelId<P0>(applicationusermodelid: P0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows_core::PWSTR, packagerelativeapplicationidlength: *mut u32, packagerelativeapplicationid: ::windows_core::PWSTR) -> ::windows_core::Result<()>
@@ -502,7 +492,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn ParseApplicationUserModelId(applicationusermodelid : ::windows_core::PCWSTR, packagefamilynamelength : *mut u32, packagefamilyname : ::windows_core::PWSTR, packagerelativeapplicationidlength : *mut u32, packagerelativeapplicationid : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     ParseApplicationUserModelId(applicationusermodelid.into_param().abi(), packagefamilynamelength, ::core::mem::transmute(packagefamilyname), packagerelativeapplicationidlength, ::core::mem::transmute(packagerelativeapplicationid)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn ReleasePackageVirtualizationContext<P0>(context: P0)
 where
@@ -511,7 +500,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn ReleasePackageVirtualizationContext(context : PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) -> ());
     ReleasePackageVirtualizationContext(context.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn RemovePackageDependency<P0>(packagedependencycontext: P0) -> ::windows_core::Result<()>
 where
@@ -520,7 +508,7 @@ where
     ::windows_targets::link!("kernelbase.dll" "system" fn RemovePackageDependency(packagedependencycontext : PACKAGEDEPENDENCY_CONTEXT) -> ::windows_core::HRESULT);
     RemovePackageDependency(packagedependencycontext.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TryCreatePackageDependency<P0, P1, P2>(user: P0, packagefamilyname: P1, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: P2, options: CreatePackageDependencyOptions) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -533,7 +521,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     TryCreatePackageDependency(user.into_param().abi(), packagefamilyname.into_param().abi(), ::core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.into_param().abi(), options, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyApplicationUserModelId<P0>(applicationusermodelid: P0) -> ::windows_core::Result<()>
@@ -543,7 +531,7 @@ where
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyApplicationUserModelId(applicationusermodelid : ::windows_core::PCWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     VerifyApplicationUserModelId(applicationusermodelid.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyPackageFamilyName<P0>(packagefamilyname: P0) -> ::windows_core::Result<()>
@@ -553,7 +541,7 @@ where
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageFamilyName(packagefamilyname : ::windows_core::PCWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     VerifyPackageFamilyName(packagefamilyname.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyPackageFullName<P0>(packagefullname: P0) -> ::windows_core::Result<()>
@@ -563,14 +551,14 @@ where
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageFullName(packagefullname : ::windows_core::PCWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     VerifyPackageFullName(packagefullname.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyPackageId(packageid: *const PACKAGE_ID) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageId(packageid : *const PACKAGE_ID) -> super::super::super::Foundation:: WIN32_ERROR);
     VerifyPackageId(packageid).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyPackageRelativeApplicationId<P0>(packagerelativeapplicationid: P0) -> ::windows_core::Result<()>
@@ -580,12 +568,11 @@ where
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageRelativeApplicationId(packagerelativeapplicationid : ::windows_core::PCWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     VerifyPackageRelativeApplicationId(packagerelativeapplicationid.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxAppInstallerReader(::windows_core::IUnknown);
 impl IAppxAppInstallerReader {
-    #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn GetXmlDom(&self) -> ::windows_core::Result<super::super::super::Data::Xml::MsXml::IXMLDOMDocument> {
         let mut result__ = ::std::mem::zeroed();
@@ -608,7 +595,6 @@ pub struct IAppxAppInstallerReader_Vtbl {
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
     GetXmlDom: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBlockMapBlock(::windows_core::IUnknown);
@@ -635,7 +621,6 @@ pub struct IAppxBlockMapBlock_Vtbl {
     pub GetHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows_core::HRESULT,
     pub GetCompressedSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBlockMapBlocksEnumerator(::windows_core::IUnknown);
@@ -644,13 +629,13 @@ impl IAppxBlockMapBlocksEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -678,7 +663,6 @@ pub struct IAppxBlockMapBlocksEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBlockMapFile(::windows_core::IUnknown);
@@ -699,7 +683,7 @@ impl IAppxBlockMapFile {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetUncompressedSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ValidateFileHash<P0>(&self, filestream: P0) -> ::windows_core::Result<super::super::super::Foundation::BOOL>
     where
@@ -729,7 +713,6 @@ pub struct IAppxBlockMapFile_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     ValidateFileHash: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBlockMapFilesEnumerator(::windows_core::IUnknown);
@@ -738,13 +721,13 @@ impl IAppxBlockMapFilesEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -772,7 +755,6 @@ pub struct IAppxBlockMapFilesEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBlockMapReader(::windows_core::IUnknown);
@@ -788,13 +770,13 @@ impl IAppxBlockMapReader {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFiles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHashMethod(&self) -> ::windows_core::Result<super::super::super::System::Com::IUri> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHashMethod)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows_core::Result<super::super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
@@ -823,12 +805,11 @@ pub struct IAppxBlockMapReader_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetStream: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleFactory(::windows_core::IUnknown);
 impl IAppxBundleFactory {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64) -> ::windows_core::Result<IAppxBundleWriter>
     where
@@ -837,7 +818,7 @@ impl IAppxBundleFactory {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateBundleWriter)(::windows_core::Interface::as_raw(self), outputstream.into_param().abi(), bundleversion, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateBundleReader<P0>(&self, inputstream: P0) -> ::windows_core::Result<IAppxBundleReader>
     where
@@ -846,7 +827,7 @@ impl IAppxBundleFactory {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateBundleReader)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateBundleManifestReader<P0>(&self, inputstream: P0) -> ::windows_core::Result<IAppxBundleManifestReader>
     where
@@ -880,12 +861,11 @@ pub struct IAppxBundleFactory_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateBundleManifestReader: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleFactory2(::windows_core::IUnknown);
 impl IAppxBundleFactory2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateBundleReader2<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> ::windows_core::Result<IAppxBundleReader>
     where
@@ -912,7 +892,6 @@ pub struct IAppxBundleFactory2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateBundleReader2: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestOptionalBundleInfo(::windows_core::IUnknown);
@@ -945,7 +924,6 @@ pub struct IAppxBundleManifestOptionalBundleInfo_Vtbl {
     pub GetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub GetPackageInfoItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packageinfoitems: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestOptionalBundleInfoEnumerator(::windows_core::IUnknown);
@@ -954,13 +932,13 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -988,7 +966,6 @@ pub struct IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestPackageInfo(::windows_core::IUnknown);
@@ -1036,24 +1013,23 @@ pub struct IAppxBundleManifestPackageInfo_Vtbl {
     pub GetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: *mut u64) -> ::windows_core::HRESULT,
     pub GetResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resources: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestPackageInfo2(::windows_core::IUnknown);
 impl IAppxBundleManifestPackageInfo2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsPackageReference(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIsPackageReference)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsNonQualifiedResourcePackage(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIsNonQualifiedResourcePackage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsDefaultApplicablePackage(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1084,7 +1060,6 @@ pub struct IAppxBundleManifestPackageInfo2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetIsDefaultApplicablePackage: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestPackageInfo3(::windows_core::IUnknown);
@@ -1107,12 +1082,11 @@ pub struct IAppxBundleManifestPackageInfo3_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetTargetDeviceFamilies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetdevicefamilies: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestPackageInfo4(::windows_core::IUnknown);
 impl IAppxBundleManifestPackageInfo4 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsStub(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1135,7 +1109,6 @@ pub struct IAppxBundleManifestPackageInfo4_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetIsStub: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestPackageInfoEnumerator(::windows_core::IUnknown);
@@ -1144,13 +1117,13 @@ impl IAppxBundleManifestPackageInfoEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1178,7 +1151,6 @@ pub struct IAppxBundleManifestPackageInfoEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestReader(::windows_core::IUnknown);
@@ -1191,7 +1163,7 @@ impl IAppxBundleManifestReader {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPackageInfoItems)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows_core::Result<super::super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
@@ -1216,7 +1188,6 @@ pub struct IAppxBundleManifestReader_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetStream: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestReader2(::windows_core::IUnknown);
@@ -1239,7 +1210,6 @@ pub struct IAppxBundleManifestReader2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetOptionalBundles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionalbundles: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleReader(::windows_core::IUnknown);
@@ -1285,12 +1255,11 @@ pub struct IAppxBundleReader_Vtbl {
     pub GetPayloadPackages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, payloadpackages: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetPayloadPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::windows_core::PCWSTR, payloadpackage: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleWriter(::windows_core::IUnknown);
 impl IAppxBundleWriter {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPayloadPackage<P0, P1>(&self, filename: P0, packagestream: P1) -> ::windows_core::Result<()>
     where
@@ -1320,12 +1289,11 @@ pub struct IAppxBundleWriter_Vtbl {
     AddPayloadPackage: usize,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleWriter2(::windows_core::IUnknown);
 impl IAppxBundleWriter2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1) -> ::windows_core::Result<()>
     where
@@ -1351,12 +1319,11 @@ pub struct IAppxBundleWriter2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     AddExternalPackageReference: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleWriter3(::windows_core::IUnknown);
 impl IAppxBundleWriter3 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPackageReference<P0, P1>(&self, filename: P0, inputstream: P1) -> ::windows_core::Result<()>
     where
@@ -1389,12 +1356,11 @@ pub struct IAppxBundleWriter3_Vtbl {
     AddPackageReference: usize,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hashmethodstring: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleWriter4(::windows_core::IUnknown);
 impl IAppxBundleWriter4 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddPayloadPackage<P0, P1, P2>(&self, filename: P0, packagestream: P1, isdefaultapplicablepackage: P2) -> ::windows_core::Result<()>
     where
@@ -1404,7 +1370,7 @@ impl IAppxBundleWriter4 {
     {
         (::windows_core::Interface::vtable(self).AddPayloadPackage)(::windows_core::Interface::as_raw(self), filename.into_param().abi(), packagestream.into_param().abi(), isdefaultapplicablepackage.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddPackageReference<P0, P1, P2>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: P2) -> ::windows_core::Result<()>
     where
@@ -1414,7 +1380,7 @@ impl IAppxBundleWriter4 {
     {
         (::windows_core::Interface::vtable(self).AddPackageReference)(::windows_core::Interface::as_raw(self), filename.into_param().abi(), inputstream.into_param().abi(), isdefaultapplicablepackage.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddExternalPackageReference<P0, P1, P2>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: P2) -> ::windows_core::Result<()>
     where
@@ -1449,7 +1415,6 @@ pub struct IAppxBundleWriter4_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     AddExternalPackageReference: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxContentGroup(::windows_core::IUnknown);
@@ -1477,7 +1442,6 @@ pub struct IAppxContentGroup_Vtbl {
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, groupname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub GetFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumerator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxContentGroupFilesEnumerator(::windows_core::IUnknown);
@@ -1486,13 +1450,13 @@ impl IAppxContentGroupFilesEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1520,7 +1484,6 @@ pub struct IAppxContentGroupFilesEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxContentGroupMapReader(::windows_core::IUnknown);
@@ -1548,7 +1511,6 @@ pub struct IAppxContentGroupMapReader_Vtbl {
     pub GetRequiredGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requiredgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetAutomaticGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, automaticgroupsenumerator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxContentGroupMapWriter(::windows_core::IUnknown);
@@ -1584,7 +1546,6 @@ pub struct IAppxContentGroupMapWriter_Vtbl {
     pub AddAutomaticFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxContentGroupsEnumerator(::windows_core::IUnknown);
@@ -1593,13 +1554,13 @@ impl IAppxContentGroupsEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1627,7 +1588,6 @@ pub struct IAppxContentGroupsEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxDigestProvider(::windows_core::IUnknown);
@@ -1650,12 +1610,11 @@ pub struct IAppxDigestProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDigest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, digest: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptedBundleWriter(::windows_core::IUnknown);
 impl IAppxEncryptedBundleWriter {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPayloadPackageEncrypted<P0, P1>(&self, filename: P0, packagestream: P1) -> ::windows_core::Result<()>
     where
@@ -1685,12 +1644,11 @@ pub struct IAppxEncryptedBundleWriter_Vtbl {
     AddPayloadPackageEncrypted: usize,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptedBundleWriter2(::windows_core::IUnknown);
 impl IAppxEncryptedBundleWriter2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1) -> ::windows_core::Result<()>
     where
@@ -1716,12 +1674,11 @@ pub struct IAppxEncryptedBundleWriter2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     AddExternalPackageReference: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptedBundleWriter3(::windows_core::IUnknown);
 impl IAppxEncryptedBundleWriter3 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddPayloadPackageEncrypted<P0, P1, P2>(&self, filename: P0, packagestream: P1, isdefaultapplicablepackage: P2) -> ::windows_core::Result<()>
     where
@@ -1731,7 +1688,7 @@ impl IAppxEncryptedBundleWriter3 {
     {
         (::windows_core::Interface::vtable(self).AddPayloadPackageEncrypted)(::windows_core::Interface::as_raw(self), filename.into_param().abi(), packagestream.into_param().abi(), isdefaultapplicablepackage.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddExternalPackageReference<P0, P1, P2>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: P2) -> ::windows_core::Result<()>
     where
@@ -1762,12 +1719,11 @@ pub struct IAppxEncryptedBundleWriter3_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     AddExternalPackageReference: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptedPackageWriter(::windows_core::IUnknown);
 impl IAppxEncryptedPackageWriter {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPayloadFileEncrypted<P0, P1>(&self, filename: P0, compressionoption: APPX_COMPRESSION_OPTION, inputstream: P1) -> ::windows_core::Result<()>
     where
@@ -1797,12 +1753,11 @@ pub struct IAppxEncryptedPackageWriter_Vtbl {
     AddPayloadFileEncrypted: usize,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptedPackageWriter2(::windows_core::IUnknown);
 impl IAppxEncryptedPackageWriter2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPayloadFilesEncrypted(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddPayloadFilesEncrypted)(::windows_core::Interface::as_raw(self), payloadfiles.len() as _, ::core::mem::transmute(payloadfiles.as_ptr()), memorylimit).ok()
@@ -1824,12 +1779,11 @@ pub struct IAppxEncryptedPackageWriter2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     AddPayloadFilesEncrypted: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptionFactory(::windows_core::IUnknown);
 impl IAppxEncryptionFactory {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows_core::Result<()>
     where
@@ -1838,7 +1792,7 @@ impl IAppxEncryptionFactory {
     {
         (::windows_core::Interface::vtable(self).EncryptPackage)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), outputstream.into_param().abi(), settings, keyinfo, exemptedfiles).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DecryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> ::windows_core::Result<()>
     where
@@ -1847,7 +1801,7 @@ impl IAppxEncryptionFactory {
     {
         (::windows_core::Interface::vtable(self).DecryptPackage)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), outputstream.into_param().abi(), keyinfo).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateEncryptedPackageWriter<P0, P1>(&self, outputstream: P0, manifeststream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows_core::Result<IAppxEncryptedPackageWriter>
     where
@@ -1857,7 +1811,7 @@ impl IAppxEncryptionFactory {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(::windows_core::Interface::as_raw(self), outputstream.into_param().abi(), manifeststream.into_param().abi(), settings, keyinfo, exemptedfiles, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedPackageReader<P0>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO) -> ::windows_core::Result<IAppxPackageReader>
     where
@@ -1866,7 +1820,7 @@ impl IAppxEncryptionFactory {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateEncryptedPackageReader)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), keyinfo, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EncryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows_core::Result<()>
     where
@@ -1875,7 +1829,7 @@ impl IAppxEncryptionFactory {
     {
         (::windows_core::Interface::vtable(self).EncryptBundle)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), outputstream.into_param().abi(), settings, keyinfo, exemptedfiles).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DecryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> ::windows_core::Result<()>
     where
@@ -1884,7 +1838,7 @@ impl IAppxEncryptionFactory {
     {
         (::windows_core::Interface::vtable(self).DecryptBundle)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), outputstream.into_param().abi(), keyinfo).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateEncryptedBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows_core::Result<IAppxEncryptedBundleWriter>
     where
@@ -1893,7 +1847,7 @@ impl IAppxEncryptionFactory {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateEncryptedBundleWriter)(::windows_core::Interface::as_raw(self), outputstream.into_param().abi(), bundleversion, settings, keyinfo, exemptedfiles, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedBundleReader<P0>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO) -> ::windows_core::Result<IAppxBundleReader>
     where
@@ -1947,12 +1901,11 @@ pub struct IAppxEncryptionFactory_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateEncryptedBundleReader: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptionFactory2(::windows_core::IUnknown);
 impl IAppxEncryptionFactory2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateEncryptedPackageWriter<P0, P1, P2>(&self, outputstream: P0, manifeststream: P1, contentgroupmapstream: P2, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows_core::Result<IAppxEncryptedPackageWriter>
     where
@@ -1980,12 +1933,11 @@ pub struct IAppxEncryptionFactory2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     CreateEncryptedPackageWriter: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptionFactory3(::windows_core::IUnknown);
 impl IAppxEncryptionFactory3 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows_core::Result<()>
     where
@@ -1994,7 +1946,7 @@ impl IAppxEncryptionFactory3 {
     {
         (::windows_core::Interface::vtable(self).EncryptPackage)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), outputstream.into_param().abi(), settings, keyinfo, exemptedfiles).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedPackageWriter<P0, P1, P2>(&self, outputstream: P0, manifeststream: P1, contentgroupmapstream: P2, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows_core::Result<IAppxEncryptedPackageWriter>
     where
@@ -2005,7 +1957,7 @@ impl IAppxEncryptionFactory3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(::windows_core::Interface::as_raw(self), outputstream.into_param().abi(), manifeststream.into_param().abi(), contentgroupmapstream.into_param().abi(), settings, keyinfo, exemptedfiles, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EncryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows_core::Result<()>
     where
@@ -2014,7 +1966,7 @@ impl IAppxEncryptionFactory3 {
     {
         (::windows_core::Interface::vtable(self).EncryptBundle)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), outputstream.into_param().abi(), settings, keyinfo, exemptedfiles).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows_core::Result<IAppxEncryptedBundleWriter>
     where
@@ -2052,12 +2004,11 @@ pub struct IAppxEncryptionFactory3_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateEncryptedBundleWriter: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptionFactory4(::windows_core::IUnknown);
 impl IAppxEncryptionFactory4 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EncryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> ::windows_core::Result<()>
     where
@@ -2083,12 +2034,11 @@ pub struct IAppxEncryptionFactory4_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     EncryptPackage: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptionFactory5(::windows_core::IUnknown);
 impl IAppxEncryptionFactory5 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedPackageReader2<P0, P1>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO, expecteddigest: P1) -> ::windows_core::Result<IAppxPackageReader>
     where
@@ -2098,7 +2048,7 @@ impl IAppxEncryptionFactory5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateEncryptedPackageReader2)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), keyinfo, expecteddigest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedBundleReader2<P0, P1>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO, expecteddigest: P1) -> ::windows_core::Result<IAppxBundleReader>
     where
@@ -2129,12 +2079,11 @@ pub struct IAppxEncryptionFactory5_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateEncryptedBundleReader2: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxFactory(::windows_core::IUnknown);
 impl IAppxFactory {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePackageWriter<P0>(&self, outputstream: P0, settings: *const APPX_PACKAGE_SETTINGS) -> ::windows_core::Result<IAppxPackageWriter>
     where
@@ -2143,7 +2092,7 @@ impl IAppxFactory {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePackageWriter)(::windows_core::Interface::as_raw(self), outputstream.into_param().abi(), settings, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePackageReader<P0>(&self, inputstream: P0) -> ::windows_core::Result<IAppxPackageReader>
     where
@@ -2152,7 +2101,7 @@ impl IAppxFactory {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePackageReader)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateManifestReader<P0>(&self, inputstream: P0) -> ::windows_core::Result<IAppxManifestReader>
     where
@@ -2161,7 +2110,7 @@ impl IAppxFactory {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateManifestReader)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateBlockMapReader<P0>(&self, inputstream: P0) -> ::windows_core::Result<IAppxBlockMapReader>
     where
@@ -2170,7 +2119,7 @@ impl IAppxFactory {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateBlockMapReader)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateValidatedBlockMapReader<P0, P1>(&self, blockmapstream: P0, signaturefilename: P1) -> ::windows_core::Result<IAppxBlockMapReader>
     where
@@ -2213,12 +2162,11 @@ pub struct IAppxFactory_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateValidatedBlockMapReader: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxFactory2(::windows_core::IUnknown);
 impl IAppxFactory2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateContentGroupMapReader<P0>(&self, inputstream: P0) -> ::windows_core::Result<IAppxContentGroupMapReader>
     where
@@ -2227,7 +2175,7 @@ impl IAppxFactory2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateContentGroupMapReader)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateSourceContentGroupMapReader<P0>(&self, inputstream: P0) -> ::windows_core::Result<IAppxSourceContentGroupMapReader>
     where
@@ -2236,7 +2184,7 @@ impl IAppxFactory2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSourceContentGroupMapReader)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateContentGroupMapWriter<P0>(&self, stream: P0) -> ::windows_core::Result<IAppxContentGroupMapWriter>
     where
@@ -2270,12 +2218,11 @@ pub struct IAppxFactory2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateContentGroupMapWriter: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxFactory3(::windows_core::IUnknown);
 impl IAppxFactory3 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePackageReader2<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> ::windows_core::Result<IAppxPackageReader>
     where
@@ -2285,7 +2232,7 @@ impl IAppxFactory3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePackageReader2)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), expecteddigest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateManifestReader2<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> ::windows_core::Result<IAppxManifestReader>
     where
@@ -2295,7 +2242,7 @@ impl IAppxFactory3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateManifestReader2)(::windows_core::Interface::as_raw(self), inputstream.into_param().abi(), expecteddigest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAppInstallerReader<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> ::windows_core::Result<IAppxAppInstallerReader>
     where
@@ -2330,7 +2277,6 @@ pub struct IAppxFactory3_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateAppInstallerReader: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxFile(::windows_core::IUnknown);
@@ -2351,7 +2297,7 @@ impl IAppxFile {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows_core::Result<super::super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
@@ -2378,7 +2324,6 @@ pub struct IAppxFile_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetStream: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxFilesEnumerator(::windows_core::IUnknown);
@@ -2387,13 +2332,13 @@ impl IAppxFilesEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2421,7 +2366,6 @@ pub struct IAppxFilesEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestApplication(::windows_core::IUnknown);
@@ -2452,7 +2396,6 @@ pub struct IAppxManifestApplication_Vtbl {
     pub GetStringValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCWSTR, value: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub GetAppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestApplicationsEnumerator(::windows_core::IUnknown);
@@ -2461,13 +2404,13 @@ impl IAppxManifestApplicationsEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2495,7 +2438,6 @@ pub struct IAppxManifestApplicationsEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestCapabilitiesEnumerator(::windows_core::IUnknown);
@@ -2504,13 +2446,13 @@ impl IAppxManifestCapabilitiesEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2538,7 +2480,6 @@ pub struct IAppxManifestCapabilitiesEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestDeviceCapabilitiesEnumerator(::windows_core::IUnknown);
@@ -2547,13 +2488,13 @@ impl IAppxManifestDeviceCapabilitiesEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2581,7 +2522,6 @@ pub struct IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestDriverConstraint(::windows_core::IUnknown);
@@ -2614,7 +2554,6 @@ pub struct IAppxManifestDriverConstraint_Vtbl {
     pub GetMinVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minversion: *mut u64) -> ::windows_core::HRESULT,
     pub GetMinDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mindate: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestDriverConstraintsEnumerator(::windows_core::IUnknown);
@@ -2623,13 +2562,13 @@ impl IAppxManifestDriverConstraintsEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2657,7 +2596,6 @@ pub struct IAppxManifestDriverConstraintsEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestDriverDependenciesEnumerator(::windows_core::IUnknown);
@@ -2666,13 +2604,13 @@ impl IAppxManifestDriverDependenciesEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2700,7 +2638,6 @@ pub struct IAppxManifestDriverDependenciesEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestDriverDependency(::windows_core::IUnknown);
@@ -2723,7 +2660,6 @@ pub struct IAppxManifestDriverDependency_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDriverConstraints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, driverconstraints: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestHostRuntimeDependenciesEnumerator(::windows_core::IUnknown);
@@ -2732,13 +2668,13 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2766,7 +2702,6 @@ pub struct IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestHostRuntimeDependency(::windows_core::IUnknown);
@@ -2799,7 +2734,6 @@ pub struct IAppxManifestHostRuntimeDependency_Vtbl {
     pub GetPublisher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, publisher: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub GetMinVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minversion: *mut u64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestHostRuntimeDependency2(::windows_core::IUnknown);
@@ -2822,7 +2756,6 @@ pub struct IAppxManifestHostRuntimeDependency2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefamilyname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestMainPackageDependenciesEnumerator(::windows_core::IUnknown);
@@ -2831,13 +2764,13 @@ impl IAppxManifestMainPackageDependenciesEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2865,7 +2798,6 @@ pub struct IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestMainPackageDependency(::windows_core::IUnknown);
@@ -2898,7 +2830,6 @@ pub struct IAppxManifestMainPackageDependency_Vtbl {
     pub GetPublisher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, publisher: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub GetPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefamilyname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestOSPackageDependenciesEnumerator(::windows_core::IUnknown);
@@ -2907,13 +2838,13 @@ impl IAppxManifestOSPackageDependenciesEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2941,7 +2872,6 @@ pub struct IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestOSPackageDependency(::windows_core::IUnknown);
@@ -2969,12 +2899,11 @@ pub struct IAppxManifestOSPackageDependency_Vtbl {
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub GetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, version: *mut u64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestOptionalPackageInfo(::windows_core::IUnknown);
 impl IAppxManifestOptionalPackageInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsOptionalPackage(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3002,7 +2931,6 @@ pub struct IAppxManifestOptionalPackageInfo_Vtbl {
     GetIsOptionalPackage: usize,
     pub GetMainPackageName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mainpackagename: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestPackageDependenciesEnumerator(::windows_core::IUnknown);
@@ -3011,13 +2939,13 @@ impl IAppxManifestPackageDependenciesEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3045,7 +2973,6 @@ pub struct IAppxManifestPackageDependenciesEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestPackageDependency(::windows_core::IUnknown);
@@ -3078,7 +3005,6 @@ pub struct IAppxManifestPackageDependency_Vtbl {
     pub GetPublisher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, publisher: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub GetMinVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minversion: *mut u64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestPackageDependency2(::windows_core::IUnknown);
@@ -3113,12 +3039,11 @@ pub struct IAppxManifestPackageDependency2_Vtbl {
     pub base__: IAppxManifestPackageDependency_Vtbl,
     pub GetMaxMajorVersionTested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxmajorversiontested: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestPackageDependency3(::windows_core::IUnknown);
 impl IAppxManifestPackageDependency3 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsOptional(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3141,7 +3066,6 @@ pub struct IAppxManifestPackageDependency3_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetIsOptional: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestPackageId(::windows_core::IUnknown);
@@ -3166,7 +3090,7 @@ impl IAppxManifestPackageId {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetResourceId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ComparePublisher<P0>(&self, other: P0) -> ::windows_core::Result<super::super::super::Foundation::BOOL>
     where
@@ -3207,7 +3131,6 @@ pub struct IAppxManifestPackageId_Vtbl {
     pub GetPackageFullName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub GetPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefamilyname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestPackageId2(::windows_core::IUnknown);
@@ -3232,7 +3155,7 @@ impl IAppxManifestPackageId2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetResourceId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ComparePublisher<P0>(&self, other: P0) -> ::windows_core::Result<super::super::super::Foundation::BOOL>
     where
@@ -3267,12 +3190,11 @@ pub struct IAppxManifestPackageId2_Vtbl {
     pub base__: IAppxManifestPackageId_Vtbl,
     pub GetArchitecture2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, architecture: *mut APPX_PACKAGE_ARCHITECTURE2) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestProperties(::windows_core::IUnknown);
 impl IAppxManifestProperties {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBoolValue<P0>(&self, name: P0) -> ::windows_core::Result<super::super::super::Foundation::BOOL>
     where
@@ -3306,7 +3228,6 @@ pub struct IAppxManifestProperties_Vtbl {
     GetBoolValue: usize,
     pub GetStringValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCWSTR, value: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestQualifiedResource(::windows_core::IUnknown);
@@ -3339,7 +3260,6 @@ pub struct IAppxManifestQualifiedResource_Vtbl {
     pub GetScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scale: *mut u32) -> ::windows_core::HRESULT,
     pub GetDXFeatureLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxfeaturelevel: *mut DX_FEATURE_LEVEL) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestQualifiedResourcesEnumerator(::windows_core::IUnknown);
@@ -3348,13 +3268,13 @@ impl IAppxManifestQualifiedResourcesEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3382,7 +3302,6 @@ pub struct IAppxManifestQualifiedResourcesEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestReader(::windows_core::IUnknown);
@@ -3422,7 +3341,7 @@ impl IAppxManifestReader {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetApplications)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows_core::Result<super::super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
@@ -3453,7 +3372,6 @@ pub struct IAppxManifestReader_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetStream: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestReader2(::windows_core::IUnknown);
@@ -3493,7 +3411,7 @@ impl IAppxManifestReader2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetApplications)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows_core::Result<super::super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
@@ -3517,7 +3435,6 @@ pub struct IAppxManifestReader2_Vtbl {
     pub base__: IAppxManifestReader_Vtbl,
     pub GetQualifiedResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resources: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestReader3(::windows_core::IUnknown);
@@ -3557,7 +3474,7 @@ impl IAppxManifestReader3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetApplications)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows_core::Result<super::super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
@@ -3590,7 +3507,6 @@ pub struct IAppxManifestReader3_Vtbl {
     pub GetCapabilitiesByCapabilityClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilityclass: APPX_CAPABILITY_CLASS_TYPE, capabilities: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetTargetDeviceFamilies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetdevicefamilies: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestReader4(::windows_core::IUnknown);
@@ -3630,7 +3546,7 @@ impl IAppxManifestReader4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetApplications)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows_core::Result<super::super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
@@ -3666,7 +3582,6 @@ pub struct IAppxManifestReader4_Vtbl {
     pub base__: IAppxManifestReader3_Vtbl,
     pub GetOptionalPackageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionalpackageinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestReader5(::windows_core::IUnknown);
@@ -3689,12 +3604,11 @@ pub struct IAppxManifestReader5_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetMainPackageDependencies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mainpackagedependencies: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestReader6(::windows_core::IUnknown);
 impl IAppxManifestReader6 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsNonQualifiedResourcePackage(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3717,7 +3631,6 @@ pub struct IAppxManifestReader6_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetIsNonQualifiedResourcePackage: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestReader7(::windows_core::IUnknown);
@@ -3750,7 +3663,6 @@ pub struct IAppxManifestReader7_Vtbl {
     pub GetOSPackageDependencies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ospackagedependencies: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetHostRuntimeDependencies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostruntimedependencies: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestResourcesEnumerator(::windows_core::IUnknown);
@@ -3759,13 +3671,13 @@ impl IAppxManifestResourcesEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3793,7 +3705,6 @@ pub struct IAppxManifestResourcesEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestTargetDeviceFamiliesEnumerator(::windows_core::IUnknown);
@@ -3802,13 +3713,13 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHasCurrent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHasCurrent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3836,7 +3747,6 @@ pub struct IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     MoveNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestTargetDeviceFamily(::windows_core::IUnknown);
@@ -3869,7 +3779,6 @@ pub struct IAppxManifestTargetDeviceFamily_Vtbl {
     pub GetMinVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minversion: *mut u64) -> ::windows_core::HRESULT,
     pub GetMaxVersionTested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxversiontested: *mut u64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxPackageEditor(::windows_core::IUnknown);
@@ -3880,7 +3789,7 @@ impl IAppxPackageEditor {
     {
         (::windows_core::Interface::vtable(self).SetWorkingDirectory)(::windows_core::Interface::as_raw(self), workingdirectory.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDeltaPackage<P0, P1, P2>(&self, updatedpackagestream: P0, baselinepackagestream: P1, deltapackagestream: P2) -> ::windows_core::Result<()>
     where
@@ -3890,7 +3799,7 @@ impl IAppxPackageEditor {
     {
         (::windows_core::Interface::vtable(self).CreateDeltaPackage)(::windows_core::Interface::as_raw(self), updatedpackagestream.into_param().abi(), baselinepackagestream.into_param().abi(), deltapackagestream.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDeltaPackageUsingBaselineBlockMap<P0, P1, P2, P3>(&self, updatedpackagestream: P0, baselineblockmapstream: P1, baselinepackagefullname: P2, deltapackagestream: P3) -> ::windows_core::Result<()>
     where
@@ -3901,7 +3810,7 @@ impl IAppxPackageEditor {
     {
         (::windows_core::Interface::vtable(self).CreateDeltaPackageUsingBaselineBlockMap)(::windows_core::Interface::as_raw(self), updatedpackagestream.into_param().abi(), baselineblockmapstream.into_param().abi(), baselinepackagefullname.into_param().abi(), deltapackagestream.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UpdatePackage<P0, P1>(&self, baselinepackagestream: P0, deltapackagestream: P1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> ::windows_core::Result<()>
     where
@@ -3910,7 +3819,7 @@ impl IAppxPackageEditor {
     {
         (::windows_core::Interface::vtable(self).UpdatePackage)(::windows_core::Interface::as_raw(self), baselinepackagestream.into_param().abi(), deltapackagestream.into_param().abi(), updateoption).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UpdateEncryptedPackage<P0, P1>(&self, baselineencryptedpackagestream: P0, deltapackagestream: P1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> ::windows_core::Result<()>
     where
@@ -3919,7 +3828,7 @@ impl IAppxPackageEditor {
     {
         (::windows_core::Interface::vtable(self).UpdateEncryptedPackage)(::windows_core::Interface::as_raw(self), baselineencryptedpackagestream.into_param().abi(), deltapackagestream.into_param().abi(), updateoption, settings, keyinfo).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn UpdatePackageManifest<P0, P1, P2>(&self, packagestream: P0, updatedmanifeststream: P1, ispackageencrypted: P2, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> ::windows_core::Result<()>
     where
@@ -3963,7 +3872,6 @@ pub struct IAppxPackageEditor_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     UpdatePackageManifest: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxPackageReader(::windows_core::IUnknown);
@@ -4009,12 +3917,11 @@ pub struct IAppxPackageReader_Vtbl {
     pub GetPayloadFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filesenumerator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetManifest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manifestreader: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxPackageWriter(::windows_core::IUnknown);
 impl IAppxPackageWriter {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPayloadFile<P0, P1, P2>(&self, filename: P0, contenttype: P1, compressionoption: APPX_COMPRESSION_OPTION, inputstream: P2) -> ::windows_core::Result<()>
     where
@@ -4024,7 +3931,7 @@ impl IAppxPackageWriter {
     {
         (::windows_core::Interface::vtable(self).AddPayloadFile)(::windows_core::Interface::as_raw(self), filename.into_param().abi(), contenttype.into_param().abi(), compressionoption, inputstream.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Close<P0>(&self, manifest: P0) -> ::windows_core::Result<()>
     where
@@ -4053,12 +3960,11 @@ pub struct IAppxPackageWriter_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Close: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxPackageWriter2(::windows_core::IUnknown);
 impl IAppxPackageWriter2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Close<P0, P1>(&self, manifest: P0, contentgroupmap: P1) -> ::windows_core::Result<()>
     where
@@ -4084,12 +3990,11 @@ pub struct IAppxPackageWriter2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Close: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxPackageWriter3(::windows_core::IUnknown);
 impl IAppxPackageWriter3 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPayloadFiles(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddPayloadFiles)(::windows_core::Interface::as_raw(self), payloadfiles.len() as _, ::core::mem::transmute(payloadfiles.as_ptr()), memorylimit).ok()
@@ -4111,7 +4016,6 @@ pub struct IAppxPackageWriter3_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     AddPayloadFiles: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxPackagingDiagnosticEventSink(::windows_core::IUnknown);
@@ -4145,7 +4049,6 @@ pub struct IAppxPackagingDiagnosticEventSink_Vtbl {
     pub ReportContextChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: ::windows_core::PCSTR, contextmessage: ::windows_core::PCWSTR, detailsmessage: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub ReportError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errormessage: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxPackagingDiagnosticEventSinkManager(::windows_core::IUnknown);
@@ -4170,7 +4073,6 @@ pub struct IAppxPackagingDiagnosticEventSinkManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetSinkForProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxSourceContentGroupMapReader(::windows_core::IUnknown);
@@ -4198,281 +4100,143 @@ pub struct IAppxSourceContentGroupMapReader_Vtbl {
     pub GetRequiredGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requiredgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetAutomaticGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, automaticgroupsenumerator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_FIRST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_LAST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_APPLICATION: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_RESOURCE: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_APPOINTMENTS: APPX_CAPABILITIES = APPX_CAPABILITIES(1024i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_CLASS_ALL: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_CLASS_CUSTOM: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_CLASS_DEFAULT: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_CLASS_GENERAL: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_CLASS_RESTRICTED: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_CLASS_WINDOWS: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_CONTACTS: APPX_CAPABILITIES = APPX_CAPABILITIES(2048i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_DOCUMENTS_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_ENTERPRISE_AUTHENTICATION: APPX_CAPABILITIES = APPX_CAPABILITIES(128i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_INTERNET_CLIENT: APPX_CAPABILITIES = APPX_CAPABILITIES(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_INTERNET_CLIENT_SERVER: APPX_CAPABILITIES = APPX_CAPABILITIES(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_MUSIC_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(64i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_PICTURES_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(16i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_PRIVATE_NETWORK_CLIENT_SERVER: APPX_CAPABILITIES = APPX_CAPABILITIES(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_REMOVABLE_STORAGE: APPX_CAPABILITIES = APPX_CAPABILITIES(512i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_SHARED_USER_CERTIFICATES: APPX_CAPABILITIES = APPX_CAPABILITIES(256i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_VIDEOS_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(32i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_COMPRESSION_OPTION_FAST: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_COMPRESSION_OPTION_MAXIMUM: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_COMPRESSION_OPTION_NONE: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_COMPRESSION_OPTION_NORMAL: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_COMPRESSION_OPTION_SUPERFAST: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_FOOTPRINT_FILE_TYPE_CODEINTEGRITY: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_ARCHITECTURE2_ARM: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_ARCHITECTURE2_ARM64: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(12i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_ARCHITECTURE2_NEUTRAL: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(11i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_ARCHITECTURE2_UNKNOWN: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(65535i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_ARCHITECTURE2_X64: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(9i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_ARCHITECTURE2_X86: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_ARCHITECTURE2_X86_ON_ARM64: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(14i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_ARCHITECTURE_ARM: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_ARCHITECTURE_ARM64: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(12i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_ARCHITECTURE_NEUTRAL: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(11i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_ARCHITECTURE_X64: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(9i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_ARCHITECTURE_X86: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_LOCALIZED: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_NONE: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_SKIP_VALIDATION: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_CHANGE: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_DETAILS: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_END: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_START: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AddPackageDependencyOptions_None: AddPackageDependencyOptions = AddPackageDependencyOptions(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AddPackageDependencyOptions_PrependIfRankCollision: AddPackageDependencyOptions = AddPackageDependencyOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyClrCompat_ClassicDesktop: AppPolicyClrCompat = AppPolicyClrCompat(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyClrCompat_Other: AppPolicyClrCompat = AppPolicyClrCompat(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyClrCompat_PackagedDesktop: AppPolicyClrCompat = AppPolicyClrCompat(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyClrCompat_Universal: AppPolicyClrCompat = AppPolicyClrCompat(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyCreateFileAccess_Full: AppPolicyCreateFileAccess = AppPolicyCreateFileAccess(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyCreateFileAccess_Limited: AppPolicyCreateFileAccess = AppPolicyCreateFileAccess(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyLifecycleManagement_Managed: AppPolicyLifecycleManagement = AppPolicyLifecycleManagement(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyLifecycleManagement_Unmanaged: AppPolicyLifecycleManagement = AppPolicyLifecycleManagement(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyMediaFoundationCodecLoading_All: AppPolicyMediaFoundationCodecLoading = AppPolicyMediaFoundationCodecLoading(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyMediaFoundationCodecLoading_InboxOnly: AppPolicyMediaFoundationCodecLoading = AppPolicyMediaFoundationCodecLoading(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyProcessTerminationMethod_ExitProcess: AppPolicyProcessTerminationMethod = AppPolicyProcessTerminationMethod(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyProcessTerminationMethod_TerminateProcess: AppPolicyProcessTerminationMethod = AppPolicyProcessTerminationMethod(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyShowDeveloperDiagnostic_None: AppPolicyShowDeveloperDiagnostic = AppPolicyShowDeveloperDiagnostic(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyShowDeveloperDiagnostic_ShowUI: AppPolicyShowDeveloperDiagnostic = AppPolicyShowDeveloperDiagnostic(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyThreadInitializationType_InitializeWinRT: AppPolicyThreadInitializationType = AppPolicyThreadInitializationType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyThreadInitializationType_None: AppPolicyThreadInitializationType = AppPolicyThreadInitializationType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyWindowingModel_ClassicDesktop: AppPolicyWindowingModel = AppPolicyWindowingModel(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyWindowingModel_ClassicPhone: AppPolicyWindowingModel = AppPolicyWindowingModel(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyWindowingModel_None: AppPolicyWindowingModel = AppPolicyWindowingModel(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyWindowingModel_Universal: AppPolicyWindowingModel = AppPolicyWindowingModel(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppxBundleFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x378e0446_5384_43b7_8877_e7dbdd883446);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppxEncryptionFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdc664fdd_d868_46ee_8780_8d196cb739f7);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppxFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5842a140_ff9f_4166_8f5c_62f5b7b0c781);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppxPackageEditor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf004f2ca_aebc_4b0d_bf58_e516d5bcc0ab);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppxPackagingDiagnosticEventSinkManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50ca0a46_1588_4161_8ed2_ef9e469ced5d);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const CreatePackageDependencyOptions_DoNotVerifyDependencyResolution: CreatePackageDependencyOptions = CreatePackageDependencyOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const CreatePackageDependencyOptions_None: CreatePackageDependencyOptions = CreatePackageDependencyOptions(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const CreatePackageDependencyOptions_ScopeIsSystem: CreatePackageDependencyOptions = CreatePackageDependencyOptions(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const DX_FEATURE_LEVEL_10: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const DX_FEATURE_LEVEL_11: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const DX_FEATURE_LEVEL_9: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const DX_FEATURE_LEVEL_UNSPECIFIED: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_DEPENDENCY_RANK_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_FILTER_ALL_LOADED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_FILTER_BUNDLE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_FILTER_DIRECT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_FILTER_DYNAMIC: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_FILTER_HEAD: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_FILTER_HOSTRUNTIME: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_FILTER_IS_IN_RELATED_SET: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_FILTER_OPTIONAL: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_FILTER_RESOURCE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_FILTER_STATIC: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_INFORMATION_BASIC: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_INFORMATION_FULL: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_PROPERTY_BUNDLE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_PROPERTY_DEVELOPMENT_MODE: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_PROPERTY_DYNAMIC: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_PROPERTY_FRAMEWORK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_PROPERTY_HOSTRUNTIME: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_PROPERTY_IS_IN_RELATED_SET: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_PROPERTY_OPTIONAL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_PROPERTY_RESOURCE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PACKAGE_PROPERTY_STATIC: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageDependencyLifetimeKind_FilePath: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageDependencyLifetimeKind_Process: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageDependencyLifetimeKind_RegistryKey: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageDependencyProcessorArchitectures_Arm: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageDependencyProcessorArchitectures_Arm64: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(16i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageDependencyProcessorArchitectures_Neutral: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageDependencyProcessorArchitectures_None: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageDependencyProcessorArchitectures_X64: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageDependencyProcessorArchitectures_X86: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageDependencyProcessorArchitectures_X86A64: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(32i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageOrigin_DeveloperSigned: PackageOrigin = PackageOrigin(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageOrigin_DeveloperUnsigned: PackageOrigin = PackageOrigin(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageOrigin_Inbox: PackageOrigin = PackageOrigin(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageOrigin_LineOfBusiness: PackageOrigin = PackageOrigin(6i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageOrigin_Store: PackageOrigin = PackageOrigin(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageOrigin_Unknown: PackageOrigin = PackageOrigin(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageOrigin_Unsigned: PackageOrigin = PackageOrigin(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackagePathType_Effective: PackagePathType = PackagePathType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackagePathType_EffectiveExternal: PackagePathType = PackagePathType(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackagePathType_Install: PackagePathType = PackagePathType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackagePathType_MachineExternal: PackagePathType = PackagePathType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackagePathType_Mutable: PackagePathType = PackagePathType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackagePathType_UserExternal: PackagePathType = PackagePathType(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_BUNDLE_FOOTPRINT_FILE_TYPE(pub i32);
@@ -4495,7 +4259,6 @@ impl ::core::fmt::Debug for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
         f.debug_tuple("APPX_BUNDLE_FOOTPRINT_FILE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(pub i32);
@@ -4518,7 +4281,6 @@ impl ::core::fmt::Debug for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
         f.debug_tuple("APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_CAPABILITIES(pub i32);
@@ -4574,7 +4336,6 @@ impl ::core::ops::Not for APPX_CAPABILITIES {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_CAPABILITY_CLASS_TYPE(pub i32);
@@ -4597,7 +4358,6 @@ impl ::core::fmt::Debug for APPX_CAPABILITY_CLASS_TYPE {
         f.debug_tuple("APPX_CAPABILITY_CLASS_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_COMPRESSION_OPTION(pub i32);
@@ -4620,7 +4380,6 @@ impl ::core::fmt::Debug for APPX_COMPRESSION_OPTION {
         f.debug_tuple("APPX_COMPRESSION_OPTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_ENCRYPTED_PACKAGE_OPTIONS(pub i32);
@@ -4676,7 +4435,6 @@ impl ::core::ops::Not for APPX_ENCRYPTED_PACKAGE_OPTIONS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_FOOTPRINT_FILE_TYPE(pub i32);
@@ -4699,7 +4457,6 @@ impl ::core::fmt::Debug for APPX_FOOTPRINT_FILE_TYPE {
         f.debug_tuple("APPX_FOOTPRINT_FILE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_PACKAGE_ARCHITECTURE(pub i32);
@@ -4722,7 +4479,6 @@ impl ::core::fmt::Debug for APPX_PACKAGE_ARCHITECTURE {
         f.debug_tuple("APPX_PACKAGE_ARCHITECTURE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_PACKAGE_ARCHITECTURE2(pub i32);
@@ -4745,7 +4501,6 @@ impl ::core::fmt::Debug for APPX_PACKAGE_ARCHITECTURE2 {
         f.debug_tuple("APPX_PACKAGE_ARCHITECTURE2").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(pub i32);
@@ -4801,7 +4556,6 @@ impl ::core::ops::Not for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(pub i32);
@@ -4824,7 +4578,6 @@ impl ::core::fmt::Debug for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
         f.debug_tuple("APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_PACKAGING_CONTEXT_CHANGE_TYPE(pub i32);
@@ -4847,7 +4600,6 @@ impl ::core::fmt::Debug for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
         f.debug_tuple("APPX_PACKAGING_CONTEXT_CHANGE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AddPackageDependencyOptions(pub i32);
@@ -4903,7 +4655,6 @@ impl ::core::ops::Not for AddPackageDependencyOptions {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyClrCompat(pub i32);
@@ -4926,7 +4677,6 @@ impl ::core::fmt::Debug for AppPolicyClrCompat {
         f.debug_tuple("AppPolicyClrCompat").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyCreateFileAccess(pub i32);
@@ -4949,7 +4699,6 @@ impl ::core::fmt::Debug for AppPolicyCreateFileAccess {
         f.debug_tuple("AppPolicyCreateFileAccess").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyLifecycleManagement(pub i32);
@@ -4972,7 +4721,6 @@ impl ::core::fmt::Debug for AppPolicyLifecycleManagement {
         f.debug_tuple("AppPolicyLifecycleManagement").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyMediaFoundationCodecLoading(pub i32);
@@ -4995,7 +4743,6 @@ impl ::core::fmt::Debug for AppPolicyMediaFoundationCodecLoading {
         f.debug_tuple("AppPolicyMediaFoundationCodecLoading").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyProcessTerminationMethod(pub i32);
@@ -5018,7 +4765,6 @@ impl ::core::fmt::Debug for AppPolicyProcessTerminationMethod {
         f.debug_tuple("AppPolicyProcessTerminationMethod").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyShowDeveloperDiagnostic(pub i32);
@@ -5041,7 +4787,6 @@ impl ::core::fmt::Debug for AppPolicyShowDeveloperDiagnostic {
         f.debug_tuple("AppPolicyShowDeveloperDiagnostic").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyThreadInitializationType(pub i32);
@@ -5064,7 +4809,6 @@ impl ::core::fmt::Debug for AppPolicyThreadInitializationType {
         f.debug_tuple("AppPolicyThreadInitializationType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyWindowingModel(pub i32);
@@ -5087,7 +4831,6 @@ impl ::core::fmt::Debug for AppPolicyWindowingModel {
         f.debug_tuple("AppPolicyWindowingModel").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CreatePackageDependencyOptions(pub i32);
@@ -5143,7 +4886,6 @@ impl ::core::ops::Not for CreatePackageDependencyOptions {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DX_FEATURE_LEVEL(pub i32);
@@ -5166,7 +4908,6 @@ impl ::core::fmt::Debug for DX_FEATURE_LEVEL {
         f.debug_tuple("DX_FEATURE_LEVEL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PackageDependencyLifetimeKind(pub i32);
@@ -5189,7 +4930,6 @@ impl ::core::fmt::Debug for PackageDependencyLifetimeKind {
         f.debug_tuple("PackageDependencyLifetimeKind").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PackageDependencyProcessorArchitectures(pub i32);
@@ -5245,7 +4985,6 @@ impl ::core::ops::Not for PackageDependencyProcessorArchitectures {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PackageOrigin(pub i32);
@@ -5268,7 +5007,6 @@ impl ::core::fmt::Debug for PackageOrigin {
         f.debug_tuple("PackageOrigin").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PackagePathType(pub i32);
@@ -5292,7 +5030,6 @@ impl ::core::fmt::Debug for PackagePathType {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub struct APPX_ENCRYPTED_EXEMPTIONS {
     pub count: u32,
     pub plainTextFiles: *const ::windows_core::PCWSTR,
@@ -5323,7 +5060,7 @@ impl ::core::default::Default for APPX_ENCRYPTED_EXEMPTIONS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
@@ -5362,7 +5099,7 @@ impl ::core::default::Default for APPX_ENCRYPTED_PACKAGE_SETTINGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub keyLength: u32,
@@ -5401,7 +5138,6 @@ impl ::core::default::Default for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub struct APPX_KEY_INFO {
     pub keyLength: u32,
     pub keyIdLength: u32,
@@ -5434,7 +5170,7 @@ impl ::core::default::Default for APPX_KEY_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: super::super::super::Foundation::BOOL,
@@ -5471,7 +5207,7 @@ impl ::core::default::Default for APPX_PACKAGE_SETTINGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     pub inputStream: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::System::Com::IStream>>,
@@ -5532,7 +5268,6 @@ impl ::windows_core::TypeKind for PACKAGEDEPENDENCY_CONTEXT {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct PACKAGE_ID {
     pub reserved: u32,
@@ -5562,7 +5297,6 @@ impl ::core::default::Default for PACKAGE_ID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct PACKAGE_ID {
     pub reserved: u32,
@@ -5592,7 +5326,6 @@ impl ::core::default::Default for PACKAGE_ID {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct PACKAGE_INFO {
     pub reserved: u32,
@@ -5621,7 +5354,6 @@ impl ::core::default::Default for PACKAGE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct PACKAGE_INFO {
     pub reserved: u32,
@@ -5650,7 +5382,6 @@ impl ::core::default::Default for PACKAGE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub struct PACKAGE_VERSION {
     pub Anonymous: PACKAGE_VERSION_0,
 }
@@ -5669,7 +5400,6 @@ impl ::core::default::Default for PACKAGE_VERSION {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub union PACKAGE_VERSION_0 {
     pub Version: u64,
     pub Anonymous: PACKAGE_VERSION_0_0,
@@ -5689,7 +5419,6 @@ impl ::core::default::Default for PACKAGE_VERSION_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub struct PACKAGE_VERSION_0_0 {
     pub Revision: u16,
     pub Build: u16,
@@ -5744,7 +5473,6 @@ impl ::windows_core::TypeKind for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub struct _PACKAGE_INFO_REFERENCE {
     pub reserved: *mut ::core::ffi::c_void,
 }

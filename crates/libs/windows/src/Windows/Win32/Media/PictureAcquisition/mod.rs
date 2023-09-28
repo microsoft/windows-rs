@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquire(::windows_core::IUnknown);
@@ -10,7 +9,7 @@ impl IPhotoAcquire {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePhotoSource)(::windows_core::Interface::as_raw(self), pszdevice.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Acquire<P0, P1, P2, P3, P4>(&self, pphotoacquiresource: P0, fshowprogress: P1, hwndparent: P2, pszapplicationname: P3, pphotoacquireprogresscb: P4) -> ::windows_core::Result<()>
     where
@@ -22,7 +21,7 @@ impl IPhotoAcquire {
     {
         (::windows_core::Interface::vtable(self).Acquire)(::windows_core::Interface::as_raw(self), pphotoacquiresource.into_param().abi(), fshowprogress.into_param().abi(), hwndparent.into_param().abi(), pszapplicationname.into_param().abi(), pphotoacquireprogresscb.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumResults(&self) -> ::windows_core::Result<super::super::System::Com::IEnumString> {
         let mut result__ = ::std::mem::zeroed();
@@ -50,7 +49,6 @@ pub struct IPhotoAcquire_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     EnumResults: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquireDeviceSelectionDialog(::windows_core::IUnknown);
@@ -67,7 +65,7 @@ impl IPhotoAcquireDeviceSelectionDialog {
     {
         (::windows_core::Interface::vtable(self).SetSubmitButtonText)(::windows_core::Interface::as_raw(self), pszsubmitbuttontext.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoModal<P0>(&self, hwndparent: P0, dwdeviceflags: u32, pbstrdeviceid: ::core::option::Option<*mut ::windows_core::BSTR>, pndevicetype: ::core::option::Option<*mut DEVICE_SELECTION_DEVICE_TYPE>) -> ::windows_core::Result<()>
     where
@@ -94,7 +92,6 @@ pub struct IPhotoAcquireDeviceSelectionDialog_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     DoModal: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquireItem(::windows_core::IUnknown);
@@ -103,30 +100,30 @@ impl IPhotoAcquireItem {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetItemName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetThumbnail(&self, sizethumbnail: super::super::Foundation::SIZE) -> ::windows_core::Result<super::super::Graphics::Gdi::HBITMAP> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThumbnail)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(sizethumbnail), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetProperty(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), key, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn SetProperty(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), key, pv).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanDelete(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -180,7 +177,6 @@ pub struct IPhotoAcquireItem_Vtbl {
     pub GetSubItemCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pncount: *mut u32) -> ::windows_core::HRESULT,
     pub GetSubItemAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nitemindex: u32, ppphotoacquireitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquireOptionsDialog(::windows_core::IUnknown);
@@ -191,7 +187,7 @@ impl IPhotoAcquireOptionsDialog {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pszregistryroot.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Create<P0>(&self, hwndparent: P0) -> ::windows_core::Result<super::super::Foundation::HWND>
     where
@@ -203,7 +199,7 @@ impl IPhotoAcquireOptionsDialog {
     pub unsafe fn Destroy(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Destroy)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoModal<P0>(&self, hwndparent: P0, ppnreturncode: ::core::option::Option<*mut isize>) -> ::windows_core::Result<()>
     where
@@ -238,7 +234,6 @@ pub struct IPhotoAcquireOptionsDialog_Vtbl {
     DoModal: usize,
     pub SaveData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquirePlugin(::windows_core::IUnknown);
@@ -250,7 +245,7 @@ impl IPhotoAcquirePlugin {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pphotoacquiresource.into_param().abi(), pphotoacquireprogresscb.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_UI_Shell_PropertiesSystem`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn ProcessItem<P0, P1, P2, P3>(&self, dwacquirestage: u32, pphotoacquireitem: P0, poriginalitemstream: P1, pszfinalfilename: P2, ppropertystore: P3) -> ::windows_core::Result<()>
     where
@@ -264,7 +259,7 @@ impl IPhotoAcquirePlugin {
     pub unsafe fn TransferComplete(&self, hr: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).TransferComplete)(::windows_core::Interface::as_raw(self), hr).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayConfigureDialog<P0>(&self, hwndparent: P0) -> ::windows_core::Result<()>
     where
@@ -295,12 +290,11 @@ pub struct IPhotoAcquirePlugin_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     DisplayConfigureDialog: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquireProgressCB(::windows_core::IUnknown);
 impl IPhotoAcquireProgressCB {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Cancelled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -339,7 +333,7 @@ impl IPhotoAcquireProgressCB {
     {
         (::windows_core::Interface::vtable(self).DirectoryCreated)(::windows_core::Interface::as_raw(self), pszdirectory.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateTransferPercent<P0>(&self, foverall: P0, npercent: u32) -> ::windows_core::Result<()>
     where
@@ -383,7 +377,7 @@ impl IPhotoAcquireProgressCB {
     pub unsafe fn EndSession(&self, hr: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EndSession)(::windows_core::Interface::as_raw(self), hr).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeleteAfterAcquire(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -396,7 +390,7 @@ impl IPhotoAcquireProgressCB {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ErrorAdvise)(::windows_core::Interface::as_raw(self), hr, pszerrormessage.into_param().abi(), nmessagetype, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetUserInput<P0>(&self, riidtype: *const ::windows_core::GUID, punknown: P0, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()>
     where
@@ -448,7 +442,6 @@ pub struct IPhotoAcquireProgressCB_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetUserInput: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquireSettings(::windows_core::IUnknown);
@@ -471,7 +464,7 @@ impl IPhotoAcquireSettings {
     pub unsafe fn SetSequencePaddingWidth(&self, dwwidth: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSequencePaddingWidth)(::windows_core::Interface::as_raw(self), dwwidth).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSequenceZeroPadding<P0>(&self, fzeropad: P0) -> ::windows_core::Result<()>
     where
@@ -485,7 +478,7 @@ impl IPhotoAcquireSettings {
     {
         (::windows_core::Interface::vtable(self).SetGroupTag)(::windows_core::Interface::as_raw(self), pszgrouptag.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAcquisitionTime(&self, pftacquisitiontime: *const super::super::Foundation::FILETIME) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAcquisitionTime)(::windows_core::Interface::as_raw(self), pftacquisitiontime).ok()
@@ -502,7 +495,7 @@ impl IPhotoAcquireSettings {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSequencePaddingWidth)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSequenceZeroPadding(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -512,7 +505,7 @@ impl IPhotoAcquireSettings {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGroupTag)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAcquisitionTime(&self) -> ::windows_core::Result<super::super::Foundation::FILETIME> {
         let mut result__ = ::std::mem::zeroed();
@@ -556,7 +549,6 @@ pub struct IPhotoAcquireSettings_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetAcquisitionTime: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquireSource(::windows_core::IUnknown);
@@ -565,12 +557,12 @@ impl IPhotoAcquireSource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFriendlyName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetDeviceIcons(&self, nsize: u32, phlargeicon: ::core::option::Option<*mut super::super::UI::WindowsAndMessaging::HICON>, phsmallicon: ::core::option::Option<*mut super::super::UI::WindowsAndMessaging::HICON>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDeviceIcons)(::windows_core::Interface::as_raw(self), nsize, ::core::mem::transmute(phlargeicon.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phsmallicon.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeItemList<P0, P1>(&self, fforceenumeration: P0, pphotoacquireprogresscb: P1, pnitemcount: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
     where
@@ -625,12 +617,11 @@ pub struct IPhotoAcquireSource_Vtbl {
     pub GetDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdeviceid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub BindToObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoProgressActionCB(::windows_core::IUnknown);
 impl IPhotoProgressActionCB {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoAction<P0>(&self, hwndparent: P0) -> ::windows_core::Result<()>
     where
@@ -655,12 +646,11 @@ pub struct IPhotoProgressActionCB_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     DoAction: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoProgressDialog(::windows_core::IUnknown);
 impl IPhotoProgressDialog {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Create<P0>(&self, hwndparent: P0) -> ::windows_core::Result<()>
     where
@@ -668,7 +658,7 @@ impl IPhotoProgressDialog {
     {
         (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -683,7 +673,7 @@ impl IPhotoProgressDialog {
     {
         (::windows_core::Interface::vtable(self).SetTitle)(::windows_core::Interface::as_raw(self), psztitle.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowCheckbox<P0>(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fshow: P0) -> ::windows_core::Result<()>
     where
@@ -697,7 +687,7 @@ impl IPhotoProgressDialog {
     {
         (::windows_core::Interface::vtable(self).SetCheckboxText)(::windows_core::Interface::as_raw(self), ncheckboxid, pszcheckboxtext.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCheckboxCheck<P0>(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fchecked: P0) -> ::windows_core::Result<()>
     where
@@ -711,7 +701,7 @@ impl IPhotoProgressDialog {
     {
         (::windows_core::Interface::vtable(self).SetCheckboxTooltip)(::windows_core::Interface::as_raw(self), ncheckboxid, pszcheckboxtooltiptext.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCheckboxChecked(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -723,7 +713,7 @@ impl IPhotoProgressDialog {
     {
         (::windows_core::Interface::vtable(self).SetCaption)(::windows_core::Interface::as_raw(self), psztitle.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn SetImage<P0, P1>(&self, nimagetype: PROGRESS_DIALOG_IMAGE_TYPE, hicon: P0, hbitmap: P1) -> ::windows_core::Result<()>
     where
@@ -753,7 +743,7 @@ impl IPhotoProgressDialog {
     {
         (::windows_core::Interface::vtable(self).SetActionLinkText)(::windows_core::Interface::as_raw(self), pszcaption.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowActionLink<P0>(&self, fshow: P0) -> ::windows_core::Result<()>
     where
@@ -761,13 +751,13 @@ impl IPhotoProgressDialog {
     {
         (::windows_core::Interface::vtable(self).ShowActionLink)(::windows_core::Interface::as_raw(self), fshow.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCancelled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsCancelled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetUserInput<P0>(&self, riidtype: *const ::windows_core::GUID, punknown: P0, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()>
     where
@@ -833,7 +823,6 @@ pub struct IPhotoProgressDialog_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetUserInput: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserInputString(::windows_core::IUnknown);
@@ -874,7 +863,7 @@ impl IUserInputString {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMruEntryAt)(::windows_core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetImage(&self, nsize: u32, phbitmap: ::core::option::Option<*mut super::super::Graphics::Gdi::HBITMAP>, phicon: ::core::option::Option<*mut super::super::UI::WindowsAndMessaging::HICON>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetImage)(::windows_core::Interface::as_raw(self), nsize, ::core::mem::transmute(phbitmap.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phicon.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -905,154 +894,93 @@ pub struct IUserInputString_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging")))]
     GetImage: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DSF_ALL_DEVICES: u32 = 65535u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DSF_CPL_MODE: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DSF_DV_DEVICES: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DSF_FS_DEVICES: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DSF_SHOW_OFFLINE: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DSF_STI_DEVICES: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DSF_TWAIN_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = DEVICE_SELECTION_DEVICE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DSF_TWAIN_DEVICES: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DSF_WIA_CAMERAS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DSF_WIA_SCANNERS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DSF_WPD_DEVICES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DST_DV_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = DEVICE_SELECTION_DEVICE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DST_FS_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = DEVICE_SELECTION_DEVICE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DST_STI_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = DEVICE_SELECTION_DEVICE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DST_UNKNOWN_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = DEVICE_SELECTION_DEVICE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DST_WIA_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = DEVICE_SELECTION_DEVICE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DST_WPD_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = DEVICE_SELECTION_DEVICE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PAPS_CLEANUP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PAPS_POSTSAVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PAPS_PRESAVE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQUIRE_ERROR_OK: ERROR_ADVISE_MESSAGE_TYPE = ERROR_ADVISE_MESSAGE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQUIRE_ERROR_RETRYCANCEL: ERROR_ADVISE_MESSAGE_TYPE = ERROR_ADVISE_MESSAGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQUIRE_ERROR_SKIPRETRYCANCEL: ERROR_ADVISE_MESSAGE_TYPE = ERROR_ADVISE_MESSAGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQUIRE_ERROR_YESNO: ERROR_ADVISE_MESSAGE_TYPE = ERROR_ADVISE_MESSAGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQUIRE_RESULT_ABORT: ERROR_ADVISE_RESULT = ERROR_ADVISE_RESULT(6i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQUIRE_RESULT_NO: ERROR_ADVISE_RESULT = ERROR_ADVISE_RESULT(1i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQUIRE_RESULT_OK: ERROR_ADVISE_RESULT = ERROR_ADVISE_RESULT(2i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQUIRE_RESULT_RETRY: ERROR_ADVISE_RESULT = ERROR_ADVISE_RESULT(5i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQUIRE_RESULT_SKIP: ERROR_ADVISE_RESULT = ERROR_ADVISE_RESULT(3i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQUIRE_RESULT_SKIP_ALL: ERROR_ADVISE_RESULT = ERROR_ADVISE_RESULT(4i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQUIRE_RESULT_YES: ERROR_ADVISE_RESULT = ERROR_ADVISE_RESULT(0i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQ_ABORT_ON_SETTINGS_UPDATE: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQ_DELETE_AFTER_ACQUIRE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQ_DISABLE_AUTO_ROTATE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQ_DISABLE_DB_INTEGRATION: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQ_DISABLE_DUPLICATE_DETECTION: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQ_DISABLE_GROUP_TAG_PROMPT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQ_DISABLE_METADATA_WRITE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQ_DISABLE_PLUGINS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQ_DISABLE_SETTINGS_LINK: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQ_DISABLE_THUMBNAIL_PROGRESS: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQ_ENABLE_THUMBNAIL_CACHING: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQ_ERROR_RESTART_REQUIRED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147180543i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQ_IMPORT_VIDEO_AS_MULTIPLE_FILES: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQ_NO_GALLERY_LAUNCH: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQ_RUN_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_CameraSequenceNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 7 };
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_DuplicateDetectionID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 10 };
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_FinalFilename: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 3 };
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_GroupTag: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 4 };
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_IntermediateFile: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 8 };
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_OriginalFilename: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 6 };
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_RelativePathname: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 2 };
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_SkipImport: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 9 };
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_TransferResult: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 5 };
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PROGRESS_DIALOG_BITMAP_THUMBNAIL: PROGRESS_DIALOG_IMAGE_TYPE = PROGRESS_DIALOG_IMAGE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PROGRESS_DIALOG_CHECKBOX_ID_DEFAULT: PROGRESS_DIALOG_CHECKBOX_ID = PROGRESS_DIALOG_CHECKBOX_ID(0i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PROGRESS_DIALOG_ICON_LARGE: PROGRESS_DIALOG_IMAGE_TYPE = PROGRESS_DIALOG_IMAGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PROGRESS_DIALOG_ICON_SMALL: PROGRESS_DIALOG_IMAGE_TYPE = PROGRESS_DIALOG_IMAGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PROGRESS_DIALOG_ICON_THUMBNAIL: PROGRESS_DIALOG_IMAGE_TYPE = PROGRESS_DIALOG_IMAGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PROGRESS_INDETERMINATE: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PhotoAcquire: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f26e02_e9f2_4a9f_9fdd_5a962fb26a98);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PhotoAcquireAutoPlayDropTarget: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f20eb5_8fd6_4d9d_b75e_36801766c8f1);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PhotoAcquireAutoPlayHWEventHandler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f2b433_44e4_4d88_b2b0_2698a0a91dba);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PhotoAcquireDeviceSelectionDialog: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f29a34_b8a1_482c_bcf8_3ac7b0fe8f62);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PhotoAcquireOptionsDialog: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f210a1_62f0_438b_9f7e_9618d72a1831);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PhotoProgressDialog: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f24ca0_748f_4e8a_894f_0e0357c6799f);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const USER_INPUT_DEFAULT: USER_INPUT_STRING_TYPE = USER_INPUT_STRING_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const USER_INPUT_PATH_ELEMENT: USER_INPUT_STRING_TYPE = USER_INPUT_STRING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_SELECTION_DEVICE_TYPE(pub i32);
@@ -1075,7 +1003,6 @@ impl ::core::fmt::Debug for DEVICE_SELECTION_DEVICE_TYPE {
         f.debug_tuple("DEVICE_SELECTION_DEVICE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ERROR_ADVISE_MESSAGE_TYPE(pub i32);
@@ -1098,7 +1025,6 @@ impl ::core::fmt::Debug for ERROR_ADVISE_MESSAGE_TYPE {
         f.debug_tuple("ERROR_ADVISE_MESSAGE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ERROR_ADVISE_RESULT(pub i32);
@@ -1121,7 +1047,6 @@ impl ::core::fmt::Debug for ERROR_ADVISE_RESULT {
         f.debug_tuple("ERROR_ADVISE_RESULT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROGRESS_DIALOG_CHECKBOX_ID(pub i32);
@@ -1144,7 +1069,6 @@ impl ::core::fmt::Debug for PROGRESS_DIALOG_CHECKBOX_ID {
         f.debug_tuple("PROGRESS_DIALOG_CHECKBOX_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROGRESS_DIALOG_IMAGE_TYPE(pub i32);
@@ -1167,7 +1091,6 @@ impl ::core::fmt::Debug for PROGRESS_DIALOG_IMAGE_TYPE {
         f.debug_tuple("PROGRESS_DIALOG_IMAGE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USER_INPUT_STRING_TYPE(pub i32);

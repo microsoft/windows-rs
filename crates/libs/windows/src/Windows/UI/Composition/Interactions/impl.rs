@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"implement\"`*"]
 pub trait ICompositionInteractionSource_Impl: Sized {}
 impl ::windows_core::RuntimeName for ICompositionInteractionSource {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.ICompositionInteractionSource";
@@ -11,7 +10,6 @@ impl ICompositionInteractionSource_Vtbl {
         *iid == <ICompositionInteractionSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"implement\"`*"]
 pub trait IInteractionTrackerOwner_Impl: Sized {
     fn CustomAnimationStateEntered(&self, sender: ::core::option::Option<&InteractionTracker>, args: ::core::option::Option<&InteractionTrackerCustomAnimationStateEnteredArgs>) -> ::windows_core::Result<()>;
     fn IdleStateEntered(&self, sender: ::core::option::Option<&InteractionTracker>, args: ::core::option::Option<&InteractionTrackerIdleStateEnteredArgs>) -> ::windows_core::Result<()>;

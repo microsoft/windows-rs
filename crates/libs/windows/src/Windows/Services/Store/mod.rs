@@ -1047,7 +1047,6 @@ pub struct IStoreVideo_Vtbl {
     pub Caption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub PreviewImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreAcquireLicenseResult(::windows_core::IUnknown);
@@ -1082,7 +1081,6 @@ impl ::windows_core::RuntimeName for StoreAcquireLicenseResult {
 ::windows_core::imp::interface_hierarchy!(StoreAcquireLicenseResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreAcquireLicenseResult {}
 unsafe impl ::core::marker::Sync for StoreAcquireLicenseResult {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreAppLicense(::windows_core::IUnknown);
@@ -1108,7 +1106,7 @@ impl StoreAppLicense {
             (::windows_core::Interface::vtable(this).IsTrial)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ExpirationDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1124,7 +1122,7 @@ impl StoreAppLicense {
             (::windows_core::Interface::vtable(this).ExtendedJsonData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddOnLicenses(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, StoreLicense>> {
         let this = self;
@@ -1133,7 +1131,7 @@ impl StoreAppLicense {
             (::windows_core::Interface::vtable(this).AddOnLicenses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TrialTimeRemaining(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1179,7 +1177,6 @@ impl ::windows_core::RuntimeName for StoreAppLicense {
 ::windows_core::imp::interface_hierarchy!(StoreAppLicense, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreAppLicense {}
 unsafe impl ::core::marker::Sync for StoreAppLicense {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreAvailability(::windows_core::IUnknown);
@@ -1191,7 +1188,7 @@ impl StoreAvailability {
             (::windows_core::Interface::vtable(this).StoreId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn EndDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1214,7 +1211,7 @@ impl StoreAvailability {
             (::windows_core::Interface::vtable(this).ExtendedJsonData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
@@ -1223,7 +1220,7 @@ impl StoreAvailability {
             (::windows_core::Interface::vtable(this).RequestPurchaseAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseWithPurchasePropertiesAsync<P0>(&self, storepurchaseproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
     where
@@ -1251,7 +1248,6 @@ impl ::windows_core::RuntimeName for StoreAvailability {
 ::windows_core::imp::interface_hierarchy!(StoreAvailability, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreAvailability {}
 unsafe impl ::core::marker::Sync for StoreAvailability {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreCanAcquireLicenseResult(::windows_core::IUnknown);
@@ -1293,7 +1289,6 @@ impl ::windows_core::RuntimeName for StoreCanAcquireLicenseResult {
 ::windows_core::imp::interface_hierarchy!(StoreCanAcquireLicenseResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreCanAcquireLicenseResult {}
 unsafe impl ::core::marker::Sync for StoreCanAcquireLicenseResult {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreCollectionData(::windows_core::IUnknown);
@@ -1319,7 +1314,7 @@ impl StoreCollectionData {
             (::windows_core::Interface::vtable(this).DeveloperOfferId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AcquiredDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1328,7 +1323,7 @@ impl StoreCollectionData {
             (::windows_core::Interface::vtable(this).AcquiredDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn StartDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1337,7 +1332,7 @@ impl StoreCollectionData {
             (::windows_core::Interface::vtable(this).StartDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn EndDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1346,7 +1341,7 @@ impl StoreCollectionData {
             (::windows_core::Interface::vtable(this).EndDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TrialTimeRemaining(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1378,7 +1373,6 @@ impl ::windows_core::RuntimeName for StoreCollectionData {
 ::windows_core::imp::interface_hierarchy!(StoreCollectionData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreCollectionData {}
 unsafe impl ::core::marker::Sync for StoreCollectionData {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreConsumableResult(::windows_core::IUnknown);
@@ -1427,12 +1421,11 @@ impl ::windows_core::RuntimeName for StoreConsumableResult {
 ::windows_core::imp::interface_hierarchy!(StoreConsumableResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreConsumableResult {}
 unsafe impl ::core::marker::Sync for StoreConsumableResult {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreContext(::windows_core::IUnknown);
 impl StoreContext {
-    #[doc = "*Required features: `\"System\"`*"]
+    #[doc = "Required features: `System`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
@@ -1441,7 +1434,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn OfflineLicensesChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1453,13 +1446,13 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).OfflineLicensesChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOfflineLicensesChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveOfflineLicensesChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetCustomerPurchaseIdAsync(&self, serviceticket: &::windows_core::HSTRING, publisheruserid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         let this = self;
@@ -1468,7 +1461,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).GetCustomerPurchaseIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(serviceticket), ::core::mem::transmute_copy(publisheruserid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetCustomerCollectionsIdAsync(&self, serviceticket: &::windows_core::HSTRING, publisheruserid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         let this = self;
@@ -1477,7 +1470,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).GetCustomerCollectionsIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(serviceticket), ::core::mem::transmute_copy(publisheruserid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetAppLicenseAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreAppLicense>> {
         let this = self;
@@ -1486,7 +1479,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).GetAppLicenseAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetStoreProductForCurrentAppAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>> {
         let this = self;
@@ -1495,7 +1488,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).GetStoreProductForCurrentAppAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStoreProductsAsync<P0, P1>(&self, productkinds: P0, storeids: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
     where
@@ -1508,7 +1501,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).GetStoreProductsAsync)(::windows_core::Interface::as_raw(this), productkinds.try_into_param()?.abi(), storeids.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAssociatedStoreProductsAsync<P0>(&self, productkinds: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
     where
@@ -1520,7 +1513,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).GetAssociatedStoreProductsAsync)(::windows_core::Interface::as_raw(this), productkinds.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAssociatedStoreProductsWithPagingAsync<P0>(&self, productkinds: P0, maxitemstoretrieveperpage: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>
     where
@@ -1532,7 +1525,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).GetAssociatedStoreProductsWithPagingAsync)(::windows_core::Interface::as_raw(this), productkinds.try_into_param()?.abi(), maxitemstoretrieveperpage, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUserCollectionAsync<P0>(&self, productkinds: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
     where
@@ -1544,7 +1537,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).GetUserCollectionAsync)(::windows_core::Interface::as_raw(this), productkinds.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUserCollectionWithPagingAsync<P0>(&self, productkinds: P0, maxitemstoretrieveperpage: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>
     where
@@ -1556,7 +1549,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).GetUserCollectionWithPagingAsync)(::windows_core::Interface::as_raw(this), productkinds.try_into_param()?.abi(), maxitemstoretrieveperpage, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ReportConsumableFulfillmentAsync(&self, productstoreid: &::windows_core::HSTRING, quantity: u32, trackingid: ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreConsumableResult>> {
         let this = self;
@@ -1565,7 +1558,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).ReportConsumableFulfillmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productstoreid), quantity, trackingid, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetConsumableBalanceRemainingAsync(&self, productstoreid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreConsumableResult>> {
         let this = self;
@@ -1574,7 +1567,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).GetConsumableBalanceRemainingAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productstoreid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
+    #[doc = "Required features: `ApplicationModel`, `Foundation`"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn AcquireStoreLicenseForOptionalPackageAsync<P0>(&self, optionalpackage: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>>
     where
@@ -1586,7 +1579,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).AcquireStoreLicenseForOptionalPackageAsync)(::windows_core::Interface::as_raw(this), optionalpackage.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseAsync(&self, storeid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
@@ -1595,7 +1588,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).RequestPurchaseAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storeid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseWithPurchasePropertiesAsync<P0>(&self, storeid: &::windows_core::HSTRING, storepurchaseproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
     where
@@ -1607,7 +1600,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storeid), storepurchaseproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAppAndOptionalStorePackageUpdatesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StorePackageUpdate>>> {
         let this = self;
@@ -1616,7 +1609,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).GetAppAndOptionalStorePackageUpdatesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadStorePackageUpdatesAsync<P0>(&self, storepackageupdates: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
@@ -1628,7 +1621,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).RequestDownloadStorePackageUpdatesAsync)(::windows_core::Interface::as_raw(this), storepackageupdates.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadAndInstallStorePackageUpdatesAsync<P0>(&self, storepackageupdates: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
@@ -1640,7 +1633,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).RequestDownloadAndInstallStorePackageUpdatesAsync)(::windows_core::Interface::as_raw(this), storepackageupdates.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadAndInstallStorePackagesAsync<P0>(&self, storeids: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
@@ -1652,7 +1645,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesAsync)(::windows_core::Interface::as_raw(this), storeids.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `ApplicationModel`, `Foundation_Collections`"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindStoreProductForPackageAsync<P0, P1>(&self, productkinds: P0, package: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>>
     where
@@ -1672,7 +1665,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).CanSilentlyDownloadStorePackageUpdates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TrySilentDownloadStorePackageUpdatesAsync<P0>(&self, storepackageupdates: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
@@ -1684,7 +1677,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).TrySilentDownloadStorePackageUpdatesAsync)(::windows_core::Interface::as_raw(this), storepackageupdates.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TrySilentDownloadAndInstallStorePackageUpdatesAsync<P0>(&self, storepackageupdates: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
@@ -1696,7 +1689,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).TrySilentDownloadAndInstallStorePackageUpdatesAsync)(::windows_core::Interface::as_raw(this), storepackageupdates.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
+    #[doc = "Required features: `ApplicationModel`, `Foundation`"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn CanAcquireStoreLicenseForOptionalPackageAsync<P0>(&self, optionalpackage: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>
     where
@@ -1708,7 +1701,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).CanAcquireStoreLicenseForOptionalPackageAsync)(::windows_core::Interface::as_raw(this), optionalpackage.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CanAcquireStoreLicenseAsync(&self, productstoreid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>> {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
@@ -1717,7 +1710,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).CanAcquireStoreLicenseAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productstoreid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStoreProductsWithOptionsAsync<P0, P1, P2>(&self, productkinds: P0, storeids: P1, storeproductoptions: P2) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
     where
@@ -1731,7 +1724,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).GetStoreProductsWithOptionsAsync)(::windows_core::Interface::as_raw(this), productkinds.try_into_param()?.abi(), storeids.try_into_param()?.abi(), storeproductoptions.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAssociatedStoreQueueItemsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>> {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
@@ -1740,7 +1733,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).GetAssociatedStoreQueueItemsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStoreQueueItemsAsync<P0>(&self, storeids: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>
     where
@@ -1752,7 +1745,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).GetStoreQueueItemsAsync)(::windows_core::Interface::as_raw(this), storeids.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync<P0, P1>(&self, storeids: P0, storepackageinstalloptions: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
@@ -1765,7 +1758,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync)(::windows_core::Interface::as_raw(this), storeids.try_into_param()?.abi(), storepackageinstalloptions.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DownloadAndInstallStorePackagesAsync<P0>(&self, storeids: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
@@ -1777,7 +1770,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).DownloadAndInstallStorePackagesAsync)(::windows_core::Interface::as_raw(this), storeids.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
+    #[doc = "Required features: `ApplicationModel`, `Foundation`"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn RequestUninstallStorePackageAsync<P0>(&self, package: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>
     where
@@ -1789,7 +1782,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).RequestUninstallStorePackageAsync)(::windows_core::Interface::as_raw(this), package.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestUninstallStorePackageByStoreIdAsync(&self, storeid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>> {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
@@ -1798,7 +1791,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).RequestUninstallStorePackageByStoreIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storeid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
+    #[doc = "Required features: `ApplicationModel`, `Foundation`"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn UninstallStorePackageAsync<P0>(&self, package: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>
     where
@@ -1810,7 +1803,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).UninstallStorePackageAsync)(::windows_core::Interface::as_raw(this), package.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn UninstallStorePackageByStoreIdAsync(&self, storeid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>> {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
@@ -1819,7 +1812,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).UninstallStorePackageByStoreIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storeid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestRateAndReviewAppAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreRateAndReviewResult>> {
         let this = &::windows_core::ComInterface::cast::<IStoreContext4>(self)?;
@@ -1828,7 +1821,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).RequestRateAndReviewAppAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetInstallOrderForAssociatedStoreQueueItemsAsync<P0>(&self, items: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>
     where
@@ -1846,7 +1839,7 @@ impl StoreContext {
             (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"System\"`*"]
+    #[doc = "Required features: `System`"]
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<StoreContext>
     where
@@ -1878,12 +1871,11 @@ impl ::windows_core::RuntimeName for StoreContext {
 ::windows_core::imp::interface_hierarchy!(StoreContext, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreContext {}
 unsafe impl ::core::marker::Sync for StoreContext {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreImage(::windows_core::IUnknown);
 impl StoreImage {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1936,7 +1928,6 @@ impl ::windows_core::RuntimeName for StoreImage {
 ::windows_core::imp::interface_hierarchy!(StoreImage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreImage {}
 unsafe impl ::core::marker::Sync for StoreImage {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreLicense(::windows_core::IUnknown);
@@ -1955,7 +1946,7 @@ impl StoreLicense {
             (::windows_core::Interface::vtable(this).IsActive)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ExpirationDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1994,7 +1985,6 @@ impl ::windows_core::RuntimeName for StoreLicense {
 ::windows_core::imp::interface_hierarchy!(StoreLicense, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreLicense {}
 unsafe impl ::core::marker::Sync for StoreLicense {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorePackageInstallOptions(::windows_core::IUnknown);
@@ -2033,18 +2023,17 @@ impl ::windows_core::RuntimeName for StorePackageInstallOptions {
 ::windows_core::imp::interface_hierarchy!(StorePackageInstallOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StorePackageInstallOptions {}
 unsafe impl ::core::marker::Sync for StorePackageInstallOptions {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorePackageLicense(::windows_core::IUnknown);
 impl StorePackageLicense {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LicenseLost<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2056,13 +2045,13 @@ impl StorePackageLicense {
             (::windows_core::Interface::vtable(this).LicenseLost)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLicenseLost(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveLicenseLost)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel\"`*"]
+    #[doc = "Required features: `ApplicationModel`"]
     #[cfg(feature = "ApplicationModel")]
     pub fn Package(&self) -> ::windows_core::Result<super::super::ApplicationModel::Package> {
         let this = self;
@@ -2100,12 +2089,11 @@ impl ::windows_core::RuntimeName for StorePackageLicense {
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for StorePackageLicense {}
 unsafe impl ::core::marker::Send for StorePackageLicense {}
 unsafe impl ::core::marker::Sync for StorePackageLicense {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorePackageUpdate(::windows_core::IUnknown);
 impl StorePackageUpdate {
-    #[doc = "*Required features: `\"ApplicationModel\"`*"]
+    #[doc = "Required features: `ApplicationModel`"]
     #[cfg(feature = "ApplicationModel")]
     pub fn Package(&self) -> ::windows_core::Result<super::super::ApplicationModel::Package> {
         let this = self;
@@ -2137,7 +2125,6 @@ impl ::windows_core::RuntimeName for StorePackageUpdate {
 ::windows_core::imp::interface_hierarchy!(StorePackageUpdate, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StorePackageUpdate {}
 unsafe impl ::core::marker::Sync for StorePackageUpdate {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorePackageUpdateResult(::windows_core::IUnknown);
@@ -2149,7 +2136,7 @@ impl StorePackageUpdateResult {
             (::windows_core::Interface::vtable(this).OverallState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StorePackageUpdateStatuses(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StorePackageUpdateStatus>> {
         let this = self;
@@ -2158,7 +2145,7 @@ impl StorePackageUpdateResult {
             (::windows_core::Interface::vtable(this).StorePackageUpdateStatuses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StoreQueueItems(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StoreQueueItem>> {
         let this = &::windows_core::ComInterface::cast::<IStorePackageUpdateResult2>(self)?;
@@ -2183,7 +2170,6 @@ impl ::windows_core::RuntimeName for StorePackageUpdateResult {
 ::windows_core::imp::interface_hierarchy!(StorePackageUpdateResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StorePackageUpdateResult {}
 unsafe impl ::core::marker::Sync for StorePackageUpdateResult {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorePrice(::windows_core::IUnknown);
@@ -2209,7 +2195,7 @@ impl StorePrice {
             (::windows_core::Interface::vtable(this).IsOnSale)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SaleEndDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2248,7 +2234,6 @@ impl ::windows_core::RuntimeName for StorePrice {
 ::windows_core::imp::interface_hierarchy!(StorePrice, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StorePrice {}
 unsafe impl ::core::marker::Sync for StorePrice {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreProduct(::windows_core::IUnknown);
@@ -2295,7 +2280,7 @@ impl StoreProduct {
             (::windows_core::Interface::vtable(this).HasDigitalDownload)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Keywords(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -2304,7 +2289,7 @@ impl StoreProduct {
             (::windows_core::Interface::vtable(this).Keywords)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Images(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StoreImage>> {
         let this = self;
@@ -2313,7 +2298,7 @@ impl StoreProduct {
             (::windows_core::Interface::vtable(this).Images)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Videos(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StoreVideo>> {
         let this = self;
@@ -2322,7 +2307,7 @@ impl StoreProduct {
             (::windows_core::Interface::vtable(this).Videos)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Skus(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StoreSku>> {
         let this = self;
@@ -2352,7 +2337,7 @@ impl StoreProduct {
             (::windows_core::Interface::vtable(this).ExtendedJsonData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LinkUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2361,7 +2346,7 @@ impl StoreProduct {
             (::windows_core::Interface::vtable(this).LinkUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetIsAnySkuInstalledAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2370,7 +2355,7 @@ impl StoreProduct {
             (::windows_core::Interface::vtable(this).GetIsAnySkuInstalledAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
@@ -2379,7 +2364,7 @@ impl StoreProduct {
             (::windows_core::Interface::vtable(this).RequestPurchaseAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseWithPurchasePropertiesAsync<P0>(&self, storepurchaseproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
     where
@@ -2414,7 +2399,6 @@ impl ::windows_core::RuntimeName for StoreProduct {
 ::windows_core::imp::interface_hierarchy!(StoreProduct, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreProduct {}
 unsafe impl ::core::marker::Sync for StoreProduct {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreProductOptions(::windows_core::IUnknown);
@@ -2426,7 +2410,7 @@ impl StoreProductOptions {
         static SHARED: ::windows_core::imp::FactoryCache<StoreProductOptions, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ActionFilters(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -2451,12 +2435,11 @@ impl ::windows_core::RuntimeName for StoreProductOptions {
 ::windows_core::imp::interface_hierarchy!(StoreProductOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreProductOptions {}
 unsafe impl ::core::marker::Sync for StoreProductOptions {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreProductPagedQueryResult(::windows_core::IUnknown);
 impl StoreProductPagedQueryResult {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Products(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, StoreProduct>> {
         let this = self;
@@ -2479,7 +2462,7 @@ impl StoreProductPagedQueryResult {
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetNextAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>> {
         let this = self;
@@ -2504,12 +2487,11 @@ impl ::windows_core::RuntimeName for StoreProductPagedQueryResult {
 ::windows_core::imp::interface_hierarchy!(StoreProductPagedQueryResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreProductPagedQueryResult {}
 unsafe impl ::core::marker::Sync for StoreProductPagedQueryResult {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreProductQueryResult(::windows_core::IUnknown);
 impl StoreProductQueryResult {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Products(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, StoreProduct>> {
         let this = self;
@@ -2541,7 +2523,6 @@ impl ::windows_core::RuntimeName for StoreProductQueryResult {
 ::windows_core::imp::interface_hierarchy!(StoreProductQueryResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreProductQueryResult {}
 unsafe impl ::core::marker::Sync for StoreProductQueryResult {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreProductResult(::windows_core::IUnknown);
@@ -2576,7 +2557,6 @@ impl ::windows_core::RuntimeName for StoreProductResult {
 ::windows_core::imp::interface_hierarchy!(StoreProductResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreProductResult {}
 unsafe impl ::core::marker::Sync for StoreProductResult {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorePurchaseProperties(::windows_core::IUnknown);
@@ -2637,7 +2617,6 @@ impl ::windows_core::RuntimeName for StorePurchaseProperties {
 ::windows_core::imp::interface_hierarchy!(StorePurchaseProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StorePurchaseProperties {}
 unsafe impl ::core::marker::Sync for StorePurchaseProperties {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorePurchaseResult(::windows_core::IUnknown);
@@ -2672,7 +2651,6 @@ impl ::windows_core::RuntimeName for StorePurchaseResult {
 ::windows_core::imp::interface_hierarchy!(StorePurchaseResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StorePurchaseResult {}
 unsafe impl ::core::marker::Sync for StorePurchaseResult {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreQueueItem(::windows_core::IUnknown);
@@ -2705,7 +2683,7 @@ impl StoreQueueItem {
             (::windows_core::Interface::vtable(this).GetCurrentStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Completed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2717,13 +2695,13 @@ impl StoreQueueItem {
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn StatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2735,13 +2713,13 @@ impl StoreQueueItem {
             (::windows_core::Interface::vtable(this).StatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CancelInstallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IStoreQueueItem2>(self)?;
@@ -2750,7 +2728,7 @@ impl StoreQueueItem {
             (::windows_core::Interface::vtable(this).CancelInstallAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PauseInstallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IStoreQueueItem2>(self)?;
@@ -2759,7 +2737,7 @@ impl StoreQueueItem {
             (::windows_core::Interface::vtable(this).PauseInstallAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ResumeInstallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IStoreQueueItem2>(self)?;
@@ -2784,7 +2762,6 @@ impl ::windows_core::RuntimeName for StoreQueueItem {
 ::windows_core::imp::interface_hierarchy!(StoreQueueItem, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreQueueItem {}
 unsafe impl ::core::marker::Sync for StoreQueueItem {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreQueueItemCompletedEventArgs(::windows_core::IUnknown);
@@ -2812,7 +2789,6 @@ impl ::windows_core::RuntimeName for StoreQueueItemCompletedEventArgs {
 ::windows_core::imp::interface_hierarchy!(StoreQueueItemCompletedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreQueueItemCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for StoreQueueItemCompletedEventArgs {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreQueueItemStatus(::windows_core::IUnknown);
@@ -2861,7 +2837,6 @@ impl ::windows_core::RuntimeName for StoreQueueItemStatus {
 ::windows_core::imp::interface_hierarchy!(StoreQueueItemStatus, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreQueueItemStatus {}
 unsafe impl ::core::marker::Sync for StoreQueueItemStatus {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreRateAndReviewResult(::windows_core::IUnknown);
@@ -2910,10 +2885,9 @@ impl ::windows_core::RuntimeName for StoreRateAndReviewResult {
 ::windows_core::imp::interface_hierarchy!(StoreRateAndReviewResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreRateAndReviewResult {}
 unsafe impl ::core::marker::Sync for StoreRateAndReviewResult {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 pub struct StoreRequestHelper;
 impl StoreRequestHelper {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SendRequestAsync<P0>(context: P0, requestkind: u32, parametersasjson: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>>
     where
@@ -2933,7 +2907,6 @@ impl StoreRequestHelper {
 impl ::windows_core::RuntimeName for StoreRequestHelper {
     const NAME: &'static str = "Windows.Services.Store.StoreRequestHelper";
 }
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreSendRequestResult(::windows_core::IUnknown);
@@ -2952,7 +2925,7 @@ impl StoreSendRequestResult {
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http\"`*"]
+    #[doc = "Required features: `Web_Http`"]
     #[cfg(feature = "Web_Http")]
     pub fn HttpStatusCode(&self) -> ::windows_core::Result<super::super::Web::Http::HttpStatusCode> {
         let this = &::windows_core::ComInterface::cast::<IStoreSendRequestResult2>(self)?;
@@ -2977,7 +2950,6 @@ impl ::windows_core::RuntimeName for StoreSendRequestResult {
 ::windows_core::imp::interface_hierarchy!(StoreSendRequestResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreSendRequestResult {}
 unsafe impl ::core::marker::Sync for StoreSendRequestResult {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreSku(::windows_core::IUnknown);
@@ -3024,7 +2996,7 @@ impl StoreSku {
             (::windows_core::Interface::vtable(this).CustomDeveloperData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Images(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StoreImage>> {
         let this = self;
@@ -3033,7 +3005,7 @@ impl StoreSku {
             (::windows_core::Interface::vtable(this).Images)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Videos(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StoreVideo>> {
         let this = self;
@@ -3042,7 +3014,7 @@ impl StoreSku {
             (::windows_core::Interface::vtable(this).Videos)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Availabilities(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StoreAvailability>> {
         let this = self;
@@ -3072,7 +3044,7 @@ impl StoreSku {
             (::windows_core::Interface::vtable(this).IsInUserCollection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BundledSkus(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -3088,7 +3060,7 @@ impl StoreSku {
             (::windows_core::Interface::vtable(this).CollectionData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetIsInstalledAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -3097,7 +3069,7 @@ impl StoreSku {
             (::windows_core::Interface::vtable(this).GetIsInstalledAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
@@ -3106,7 +3078,7 @@ impl StoreSku {
             (::windows_core::Interface::vtable(this).RequestPurchaseAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseWithPurchasePropertiesAsync<P0>(&self, storepurchaseproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
     where
@@ -3148,7 +3120,6 @@ impl ::windows_core::RuntimeName for StoreSku {
 ::windows_core::imp::interface_hierarchy!(StoreSku, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreSku {}
 unsafe impl ::core::marker::Sync for StoreSku {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreSubscriptionInfo(::windows_core::IUnknown);
@@ -3204,7 +3175,6 @@ impl ::windows_core::RuntimeName for StoreSubscriptionInfo {
 ::windows_core::imp::interface_hierarchy!(StoreSubscriptionInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreSubscriptionInfo {}
 unsafe impl ::core::marker::Sync for StoreSubscriptionInfo {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreUninstallStorePackageResult(::windows_core::IUnknown);
@@ -3239,12 +3209,11 @@ impl ::windows_core::RuntimeName for StoreUninstallStorePackageResult {
 ::windows_core::imp::interface_hierarchy!(StoreUninstallStorePackageResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreUninstallStorePackageResult {}
 unsafe impl ::core::marker::Sync for StoreUninstallStorePackageResult {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoreVideo(::windows_core::IUnknown);
 impl StoreVideo {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -3304,7 +3273,6 @@ impl ::windows_core::RuntimeName for StoreVideo {
 ::windows_core::imp::interface_hierarchy!(StoreVideo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StoreVideo {}
 unsafe impl ::core::marker::Sync for StoreVideo {}
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreCanLicenseStatus(pub i32);
@@ -3337,7 +3305,6 @@ impl ::core::fmt::Debug for StoreCanLicenseStatus {
 impl ::windows_core::RuntimeType for StoreCanLicenseStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreCanLicenseStatus;i4)");
 }
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreConsumableStatus(pub i32);
@@ -3369,7 +3336,6 @@ impl ::core::fmt::Debug for StoreConsumableStatus {
 impl ::windows_core::RuntimeType for StoreConsumableStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreConsumableStatus;i4)");
 }
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreDurationUnit(pub i32);
@@ -3403,7 +3369,6 @@ impl ::core::fmt::Debug for StoreDurationUnit {
 impl ::windows_core::RuntimeType for StoreDurationUnit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreDurationUnit;i4)");
 }
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorePackageUpdateState(pub i32);
@@ -3440,7 +3405,6 @@ impl ::core::fmt::Debug for StorePackageUpdateState {
 impl ::windows_core::RuntimeType for StorePackageUpdateState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePackageUpdateState;i4)");
 }
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorePurchaseStatus(pub i32);
@@ -3473,7 +3437,6 @@ impl ::core::fmt::Debug for StorePurchaseStatus {
 impl ::windows_core::RuntimeType for StorePurchaseStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePurchaseStatus;i4)");
 }
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreQueueItemExtendedState(pub i32);
@@ -3516,7 +3479,6 @@ impl ::core::fmt::Debug for StoreQueueItemExtendedState {
 impl ::windows_core::RuntimeType for StoreQueueItemExtendedState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemExtendedState;i4)");
 }
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreQueueItemKind(pub i32);
@@ -3547,7 +3509,6 @@ impl ::core::fmt::Debug for StoreQueueItemKind {
 impl ::windows_core::RuntimeType for StoreQueueItemKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemKind;i4)");
 }
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreQueueItemState(pub i32);
@@ -3580,7 +3541,6 @@ impl ::core::fmt::Debug for StoreQueueItemState {
 impl ::windows_core::RuntimeType for StoreQueueItemState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemState;i4)");
 }
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreRateAndReviewStatus(pub i32);
@@ -3612,7 +3572,6 @@ impl ::core::fmt::Debug for StoreRateAndReviewStatus {
 impl ::windows_core::RuntimeType for StoreRateAndReviewStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreRateAndReviewStatus;i4)");
 }
-#[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreUninstallStorePackageStatus(pub i32);
@@ -3646,7 +3605,6 @@ impl ::windows_core::RuntimeType for StoreUninstallStorePackageStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreUninstallStorePackageStatus;i4)");
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Services_Store\"`*"]
 pub struct StorePackageUpdateStatus {
     pub PackageFamilyName: ::windows_core::HSTRING,
     pub PackageDownloadSizeInBytes: u64,

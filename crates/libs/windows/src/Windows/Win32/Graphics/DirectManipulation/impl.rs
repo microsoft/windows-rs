@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
 pub trait IDirectManipulationAutoScrollBehavior_Impl: Sized {
     fn SetConfiguration(&self, motiontypes: DIRECTMANIPULATION_MOTION_TYPES, scrollmotion: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION) -> ::windows_core::Result<()>;
 }
@@ -16,7 +15,6 @@ impl IDirectManipulationAutoScrollBehavior_Vtbl {
         *iid == <IDirectManipulationAutoScrollBehavior as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
 pub trait IDirectManipulationCompositor_Impl: Sized {
     fn AddContent(&self, content: ::core::option::Option<&IDirectManipulationContent>, device: ::core::option::Option<&::windows_core::IUnknown>, parentvisual: ::core::option::Option<&::windows_core::IUnknown>, childvisual: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn RemoveContent(&self, content: ::core::option::Option<&IDirectManipulationContent>) -> ::windows_core::Result<()>;
@@ -58,7 +56,6 @@ impl IDirectManipulationCompositor_Vtbl {
         *iid == <IDirectManipulationCompositor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
 pub trait IDirectManipulationCompositor2_Impl: Sized + IDirectManipulationCompositor_Impl {
     fn AddContentWithCrossProcessChaining(&self, content: ::core::option::Option<&IDirectManipulationPrimaryContent>, device: ::core::option::Option<&::windows_core::IUnknown>, parentvisual: ::core::option::Option<&::windows_core::IUnknown>, childvisual: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
 }
@@ -79,7 +76,7 @@ impl IDirectManipulationCompositor2_Vtbl {
         *iid == <IDirectManipulationCompositor2 as ::windows_core::ComInterface>::IID || *iid == <IDirectManipulationCompositor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectManipulationContent_Impl: Sized {
     fn GetContentRect(&self) -> ::windows_core::Result<super::super::Foundation::RECT>;
@@ -158,7 +155,6 @@ impl IDirectManipulationContent_Vtbl {
         *iid == <IDirectManipulationContent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
 pub trait IDirectManipulationDeferContactService_Impl: Sized {
     fn DeferContact(&self, pointerid: u32, timeout: u32) -> ::windows_core::Result<()>;
     fn CancelContact(&self, pointerid: u32) -> ::windows_core::Result<()>;
@@ -193,7 +189,6 @@ impl IDirectManipulationDeferContactService_Vtbl {
         *iid == <IDirectManipulationDeferContactService as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
 pub trait IDirectManipulationDragDropBehavior_Impl: Sized {
     fn SetConfiguration(&self, configuration: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION) -> ::windows_core::Result<()>;
     fn GetStatus(&self) -> ::windows_core::Result<DIRECTMANIPULATION_DRAG_DROP_STATUS>;
@@ -227,7 +222,6 @@ impl IDirectManipulationDragDropBehavior_Vtbl {
         *iid == <IDirectManipulationDragDropBehavior as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
 pub trait IDirectManipulationDragDropEventHandler_Impl: Sized {
     fn OnDragDropStatusChange(&self, viewport: ::core::option::Option<&IDirectManipulationViewport2>, current: DIRECTMANIPULATION_DRAG_DROP_STATUS, previous: DIRECTMANIPULATION_DRAG_DROP_STATUS) -> ::windows_core::Result<()>;
 }
@@ -245,7 +239,6 @@ impl IDirectManipulationDragDropEventHandler_Vtbl {
         *iid == <IDirectManipulationDragDropEventHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
 pub trait IDirectManipulationFrameInfoProvider_Impl: Sized {
     fn GetNextFrameInfo(&self, time: *mut u64, processtime: *mut u64, compositiontime: *mut u64) -> ::windows_core::Result<()>;
 }
@@ -263,7 +256,6 @@ impl IDirectManipulationFrameInfoProvider_Vtbl {
         *iid == <IDirectManipulationFrameInfoProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
 pub trait IDirectManipulationInteractionEventHandler_Impl: Sized {
     fn OnInteraction(&self, viewport: ::core::option::Option<&IDirectManipulationViewport2>, interaction: DIRECTMANIPULATION_INTERACTION_TYPE) -> ::windows_core::Result<()>;
 }
@@ -281,7 +273,7 @@ impl IDirectManipulationInteractionEventHandler_Vtbl {
         *iid == <IDirectManipulationInteractionEventHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IDirectManipulationManager_Impl: Sized {
     fn Activate(&self, window: super::super::Foundation::HWND) -> ::windows_core::Result<()>;
@@ -353,7 +345,7 @@ impl IDirectManipulationManager_Vtbl {
         *iid == <IDirectManipulationManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IDirectManipulationManager2_Impl: Sized + IDirectManipulationManager_Impl {
     fn CreateBehavior(&self, clsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -374,7 +366,7 @@ impl IDirectManipulationManager2_Vtbl {
         *iid == <IDirectManipulationManager2 as ::windows_core::ComInterface>::IID || *iid == <IDirectManipulationManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IDirectManipulationManager3_Impl: Sized + IDirectManipulationManager2_Impl {
     fn GetService(&self, clsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -395,7 +387,6 @@ impl IDirectManipulationManager3_Vtbl {
         *iid == <IDirectManipulationManager3 as ::windows_core::ComInterface>::IID || *iid == <IDirectManipulationManager as ::windows_core::ComInterface>::IID || *iid == <IDirectManipulationManager2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
 pub trait IDirectManipulationPrimaryContent_Impl: Sized {
     fn SetSnapInterval(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, interval: f32, offset: f32) -> ::windows_core::Result<()>;
     fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, points: *const f32, pointcount: u32) -> ::windows_core::Result<()>;
@@ -472,7 +463,6 @@ impl IDirectManipulationPrimaryContent_Vtbl {
         *iid == <IDirectManipulationPrimaryContent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
 pub trait IDirectManipulationUpdateHandler_Impl: Sized {
     fn Update(&self) -> ::windows_core::Result<()>;
 }
@@ -490,7 +480,7 @@ impl IDirectManipulationUpdateHandler_Vtbl {
         *iid == <IDirectManipulationUpdateHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectManipulationUpdateManager_Impl: Sized {
     fn RegisterWaitHandleCallback(&self, handle: super::super::Foundation::HANDLE, eventhandler: ::core::option::Option<&IDirectManipulationUpdateHandler>) -> ::windows_core::Result<u32>;
@@ -534,7 +524,7 @@ impl IDirectManipulationUpdateManager_Vtbl {
         *iid == <IDirectManipulationUpdateManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectManipulationViewport_Impl: Sized {
     fn Enable(&self) -> ::windows_core::Result<()>;
@@ -765,7 +755,7 @@ impl IDirectManipulationViewport_Vtbl {
         *iid == <IDirectManipulationViewport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectManipulationViewport2_Impl: Sized + IDirectManipulationViewport_Impl {
     fn AddBehavior(&self, behavior: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<u32>;
@@ -809,7 +799,6 @@ impl IDirectManipulationViewport2_Vtbl {
         *iid == <IDirectManipulationViewport2 as ::windows_core::ComInterface>::IID || *iid == <IDirectManipulationViewport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
 pub trait IDirectManipulationViewportEventHandler_Impl: Sized {
     fn OnViewportStatusChanged(&self, viewport: ::core::option::Option<&IDirectManipulationViewport>, current: DIRECTMANIPULATION_STATUS, previous: DIRECTMANIPULATION_STATUS) -> ::windows_core::Result<()>;
     fn OnViewportUpdated(&self, viewport: ::core::option::Option<&IDirectManipulationViewport>) -> ::windows_core::Result<()>;

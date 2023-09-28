@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`, `\"implement\"`*"]
 pub trait IDirect3DDxgiInterfaceAccess_Impl: Sized {
     fn GetInterface(&self, iid: *const ::windows_core::GUID, p: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }

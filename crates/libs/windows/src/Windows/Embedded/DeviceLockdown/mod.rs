@@ -39,10 +39,9 @@ pub struct IDeviceLockdownProfileStatics_Vtbl {
     ApplyLockdownProfileAsync: usize,
     pub GetLockdownProfileInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profileid: ::windows_core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Embedded_DeviceLockdown\"`*"]
 pub struct DeviceLockdownProfile;
 impl DeviceLockdownProfile {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSupportedLockdownProfiles() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::GUID>> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
@@ -56,7 +55,7 @@ impl DeviceLockdownProfile {
             (::windows_core::Interface::vtable(this).GetCurrentLockdownProfile)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ApplyLockdownProfileAsync(profileid: ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
@@ -79,7 +78,6 @@ impl DeviceLockdownProfile {
 impl ::windows_core::RuntimeName for DeviceLockdownProfile {
     const NAME: &'static str = "Windows.Embedded.DeviceLockdown.DeviceLockdownProfile";
 }
-#[doc = "*Required features: `\"Embedded_DeviceLockdown\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceLockdownProfileInformation(::windows_core::IUnknown);

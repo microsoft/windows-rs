@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`, `\"implement\"`*"]
 pub trait IUserDataAccountProviderOperation_Impl: Sized {
     fn Kind(&self) -> ::windows_core::Result<UserDataAccountProviderOperationKind>;
 }

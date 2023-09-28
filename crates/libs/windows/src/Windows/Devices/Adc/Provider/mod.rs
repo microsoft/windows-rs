@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdcControllerProvider(::windows_core::IUnknown);
@@ -90,12 +89,11 @@ pub struct IAdcControllerProvider_Vtbl {
     pub ReleaseChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows_core::HRESULT,
     pub ReadValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelnumber: i32, result__: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdcProvider(::windows_core::IUnknown);
 impl IAdcProvider {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetControllers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>> {
         let this = self;
@@ -124,7 +122,6 @@ pub struct IAdcProvider_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetControllers: usize,
 }
-#[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderAdcChannelMode(pub i32);

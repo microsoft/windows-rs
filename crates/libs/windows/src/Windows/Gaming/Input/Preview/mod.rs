@@ -21,10 +21,9 @@ pub struct IGameControllerProviderInfoStatics_Vtbl {
     #[cfg(not(feature = "Gaming_Input_Custom"))]
     GetProviderId: usize,
 }
-#[doc = "*Required features: `\"Gaming_Input_Preview\"`*"]
 pub struct GameControllerProviderInfo;
 impl GameControllerProviderInfo {
-    #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
+    #[doc = "Required features: `Gaming_Input_Custom`"]
     #[cfg(feature = "Gaming_Input_Custom")]
     pub fn GetParentProviderId<P0>(provider: P0) -> ::windows_core::Result<::windows_core::HSTRING>
     where
@@ -35,7 +34,7 @@ impl GameControllerProviderInfo {
             (::windows_core::Interface::vtable(this).GetParentProviderId)(::windows_core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
+    #[doc = "Required features: `Gaming_Input_Custom`"]
     #[cfg(feature = "Gaming_Input_Custom")]
     pub fn GetProviderId<P0>(provider: P0) -> ::windows_core::Result<::windows_core::HSTRING>
     where

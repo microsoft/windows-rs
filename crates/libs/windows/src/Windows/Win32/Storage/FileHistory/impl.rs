@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFhConfigMgr_Impl: Sized {
     fn LoadConfiguration(&self) -> ::windows_core::Result<()>;
@@ -143,7 +143,7 @@ impl IFhConfigMgr_Vtbl {
         *iid == <IFhConfigMgr as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFhReassociation_Impl: Sized {
     fn ValidateTarget(&self, targeturl: &::windows_core::BSTR) -> ::windows_core::Result<FH_DEVICE_VALIDATION_RESULT>;
@@ -201,7 +201,6 @@ impl IFhReassociation_Vtbl {
         *iid == <IFhReassociation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"implement\"`*"]
 pub trait IFhScopeIterator_Impl: Sized {
     fn MoveToNextItem(&self) -> ::windows_core::Result<()>;
     fn GetItem(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -235,7 +234,6 @@ impl IFhScopeIterator_Vtbl {
         *iid == <IFhScopeIterator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"implement\"`*"]
 pub trait IFhTarget_Impl: Sized {
     fn GetStringProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetNumericalProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows_core::Result<u64>;

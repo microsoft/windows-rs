@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAcousticEchoCancellationControl_Impl: Sized {
     fn SetEchoCancellationRenderEndpoint(&self, endpointid: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
 }
@@ -19,7 +18,6 @@ impl IAcousticEchoCancellationControl_Vtbl {
         *iid == <IAcousticEchoCancellationControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IActivateAudioInterfaceAsyncOperation_Impl: Sized {
     fn GetActivateResult(&self, activateresult: *mut ::windows_core::HRESULT, activatedinterface: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
 }
@@ -37,7 +35,6 @@ impl IActivateAudioInterfaceAsyncOperation_Vtbl {
         *iid == <IActivateAudioInterfaceAsyncOperation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IActivateAudioInterfaceCompletionHandler_Impl: Sized {
     fn ActivateCompleted(&self, activateoperation: ::core::option::Option<&IActivateAudioInterfaceAsyncOperation>) -> ::windows_core::Result<()>;
 }
@@ -55,7 +52,7 @@ impl IActivateAudioInterfaceCompletionHandler_Vtbl {
         *iid == <IActivateAudioInterfaceCompletionHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioAmbisonicsControl_Impl: Sized {
     fn SetData(&self, pambisonicsparams: *const AMBISONICS_PARAMS, cbambisonicsparams: u32) -> ::windows_core::Result<()>;
@@ -106,7 +103,7 @@ impl IAudioAmbisonicsControl_Vtbl {
         *iid == <IAudioAmbisonicsControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioAutoGainControl_Impl: Sized {
     fn GetEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -143,7 +140,6 @@ impl IAudioAutoGainControl_Vtbl {
         *iid == <IAudioAutoGainControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioBass_Impl: Sized + IPerChannelDbLevel_Impl {}
 impl ::windows_core::RuntimeName for IAudioBass {}
 impl IAudioBass_Vtbl {
@@ -154,7 +150,6 @@ impl IAudioBass_Vtbl {
         *iid == <IAudioBass as ::windows_core::ComInterface>::IID || *iid == <IPerChannelDbLevel as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioCaptureClient_Impl: Sized {
     fn GetBuffer(&self, ppdata: *mut *mut u8, pnumframestoread: *mut u32, pdwflags: *mut u32, pu64deviceposition: *mut u64, pu64qpcposition: *mut u64) -> ::windows_core::Result<()>;
     fn ReleaseBuffer(&self, numframesread: u32) -> ::windows_core::Result<()>;
@@ -195,7 +190,6 @@ impl IAudioCaptureClient_Vtbl {
         *iid == <IAudioCaptureClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioChannelConfig_Impl: Sized {
     fn SetChannelConfig(&self, dwconfig: u32, pguideventcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn GetChannelConfig(&self) -> ::windows_core::Result<u32>;
@@ -229,7 +223,7 @@ impl IAudioChannelConfig_Vtbl {
         *iid == <IAudioChannelConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioClient_Impl: Sized {
     fn Initialize(&self, sharemode: AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -354,7 +348,7 @@ impl IAudioClient_Vtbl {
         *iid == <IAudioClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioClient2_Impl: Sized + IAudioClient_Impl {
     fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -398,7 +392,7 @@ impl IAudioClient2_Vtbl {
         *iid == <IAudioClient2 as ::windows_core::ComInterface>::IID || *iid == <IAudioClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioClient3_Impl: Sized + IAudioClient2_Impl {
     fn GetSharedModeEnginePeriod(&self, pformat: *const WAVEFORMATEX, pdefaultperiodinframes: *mut u32, pfundamentalperiodinframes: *mut u32, pminperiodinframes: *mut u32, pmaxperiodinframes: *mut u32) -> ::windows_core::Result<()>;
@@ -436,7 +430,6 @@ impl IAudioClient3_Vtbl {
         *iid == <IAudioClient3 as ::windows_core::ComInterface>::IID || *iid == <IAudioClient as ::windows_core::ComInterface>::IID || *iid == <IAudioClient2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioClientDuckingControl_Impl: Sized {
     fn SetDuckingOptionsForCurrentStream(&self, options: AUDIO_DUCKING_OPTIONS) -> ::windows_core::Result<()>;
 }
@@ -457,7 +450,6 @@ impl IAudioClientDuckingControl_Vtbl {
         *iid == <IAudioClientDuckingControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioClock_Impl: Sized {
     fn GetFrequency(&self) -> ::windows_core::Result<u64>;
     fn GetPosition(&self, pu64position: *mut u64, pu64qpcposition: *mut u64) -> ::windows_core::Result<()>;
@@ -504,7 +496,6 @@ impl IAudioClock_Vtbl {
         *iid == <IAudioClock as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioClock2_Impl: Sized {
     fn GetDevicePosition(&self, deviceposition: *mut u64, qpcposition: *mut u64) -> ::windows_core::Result<()>;
 }
@@ -522,7 +513,6 @@ impl IAudioClock2_Vtbl {
         *iid == <IAudioClock2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioClockAdjustment_Impl: Sized {
     fn SetSampleRate(&self, flsamplerate: f32) -> ::windows_core::Result<()>;
 }
@@ -540,7 +530,6 @@ impl IAudioClockAdjustment_Vtbl {
         *iid == <IAudioClockAdjustment as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioEffectsChangedNotificationClient_Impl: Sized {
     fn OnAudioEffectsChanged(&self) -> ::windows_core::Result<()>;
 }
@@ -558,7 +547,7 @@ impl IAudioEffectsChangedNotificationClient_Vtbl {
         *iid == <IAudioEffectsChangedNotificationClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioEffectsManager_Impl: Sized {
     fn RegisterAudioEffectsChangedNotificationCallback(&self, client: ::core::option::Option<&IAudioEffectsChangedNotificationClient>) -> ::windows_core::Result<()>;
@@ -603,7 +592,6 @@ impl IAudioEffectsManager_Vtbl {
         *iid == <IAudioEffectsManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioFormatEnumerator_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
     fn GetFormat(&self, index: u32) -> ::windows_core::Result<*mut WAVEFORMATEX>;
@@ -643,7 +631,6 @@ impl IAudioFormatEnumerator_Vtbl {
         *iid == <IAudioFormatEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioInputSelector_Impl: Sized {
     fn GetSelection(&self) -> ::windows_core::Result<u32>;
     fn SetSelection(&self, nidselect: u32, pguideventcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -677,7 +664,7 @@ impl IAudioInputSelector_Vtbl {
         *iid == <IAudioInputSelector as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioLoudness_Impl: Sized {
     fn GetEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -714,7 +701,6 @@ impl IAudioLoudness_Vtbl {
         *iid == <IAudioLoudness as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioMidrange_Impl: Sized + IPerChannelDbLevel_Impl {}
 impl ::windows_core::RuntimeName for IAudioMidrange {}
 impl IAudioMidrange_Vtbl {
@@ -725,7 +711,7 @@ impl IAudioMidrange_Vtbl {
         *iid == <IAudioMidrange as ::windows_core::ComInterface>::IID || *iid == <IPerChannelDbLevel as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioMute_Impl: Sized {
     fn SetMute(&self, bmuted: super::super::Foundation::BOOL, pguideventcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -762,7 +748,6 @@ impl IAudioMute_Vtbl {
         *iid == <IAudioMute as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioOutputSelector_Impl: Sized {
     fn GetSelection(&self) -> ::windows_core::Result<u32>;
     fn SetSelection(&self, nidselect: u32, pguideventcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -796,7 +781,6 @@ impl IAudioOutputSelector_Vtbl {
         *iid == <IAudioOutputSelector as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioPeakMeter_Impl: Sized {
     fn GetChannelCount(&self) -> ::windows_core::Result<u32>;
     fn GetLevel(&self, nchannel: u32) -> ::windows_core::Result<f32>;
@@ -836,7 +820,6 @@ impl IAudioPeakMeter_Vtbl {
         *iid == <IAudioPeakMeter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioRenderClient_Impl: Sized {
     fn GetBuffer(&self, numframesrequested: u32) -> ::windows_core::Result<*mut u8>;
     fn ReleaseBuffer(&self, numframeswritten: u32, dwflags: u32) -> ::windows_core::Result<()>;
@@ -870,7 +853,6 @@ impl IAudioRenderClient_Vtbl {
         *iid == <IAudioRenderClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioSessionControl_Impl: Sized {
     fn GetState(&self) -> ::windows_core::Result<AudioSessionState>;
     fn GetDisplayName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -971,7 +953,7 @@ impl IAudioSessionControl_Vtbl {
         *iid == <IAudioSessionControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioSessionControl2_Impl: Sized + IAudioSessionControl_Impl {
     fn GetSessionIdentifier(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -1041,7 +1023,6 @@ impl IAudioSessionControl2_Vtbl {
         *iid == <IAudioSessionControl2 as ::windows_core::ComInterface>::IID || *iid == <IAudioSessionControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioSessionEnumerator_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<i32>;
     fn GetSession(&self, sessioncount: i32) -> ::windows_core::Result<IAudioSessionControl>;
@@ -1081,7 +1062,7 @@ impl IAudioSessionEnumerator_Vtbl {
         *iid == <IAudioSessionEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioSessionEvents_Impl: Sized {
     fn OnDisplayNameChanged(&self, newdisplayname: &::windows_core::PCWSTR, eventcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -1147,7 +1128,6 @@ impl IAudioSessionEvents_Vtbl {
         *iid == <IAudioSessionEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioSessionManager_Impl: Sized {
     fn GetAudioSessionControl(&self, audiosessionguid: *const ::windows_core::GUID, streamflags: u32) -> ::windows_core::Result<IAudioSessionControl>;
     fn GetSimpleAudioVolume(&self, audiosessionguid: *const ::windows_core::GUID, streamflags: u32) -> ::windows_core::Result<ISimpleAudioVolume>;
@@ -1187,7 +1167,6 @@ impl IAudioSessionManager_Vtbl {
         *iid == <IAudioSessionManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioSessionManager2_Impl: Sized + IAudioSessionManager_Impl {
     fn GetSessionEnumerator(&self) -> ::windows_core::Result<IAudioSessionEnumerator>;
     fn RegisterSessionNotification(&self, sessionnotification: ::core::option::Option<&IAudioSessionNotification>) -> ::windows_core::Result<()>;
@@ -1242,7 +1221,6 @@ impl IAudioSessionManager2_Vtbl {
         *iid == <IAudioSessionManager2 as ::windows_core::ComInterface>::IID || *iid == <IAudioSessionManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioSessionNotification_Impl: Sized {
     fn OnSessionCreated(&self, newsession: ::core::option::Option<&IAudioSessionControl>) -> ::windows_core::Result<()>;
 }
@@ -1260,7 +1238,6 @@ impl IAudioSessionNotification_Vtbl {
         *iid == <IAudioSessionNotification as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioStateMonitor_Impl: Sized {
     fn RegisterCallback(&self, callback: PAudioStateMonitorCallback, context: *const ::core::ffi::c_void) -> ::windows_core::Result<i64>;
     fn UnregisterCallback(&self, registration: i64);
@@ -1301,7 +1278,6 @@ impl IAudioStateMonitor_Vtbl {
         *iid == <IAudioStateMonitor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioStreamVolume_Impl: Sized {
     fn GetChannelCount(&self) -> ::windows_core::Result<u32>;
     fn SetChannelVolume(&self, dwindex: u32, flevel: f32) -> ::windows_core::Result<()>;
@@ -1362,7 +1338,7 @@ impl IAudioStreamVolume_Vtbl {
         *iid == <IAudioStreamVolume as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IAudioSystemEffectsPropertyChangeNotificationClient_Impl: Sized {
     fn OnPropertyChanged(&self, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<()>;
@@ -1383,7 +1359,7 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
         *iid == <IAudioSystemEffectsPropertyChangeNotificationClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IAudioSystemEffectsPropertyStore_Impl: Sized {
     fn OpenDefaultPropertyStore(&self, stgmaccess: u32) -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
@@ -1467,7 +1443,6 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
         *iid == <IAudioSystemEffectsPropertyStore as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioTreble_Impl: Sized + IPerChannelDbLevel_Impl {}
 impl ::windows_core::RuntimeName for IAudioTreble {}
 impl IAudioTreble_Vtbl {
@@ -1478,7 +1453,7 @@ impl IAudioTreble_Vtbl {
         *iid == <IAudioTreble as ::windows_core::ComInterface>::IID || *iid == <IPerChannelDbLevel as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioViewManagerService_Impl: Sized {
     fn SetAudioStreamWindow(&self, hwnd: super::super::Foundation::HWND) -> ::windows_core::Result<()>;
@@ -1499,7 +1474,6 @@ impl IAudioViewManagerService_Vtbl {
         *iid == <IAudioViewManagerService as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioVolumeDuckNotification_Impl: Sized {
     fn OnVolumeDuckNotification(&self, sessionid: &::windows_core::PCWSTR, countcommunicationsessions: u32) -> ::windows_core::Result<()>;
     fn OnVolumeUnduckNotification(&self, sessionid: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -1527,7 +1501,6 @@ impl IAudioVolumeDuckNotification_Vtbl {
         *iid == <IAudioVolumeDuckNotification as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IAudioVolumeLevel_Impl: Sized + IPerChannelDbLevel_Impl {}
 impl ::windows_core::RuntimeName for IAudioVolumeLevel {}
 impl IAudioVolumeLevel_Vtbl {
@@ -1538,7 +1511,6 @@ impl IAudioVolumeLevel_Vtbl {
         *iid == <IAudioVolumeLevel as ::windows_core::ComInterface>::IID || *iid == <IPerChannelDbLevel as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IChannelAudioVolume_Impl: Sized {
     fn GetChannelCount(&self) -> ::windows_core::Result<u32>;
     fn SetChannelVolume(&self, dwindex: u32, flevel: f32, eventcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -1599,7 +1571,7 @@ impl IChannelAudioVolume_Vtbl {
         *iid == <IChannelAudioVolume as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IConnector_Impl: Sized {
     fn GetType(&self) -> ::windows_core::Result<ConnectorType>;
@@ -1708,7 +1680,6 @@ impl IConnector_Vtbl {
         *iid == <IConnector as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IControlChangeNotify_Impl: Sized {
     fn OnNotify(&self, dwsenderprocessid: u32, pguideventcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
 }
@@ -1726,7 +1697,6 @@ impl IControlChangeNotify_Vtbl {
         *iid == <IControlChangeNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IControlInterface_Impl: Sized {
     fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetIID(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -1766,7 +1736,6 @@ impl IControlInterface_Vtbl {
         *iid == <IControlInterface as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IDeviceSpecificProperty_Impl: Sized {
     fn GetType(&self) -> ::windows_core::Result<u16>;
     fn GetValue(&self, pvvalue: *mut ::core::ffi::c_void, pcbvalue: *mut u32) -> ::windows_core::Result<()>;
@@ -1814,7 +1783,7 @@ impl IDeviceSpecificProperty_Vtbl {
         *iid == <IDeviceSpecificProperty as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDeviceTopology_Impl: Sized {
     fn GetConnectorCount(&self) -> ::windows_core::Result<u32>;
@@ -1922,7 +1891,7 @@ impl IDeviceTopology_Vtbl {
         *iid == <IDeviceTopology as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IMMDevice_Impl: Sized {
     fn Activate(&self, iid: *const ::windows_core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -1985,7 +1954,7 @@ impl IMMDevice_Vtbl {
         *iid == <IMMDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMMDeviceActivator_Impl: Sized {
     fn Activate(&self, iid: *const ::windows_core::GUID, pdevice: ::core::option::Option<&IMMDevice>, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -2006,7 +1975,6 @@ impl IMMDeviceActivator_Vtbl {
         *iid == <IMMDeviceActivator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IMMDeviceCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
     fn Item(&self, ndevice: u32) -> ::windows_core::Result<IMMDevice>;
@@ -2046,7 +2014,6 @@ impl IMMDeviceCollection_Vtbl {
         *iid == <IMMDeviceCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IMMDeviceEnumerator_Impl: Sized {
     fn EnumAudioEndpoints(&self, dataflow: EDataFlow, dwstatemask: u32) -> ::windows_core::Result<IMMDeviceCollection>;
     fn GetDefaultAudioEndpoint(&self, dataflow: EDataFlow, role: ERole) -> ::windows_core::Result<IMMDevice>;
@@ -2113,7 +2080,6 @@ impl IMMDeviceEnumerator_Vtbl {
         *iid == <IMMDeviceEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IMMEndpoint_Impl: Sized {
     fn GetDataFlow(&self) -> ::windows_core::Result<EDataFlow>;
 }
@@ -2137,7 +2103,7 @@ impl IMMEndpoint_Vtbl {
         *iid == <IMMEndpoint as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMMNotificationClient_Impl: Sized {
     fn OnDeviceStateChanged(&self, pwstrdeviceid: &::windows_core::PCWSTR, dwnewstate: u32) -> ::windows_core::Result<()>;
@@ -2189,7 +2155,7 @@ impl IMMNotificationClient_Vtbl {
         *iid == <IMMNotificationClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMessageFilter_Impl: Sized {
     fn HandleInComingCall(&self, dwcalltype: u32, htaskcaller: super::HTASK, dwtickcount: u32, lpinterfaceinfo: *const super::super::System::Com::INTERFACEINFO) -> u32;
@@ -2227,7 +2193,6 @@ impl IMessageFilter_Vtbl {
         *iid == <IMessageFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IPart_Impl: Sized {
     fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetLocalId(&self) -> ::windows_core::Result<u32>;
@@ -2392,7 +2357,6 @@ impl IPart_Vtbl {
         *iid == <IPart as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IPartsList_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
     fn GetPart(&self, nindex: u32) -> ::windows_core::Result<IPart>;
@@ -2432,7 +2396,6 @@ impl IPartsList_Vtbl {
         *iid == <IPartsList as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait IPerChannelDbLevel_Impl: Sized {
     fn GetChannelCount(&self) -> ::windows_core::Result<u32>;
     fn GetLevelRange(&self, nchannel: u32, pfminleveldb: *mut f32, pfmaxleveldb: *mut f32, pfstepping: *mut f32) -> ::windows_core::Result<()>;
@@ -2500,7 +2463,7 @@ impl IPerChannelDbLevel_Vtbl {
         *iid == <IPerChannelDbLevel as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimpleAudioVolume_Impl: Sized {
     fn SetMasterVolume(&self, flevel: f32, eventcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -2557,7 +2520,7 @@ impl ISimpleAudioVolume_Vtbl {
         *iid == <ISimpleAudioVolume as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait ISpatialAudioClient_Impl: Sized {
     fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> ::windows_core::Result<()>;
@@ -2654,7 +2617,7 @@ impl ISpatialAudioClient_Vtbl {
         *iid == <ISpatialAudioClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait ISpatialAudioClient2_Impl: Sized + ISpatialAudioClient_Impl {
     fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -2697,7 +2660,6 @@ impl ISpatialAudioClient2_Vtbl {
         *iid == <ISpatialAudioClient2 as ::windows_core::ComInterface>::IID || *iid == <ISpatialAudioClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait ISpatialAudioMetadataClient_Impl: Sized {
     fn ActivateSpatialAudioMetadataItems(&self, maxitemcount: u16, framecount: u16, metadataitemsbuffer: *mut ::core::option::Option<ISpatialAudioMetadataItemsBuffer>, metadataitems: *mut ::core::option::Option<ISpatialAudioMetadataItems>) -> ::windows_core::Result<()>;
     fn GetSpatialAudioMetadataItemsBufferLength(&self, maxitemcount: u16) -> ::windows_core::Result<u32>;
@@ -2770,7 +2732,6 @@ impl ISpatialAudioMetadataClient_Vtbl {
         *iid == <ISpatialAudioMetadataClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait ISpatialAudioMetadataCopier_Impl: Sized {
     fn Open(&self, metadataitems: ::core::option::Option<&ISpatialAudioMetadataItems>) -> ::windows_core::Result<()>;
     fn CopyMetadataForFrames(&self, copyframecount: u16, copymode: SpatialAudioMetadataCopyMode, dstmetadataitems: ::core::option::Option<&ISpatialAudioMetadataItems>) -> ::windows_core::Result<u16>;
@@ -2811,7 +2772,6 @@ impl ISpatialAudioMetadataCopier_Vtbl {
         *iid == <ISpatialAudioMetadataCopier as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait ISpatialAudioMetadataItems_Impl: Sized {
     fn GetFrameCount(&self) -> ::windows_core::Result<u16>;
     fn GetItemCount(&self) -> ::windows_core::Result<u16>;
@@ -2890,7 +2850,6 @@ impl ISpatialAudioMetadataItems_Vtbl {
         *iid == <ISpatialAudioMetadataItems as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait ISpatialAudioMetadataItemsBuffer_Impl: Sized {
     fn AttachToBuffer(&self, buffer: *mut u8, bufferlength: u32) -> ::windows_core::Result<()>;
     fn AttachToPopulatedBuffer(&self, buffer: *mut u8, bufferlength: u32) -> ::windows_core::Result<()>;
@@ -2925,7 +2884,6 @@ impl ISpatialAudioMetadataItemsBuffer_Vtbl {
         *iid == <ISpatialAudioMetadataItemsBuffer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait ISpatialAudioMetadataReader_Impl: Sized {
     fn Open(&self, metadataitems: ::core::option::Option<&ISpatialAudioMetadataItems>) -> ::windows_core::Result<()>;
     fn ReadNextItem(&self, commandcount: *mut u8, frameoffset: *mut u16) -> ::windows_core::Result<()>;
@@ -2967,7 +2925,6 @@ impl ISpatialAudioMetadataReader_Vtbl {
         *iid == <ISpatialAudioMetadataReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait ISpatialAudioMetadataWriter_Impl: Sized {
     fn Open(&self, metadataitems: ::core::option::Option<&ISpatialAudioMetadataItems>) -> ::windows_core::Result<()>;
     fn WriteNextItem(&self, frameoffset: u16) -> ::windows_core::Result<()>;
@@ -3009,7 +2966,7 @@ impl ISpatialAudioMetadataWriter_Vtbl {
         *iid == <ISpatialAudioMetadataWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISpatialAudioObject_Impl: Sized + ISpatialAudioObjectBase_Impl {
     fn SetPosition(&self, x: f32, y: f32, z: f32) -> ::windows_core::Result<()>;
@@ -3040,7 +2997,7 @@ impl ISpatialAudioObject_Vtbl {
         *iid == <ISpatialAudioObject as ::windows_core::ComInterface>::IID || *iid == <ISpatialAudioObjectBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISpatialAudioObjectBase_Impl: Sized {
     fn GetBuffer(&self, buffer: *mut *mut u8, bufferlength: *mut u32) -> ::windows_core::Result<()>;
@@ -3097,7 +3054,7 @@ impl ISpatialAudioObjectBase_Vtbl {
         *iid == <ISpatialAudioObjectBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISpatialAudioObjectForHrtf_Impl: Sized + ISpatialAudioObjectBase_Impl {
     fn SetPosition(&self, x: f32, y: f32, z: f32) -> ::windows_core::Result<()>;
@@ -3156,7 +3113,7 @@ impl ISpatialAudioObjectForHrtf_Vtbl {
         *iid == <ISpatialAudioObjectForHrtf as ::windows_core::ComInterface>::IID || *iid == <ISpatialAudioObjectBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISpatialAudioObjectForMetadataCommands_Impl: Sized + ISpatialAudioObjectBase_Impl {
     fn WriteNextMetadataCommand(&self, commandid: u8, valuebuffer: *const ::core::ffi::c_void, valuebufferlength: u32) -> ::windows_core::Result<()>;
@@ -3180,7 +3137,7 @@ impl ISpatialAudioObjectForMetadataCommands_Vtbl {
         *iid == <ISpatialAudioObjectForMetadataCommands as ::windows_core::ComInterface>::IID || *iid == <ISpatialAudioObjectBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISpatialAudioObjectForMetadataItems_Impl: Sized + ISpatialAudioObjectBase_Impl {
     fn GetSpatialAudioMetadataItems(&self) -> ::windows_core::Result<ISpatialAudioMetadataItems>;
@@ -3210,7 +3167,6 @@ impl ISpatialAudioObjectForMetadataItems_Vtbl {
         *iid == <ISpatialAudioObjectForMetadataItems as ::windows_core::ComInterface>::IID || *iid == <ISpatialAudioObjectBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait ISpatialAudioObjectRenderStream_Impl: Sized + ISpatialAudioObjectRenderStreamBase_Impl {
     fn ActivateSpatialAudioObject(&self, r#type: AudioObjectType) -> ::windows_core::Result<ISpatialAudioObject>;
 }
@@ -3237,7 +3193,6 @@ impl ISpatialAudioObjectRenderStream_Vtbl {
         *iid == <ISpatialAudioObjectRenderStream as ::windows_core::ComInterface>::IID || *iid == <ISpatialAudioObjectRenderStreamBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait ISpatialAudioObjectRenderStreamBase_Impl: Sized {
     fn GetAvailableDynamicObjectCount(&self) -> ::windows_core::Result<u32>;
     fn GetService(&self, riid: *const ::windows_core::GUID, service: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -3306,7 +3261,6 @@ impl ISpatialAudioObjectRenderStreamBase_Vtbl {
         *iid == <ISpatialAudioObjectRenderStreamBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait ISpatialAudioObjectRenderStreamForHrtf_Impl: Sized + ISpatialAudioObjectRenderStreamBase_Impl {
     fn ActivateSpatialAudioObjectForHrtf(&self, r#type: AudioObjectType) -> ::windows_core::Result<ISpatialAudioObjectForHrtf>;
 }
@@ -3333,7 +3287,6 @@ impl ISpatialAudioObjectRenderStreamForHrtf_Vtbl {
         *iid == <ISpatialAudioObjectRenderStreamForHrtf as ::windows_core::ComInterface>::IID || *iid == <ISpatialAudioObjectRenderStreamBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait ISpatialAudioObjectRenderStreamForMetadata_Impl: Sized + ISpatialAudioObjectRenderStreamBase_Impl {
     fn ActivateSpatialAudioObjectForMetadataCommands(&self, r#type: AudioObjectType) -> ::windows_core::Result<ISpatialAudioObjectForMetadataCommands>;
     fn ActivateSpatialAudioObjectForMetadataItems(&self, r#type: AudioObjectType) -> ::windows_core::Result<ISpatialAudioObjectForMetadataItems>;
@@ -3373,7 +3326,6 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
         *iid == <ISpatialAudioObjectRenderStreamForMetadata as ::windows_core::ComInterface>::IID || *iid == <ISpatialAudioObjectRenderStreamBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait ISpatialAudioObjectRenderStreamNotify_Impl: Sized {
     fn OnAvailableDynamicObjectCountChange(&self, sender: ::core::option::Option<&ISpatialAudioObjectRenderStreamBase>, hnscompliancedeadlinetime: i64, availabledynamicobjectcountchange: u32) -> ::windows_core::Result<()>;
 }
@@ -3394,7 +3346,6 @@ impl ISpatialAudioObjectRenderStreamNotify_Vtbl {
         *iid == <ISpatialAudioObjectRenderStreamNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"implement\"`*"]
 pub trait ISubunit_Impl: Sized {}
 impl ::windows_core::RuntimeName for ISubunit {}
 impl ISubunit_Vtbl {

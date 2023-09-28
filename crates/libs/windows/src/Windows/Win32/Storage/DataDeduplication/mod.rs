@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDedupBackupSupport(::windows_core::IUnknown);
@@ -23,7 +22,6 @@ pub struct IDedupBackupSupport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RestoreFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberoffiles: u32, filefullpaths: *const ::std::mem::MaybeUninit<::windows_core::BSTR>, store: *mut ::core::ffi::c_void, flags: u32, fileresults: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDedupChunkLibrary(::windows_core::IUnknown);
@@ -34,7 +32,7 @@ impl IDedupChunkLibrary {
     pub unsafe fn Uninitialize(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Uninitialize)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetParameter(&self, dwparamtype: u32, vparamvalue: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetParameter)(::windows_core::Interface::as_raw(self), dwparamtype, ::core::mem::transmute(vparamvalue)).ok()
@@ -63,7 +61,6 @@ pub struct IDedupChunkLibrary_Vtbl {
     SetParameter: usize,
     pub StartChunking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iiditeratorinterfaceid: ::windows_core::GUID, ppchunksenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDedupDataPort(::windows_core::IUnknown);
@@ -79,7 +76,7 @@ impl IDedupDataPort {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InsertChunks)(::windows_core::Interface::as_raw(self), pchunkmetadata.len() as _, ::core::mem::transmute(pchunkmetadata.as_ptr()), pchunkdata.len() as _, ::core::mem::transmute(pchunkdata.as_ptr()), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertChunksWithStream<P0>(&self, pchunkmetadata: &[DedupChunk], databytecount: u32, pchunkdatastream: P0) -> ::windows_core::Result<::windows_core::GUID>
     where
@@ -92,7 +89,7 @@ impl IDedupDataPort {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommitStreams)(::windows_core::Interface::as_raw(self), pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), pentries.len() as _, ::core::mem::transmute(pentries.as_ptr()), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitStreamsWithStream<P0>(&self, pstreams: &[DedupStream], entrycount: u32, pentriesstream: P0) -> ::windows_core::Result<::windows_core::GUID>
     where
@@ -153,7 +150,6 @@ pub struct IDedupDataPort_Vtbl {
     pub GetRequestStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: ::windows_core::GUID, pstatus: *mut DedupDataPortRequestStatus) -> ::windows_core::HRESULT,
     pub GetRequestResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: ::windows_core::GUID, maxwaitms: u32, pbatchresult: *mut ::windows_core::HRESULT, pbatchcount: *mut u32, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDedupDataPortManager(::windows_core::IUnknown);
@@ -191,7 +187,6 @@ pub struct IDedupDataPortManager_Vtbl {
     pub GetVolumeStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32, path: ::std::mem::MaybeUninit<::windows_core::BSTR>, pstatus: *mut DedupDataPortVolumeStatus) -> ::windows_core::HRESULT,
     pub GetVolumeDataPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32, path: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppdataport: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDedupIterateChunksHash32(::windows_core::IUnknown);
@@ -225,7 +220,6 @@ pub struct IDedupIterateChunksHash32_Vtbl {
     pub Drain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDedupReadFileCallback(::windows_core::IUnknown);
@@ -261,75 +255,40 @@ pub struct IDedupReadFileCallback_Vtbl {
     pub OrderContainersRestore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberofcontainers: u32, containerpaths: *const ::std::mem::MaybeUninit<::windows_core::BSTR>, readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows_core::HRESULT,
     pub PreviewContainerRead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filefullpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, numberofreads: u32, readoffsets: *const DDP_FILE_EXTENT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DEDUP_PT_AvgChunkSizeBytes: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DEDUP_PT_DisableStrongHashComputation: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DEDUP_PT_InvariantChunking: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DEDUP_PT_MaxChunkSizeBytes: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DEDUP_PT_MinChunkSizeBytes: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DEDUP_RECONSTRUCT_OPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = DEDUP_BACKUP_SUPPORT_PARAM_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DEDUP_RECONSTRUCT_UNOPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = DEDUP_BACKUP_SUPPORT_PARAM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupBackupSupport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73d6b2ad_2984_4715_b2e3_924c149744dd);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupChunkFlags_Compressed: DedupChunkFlags = DedupChunkFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupChunkFlags_None: DedupChunkFlags = DedupChunkFlags(0i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupChunkingAlgorithm_Unknonwn: DedupChunkingAlgorithm = DedupChunkingAlgorithm(0i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupChunkingAlgorithm_V1: DedupChunkingAlgorithm = DedupChunkingAlgorithm(1i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupCompressionAlgorithm_Unknonwn: DedupCompressionAlgorithm = DedupCompressionAlgorithm(0i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupCompressionAlgorithm_Xpress: DedupCompressionAlgorithm = DedupCompressionAlgorithm(1i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPort: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f107207_1829_48b2_a64b_e61f8e0d9acb);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortManagerOption_AutoStart: DedupDataPortManagerOption = DedupDataPortManagerOption(1i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortManagerOption_None: DedupDataPortManagerOption = DedupDataPortManagerOption(0i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortManagerOption_SkipReconciliation: DedupDataPortManagerOption = DedupDataPortManagerOption(2i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortRequestStatus_Complete: DedupDataPortRequestStatus = DedupDataPortRequestStatus(4i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortRequestStatus_Failed: DedupDataPortRequestStatus = DedupDataPortRequestStatus(5i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortRequestStatus_Partial: DedupDataPortRequestStatus = DedupDataPortRequestStatus(3i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortRequestStatus_Processing: DedupDataPortRequestStatus = DedupDataPortRequestStatus(2i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortRequestStatus_Queued: DedupDataPortRequestStatus = DedupDataPortRequestStatus(1i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortRequestStatus_Unknown: DedupDataPortRequestStatus = DedupDataPortRequestStatus(0i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortVolumeStatus_Initializing: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(3i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortVolumeStatus_Maintenance: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(5i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortVolumeStatus_NotAvailable: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(2i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortVolumeStatus_NotEnabled: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(1i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortVolumeStatus_Ready: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(4i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortVolumeStatus_Shutdown: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(6i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortVolumeStatus_Unknown: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(0i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupHashingAlgorithm_Unknonwn: DedupHashingAlgorithm = DedupHashingAlgorithm(0i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupHashingAlgorithm_V1: DedupHashingAlgorithm = DedupHashingAlgorithm(1i32);
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEDUP_BACKUP_SUPPORT_PARAM_TYPE(pub i32);
@@ -352,7 +311,6 @@ impl ::core::fmt::Debug for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
         f.debug_tuple("DEDUP_BACKUP_SUPPORT_PARAM_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEDUP_SET_PARAM_TYPE(pub i32);
@@ -375,7 +333,6 @@ impl ::core::fmt::Debug for DEDUP_SET_PARAM_TYPE {
         f.debug_tuple("DEDUP_SET_PARAM_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DedupChunkFlags(pub i32);
@@ -398,7 +355,6 @@ impl ::core::fmt::Debug for DedupChunkFlags {
         f.debug_tuple("DedupChunkFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DedupChunkingAlgorithm(pub i32);
@@ -421,7 +377,6 @@ impl ::core::fmt::Debug for DedupChunkingAlgorithm {
         f.debug_tuple("DedupChunkingAlgorithm").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DedupCompressionAlgorithm(pub i32);
@@ -444,7 +399,6 @@ impl ::core::fmt::Debug for DedupCompressionAlgorithm {
         f.debug_tuple("DedupCompressionAlgorithm").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DedupDataPortManagerOption(pub i32);
@@ -467,7 +421,6 @@ impl ::core::fmt::Debug for DedupDataPortManagerOption {
         f.debug_tuple("DedupDataPortManagerOption").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DedupDataPortRequestStatus(pub i32);
@@ -490,7 +443,6 @@ impl ::core::fmt::Debug for DedupDataPortRequestStatus {
         f.debug_tuple("DedupDataPortRequestStatus").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DedupDataPortVolumeStatus(pub i32);
@@ -513,7 +465,6 @@ impl ::core::fmt::Debug for DedupDataPortVolumeStatus {
         f.debug_tuple("DedupDataPortVolumeStatus").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DedupHashingAlgorithm(pub i32);
@@ -537,7 +488,6 @@ impl ::core::fmt::Debug for DedupHashingAlgorithm {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub struct DDP_FILE_EXTENT {
     pub Length: i64,
     pub Offset: i64,
@@ -568,7 +518,6 @@ impl ::core::default::Default for DDP_FILE_EXTENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub struct DEDUP_CHUNK_INFO_HASH32 {
     pub ChunkFlags: u32,
     pub ChunkOffsetInStream: u64,
@@ -601,7 +550,6 @@ impl ::core::default::Default for DEDUP_CHUNK_INFO_HASH32 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub struct DEDUP_CONTAINER_EXTENT {
     pub ContainerIndex: u32,
     pub StartOffset: i64,
@@ -633,7 +581,6 @@ impl ::core::default::Default for DEDUP_CONTAINER_EXTENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub struct DedupChunk {
     pub Hash: DedupHash,
     pub Flags: DedupChunkFlags,
@@ -666,7 +613,6 @@ impl ::core::default::Default for DedupChunk {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub struct DedupHash {
     pub Hash: [u8; 32],
 }
@@ -696,7 +642,6 @@ impl ::core::default::Default for DedupHash {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub struct DedupStream {
     pub Path: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
     pub Offset: u64,
@@ -728,7 +673,6 @@ impl ::core::default::Default for DedupStream {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub struct DedupStreamEntry {
     pub Hash: DedupHash,
     pub LogicalSize: u32,

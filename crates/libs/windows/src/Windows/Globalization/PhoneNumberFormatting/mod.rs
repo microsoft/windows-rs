@@ -93,7 +93,6 @@ pub struct IPhoneNumberInfoStatics_Vtbl {
     pub TryParse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::std::mem::MaybeUninit<::windows_core::HSTRING>, phonenumber: *mut *mut ::core::ffi::c_void, result__: *mut PhoneNumberParseResult) -> ::windows_core::HRESULT,
     pub TryParseWithRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::std::mem::MaybeUninit<::windows_core::HSTRING>, regioncode: ::std::mem::MaybeUninit<::windows_core::HSTRING>, phonenumber: *mut *mut ::core::ffi::c_void, result__: *mut PhoneNumberParseResult) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneNumberFormatter(::windows_core::IUnknown);
@@ -188,7 +187,6 @@ impl ::windows_core::RuntimeName for PhoneNumberFormatter {
 ::windows_core::imp::interface_hierarchy!(PhoneNumberFormatter, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneNumberFormatter {}
 unsafe impl ::core::marker::Sync for PhoneNumberFormatter {}
-#[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneNumberInfo(::windows_core::IUnknown);
@@ -270,7 +268,7 @@ impl PhoneNumberInfo {
             (::windows_core::Interface::vtable(this).TryParseWithRegion)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), ::core::mem::transmute_copy(regioncode), phonenumber as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IStringable>(self)?;
@@ -307,7 +305,6 @@ impl ::windows_core::RuntimeName for PhoneNumberInfo {
 impl ::windows_core::CanTryInto<super::super::Foundation::IStringable> for PhoneNumberInfo {}
 unsafe impl ::core::marker::Send for PhoneNumberInfo {}
 unsafe impl ::core::marker::Sync for PhoneNumberInfo {}
-#[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhoneNumberFormat(pub i32);
@@ -339,7 +336,6 @@ impl ::core::fmt::Debug for PhoneNumberFormat {
 impl ::windows_core::RuntimeType for PhoneNumberFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat;i4)");
 }
-#[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhoneNumberMatchResult(pub i32);
@@ -371,7 +367,6 @@ impl ::core::fmt::Debug for PhoneNumberMatchResult {
 impl ::windows_core::RuntimeType for PhoneNumberMatchResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberMatchResult;i4)");
 }
-#[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhoneNumberParseResult(pub i32);
@@ -404,7 +399,6 @@ impl ::core::fmt::Debug for PhoneNumberParseResult {
 impl ::windows_core::RuntimeType for PhoneNumberParseResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;i4)");
 }
-#[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PredictedPhoneNumberKind(pub i32);

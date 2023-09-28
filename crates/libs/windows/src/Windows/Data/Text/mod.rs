@@ -394,7 +394,6 @@ pub struct IWordsSegmenterFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWithLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, language: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AlternateWordForm(::windows_core::IUnknown);
@@ -436,7 +435,6 @@ impl ::windows_core::RuntimeName for AlternateWordForm {
 ::windows_core::imp::interface_hierarchy!(AlternateWordForm, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AlternateWordForm {}
 unsafe impl ::core::marker::Sync for AlternateWordForm {}
-#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SelectableWordSegment(::windows_core::IUnknown);
@@ -471,7 +469,6 @@ impl ::windows_core::RuntimeName for SelectableWordSegment {
 ::windows_core::imp::interface_hierarchy!(SelectableWordSegment, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SelectableWordSegment {}
 unsafe impl ::core::marker::Sync for SelectableWordSegment {}
-#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SelectableWordsSegmenter(::windows_core::IUnknown);
@@ -490,7 +487,7 @@ impl SelectableWordsSegmenter {
             (::windows_core::Interface::vtable(this).GetTokenAt)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), startindex, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetTokens(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SelectableWordSegment>> {
         let this = self;
@@ -499,7 +496,7 @@ impl SelectableWordsSegmenter {
             (::windows_core::Interface::vtable(this).GetTokens)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Tokenize<P0>(&self, text: &::windows_core::HSTRING, startindex: u32, handler: P0) -> ::windows_core::Result<()>
     where
@@ -535,12 +532,11 @@ impl ::windows_core::RuntimeName for SelectableWordsSegmenter {
 ::windows_core::imp::interface_hierarchy!(SelectableWordsSegmenter, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SelectableWordsSegmenter {}
 unsafe impl ::core::marker::Sync for SelectableWordsSegmenter {}
-#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SemanticTextQuery(::windows_core::IUnknown);
 impl SemanticTextQuery {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Find(&self, content: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<TextSegment>> {
         let this = self;
@@ -549,7 +545,7 @@ impl SemanticTextQuery {
             (::windows_core::Interface::vtable(this).Find)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(content), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindInProperty(&self, propertycontent: &::windows_core::HSTRING, propertyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<TextSegment>> {
         let this = self;
@@ -591,7 +587,6 @@ impl ::windows_core::RuntimeName for SemanticTextQuery {
 ::windows_core::imp::interface_hierarchy!(SemanticTextQuery, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SemanticTextQuery {}
 unsafe impl ::core::marker::Sync for SemanticTextQuery {}
-#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TextConversionGenerator(::windows_core::IUnknown);
@@ -610,7 +605,7 @@ impl TextConversionGenerator {
             (::windows_core::Interface::vtable(this).LanguageAvailableButNotInstalled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCandidatesAsync(&self, input: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>> {
         let this = self;
@@ -619,7 +614,7 @@ impl TextConversionGenerator {
             (::windows_core::Interface::vtable(this).GetCandidatesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCandidatesWithMaxCountAsync(&self, input: &::windows_core::HSTRING, maxcandidates: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>> {
         let this = self;
@@ -655,7 +650,6 @@ impl ::windows_core::RuntimeName for TextConversionGenerator {
 ::windows_core::imp::interface_hierarchy!(TextConversionGenerator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for TextConversionGenerator {}
 unsafe impl ::core::marker::Sync for TextConversionGenerator {}
-#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TextPhoneme(::windows_core::IUnknown);
@@ -690,7 +684,6 @@ impl ::windows_core::RuntimeName for TextPhoneme {
 ::windows_core::imp::interface_hierarchy!(TextPhoneme, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for TextPhoneme {}
 unsafe impl ::core::marker::Sync for TextPhoneme {}
-#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TextPredictionGenerator(::windows_core::IUnknown);
@@ -709,7 +702,7 @@ impl TextPredictionGenerator {
             (::windows_core::Interface::vtable(this).LanguageAvailableButNotInstalled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCandidatesAsync(&self, input: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>> {
         let this = self;
@@ -718,7 +711,7 @@ impl TextPredictionGenerator {
             (::windows_core::Interface::vtable(this).GetCandidatesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCandidatesWithMaxCountAsync(&self, input: &::windows_core::HSTRING, maxcandidates: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>> {
         let this = self;
@@ -727,7 +720,7 @@ impl TextPredictionGenerator {
             (::windows_core::Interface::vtable(this).GetCandidatesWithMaxCountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), maxcandidates, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCandidatesWithParametersAsync<P0>(&self, input: &::windows_core::HSTRING, maxcandidates: u32, predictionoptions: TextPredictionOptions, previousstrings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>>
     where
@@ -739,7 +732,7 @@ impl TextPredictionGenerator {
             (::windows_core::Interface::vtable(this).GetCandidatesWithParametersAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), maxcandidates, predictionoptions, previousstrings.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetNextWordCandidatesAsync<P0>(&self, maxcandidates: u32, previousstrings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>>
     where
@@ -751,7 +744,7 @@ impl TextPredictionGenerator {
             (::windows_core::Interface::vtable(this).GetNextWordCandidatesAsync)(::windows_core::Interface::as_raw(this), maxcandidates, previousstrings.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Text_Core\"`*"]
+    #[doc = "Required features: `UI_Text_Core`"]
     #[cfg(feature = "UI_Text_Core")]
     pub fn InputScope(&self) -> ::windows_core::Result<super::super::UI::Text::Core::CoreTextInputScope> {
         let this = &::windows_core::ComInterface::cast::<ITextPredictionGenerator2>(self)?;
@@ -760,7 +753,7 @@ impl TextPredictionGenerator {
             (::windows_core::Interface::vtable(this).InputScope)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Text_Core\"`*"]
+    #[doc = "Required features: `UI_Text_Core`"]
     #[cfg(feature = "UI_Text_Core")]
     pub fn SetInputScope(&self, value: super::super::UI::Text::Core::CoreTextInputScope) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ITextPredictionGenerator2>(self)?;
@@ -793,7 +786,6 @@ impl ::windows_core::RuntimeName for TextPredictionGenerator {
 ::windows_core::imp::interface_hierarchy!(TextPredictionGenerator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for TextPredictionGenerator {}
 unsafe impl ::core::marker::Sync for TextPredictionGenerator {}
-#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TextReverseConversionGenerator(::windows_core::IUnknown);
@@ -812,7 +804,7 @@ impl TextReverseConversionGenerator {
             (::windows_core::Interface::vtable(this).LanguageAvailableButNotInstalled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ConvertBackAsync(&self, input: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         let this = self;
@@ -821,7 +813,7 @@ impl TextReverseConversionGenerator {
             (::windows_core::Interface::vtable(this).ConvertBackAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPhonemesAsync(&self, input: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<TextPhoneme>>> {
         let this = &::windows_core::ComInterface::cast::<ITextReverseConversionGenerator2>(self)?;
@@ -857,7 +849,6 @@ impl ::windows_core::RuntimeName for TextReverseConversionGenerator {
 ::windows_core::imp::interface_hierarchy!(TextReverseConversionGenerator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for TextReverseConversionGenerator {}
 unsafe impl ::core::marker::Sync for TextReverseConversionGenerator {}
-#[doc = "*Required features: `\"Data_Text\"`*"]
 pub struct UnicodeCharacters;
 impl UnicodeCharacters {
     pub fn GetCodepointFromSurrogatePair(highsurrogate: u32, lowsurrogate: u32) -> ::windows_core::Result<u32> {
@@ -968,7 +959,6 @@ impl UnicodeCharacters {
 impl ::windows_core::RuntimeName for UnicodeCharacters {
     const NAME: &'static str = "Windows.Data.Text.UnicodeCharacters";
 }
-#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WordSegment(::windows_core::IUnknown);
@@ -987,7 +977,7 @@ impl WordSegment {
             (::windows_core::Interface::vtable(this).SourceTextSegment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AlternateForms(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<AlternateWordForm>> {
         let this = self;
@@ -1012,7 +1002,6 @@ impl ::windows_core::RuntimeName for WordSegment {
 ::windows_core::imp::interface_hierarchy!(WordSegment, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for WordSegment {}
 unsafe impl ::core::marker::Sync for WordSegment {}
-#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WordsSegmenter(::windows_core::IUnknown);
@@ -1031,7 +1020,7 @@ impl WordsSegmenter {
             (::windows_core::Interface::vtable(this).GetTokenAt)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), startindex, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetTokens(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WordSegment>> {
         let this = self;
@@ -1040,7 +1029,7 @@ impl WordsSegmenter {
             (::windows_core::Interface::vtable(this).GetTokens)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Tokenize<P0>(&self, text: &::windows_core::HSTRING, startindex: u32, handler: P0) -> ::windows_core::Result<()>
     where
@@ -1076,7 +1065,6 @@ impl ::windows_core::RuntimeName for WordsSegmenter {
 ::windows_core::imp::interface_hierarchy!(WordsSegmenter, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for WordsSegmenter {}
 unsafe impl ::core::marker::Sync for WordsSegmenter {}
-#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AlternateNormalizationFormat(pub i32);
@@ -1109,7 +1097,6 @@ impl ::core::fmt::Debug for AlternateNormalizationFormat {
 impl ::windows_core::RuntimeType for AlternateNormalizationFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.AlternateNormalizationFormat;i4)");
 }
-#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextPredictionOptions(pub u32);
@@ -1173,7 +1160,6 @@ impl ::core::ops::Not for TextPredictionOptions {
 impl ::windows_core::RuntimeType for TextPredictionOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.TextPredictionOptions;u4)");
 }
-#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnicodeGeneralCategory(pub i32);
@@ -1231,7 +1217,6 @@ impl ::core::fmt::Debug for UnicodeGeneralCategory {
 impl ::windows_core::RuntimeType for UnicodeGeneralCategory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeGeneralCategory;i4)");
 }
-#[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnicodeNumericType(pub i32);
@@ -1264,7 +1249,6 @@ impl ::windows_core::RuntimeType for UnicodeNumericType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeNumericType;i4)");
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Data_Text\"`*"]
 pub struct TextSegment {
     pub StartPosition: u32,
     pub Length: u32,
@@ -1297,7 +1281,7 @@ impl ::core::default::Default for TextSegment {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
+#[doc = "Required features: `Foundation_Collections`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1308,7 +1292,7 @@ impl SelectableWordSegmentsTokenizingHandler {
         let com = SelectableWordSegmentsTokenizingHandlerBox::<F> { vtable: &SelectableWordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<P0, P1>(&self, precedingwords: P0, words: P1) -> ::windows_core::Result<()>
     where
@@ -1384,7 +1368,7 @@ pub struct SelectableWordSegmentsTokenizingHandler_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Invoke: usize,
 }
-#[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
+#[doc = "Required features: `Foundation_Collections`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1395,7 +1379,7 @@ impl WordSegmentsTokenizingHandler {
         let com = WordSegmentsTokenizingHandlerBox::<F> { vtable: &WordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<P0, P1>(&self, precedingwords: P0, words: P1) -> ::windows_core::Result<()>
     where

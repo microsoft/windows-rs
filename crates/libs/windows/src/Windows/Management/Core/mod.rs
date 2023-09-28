@@ -32,12 +32,11 @@ pub struct IApplicationDataManagerStatics_Vtbl {
     #[cfg(not(feature = "Storage"))]
     CreateForPackageFamily: usize,
 }
-#[doc = "*Required features: `\"Management_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ApplicationDataManager(::windows_core::IUnknown);
 impl ApplicationDataManager {
-    #[doc = "*Required features: `\"Storage\"`*"]
+    #[doc = "Required features: `Storage`"]
     #[cfg(feature = "Storage")]
     pub fn CreateForPackageFamily(packagefamilyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Storage::ApplicationData> {
         Self::IApplicationDataManagerStatics(|this| unsafe {

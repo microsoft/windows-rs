@@ -31,7 +31,6 @@ pub struct IInstalledClassicAppInfo_Vtbl {
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub DisplayVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
 pub struct ClassicAppManager;
 impl ClassicAppManager {
     pub fn FindInstalledApp(appuninstallkey: &::windows_core::HSTRING) -> ::windows_core::Result<InstalledClassicAppInfo> {
@@ -49,7 +48,6 @@ impl ClassicAppManager {
 impl ::windows_core::RuntimeName for ClassicAppManager {
     const NAME: &'static str = "Windows.Management.Deployment.Preview.ClassicAppManager";
 }
-#[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InstalledClassicAppInfo(::windows_core::IUnknown);

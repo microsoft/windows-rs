@@ -1,4 +1,5 @@
 #[cfg(feature = "UI_UIAutomation_Core")]
+#[doc = "Required features: `UI_UIAutomation_Core`"]
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -67,7 +68,6 @@ unsafe impl ::windows_core::ComInterface for IAutomationTextRange {
 pub struct IAutomationTextRange_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc = "*Required features: `\"UI_UIAutomation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AutomationConnection(::windows_core::IUnknown);
@@ -109,7 +109,6 @@ impl ::windows_core::RuntimeName for AutomationConnection {
 ::windows_core::imp::interface_hierarchy!(AutomationConnection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AutomationConnection {}
 unsafe impl ::core::marker::Sync for AutomationConnection {}
-#[doc = "*Required features: `\"UI_UIAutomation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AutomationConnectionBoundObject(::windows_core::IUnknown);
@@ -137,7 +136,6 @@ impl ::windows_core::RuntimeName for AutomationConnectionBoundObject {
 ::windows_core::imp::interface_hierarchy!(AutomationConnectionBoundObject, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AutomationConnectionBoundObject {}
 unsafe impl ::core::marker::Sync for AutomationConnectionBoundObject {}
-#[doc = "*Required features: `\"UI_UIAutomation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AutomationElement(::windows_core::IUnknown);
@@ -179,7 +177,6 @@ impl ::windows_core::RuntimeName for AutomationElement {
 ::windows_core::imp::interface_hierarchy!(AutomationElement, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AutomationElement {}
 unsafe impl ::core::marker::Sync for AutomationElement {}
-#[doc = "*Required features: `\"UI_UIAutomation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AutomationTextRange(::windows_core::IUnknown);

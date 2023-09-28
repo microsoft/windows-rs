@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioFrameNative(::windows_core::IUnknown);
@@ -24,12 +23,11 @@ pub struct IAudioFrameNative_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioFrameNativeFactory(::windows_core::IUnknown);
 impl IAudioFrameNativeFactory {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn CreateFromMFSample<P0, P1, T>(&self, data: P0, forcereadonly: P1) -> ::windows_core::Result<T>
     where
@@ -57,7 +55,6 @@ pub struct IAudioFrameNativeFactory_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
     CreateFromMFSample: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVideoFrameNative(::windows_core::IUnknown);
@@ -91,12 +88,11 @@ pub struct IVideoFrameNative_Vtbl {
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVideoFrameNativeFactory(::windows_core::IUnknown);
 impl IVideoFrameNativeFactory {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn CreateFromMFSample<P0, P1, P2, T>(&self, data: P0, subtype: *const ::windows_core::GUID, width: u32, height: u32, forcereadonly: P1, mindisplayaperture: ::core::option::Option<*const super::super::super::Media::MediaFoundation::MFVideoArea>, device: P2) -> ::windows_core::Result<T>
     where
@@ -125,9 +121,7 @@ pub struct IVideoFrameNativeFactory_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
     CreateFromMFSample: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
 pub const CLSID_AudioFrameNativeFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16a0a3b9_9f65_4102_9367_2cda3a4f372a);
-#[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
 pub const CLSID_VideoFrameNativeFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd194386a_04e3_4814_8100_b2b0ae6d78c7);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

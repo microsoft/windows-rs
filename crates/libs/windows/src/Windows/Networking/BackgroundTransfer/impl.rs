@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"Security_Credentials\"`, `\"implement\"`*"]
+#[doc = "Required features: `Security_Credentials`"]
 #[cfg(feature = "Security_Credentials")]
 pub trait IBackgroundTransferBase_Impl: Sized {
     fn SetRequestHeader(&self, headername: &::windows_core::HSTRING, headervalue: &::windows_core::HSTRING) -> ::windows_core::Result<()>;
@@ -128,7 +128,6 @@ impl IBackgroundTransferBase_Vtbl {
         *iid == <IBackgroundTransferBase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"implement\"`*"]
 pub trait IBackgroundTransferContentPartFactory_Impl: Sized {
     fn CreateWithName(&self, name: &::windows_core::HSTRING) -> ::windows_core::Result<BackgroundTransferContentPart>;
     fn CreateWithNameAndFileName(&self, name: &::windows_core::HSTRING, filename: &::windows_core::HSTRING) -> ::windows_core::Result<BackgroundTransferContentPart>;
@@ -172,7 +171,7 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
         *iid == <IBackgroundTransferContentPartFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`, `Storage_Streams`"]
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IBackgroundTransferOperation_Impl: Sized {
     fn Guid(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -294,7 +293,6 @@ impl IBackgroundTransferOperation_Vtbl {
         *iid == <IBackgroundTransferOperation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"implement\"`*"]
 pub trait IBackgroundTransferOperationPriority_Impl: Sized {
     fn Priority(&self) -> ::windows_core::Result<BackgroundTransferPriority>;
     fn SetPriority(&self, value: BackgroundTransferPriority) -> ::windows_core::Result<()>;

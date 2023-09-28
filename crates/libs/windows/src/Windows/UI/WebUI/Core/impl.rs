@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"UI_WebUI_Core\"`, `\"implement\"`*"]
 pub trait IWebUICommandBarElement_Impl: Sized {}
 impl ::windows_core::RuntimeName for IWebUICommandBarElement {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarElement";
@@ -11,7 +10,6 @@ impl IWebUICommandBarElement_Vtbl {
         *iid == <IWebUICommandBarElement as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"UI_WebUI_Core\"`, `\"implement\"`*"]
 pub trait IWebUICommandBarIcon_Impl: Sized {}
 impl ::windows_core::RuntimeName for IWebUICommandBarIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarIcon";

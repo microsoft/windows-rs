@@ -33,12 +33,11 @@ pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Preview_InkWorkspace\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkWorkspaceHostedAppManager(::windows_core::IUnknown);
 impl InkWorkspaceHostedAppManager {
-    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`*"]
+    #[doc = "Required features: `Foundation`, `Graphics_Imaging`"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
     pub fn SetThumbnailAsync<P0>(&self, bitmap: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where

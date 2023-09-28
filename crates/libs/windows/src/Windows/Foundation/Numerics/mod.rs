@@ -1,5 +1,4 @@
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation_Numerics\"`*"]
 pub struct Matrix3x2 {
     pub M11: f32,
     pub M12: f32,
@@ -37,7 +36,6 @@ impl ::core::default::Default for Matrix3x2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation_Numerics\"`*"]
 pub struct Matrix4x4 {
     pub M11: f32,
     pub M12: f32,
@@ -85,7 +83,6 @@ impl ::core::default::Default for Matrix4x4 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation_Numerics\"`*"]
 pub struct Plane {
     pub Normal: Vector3,
     pub D: f32,
@@ -119,7 +116,6 @@ impl ::core::default::Default for Plane {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation_Numerics\"`*"]
 pub struct Quaternion {
     pub X: f32,
     pub Y: f32,
@@ -155,7 +151,6 @@ impl ::core::default::Default for Quaternion {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation_Numerics\"`*"]
 pub struct Rational {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -189,7 +184,6 @@ impl ::core::default::Default for Rational {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation_Numerics\"`*"]
 pub struct Vector2 {
     pub X: f32,
     pub Y: f32,
@@ -223,7 +217,6 @@ impl ::core::default::Default for Vector2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation_Numerics\"`*"]
 pub struct Vector3 {
     pub X: f32,
     pub Y: f32,
@@ -258,7 +251,6 @@ impl ::core::default::Default for Vector3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation_Numerics\"`*"]
 pub struct Vector4 {
     pub X: f32,
     pub Y: f32,

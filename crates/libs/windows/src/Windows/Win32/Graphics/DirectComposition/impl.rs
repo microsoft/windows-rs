@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait IDCompositionAffineTransform2DEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
     fn SetInterpolationMode(&self, interpolationmode: super::Direct2D::Common::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows_core::Result<()>;
@@ -64,7 +64,6 @@ impl IDCompositionAffineTransform2DEffect_Vtbl {
         *iid == <IDCompositionAffineTransform2DEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionAnimation_Impl: Sized {
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn SetAbsoluteBeginTime(&self, begintime: i64) -> ::windows_core::Result<()>;
@@ -120,7 +119,7 @@ impl IDCompositionAnimation_Vtbl {
         *iid == <IDCompositionAnimation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait IDCompositionArithmeticCompositeEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
     fn SetCoefficients(&self, coefficients: *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows_core::Result<()>;
@@ -207,7 +206,7 @@ impl IDCompositionArithmeticCompositeEffect_Vtbl {
         *iid == <IDCompositionArithmeticCompositeEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDCompositionBlendEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
     fn SetMode(&self, mode: super::Direct2D::Common::D2D1_BLEND_MODE) -> ::windows_core::Result<()>;
@@ -228,7 +227,7 @@ impl IDCompositionBlendEffect_Vtbl {
         *iid == <IDCompositionBlendEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDCompositionBrightnessEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
     fn SetWhitePoint(&self, whitepoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows_core::Result<()>;
@@ -315,7 +314,6 @@ impl IDCompositionBrightnessEffect_Vtbl {
         *iid == <IDCompositionBrightnessEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionClip_Impl: Sized {}
 impl ::windows_core::RuntimeName for IDCompositionClip {}
 impl IDCompositionClip_Vtbl {
@@ -326,7 +324,7 @@ impl IDCompositionClip_Vtbl {
         *iid == <IDCompositionClip as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait IDCompositionColorMatrixEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
     fn SetMatrix(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_5X4_F) -> ::windows_core::Result<()>;
@@ -378,7 +376,7 @@ impl IDCompositionColorMatrixEffect_Vtbl {
         *iid == <IDCompositionColorMatrixEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDCompositionCompositeEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
     fn SetMode(&self, mode: super::Direct2D::Common::D2D1_COMPOSITE_MODE) -> ::windows_core::Result<()>;
@@ -399,7 +397,7 @@ impl IDCompositionCompositeEffect_Vtbl {
         *iid == <IDCompositionCompositeEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDCompositionDelegatedInkTrail_Impl: Sized {
     fn AddTrailPoints(&self, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: u32) -> ::windows_core::Result<u32>;
@@ -456,7 +454,7 @@ impl IDCompositionDelegatedInkTrail_Vtbl {
         *iid == <IDCompositionDelegatedInkTrail as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDCompositionDesktopDevice_Impl: Sized + IDCompositionDevice2_Impl {
     fn CreateTargetForHwnd(&self, hwnd: super::super::Foundation::HWND, topmost: super::super::Foundation::BOOL) -> ::windows_core::Result<IDCompositionTarget>;
@@ -512,7 +510,7 @@ impl IDCompositionDesktopDevice_Vtbl {
         *iid == <IDCompositionDesktopDevice as ::windows_core::ComInterface>::IID || *iid == <IDCompositionDevice2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDCompositionDevice_Impl: Sized {
     fn Commit(&self) -> ::windows_core::Result<()>;
@@ -823,7 +821,7 @@ impl IDCompositionDevice_Vtbl {
         *iid == <IDCompositionDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDCompositionDevice2_Impl: Sized {
     fn Commit(&self) -> ::windows_core::Result<()>;
@@ -1095,7 +1093,7 @@ impl IDCompositionDevice2_Vtbl {
         *iid == <IDCompositionDevice2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDCompositionDevice3_Impl: Sized + IDCompositionDevice2_Impl {
     fn CreateGaussianBlurEffect(&self) -> ::windows_core::Result<IDCompositionGaussianBlurEffect>;
@@ -1281,7 +1279,6 @@ impl IDCompositionDevice3_Vtbl {
         *iid == <IDCompositionDevice3 as ::windows_core::ComInterface>::IID || *iid == <IDCompositionDevice2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionDeviceDebug_Impl: Sized {
     fn EnableDebugCounters(&self) -> ::windows_core::Result<()>;
     fn DisableDebugCounters(&self) -> ::windows_core::Result<()>;
@@ -1309,7 +1306,6 @@ impl IDCompositionDeviceDebug_Vtbl {
         *iid == <IDCompositionDeviceDebug as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionEffect_Impl: Sized {}
 impl ::windows_core::RuntimeName for IDCompositionEffect {}
 impl IDCompositionEffect_Vtbl {
@@ -1320,7 +1316,6 @@ impl IDCompositionEffect_Vtbl {
         *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionEffectGroup_Impl: Sized + IDCompositionEffect_Impl {
     fn SetOpacity(&self, animation: ::core::option::Option<&IDCompositionAnimation>) -> ::windows_core::Result<()>;
     fn SetOpacity2(&self, opacity: f32) -> ::windows_core::Result<()>;
@@ -1355,7 +1350,6 @@ impl IDCompositionEffectGroup_Vtbl {
         *iid == <IDCompositionEffectGroup as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionFilterEffect_Impl: Sized + IDCompositionEffect_Impl {
     fn SetInput(&self, index: u32, input: ::core::option::Option<&::windows_core::IUnknown>, flags: u32) -> ::windows_core::Result<()>;
 }
@@ -1373,7 +1367,7 @@ impl IDCompositionFilterEffect_Vtbl {
         *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDCompositionGaussianBlurEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
     fn SetStandardDeviation(&self, animation: ::core::option::Option<&IDCompositionAnimation>) -> ::windows_core::Result<()>;
@@ -1411,7 +1405,6 @@ impl IDCompositionGaussianBlurEffect_Vtbl {
         *iid == <IDCompositionGaussianBlurEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionHueRotationEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
     fn SetAngle(&self, animation: ::core::option::Option<&IDCompositionAnimation>) -> ::windows_core::Result<()>;
     fn SetAngle2(&self, amountdegrees: f32) -> ::windows_core::Result<()>;
@@ -1439,7 +1432,6 @@ impl IDCompositionHueRotationEffect_Vtbl {
         *iid == <IDCompositionHueRotationEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionInkTrailDevice_Impl: Sized {
     fn CreateDelegatedInkTrail(&self) -> ::windows_core::Result<IDCompositionDelegatedInkTrail>;
     fn CreateDelegatedInkTrailForSwapChain(&self, swapchain: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<IDCompositionDelegatedInkTrail>;
@@ -1479,7 +1471,7 @@ impl IDCompositionInkTrailDevice_Vtbl {
         *iid == <IDCompositionInkTrailDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDCompositionLinearTransferEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
     fn SetRedYIntercept(&self, animation: ::core::option::Option<&IDCompositionAnimation>) -> ::windows_core::Result<()>;
@@ -1643,7 +1635,7 @@ impl IDCompositionLinearTransferEffect_Vtbl {
         *iid == <IDCompositionLinearTransferEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Foundation_Numerics\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`"]
 #[cfg(feature = "Foundation_Numerics")]
 pub trait IDCompositionMatrixTransform_Impl: Sized + IDCompositionTransform_Impl {
     fn SetMatrix(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::Result<()>;
@@ -1681,7 +1673,7 @@ impl IDCompositionMatrixTransform_Vtbl {
         *iid == <IDCompositionMatrixTransform as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Foundation_Numerics\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`"]
 #[cfg(feature = "Foundation_Numerics")]
 pub trait IDCompositionMatrixTransform3D_Impl: Sized + IDCompositionTransform3D_Impl {
     fn SetMatrix(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::Result<()>;
@@ -1719,7 +1711,6 @@ impl IDCompositionMatrixTransform3D_Vtbl {
         *iid == <IDCompositionMatrixTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionRectangleClip_Impl: Sized + IDCompositionClip_Impl {
     fn SetLeft(&self, animation: ::core::option::Option<&IDCompositionAnimation>) -> ::windows_core::Result<()>;
     fn SetLeft2(&self, left: f32) -> ::windows_core::Result<()>;
@@ -1901,7 +1892,6 @@ impl IDCompositionRectangleClip_Vtbl {
         *iid == <IDCompositionRectangleClip as ::windows_core::ComInterface>::IID || *iid == <IDCompositionClip as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionRotateTransform_Impl: Sized + IDCompositionTransform_Impl {
     fn SetAngle(&self, animation: ::core::option::Option<&IDCompositionAnimation>) -> ::windows_core::Result<()>;
     fn SetAngle2(&self, angle: f32) -> ::windows_core::Result<()>;
@@ -1957,7 +1947,6 @@ impl IDCompositionRotateTransform_Vtbl {
         *iid == <IDCompositionRotateTransform as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionRotateTransform3D_Impl: Sized + IDCompositionTransform3D_Impl {
     fn SetAngle(&self, animation: ::core::option::Option<&IDCompositionAnimation>) -> ::windows_core::Result<()>;
     fn SetAngle2(&self, angle: f32) -> ::windows_core::Result<()>;
@@ -2069,7 +2058,6 @@ impl IDCompositionRotateTransform3D_Vtbl {
         *iid == <IDCompositionRotateTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionSaturationEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
     fn SetSaturation(&self, animation: ::core::option::Option<&IDCompositionAnimation>) -> ::windows_core::Result<()>;
     fn SetSaturation2(&self, ratio: f32) -> ::windows_core::Result<()>;
@@ -2097,7 +2085,6 @@ impl IDCompositionSaturationEffect_Vtbl {
         *iid == <IDCompositionSaturationEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionScaleTransform_Impl: Sized + IDCompositionTransform_Impl {
     fn SetScaleX(&self, animation: ::core::option::Option<&IDCompositionAnimation>) -> ::windows_core::Result<()>;
     fn SetScaleX2(&self, scalex: f32) -> ::windows_core::Result<()>;
@@ -2167,7 +2154,6 @@ impl IDCompositionScaleTransform_Vtbl {
         *iid == <IDCompositionScaleTransform as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionScaleTransform3D_Impl: Sized + IDCompositionTransform3D_Impl {
     fn SetScaleX(&self, animation: ::core::option::Option<&IDCompositionAnimation>) -> ::windows_core::Result<()>;
     fn SetScaleX2(&self, scalex: f32) -> ::windows_core::Result<()>;
@@ -2265,7 +2251,7 @@ impl IDCompositionScaleTransform3D_Vtbl {
         *iid == <IDCompositionScaleTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDCompositionShadowEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
     fn SetStandardDeviation(&self, animation: ::core::option::Option<&IDCompositionAnimation>) -> ::windows_core::Result<()>;
@@ -2359,7 +2345,6 @@ impl IDCompositionShadowEffect_Vtbl {
         *iid == <IDCompositionShadowEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionSkewTransform_Impl: Sized + IDCompositionTransform_Impl {
     fn SetAngleX(&self, animation: ::core::option::Option<&IDCompositionAnimation>) -> ::windows_core::Result<()>;
     fn SetAngleX2(&self, anglex: f32) -> ::windows_core::Result<()>;
@@ -2429,7 +2414,7 @@ impl IDCompositionSkewTransform_Vtbl {
         *iid == <IDCompositionSkewTransform as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDCompositionSurface_Impl: Sized {
     fn BeginDraw(&self, updaterect: *const super::super::Foundation::RECT, iid: *const ::windows_core::GUID, updateobject: *mut *mut ::core::ffi::c_void, updateoffset: *mut super::super::Foundation::POINT) -> ::windows_core::Result<()>;
@@ -2481,7 +2466,7 @@ impl IDCompositionSurface_Vtbl {
         *iid == <IDCompositionSurface as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDCompositionSurfaceFactory_Impl: Sized {
     fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows_core::Result<IDCompositionSurface>;
@@ -2524,7 +2509,7 @@ impl IDCompositionSurfaceFactory_Vtbl {
         *iid == <IDCompositionSurfaceFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDCompositionTableTransferEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
     fn SetRedTable(&self, tablevalues: *const f32, count: u32) -> ::windows_core::Result<()>;
@@ -2660,7 +2645,6 @@ impl IDCompositionTableTransferEffect_Vtbl {
         *iid == <IDCompositionTableTransferEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionTarget_Impl: Sized {
     fn SetRoot(&self, visual: ::core::option::Option<&IDCompositionVisual>) -> ::windows_core::Result<()>;
 }
@@ -2678,7 +2662,6 @@ impl IDCompositionTarget_Vtbl {
         *iid == <IDCompositionTarget as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionTransform_Impl: Sized + IDCompositionTransform3D_Impl {}
 impl ::windows_core::RuntimeName for IDCompositionTransform {}
 impl IDCompositionTransform_Vtbl {
@@ -2689,7 +2672,6 @@ impl IDCompositionTransform_Vtbl {
         *iid == <IDCompositionTransform as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionTransform3D_Impl: Sized + IDCompositionEffect_Impl {}
 impl ::windows_core::RuntimeName for IDCompositionTransform3D {}
 impl IDCompositionTransform3D_Vtbl {
@@ -2700,7 +2682,6 @@ impl IDCompositionTransform3D_Vtbl {
         *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionTranslateTransform_Impl: Sized + IDCompositionTransform_Impl {
     fn SetOffsetX(&self, animation: ::core::option::Option<&IDCompositionAnimation>) -> ::windows_core::Result<()>;
     fn SetOffsetX2(&self, offsetx: f32) -> ::windows_core::Result<()>;
@@ -2742,7 +2723,6 @@ impl IDCompositionTranslateTransform_Vtbl {
         *iid == <IDCompositionTranslateTransform as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"implement\"`*"]
 pub trait IDCompositionTranslateTransform3D_Impl: Sized + IDCompositionTransform3D_Impl {
     fn SetOffsetX(&self, animation: ::core::option::Option<&IDCompositionAnimation>) -> ::windows_core::Result<()>;
     fn SetOffsetX2(&self, offsetx: f32) -> ::windows_core::Result<()>;
@@ -2798,7 +2778,7 @@ impl IDCompositionTranslateTransform3D_Vtbl {
         *iid == <IDCompositionTranslateTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait IDCompositionTurbulenceEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
     fn SetOffset(&self, offset: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows_core::Result<()>;
@@ -2864,7 +2844,7 @@ impl IDCompositionTurbulenceEffect_Vtbl {
         *iid == <IDCompositionTurbulenceEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDCompositionVirtualSurface_Impl: Sized + IDCompositionSurface_Impl {
     fn Resize(&self, width: u32, height: u32) -> ::windows_core::Result<()>;
@@ -2895,7 +2875,7 @@ impl IDCompositionVirtualSurface_Vtbl {
         *iid == <IDCompositionVirtualSurface as ::windows_core::ComInterface>::IID || *iid == <IDCompositionSurface as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait IDCompositionVisual_Impl: Sized {
     fn SetOffsetX(&self, animation: ::core::option::Option<&IDCompositionAnimation>) -> ::windows_core::Result<()>;
@@ -3031,7 +3011,7 @@ impl IDCompositionVisual_Vtbl {
         *iid == <IDCompositionVisual as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait IDCompositionVisual2_Impl: Sized + IDCompositionVisual_Impl {
     fn SetOpacityMode(&self, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows_core::Result<()>;
@@ -3062,7 +3042,7 @@ impl IDCompositionVisual2_Vtbl {
         *iid == <IDCompositionVisual2 as ::windows_core::ComInterface>::IID || *iid == <IDCompositionVisual as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait IDCompositionVisual3_Impl: Sized + IDCompositionVisualDebug_Impl {
     fn SetDepthMode(&self, mode: DCOMPOSITION_DEPTH_MODE) -> ::windows_core::Result<()>;
@@ -3135,7 +3115,7 @@ impl IDCompositionVisual3_Vtbl {
         *iid == <IDCompositionVisual3 as ::windows_core::ComInterface>::IID || *iid == <IDCompositionVisual as ::windows_core::ComInterface>::IID || *iid == <IDCompositionVisual2 as ::windows_core::ComInterface>::IID || *iid == <IDCompositionVisualDebug as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait IDCompositionVisualDebug_Impl: Sized + IDCompositionVisual2_Impl {
     fn EnableHeatMap(&self, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows_core::Result<()>;

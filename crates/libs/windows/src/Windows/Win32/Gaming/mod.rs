@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckGamingPrivilegeSilently(privilegeid: u32, scope: &::windows_core::HSTRING, policy: &::windows_core::HSTRING) -> ::windows_core::Result<super::Foundation::BOOL> {
@@ -6,7 +6,7 @@ pub unsafe fn CheckGamingPrivilegeSilently(privilegeid: u32, scope: &::windows_c
     let mut result__ = ::std::mem::zeroed();
     CheckGamingPrivilegeSilently(privilegeid, ::core::mem::transmute_copy(scope), ::core::mem::transmute_copy(policy), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckGamingPrivilegeSilentlyForUser<P0>(user: P0, privilegeid: u32, scope: &::windows_core::HSTRING, policy: &::windows_core::HSTRING) -> ::windows_core::Result<super::Foundation::BOOL>
@@ -17,13 +17,11 @@ where
     let mut result__ = ::std::mem::zeroed();
     CheckGamingPrivilegeSilentlyForUser(user.into_param().abi(), privilegeid, ::core::mem::transmute_copy(scope), ::core::mem::transmute_copy(policy), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn CheckGamingPrivilegeWithUI(privilegeid: u32, scope: &::windows_core::HSTRING, policy: &::windows_core::HSTRING, friendlymessage: &::windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-1.dll" "system" fn CheckGamingPrivilegeWithUI(privilegeid : u32, scope : ::std::mem::MaybeUninit <::windows_core::HSTRING >, policy : ::std::mem::MaybeUninit <::windows_core::HSTRING >, friendlymessage : ::std::mem::MaybeUninit <::windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CheckGamingPrivilegeWithUI(privilegeid, ::core::mem::transmute_copy(scope), ::core::mem::transmute_copy(policy), ::core::mem::transmute_copy(friendlymessage), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn CheckGamingPrivilegeWithUIForUser<P0>(user: P0, privilegeid: u32, scope: &::windows_core::HSTRING, policy: &::windows_core::HSTRING, friendlymessage: &::windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
@@ -32,21 +30,19 @@ where
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn CheckGamingPrivilegeWithUIForUser(user : * mut::core::ffi::c_void, privilegeid : u32, scope : ::std::mem::MaybeUninit <::windows_core::HSTRING >, policy : ::std::mem::MaybeUninit <::windows_core::HSTRING >, friendlymessage : ::std::mem::MaybeUninit <::windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CheckGamingPrivilegeWithUIForUser(user.into_param().abi(), privilegeid, ::core::mem::transmute_copy(scope), ::core::mem::transmute_copy(policy), ::core::mem::transmute_copy(friendlymessage), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> ::windows_core::Result<u32> {
     ::windows_targets::link!("api-ms-win-gaming-expandedresources-l1-1-0.dll" "system" fn GetExpandedResourceExclusiveCpuCount(exclusivecpucount : *mut u32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     GetExpandedResourceExclusiveCpuCount(&mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn GetGamingDeviceModelInformation() -> ::windows_core::Result<GAMING_DEVICE_MODEL_INFORMATION> {
     ::windows_targets::link!("api-ms-win-gaming-deviceinformation-l1-1-0.dll" "system" fn GetGamingDeviceModelInformation(information : *mut GAMING_DEVICE_MODEL_INFORMATION) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     GetGamingDeviceModelInformation(&mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HasExpandedResources() -> ::windows_core::Result<super::Foundation::BOOL> {
@@ -54,7 +50,7 @@ pub unsafe fn HasExpandedResources() -> ::windows_core::Result<super::Foundation
     let mut result__ = ::std::mem::zeroed();
     HasExpandedResources(&mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ProcessPendingGameUI<P0>(waitforcompletion: P0) -> ::windows_core::Result<()>
@@ -64,19 +60,16 @@ where
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ProcessPendingGameUI(waitforcompletion : super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     ProcessPendingGameUI(waitforcompletion.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ReleaseExclusiveCpuSets() -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-gaming-expandedresources-l1-1-0.dll" "system" fn ReleaseExclusiveCpuSets() -> ::windows_core::HRESULT);
     ReleaseExclusiveCpuSets().ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowChangeFriendRelationshipUI(targetuserxuid: &::windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ShowChangeFriendRelationshipUI(targetuserxuid : ::std::mem::MaybeUninit <::windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowChangeFriendRelationshipUI(::core::mem::transmute_copy(targetuserxuid), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowChangeFriendRelationshipUIForUser<P0>(user: P0, targetuserxuid: &::windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
@@ -85,13 +78,11 @@ where
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn ShowChangeFriendRelationshipUIForUser(user : * mut::core::ffi::c_void, targetuserxuid : ::std::mem::MaybeUninit <::windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowChangeFriendRelationshipUIForUser(user.into_param().abi(), ::core::mem::transmute_copy(targetuserxuid), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowCustomizeUserProfileUI(completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowCustomizeUserProfileUI(completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowCustomizeUserProfileUI(completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowCustomizeUserProfileUIForUser<P0>(user: P0, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
@@ -100,13 +91,11 @@ where
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowCustomizeUserProfileUIForUser(user : * mut::core::ffi::c_void, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowCustomizeUserProfileUIForUser(user.into_param().abi(), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowFindFriendsUI(completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowFindFriendsUI(completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowFindFriendsUI(completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowFindFriendsUIForUser<P0>(user: P0, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
@@ -115,13 +104,11 @@ where
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowFindFriendsUIForUser(user : * mut::core::ffi::c_void, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowFindFriendsUIForUser(user.into_param().abi(), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowGameInfoUI(titleid: u32, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowGameInfoUI(titleid : u32, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowGameInfoUI(titleid, completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowGameInfoUIForUser<P0>(user: P0, titleid: u32, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
@@ -130,13 +117,11 @@ where
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowGameInfoUIForUser(user : * mut::core::ffi::c_void, titleid : u32, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowGameInfoUIForUser(user.into_param().abi(), titleid, completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowGameInviteUI(serviceconfigurationid: &::windows_core::HSTRING, sessiontemplatename: &::windows_core::HSTRING, sessionid: &::windows_core::HSTRING, invitationdisplaytext: &::windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ShowGameInviteUI(serviceconfigurationid : ::std::mem::MaybeUninit <::windows_core::HSTRING >, sessiontemplatename : ::std::mem::MaybeUninit <::windows_core::HSTRING >, sessionid : ::std::mem::MaybeUninit <::windows_core::HSTRING >, invitationdisplaytext : ::std::mem::MaybeUninit <::windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowGameInviteUI(::core::mem::transmute_copy(serviceconfigurationid), ::core::mem::transmute_copy(sessiontemplatename), ::core::mem::transmute_copy(sessionid), ::core::mem::transmute_copy(invitationdisplaytext), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowGameInviteUIForUser<P0>(user: P0, serviceconfigurationid: &::windows_core::HSTRING, sessiontemplatename: &::windows_core::HSTRING, sessionid: &::windows_core::HSTRING, invitationdisplaytext: &::windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
@@ -145,13 +130,11 @@ where
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn ShowGameInviteUIForUser(user : * mut::core::ffi::c_void, serviceconfigurationid : ::std::mem::MaybeUninit <::windows_core::HSTRING >, sessiontemplatename : ::std::mem::MaybeUninit <::windows_core::HSTRING >, sessionid : ::std::mem::MaybeUninit <::windows_core::HSTRING >, invitationdisplaytext : ::std::mem::MaybeUninit <::windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowGameInviteUIForUser(user.into_param().abi(), ::core::mem::transmute_copy(serviceconfigurationid), ::core::mem::transmute_copy(sessiontemplatename), ::core::mem::transmute_copy(sessionid), ::core::mem::transmute_copy(invitationdisplaytext), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowGameInviteUIWithContext(serviceconfigurationid: &::windows_core::HSTRING, sessiontemplatename: &::windows_core::HSTRING, sessionid: &::windows_core::HSTRING, invitationdisplaytext: &::windows_core::HSTRING, customactivationcontext: &::windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-3.dll" "system" fn ShowGameInviteUIWithContext(serviceconfigurationid : ::std::mem::MaybeUninit <::windows_core::HSTRING >, sessiontemplatename : ::std::mem::MaybeUninit <::windows_core::HSTRING >, sessionid : ::std::mem::MaybeUninit <::windows_core::HSTRING >, invitationdisplaytext : ::std::mem::MaybeUninit <::windows_core::HSTRING >, customactivationcontext : ::std::mem::MaybeUninit <::windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowGameInviteUIWithContext(::core::mem::transmute_copy(serviceconfigurationid), ::core::mem::transmute_copy(sessiontemplatename), ::core::mem::transmute_copy(sessionid), ::core::mem::transmute_copy(invitationdisplaytext), ::core::mem::transmute_copy(customactivationcontext), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowGameInviteUIWithContextForUser<P0>(user: P0, serviceconfigurationid: &::windows_core::HSTRING, sessiontemplatename: &::windows_core::HSTRING, sessionid: &::windows_core::HSTRING, invitationdisplaytext: &::windows_core::HSTRING, customactivationcontext: &::windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
@@ -160,13 +143,11 @@ where
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-3.dll" "system" fn ShowGameInviteUIWithContextForUser(user : * mut::core::ffi::c_void, serviceconfigurationid : ::std::mem::MaybeUninit <::windows_core::HSTRING >, sessiontemplatename : ::std::mem::MaybeUninit <::windows_core::HSTRING >, sessionid : ::std::mem::MaybeUninit <::windows_core::HSTRING >, invitationdisplaytext : ::std::mem::MaybeUninit <::windows_core::HSTRING >, customactivationcontext : ::std::mem::MaybeUninit <::windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowGameInviteUIWithContextForUser(user.into_param().abi(), ::core::mem::transmute_copy(serviceconfigurationid), ::core::mem::transmute_copy(sessiontemplatename), ::core::mem::transmute_copy(sessionid), ::core::mem::transmute_copy(invitationdisplaytext), ::core::mem::transmute_copy(customactivationcontext), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowPlayerPickerUI(promptdisplaytext: &::windows_core::HSTRING, xuids: &[::windows_core::HSTRING], preselectedxuids: ::core::option::Option<&[::windows_core::HSTRING]>, minselectioncount: usize, maxselectioncount: usize, completionroutine: PlayerPickerUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ShowPlayerPickerUI(promptdisplaytext : ::std::mem::MaybeUninit <::windows_core::HSTRING >, xuids : *const ::std::mem::MaybeUninit <::windows_core::HSTRING >, xuidscount : usize, preselectedxuids : *const ::std::mem::MaybeUninit <::windows_core::HSTRING >, preselectedxuidscount : usize, minselectioncount : usize, maxselectioncount : usize, completionroutine : PlayerPickerUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowPlayerPickerUI(::core::mem::transmute_copy(promptdisplaytext), ::core::mem::transmute(xuids.as_ptr()), xuids.len() as _, ::core::mem::transmute(preselectedxuids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), preselectedxuids.as_deref().map_or(0, |slice| slice.len() as _), minselectioncount, maxselectioncount, completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowPlayerPickerUIForUser<P0>(user: P0, promptdisplaytext: &::windows_core::HSTRING, xuids: &[::windows_core::HSTRING], preselectedxuids: ::core::option::Option<&[::windows_core::HSTRING]>, minselectioncount: usize, maxselectioncount: usize, completionroutine: PlayerPickerUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
@@ -175,13 +156,11 @@ where
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn ShowPlayerPickerUIForUser(user : * mut::core::ffi::c_void, promptdisplaytext : ::std::mem::MaybeUninit <::windows_core::HSTRING >, xuids : *const ::std::mem::MaybeUninit <::windows_core::HSTRING >, xuidscount : usize, preselectedxuids : *const ::std::mem::MaybeUninit <::windows_core::HSTRING >, preselectedxuidscount : usize, minselectioncount : usize, maxselectioncount : usize, completionroutine : PlayerPickerUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowPlayerPickerUIForUser(user.into_param().abi(), ::core::mem::transmute_copy(promptdisplaytext), ::core::mem::transmute(xuids.as_ptr()), xuids.len() as _, ::core::mem::transmute(preselectedxuids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), preselectedxuids.as_deref().map_or(0, |slice| slice.len() as _), minselectioncount, maxselectioncount, completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowProfileCardUI(targetuserxuid: &::windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ShowProfileCardUI(targetuserxuid : ::std::mem::MaybeUninit <::windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowProfileCardUI(::core::mem::transmute_copy(targetuserxuid), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowProfileCardUIForUser<P0>(user: P0, targetuserxuid: &::windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
@@ -190,13 +169,11 @@ where
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn ShowProfileCardUIForUser(user : * mut::core::ffi::c_void, targetuserxuid : ::std::mem::MaybeUninit <::windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowProfileCardUIForUser(user.into_param().abi(), ::core::mem::transmute_copy(targetuserxuid), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowTitleAchievementsUI(titleid: u32, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ShowTitleAchievementsUI(titleid : u32, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowTitleAchievementsUI(titleid, completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowTitleAchievementsUIForUser<P0>(user: P0, titleid: u32, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
@@ -205,13 +182,11 @@ where
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn ShowTitleAchievementsUIForUser(user : * mut::core::ffi::c_void, titleid : u32, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowTitleAchievementsUIForUser(user.into_param().abi(), titleid, completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowUserSettingsUI(completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowUserSettingsUI(completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowUserSettingsUI(completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
 pub unsafe fn ShowUserSettingsUIForUser<P0>(user: P0, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
@@ -220,14 +195,13 @@ where
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowUserSettingsUIForUser(user : * mut::core::ffi::c_void, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ShowUserSettingsUIForUser(user.into_param().abi(), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
     ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn TryCancelPendingGameUI() -> super::Foundation:: BOOL);
     TryCancelPendingGameUI()
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGameExplorer(::windows_core::IUnknown);
@@ -245,7 +219,7 @@ impl IGameExplorer {
     pub unsafe fn UpdateGame(&self, guidinstanceid: ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UpdateGame)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(guidinstanceid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn VerifyAccess<P0>(&self, bstrgdfbinarypath: P0) -> ::windows_core::Result<super::Foundation::BOOL>
     where
@@ -274,7 +248,6 @@ pub struct IGameExplorer_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     VerifyAccess: usize,
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGameExplorer2(::windows_core::IUnknown);
@@ -292,7 +265,7 @@ impl IGameExplorer2 {
     {
         (::windows_core::Interface::vtable(self).UninstallGame)(::windows_core::Interface::as_raw(self), binarygdfpath.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckAccess<P0>(&self, binarygdfpath: P0) -> ::windows_core::Result<super::Foundation::BOOL>
     where
@@ -320,7 +293,6 @@ pub struct IGameExplorer2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CheckAccess: usize,
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGameStatistics(::windows_core::IUnknown);
@@ -365,7 +337,7 @@ impl IGameStatistics {
     {
         (::windows_core::Interface::vtable(self).SetStatistic)(::windows_core::Interface::as_raw(self), categoryindex, statindex, name.into_param().abi(), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Save<P0>(&self, trackchanges: P0) -> ::windows_core::Result<()>
     where
@@ -408,7 +380,6 @@ pub struct IGameStatistics_Vtbl {
     pub SetLastPlayedCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, categoryindex: u32) -> ::windows_core::HRESULT,
     pub GetLastPlayedCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcategoryindex: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGameStatisticsMgr(::windows_core::IUnknown);
@@ -440,7 +411,6 @@ pub struct IGameStatisticsMgr_Vtbl {
     pub GetGameStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gdfbinarypath: ::windows_core::PCWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RemoveGameStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gdfbinarypath: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXblIdpAuthManager(::windows_core::IUnknown);
@@ -470,7 +440,7 @@ impl IXblIdpAuthManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSandbox)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTokenAndSignatureWithTokenResult<P0, P1, P2, P3, P4, P5, P6, P7>(&self, msaaccountid: P0, appsid: P1, msatarget: P2, msapolicy: P3, httpmethod: P4, uri: P5, headers: P6, body: &[u8], forcerefresh: P7) -> ::windows_core::Result<IXblIdpAuthTokenResult>
     where
@@ -508,12 +478,11 @@ pub struct IXblIdpAuthManager_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetTokenAndSignatureWithTokenResult: usize,
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXblIdpAuthManager2(::windows_core::IUnknown);
 impl IXblIdpAuthManager2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserlessTokenAndSignatureWithTokenResult<P0, P1, P2, P3, P4, P5, P6>(&self, appsid: P0, msatarget: P1, msapolicy: P2, httpmethod: P3, uri: P4, headers: P5, body: &[u8], forcerefresh: P6) -> ::windows_core::Result<IXblIdpAuthTokenResult>
     where
@@ -545,7 +514,6 @@ pub struct IXblIdpAuthManager2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetUserlessTokenAndSignatureWithTokenResult: usize,
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXblIdpAuthTokenResult(::windows_core::IUnknown);
@@ -663,7 +631,6 @@ pub struct IXblIdpAuthTokenResult_Vtbl {
     pub GetRestrictions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, restrictions: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub GetTitleRestrictions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, titlerestrictions: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXblIdpAuthTokenResult2(::windows_core::IUnknown);
@@ -696,115 +663,60 @@ pub struct IXblIdpAuthTokenResult2_Vtbl {
     pub GetModernGamertagSuffix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub GetUniqueModernGamertag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMESTATS_OPEN_CREATED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(0i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMESTATS_OPEN_OPENED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(1i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMESTATS_OPEN_OPENONLY: GAMESTATS_OPEN_TYPE = GAMESTATS_OPEN_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMESTATS_OPEN_OPENORCREATE: GAMESTATS_OPEN_TYPE = GAMESTATS_OPEN_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMING_DEVICE_DEVICE_ID_NONE: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(0i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(1988865574i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_S: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(712204761i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(1523980231i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X_DEVKIT: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(284675555i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_S: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(489159355i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(796540415i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X_DEVKIT: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(-561359263i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMING_DEVICE_VENDOR_ID_MICROSOFT: GAMING_DEVICE_VENDOR_ID = GAMING_DEVICE_VENDOR_ID(-1024700366i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMING_DEVICE_VENDOR_ID_NONE: GAMING_DEVICE_VENDOR_ID = GAMING_DEVICE_VENDOR_ID(0i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GIS_ALL_USERS: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(3i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GIS_CURRENT_USER: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(2i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GIS_NOT_INSTALLED: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(1i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GameExplorer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GameStatistics: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const ID_GDF_THUMBNAIL_STR: ::windows_core::PCWSTR = ::windows_core::w!("__GDF_THUMBNAIL");
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const ID_GDF_XML_STR: ::windows_core::PCWSTR = ::windows_core::w!("__GDF_XML");
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XBL_IDP_AUTH_TOKEN_STATUS_LOAD_MSA_ACCOUNT_FAILED: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XBL_IDP_AUTH_TOKEN_STATUS_MSA_INTERRUPT: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(5i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XBL_IDP_AUTH_TOKEN_STATUS_NO_ACCOUNT_SET: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_NO_CONSENT: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(6i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_SUCCESS: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XBL_IDP_AUTH_TOKEN_STATUS_SUCCESS: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XBL_IDP_AUTH_TOKEN_STATUS_UNKNOWN: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(-1i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XBL_IDP_AUTH_TOKEN_STATUS_VIEW_NOT_SET: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(7i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XBL_IDP_AUTH_TOKEN_STATUS_XBOX_VETO: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_ADD_FRIEND: KnownGamingPrivileges = KnownGamingPrivileges(255i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_BROADCAST: KnownGamingPrivileges = KnownGamingPrivileges(190i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_CLOUD_GAMING_JOIN_SESSION: KnownGamingPrivileges = KnownGamingPrivileges(208i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_CLOUD_GAMING_MANAGE_SESSION: KnownGamingPrivileges = KnownGamingPrivileges(207i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_CLOUD_SAVED_GAMES: KnownGamingPrivileges = KnownGamingPrivileges(209i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_COMMUNICATIONS: KnownGamingPrivileges = KnownGamingPrivileges(252i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_COMMUNICATION_VOICE_INGAME: KnownGamingPrivileges = KnownGamingPrivileges(205i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_COMMUNICATION_VOICE_SKYPE: KnownGamingPrivileges = KnownGamingPrivileges(206i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_GAME_DVR: KnownGamingPrivileges = KnownGamingPrivileges(198i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_MULTIPLAYER_PARTIES: KnownGamingPrivileges = KnownGamingPrivileges(203i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_MULTIPLAYER_SESSIONS: KnownGamingPrivileges = KnownGamingPrivileges(254i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_PREMIUM_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(214i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_PREMIUM_VIDEO: KnownGamingPrivileges = KnownGamingPrivileges(224i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_PROFILE_VIEWING: KnownGamingPrivileges = KnownGamingPrivileges(249i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_PURCHASE_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(245i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_SHARE_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(211i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_SHARE_KINECT_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(199i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_SOCIAL_NETWORK_SHARING: KnownGamingPrivileges = KnownGamingPrivileges(220i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_SUBSCRIPTION_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(219i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_USER_CREATED_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(247i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_VIDEO_COMMUNICATIONS: KnownGamingPrivileges = KnownGamingPrivileges(235i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_VIEW_FRIENDS_LIST: KnownGamingPrivileges = KnownGamingPrivileges(197i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XblIdpAuthManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xce23534b_56d8_4978_86a2_7ee570640468);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XblIdpAuthTokenResult: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f493441_744a_410c_ae2b_9a22f7c7731f);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GAMESTATS_OPEN_RESULT(pub i32);
@@ -827,7 +739,6 @@ impl ::core::fmt::Debug for GAMESTATS_OPEN_RESULT {
         f.debug_tuple("GAMESTATS_OPEN_RESULT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GAMESTATS_OPEN_TYPE(pub i32);
@@ -850,7 +761,6 @@ impl ::core::fmt::Debug for GAMESTATS_OPEN_TYPE {
         f.debug_tuple("GAMESTATS_OPEN_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GAME_INSTALL_SCOPE(pub i32);
@@ -873,7 +783,6 @@ impl ::core::fmt::Debug for GAME_INSTALL_SCOPE {
         f.debug_tuple("GAME_INSTALL_SCOPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GAMING_DEVICE_DEVICE_ID(pub i32);
@@ -896,7 +805,6 @@ impl ::core::fmt::Debug for GAMING_DEVICE_DEVICE_ID {
         f.debug_tuple("GAMING_DEVICE_DEVICE_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GAMING_DEVICE_VENDOR_ID(pub i32);
@@ -919,7 +827,6 @@ impl ::core::fmt::Debug for GAMING_DEVICE_VENDOR_ID {
         f.debug_tuple("GAMING_DEVICE_VENDOR_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KnownGamingPrivileges(pub i32);
@@ -942,7 +849,6 @@ impl ::core::fmt::Debug for KnownGamingPrivileges {
         f.debug_tuple("KnownGamingPrivileges").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XBL_IDP_AUTH_TOKEN_STATUS(pub i32);
@@ -966,7 +872,6 @@ impl ::core::fmt::Debug for XBL_IDP_AUTH_TOKEN_STATUS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub struct GAMING_DEVICE_MODEL_INFORMATION {
     pub vendorId: GAMING_DEVICE_VENDOR_ID,
     pub deviceId: GAMING_DEVICE_DEVICE_ID,
@@ -996,9 +901,7 @@ impl ::core::default::Default for GAMING_DEVICE_MODEL_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub type GameUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows_core::HRESULT, context: *const ::core::ffi::c_void) -> ()>;
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub type PlayerPickerUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows_core::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const ::windows_core::HSTRING, selectedxuidscount: usize) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

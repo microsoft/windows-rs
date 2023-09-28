@@ -1,8 +1,11 @@
 #[cfg(feature = "Phone_System_Power")]
+#[doc = "Required features: `Phone_System_Power`"]
 pub mod Power;
 #[cfg(feature = "Phone_System_Profile")]
+#[doc = "Required features: `Phone_System_Profile`"]
 pub mod Profile;
 #[cfg(feature = "Phone_System_UserProfile")]
+#[doc = "Required features: `Phone_System_UserProfile`"]
 pub mod UserProfile;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -36,7 +39,6 @@ pub struct ISystemProtectionUnlockStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestScreenUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Phone_System\"`*"]
 pub struct SystemProtection;
 impl SystemProtection {
     pub fn ScreenLocked() -> ::windows_core::Result<bool> {

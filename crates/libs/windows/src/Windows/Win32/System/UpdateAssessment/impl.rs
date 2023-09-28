@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWaaSAssessor_Impl: Sized {
     fn GetOSUpdateAssessment(&self) -> ::windows_core::Result<OSUpdateAssessment>;

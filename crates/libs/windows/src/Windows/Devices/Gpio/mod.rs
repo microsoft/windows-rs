@@ -1,4 +1,5 @@
 #[cfg(feature = "Devices_Gpio_Provider")]
+#[doc = "Required features: `Devices_Gpio_Provider`"]
 pub mod Provider;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -214,12 +215,11 @@ pub struct IGpioPinValueChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Edge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GpioPinEdge) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GpioChangeCounter(::windows_core::IUnknown);
 impl GpioChangeCounter {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -251,7 +251,7 @@ impl GpioChangeCounter {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Stop)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Read(&self) -> ::windows_core::Result<GpioChangeCount> {
         let this = self;
@@ -260,7 +260,7 @@ impl GpioChangeCounter {
             (::windows_core::Interface::vtable(this).Read)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Reset(&self) -> ::windows_core::Result<GpioChangeCount> {
         let this = self;
@@ -301,12 +301,11 @@ impl ::windows_core::RuntimeName for GpioChangeCounter {
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for GpioChangeCounter {}
 unsafe impl ::core::marker::Send for GpioChangeCounter {}
 unsafe impl ::core::marker::Sync for GpioChangeCounter {}
-#[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GpioChangeReader(::windows_core::IUnknown);
 impl GpioChangeReader {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -370,7 +369,7 @@ impl GpioChangeReader {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Clear)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetNextItem(&self) -> ::windows_core::Result<GpioChangeRecord> {
         let this = self;
@@ -379,7 +378,7 @@ impl GpioChangeReader {
             (::windows_core::Interface::vtable(this).GetNextItem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn PeekNextItem(&self) -> ::windows_core::Result<GpioChangeRecord> {
         let this = self;
@@ -388,7 +387,7 @@ impl GpioChangeReader {
             (::windows_core::Interface::vtable(this).PeekNextItem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAllItems(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<GpioChangeRecord>> {
         let this = self;
@@ -397,7 +396,7 @@ impl GpioChangeReader {
             (::windows_core::Interface::vtable(this).GetAllItems)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn WaitForItemsAsync(&self, count: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -447,7 +446,6 @@ impl ::windows_core::RuntimeName for GpioChangeReader {
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for GpioChangeReader {}
 unsafe impl ::core::marker::Send for GpioChangeReader {}
 unsafe impl ::core::marker::Sync for GpioChangeReader {}
-#[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GpioController(::windows_core::IUnknown);
@@ -486,7 +484,7 @@ impl GpioController {
             (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Gpio_Provider\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Devices_Gpio_Provider`, `Foundation_Collections`"]
     #[cfg(all(feature = "Devices_Gpio_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<P0>(provider: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>>
     where
@@ -497,7 +495,7 @@ impl GpioController {
             (::windows_core::Interface::vtable(this).GetControllersAsync)(::windows_core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<GpioController>> {
         Self::IGpioControllerStatics2(|this| unsafe {
@@ -531,18 +529,17 @@ impl ::windows_core::RuntimeName for GpioController {
 ::windows_core::imp::interface_hierarchy!(GpioController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GpioController {}
 unsafe impl ::core::marker::Sync for GpioController {}
-#[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GpioPin(::windows_core::IUnknown);
 impl GpioPin {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ValueChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -554,13 +551,13 @@ impl GpioPin {
             (::windows_core::Interface::vtable(this).ValueChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveValueChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveValueChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DebounceTimeout(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -569,7 +566,7 @@ impl GpioPin {
             (::windows_core::Interface::vtable(this).DebounceTimeout)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDebounceTimeout(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
@@ -636,7 +633,6 @@ impl ::windows_core::RuntimeName for GpioPin {
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for GpioPin {}
 unsafe impl ::core::marker::Send for GpioPin {}
 unsafe impl ::core::marker::Sync for GpioPin {}
-#[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GpioPinValueChangedEventArgs(::windows_core::IUnknown);
@@ -664,7 +660,6 @@ impl ::windows_core::RuntimeName for GpioPinValueChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(GpioPinValueChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GpioPinValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GpioPinValueChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GpioChangePolarity(pub i32);
@@ -695,7 +690,6 @@ impl ::core::fmt::Debug for GpioChangePolarity {
 impl ::windows_core::RuntimeType for GpioChangePolarity {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioChangePolarity;i4)");
 }
-#[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GpioOpenStatus(pub i32);
@@ -728,7 +722,6 @@ impl ::core::fmt::Debug for GpioOpenStatus {
 impl ::windows_core::RuntimeType for GpioOpenStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioOpenStatus;i4)");
 }
-#[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GpioPinDriveMode(pub i32);
@@ -764,7 +757,6 @@ impl ::core::fmt::Debug for GpioPinDriveMode {
 impl ::windows_core::RuntimeType for GpioPinDriveMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinDriveMode;i4)");
 }
-#[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GpioPinEdge(pub i32);
@@ -794,7 +786,6 @@ impl ::core::fmt::Debug for GpioPinEdge {
 impl ::windows_core::RuntimeType for GpioPinEdge {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinEdge;i4)");
 }
-#[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GpioPinValue(pub i32);
@@ -824,7 +815,6 @@ impl ::core::fmt::Debug for GpioPinValue {
 impl ::windows_core::RuntimeType for GpioPinValue {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinValue;i4)");
 }
-#[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GpioSharingMode(pub i32);
@@ -855,7 +845,7 @@ impl ::windows_core::RuntimeType for GpioSharingMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioSharingMode;i4)");
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Devices_Gpio\"`, `\"Foundation\"`*"]
+#[doc = "Required features: `Foundation`"]
 #[cfg(feature = "Foundation")]
 pub struct GpioChangeCount {
     pub Count: u64,
@@ -898,7 +888,7 @@ impl ::core::default::Default for GpioChangeCount {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Devices_Gpio\"`, `\"Foundation\"`*"]
+#[doc = "Required features: `Foundation`"]
 #[cfg(feature = "Foundation")]
 pub struct GpioChangeRecord {
     pub RelativeTime: super::super::Foundation::TimeSpan,

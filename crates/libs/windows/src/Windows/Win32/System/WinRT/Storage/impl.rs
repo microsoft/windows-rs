@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`, `\"implement\"`*"]
 pub trait IOplockBreakingHandler_Impl: Sized {
     fn OplockBreaking(&self) -> ::windows_core::Result<()>;
 }
@@ -16,7 +15,6 @@ impl IOplockBreakingHandler_Vtbl {
         *iid == <IOplockBreakingHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`, `\"implement\"`*"]
 pub trait IRandomAccessStreamFileAccessMode_Impl: Sized {
     fn GetMode(&self) -> ::windows_core::Result<u32>;
 }
@@ -40,7 +38,7 @@ impl IRandomAccessStreamFileAccessMode_Vtbl {
         *iid == <IRandomAccessStreamFileAccessMode as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IStorageFolderHandleAccess_Impl: Sized {
     fn Create(&self, filename: &::windows_core::PCWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::core::option::Option<&IOplockBreakingHandler>) -> ::windows_core::Result<super::super::super::Foundation::HANDLE>;
@@ -67,7 +65,7 @@ impl IStorageFolderHandleAccess_Vtbl {
         *iid == <IStorageFolderHandleAccess as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IStorageItemHandleAccess_Impl: Sized {
     fn Create(&self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::core::option::Option<&IOplockBreakingHandler>) -> ::windows_core::Result<super::super::super::Foundation::HANDLE>;
@@ -94,7 +92,6 @@ impl IStorageItemHandleAccess_Vtbl {
         *iid == <IStorageItemHandleAccess as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`, `\"implement\"`*"]
 pub trait IUnbufferedFileHandleOplockCallback_Impl: Sized {
     fn OnBrokenCallback(&self) -> ::windows_core::Result<()>;
 }
@@ -112,7 +109,6 @@ impl IUnbufferedFileHandleOplockCallback_Vtbl {
         *iid == <IUnbufferedFileHandleOplockCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`, `\"implement\"`*"]
 pub trait IUnbufferedFileHandleProvider_Impl: Sized {
     fn OpenUnbufferedFileHandle(&self, oplockbreakcallback: ::core::option::Option<&IUnbufferedFileHandleOplockCallback>) -> ::windows_core::Result<usize>;
     fn CloseUnbufferedFileHandle(&self) -> ::windows_core::Result<()>;

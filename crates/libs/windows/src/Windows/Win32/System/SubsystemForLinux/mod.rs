@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]
 pub unsafe fn WslConfigureDistribution<P0>(distributionname: P0, defaultuid: u32, wsldistributionflags: WSL_DISTRIBUTION_FLAGS) -> ::windows_core::Result<()>
 where
@@ -7,7 +6,6 @@ where
     ::windows_targets::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslConfigureDistribution(distributionname : ::windows_core::PCWSTR, defaultuid : u32, wsldistributionflags : WSL_DISTRIBUTION_FLAGS) -> ::windows_core::HRESULT);
     WslConfigureDistribution(distributionname.into_param().abi(), defaultuid, wsldistributionflags).ok()
 }
-#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]
 pub unsafe fn WslGetDistributionConfiguration<P0>(distributionname: P0, distributionversion: *mut u32, defaultuid: *mut u32, wsldistributionflags: *mut WSL_DISTRIBUTION_FLAGS, defaultenvironmentvariables: *mut *mut ::windows_core::PSTR, defaultenvironmentvariablecount: *mut u32) -> ::windows_core::Result<()>
 where
@@ -16,7 +14,7 @@ where
     ::windows_targets::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslGetDistributionConfiguration(distributionname : ::windows_core::PCWSTR, distributionversion : *mut u32, defaultuid : *mut u32, wsldistributionflags : *mut WSL_DISTRIBUTION_FLAGS, defaultenvironmentvariables : *mut *mut ::windows_core::PSTR, defaultenvironmentvariablecount : *mut u32) -> ::windows_core::HRESULT);
     WslGetDistributionConfiguration(distributionname.into_param().abi(), distributionversion, defaultuid, wsldistributionflags, defaultenvironmentvariables, defaultenvironmentvariablecount).ok()
 }
-#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WslIsDistributionRegistered<P0>(distributionname: P0) -> super::super::Foundation::BOOL
@@ -26,7 +24,7 @@ where
     ::windows_targets::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslIsDistributionRegistered(distributionname : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     WslIsDistributionRegistered(distributionname.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WslLaunch<P0, P1, P2, P3, P4, P5>(distributionname: P0, command: P1, usecurrentworkingdirectory: P2, stdin: P3, stdout: P4, stderr: P5) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -42,7 +40,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     WslLaunch(distributionname.into_param().abi(), command.into_param().abi(), usecurrentworkingdirectory.into_param().abi(), stdin.into_param().abi(), stdout.into_param().abi(), stderr.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WslLaunchInteractive<P0, P1, P2>(distributionname: P0, command: P1, usecurrentworkingdirectory: P2) -> ::windows_core::Result<u32>
@@ -55,7 +53,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     WslLaunchInteractive(distributionname.into_param().abi(), command.into_param().abi(), usecurrentworkingdirectory.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]
 pub unsafe fn WslRegisterDistribution<P0, P1>(distributionname: P0, targzfilename: P1) -> ::windows_core::Result<()>
 where
@@ -65,7 +62,6 @@ where
     ::windows_targets::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslRegisterDistribution(distributionname : ::windows_core::PCWSTR, targzfilename : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     WslRegisterDistribution(distributionname.into_param().abi(), targzfilename.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]
 pub unsafe fn WslUnregisterDistribution<P0>(distributionname: P0) -> ::windows_core::Result<()>
 where
@@ -74,15 +70,10 @@ where
     ::windows_targets::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslUnregisterDistribution(distributionname : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     WslUnregisterDistribution(distributionname.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 pub const WSL_DISTRIBUTION_FLAGS_APPEND_NT_PATH: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 pub const WSL_DISTRIBUTION_FLAGS_ENABLE_DRIVE_MOUNTING: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 pub const WSL_DISTRIBUTION_FLAGS_ENABLE_INTEROP: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 pub const WSL_DISTRIBUTION_FLAGS_NONE: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSL_DISTRIBUTION_FLAGS(pub i32);

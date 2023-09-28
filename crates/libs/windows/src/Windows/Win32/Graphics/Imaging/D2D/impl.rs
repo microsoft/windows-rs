@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_Graphics_Imaging_D2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_Dxgi_Common`"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IWICImageEncoder_Impl: Sized {
     fn WriteFrame(&self, pimage: ::core::option::Option<&super::super::Direct2D::ID2D1Image>, pframeencode: ::core::option::Option<&super::IWICBitmapFrameEncode>, pimageparameters: *const super::WICImageParameters) -> ::windows_core::Result<()>;
@@ -36,7 +36,7 @@ impl IWICImageEncoder_Vtbl {
         *iid == <IWICImageEncoder as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Imaging_D2D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct2D`, `Win32_Graphics_Gdi`, `Win32_System_Com`, `Win32_UI_WindowsAndMessaging`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWICImagingFactory2_Impl: Sized + super::IWICImagingFactory_Impl {
     fn CreateImageEncoder(&self, pd2ddevice: ::core::option::Option<&super::super::Direct2D::ID2D1Device>) -> ::windows_core::Result<IWICImageEncoder>;

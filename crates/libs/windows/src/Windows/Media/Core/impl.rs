@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Media_Core\"`, `\"Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`"]
 #[cfg(feature = "Foundation")]
 pub trait IMediaCue_Impl: Sized {
     fn SetStartTime(&self, value: &super::super::Foundation::TimeSpan) -> ::windows_core::Result<()>;
@@ -78,7 +78,6 @@ impl IMediaCue_Vtbl {
         *iid == <IMediaCue as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Media_Core\"`, `\"implement\"`*"]
 pub trait IMediaSource_Impl: Sized {}
 impl ::windows_core::RuntimeName for IMediaSource {
     const NAME: &'static str = "Windows.Media.Core.IMediaSource";
@@ -91,7 +90,6 @@ impl IMediaSource_Vtbl {
         *iid == <IMediaSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Media_Core\"`, `\"implement\"`*"]
 pub trait IMediaStreamDescriptor_Impl: Sized {
     fn IsSelected(&self) -> ::windows_core::Result<bool>;
     fn SetName(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()>;
@@ -162,7 +160,6 @@ impl IMediaStreamDescriptor_Vtbl {
         *iid == <IMediaStreamDescriptor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Media_Core\"`, `\"implement\"`*"]
 pub trait IMediaStreamDescriptor2_Impl: Sized + IMediaStreamDescriptor_Impl {
     fn SetLabel(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()>;
     fn Label(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -199,7 +196,6 @@ impl IMediaStreamDescriptor2_Vtbl {
         *iid == <IMediaStreamDescriptor2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Media_Core\"`, `\"implement\"`*"]
 pub trait IMediaTrack_Impl: Sized {
     fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn Language(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -277,7 +273,7 @@ impl IMediaTrack_Vtbl {
         *iid == <IMediaTrack as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Media_Core\"`, `\"Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`"]
 #[cfg(feature = "Foundation")]
 pub trait ISingleSelectMediaTrackList_Impl: Sized {
     fn SelectedIndexChanged(&self, handler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, ::windows_core::IInspectable>>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -336,7 +332,7 @@ impl ISingleSelectMediaTrackList_Vtbl {
         *iid == <ISingleSelectMediaTrackList as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Media_Core\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait ITimedMetadataTrackProvider_Impl: Sized {
     fn TimedMetadataTracks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>>;
